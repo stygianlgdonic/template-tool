@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { TemplateContext } from '../contexts/templateContext';
 import { stageDimensions, rectangle, ORIGINAL_SVG } from "../utils/defaults"
 import * as svg from "../utils/svg"
 import { SketchPicker } from 'react-color'
@@ -8,7 +7,7 @@ import Rectangle from "./Rectangle"
 import UImage from "./UImage"
 import TransformerComponent from "./UTransformer"
 import useImage from 'use-image';
-import { useImmerState } from '@shrugsy/use-immer-state';
+import useTemplateData from '../hooks/useTemplateData';
 
 const DesignTool: React.FC = () => {
 
@@ -27,22 +26,7 @@ const DesignTool: React.FC = () => {
     const [showSvgColorPicker, setShowSvgColorPicker] = useState(false)
     const [svgSelectedColor, setSvgSelectedColor] = useState('#171717')
 
-    const [templateData, setTemplateData] = useImmerState({
-        rectangles: [{
-            id: 'background',
-            name: 'background',
-            type: "shape",
-            x: 0,
-            y: 0,
-            width: stageDimensions.width,
-            height: stageDimensions.height,
-            fill: '#559955',
-            draggable: false,
-        }]
-    })
-
-
-    // const { templateData, setTemplateData } = useContext(TemplateContext)
+    const { templateData, setTemplateData } = useTemplateData()
     const [selectedId, selectShape] = useState(null);
 
     useEffect(() => {

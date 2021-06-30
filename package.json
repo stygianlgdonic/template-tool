@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@shrugsy/use-immer-state": "^3.1.2",
+        "@types/react-color": "^3.0.4",
         "express": "^4.17.1",
         "firebase": "^8.6.8",
         "konva": "^8.1.0",
