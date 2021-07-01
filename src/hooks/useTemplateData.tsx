@@ -7,6 +7,7 @@ const INITIAL_STATE = {
         { name: "secondary", color: "#00ff00" },
         { name: "tertiary", color: "#0000ff" }
     ],
+    variations: [],
     rectangles: [{
         id: 'background',
         name: 'background',

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useTemplateData from '../hooks/useTemplateData'
 import { SketchPicker } from 'react-color'
 import { NavLink } from 'react-router-dom'
+import { ROUTE_NAMES } from '../routes/route_names'
 
 interface IColor {
     name: string
@@ -33,9 +34,11 @@ const SelectPalette = () => {
 
     return (
         <>
-            <div>Select Palette</div>
-            {templateData.palette.map(item => (
-                <div>
+            <div>
+                <b>Select palette for your template</b>
+            </div>
+            {templateData.palette.map((item, index) => (
+                <div key={index} >
                     {item.name} : <div
                         style={{ backgroundColor: item.color, width: '30px', height: '30px' }}
                         onClick={() => handleShowColorPicker(item)}
@@ -51,7 +54,7 @@ const SelectPalette = () => {
                 <button onClick={handleCloseColorPicker}>Close</button>
             </div>
             <div style={{ marginTop: '50px' }}>
-                <NavLink to="/" />
+                <NavLink to={ROUTE_NAMES.design_tool}>Proceed</NavLink>
             </div>
         </>
     )

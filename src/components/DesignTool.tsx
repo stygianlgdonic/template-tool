@@ -23,11 +23,11 @@ const DesignTool: React.FC = () => {
         y: 10,
         draggable: true
     })
-    const [showSvgColorPicker, setShowSvgColorPicker] = useState(false)
-    const [svgSelectedColor, setSvgSelectedColor] = useState('#171717')
+
+    const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
 
     const { templateData, setTemplateData } = useTemplateData()
-    const [selectedId, selectShape] = useState(null);
+    const [selectedId, selectShape] = useState<string | null>(null);
 
     useEffect(() => {
         document.addEventListener("keydown", (e) => e.key === "Escape" && selectShape(null), false);
@@ -57,9 +57,16 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const toggleSvgColorPicker = () => {
-        setShowSvgColorPicker(!showSvgColorPicker)
+    const handleSvgCurrentColor = (color: string) => {
+        setCurrentSelectedSvgColor(color)
     }
+
+    const setNewColor = (oldColor, newColor) => {
+        setColorMap({
+            ...colorMap,
+            [oldColor]: newColor
+        });
+    };
 
     const { rectangles } = templateData
 
@@ -117,10 +124,18 @@ const DesignTool: React.FC = () => {
                 {colors.map((item, index) => (
                     <div
                         key={index}
-                        style={{ display: 'inline-block', width: '30px', height: '30px', backgroundColor: item, margin: '5px' }}
+                        style={{ display: 'inline-block', width: '30px', height: '30px', backgroundColor: colorMap[item] || item, margin: '5px' }}
+                        onClick={() => handleSvgCurrentColor(item)}
                     >
                     </div>
                 ))}
+                <div>
+                    {currentSelectedSvgColor && <SketchPicker
+                        color={colorMap[currentSelectedSvgColor]}
+                        onChange={(color) => setNewColor(currentSelectedSvgColor, color.hex)}
+                    />}
+                </div>
+
             </div>
         </div>
     );
