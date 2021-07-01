@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
 import { stageDimensions, rectangle, ORIGINAL_SVG } from "../utils/defaults"
 import * as svg from "../utils/svg"
@@ -7,7 +7,8 @@ import Rectangle from "./Rectangle"
 import UImage from "./UImage"
 import TransformerComponent from "./UTransformer"
 import useImage from 'use-image';
-import useTemplateData from '../hooks/useTemplateData';
+// import useTemplateData from '../hooks/useTemplateData';
+import { TemplateContext } from '../contexts/TemplateContext';
 
 const DesignTool: React.FC = () => {
 
@@ -26,7 +27,7 @@ const DesignTool: React.FC = () => {
 
     const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
 
-    const { templateData, setTemplateData } = useTemplateData()
+    const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, selectShape] = useState<string | null>(null);
 
     useEffect(() => {

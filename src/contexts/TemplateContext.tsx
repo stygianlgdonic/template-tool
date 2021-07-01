@@ -1,3 +1,4 @@
+import React, { createContext } from 'react'
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../utils/defaults';
 
@@ -21,9 +22,18 @@ const INITIAL_STATE = {
     }]
 }
 
-const useTemplateData = () => {
-    const [templateData, setTemplateData] = useImmerState(INITIAL_STATE)
-    return { templateData, setTemplateData }
-}
+export const TemplateContext = createContext(null)
 
-export default useTemplateData
+export const TemplateProvider = ({ children }) => {
+
+    const [templateData, setTemplateData] = useImmerState(INITIAL_STATE)
+
+    return (
+        <TemplateContext.Provider
+            value={[templateData, setTemplateData]}
+        >
+            {children}
+        </TemplateContext.Provider >
+    );
+
+}

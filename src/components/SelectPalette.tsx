@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import useTemplateData from '../hooks/useTemplateData'
+import React, { useState, useContext } from 'react'
+// import useTemplateData from '../hooks/useTemplateData'
 import { SketchPicker } from 'react-color'
 import { NavLink } from 'react-router-dom'
 import { ROUTE_NAMES } from '../routes/route_names'
+import { TemplateContext } from '../contexts/TemplateContext'
 
 interface IColor {
     name: string
@@ -11,7 +12,7 @@ interface IColor {
 
 const SelectPalette = () => {
 
-    const { templateData, setTemplateData } = useTemplateData()
+    const [templateData, setTemplateData] = useContext(TemplateContext)
     const [showColorPicker, setShowColorPicker] = useState<boolean>(false)
     const [currentSelectedColor, setCurrentSelectedColor] = useState<IColor | null>(null)
 
