@@ -1,29 +1,33 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { stageDimensions, rectangle, ORIGINAL_SVG } from "../utils/defaults"
+import { stageDimensions, rectangle } from "../utils/defaults"
 import * as svg from "../utils/svg"
 import { SketchPicker } from 'react-color'
 import Rectangle from "./Rectangle"
-import UImage from "./UImage"
+// import UImage from "./UImage"
+import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
-import useImage from 'use-image';
 // import useTemplateData from '../hooks/useTemplateData';
 import { TemplateContext } from '../contexts/TemplateContext';
+import useImage from 'use-image';
 
 const DesignTool: React.FC = () => {
 
-    const colors = svg.getColors(ORIGINAL_SVG);
-    const [colorMap, setColorMap] = React.useState({});
-    const modifiedSVG = svg.replaceColors(ORIGINAL_SVG, colorMap);
-    const [image] = useImage(svg.svgToURL(modifiedSVG));
-    const [imageAttrs, setImageAttrs] = useState({
-        id: "svg",
-        name: "svg",
-        type: "svg",
-        x: 10,
-        y: 10,
-        draggable: true
-    })
+    const [currentSelectedShape, setCurrentSelectedShape] = useState(null)
+
+    const [svgString, setSvgString] = useState(null)
+    // const colors = svg.getColors(svgString);
+    // const [colorMap, setColorMap] = React.useState({});
+    // const modifiedSVG = svg.replaceColors(svgString, colorMap);
+    // const [image] = useImage(svg.svgToURL(modifiedSVG));
+    // const [imageAttrs, setImageAttrs] = useState({
+    //     id: "svg",
+    //     name: "svg",
+    //     type: "svg",
+    //     x: 10,
+    //     y: 10,
+    //     draggable: true
+    // })
 
     const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
 
@@ -54,9 +58,8 @@ const DesignTool: React.FC = () => {
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
-            // ANCHOR - get the dynamic id thing done
             let imageId = new Date().getTime();
-            prev.rectangles.push({ ...rectangle, id: `image_${imageId.toString()}` })
+            prev.rectangles.push({ ...rectangle, id: `rect_${imageId.toString()}` })
         })
     }
 
@@ -64,12 +67,33 @@ const DesignTool: React.FC = () => {
         setCurrentSelectedSvgColor(color)
     }
 
-    const setNewColor = (oldColor, newColor) => {
-        setColorMap({
-            ...colorMap,
-            [oldColor]: newColor
-        });
-    };
+    // const setNewColor = (oldColor, newColor) => {
+    //     setColorMap({
+    //         ...colorMap,
+    //         [oldColor]: newColor
+    //     });
+    // };
+
+    const handleSvgUpload = (e) => {
+        svg.getSvgStringFromUpload(e.target.files).then((SVG_STRING) => {
+
+            setTemplateData((prev) => {
+                let svgId = new Date().getTime()
+                prev.svgs.push({
+
+                    id: `svg_${svgId.toString()}`,
+                    type: "svg",
+                    svgString: SVG_STRING,
+                    x: 100,
+                    y: 200,
+                    width: 100,
+                    height: 100,
+                    draggable: true,
+
+                })
+            })
+        })
+    }
 
     const { rectangles } = templateData
 
@@ -77,6 +101,9 @@ const DesignTool: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
             <div style={{ backgroundColor: 'coral' }}>
                 <button onClick={handleAddNewRect}>Add new rect</button>
+                <br />
+                <p>upload svg</p>
+                <input type="file" accept=".svg" onChange={handleSvgUpload} />
             </div>
             <div>
                 <Stage
@@ -102,12 +129,20 @@ const DesignTool: React.FC = () => {
                                 />
                             );
                         })}
-                        <UImage
-                            image={image}
-                            imageProps={imageAttrs}
-                            onSelect={(id) => selectShape(id)}
-                            onChange={(event) => setImageAttrs({ ...imageAttrs, x: event.target.attrs.x, y: event.target.attrs.y })}
-                        />
+                        {templateData.svgs.map((item, index) => (
+                            <USvg
+                                key={index}
+                                svgProps={item}
+                                onSelect={(id) => {
+                                    selectShape(id)
+                                    setCurrentSelectedShape(item)
+                                }}
+                                onChange={(event) => setTemplateData((prev) => {
+                                    prev.svgs[index].x = event.target.attrs.x
+                                    prev.svgs[index].y = event.target.attrs.y
+                                })}
+                            />
+                        ))}
                         <TransformerComponent
                             id={`tr${selectedId}`}
                             selectedShapeName={selectedId}
@@ -117,7 +152,7 @@ const DesignTool: React.FC = () => {
             </div>
             <div style={{ display: !!selectedId ? "" : "none", backgroundColor: 'coral', padding: '20px' }}>
                 <p>Hit escape to close</p>
-                <div style={{ display: selectedId !== "svg" ? '' : 'none' }}>
+                <div style={{ display: selectedId?.split('_')[0] === "rect" ? '' : 'none' }}>
                     <p>Select from palette</p>
                     {templateData.palette.map((item, index) => (
                         <div key={index} style={{ display: 'inline-block' }} >
@@ -135,7 +170,7 @@ const DesignTool: React.FC = () => {
                         onChange={handleColorChange}
                     />
                 </div>
-                <div style={{ display: selectedId === "svg" ? '' : 'none' }}>
+                {/* <div style={{ display: selectedId?.split('_')[0] === "svg" ? '' : 'none' }}>
                     <p>Select a color you want to change...</p>
                     {colors.map((item, index) => (
                         <div
@@ -168,7 +203,7 @@ const DesignTool: React.FC = () => {
                         )}
                     </div>
 
-                </div>
+                </div> */}
 
 
             </div>

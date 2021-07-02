@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 import { useImmerState } from '@shrugsy/use-immer-state';
-import { stageDimensions } from '../utils/defaults';
+import { ORIGINAL_SVG, stageDimensions } from '../utils/defaults';
 
 const INITIAL_STATE = {
     palette: [
@@ -9,9 +9,18 @@ const INITIAL_STATE = {
         { name: "tertiary", color: "#0000ff" }
     ],
     variations: [],
+    svgs: [{
+        id: "svg_default",
+        type: "svg",
+        svgString: ORIGINAL_SVG,
+        x: 100,
+        y: 200,
+        // width: 100,
+        // height: 100,
+        draggable: true,
+    }],
     rectangles: [{
-        id: 'background',
-        name: 'background',
+        id: 'rect_background',
         type: "shape",
         x: 0,
         y: 0,

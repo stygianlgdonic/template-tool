@@ -49,3 +49,20 @@ export function replaceColors(svgString, map) {
     const str = xmlSerializer.serializeToString(doc);
     return str;
 }
+
+export function getSvgStringFromUpload(files) {
+    return new Promise((resolve, reject) => {
+        try {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var svgData: any = e.target.result;
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(svgData, "image/svg+xml");
+                resolve(doc.documentElement.outerHTML)
+            }
+            reader.readAsText(files[0]);
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
