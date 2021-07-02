@@ -17,7 +17,7 @@ const TransformerComponent: React.FC<Props> = ({ id, selectedShapeName }) => {
     }, [selectedShapeName])
     const checkNode = () => {
         const stage = transformer.current.getStage();
-        const selectedNode = stage.findOne("." + selectedShapeName);
+        const selectedNode = stage.findOne("#" + selectedShapeName);
         if (selectedNode) {
             transformer.current.nodes([selectedNode])
         } else {

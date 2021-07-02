@@ -54,7 +54,9 @@ const DesignTool: React.FC = () => {
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
-            prev.rectangles.push(rectangle)
+            // ANCHOR - get the dynamic id thing done
+            let imageId = new Date().getTime();
+            prev.rectangles.push({ ...rectangle, id: `image_${imageId.toString()}` })
         })
     }
 
@@ -113,7 +115,6 @@ const DesignTool: React.FC = () => {
                     </Layer>
                 </Stage>
             </div>
-            <br />
             <div style={{ display: !!selectedId ? "" : "none", backgroundColor: 'coral', padding: '20px' }}>
                 <p>Hit escape to close</p>
                 <div style={{ display: selectedId !== "svg" ? '' : 'none' }}>
