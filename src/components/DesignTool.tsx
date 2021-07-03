@@ -98,8 +98,8 @@ const DesignTool: React.FC = () => {
     const { rectangles } = templateData
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
-            <div style={{ backgroundColor: 'coral' }}>
+        <div>
+            <div>
                 <button onClick={handleAddNewRect}>Add new rect</button>
                 <br />
                 <p>upload svg</p>
@@ -150,14 +150,13 @@ const DesignTool: React.FC = () => {
                     </Layer>
                 </Stage>
             </div>
-            <div style={{ display: !!selectedId ? "" : "none", backgroundColor: 'coral', padding: '20px' }}>
+            <div>
                 <p>Hit escape to close</p>
-                <div style={{ display: selectedId?.split('_')[0] === "rect" ? '' : 'none' }}>
+                <div>
                     <p>Select from palette</p>
                     {templateData.palette.map((item, index) => (
-                        <div key={index} style={{ display: 'inline-block' }} >
+                        <div key={index} >
                             {item.name} : <div
-                                style={{ display: 'inline-block', backgroundColor: item.color, width: '30px', height: '30px' }}
                                 onClick={() => handleColorChange({ hex: item.color })}
                             ></div>
                         </div>

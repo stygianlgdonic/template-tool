@@ -41,12 +41,11 @@ const SelectPalette = () => {
             {templateData.palette.map((item, index) => (
                 <div key={index} >
                     {item.name} : <div
-                        style={{ backgroundColor: item.color, width: '30px', height: '30px' }}
                         onClick={() => handleShowColorPicker(item)}
                     ></div>
                 </div>
             ))}
-            <div style={{ display: showColorPicker ? "" : "none" }}>
+            <div>
                 <SketchPicker
                     color={currentSelectedColor?.color}
                     onChange={handleColorChange}
@@ -54,7 +53,7 @@ const SelectPalette = () => {
                 <br />
                 <button onClick={handleCloseColorPicker}>Close</button>
             </div>
-            <div style={{ marginTop: '50px' }}>
+            <div>
                 <NavLink to={ROUTE_NAMES.design_tool}>Proceed</NavLink>
             </div>
         </>
