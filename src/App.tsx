@@ -5,6 +5,7 @@ import { ROUTE_NAMES } from './routes/route_names';
 import { TemplateProvider } from "./contexts/TemplateContext"
 const DesignTool = React.lazy(() => import('./components/DesignTool'));
 const SelectPalette = React.lazy(() => import('./components/SelectPalette'));
+import 'tailwindcss/tailwind.css';
 
 const App = () => (
     <Switch>
