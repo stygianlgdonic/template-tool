@@ -92,6 +92,7 @@ const DesignTool: React.FC = () => {
                     id: `svg_${svgId.toString()}`,
                     type: "svg",
                     svgString: SVG_STRING,
+                    colorMap: {},
                     x: 100,
                     y: 200,
                     width: 100,
@@ -118,7 +119,7 @@ const DesignTool: React.FC = () => {
                 />
             )}
 
-            {isOpenColorPicker && (
+            {isOpenColorPicker && selectedId?.split('_')[0] === "svg" && (
                 <SvgColorSelector
                     colors={colors}
                     colorMap={colorMap}
@@ -192,69 +193,8 @@ const DesignTool: React.FC = () => {
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
                 // onClick={handleAddNewRect}
                 >Add Variation</button>
-                <button
-                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
-                // onClick={handleAddNewRect}
-                >Save Tempalte</button>
             </div>
 
-
-            {/* <div>
-                <p>Hit escape to close</p>
-                <div>
-                    <p>Select from palette</p>
-                    {templateData.palette.map((item, index) => (
-                        <div key={index} >
-                            {item.name} : <div
-                                onClick={() => handleColorChange({ hex: item.color })}
-                            ></div>
-                        </div>
-                    ))}
-
-                    <p>or Select a custom color</p>
-
-                    <SketchPicker
-                        color={templateData.rectangles?.find(rect => rect.id === selectedId)?.fill}
-                        onChange={handleColorChange}
-                    />
-                </div>
-                 <div style={{ display: selectedId?.split('_')[0] === "svg" ? '' : 'none' }}>
-                    <p>Select a color you want to change...</p>
-                    {colors.map((item, index) => (
-                        <div
-                            key={index}
-                            style={{ display: 'inline-block', width: '30px', height: '30px', backgroundColor: colorMap[item] || item, margin: '5px' }}
-                            onClick={() => handleSvgCurrentColor(item)}
-                        >
-                        </div>
-                    ))}
-                    <div>
-                        {currentSelectedSvgColor && (
-                            <>
-                                <p>Select from palette</p>
-                                {templateData.palette.map((item, index) => (
-                                    <div key={index} style={{ display: 'inline-block' }} >
-                                        {item.name} : <div
-                                            style={{ display: 'inline-block', backgroundColor: item.color, width: '30px', height: '30px' }}
-                                            onClick={() => setNewColor(currentSelectedSvgColor, item.color)}
-                                        ></div>
-                                    </div>
-                                ))}
-
-                                <p>or Select a custom color</p>
-
-                                <SketchPicker
-                                    color={colorMap[currentSelectedSvgColor]}
-                                    onChange={(color) => setNewColor(currentSelectedSvgColor, color.hex)}
-                                />
-                            </>
-                        )}
-                    </div>
-
-                </div> 
-
-
-        </div>*/}
         </div >
     );
 };

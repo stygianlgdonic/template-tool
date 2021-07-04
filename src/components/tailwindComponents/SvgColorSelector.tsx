@@ -33,8 +33,8 @@ const SvgColorSelector: React.FC<Props> = ({
                             {colors.map((item, index) => (
                                 <div key={index} className="h-10 m-5 inline-block" >
                                     <div
-                                        className="w-10 h-10"
-                                        style={{ backgroundColor: colorMap[item] }}
+                                        className="w-10 h-10 border border-black"
+                                        style={{ backgroundColor: colorMap[item] || item }}
                                         onClick={() => setCurrentColor(item)}
                                     ></div>
                                 </div>
@@ -45,7 +45,7 @@ const SvgColorSelector: React.FC<Props> = ({
                             {currentPalette.map((item, index) => (
                                 <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
                                     <p className="w-48">Select {item.name}</p> <div
-                                        className="w-10 h-10"
+                                        className="w-10 h-10 border border-black"
                                         style={{ backgroundColor: item.color }}
                                         onClick={() => handleSvgElementColorChange(currentColor, item.color)}
                                     ></div>

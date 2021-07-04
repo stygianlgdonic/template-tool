@@ -49,7 +49,7 @@ const SelectPalette = () => {
             {templateData.palette.map((item, index) => (
                 <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
                     <p className="w-48">{item.name}</p> <div
-                        className="w-10 h-10"
+                        className="w-10 h-10 border border-black"
                         style={{ backgroundColor: item.color }}
                         onClick={() => handleShowColorPicker(item)}
                     ></div>

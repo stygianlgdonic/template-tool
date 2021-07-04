@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
 import * as svg from "../utils/svg"
-import SvgColorSelector from './tailwindComponents/SvgColorSelector';
 
 interface Props {
     svgProps: any
@@ -13,11 +12,7 @@ interface Props {
 
 const USvg: React.FC<Props> = ({ svgProps, onChange, onSelect, onEdit }) => {
 
-    // const colors = svg.getColors(svgProps.svgString);
-    // const [colorMap, setColorMap] = useState({});
-    // const modifiedSVG = svg.replaceColors(svgProps.svgString, colorMap);
     const [image] = useImage(svg.svgToURL(svg.replaceColors(svgProps.svgString, svgProps.colorMap)));
-
 
     return (
         <>

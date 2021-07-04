@@ -34,7 +34,7 @@ const ShapeColorSelector: React.FC<Props> = ({ currentSelectedColor, currentPale
                             {currentPalette.map((item, index) => (
                                 <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
                                     <p className="w-48">Select {item.name}</p> <div
-                                        className="w-10 h-10"
+                                        className="w-10 h-10 border border-black"
                                         style={{ backgroundColor: item.color }}
                                         onClick={() => setCurrentColor(item.color)}
                                     ></div>
