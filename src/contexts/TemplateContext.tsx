@@ -2,34 +2,37 @@ import React, { createContext } from 'react'
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { ORIGINAL_SVG, stageDimensions } from '../utils/defaults';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     palette: [
         { name: "primary", color: "#ff0000" },
         { name: "secondary", color: "#00ff00" },
         { name: "tertiary", color: "#0000ff" }
     ],
-    variations: [],
-    svgs: [{
-        id: "svg_default",
-        type: "svg",
-        svgString: ORIGINAL_SVG,
-        colorMap: { "#db5669": "#2c1e20", "#f26674": "#c50a1d", "#c4455e": "#45b9c4", "#ffde76": "#2a6a17" },
-        x: 10,
-        y: 20,
-        width: 100,
-        height: 100,
-        draggable: true,
-    }],
-    shapes: [{
-        id: 'shape_background',
-        type: "rectangle",
-        x: 0,
-        y: 0,
-        width: stageDimensions.width,
-        height: stageDimensions.height,
-        fill: '#559955',
-        draggable: false,
-    }]
+    variations: [
+        {
+            svgs: [{
+                id: "svg_default",
+                type: "svg",
+                svgString: ORIGINAL_SVG,
+                colorMap: { "#db5669": "#2c1e20", "#f26674": "#c50a1d", "#c4455e": "#45b9c4", "#ffde76": "#2a6a17" },
+                x: 10,
+                y: 20,
+                width: 100,
+                height: 100,
+                draggable: true,
+            }],
+            shapes: [{
+                id: 'shape_background',
+                type: "rectangle",
+                x: 0,
+                y: 0,
+                width: stageDimensions.width,
+                height: stageDimensions.height,
+                fill: '#559955',
+                draggable: false,
+            }]
+        }
+    ],
 }
 
 export const TemplateContext = createContext(null)

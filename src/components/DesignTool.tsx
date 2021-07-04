@@ -5,12 +5,14 @@ import * as svg from "../utils/svg"
 import Rectangle from "./Rectangle"
 import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
-import { TemplateContext } from '../contexts/TemplateContext';
+import { INITIAL_STATE, TemplateContext } from '../contexts/TemplateContext';
 import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
 import SvgColorSelector from "./tailwindComponents/SvgColorSelector"
-import useImage from 'use-image';
+import SelectVariation from "./tailwindComponents/SelectVariation"
 
 const DesignTool: React.FC = () => {
+
+    const [variationIndex, setVariationIndex] = useState<number>(0)
 
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -30,9 +32,9 @@ const DesignTool: React.FC = () => {
 
     useEffect(() => {
         if (selectedId?.split("_")[0] === "svg") {
-            const svgIndex = templateData?.svgs?.findIndex(item => item.id === selectedId)
-            setSvgString(templateData.svgs[svgIndex].svgString)
-            setColorMap(templateData.svgs[svgIndex].colorMap)
+            const svgIndex = templateData.variations[variationIndex]?.svgs?.findIndex(item => item.id === selectedId)
+            setSvgString(templateData.variations[variationIndex]?.svgs[svgIndex].svgString)
+            setColorMap(templateData.variations[variationIndex]?.svgs[svgIndex].colorMap)
         }
     }, [selectedId])
 
@@ -45,7 +47,7 @@ const DesignTool: React.FC = () => {
 
     const handleSaveSvg = () => {
         setTemplateData(prev => {
-            prev.svgs.find(item => item.id === selectedId).colorMap = colorMap
+            prev.variations[variationIndex].svgs.find(item => item.id === selectedId).colorMap = colorMap
         })
         setSelectedId(null)
         setIsOpenColorPicker(false)
@@ -61,15 +63,15 @@ const DesignTool: React.FC = () => {
 
     const handleColorChange = (color) => {
         setTemplateData((prev) => {
-            const index = prev.shapes?.findIndex(shape => shape.id === selectedId)
-            prev.shapes[index].fill = color
+            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
+            prev.variations[variationIndex].shapes[index].fill = color
         })
     }
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
             let imageId = new Date().getTime();
-            prev.shapes.push({ ...defaultShape, type: "rectangle", id: `shape_${imageId.toString()}` })
+            prev.variations[variationIndex].shapes.push({ ...defaultShape, type: "rectangle", id: `shape_${imageId.toString()}` })
         })
     }
 
@@ -87,7 +89,7 @@ const DesignTool: React.FC = () => {
 
             setTemplateData((prev) => {
                 let svgId = new Date().getTime()
-                prev.svgs.push({
+                prev.variations[variationIndex].svgs.push({
 
                     id: `svg_${svgId.toString()}`,
                     type: "svg",
@@ -104,6 +106,12 @@ const DesignTool: React.FC = () => {
         })
     }
 
+    const handleAddVariation = () => {
+        setTemplateData(prev => {
+            prev.variations.push(INITIAL_STATE.variations[0])
+        })
+    }
+
     return (
         <div>
             <div className="h-20 flex flex-wrap justify-center content-center bg-green-800">
@@ -112,7 +120,7 @@ const DesignTool: React.FC = () => {
 
             {isOpenColorPicker && selectedId?.split('_')[0] === "shape" && (
                 <ShapeColorSelector
-                    currentSelectedColor={templateData?.shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
+                    currentSelectedColor={templateData.variations[variationIndex]?.shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
                     handleColorChange={handleColorChange}
                     handleCloseColorPicker={handleCloseColorPicker}
@@ -131,6 +139,13 @@ const DesignTool: React.FC = () => {
 
 
             <div className="flex justify-center">
+                <SelectVariation
+                    variations={templateData.variations}
+                    variationIndex={variationIndex}
+                    setVariationIndex={setVariationIndex}
+                />
+            </div>
+            <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
                     onClick={handleAddNewRect}>Add new rect</button>
@@ -148,7 +163,7 @@ const DesignTool: React.FC = () => {
                     onTouchStart={checkDeselect}
                 >
                     <Layer>
-                        {templateData.shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
+                        {templateData.variations[variationIndex]?.shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                             return (
                                 <Rectangle
                                     key={i}
@@ -159,14 +174,14 @@ const DesignTool: React.FC = () => {
                                     onEdit={handleOpenColorPicker}
                                     onChange={(newAttrs) => {
                                         setTemplateData((prev) => {
-                                            const index = prev.shapes.findIndex(item => item.id === rect.id)
-                                            prev.shapes[index] = newAttrs
+                                            const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === rect.id)
+                                            prev.variations[variationIndex].shapes[index] = newAttrs
                                         });
                                     }}
                                 />
                             );
                         })}
-                        {templateData.svgs.map((item, index) => (
+                        {templateData.variations[variationIndex].svgs?.map((item, index) => (
                             <USvg
                                 key={index}
                                 svgProps={item}
@@ -175,8 +190,8 @@ const DesignTool: React.FC = () => {
                                 }}
                                 onEdit={handleOpenColorPicker}
                                 onChange={(event) => setTemplateData((prev) => {
-                                    prev.svgs[index].x = event.target.attrs.x
-                                    prev.svgs[index].y = event.target.attrs.y
+                                    prev.variations[variationIndex].svgs[index].x = event.target.attrs.x
+                                    prev.variations[variationIndex].svgs[index].y = event.target.attrs.y
                                 })}
                             />
                         ))}
@@ -191,8 +206,8 @@ const DesignTool: React.FC = () => {
             <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                // onClick={handleAddNewRect}
-                >Add Variation</button>
+                    onClick={handleAddVariation}
+                >Add New Variation</button>
             </div>
 
         </div >
