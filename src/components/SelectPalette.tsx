@@ -4,7 +4,7 @@ import { SketchPicker } from 'react-color'
 import { NavLink } from 'react-router-dom'
 import { ROUTE_NAMES } from '../routes/route_names'
 import { TemplateContext } from '../contexts/TemplateContext'
-import Modal from "./tailwindComponents/Modal"
+import PaletteColorSelect from "./tailwindComponents/PaletteColorSelect"
 
 interface IColor {
     name: string
@@ -37,7 +37,7 @@ const SelectPalette = () => {
     return (
         <div>
             {showColorPicker && (
-                <Modal
+                <PaletteColorSelect
                     currentSelectedColor={currentSelectedColor.color}
                     handleColorChange={handleColorChange}
                     handleCloseColorPicker={handleCloseColorPicker}
