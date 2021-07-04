@@ -3,7 +3,7 @@ import { SketchPicker } from "react-color"
 
 interface Props {
     currentSelectedColor: string
-    currentPalette: { name: string, color: string }
+    currentPalette: { name: string, color: string }[]
     handleColorChange: (color: string) => void
     handleCloseColorPicker: () => void
 }
@@ -30,8 +30,20 @@ const ShapeColorSelector: React.FC<Props> = ({ currentSelectedColor, currentPale
 
                 <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div className="">
+                            {currentPalette.map((item, index) => (
+                                <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
+                                    <p className="w-48">Select {item.name}</p> <div
+                                        className="w-10 h-10"
+                                        style={{ backgroundColor: item.color }}
+                                        onClick={() => setCurrentColor(item.color)}
+                                    ></div>
+                                </div>
+                            ))}
+                        </div>
                         <div className="sm:flex sm:items-start">
                             <SketchPicker
+                                width="100%"
                                 color={currentColor}
                                 onChange={(color) => setCurrentColor(color.hex)}
                             />
