@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { stageDimensions, rectangle } from "../utils/defaults"
+import { stageDimensions, defaultShape } from "../utils/defaults"
 import * as svg from "../utils/svg"
-import { SketchPicker } from 'react-color'
+// import { SketchPicker } from 'react-color'
 import Rectangle from "./Rectangle"
 // import UImage from "./UImage"
 import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
 // import useTemplateData from '../hooks/useTemplateData';
 import { TemplateContext } from '../contexts/TemplateContext';
+import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
 // import useImage from 'use-image';
 
 const DesignTool: React.FC = () => {
 
-    const [currentSelectedShape, setCurrentSelectedShape] = useState(null)
 
     // const [svgString, setSvgString] = useState(null)
     // const colors = svg.getColors(svgString);
@@ -32,12 +32,12 @@ const DesignTool: React.FC = () => {
     // const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
 
     const [templateData, setTemplateData] = useContext(TemplateContext)
-    const [selectedId, selectShape] = useState<string | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     useEffect(() => {
-        document.addEventListener("keydown", (e) => e.key === "Escape" && selectShape(null), false);
+        document.addEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
         return () => {
-            document.removeEventListener("keydown", (e) => e.key === "Escape" && selectShape(null), false);
+            document.removeEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
         };
     }, []);
 
@@ -45,22 +45,26 @@ const DesignTool: React.FC = () => {
         // deselect when clicked on empty area
         const clickedOnEmpty = e.target === e.target.getStage()
         if (clickedOnEmpty) {
-            selectShape(null)
+            setSelectedId(null)
         }
     };
 
     const handleColorChange = (color) => {
         setTemplateData((prev) => {
-            const index = prev.rectangles?.findIndex(rect => rect.id === selectedId)
-            prev.rectangles[index].fill = color.hex
+            const index = prev.shapes?.findIndex(shape => shape.id === selectedId)
+            prev.shapes[index].fill = color
         })
     }
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
             let imageId = new Date().getTime();
-            prev.rectangles.push({ ...rectangle, id: `rect_${imageId.toString()}` })
+            prev.shapes.push({ ...defaultShape, type: "rectangle", id: `shape_${imageId.toString()}` })
         })
+    }
+
+    const handleDeselect = () => {
+        setSelectedId(null)
     }
 
     // const handleSvgCurrentColor = (color: string) => {
@@ -95,8 +99,6 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const { rectangles } = templateData
-
     return (
         <div>
             <div>
@@ -105,6 +107,16 @@ const DesignTool: React.FC = () => {
                 <p>upload svg</p>
                 <input type="file" accept=".svg" onChange={handleSvgUpload} />
             </div>
+
+            {selectedId?.split('_')[0] === "shape" && (
+                <ShapeColorSelector
+                    currentSelectedColor={templateData?.shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
+                    currentPalette={templateData.palette}
+                    handleColorChange={handleColorChange}
+                    handleCloseColorPicker={handleDeselect}
+                />
+            )}
+
             <div>
                 <Stage
                     {...stageDimensions}
@@ -112,18 +124,18 @@ const DesignTool: React.FC = () => {
                     onTouchStart={checkDeselect}
                 >
                     <Layer>
-                        {rectangles?.map((rect, i) => {
+                        {templateData.shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                             return (
                                 <Rectangle
                                     key={i}
                                     shapeProps={rect}
                                     onSelect={() => {
-                                        selectShape(rect.id)
+                                        setSelectedId(rect.id)
                                     }}
                                     onChange={(newAttrs) => {
                                         setTemplateData((prev) => {
-                                            const index = prev.rectangles.findIndex(item => item.id === rect.id)
-                                            prev.rectangles[index] = newAttrs
+                                            const index = prev.shapes.findIndex(item => item.id === rect.id)
+                                            prev.shapes[index] = newAttrs
                                         });
                                     }}
                                 />
@@ -134,8 +146,7 @@ const DesignTool: React.FC = () => {
                                 key={index}
                                 svgProps={item}
                                 onSelect={(id) => {
-                                    selectShape(id)
-                                    setCurrentSelectedShape(item)
+                                    setSelectedId(id)
                                 }}
                                 onChange={(event) => setTemplateData((prev) => {
                                     prev.svgs[index].x = event.target.attrs.x

@@ -36,11 +36,13 @@ const SelectPalette = () => {
 
     return (
         <div>
-            {showColorPicker && <Modal
-                currentSelectedColor={currentSelectedColor.color}
-                handleColorChange={handleColorChange}
-                handleCloseColorPicker={handleCloseColorPicker}
-            />}
+            {showColorPicker && (
+                <Modal
+                    currentSelectedColor={currentSelectedColor.color}
+                    handleColorChange={handleColorChange}
+                    handleCloseColorPicker={handleCloseColorPicker}
+                />
+            )}
             <div className="h-20 flex flex-wrap justify-center content-center bg-green-800">
                 <p className="text-xl text-white">Select palette for your template</p>
             </div>

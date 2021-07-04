@@ -19,9 +19,9 @@ const INITIAL_STATE = {
         // height: 100,
         draggable: true,
     }],
-    rectangles: [{
-        id: 'rect_background',
-        type: "shape",
+    shapes: [{
+        id: 'shape_background',
+        type: "rectangle",
         x: 0,
         y: 0,
         width: stageDimensions.width,
