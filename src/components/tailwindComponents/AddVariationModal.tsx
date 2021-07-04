@@ -8,7 +8,7 @@ interface Props {
 
 const AddVariationModal: React.FC<Props> = ({ handleAddVariation, templateData }) => {
 
-    const [variationData, setVariationData] = useImmerState({ name: "", face: "#FF0000" })
+    const [variationData, setVariationData] = useImmerState({ name: "untitled", face: "#FF0000" })
 
     return (
         <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -19,13 +19,17 @@ const AddVariationModal: React.FC<Props> = ({ handleAddVariation, templateData }
 
                 <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div className="sm:flex sm:items-start">
-                            <input type="text" placeholder="Variation name" onChange={(e) => setVariationData(prev => { prev.name = e.target.value })} />
-                            <span>Select face: </span>
+                        <div className="">
+                            <label>Name: </label><input type="text" placeholder="Variation name" onChange={(e) => setVariationData(prev => { prev.name = e.target.value })} />
+                            <div>Current face: <div
+                                className="w-10 h-10 m-5 border border-black"
+                                style={{ backgroundColor: variationData.face }}
+                            ></div></div>
+                            <p>Select face: </p>
                             {templateData.palette.map((item, index) => (
-                                <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
+                                <div key={index} className="inline-block" >
                                     <div
-                                        className="w-10 h-10 border border-black"
+                                        className="w-10 h-10 m-5 border border-black"
                                         style={{ backgroundColor: item.color }}
                                         onClick={() => setVariationData(prev => { prev.face = item.color })}
                                     ></div>
