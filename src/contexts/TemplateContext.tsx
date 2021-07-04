@@ -13,6 +13,7 @@ const INITIAL_STATE = {
         id: "svg_default",
         type: "svg",
         svgString: ORIGINAL_SVG,
+        colorMap: { "#db5669": "#2c1e20", "#f26674": "#c50a1d", "#c4455e": "#45b9c4", "#ffde76": "#2a6a17" },
         x: 100,
         y: 200,
         // width: 100,

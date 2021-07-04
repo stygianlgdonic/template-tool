@@ -2,37 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
 import { stageDimensions, defaultShape } from "../utils/defaults"
 import * as svg from "../utils/svg"
-// import { SketchPicker } from 'react-color'
 import Rectangle from "./Rectangle"
-// import UImage from "./UImage"
 import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
-// import useTemplateData from '../hooks/useTemplateData';
 import { TemplateContext } from '../contexts/TemplateContext';
 import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
-// import useImage from 'use-image';
+import SvgColorSelector from "./tailwindComponents/SvgColorSelector"
+import useImage from 'use-image';
 
 const DesignTool: React.FC = () => {
 
-
-    // const [svgString, setSvgString] = useState(null)
-    // const colors = svg.getColors(svgString);
-    // const [colorMap, setColorMap] = React.useState({});
-    // const modifiedSVG = svg.replaceColors(svgString, colorMap);
-    // const [image] = useImage(svg.svgToURL(modifiedSVG));
-    // const [imageAttrs, setImageAttrs] = useState({
-    //     id: "svg",
-    //     name: "svg",
-    //     type: "svg",
-    //     x: 10,
-    //     y: 10,
-    //     draggable: true
-    // })
-
-    // const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
-
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
+
+    // NOTE - for svgs
+    const [svgString, setSvgString] = useState<string | null>(null)
+    const colors = svg.getColors(svgString);
+    const [colorMap, setColorMap] = useState({});
 
     useEffect(() => {
         document.addEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
@@ -40,6 +27,29 @@ const DesignTool: React.FC = () => {
             document.removeEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
         };
     }, []);
+
+    useEffect(() => {
+        if (selectedId?.split("_")[0] === "svg") {
+            const svgIndex = templateData?.svgs?.findIndex(item => item.id === selectedId)
+            setSvgString(templateData.svgs[svgIndex].svgString)
+            setColorMap(templateData.svgs[svgIndex].colorMap)
+        }
+    }, [selectedId])
+
+    const handleSvgElementColorChange = (oldColor, newColor) => {
+        setColorMap({
+            ...colorMap,
+            [oldColor]: newColor
+        });
+    }
+
+    const handleSaveSvg = () => {
+        setTemplateData(prev => {
+            prev.svgs.find(item => item.id === selectedId).colorMap = colorMap
+        })
+        setSelectedId(null)
+        setIsOpenColorPicker(false)
+    }
 
     const checkDeselect = (e) => {
         // deselect when clicked on empty area
@@ -63,20 +73,14 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleDeselect = () => {
-        setSelectedId(null)
+    const handleOpenColorPicker = () => {
+        setIsOpenColorPicker(true)
     }
 
-    // const handleSvgCurrentColor = (color: string) => {
-    //     setCurrentSelectedSvgColor(color)
-    // }
-
-    // const setNewColor = (oldColor, newColor) => {
-    //     setColorMap({
-    //         ...colorMap,
-    //         [oldColor]: newColor
-    //     });
-    // };
+    const handleCloseColorPicker = () => {
+        setIsOpenColorPicker(false)
+        setSelectedId(null)
+    }
 
     const handleSvgUpload = (e) => {
         svg.getSvgStringFromUpload(e.target.files).then((SVG_STRING) => {
@@ -101,23 +105,42 @@ const DesignTool: React.FC = () => {
 
     return (
         <div>
-            <div>
-                <button onClick={handleAddNewRect}>Add new rect</button>
-                <br />
-                <p>upload svg</p>
-                <input type="file" accept=".svg" onChange={handleSvgUpload} />
+            <div className="h-20 flex flex-wrap justify-center content-center bg-green-800">
+                <p className="text-xl text-white">Tempalte Design</p>
             </div>
 
-            {selectedId?.split('_')[0] === "shape" && (
+            {isOpenColorPicker && selectedId?.split('_')[0] === "shape" && (
                 <ShapeColorSelector
                     currentSelectedColor={templateData?.shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
                     handleColorChange={handleColorChange}
-                    handleCloseColorPicker={handleDeselect}
+                    handleCloseColorPicker={handleCloseColorPicker}
                 />
             )}
 
-            <div>
+            {isOpenColorPicker && (
+                <SvgColorSelector
+                    colors={colors}
+                    colorMap={colorMap}
+                    currentPalette={templateData.palette}
+                    handleSvgElementColorChange={handleSvgElementColorChange}
+                    handleSaveSvg={handleSaveSvg}
+                />
+            )}
+
+
+            <div className="flex justify-center">
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                    onClick={handleAddNewRect}>Add new rect</button>
+            </div>
+            <div className="flex justify-center">
+
+                <p>upload svg</p>
+                <input className="" type="file" accept=".svg" onChange={handleSvgUpload} />
+            </div>
+
+            <div className="flex justify-center mt-5">
                 <Stage
                     {...stageDimensions}
                     onMouseDown={checkDeselect}
@@ -132,6 +155,7 @@ const DesignTool: React.FC = () => {
                                     onSelect={() => {
                                         setSelectedId(rect.id)
                                     }}
+                                    onEdit={handleOpenColorPicker}
                                     onChange={(newAttrs) => {
                                         setTemplateData((prev) => {
                                             const index = prev.shapes.findIndex(item => item.id === rect.id)
@@ -145,9 +169,10 @@ const DesignTool: React.FC = () => {
                             <USvg
                                 key={index}
                                 svgProps={item}
-                                onSelect={(id) => {
-                                    setSelectedId(id)
+                                onSelect={() => {
+                                    setSelectedId(item.id)
                                 }}
+                                onEdit={handleOpenColorPicker}
                                 onChange={(event) => setTemplateData((prev) => {
                                     prev.svgs[index].x = event.target.attrs.x
                                     prev.svgs[index].y = event.target.attrs.y
@@ -161,6 +186,19 @@ const DesignTool: React.FC = () => {
                     </Layer>
                 </Stage>
             </div>
+
+            <div className="flex justify-center">
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                // onClick={handleAddNewRect}
+                >Add Variation</button>
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+                // onClick={handleAddNewRect}
+                >Save Tempalte</button>
+            </div>
+
+
             {/* <div>
                 <p>Hit escape to close</p>
                 <div>
