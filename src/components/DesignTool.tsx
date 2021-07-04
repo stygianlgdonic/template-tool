@@ -110,6 +110,7 @@ const DesignTool: React.FC = () => {
         setTemplateData(prev => {
             prev.variations.push(INITIAL_STATE.variations[0])
         })
+        setVariationIndex(prev => (prev + 1))
     }
 
     return (

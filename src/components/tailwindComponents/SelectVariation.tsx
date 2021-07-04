@@ -5,7 +5,7 @@ const SelectVariation = ({ variations, variationIndex, setVariationIndex }) => {
     const [displayChoices, setDisplayChoices] = useState(false)
 
     return (
-        <div className="relative inline-block text-left">
+        <div className="relative inline-block text-left z-10">
             <div>
                 <button
                     onClick={() => setDisplayChoices(!displayChoices)}
