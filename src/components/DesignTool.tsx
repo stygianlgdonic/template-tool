@@ -32,9 +32,9 @@ const DesignTool: React.FC = () => {
 
     useEffect(() => {
         if (selectedId?.split("_")[0] === "svg") {
-            const svgIndex = templateData.variations[variationIndex]?.svgs?.findIndex(item => item.id === selectedId)
-            setSvgString(templateData.variations[variationIndex]?.svgs[svgIndex].svgString)
-            setColorMap(templateData.variations[variationIndex]?.svgs[svgIndex].colorMap)
+            const svgIndex = templateData.variations[variationIndex].svgs?.findIndex(item => item.id === selectedId)
+            setSvgString(templateData.variations[variationIndex].svgs[svgIndex].svgString)
+            setColorMap(templateData.variations[variationIndex].svgs[svgIndex].colorMap)
         }
     }, [selectedId])
 
@@ -120,7 +120,7 @@ const DesignTool: React.FC = () => {
 
             {isOpenColorPicker && selectedId?.split('_')[0] === "shape" && (
                 <ShapeColorSelector
-                    currentSelectedColor={templateData.variations[variationIndex]?.shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
+                    currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
                     handleColorChange={handleColorChange}
                     handleCloseColorPicker={handleCloseColorPicker}
@@ -163,7 +163,7 @@ const DesignTool: React.FC = () => {
                     onTouchStart={checkDeselect}
                 >
                     <Layer>
-                        {templateData.variations[variationIndex]?.shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
+                        {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                             return (
                                 <Rectangle
                                     key={i}
