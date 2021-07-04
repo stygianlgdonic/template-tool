@@ -9,13 +9,13 @@ import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
 // import useTemplateData from '../hooks/useTemplateData';
 import { TemplateContext } from '../contexts/TemplateContext';
-import useImage from 'use-image';
+// import useImage from 'use-image';
 
 const DesignTool: React.FC = () => {
 
     const [currentSelectedShape, setCurrentSelectedShape] = useState(null)
 
-    const [svgString, setSvgString] = useState(null)
+    // const [svgString, setSvgString] = useState(null)
     // const colors = svg.getColors(svgString);
     // const [colorMap, setColorMap] = React.useState({});
     // const modifiedSVG = svg.replaceColors(svgString, colorMap);
@@ -29,7 +29,7 @@ const DesignTool: React.FC = () => {
     //     draggable: true
     // })
 
-    const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
+    // const [currentSelectedSvgColor, setCurrentSelectedSvgColor] = useState<string | null>(null)
 
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, selectShape] = useState<string | null>(null);
@@ -63,9 +63,9 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleSvgCurrentColor = (color: string) => {
-        setCurrentSelectedSvgColor(color)
-    }
+    // const handleSvgCurrentColor = (color: string) => {
+    //     setCurrentSelectedSvgColor(color)
+    // }
 
     // const setNewColor = (oldColor, newColor) => {
     //     setColorMap({
@@ -150,7 +150,7 @@ const DesignTool: React.FC = () => {
                     </Layer>
                 </Stage>
             </div>
-            <div>
+            {/* <div>
                 <p>Hit escape to close</p>
                 <div>
                     <p>Select from palette</p>
@@ -169,7 +169,7 @@ const DesignTool: React.FC = () => {
                         onChange={handleColorChange}
                     />
                 </div>
-                {/* <div style={{ display: selectedId?.split('_')[0] === "svg" ? '' : 'none' }}>
+                 <div style={{ display: selectedId?.split('_')[0] === "svg" ? '' : 'none' }}>
                     <p>Select a color you want to change...</p>
                     {colors.map((item, index) => (
                         <div
@@ -202,11 +202,11 @@ const DesignTool: React.FC = () => {
                         )}
                     </div>
 
-                </div> */}
+                </div> 
 
 
-            </div>
-        </div>
+        </div>*/}
+        </div >
     );
 };
 export default DesignTool
