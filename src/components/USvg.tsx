@@ -7,22 +7,22 @@ interface Props {
     svgProps: any
     onChange: any
     onSelect: any
+    onEdit: any
 }
 
-const USvg: React.FC<Props> = ({ svgProps, onChange, onSelect, }) => {
+const USvg: React.FC<Props> = ({ svgProps, onChange, onSelect, onEdit }) => {
 
-    const colors = svg.getColors(svgProps.svgString);
-    const [colorMap, setColorMap] = React.useState({});
-    const modifiedSVG = svg.replaceColors(svgProps.svgString, colorMap);
-    const [image] = useImage(svg.svgToURL(modifiedSVG));
+    const [image] = useImage(svg.svgToURL(svg.replaceColors(svgProps.svgString, svgProps.colorMap)));
 
     return (
         <>
             <Image
                 {...svgProps}
                 image={image}
-                onClick={() => onSelect(svgProps.id)}
-                onTap={() => onSelect(svgProps.id)}
+                onClick={onSelect}
+                onTap={onSelect}
+                onDblClick={onEdit}
+                onDblTap={onEdit}
                 onDragEnd={onChange}
                 onTransformEnd={onChange}
             />

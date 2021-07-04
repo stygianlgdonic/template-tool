@@ -5,15 +5,18 @@ interface Props {
     shapeProps: any
     onSelect: any
     onChange: any
+    onEdit: any
 }
 
-const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
+const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEdit }) => {
 
     return (
         <React.Fragment>
             <Rect
                 onClick={onSelect}
                 onTap={onSelect}
+                onDblClick={onEdit}
+                onDblTap={onEdit}
                 draggable
                 onDragEnd={(e) => {
                     onChange({
