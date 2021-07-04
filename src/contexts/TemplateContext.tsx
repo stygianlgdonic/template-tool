@@ -10,6 +10,8 @@ export const INITIAL_STATE = {
     ],
     variations: [
         {
+            name: "untitled",
+            face: "",
             svgs: [{
                 id: "svg_default",
                 type: "svg",

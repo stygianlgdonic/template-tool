@@ -9,10 +9,13 @@ import { INITIAL_STATE, TemplateContext } from '../contexts/TemplateContext';
 import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
 import SvgColorSelector from "./tailwindComponents/SvgColorSelector"
 import SelectVariation from "./tailwindComponents/SelectVariation"
+import AddVariationModal from "./tailwindComponents/AddVariationModal"
 
 const DesignTool: React.FC = () => {
 
     const [variationIndex, setVariationIndex] = useState<number>(0)
+
+    const [showAddVariationModal, setShowAddVariationModal] = useState(false)
 
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -106,16 +109,19 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleAddVariation = () => {
+    const handleAddVariation = (variationData: any) => {
         setTemplateData(prev => {
+            prev.variations[variationIndex].name = variationData.name
+            prev.variations[variationIndex].face = variationData.face
             prev.variations.push(INITIAL_STATE.variations[0])
         })
         setVariationIndex(prev => (prev + 1))
+        setShowAddVariationModal(false)
     }
 
     return (
         <div>
-            <div className="h-20 flex flex-wrap justify-center content-center bg-green-800">
+            <div className="h-20 mb-5 flex flex-wrap justify-center content-center bg-green-800">
                 <p className="text-xl text-white">Tempalte Design</p>
             </div>
 
@@ -138,6 +144,12 @@ const DesignTool: React.FC = () => {
                 />
             )}
 
+            {showAddVariationModal && (
+                <AddVariationModal
+                    templateData={templateData}
+                    handleAddVariation={handleAddVariation}
+                />
+            )}
 
             <div className="flex justify-center">
                 <SelectVariation
@@ -207,7 +219,7 @@ const DesignTool: React.FC = () => {
             <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                    onClick={handleAddVariation}
+                    onClick={() => setShowAddVariationModal(true)}
                 >Add New Variation</button>
             </div>
 
