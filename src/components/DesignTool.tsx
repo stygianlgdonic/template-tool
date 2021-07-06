@@ -119,7 +119,7 @@ const DesignTool: React.FC = () => {
     }
 
     const handleAddVariation = () => {
-        if (!!templateData.variations.length) {
+        if (templateData.variations.length < 4) {
             setTemplateData(prev => {
                 prev.variations.push(INITIAL_STATE.variations[0])
             })
@@ -162,19 +162,11 @@ const DesignTool: React.FC = () => {
             )}
 
             <div className="flex justify-center">
-                <SelectVariation
-                    variations={templateData.variations}
-                    variationIndex={variationIndex}
-                    setVariationIndex={setVariationIndex}
-                />
-            </div>
-            <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
                     onClick={handleAddNewRect}>Add new rect</button>
             </div>
             <div className="flex justify-center">
-
                 <p>upload svg</p>
                 <input className="" type="file" accept=".svg" onChange={handleSvgUpload} />
             </div>
@@ -224,6 +216,14 @@ const DesignTool: React.FC = () => {
                         />
                     </Layer>
                 </Stage>
+            </div>
+
+            <div className="flex justify-center mt-5">
+                <SelectVariation
+                    variations={templateData.variations}
+                    variationIndex={variationIndex}
+                    setVariationIndex={setVariationIndex}
+                />
             </div>
 
             <div className="flex justify-center">
