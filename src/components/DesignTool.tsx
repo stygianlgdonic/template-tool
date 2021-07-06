@@ -9,13 +9,14 @@ import { INITIAL_STATE, TemplateContext } from '../contexts/TemplateContext';
 import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
 import SvgColorSelector from "./tailwindComponents/SvgColorSelector"
 import SelectVariation from "./tailwindComponents/SelectVariation"
-import AddVariationModal from "./tailwindComponents/AddVariationModal"
+import SaveVariation from "./tailwindComponents/SaveVariation"
+import swal from "sweetalert"
 
 const DesignTool: React.FC = () => {
 
     const [variationIndex, setVariationIndex] = useState<number>(0)
 
-    const [showAddVariationModal, setShowAddVariationModal] = useState(false)
+    const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -109,14 +110,23 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleAddVariation = (variationData: any) => {
+    const handleSaveVariation = (variationData: any) => {
         setTemplateData(prev => {
             prev.variations[variationIndex].name = variationData.name
             prev.variations[variationIndex].face = variationData.face
-            prev.variations.push(INITIAL_STATE.variations[0])
         })
-        setVariationIndex(prev => (prev + 1))
-        setShowAddVariationModal(false)
+        setShowSaveVariationModal(false)
+    }
+
+    const handleAddVariation = () => {
+        if (!!templateData.variations.length) {
+            setTemplateData(prev => {
+                prev.variations.push(INITIAL_STATE.variations[0])
+            })
+            setVariationIndex(prev => (prev + 1))
+        } else {
+            swal("Cannot create more than 4 variations!")
+        }
     }
 
     return (
@@ -144,10 +154,10 @@ const DesignTool: React.FC = () => {
                 />
             )}
 
-            {showAddVariationModal && (
-                <AddVariationModal
+            {showSaveVariationModal && (
+                <SaveVariation
                     templateData={templateData}
-                    handleAddVariation={handleAddVariation}
+                    handleSaveVariation={handleSaveVariation}
                 />
             )}
 
@@ -219,7 +229,11 @@ const DesignTool: React.FC = () => {
             <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                    onClick={() => setShowAddVariationModal(true)}
+                    onClick={() => setShowSaveVariationModal(true)}
+                >Save Variation</button>
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                    onClick={handleAddVariation}
                 >Add New Variation</button>
             </div>
 

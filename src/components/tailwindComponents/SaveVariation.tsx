@@ -2,11 +2,11 @@ import { useImmerState } from '@shrugsy/use-immer-state'
 import React from 'react'
 
 interface Props {
-    handleAddVariation: any
+    handleSaveVariation: any
     templateData: any
 }
 
-const AddVariationModal: React.FC<Props> = ({ handleAddVariation, templateData }) => {
+const SaveVariation: React.FC<Props> = ({ handleSaveVariation, templateData }) => {
 
     const [variationData, setVariationData] = useImmerState({ name: "untitled", face: "#FF0000" })
 
@@ -39,7 +39,7 @@ const AddVariationModal: React.FC<Props> = ({ handleAddVariation, templateData }
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <button
-                            onClick={() => handleAddVariation(variationData)}
+                            onClick={() => handleSaveVariation(variationData)}
                             type="button"
                             className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                             Save
@@ -51,4 +51,4 @@ const AddVariationModal: React.FC<Props> = ({ handleAddVariation, templateData }
     )
 }
 
-export default AddVariationModal
+export default SaveVariation
