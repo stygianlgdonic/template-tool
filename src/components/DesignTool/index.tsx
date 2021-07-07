@@ -79,6 +79,19 @@ const DesignTool: React.FC = () => {
         })
     }
 
+    const handleGradientColorChange = (color1: string, color2: string) => {
+        const fillLinearGradientColorStops = [0, color1, 1, color2]
+
+        setTemplateData((prev) => {
+            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
+            prev.variations[variationIndex].shapes[index] = {
+                ...prev.variations[variationIndex].shapes[index],
+                fill: undefined,
+                fillLinearGradientColorStops,
+            }
+        })
+    }
+
     const handleCloseColorPicker = () => {
         setIsOpenColorPicker(false)
         setSelectedId(null)
@@ -132,6 +145,10 @@ const DesignTool: React.FC = () => {
 
             {isOpenColorPicker && selectedId?.split('_')[0] === "shapes" && (
                 <ShapeColorSelector
+                    selectedId={selectedId}
+                    templateData={templateData}
+                    variationIndex={variationIndex}
+                    handleGradientColorChange={handleGradientColorChange}
                     currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
                     handleColorChange={handleColorChange}
