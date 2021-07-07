@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { stageDimensions, defaultShape } from "../utils/defaults"
+import { stageDimensions, defaultRect, defaultCircle, defaultPolygon, defaultRoundedRect, defaultTriangle } from "../utils/defaults"
 import * as svg from "../utils/svg"
 import Rectangle from "./Rectangle"
+import UCircle from "./UCircle"
+import UPolygon from "./UPolygon"
+import ULine from "./ULine"
 import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
 import { INITIAL_STATE, TemplateContext } from '../contexts/TemplateContext';
@@ -74,8 +77,33 @@ const DesignTool: React.FC = () => {
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
-            let imageId = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultShape, type: "rectangle", id: `shapes_${imageId.toString()}` })
+            let shapeID = new Date().getTime();
+            prev.variations[variationIndex].shapes.push({ ...defaultRect, id: `shapes_${shapeID.toString()}` })
+        })
+    }
+
+    const handleAddNewCircle = () => {
+        setTemplateData((prev) => {
+            let shapeID = new Date().getTime();
+            prev.variations[variationIndex].shapes.push({ ...defaultCircle, id: `shapes_${shapeID.toString()}` })
+        })
+    }
+    const handleAddNewTrianlge = () => {
+        setTemplateData((prev) => {
+            let shapeID = new Date().getTime();
+            prev.variations[variationIndex].shapes.push({ ...defaultTriangle, id: `shapes_${shapeID.toString()}` })
+        })
+    }
+    const handleAddNewPolygon = () => {
+        setTemplateData((prev) => {
+            let shapeID = new Date().getTime();
+            prev.variations[variationIndex].shapes.push({ ...defaultPolygon, id: `shapes_${shapeID.toString()}` })
+        })
+    }
+    const handleAddNewRoundedRect = () => {
+        setTemplateData((prev) => {
+            let shapeID = new Date().getTime();
+            prev.variations[variationIndex].shapes.push({ ...defaultRoundedRect, id: `shapes_${shapeID.toString()}` })
         })
     }
 
@@ -117,7 +145,7 @@ const DesignTool: React.FC = () => {
     const handleAddVariation = () => {
         if (templateData.variations.length < 4) {
             setTemplateData(prev => {
-                prev.variations.push(INITIAL_STATE.variations[0])
+                prev.variations.push(templateData.variations[variationIndex])
             })
             setVariationIndex(prev => (prev + 1))
         } else {
@@ -144,7 +172,7 @@ const DesignTool: React.FC = () => {
                 <p className="text-xl text-white">Tempalte Design</p>
             </div>
 
-            {isOpenColorPicker && selectedId?.split('_')[0] === "shape" && (
+            {isOpenColorPicker && selectedId?.split('_')[0] === "shapes" && (
                 <ShapeColorSelector
                     currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
@@ -153,7 +181,7 @@ const DesignTool: React.FC = () => {
                 />
             )}
 
-            {isOpenColorPicker && selectedId?.split('_')[0] === "svg" && (
+            {isOpenColorPicker && selectedId?.split('_')[0] === "svgs" && (
                 <SvgColorSelector
                     colors={colors}
                     colorMap={colorMap}
@@ -178,7 +206,32 @@ const DesignTool: React.FC = () => {
                     <div className="flex justify-center">
                         <button
                             className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewRect}>Add new rect</button>
+                            onClick={handleAddNewRect}
+                        >Add new Square</button>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            onClick={handleAddNewCircle}
+                        >Add new Circle</button>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            onClick={handleAddNewTrianlge}
+                        >Add new Triangle</button>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            onClick={handleAddNewPolygon}
+                        >Add new Pentagon</button>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            onClick={handleAddNewRoundedRect}
+                        >Add new Rounded Square</button>
                     </div>
                     <div className="flex justify-center">
                         <p>upload svg</p>
@@ -207,6 +260,57 @@ const DesignTool: React.FC = () => {
                                             onChange={(newAttrs) => {
                                                 setTemplateData((prev) => {
                                                     const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === rect.id)
+                                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                                });
+                                            }}
+                                        />
+                                    );
+                                })}
+                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "circle")?.map((circle, i) => {
+                                    return (
+                                        <UCircle
+                                            key={i}
+                                            shapeProps={circle}
+                                            onSelect={() => {
+                                                setSelectedId(circle.id)
+                                            }}
+                                            onChange={(newAttrs) => {
+                                                setTemplateData((prev) => {
+                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === circle.id)
+                                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                                });
+                                            }}
+                                        />
+                                    );
+                                })}
+                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "line")?.map((line, i) => {
+                                    return (
+                                        <ULine
+                                            key={i}
+                                            shapeProps={line}
+                                            onSelect={() => {
+                                                setSelectedId(line.id)
+                                            }}
+                                            onChange={(newAttrs) => {
+                                                setTemplateData((prev) => {
+                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === line.id)
+                                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                                });
+                                            }}
+                                        />
+                                    );
+                                })}
+                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "polygon")?.map((polygon, i) => {
+                                    return (
+                                        <UPolygon
+                                            key={i}
+                                            shapeProps={polygon}
+                                            onSelect={() => {
+                                                setSelectedId(polygon.id)
+                                            }}
+                                            onChange={(newAttrs) => {
+                                                setTemplateData((prev) => {
+                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === polygon.id)
                                                     prev.variations[variationIndex].shapes[index] = newAttrs
                                                 });
                                             }}
