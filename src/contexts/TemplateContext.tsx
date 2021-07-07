@@ -33,7 +33,7 @@ export const INITIAL_STATE = {
                 fill: '#559955',
                 draggable: false,
             }],
-            textBoxes: [],
+            textBoxes: [{ id: "textBoxes_default", text: 'New text', x: 150, y: 180, fontSize: 20, draggable: true, width: 200, type: "text" }],
             images: []
         }
     ],

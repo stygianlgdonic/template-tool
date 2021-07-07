@@ -5,3 +5,4 @@ export const defaultRoundedRect = { x: 150, y: 250, width: 100, height: 100, cor
 export const defaultCircle = { x: 200, y: 100, radius: 50, fill: '#FF0000', draggable: true, type: "circle" }
 export const defaultPolygon = { x: 100, y: 150, sides: 6, radius: 70, fill: 'red', type: "polygon" }
 export const defaultTriangle = { x: 20, y: 200, points: [0, 100, 50, 0, 100, 100], tension: 0, closed: true, fill: "red", type: "line", }
+export const defaultTextBox = { text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text" }

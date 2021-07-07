@@ -1,5 +1,5 @@
 import React from 'react'
-import { defaultCircle, defaultPolygon, defaultRect, defaultRoundedRect, defaultTriangle } from '../../../utils/defaults';
+import { defaultCircle, defaultPolygon, defaultRect, defaultRoundedRect, defaultTextBox, defaultTriangle } from '../../../utils/defaults';
 import * as svg from "../../../utils/svg"
 
 const SideBar = ({ variationIndex, setTemplateData }) => {
@@ -58,6 +58,13 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
         })
     }
 
+    const handleAddNewText = () => [
+        setTemplateData((prev) => {
+            let textID = new Date().getTime();
+            prev.variations[variationIndex].textBoxes.push({ ...defaultTextBox, id: `textBoxes_${textID.toString()}` })
+        })
+    ]
+
     return (
         <div>
 
@@ -94,6 +101,12 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
             <div className="flex justify-center">
                 <p>upload svg</p>
                 <input className="" type="file" accept=".svg" onChange={handleSvgUpload} />
+            </div>
+            <div className="flex justify-center">
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                    onClick={handleAddNewText}
+                >Add new Text</button>
             </div>
 
         </div>

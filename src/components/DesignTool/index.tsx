@@ -7,8 +7,10 @@ import UCircle from "./UCircle"
 import UPolygon from "./UPolygon"
 import ULine from "./ULine"
 import USvg from "./USvg"
+import UText from "./UText"
 import TransformerComponent from "./UTransformer"
 import { TemplateContext } from '../../contexts/TemplateContext';
+import EditTextBox from "../tailwindComponents/EditTextBox"
 import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
 import SvgColorSelector from "../tailwindComponents/SvgColorSelector"
 import SelectVariation from "../tailwindComponents/SelectVariation"
@@ -25,6 +27,7 @@ const DesignTool: React.FC = () => {
     const [templateData, setTemplateData] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
+    const [isEditTextBox, setIsEditTextBox] = useState(false)
 
     // NOTE - for svgs
     const [svgString, setSvgString] = useState<string | null>(null)
@@ -101,8 +104,12 @@ const DesignTool: React.FC = () => {
     }
 
     const handleEditSelectedItem = () => {
+        if (selectedId.split("_")[0] === "textBoxes") {
+            setIsEditTextBox(true)
+        }
         setIsOpenColorPicker(true)
     }
+
     const handleDeleteSelectedItem = () => {
         const type = selectedId.split("_")[0]
         setTemplateData(prev => {
@@ -111,6 +118,10 @@ const DesignTool: React.FC = () => {
             )
             setSelectedId(null)
         })
+    }
+
+    const handleCloseEditTextModal = () => {
+        setIsEditTextBox(false)
     }
 
     return (
@@ -144,6 +155,14 @@ const DesignTool: React.FC = () => {
                     handleSaveVariation={handleSaveVariation}
                 />
             )}
+
+            {isEditTextBox && <EditTextBox
+                selectedId={selectedId}
+                templateData={templateData}
+                setTemplateData={setTemplateData}
+                variationIndex={variationIndex}
+                handleCloseEditTextModal={handleCloseEditTextModal}
+            />}
 
             <div className="grid grid-cols-3 gap-4">
 
@@ -236,6 +255,18 @@ const DesignTool: React.FC = () => {
                                         }}
                                         onChange={(event) => setTemplateData((prev) => {
                                             prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
+                                        })}
+                                    />
+                                ))}
+                                {templateData.variations[variationIndex].textBoxes?.map((item, index) => (
+                                    <UText
+                                        key={index}
+                                        textProps={item}
+                                        onSelect={() => {
+                                            setSelectedId(item.id)
+                                        }}
+                                        onChange={(event) => setTemplateData((prev) => {
+                                            prev.variations[variationIndex].textBoxes[index] = { ...event.target.attrs }
                                         })}
                                     />
                                 ))}
