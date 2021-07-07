@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
-import * as svg from "../utils/svg"
+import * as svg from "../../utils/svg"
 
 interface Props {
     svgProps: any

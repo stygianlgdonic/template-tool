@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Stage, Layer } from 'react-konva';
-import { stageDimensions, defaultRect, defaultCircle, defaultPolygon, defaultRoundedRect, defaultTriangle } from "../utils/defaults"
-import * as svg from "../utils/svg"
+import { stageDimensions } from "../../utils/defaults"
+import * as svg from "./../../utils/svg"
 import Rectangle from "./Rectangle"
 import UCircle from "./UCircle"
 import UPolygon from "./UPolygon"
 import ULine from "./ULine"
 import USvg from "./USvg"
 import TransformerComponent from "./UTransformer"
-import { INITIAL_STATE, TemplateContext } from '../contexts/TemplateContext';
-import ShapeColorSelector from "./tailwindComponents/ShapeColorSelector"
-import SvgColorSelector from "./tailwindComponents/SvgColorSelector"
-import SelectVariation from "./tailwindComponents/SelectVariation"
-import SaveVariation from "./tailwindComponents/SaveVariation"
+import { TemplateContext } from '../../contexts/TemplateContext';
+import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
+import SvgColorSelector from "../tailwindComponents/SvgColorSelector"
+import SelectVariation from "../tailwindComponents/SelectVariation"
+import SaveVariation from "../tailwindComponents/SaveVariation"
 import swal from "sweetalert"
+import SideBar from './SideBar';
 
 const DesignTool: React.FC = () => {
 
@@ -75,63 +76,9 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleAddNewRect = () => {
-        setTemplateData((prev) => {
-            let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultRect, id: `shapes_${shapeID.toString()}` })
-        })
-    }
-
-    const handleAddNewCircle = () => {
-        setTemplateData((prev) => {
-            let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultCircle, id: `shapes_${shapeID.toString()}` })
-        })
-    }
-    const handleAddNewTrianlge = () => {
-        setTemplateData((prev) => {
-            let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultTriangle, id: `shapes_${shapeID.toString()}` })
-        })
-    }
-    const handleAddNewPolygon = () => {
-        setTemplateData((prev) => {
-            let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultPolygon, id: `shapes_${shapeID.toString()}` })
-        })
-    }
-    const handleAddNewRoundedRect = () => {
-        setTemplateData((prev) => {
-            let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultRoundedRect, id: `shapes_${shapeID.toString()}` })
-        })
-    }
-
     const handleCloseColorPicker = () => {
         setIsOpenColorPicker(false)
         setSelectedId(null)
-    }
-
-    const handleSvgUpload = (e) => {
-        svg.getSvgStringFromUpload(e.target.files).then((SVG_STRING) => {
-
-            setTemplateData((prev) => {
-                let svgId = new Date().getTime()
-                prev.variations[variationIndex].svgs.push({
-
-                    id: `svgs_${svgId.toString()}`,
-                    type: "svg",
-                    svgString: SVG_STRING,
-                    colorMap: {},
-                    x: 100,
-                    y: 200,
-                    width: 100,
-                    height: 100,
-                    draggable: true,
-
-                })
-            })
-        })
     }
 
     const handleSaveVariation = (variationData: any) => {
@@ -201,44 +148,7 @@ const DesignTool: React.FC = () => {
             <div className="grid grid-cols-3 gap-4">
 
                 {/* first col */}
-                <div>
-
-                    <div className="flex justify-center">
-                        <button
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewRect}
-                        >Add new Square</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewCircle}
-                        >Add new Circle</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewTrianlge}
-                        >Add new Triangle</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewPolygon}
-                        >Add new Pentagon</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                            onClick={handleAddNewRoundedRect}
-                        >Add new Rounded Square</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <p>upload svg</p>
-                        <input className="" type="file" accept=".svg" onChange={handleSvgUpload} />
-                    </div>
-
-                </div>
+                <SideBar variationIndex={variationIndex} setTemplateData={setTemplateData} />
 
                 {/* Center column */}
                 <div>

@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import NoSSR from './NoSSR'
 import { ROUTE_NAMES } from './routes/route_names';
 import { TemplateProvider } from "./contexts/TemplateContext"
-const DesignTool = React.lazy(() => import('./components/DesignTool'));
-const SelectPalette = React.lazy(() => import('./components/SelectPalette'));
+const DesignTool = React.lazy(() => import('./components/DesignTool/index'));
+const SelectPalette = React.lazy(() => import('./components/SelectPalette/index'));
 import 'tailwindcss/tailwind.css';
 
 const App = () => (
