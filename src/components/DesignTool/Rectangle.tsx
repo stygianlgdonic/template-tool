@@ -15,6 +15,11 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
                 onClick={onSelect}
                 onTap={onSelect}
                 draggable
+                onTransformEnd={(e) => {
+                    onChange({
+                        ...e.target.attrs,
+                    })
+                }}
                 onDragEnd={(e) => {
                     onChange({
                         ...shapeProps,

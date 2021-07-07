@@ -235,8 +235,7 @@ const DesignTool: React.FC = () => {
                                             setSelectedId(item.id)
                                         }}
                                         onChange={(event) => setTemplateData((prev) => {
-                                            prev.variations[variationIndex].svgs[index].x = event.target.attrs.x
-                                            prev.variations[variationIndex].svgs[index].y = event.target.attrs.y
+                                            prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
                                         })}
                                     />
                                 ))}
