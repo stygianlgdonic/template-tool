@@ -13,7 +13,7 @@ export const INITIAL_STATE = {
             name: "untitled",
             face: "",
             svgs: [{
-                id: "svg_default",
+                id: "svgs_default",
                 type: "svg",
                 svgString: ORIGINAL_SVG,
                 colorMap: { "#db5669": "#2c1e20", "#f26674": "#c50a1d", "#c4455e": "#45b9c4", "#ffde76": "#2a6a17" },
@@ -24,7 +24,7 @@ export const INITIAL_STATE = {
                 draggable: true,
             }],
             shapes: [{
-                id: 'shape_background',
+                id: 'shapes_background',
                 type: "rectangle",
                 x: 0,
                 y: 0,
@@ -32,7 +32,9 @@ export const INITIAL_STATE = {
                 height: stageDimensions.height,
                 fill: '#559955',
                 draggable: false,
-            }]
+            }],
+            textBoxes: [],
+            images: []
         }
     ],
 }
