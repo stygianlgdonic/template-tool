@@ -25,7 +25,7 @@ const DesignTool: React.FC = () => {
 
     const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
-    const [templateData, setTemplateData] = useContext(TemplateContext)
+    const [templateData, setTemplateData, { goForward, goBack, stepNum }] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -63,6 +63,15 @@ const DesignTool: React.FC = () => {
             setColorMap(templateData.variations[variationIndex].svgs[svgIndex].colorMap)
         }
     }, [selectedId])
+
+    const onUndo = () => {
+        !!setSelectedId && setSelectedId(null);
+        stepNum > 1 && goBack();
+    };
+    const onRedo = () => {
+        !!setSelectedId && setSelectedId(null);
+        stepNum < history.length - 1 && goForward();
+    };
 
     const handleSvgElementColorChange = (oldColor, newColor) => {
         setColorMap({
@@ -203,6 +212,20 @@ const DesignTool: React.FC = () => {
 
                 {/* Center column */}
                 <div>
+                    <div className="flex justify-center">
+                        <div className="flex justify-center">
+                            <button
+                                onClick={onUndo}
+                                className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            >Undo</button>
+                        </div>
+                        <div className="flex justify-center">
+                            <button
+                                onClick={onRedo}
+                                className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            >Redo</button>
+                        </div>
+                    </div>
                     <div className="flex justify-center mt-5">
                         <Stage
                             {...stageDimensions}

@@ -46,11 +46,11 @@ export const TemplateContext = createContext(null)
 
 export const TemplateProvider = ({ children }) => {
 
-    const [templateData, setTemplateData] = useImmerState(INITIAL_STATE)
+    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
 
     return (
         <TemplateContext.Provider
-            value={[templateData, setTemplateData]}
+            value={[templateData, setTemplateData, { goForward, goBack, stepNum, history }]}
         >
             {children}
         </TemplateContext.Provider >
