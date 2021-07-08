@@ -6,3 +6,6 @@ export const defaultCircle = { x: 200, y: 100, radius: 50, fill: '#FF0000', drag
 export const defaultPolygon = { x: 100, y: 150, sides: 6, radius: 70, fill: 'red', type: "polygon" }
 export const defaultTriangle = { x: 20, y: 200, points: [0, 100, 50, 0, 100, 100], tension: 0, closed: true, fill: "red", type: "line", }
 export const defaultTextBox = { text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text" }
+export const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo']
+export const fontSizeArray = [{ name: "Header", size: 40, }, { name: "Sub header", size: 25, }, { name: "body text", size: 15, }]
+

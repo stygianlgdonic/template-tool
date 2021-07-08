@@ -17,6 +17,7 @@ import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
 import swal from "sweetalert"
 import SideBar from './SideBar';
+import WebFont from "webfontloader";
 
 const DesignTool: React.FC = () => {
 
@@ -34,10 +35,24 @@ const DesignTool: React.FC = () => {
     const colors = svg.getColors(svgString);
     const [colorMap, setColorMap] = useState({});
 
+    const handleEscape = (e) => {
+        if (e.key === "Escape") {
+            setSelectedId(null)
+            setIsOpenColorPicker(false)
+            setIsEditTextBox(false)
+        }
+    }
+
     useEffect(() => {
-        document.addEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
+        document.addEventListener("keydown", handleEscape, false);
+        WebFont.load({
+            google: {
+                families: ['Comfortaa', 'Josefin Sans', 'Euphoria Script', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Montserrat', 'Playfair Display', 'Press Start 2P', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo']
+            }
+        });
+
         return () => {
-            document.removeEventListener("keydown", (e) => e.key === "Escape" && setSelectedId(null), false);
+            document.removeEventListener("keydown", handleEscape, false);
         };
     }, []);
 
@@ -203,6 +218,7 @@ const DesignTool: React.FC = () => {
                                             onSelect={() => {
                                                 setSelectedId(rect.id)
                                             }}
+                                            onEditClick={handleEditSelectedItem}
                                             onChange={(newAttrs) => {
                                                 setTemplateData((prev) => {
                                                     const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === rect.id)
@@ -220,6 +236,7 @@ const DesignTool: React.FC = () => {
                                             onSelect={() => {
                                                 setSelectedId(circle.id)
                                             }}
+                                            onEditClick={handleEditSelectedItem}
                                             onChange={(newAttrs) => {
                                                 setTemplateData((prev) => {
                                                     const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === circle.id)
@@ -237,6 +254,7 @@ const DesignTool: React.FC = () => {
                                             onSelect={() => {
                                                 setSelectedId(line.id)
                                             }}
+                                            onEditClick={handleEditSelectedItem}
                                             onChange={(newAttrs) => {
                                                 setTemplateData((prev) => {
                                                     const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === line.id)
@@ -254,6 +272,7 @@ const DesignTool: React.FC = () => {
                                             onSelect={() => {
                                                 setSelectedId(polygon.id)
                                             }}
+                                            onEditClick={handleEditSelectedItem}
                                             onChange={(newAttrs) => {
                                                 setTemplateData((prev) => {
                                                     const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === polygon.id)
@@ -270,6 +289,7 @@ const DesignTool: React.FC = () => {
                                         onSelect={() => {
                                             setSelectedId(item.id)
                                         }}
+                                        onEditClick={handleEditSelectedItem}
                                         onChange={(event) => setTemplateData((prev) => {
                                             prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
                                         })}
@@ -282,6 +302,7 @@ const DesignTool: React.FC = () => {
                                         onSelect={() => {
                                             setSelectedId(item.id)
                                         }}
+                                        onEditClick={handleEditSelectedItem}
                                         onChange={(event) => setTemplateData((prev) => {
                                             prev.variations[variationIndex].textBoxes[index] = { ...event.target.attrs }
                                         })}
