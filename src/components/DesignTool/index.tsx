@@ -1,14 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Stage, Layer } from 'react-konva';
 import { stageDimensions } from "../../utils/defaults"
 import * as svg from "./../../utils/svg"
-import Rectangle from "./Rectangle"
-import UCircle from "./UCircle"
-import UPolygon from "./UPolygon"
-import ULine from "./ULine"
-import USvg from "./USvg"
-import UText from "./UText"
-import TransformerComponent from "./UTransformer"
 import { TemplateContext } from '../../contexts/TemplateContext';
 import EditTextBox from "../tailwindComponents/EditTextBox"
 import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
@@ -19,6 +11,7 @@ import swal from "sweetalert"
 import SideBar from './SideBar';
 import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
+import MainStage from './MainStage';
 
 const DesignTool: React.FC = () => {
 
@@ -230,114 +223,14 @@ const DesignTool: React.FC = () => {
                         selectedId={selectedId}
                     />
                     <div className="flex justify-center mt-5">
-                        <Stage
-                            {...stageDimensions}
-                        >
-                            <Layer>
-                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
-                                    return (
-                                        <Rectangle
-                                            key={i}
-                                            shapeProps={rect}
-                                            onSelect={() => {
-                                                setSelectedId(rect.id)
-                                            }}
-                                            onEditClick={handleEditSelectedItem}
-                                            onChange={(newAttrs) => {
-                                                setTemplateData((prev) => {
-                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === rect.id)
-                                                    prev.variations[variationIndex].shapes[index] = newAttrs
-                                                });
-                                            }}
-                                        />
-                                    );
-                                })}
-                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "circle")?.map((circle, i) => {
-                                    return (
-                                        <UCircle
-                                            key={i}
-                                            shapeProps={circle}
-                                            onSelect={() => {
-                                                setSelectedId(circle.id)
-                                            }}
-                                            onEditClick={handleEditSelectedItem}
-                                            onChange={(newAttrs) => {
-                                                setTemplateData((prev) => {
-                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === circle.id)
-                                                    prev.variations[variationIndex].shapes[index] = newAttrs
-                                                });
-                                            }}
-                                        />
-                                    );
-                                })}
-                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "line")?.map((line, i) => {
-                                    return (
-                                        <ULine
-                                            key={i}
-                                            shapeProps={line}
-                                            onSelect={() => {
-                                                setSelectedId(line.id)
-                                            }}
-                                            onEditClick={handleEditSelectedItem}
-                                            onChange={(newAttrs) => {
-                                                setTemplateData((prev) => {
-                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === line.id)
-                                                    prev.variations[variationIndex].shapes[index] = newAttrs
-                                                });
-                                            }}
-                                        />
-                                    );
-                                })}
-                                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "polygon")?.map((polygon, i) => {
-                                    return (
-                                        <UPolygon
-                                            key={i}
-                                            shapeProps={polygon}
-                                            onSelect={() => {
-                                                setSelectedId(polygon.id)
-                                            }}
-                                            onEditClick={handleEditSelectedItem}
-                                            onChange={(newAttrs) => {
-                                                setTemplateData((prev) => {
-                                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === polygon.id)
-                                                    prev.variations[variationIndex].shapes[index] = newAttrs
-                                                });
-                                            }}
-                                        />
-                                    );
-                                })}
-                                {templateData.variations[variationIndex].svgs?.map((item, index) => (
-                                    <USvg
-                                        key={index}
-                                        svgProps={item}
-                                        onSelect={() => {
-                                            setSelectedId(item.id)
-                                        }}
-                                        onEditClick={handleEditSelectedItem}
-                                        onChange={(event) => setTemplateData((prev) => {
-                                            prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
-                                        })}
-                                    />
-                                ))}
-                                {templateData.variations[variationIndex].textBoxes?.map((item, index) => (
-                                    <UText
-                                        key={index}
-                                        textProps={item}
-                                        onSelect={() => {
-                                            setSelectedId(item.id)
-                                        }}
-                                        onEditClick={handleEditSelectedItem}
-                                        onChange={(event) => setTemplateData((prev) => {
-                                            prev.variations[variationIndex].textBoxes[index] = { ...event.target.attrs }
-                                        })}
-                                    />
-                                ))}
-                                <TransformerComponent
-                                    id={`tr${selectedId}`}
-                                    selectedShapeName={selectedId}
-                                />
-                            </Layer>
-                        </Stage>
+                        <MainStage
+                            templateData={templateData}
+                            setTemplateData={setTemplateData}
+                            variationIndex={variationIndex}
+                            selectedId={selectedId}
+                            setSelectedId={setSelectedId}
+                            handleEditSelectedItem={handleEditSelectedItem}
+                        />
                     </div>
 
                     <div className="flex justify-center mt-5">
