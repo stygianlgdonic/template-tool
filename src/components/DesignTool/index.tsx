@@ -69,8 +69,11 @@ const DesignTool: React.FC = () => {
         stepNum > 1 && goBack();
     };
     const onRedo = () => {
+
+        console.log({ stepNum, len: (history.length) })
+
         !!setSelectedId && setSelectedId(null);
-        stepNum < history.length - 1 && goForward();
+        stepNum < (history.length - 1) && goForward();
     };
 
     const handleSvgElementColorChange = (oldColor, newColor) => {
@@ -133,7 +136,7 @@ const DesignTool: React.FC = () => {
         if (templateData.variations.length < 4) {
             setTemplateData(prev => {
                 prev.variations.push(templateData.variations[variationIndex])
-            })
+            }, false)
             setVariationIndex(prev => (prev + 1))
         } else {
             swal("Cannot create more than 4 variations!")
