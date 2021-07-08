@@ -92,31 +92,33 @@ const DesignTool: React.FC = () => {
         setIsOpenColorPicker(false)
     }
 
-    const checkDeselect = (e) => {
-        // deselect when clicked on empty area
-        const clickedOnEmpty = e.target === e.target.getStage()
-        if (clickedOnEmpty) {
-            setSelectedId(null)
-        }
-    };
-
-    const handleColorChange = (color) => {
+    const handleGradientColorChange = (color1: string, color2: string) => {
+        console.log({ color1, color2 })
         setTemplateData((prev) => {
             const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
-            prev.variations[variationIndex].shapes[index].fill = color
+
+            const fillLinearGradientColorStops = [0, color1, 1, color2]
+            const fillLinearGradientStartPoint = { x: 0, y: 0 }
+            const fillLinearGradientEndPoint = {
+                x: selectedId === "shapes_background" ? stageDimensions.width : 100,
+                y: selectedId === "shapes_background" ? stageDimensions.height : 100
+            }
+            prev.variations[variationIndex].shapes[index] = {
+                ...prev.variations[variationIndex].shapes[index],
+                fill: "",
+                fillLinearGradientStartPoint,
+                fillLinearGradientEndPoint,
+                fillLinearGradientColorStops,
+            }
         })
     }
 
-    const handleGradientColorChange = (color1: string, color2: string) => {
-        const fillLinearGradientColorStops = [0, color1, 1, color2]
-
-        setTemplateData((prev) => {
+    const handleStrokeChange = (width: number, strokeColor: string) => {
+        setTemplateData(prev => {
             const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
-            prev.variations[variationIndex].shapes[index] = {
-                ...prev.variations[variationIndex].shapes[index],
-                fill: undefined,
-                fillLinearGradientColorStops,
-            }
+            prev.variations[variationIndex].shapes[index].stroke = strokeColor
+            prev.variations[variationIndex].shapes[index].strokeWidth = width
+            console.log({ ...prev.variations[variationIndex].shapes[index] })
         })
     }
 
@@ -179,8 +181,8 @@ const DesignTool: React.FC = () => {
                     handleGradientColorChange={handleGradientColorChange}
                     currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
-                    handleColorChange={handleColorChange}
                     handleCloseColorPicker={handleCloseColorPicker}
+                    handleStrokeChange={handleStrokeChange}
                 />
             )}
 
@@ -226,8 +228,6 @@ const DesignTool: React.FC = () => {
                     <div className="flex justify-center mt-5">
                         <Stage
                             {...stageDimensions}
-                            onMouseDown={checkDeselect}
-                            onTouchStart={checkDeselect}
                         >
                             <Layer>
                                 {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {

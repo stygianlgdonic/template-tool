@@ -7,9 +7,9 @@ interface Props {
     variationIndex: number
     currentSelectedColor: string
     currentPalette: { name: string, color: string }[]
-    handleColorChange: (color: string) => void
     handleCloseColorPicker: () => void
     handleGradientColorChange: (color1: string, color2: string) => void
+    handleStrokeChange: (width: number, color: string) => void
 }
 
 const ShapeColorSelector: React.FC<Props> = ({
@@ -18,14 +18,16 @@ const ShapeColorSelector: React.FC<Props> = ({
     variationIndex,
     currentSelectedColor,
     currentPalette,
-    handleColorChange,
     handleGradientColorChange,
-    handleCloseColorPicker
+    handleCloseColorPicker,
+    handleStrokeChange
 }) => {
 
-    const [currentColor, setCurrentColor] = useState("#000000")
-    const [gradColor1, setGradColor1] = useState("#000000")
-    const [gradColor2, setGradColor2] = useState("#000000")
+    const [currentColor, setCurrentColor] = useState<string>("#000000")
+    const [gradColor1, setGradColor1] = useState<string>("#000000")
+    const [gradColor2, setGradColor2] = useState<string>("#000000")
+    const [strokeColor, setStrokeColor] = useState<string>("#000000")
+    const [strokeWidth, setStrokeWidth] = useState<number>(0)
 
     React.useEffect(() => {
         setCurrentColor(currentSelectedColor)
@@ -33,11 +35,14 @@ const ShapeColorSelector: React.FC<Props> = ({
 
     React.useEffect(() => {
         if (selectedId.split('_')[0] === "shapes") {
-            const gradientColors = templateData.variations[variationIndex].shapes.find(
+            const selectedShape = templateData.variations[variationIndex].shapes.find(
                 item => item.id === selectedId
-            ).fillLinearGradientColorStops
+            )
+            const gradientColors = selectedShape.fillLinearGradientColorStops
             setGradColor1(gradientColors ? gradientColors[1] : currentSelectedColor)
             setGradColor2(gradientColors ? gradientColors[3] : currentSelectedColor)
+            setStrokeWidth(!!selectedShape.strokeWidth ? selectedShape.strokeWidth : 0)
+            setStrokeColor(!!selectedShape.stroke ? selectedShape.stroke : "#000000")
         }
     }, [selectedId])
 
@@ -48,11 +53,8 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleSave = () => {
-        if (selectedId === "shapes_background") {
-            handleGradientColorChange(gradColor1, gradColor2)
-        } else {
-            handleColorChange(currentColor)
-        }
+        handleGradientColorChange(gradColor1, gradColor2)
+        handleStrokeChange(strokeWidth, strokeColor)
         handleCloseColorPicker()
     }
 
@@ -65,6 +67,16 @@ const ShapeColorSelector: React.FC<Props> = ({
 
                 <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
+                            <p>Border width: </p>
+                            <input type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
+                            <p>Borer color:</p>
+                            <SketchPicker
+                                width="150px"
+                                color={strokeColor}
+                                onChange={(color) => setStrokeColor(color.hex)}
+                            />
+                        </div>
                         <div>
                             {currentPalette.map((item, index) => (
                                 <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
@@ -84,7 +96,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                             />
                         </div>
                     </div>
-                    <div className={selectedId === "shapes_background" ? "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" : "hidden"}>
+                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <b>Gradient:</b>
                         <div className="grid grid-cols-2">
                             <div>
