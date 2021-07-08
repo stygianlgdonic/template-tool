@@ -10,6 +10,7 @@ interface Props {
     handleCloseColorPicker: () => void
     handleGradientColorChange: (color1: string, color2: string) => void
     handleStrokeChange: (width: number, color: string) => void
+    handleCornerRadiusChange: (radius: number) => void
 }
 
 const ShapeColorSelector: React.FC<Props> = ({
@@ -20,7 +21,8 @@ const ShapeColorSelector: React.FC<Props> = ({
     currentPalette,
     handleGradientColorChange,
     handleCloseColorPicker,
-    handleStrokeChange
+    handleStrokeChange,
+    handleCornerRadiusChange
 }) => {
 
     const [currentColor, setCurrentColor] = useState<string>("#000000")
@@ -28,6 +30,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     const [gradColor2, setGradColor2] = useState<string>("#000000")
     const [strokeColor, setStrokeColor] = useState<string>("#000000")
     const [strokeWidth, setStrokeWidth] = useState<number>(0)
+    const [cornerRadius, setCornerRadius] = useState<number>(0)
 
     React.useEffect(() => {
         setCurrentColor(currentSelectedColor)
@@ -43,6 +46,11 @@ const ShapeColorSelector: React.FC<Props> = ({
             setGradColor2(gradientColors ? gradientColors[3] : currentSelectedColor)
             setStrokeWidth(!!selectedShape.strokeWidth ? selectedShape.strokeWidth : 0)
             setStrokeColor(!!selectedShape.stroke ? selectedShape.stroke : "#000000")
+
+            const shapeType = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId).type
+            if (shapeType === "rectangle") {
+                setCornerRadius(!!selectedShape.cornerRadius ? selectedShape.cornerRadius : 0)
+            }
         }
     }, [selectedId])
 
@@ -55,6 +63,10 @@ const ShapeColorSelector: React.FC<Props> = ({
     const handleSave = () => {
         handleGradientColorChange(gradColor1, gradColor2)
         handleStrokeChange(strokeWidth, strokeColor)
+        const shapeType = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId).type
+        if (shapeType === "rectangle") {
+            handleCornerRadiusChange(cornerRadius)
+        }
         handleCloseColorPicker()
     }
 
@@ -69,7 +81,9 @@ const ShapeColorSelector: React.FC<Props> = ({
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
                             <p>Border width: </p>
-                            <input type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
+                            <input className="border mb-5" type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
+                            <p>Corner radius:</p>
+                            <input className="border mb-5" type="number" value={cornerRadius} onChange={e => setCornerRadius(parseInt(e.target.value))} />
                             <p>Borer color:</p>
                             <SketchPicker
                                 width="150px"

@@ -70,9 +70,6 @@ const DesignTool: React.FC = () => {
         stepNum > 1 && goBack();
     };
     const onRedo = () => {
-
-        console.log({ stepNum, len: (history.length) })
-
         !!setSelectedId && setSelectedId(null);
         stepNum < (history.length - 1) && goForward();
     };
@@ -93,7 +90,6 @@ const DesignTool: React.FC = () => {
     }
 
     const handleGradientColorChange = (color1: string, color2: string) => {
-        console.log({ color1, color2 })
         setTemplateData((prev) => {
             const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
 
@@ -118,7 +114,13 @@ const DesignTool: React.FC = () => {
             const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
             prev.variations[variationIndex].shapes[index].stroke = strokeColor
             prev.variations[variationIndex].shapes[index].strokeWidth = width
-            console.log({ ...prev.variations[variationIndex].shapes[index] })
+        })
+    }
+
+    const handleCornerRadiusChange = (radius: number) => {
+        setTemplateData(prev => {
+            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
+            prev.variations[variationIndex].shapes[index].cornerRadius = radius
         })
     }
 
@@ -184,6 +186,7 @@ const DesignTool: React.FC = () => {
                     currentPalette={templateData.palette}
                     handleCloseColorPicker={handleCloseColorPicker}
                     handleStrokeChange={handleStrokeChange}
+                    handleCornerRadiusChange={handleCornerRadiusChange}
                 />
             )}
 
