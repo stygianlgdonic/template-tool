@@ -38,9 +38,9 @@ const DesignTool: React.FC = () => {
 
     const handleEscape = (e) => {
         if (e.key === "Escape") {
-            setSelectedId(null)
             setIsOpenColorPicker(false)
             setIsEditTextBox(false)
+            setSelectedId(null)
         }
     }
 
@@ -149,6 +149,7 @@ const DesignTool: React.FC = () => {
     const handleEditSelectedItem = () => {
         if (selectedId.split("_")[0] === "textBoxes") {
             setIsEditTextBox(true)
+            return
         }
         setIsOpenColorPicker(true)
     }
