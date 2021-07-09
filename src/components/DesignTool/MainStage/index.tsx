@@ -168,7 +168,10 @@ const MainStage = ({
     };
 
     const _onDragMove = e => {
-        $layer.current.find(".guid-line").destroy();
+        const linesArray = $layer.current.find(".guid-line")
+        if (!!linesArray.length) {
+            linesArray[0].destroy()
+        }
         const lineGuideStops = getLineGuideStops(e.target);
         const itemBounds = getObjectSnappingEdges(e.target);
         const guides = getGuides(lineGuideStops, itemBounds);
@@ -233,7 +236,10 @@ const MainStage = ({
     };
 
     const _onDragEnd = e => {
-        $layer.current.find(".guid-line").destroy();
+        const linesArray = $layer.current.find(".guid-line")
+        if (!!linesArray.length) {
+            linesArray.forEach(item => item.destroy())
+        }
         $layer.current.batchDraw();
     };
 
