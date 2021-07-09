@@ -175,9 +175,6 @@ const MainStage = ({
         const lineGuideStops = getLineGuideStops(e.target);
         const itemBounds = getObjectSnappingEdges(e.target);
         const guides = getGuides(lineGuideStops, itemBounds);
-        console.log(lineGuideStops, "1");
-        console.log(itemBounds, "2");
-        console.log(guides, "3");
         if (!guides.length) {
             return;
         }

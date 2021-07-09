@@ -131,13 +131,13 @@ const DesignTool: React.FC = () => {
     }
 
     const handleAddVariation = () => {
-        if (templateData.variations.length < 4) {
+        if (templateData.variations.length < 3) {
             setTemplateData(prev => {
                 prev.variations.push(templateData.variations[variationIndex])
             }, false)
             setVariationIndex(prev => (prev + 1))
         } else {
-            swal("Cannot create more than 4 variations!")
+            swal("Cannot create more than 3 variations!")
         }
     }
 
@@ -163,8 +163,13 @@ const DesignTool: React.FC = () => {
         setIsEditTextBox(false)
     }
 
+    const handleUploadImage = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
     return (
-        <div>
+        <div className="min-w-max">
             <div className="h-20 mb-5 flex flex-wrap justify-center content-center bg-green-800">
                 <p className="text-xl text-white">Tempalte Design</p>
             </div>

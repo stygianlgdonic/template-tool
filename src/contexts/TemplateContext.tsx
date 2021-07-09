@@ -12,19 +12,9 @@ export const INITIAL_STATE = {
         {
             name: "untitled",
             face: "",
-            textBoxes: [{ id: "textBoxes_default", text: 'New text', x: 150, y: 180, fontSize: 20, draggable: true, width: 200, type: "text" }],
+            textBoxes: [],
             images: [],
-            svgs: [{
-                id: "svgs_default",
-                type: "svg",
-                svgString: ORIGINAL_SVG,
-                colorMap: { "#db5669": "#2c1e20", "#f26674": "#c50a1d", "#c4455e": "#45b9c4", "#ffde76": "#2a6a17" },
-                x: 10,
-                y: 20,
-                width: 100,
-                height: 100,
-                draggable: true,
-            }],
+            svgs: [],
             shapes: [{
                 id: 'shapes_background',
                 type: "rectangle",
