@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { SketchPicker } from "react-color"
+import { useFileUpload } from 'use-file-upload'
 
 interface Props {
     selectedId: string
     templateData: any
+    setTemplateData: any
     variationIndex: number
     currentSelectedColor: string
     currentPalette: { name: string, color: string }[]
@@ -16,6 +18,7 @@ interface Props {
 const ShapeColorSelector: React.FC<Props> = ({
     selectedId,
     templateData,
+    setTemplateData,
     variationIndex,
     currentSelectedColor,
     currentPalette,
@@ -24,6 +27,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     handleStrokeChange,
     handleCornerRadiusChange
 }) => {
+    const [file, selectFile] = useFileUpload()
 
     const [currentColor, setCurrentColor] = useState<string>("#000000")
     const [gradColor1, setGradColor1] = useState<string>("#000000")
@@ -68,6 +72,24 @@ const ShapeColorSelector: React.FC<Props> = ({
             handleCornerRadiusChange(cornerRadius)
         }
         handleCloseColorPicker()
+    }
+
+    // TODO - figure out this image clipping for all shapes
+    const handleFillImagePattern = () => {
+        selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
+            ({ file }: any) => {
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+
+                reader.onload = () => {
+                    //base64encoded string => reader.result
+                    setTemplateData((prev) => {
+                        const selectedShape = prev.variations[variationIndex].shapes[selectedId.split("_")[0]].find(item => item.id === selectedId)
+                        selectedShape.patternImageUrl = reader.result
+                    })
+                };
+            })
     }
 
     return (
@@ -133,6 +155,14 @@ const ShapeColorSelector: React.FC<Props> = ({
                                     />
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div className="flex justify-center">
+                            <button
+                                className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                                onClick={handleFillImagePattern}
+                            >Insert image</button>
                         </div>
                     </div>
 

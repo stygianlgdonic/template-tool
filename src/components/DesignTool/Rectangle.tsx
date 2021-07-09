@@ -10,6 +10,10 @@ interface Props {
 
 const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick }) => {
 
+    const { patternImageUrl, ...restProps } = shapeProps
+
+    // TODO - patternImageUrl thing tbd
+
     return (
         <React.Fragment>
             <Rect
@@ -30,7 +34,7 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClic
                         y: e.target.y(),
                     });
                 }}
-                {...shapeProps}
+                {...restProps}
             />
         </React.Fragment>
     );

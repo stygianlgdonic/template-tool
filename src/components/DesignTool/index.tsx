@@ -163,11 +163,6 @@ const DesignTool: React.FC = () => {
         setIsEditTextBox(false)
     }
 
-    const handleUploadImage = (e) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-    }
-
     return (
         <div className="min-w-max">
             <div className="h-20 mb-5 flex flex-wrap justify-center content-center bg-green-800">
@@ -178,6 +173,7 @@ const DesignTool: React.FC = () => {
                 <ShapeColorSelector
                     selectedId={selectedId}
                     templateData={templateData}
+                    setTemplateData={setTemplateData}
                     variationIndex={variationIndex}
                     handleGradientColorChange={handleGradientColorChange}
                     currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}

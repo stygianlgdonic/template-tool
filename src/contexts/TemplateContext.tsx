@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 import { useImmerState } from '@shrugsy/use-immer-state';
-import { ORIGINAL_SVG, stageDimensions } from '../utils/defaults';
+import { stageDimensions } from '../utils/defaults';
 
 export const INITIAL_STATE = {
     palette: [
