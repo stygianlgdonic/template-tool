@@ -1,5 +1,5 @@
 import React from 'react'
-import { defaultCircle, defaultImage, defaultPolygon, defaultRect, defaultRoundedRect, defaultTextBox, defaultTriangle } from '../../../utils/defaults';
+import { defaultCircle, defaultImage, defaultPolygon, defaultRect, defaultRoundedRect, defaultSvg, defaultTextBox, defaultTriangle } from '../../../utils/defaults';
 import * as svg from "../../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
 
@@ -46,15 +46,8 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
                 prev.variations[variationIndex].svgs.push({
 
                     id: `svgs_${svgId.toString()}`,
-                    type: "svg",
                     svgString: SVG_STRING,
-                    colorMap: {},
-                    x: 100,
-                    y: 200,
-                    width: 100,
-                    height: 100,
-                    draggable: true,
-
+                    ...defaultSvg
                 })
             })
         })
