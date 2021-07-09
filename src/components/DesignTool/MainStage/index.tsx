@@ -24,8 +24,8 @@ const MainStage = ({
     const $layer = useRef(null)
 
     const getLineGuideStops = skipShape => {
-        const vertical = [0, stageDimensions.width / 2, stageDimensions.width];
-        const horizontal = [0, stageDimensions.height / 2, stageDimensions.height];
+        const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
+        const horizontal: any = [0, stageDimensions.height / 2, stageDimensions.height];
 
         // and we snap over edges and center of each object on the canvas
         $stage.current.find(".object").forEach(guideItem => {
@@ -34,8 +34,8 @@ const MainStage = ({
             }
             const box = guideItem.getClientRect();
             // and we can snap to all edges of shapes
-            vertical.push(box.x, box.x + box.width, box.x + box.width / 2);
-            horizontal.push(box.y, box.y + box.height, box.y + box.height / 2);
+            vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
+            horizontal.push([box.y, box.y + box.height, box.y + box.height / 2]);
         });
         return {
             vertical: vertical.flat(),
@@ -168,7 +168,7 @@ const MainStage = ({
     };
 
     const _onDragMove = e => {
-        // $layer.current.find(".guid-line").destroy();
+        $layer.current.find(".guid-line").destroy();
         const lineGuideStops = getLineGuideStops(e.target);
         const itemBounds = getObjectSnappingEdges(e.target);
         const guides = getGuides(lineGuideStops, itemBounds);
@@ -233,7 +233,7 @@ const MainStage = ({
     };
 
     const _onDragEnd = e => {
-        // $layer.current.find(".guid-line").destroy();
+        $layer.current.find(".guid-line").destroy();
         $layer.current.batchDraw();
     };
 
