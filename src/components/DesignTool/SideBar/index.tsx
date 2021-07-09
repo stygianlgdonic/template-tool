@@ -62,7 +62,7 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
 
     const handleImageUpload = () => {
         selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
-            ({ source, name, size, file }) => {
+            ({ file }: any) => {
 
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
