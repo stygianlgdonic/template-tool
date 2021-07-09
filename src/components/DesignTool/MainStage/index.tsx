@@ -9,6 +9,7 @@ import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import { stageDimensions } from '../../../utils/defaults';
 import Konva from 'konva';
+import UImage from '../UImage';
 
 const MainStage = ({
     templateData,
@@ -332,6 +333,18 @@ const MainStage = ({
                         onEditClick={handleEditSelectedItem}
                         onChange={(event) => setTemplateData((prev) => {
                             prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
+                        })}
+                    />
+                ))}
+                {templateData.variations[variationIndex].images?.map((item, index) => (
+                    <UImage
+                        key={index}
+                        imageProps={item}
+                        onSelect={() => {
+                            setSelectedId(item.id)
+                        }}
+                        onChange={(event) => setTemplateData((prev) => {
+                            prev.variations[variationIndex].images[index] = JSON.parse(JSON.stringify(event.target.attrs))
                         })}
                     />
                 ))}

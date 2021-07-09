@@ -25,6 +25,7 @@
         "react-konva": "^17.0.2-4",
         "react-router-dom": "^5.1.2",
         "sweetalert": "^2.1.2",
+        "use-file-upload": "^1.0.9",
         "use-image": "^1.0.7",
         "webfontloader": "^1.6.28"
     },

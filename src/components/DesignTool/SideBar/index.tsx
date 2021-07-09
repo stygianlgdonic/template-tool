@@ -1,8 +1,10 @@
 import React from 'react'
-import { defaultCircle, defaultPolygon, defaultRect, defaultRoundedRect, defaultTextBox, defaultTriangle } from '../../../utils/defaults';
+import { defaultCircle, defaultImage, defaultPolygon, defaultRect, defaultRoundedRect, defaultTextBox, defaultTriangle } from '../../../utils/defaults';
 import * as svg from "../../../utils/svg"
+import { useFileUpload } from 'use-file-upload'
 
 const SideBar = ({ variationIndex, setTemplateData }) => {
+    const [file, selectFile] = useFileUpload()
 
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
@@ -58,12 +60,33 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
         })
     }
 
-    const handleAddNewText = () => [
+    const handleImageUpload = () => {
+        selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
+            ({ source, name, size, file }) => {
+                // file - is the raw File Object
+                console.log({ source, name, size, file })
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+
+                reader.onload = () => {
+                    //base64encoded string
+                    setTemplateData((prev) => {
+                        prev.variations[variationIndex].images.push({
+                            ...defaultImage,
+                            src: reader.result
+                        })
+                    })
+                };
+            })
+    }
+
+    const handleAddNewText = () => {
         setTemplateData((prev) => {
             let textID = new Date().getTime();
             prev.variations[variationIndex].textBoxes.push({ ...defaultTextBox, id: `textBoxes_${textID.toString()}` })
         })
-    ]
+    }
 
     return (
         <div>
@@ -99,14 +122,20 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
                 >Add new Rounded Square</button>
             </div>
             <div className="flex justify-center">
+                <button
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                    onClick={handleAddNewText}
+                >Add new Text</button>
+            </div>
+            <div className="flex justify-center">
                 <p>upload svg</p>
                 <input className="" type="file" accept=".svg" onChange={handleSvgUpload} />
             </div>
             <div className="flex justify-center">
                 <button
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                    onClick={handleAddNewText}
-                >Add new Text</button>
+                    onClick={handleImageUpload}
+                >Upload image</button>
             </div>
 
         </div>
