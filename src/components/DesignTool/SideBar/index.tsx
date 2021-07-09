@@ -63,8 +63,6 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
     const handleImageUpload = () => {
         selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
             ({ source, name, size, file }) => {
-                // file - is the raw File Object
-                console.log({ source, name, size, file })
 
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -72,9 +70,11 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
                 reader.onload = () => {
                     //base64encoded string
                     setTemplateData((prev) => {
+                        let imageID = new Date().getTime();
                         prev.variations[variationIndex].images.push({
                             ...defaultImage,
-                            src: reader.result
+                            src: reader.result,
+                            id: `images_${imageID.toString()}`
                         })
                     })
                 };

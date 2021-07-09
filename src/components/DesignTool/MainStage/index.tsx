@@ -332,7 +332,10 @@ const MainStage = ({
                         }}
                         onEditClick={handleEditSelectedItem}
                         onChange={(event) => setTemplateData((prev) => {
-                            prev.variations[variationIndex].svgs[index] = JSON.parse(JSON.stringify(event.target.attrs))
+                            prev.variations[variationIndex].svgs[index] = {
+                                ...prev.variations[variationIndex].svgs[index],
+                                ...JSON.parse(JSON.stringify(event.target.attrs))
+                            }
                         })}
                     />
                 ))}
@@ -344,7 +347,10 @@ const MainStage = ({
                             setSelectedId(item.id)
                         }}
                         onChange={(event) => setTemplateData((prev) => {
-                            prev.variations[variationIndex].images[index] = JSON.parse(JSON.stringify(event.target.attrs))
+                            prev.variations[variationIndex].images[index] = {
+                                ...prev.variations[variationIndex].images[index],
+                                ...JSON.parse(JSON.stringify(event.target.attrs))
+                            }
                         })}
                     />
                 ))}
