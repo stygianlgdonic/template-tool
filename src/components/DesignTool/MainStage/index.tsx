@@ -23,6 +23,7 @@ const MainStage = ({
     const GUIDELINE_OFFSET = 5
     const $stage = useRef(null)
     const $layer = useRef(null)
+    const $tr = useRef(null)
 
     const getLineGuideStops = skipShape => {
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
@@ -369,6 +370,7 @@ const MainStage = ({
                 ))}
                 <TransformerComponent
                     id={`tr${selectedId}`}
+                    $tr={$tr}
                     selectedShapeName={selectedId}
                 />
             </Layer>

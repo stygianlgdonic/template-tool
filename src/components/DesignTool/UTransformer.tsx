@@ -7,30 +7,30 @@ export const MIN_HEIGHT = 30
 interface Props {
     id: any
     selectedShapeName: any
+    $tr: any
 }
 
-const TransformerComponent: React.FC<Props> = ({ id, selectedShapeName }) => {
+const TransformerComponent: React.FC<Props> = ({ id, selectedShapeName, $tr }) => {
 
-    const transformer = useRef(null)
     useEffect(() => {
         checkNode();
     }, [selectedShapeName])
     const checkNode = () => {
-        const stage = transformer.current.getStage();
+        const stage = $tr.current.getStage();
         const selectedNode = stage.findOne("#" + selectedShapeName);
         if (selectedNode) {
-            transformer.current.nodes([selectedNode])
+            $tr.current.nodes([selectedNode])
         } else {
-            transformer.current.detach();
+            $tr.current.detach();
         }
-        transformer.current.getLayer().batchDraw();
+        $tr.current.getLayer().batchDraw();
     }
 
     return (
         <>
             <Transformer
                 id={id}
-                ref={transformer}
+                ref={$tr}
                 boundBoxFunc={(oldBox, newBox) => {
                     if (selectedShapeName === "shapes_background") return oldBox
                     if (newBox.width < MIN_WIDTH) {
