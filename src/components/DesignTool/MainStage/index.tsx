@@ -20,7 +20,7 @@ const MainStage = ({
     handleEditSelectedItem,
 }) => {
 
-    const [GUIDELINE_OFFSET, setGUIDELINE_OFFSET] = useState(5)
+    const GUIDELINE_OFFSET = 5
     const $stage = useRef(null)
     const $layer = useRef(null)
 
