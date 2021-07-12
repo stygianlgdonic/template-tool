@@ -2,9 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { stageDimensions } from "../../utils/defaults"
 import * as svg from "./../../utils/svg"
 import { TemplateContext } from '../../contexts/TemplateContext';
-// import EditTextBox from "../tailwindComponents/EditTextBox"
-// import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
-// import SvgColorSelector from "../tailwindComponents/SvgColorSelector"
 import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
 import swal from "sweetalert"
@@ -103,11 +100,12 @@ const DesignTool: React.FC = () => {
         })
     }
 
-    const handleStrokeChange = (width: number, strokeColor: string) => {
+    const handleRectPropsChange = (width: number, strokeColor: string, opacity: number) => {
         setTemplateData(prev => {
             const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
             prev.variations[variationIndex].shapes[index].stroke = strokeColor
             prev.variations[variationIndex].shapes[index].strokeWidth = width
+            prev.variations[variationIndex].shapes[index].opacity = opacity
         })
     }
 
@@ -235,7 +233,7 @@ const DesignTool: React.FC = () => {
                         handleEditSelectedItem={handleEditSelectedItem}
                         handleDeleteSelectedItem={handleDeleteSelectedItem}
                         handleGradientColorChange={handleGradientColorChange}
-                        handleStrokeChange={handleStrokeChange}
+                        handleRectPropsChange={handleRectPropsChange}
                         handleCornerRadiusChange={handleCornerRadiusChange}
                         handleSvgElementColorChange={handleSvgElementColorChange}
                         colors={colors}

@@ -14,7 +14,7 @@ const EditingTools = ({
     handleEditSelectedItem,
     handleDeleteSelectedItem,
     handleGradientColorChange,
-    handleStrokeChange,
+    handleRectPropsChange,
     handleCornerRadiusChange,
     handleSvgElementColorChange,
     colors,
@@ -46,7 +46,7 @@ const EditingTools = ({
                     currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
                     handleCloseColorPicker={handleCloseColorPicker}
-                    handleStrokeChange={handleStrokeChange}
+                    handleRectPropsChange={handleRectPropsChange}
                     handleCornerRadiusChange={handleCornerRadiusChange}
                 />
             )}

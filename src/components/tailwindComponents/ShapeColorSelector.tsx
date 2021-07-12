@@ -11,7 +11,7 @@ interface Props {
     currentPalette: { name: string, color: string }[]
     handleCloseColorPicker: () => void
     handleGradientColorChange: (color1: string, color2: string) => void
-    handleStrokeChange: (width: number, color: string) => void
+    handleRectPropsChange: (width: number, color: string, opacity: number) => void
     handleCornerRadiusChange: (radius: number) => void
 }
 
@@ -24,7 +24,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     currentPalette,
     handleGradientColorChange,
     handleCloseColorPicker,
-    handleStrokeChange,
+    handleRectPropsChange,
     handleCornerRadiusChange
 }) => {
     const [file, selectFile] = useFileUpload()
@@ -35,6 +35,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     const [strokeColor, setStrokeColor] = useState<string>("#000000")
     const [strokeWidth, setStrokeWidth] = useState<number>(0)
     const [cornerRadius, setCornerRadius] = useState<number>(0)
+    const [opacity, setOpacity] = useState<number>(1)
 
     React.useEffect(() => {
         setCurrentColor(currentSelectedColor)
@@ -50,6 +51,7 @@ const ShapeColorSelector: React.FC<Props> = ({
             setGradColor2(gradientColors ? gradientColors[3] : currentSelectedColor)
             setStrokeWidth(!!selectedShape.strokeWidth ? selectedShape.strokeWidth : 0)
             setStrokeColor(!!selectedShape.stroke ? selectedShape.stroke : "#000000")
+            setOpacity(!!selectedShape.opacity ? selectedShape.opacity : 1)
 
             const shapeType = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId).type
             if (shapeType === "rectangle") {
@@ -66,7 +68,7 @@ const ShapeColorSelector: React.FC<Props> = ({
 
     const handleSave = () => {
         handleGradientColorChange(gradColor1, gradColor2)
-        handleStrokeChange(strokeWidth, strokeColor)
+        handleRectPropsChange(strokeWidth, strokeColor, opacity)
         const shapeType = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId).type
         if (shapeType === "rectangle") {
             handleCornerRadiusChange(cornerRadius)
@@ -100,6 +102,8 @@ const ShapeColorSelector: React.FC<Props> = ({
                     <input className="border mb-5" type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
                     <p>Corner radius:</p>
                     <input className="border mb-5" type="number" value={cornerRadius} onChange={e => setCornerRadius(parseInt(e.target.value))} />
+                    <p>Opacity: </p>
+                    <input className="border mb-5" type="number" value={opacity} step={0.1} min={0.1} max={1.0} onChange={e => setOpacity(parseFloat(e.target.value))} />
                     <p>Borer color:</p>
                     <SketchPicker
                         width="150px"
