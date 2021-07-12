@@ -93,88 +93,80 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     return (
-        <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-                <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-                <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
-                            <p>Border width: </p>
-                            <input className="border mb-5" type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
-                            <p>Corner radius:</p>
-                            <input className="border mb-5" type="number" value={cornerRadius} onChange={e => setCornerRadius(parseInt(e.target.value))} />
-                            <p>Borer color:</p>
-                            <SketchPicker
-                                width="150px"
-                                color={strokeColor}
-                                onChange={(color) => setStrokeColor(color.hex)}
-                            />
+        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
+                    <p>Border width: </p>
+                    <input className="border mb-5" type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
+                    <p>Corner radius:</p>
+                    <input className="border mb-5" type="number" value={cornerRadius} onChange={e => setCornerRadius(parseInt(e.target.value))} />
+                    <p>Borer color:</p>
+                    <SketchPicker
+                        width="150px"
+                        color={strokeColor}
+                        onChange={(color) => setStrokeColor(color.hex)}
+                    />
+                </div>
+                <div>
+                    {currentPalette.map((item, index) => (
+                        <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
+                            <p className="w-48">Select {item.name}</p> <div
+                                className="w-10 h-10 border border-black"
+                                style={{ backgroundColor: item.color }}
+                                onClick={() => handleCurrentColorChange(item.color)}
+                            ></div>
                         </div>
-                        <div>
-                            {currentPalette.map((item, index) => (
-                                <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
-                                    <p className="w-48">Select {item.name}</p> <div
-                                        className="w-10 h-10 border border-black"
-                                        style={{ backgroundColor: item.color }}
-                                        onClick={() => handleCurrentColorChange(item.color)}
-                                    ></div>
-                                </div>
-                            ))}
-                        </div>
+                    ))}
+                </div>
+                <div className="sm:flex sm:items-start">
+                    <SketchPicker
+                        width="100%"
+                        color={currentColor}
+                        onChange={(color) => handleCurrentColorChange(color.hex)}
+                    />
+                </div>
+            </div>
+            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <b>Gradient:</b>
+                <div className="grid grid-cols-2">
+                    <div>
+                        <p>Color 1</p>
                         <div className="sm:flex sm:items-start">
                             <SketchPicker
-                                width="100%"
-                                color={currentColor}
-                                onChange={(color) => handleCurrentColorChange(color.hex)}
+                                width="150px"
+                                color={gradColor1}
+                                onChange={(color) => setGradColor1(color.hex)}
                             />
                         </div>
                     </div>
-                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <b>Gradient:</b>
-                        <div className="grid grid-cols-2">
-                            <div>
-                                <p>Color 1</p>
-                                <div className="sm:flex sm:items-start">
-                                    <SketchPicker
-                                        width="150px"
-                                        color={gradColor1}
-                                        onChange={(color) => setGradColor1(color.hex)}
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <p>Color 2</p>
-                                <div className="sm:flex sm:items-start">
-                                    <SketchPicker
-                                        width="150px"
-                                        color={gradColor2}
-                                        onChange={(color) => setGradColor2(color.hex)}
-                                    />
-                                </div>
-                            </div>
+                    <div>
+                        <p>Color 2</p>
+                        <div className="sm:flex sm:items-start">
+                            <SketchPicker
+                                width="150px"
+                                color={gradColor2}
+                                onChange={(color) => setGradColor2(color.hex)}
+                            />
                         </div>
-                    </div>
-                    <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div className="flex justify-center">
-                            <button
-                                className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                                onClick={handleFillImagePattern}
-                            >Insert image</button>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <button
-                            onClick={handleSave}
-                            type="button"
-                            className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                            Done
-                        </button>
                     </div>
                 </div>
+            </div>
+            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="flex justify-center">
+                    <button
+                        className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                        onClick={handleFillImagePattern}
+                    >Insert image</button>
+                </div>
+            </div>
+
+            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button
+                    onClick={handleSave}
+                    type="button"
+                    className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Done
+                </button>
             </div>
         </div>
     )

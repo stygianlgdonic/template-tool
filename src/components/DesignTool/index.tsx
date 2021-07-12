@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { stageDimensions } from "../../utils/defaults"
 import * as svg from "./../../utils/svg"
 import { TemplateContext } from '../../contexts/TemplateContext';
-import EditTextBox from "../tailwindComponents/EditTextBox"
-import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
-import SvgColorSelector from "../tailwindComponents/SvgColorSelector"
+// import EditTextBox from "../tailwindComponents/EditTextBox"
+// import ShapeColorSelector from "../tailwindComponents/ShapeColorSelector"
+// import SvgColorSelector from "../tailwindComponents/SvgColorSelector"
 import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
 import swal from "sweetalert"
@@ -12,6 +12,7 @@ import SideBar from './SideBar';
 import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
+import EditingTools from './EditingTools';
 
 const DesignTool: React.FC = () => {
 
@@ -169,45 +170,12 @@ const DesignTool: React.FC = () => {
                 <p className="text-xl text-white">Tempalte Design</p>
             </div>
 
-            {isOpenColorPicker && selectedId?.split('_')[0] === "shapes" && (
-                <ShapeColorSelector
-                    selectedId={selectedId}
-                    templateData={templateData}
-                    setTemplateData={setTemplateData}
-                    variationIndex={variationIndex}
-                    handleGradientColorChange={handleGradientColorChange}
-                    currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
-                    currentPalette={templateData.palette}
-                    handleCloseColorPicker={handleCloseColorPicker}
-                    handleStrokeChange={handleStrokeChange}
-                    handleCornerRadiusChange={handleCornerRadiusChange}
-                />
-            )}
-
-            {isOpenColorPicker && selectedId?.split('_')[0] === "svgs" && (
-                <SvgColorSelector
-                    colors={colors}
-                    colorMap={colorMap}
-                    currentPalette={templateData.palette}
-                    handleSvgElementColorChange={handleSvgElementColorChange}
-                    handleSaveSvg={handleSaveSvg}
-                />
-            )}
-
             {showSaveVariationModal && (
                 <SaveVariation
                     templateData={templateData}
                     handleSaveVariation={handleSaveVariation}
                 />
             )}
-
-            {isEditTextBox && <EditTextBox
-                selectedId={selectedId}
-                templateData={templateData}
-                setTemplateData={setTemplateData}
-                variationIndex={variationIndex}
-                handleCloseEditTextModal={handleCloseEditTextModal}
-            />}
 
             <div className="grid grid-cols-3 gap-4">
 
@@ -256,18 +224,25 @@ const DesignTool: React.FC = () => {
 
                 {/* third col */}
                 <div className={selectedId ? "" : "hidden"}>
-                    <div className="flex justify-center">
-                        <button
-                            onClick={handleEditSelectedItem}
-                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                        >Edit</button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button
-                            onClick={handleDeleteSelectedItem}
-                            className={selectedId === "shape_background" ? "hidden" : "inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"}
-                        >Delete</button>
-                    </div>
+                    <EditingTools
+                        selectedId={selectedId}
+                        isOpenColorPicker={isOpenColorPicker}
+                        handleCloseColorPicker={handleCloseColorPicker}
+                        isEditTextBox={isEditTextBox}
+                        templateData={templateData}
+                        setTemplateData={setTemplateData}
+                        variationIndex={variationIndex}
+                        handleEditSelectedItem={handleEditSelectedItem}
+                        handleDeleteSelectedItem={handleDeleteSelectedItem}
+                        handleGradientColorChange={handleGradientColorChange}
+                        handleStrokeChange={handleStrokeChange}
+                        handleCornerRadiusChange={handleCornerRadiusChange}
+                        handleSvgElementColorChange={handleSvgElementColorChange}
+                        colors={colors}
+                        colorMap={colorMap}
+                        handleSaveSvg={handleSaveSvg}
+                        handleCloseEditTextModal={handleCloseEditTextModal}
+                    />
                 </div>
 
             </div>
