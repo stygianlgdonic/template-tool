@@ -31,7 +31,6 @@ const TransformerComponent: React.FC<Props> = ({ id, selectedShapeName }) => {
             <Transformer
                 id={id}
                 ref={transformer}
-                padding={5}
                 boundBoxFunc={(oldBox, newBox) => {
                     if (selectedShapeName === "shapes_background") return oldBox
                     if (newBox.width < MIN_WIDTH) {

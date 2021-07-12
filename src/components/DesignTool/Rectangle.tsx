@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rect } from 'react-konva';
+import useImage from "use-image"
 
 interface Props {
     shapeProps: any
@@ -11,8 +12,18 @@ interface Props {
 const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick }) => {
 
     const { patternImageUrl, ...restProps } = shapeProps
+    const [image] = useImage(patternImageUrl || null)
 
-    // TODO - patternImageUrl thing tbd
+    console.log({ image })
+
+    const rectWidth = restProps.width;
+    const rectHeight = restProps.height;
+    const imageWidth = image ? image.width : 10;
+    const imageHeight = image ? image.height : 10;
+    const patternScale = Math.max(
+        rectWidth / imageWidth,
+        rectHeight / imageHeight
+    );
 
     return (
         <React.Fragment>
@@ -35,6 +46,11 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClic
                     });
                 }}
                 {...restProps}
+                fillPatternImage={image}
+                fillPatternOffset={{ x: 0, y: 0 }}
+                fillPatternScaleX={patternScale}
+                fillPatternScaleY={patternScale}
+                fillPatternRepeat="no-repeat"
             />
         </React.Fragment>
     );
