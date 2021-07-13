@@ -1,23 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SketchPicker } from "react-color"
+import * as svg from "../../utils/svg"
 
 interface Props {
-    colors: string[]
-    colorMap: any
-    currentPalette: { name: string, color: string }[]
-    handleSvgElementColorChange: any
-    handleSaveSvg: any
+    selectedId: string
+    templateData: any
+    setTemplateData: any
+    variationIndex: number
 }
 
 const SvgColorSelector: React.FC<Props> = ({
-    colors,
-    colorMap,
-    currentPalette,
-    handleSvgElementColorChange,
-    handleSaveSvg
+    selectedId,
+    templateData,
+    setTemplateData,
+    variationIndex
 }) => {
 
-    const [currentColor, setCurrentColor] = React.useState(null)
+    const [currentColor, setCurrentColor] = useState("#171717")
+
+    const svgData = templateData.variations[variationIndex].svgs.find(item => item.id === selectedId)
+    const colors = svg.getColors(svgData.svgString);
+    const colorMap = svgData.colorMap
+
+    const handleSvgElementColorChange = (oldColor: string, newColor: string) => {
+        setTemplateData(prev => {
+            prev.variations[variationIndex].svgs.find(item => item.id === selectedId)
+                .colorMap[oldColor] = newColor
+        })
+    }
 
     return (
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
@@ -28,7 +38,7 @@ const SvgColorSelector: React.FC<Props> = ({
                         <div key={index} className="h-10 m-5 inline-block" >
                             <div
                                 className="w-10 h-10 border border-black"
-                                style={{ backgroundColor: colorMap[item] || item }}
+                                style={{ backgroundColor: svgData.colorMap[item] || item }}
                                 onClick={() => setCurrentColor(item)}
                             ></div>
                         </div>
@@ -36,10 +46,10 @@ const SvgColorSelector: React.FC<Props> = ({
 
                 </div>
                 <div className={!!currentColor ? "" : "hidden"}>
-                    {currentPalette.map((item, index) => (
+                    {templateData.palette.map((item, index) => (
                         <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
                             <p className="w-48">Select {item.name}</p> <div
-                                className="w-10 h-10 border border-black"
+                                className={"w-10 h-10 border border-black " + (currentColor === item.color && "opacity-50")}
                                 style={{ backgroundColor: item.color }}
                                 onClick={() => handleSvgElementColorChange(currentColor, item.color)}
                             ></div>
@@ -53,14 +63,6 @@ const SvgColorSelector: React.FC<Props> = ({
                         onChange={(color) => handleSvgElementColorChange(currentColor, color.hex)}
                     />
                 </div>
-            </div>
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button
-                    onClick={handleSaveSvg}
-                    type="button"
-                    className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                    Done
-                </button>
             </div>
         </div>
     )

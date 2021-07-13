@@ -22,10 +22,10 @@ const DesignTool: React.FC = () => {
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
 
-    // NOTE - for svgs
-    const [svgString, setSvgString] = useState<string | null>(null)
-    const colors = svg.getColors(svgString);
-    const [colorMap, setColorMap] = useState({});
+    // // NOTE - for svgs
+    // const [svgString, setSvgString] = useState<string | null>(null)
+    // const colors = svg.getColors(svgString);
+    // const [colorMap, setColorMap] = useState({});
 
     const handleEscape = (e) => {
         if (e.key === "Escape") {
@@ -48,13 +48,13 @@ const DesignTool: React.FC = () => {
         };
     }, []);
 
-    useEffect(() => {
-        if (selectedId?.split("_")[0] === "svgs") {
-            const svgIndex = templateData.variations[variationIndex].svgs?.findIndex(item => item.id === selectedId)
-            setSvgString(templateData.variations[variationIndex].svgs[svgIndex].svgString)
-            setColorMap(templateData.variations[variationIndex].svgs[svgIndex].colorMap)
-        }
-    }, [selectedId])
+    // useEffect(() => {
+    //     if (selectedId?.split("_")[0] === "svgs") {
+    //         const svgIndex = templateData.variations[variationIndex].svgs?.findIndex(item => item.id === selectedId)
+    //         setSvgString(templateData.variations[variationIndex].svgs[svgIndex].svgString)
+    //         setColorMap(templateData.variations[variationIndex].svgs[svgIndex].colorMap)
+    //     }
+    // }, [selectedId])
 
     const onUndo = () => {
         !!setSelectedId && setSelectedId(null);
@@ -65,62 +65,20 @@ const DesignTool: React.FC = () => {
         stepNum < (history.length - 1) && goForward();
     };
 
-    const handleSvgElementColorChange = (oldColor, newColor) => {
-        setColorMap({
-            ...colorMap,
-            [oldColor]: newColor
-        });
-    }
+    // const handleSvgElementColorChange = (oldColor, newColor) => {
+    //     setColorMap({
+    //         ...colorMap,
+    //         [oldColor]: newColor
+    //     });
+    // }
 
-    const handleSaveSvg = () => {
-        setTemplateData(prev => {
-            prev.variations[variationIndex].svgs.find(item => item.id === selectedId).colorMap = colorMap
-        })
-        setSelectedId(null)
-        setIsOpenColorPicker(false)
-    }
-
-    const handleGradientColorChange = (color1: string, color2: string) => {
-        setTemplateData((prev) => {
-            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
-
-            const fillLinearGradientColorStops = [0, color1, 1, color2]
-            const fillLinearGradientStartPoint = { x: 0, y: 0 }
-            const fillLinearGradientEndPoint = {
-                x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                y: selectedId === "shapes_background" ? stageDimensions.height : 100
-            }
-            prev.variations[variationIndex].shapes[index] = {
-                ...prev.variations[variationIndex].shapes[index],
-                fill: "",
-                fillLinearGradientStartPoint,
-                fillLinearGradientEndPoint,
-                fillLinearGradientColorStops,
-                patternImageUrl: undefined
-            }
-        })
-    }
-
-    const handleRectPropsChange = (width: number, strokeColor: string, opacity: number) => {
-        setTemplateData(prev => {
-            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
-            prev.variations[variationIndex].shapes[index].stroke = strokeColor
-            prev.variations[variationIndex].shapes[index].strokeWidth = width
-            prev.variations[variationIndex].shapes[index].opacity = opacity
-        })
-    }
-
-    const handleCornerRadiusChange = (radius: number) => {
-        setTemplateData(prev => {
-            const index = prev.variations[variationIndex].shapes?.findIndex(shape => shape.id === selectedId)
-            prev.variations[variationIndex].shapes[index].cornerRadius = radius
-        })
-    }
-
-    const handleCloseColorPicker = () => {
-        setIsOpenColorPicker(false)
-        setSelectedId(null)
-    }
+    // const handleSaveSvg = () => {
+    //     setTemplateData(prev => {
+    //         prev.variations[variationIndex].svgs.find(item => item.id === selectedId).colorMap = colorMap
+    //     })
+    //     setSelectedId(null)
+    //     setIsOpenColorPicker(false)
+    // }
 
     const handleSaveVariation = (variationData: any) => {
         setTemplateData(prev => {
@@ -226,20 +184,16 @@ const DesignTool: React.FC = () => {
                     <EditingTools
                         selectedId={selectedId}
                         isOpenColorPicker={isOpenColorPicker}
-                        handleCloseColorPicker={handleCloseColorPicker}
                         isEditTextBox={isEditTextBox}
                         templateData={templateData}
                         setTemplateData={setTemplateData}
                         variationIndex={variationIndex}
                         handleEditSelectedItem={handleEditSelectedItem}
                         handleDeleteSelectedItem={handleDeleteSelectedItem}
-                        handleGradientColorChange={handleGradientColorChange}
-                        handleRectPropsChange={handleRectPropsChange}
-                        handleCornerRadiusChange={handleCornerRadiusChange}
-                        handleSvgElementColorChange={handleSvgElementColorChange}
-                        colors={colors}
-                        colorMap={colorMap}
-                        handleSaveSvg={handleSaveSvg}
+                        // handleSvgElementColorChange={handleSvgElementColorChange}
+                        // colors={colors}
+                        // colorMap={colorMap}
+                        // handleSaveSvg={handleSaveSvg}
                         handleCloseEditTextModal={handleCloseEditTextModal}
                     />
                 </div>

@@ -11,6 +11,8 @@ import { stageDimensions } from '../../../utils/defaults';
 import Konva from 'konva';
 import UImage from '../UImage';
 
+declare const window: any
+
 const MainStage = ({
     templateData,
     setTemplateData,
@@ -24,6 +26,17 @@ const MainStage = ({
     const $stage = useRef(null)
     const $layer = useRef(null)
     const $tr = useRef(null)
+    const selectionRectRef = useRef(null);
+    const selection = useRef({
+        visible: false,
+        x1: 0,
+        y1: 0,
+        x2: 0,
+        y2: 0
+    });
+
+    const [nodesArray, setNodes] = useState([]);
+    const Konva = window.Konva;
 
     const getLineGuideStops = skipShape => {
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
@@ -242,9 +255,131 @@ const MainStage = ({
         $layer.current.batchDraw();
     };
 
+    const checkDeselect = (e) => {
+        // deselect when clicked on empty area
+        const clickedOnEmpty = e.target === e.target.getStage();
+        if (clickedOnEmpty) {
+            setSelectedId(null);
+            $tr.current.nodes([]);
+            setNodes([]);
+            // layerRef.current.remove(selectionRectangle);
+        }
+    };
+
+    const updateSelectionRect = () => {
+        const node = selectionRectRef.current;
+        node.setAttrs({
+            visible: selection.current.visible,
+            x: Math.min(selection.current.x1, selection.current.x2),
+            y: Math.min(selection.current.y1, selection.current.y2),
+            width: Math.abs(selection.current.x1 - selection.current.x2),
+            height: Math.abs(selection.current.y1 - selection.current.y2),
+            fill: "rgba(0, 161, 255, 0.3)"
+        });
+        node.getLayer().batchDraw();
+    };
+
+    const oldPos = React.useRef(null);
+    const onMouseDown = (e) => {
+        const isElement = e.target.findAncestor(".elements-container");
+        const isTransformer = e.target.findAncestor("Transformer");
+        if (isElement || isTransformer) {
+            return;
+        }
+
+        const pos = e.target.getStage().getPointerPosition();
+        selection.current.visible = true;
+        selection.current.x1 = pos.x;
+        selection.current.y1 = pos.y;
+        selection.current.x2 = pos.x;
+        selection.current.y2 = pos.y;
+        updateSelectionRect();
+    };
+
+    const onMouseMove = (e) => {
+        if (!selection.current.visible) {
+            return;
+        }
+        const pos = e.target.getStage().getPointerPosition();
+        selection.current.x2 = pos.x;
+        selection.current.y2 = pos.y;
+        updateSelectionRect();
+    };
+
+    const onMouseUp = () => {
+        oldPos.current = null;
+        if (!selection.current.visible) {
+            return;
+        }
+        const selBox = selectionRectRef.current.getClientRect();
+
+        const elements = [];
+        $layer.current.find(".object").forEach((elementNode) => {
+            const elBox = elementNode.getClientRect();
+            if (Konva.Util.haveIntersection(selBox, elBox)) {
+                elements.push(elementNode);
+            }
+        });
+        $tr.current.nodes(elements);
+        selection.current.visible = false;
+        // disable click event
+        Konva.listenClickTap = false;
+        updateSelectionRect();
+    };
+
+    const onClickTap = (e) => {
+        // if we are selecting with rect, do nothing
+        if (selectionRectRef.current.visible()) {
+            return;
+        }
+        let stage = e.target.getStage();
+        let layer = $layer.current;
+        let tr = $tr.current;
+        // if click on empty area - remove all selections
+        if (e.target === stage) {
+            setSelectedId(null);
+            setNodes([]);
+            tr.nodes([]);
+            layer.draw();
+            return;
+        }
+
+        // do nothing if clicked NOT on our rectangles
+        if (!e.target.hasName(".object")) {
+            return;
+        }
+
+        // do we pressed shift or ctrl?
+        const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+        const isSelected = tr.nodes().indexOf(e.target) >= 0;
+
+        if (!metaPressed && !isSelected) {
+            // if no key pressed and the node is not selected
+            // select just one
+            tr.nodes([e.target]);
+        } else if (metaPressed && isSelected) {
+            // if we pressed keys and node was selected
+            // we need to remove it from selection:
+            const nodes = tr.nodes().slice(); // use slice to have new copy of array
+            // remove node from array
+            nodes.splice(nodes.indexOf(e.target), 1);
+            tr.nodes(nodes);
+        } else if (metaPressed && !isSelected) {
+            // add the node into selection
+            const nodes = tr.nodes().concat([e.target]);
+            tr.nodes(nodes);
+        }
+        layer.draw();
+    };
+
     return (
         <Stage
             ref={$stage}
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
+            onTouchStart={checkDeselect}
+            onClick={onClickTap}
             {...stageDimensions}
         >
             <Layer
@@ -254,17 +389,26 @@ const MainStage = ({
             >
                 <Rect
                     {...templateData.variations[variationIndex].background}
-                    onClick={() => setSelectedId(templateData.variations[variationIndex].background.id)}
-                    onDblClick={handleEditSelectedItem}
                 />
                 {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                     return (
                         <Rectangle
                             key={i}
                             shapeProps={rect}
-                            onSelect={() => {
-                                setSelectedId(rect.id)
+                            onSelect={(e) => {
+                                if (e.current !== undefined) {
+                                    let temp = nodesArray;
+                                    if (!nodesArray.includes(e.current)) temp.push(e.current);
+                                    setNodes(temp);
+                                    $tr.current.nodes(nodesArray);
+                                    $tr.current.nodes(nodesArray);
+                                    $tr.current.getLayer().batchDraw();
+                                }
+                                setSelectedId(rect.id);
                             }}
+                            // onSelect={() => {
+                            //     setSelectedId(rect.id)
+                            // }}
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
@@ -378,6 +522,7 @@ const MainStage = ({
                     $tr={$tr}
                     selectedShapeName={selectedId}
                 />
+                <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
             </Layer>
         </Stage>
     )

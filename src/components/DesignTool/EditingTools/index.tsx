@@ -6,22 +6,22 @@ import SvgColorSelector from '../../tailwindComponents/SvgColorSelector'
 const EditingTools = ({
     selectedId,
     isOpenColorPicker,
-    handleCloseColorPicker,
     isEditTextBox,
     templateData,
     setTemplateData,
     variationIndex,
     handleEditSelectedItem,
     handleDeleteSelectedItem,
-    handleGradientColorChange,
-    handleRectPropsChange,
-    handleCornerRadiusChange,
-    handleSvgElementColorChange,
-    colors,
-    colorMap,
-    handleSaveSvg,
+    // handleSvgElementColorChange,
+    // colors,
+    // colorMap,
+    // handleSaveSvg,
     handleCloseEditTextModal
 }) => {
+
+    // const [svgString, setSvgString] = useState<string | null>(null)
+    // const [colorMap, setColorMap] = useState({});
+
     return (
         <div className="h-screen overflow-y-scroll">
             <div className="flex justify-center">
@@ -42,22 +42,16 @@ const EditingTools = ({
                     templateData={templateData}
                     setTemplateData={setTemplateData}
                     variationIndex={variationIndex}
-                    handleGradientColorChange={handleGradientColorChange}
-                    currentSelectedColor={templateData.variations[variationIndex].shapes?.find(item => item.id === selectedId)?.fill || "#000000"}
                     currentPalette={templateData.palette}
-                    handleCloseColorPicker={handleCloseColorPicker}
-                    handleRectPropsChange={handleRectPropsChange}
-                    handleCornerRadiusChange={handleCornerRadiusChange}
                 />
             )}
 
             {isOpenColorPicker && selectedId?.split('_')[0] === "svgs" && (
                 <SvgColorSelector
-                    colors={colors}
-                    colorMap={colorMap}
-                    currentPalette={templateData.palette}
-                    handleSvgElementColorChange={handleSvgElementColorChange}
-                    handleSaveSvg={handleSaveSvg}
+                    selectedId={selectedId}
+                    templateData={templateData}
+                    setTemplateData={setTemplateData}
+                    variationIndex={variationIndex}
                 />
             )}
 

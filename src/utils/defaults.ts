@@ -7,7 +7,7 @@ export const defaultRoundedRect = { name: "object", x: 150, y: 250, width: 100, 
 export const defaultCircle = { name: "object", x: 200, y: 100, radius: 50, stroke: "#000000", strokeWidth: 4, fill: '#FF0000', draggable: true, type: "circle" }
 export const defaultPolygon = { name: "object", x: 100, y: 150, sides: 6, stroke: "#000000", strokeWidth: 4, radius: 70, fill: '#FF0000', type: "polygon" }
 export const defaultTriangle = { name: "object", x: 20, y: 200, stroke: "#000000", strokeWidth: 4, fill: "#FF0000", points: [0, 100, 50, 0, 100, 100], tension: 0, closed: true, type: "line", }
-export const defaultTextBox = { text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text" }
+export const defaultTextBox = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text" }
 export const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo']
 export const fontSizeArray = [{ name: "Header", size: 40, }, { name: "Sub header", size: 25, }, { name: "body text", size: 15, }]
 
