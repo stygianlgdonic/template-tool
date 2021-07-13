@@ -143,6 +143,7 @@ const ShapeColorSelector: React.FC<Props> = ({
             setTemplateData(prev => {
                 const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
                 selectedShape.fill = color
+                selectedShape.patternImageUrl = undefined
             })
         }
     }
@@ -157,6 +158,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                 selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
                 selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
                 selectedShape.fillLinearGradientEndPoint = { x: 100, y: 100 }
+                selectedShape.patternImageUrl = undefined
             })
         }
     }
@@ -235,12 +237,12 @@ const ShapeColorSelector: React.FC<Props> = ({
                                 width="150px"
                                 color={selectedShapeData?.fillLinearGradientColorStops ?
                                     selectedShapeData?.fillLinearGradientColorStops[1] :
-                                    selectedShapeData?.fill}
+                                    "#171717"}
                                 onChange={(color) => handleGradientColor(
                                     color.hex,
                                     selectedShapeData?.fillLinearGradientColorStops ?
                                         selectedShapeData?.fillLinearGradientColorStops[3] :
-                                        selectedShapeData?.fill)}
+                                        "#171717")}
                             />
                         </div>
                     </div>
