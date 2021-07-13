@@ -42,6 +42,19 @@ const ShapeColorSelector: React.FC<Props> = ({
     }, [currentSelectedColor])
 
     React.useEffect(() => {
+        if (selectedId === "shapes_background") {
+
+            const selectedShape = templateData.variations[variationIndex].background
+            const gradientColors = selectedShape.fillLinearGradientColorStops
+            setGradColor1(gradientColors ? gradientColors[1] : currentSelectedColor)
+            setGradColor2(gradientColors ? gradientColors[3] : currentSelectedColor)
+            setStrokeWidth(!!selectedShape.strokeWidth ? selectedShape.strokeWidth : 0)
+            setStrokeColor(!!selectedShape.stroke ? selectedShape.stroke : "#000000")
+            setOpacity(!!selectedShape.opacity ? selectedShape.opacity : 1)
+            setCornerRadius(!!selectedShape.cornerRadius ? selectedShape.cornerRadius : 0)
+
+            return
+        }
         if (selectedId.split('_')[0] === "shapes") {
             const selectedShape = templateData.variations[variationIndex].shapes.find(
                 item => item.id === selectedId
@@ -60,21 +73,6 @@ const ShapeColorSelector: React.FC<Props> = ({
         }
     }, [selectedId])
 
-    const handleCurrentColorChange = (hexColor: string) => {
-        setCurrentColor(hexColor)
-        setGradColor1(hexColor)
-        setGradColor2(hexColor)
-    }
-
-    const handleSave = () => {
-        handleGradientColorChange(gradColor1, gradColor2)
-        handleRectPropsChange(strokeWidth, strokeColor, opacity)
-        const shapeType = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId).type
-        if (shapeType === "rectangle") {
-            handleCornerRadiusChange(cornerRadius)
-        }
-        handleCloseColorPicker()
-    }
 
     const handleFillImagePattern = () => {
         selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
@@ -94,21 +92,110 @@ const ShapeColorSelector: React.FC<Props> = ({
             })
     }
 
+    const handleStrokeWidthChange = e => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.strokeWidth = parseInt(e.target.value)
+            })
+        }
+    }
+
+    const handleCornerRadius = e => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.cornerRadius = parseInt(e.target.value)
+            })
+        }
+    }
+
+    const handleOpacity = e => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.opacity = parseFloat(e.target.value)
+            })
+        }
+    }
+
+    const handleStrokeColor = (color) => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.stroke = color.hex
+            })
+        }
+    }
+
+    const handleShapeFill = (color: string) => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.fill = color
+            })
+        }
+    }
+
+    const handleGradientColor = (color1: string, color2: string) => {
+        if (selectedId === "variation_background") {
+            return
+        } else {
+            setTemplateData(prev => {
+                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+                selectedShape.fill = ""
+                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
+                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
+                selectedShape.fillLinearGradientEndPoint = { x: 100, y: 100 }
+            })
+        }
+    }
+
+
+    const selectedShapeData = templateData.variations[variationIndex].shapes.find(item => item.id === selectedId)
+
     return (
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
+                <div className={selectedId !== "variation_background" ? "" : "hidden"}>
                     <p>Border width: </p>
-                    <input className="border mb-5" type="number" value={strokeWidth} onChange={e => setStrokeWidth(parseInt(e.target.value))} />
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        min={0}
+                        value={selectedShapeData?.strokeWidth}
+                        onChange={handleStrokeWidthChange}
+                    />
                     <p>Corner radius:</p>
-                    <input className="border mb-5" type="number" value={cornerRadius} onChange={e => setCornerRadius(parseInt(e.target.value))} />
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.cornerRadius}
+                        onChange={handleCornerRadius}
+                    />
                     <p>Opacity: </p>
-                    <input className="border mb-5" type="number" value={opacity} step={0.1} min={0.1} max={1.0} onChange={e => setOpacity(parseFloat(e.target.value))} />
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.opacity}
+                        step={0.1} min={0.1} max={1.0}
+                        onChange={handleOpacity}
+                    />
                     <p>Borer color:</p>
                     <SketchPicker
                         width="150px"
-                        color={strokeColor}
-                        onChange={(color) => setStrokeColor(color.hex)}
+                        color={selectedShapeData?.stroke}
+                        onChange={handleStrokeColor}
                     />
                 </div>
                 <div>
@@ -117,7 +204,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                             <p className="w-48">Select {item.name}</p> <div
                                 className="w-10 h-10 border border-black"
                                 style={{ backgroundColor: item.color }}
-                                onClick={() => handleCurrentColorChange(item.color)}
+                                onClick={() => handleShapeFill(item.color)}
                             ></div>
                         </div>
                     ))}
@@ -125,8 +212,8 @@ const ShapeColorSelector: React.FC<Props> = ({
                 <div className="sm:flex sm:items-start">
                     <SketchPicker
                         width="100%"
-                        color={currentColor}
-                        onChange={(color) => handleCurrentColorChange(color.hex)}
+                        color={selectedShapeData?.fill}
+                        onChange={(color) => handleShapeFill(color.hex)}
                     />
                 </div>
             </div>
@@ -146,8 +233,14 @@ const ShapeColorSelector: React.FC<Props> = ({
                         <div className="sm:flex sm:items-start">
                             <SketchPicker
                                 width="150px"
-                                color={gradColor1}
-                                onChange={(color) => setGradColor1(color.hex)}
+                                color={selectedShapeData?.fillLinearGradientColorStops ?
+                                    selectedShapeData?.fillLinearGradientColorStops[1] :
+                                    selectedShapeData?.fill}
+                                onChange={(color) => handleGradientColor(
+                                    color.hex,
+                                    selectedShapeData?.fillLinearGradientColorStops ?
+                                        selectedShapeData?.fillLinearGradientColorStops[3] :
+                                        selectedShapeData?.fill)}
                             />
                         </div>
                     </div>
@@ -156,21 +249,18 @@ const ShapeColorSelector: React.FC<Props> = ({
                         <div className="sm:flex sm:items-start">
                             <SketchPicker
                                 width="150px"
-                                color={gradColor2}
-                                onChange={(color) => setGradColor2(color.hex)}
+                                color={selectedShapeData?.fillLinearGradientColorStops ?
+                                    selectedShapeData?.fillLinearGradientColorStops[3] :
+                                    selectedShapeData?.fill}
+                                onChange={(color) => handleGradientColor(
+                                    selectedShapeData?.fillLinearGradientColorStops ?
+                                        selectedShapeData?.fillLinearGradientColorStops[1] :
+                                        selectedShapeData?.fill,
+                                    color.hex)}
                             />
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button
-                    onClick={handleSave}
-                    type="button"
-                    className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                    Done
-                </button>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Stage, Layer } from 'react-konva';
+import { Stage, Layer, Rect } from 'react-konva';
 import Rectangle from "../Rectangle"
 import UCircle from "../UCircle"
 import UPolygon from "../UPolygon"
@@ -252,6 +252,11 @@ const MainStage = ({
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
             >
+                <Rect
+                    {...templateData.variations[variationIndex].background}
+                    onClick={() => setSelectedId(templateData.variations[variationIndex].background.id)}
+                    onDblClick={handleEditSelectedItem}
+                />
                 {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                     return (
                         <Rectangle

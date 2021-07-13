@@ -12,11 +12,8 @@ export const INITIAL_STATE = {
         {
             name: "untitled",
             face: "",
-            textBoxes: [],
-            images: [],
-            svgs: [],
-            shapes: [{
-                id: 'shapes_background',
+            background: {
+                id: 'variation_background',
                 type: "rectangle",
                 x: 0,
                 y: 0,
@@ -27,7 +24,11 @@ export const INITIAL_STATE = {
                 fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
                 fillLinearGradientColorStops: [0, '#F0F0F0', 1, '#F0F0F0'],
                 draggable: false,
-            }],
+            },
+            textBoxes: [],
+            images: [],
+            svgs: [],
+            shapes: [],
         }
     ],
 }

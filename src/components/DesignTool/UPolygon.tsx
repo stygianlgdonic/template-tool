@@ -42,14 +42,16 @@ const UPolygon: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick
                 }}
                 onTransformEnd={(e) => {
                     onChange({
-                        ...e.target.attrs,
+                        ...shapeProps,
+                        scaleX: e.target.attrs.scaleX,
+                        scaleY: e.target.attrs.scaleY,
                     });
                 }}
                 {...restProps}
                 fillPatternImage={image}
-                fillPatternOffset={{ x: polRadius, y: polRadius }}
-                fillPatternScaleX={polRadius}
-                fillPatternScaleY={polRadius}
+                fillPatternOffset={{ x: 0, y: 0 }}
+                fillPatternScaleX={1}
+                fillPatternScaleY={1}
                 fillPatternRepeat="no-repeat"
             />
         </React.Fragment>
