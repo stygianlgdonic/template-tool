@@ -96,6 +96,7 @@ const DesignTool: React.FC = () => {
                 fillLinearGradientStartPoint,
                 fillLinearGradientEndPoint,
                 fillLinearGradientColorStops,
+                patternImageUrl: undefined
             }
         })
     }

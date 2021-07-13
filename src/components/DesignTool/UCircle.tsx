@@ -18,6 +18,7 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick 
                 onDblClick={onEditClick}
                 onDblTap={onEditClick}
                 draggable
+                strokeScaleEnabled={false}
                 onTransformEnd={(e) => {
                     onChange({
                         ...e.target.attrs,

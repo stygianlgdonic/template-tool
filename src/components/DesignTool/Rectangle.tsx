@@ -33,6 +33,7 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClic
                 onDblClick={onEditClick}
                 onDblTap={onEditClick}
                 draggable
+                strokeScaleEnabled={false}
                 onTransformEnd={(e) => {
                     // transformer is changing scale of the node
                     // and NOT its width or height

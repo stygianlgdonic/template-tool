@@ -18,6 +18,7 @@ const ULine: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick })
                 onDblClick={onEditClick}
                 onDblTap={onEditClick}
                 draggable
+                strokeScaleEnabled={false}
                 onDragEnd={(e) => {
                     onChange({
                         ...shapeProps,
