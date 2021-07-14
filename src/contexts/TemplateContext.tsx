@@ -13,7 +13,7 @@ export const INITIAL_STATE = {
             name: "untitled",
             face: "",
             background: {
-                id: 'variation_background',
+                id: 'shapes_background',
                 type: "rectangle",
                 x: 0,
                 y: 0,

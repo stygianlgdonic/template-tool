@@ -38,7 +38,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleStrokeWidthChange = e => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -49,7 +49,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleCornerRadius = e => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -60,7 +60,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleOpacity = e => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -71,7 +71,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleStrokeColor = (color) => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -82,7 +82,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleShapeFill = (color: string) => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -94,7 +94,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleGradientColor = (color1: string, color2: string) => {
-        if (selectedId === "variation_background") {
+        if (selectedId === "shapes_background") {
             return
         } else {
             setTemplateData(prev => {
@@ -114,7 +114,7 @@ const ShapeColorSelector: React.FC<Props> = ({
     return (
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className={selectedId !== "variation_background" ? "" : "hidden"}>
+                <div className={selectedId !== "shapes_background" ? "" : "hidden"}>
                     <p>Border width: </p>
                     <input
                         className="border mb-5"
