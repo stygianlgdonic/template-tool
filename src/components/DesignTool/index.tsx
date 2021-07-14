@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { stageDimensions } from "../../utils/defaults"
-import * as svg from "./../../utils/svg"
 import { TemplateContext } from '../../contexts/TemplateContext';
 import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
@@ -21,11 +19,6 @@ const DesignTool: React.FC = () => {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
-
-    // // NOTE - for svgs
-    // const [svgString, setSvgString] = useState<string | null>(null)
-    // const colors = svg.getColors(svgString);
-    // const [colorMap, setColorMap] = useState({});
 
     const handleEscape = (e) => {
         if (e.key === "Escape") {
@@ -48,14 +41,6 @@ const DesignTool: React.FC = () => {
         };
     }, []);
 
-    // useEffect(() => {
-    //     if (selectedId?.split("_")[0] === "svgs") {
-    //         const svgIndex = templateData.variations[variationIndex].svgs?.findIndex(item => item.id === selectedId)
-    //         setSvgString(templateData.variations[variationIndex].svgs[svgIndex].svgString)
-    //         setColorMap(templateData.variations[variationIndex].svgs[svgIndex].colorMap)
-    //     }
-    // }, [selectedId])
-
     const onUndo = () => {
         !!setSelectedId && setSelectedId(null);
         stepNum > 1 && goBack();
@@ -64,21 +49,6 @@ const DesignTool: React.FC = () => {
         !!setSelectedId && setSelectedId(null);
         stepNum < (history.length - 1) && goForward();
     };
-
-    // const handleSvgElementColorChange = (oldColor, newColor) => {
-    //     setColorMap({
-    //         ...colorMap,
-    //         [oldColor]: newColor
-    //     });
-    // }
-
-    // const handleSaveSvg = () => {
-    //     setTemplateData(prev => {
-    //         prev.variations[variationIndex].svgs.find(item => item.id === selectedId).colorMap = colorMap
-    //     })
-    //     setSelectedId(null)
-    //     setIsOpenColorPicker(false)
-    // }
 
     const handleSaveVariation = (variationData: any) => {
         setTemplateData(prev => {
@@ -190,10 +160,6 @@ const DesignTool: React.FC = () => {
                         variationIndex={variationIndex}
                         handleEditSelectedItem={handleEditSelectedItem}
                         handleDeleteSelectedItem={handleDeleteSelectedItem}
-                        // handleSvgElementColorChange={handleSvgElementColorChange}
-                        // colors={colors}
-                        // colorMap={colorMap}
-                        // handleSaveSvg={handleSaveSvg}
                         handleCloseEditTextModal={handleCloseEditTextModal}
                     />
                 </div>
