@@ -185,7 +185,7 @@ const MainStage = ({
     const _onDragMove = e => {
         const linesArray = $layer.current.find(".guid-line")
         if (!!linesArray.length) {
-            linesArray[0].destroy()
+            linesArray.forEach(item => item.destroy())
         }
         const lineGuideStops = getLineGuideStops(e.target);
         const itemBounds = getObjectSnappingEdges(e.target);
