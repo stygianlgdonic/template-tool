@@ -7,7 +7,7 @@
         "start": "concurrently \"yarn start:tsc\" \"razzle start\"",
         "build": "tsc -b && razzle build --noninteractive",
         "test": "razzle test --env=jsdom",
-        "start:prod": "NODE_ENV=production node build/server.js"
+        "start:prod": "node build/server.js"
     },
     "resolutions": {
         "postcss": "8.2.4"
