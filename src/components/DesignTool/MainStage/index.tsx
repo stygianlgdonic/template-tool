@@ -8,7 +8,6 @@ import USvg from "../USvg"
 import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import { stageDimensions } from '../../../utils/defaults';
-import Konva from 'konva';
 import UImage from '../UImage';
 
 declare const window: any
@@ -19,6 +18,7 @@ const MainStage = ({
     variationIndex,
     selectedId,
     setSelectedId,
+    unSelectAll,
     handleEditSelectedItem,
 }) => {
 
@@ -259,7 +259,7 @@ const MainStage = ({
         // deselect when clicked on empty area
         const clickedOnEmpty = e.target === e.target.getStage();
         if (clickedOnEmpty) {
-            setSelectedId(null);
+            unSelectAll();
             $tr.current.nodes([]);
             setNodes([]);
             // layerRef.current.remove(selectionRectangle);
@@ -337,7 +337,7 @@ const MainStage = ({
         let tr = $tr.current;
         // if click on empty area - remove all selections
         if (e.target === stage) {
-            setSelectedId(null);
+            unSelectAll();
             setNodes([]);
             tr.nodes([]);
             layer.draw();
@@ -387,9 +387,6 @@ const MainStage = ({
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
             >
-                <Rect
-                    {...templateData.variations[variationIndex].background}
-                />
                 {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                     return (
                         <Rectangle

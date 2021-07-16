@@ -12,7 +12,23 @@ export const INITIAL_STATE = {
         {
             name: "untitled",
             face: "",
-            background: {
+            // background: {
+            //     id: 'shapes_background',
+            //     type: "rectangle",
+            //     x: 0,
+            //     y: 0,
+            //     width: stageDimensions.width,
+            //     height: stageDimensions.height,
+            //     // fill: '#F0F0F0',
+            //     fillLinearGradientStartPoint: { x: 0, y: 0 },
+            //     fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
+            //     fillLinearGradientColorStops: [0, '#F0F0F0', 1, '#F0F0F0'],
+            //     draggable: false,
+            // },
+            textBoxes: [],
+            images: [],
+            svgs: [],
+            shapes: [{
                 id: 'shapes_background',
                 type: "rectangle",
                 x: 0,
@@ -24,11 +40,7 @@ export const INITIAL_STATE = {
                 fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
                 fillLinearGradientColorStops: [0, '#F0F0F0', 1, '#F0F0F0'],
                 draggable: false,
-            },
-            textBoxes: [],
-            images: [],
-            svgs: [],
-            shapes: [],
+            }],
         }
     ],
 }

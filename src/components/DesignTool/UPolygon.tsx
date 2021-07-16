@@ -18,6 +18,7 @@ const UPolygon: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick
     const polRadius = restProps.radius;
     const imageWidth = image ? image.width : 10;
     const imageHeight = image ? image.height : 10;
+    console.log({ imageWidth, imageHeight, offset: shapeRef?.current?.fillPatternOffset(), scale: shapeRef?.current?.fillPatternScale() })
     // const patternScale = restProps.patternScale || Math.max(
     //     polRadius / imageWidth,
     //     polRadius / imageHeight
@@ -49,9 +50,10 @@ const UPolygon: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick
                 }}
                 {...restProps}
                 fillPatternImage={image}
-                fillPatternOffset={{ x: 0, y: 0 }}
-                fillPatternScaleX={1}
-                fillPatternScaleY={1}
+                fillPatternOffsetX={0}
+                fillPatternOffsetY={0}
+                fillPatternScaleX={0.1}
+                fillPatternScaleY={0.1}
                 fillPatternRepeat="no-repeat"
             />
         </React.Fragment>

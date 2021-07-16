@@ -20,11 +20,15 @@ const DesignTool: React.FC = () => {
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
 
+    const unSelectAll = () => {
+        setIsOpenColorPicker(false)
+        setIsEditTextBox(false)
+        setSelectedId(null)
+    }
+
     const handleEscape = (e) => {
         if (e.key === "Escape") {
-            setIsOpenColorPicker(false)
-            setIsEditTextBox(false)
-            setSelectedId(null)
+            unSelectAll()
         }
     }
 
@@ -42,11 +46,11 @@ const DesignTool: React.FC = () => {
     }, []);
 
     const onUndo = () => {
-        !!setSelectedId && setSelectedId(null);
+        !!setSelectedId && unSelectAll();
         stepNum > 1 && goBack();
     };
     const onRedo = () => {
-        !!setSelectedId && setSelectedId(null);
+        !!setSelectedId && unSelectAll();
         stepNum < (history.length - 1) && goForward();
     };
 
@@ -83,7 +87,7 @@ const DesignTool: React.FC = () => {
             prev.variations[variationIndex][type] = prev.variations[variationIndex][type].filter(
                 item => item.id !== selectedId
             )
-            setSelectedId(null)
+            unSelectAll()
         })
     }
 
@@ -125,6 +129,7 @@ const DesignTool: React.FC = () => {
                             variationIndex={variationIndex}
                             selectedId={selectedId}
                             setSelectedId={setSelectedId}
+                            unSelectAll={unSelectAll}
                             handleEditSelectedItem={handleEditSelectedItem}
                         />
                     </div>
@@ -153,6 +158,7 @@ const DesignTool: React.FC = () => {
                 <div className={selectedId ? "" : "hidden"}>
                     <EditingTools
                         selectedId={selectedId}
+                        unSelectAll={unSelectAll}
                         isOpenColorPicker={isOpenColorPicker}
                         isEditTextBox={isEditTextBox}
                         templateData={templateData}

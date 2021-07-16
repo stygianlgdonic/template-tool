@@ -1,6 +1,7 @@
 import React from 'react'
 import { SketchPicker } from "react-color"
 import { useFileUpload } from 'use-file-upload'
+import { stageDimensions } from '../../utils/defaults'
 
 interface Props {
     selectedId: string
@@ -38,74 +39,71 @@ const ShapeColorSelector: React.FC<Props> = ({
     }
 
     const handleStrokeWidthChange = e => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.strokeWidth = parseInt(e.target.value)
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.strokeWidth = parseInt(e.target.value)
+        })
     }
 
     const handleCornerRadius = e => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.cornerRadius = parseInt(e.target.value)
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.cornerRadius = parseInt(e.target.value)
+        })
     }
 
     const handleOpacity = e => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.opacity = parseFloat(e.target.value)
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.opacity = parseFloat(e.target.value)
+        })
     }
 
     const handleStrokeColor = (color) => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.stroke = color.hex
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.stroke = color.hex
+        })
     }
 
     const handleShapeFill = (color: string) => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.fill = color
-                selectedShape.patternImageUrl = undefined
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fill = color
+            selectedShape.patternImageUrl = undefined
+        })
     }
 
     const handleGradientColor = (color1: string, color2: string) => {
-        if (selectedId === "shapes_background") {
-            return
-        } else {
-            setTemplateData(prev => {
-                const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
-                selectedShape.fill = ""
-                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
-                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
-                selectedShape.fillLinearGradientEndPoint = { x: 100, y: 100 }
-                selectedShape.patternImageUrl = undefined
-            })
-        }
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fill = ""
+            selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
+            selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
+            selectedShape.fillLinearGradientEndPoint = {
+                x: selectedId === "shapes_background" ? stageDimensions.width : 100,
+                y: selectedId === "shapes_background" ? stageDimensions.height : 100
+            }
+            selectedShape.patternImageUrl = undefined
+        })
+    }
+
+    const handleFillPatternScaleX = (e) => {
+        setTemplateData(prev => {
+            prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+        })
+    }
+
+    const handleFillPatternScaleY = () => {
+
+    }
+
+    const handleFillPatternOffsetX = () => {
+
+    }
+
+    const handleFillPatternOffsetY = () => {
+
     }
 
 
@@ -144,6 +142,41 @@ const ShapeColorSelector: React.FC<Props> = ({
                         color={selectedShapeData?.stroke}
                         onChange={handleStrokeColor}
                     />
+                </div>
+                <div className={!!selectedShapeData?.fillPatternImage ? "" : "hidden"}>
+                    <p>Image Offset X: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.fillPatternOffsetX}
+                        step={0.1} min={0.1} max={1.0}
+                        onChange={handleFillPatternOffsetX}
+                    />
+                    <p>Image Offset Y: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.fillPatternOffsetY}
+                        step={0.1} min={0.1} max={1.0}
+                        onChange={handleFillPatternOffsetY}
+                    />
+                    <p>Image Scale X: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.fillPatternScaleX}
+                        step={0.1} min={0.1} max={1.0}
+                        onChange={handleFillPatternScaleX}
+                    />
+                    <p>Image Scale Y: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        value={selectedShapeData?.fillPatternScaleY}
+                        step={0.1} min={0.1} max={1.0}
+                        onChange={handleFillPatternScaleY}
+                    />
+
                 </div>
                 <div>
                     {currentPalette.map((item, index) => (
