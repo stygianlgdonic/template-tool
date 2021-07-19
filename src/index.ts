@@ -18,6 +18,6 @@ const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 export default express()
     .use((req, res) => app.handle(req, res))
-    .listen(port, "0.0.0.0", () => {
+    .listen(port, () => {
         console.log(`> App started http://localhost:${port}`)
     });
