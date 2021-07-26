@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "emailAccounts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "status": {
+        "type": "string"
+      },
+      "emailVerified": {
+        "type": "boolean"  
+      },
+      "jobRole": {
+        "type": "string"  
+      },
+      "purposeOfUse": {
+        "type": "string"  
+      },
+      "companyName": {
+        "type": "string"  
+      },
+      "companyLogo": {
+        "type": "string",
+        "format": "uri"  
+      },
+      "scheduleList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "workspaceList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["id", "firstName", "lastName", "emailVerified"]
+  }
+  

@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "ownerId": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "images": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "textBoxes": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "shapes": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "dimensions": {
+        "type": "object"
+      },
+      "templateId": {
+        "type": "string"
+      },
+      "workspaceId": {
+        "type": "string"
+      }      
+    },
+    "required": ["id", "ownerId"]
+  }
+  

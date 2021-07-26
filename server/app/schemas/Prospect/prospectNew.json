@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "prospectGroup": {
+        "type": "object"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },      
+      "emailAddress": {
+        "type": "string"
+      }      
+    },
+    "required": ["id"]
+  }

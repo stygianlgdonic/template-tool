@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "smtp": {
+      "type": "object"
+    },
+    "imap": {
+      "type": "object"
+    },      
+    "credentials": {
+      "type": "object"
+    },      
+    "type": {
+      "type": "object"
+    }      
+  },
+  "required": ["id", "email"]
+}

@@ -1,0 +1,43 @@
+version: '3'
+services:
+    client:
+      build:
+        dockerfile: Dockerfile
+        context: ./client
+      ports:
+        - '3000:3000'
+        - '3001:3001'
+      volumes:
+        - /app/node_modules
+        - ./client:/app
+
+    server:
+      build:
+        dockerfile: Dockerfile
+        context: ./server
+      command: pm2-dev ./app/server.js
+      environment:
+        NODE_ENV: development
+      depends_on:
+        - mongodb
+      ports:
+        - "5000:5000"
+      # volumes:
+      #   - .:/home/nodejs/app
+      #   - ./node_modules:/home/nodejs/node_modules
+
+    nginx:
+      image: nginx:1.19
+      links:
+        - server
+      ports:
+        - "80:80"
+      # volumes:
+      #   - ./server/config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        
+    mongodb:
+      image: mongo:4
+      command: mongod
+      ports:
+          - "27017:27017"
+

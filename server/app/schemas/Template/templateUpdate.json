@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "object"
+    },
+    "variations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "palette": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "usageCount": {
+      "type": "number"
+    }     
+  },
+  "required": ["id"]
+}

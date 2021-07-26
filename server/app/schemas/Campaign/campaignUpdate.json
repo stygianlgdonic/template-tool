@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "error": {
+      "type": "object"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "masterSubject": {
+      "type": "string"
+    },
+    "masterBody": {
+      "type": "string"
+    },
+    "sender": {
+      "type": "string"
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },      
+    "cardList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "userId": {
+      "type": "string"
+    },
+    "workspace": {
+      "type": "string"
+    }      
+  },
+  "required": ["id", "name"]
+}

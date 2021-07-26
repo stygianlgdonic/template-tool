@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "shapes": {
+      "type": "object"
+    },
+    "images": {
+      "type": "object"
+    },
+    "svgs": {
+      "type": "object"
+    },
+    "texts": {
+      "type": "object"
+    },
+    "face": {
+      "type": "string"
+    }      
+  },
+  "required": ["name"]
+}

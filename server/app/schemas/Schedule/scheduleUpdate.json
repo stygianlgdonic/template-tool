@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    }      
+  },
+  "required": ["id"]
+}
