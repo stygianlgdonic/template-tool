@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Circle } from 'react-konva';
-
+import useImage from "use-image"
 interface Props {
     shapeProps: any
     onSelect: any
@@ -9,10 +9,18 @@ interface Props {
 }
 
 const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick }) => {
+    const shapeRef = useRef(null)
+
+    const { patternImageUrl, ...restProps } = shapeProps
+    const [image] = useImage(patternImageUrl || null)
+    const polRadius = restProps.radius;
+    const imageWidth = image ? image.width : 10;
+    const imageHeight = image ? image.height : 10;
 
     return (
         <React.Fragment>
             <Circle
+                ref={shapeRef}
                 onClick={onSelect}
                 onTap={onSelect}
                 onDblClick={onEditClick}
@@ -21,8 +29,10 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick 
                 strokeScaleEnabled={false}
                 onTransformEnd={(e) => {
                     onChange({
-                        ...e.target.attrs,
-                    })
+                        ...shapeProps,
+                        scaleX: e.target.attrs.scaleX,
+                        scaleY: e.target.attrs.scaleY,
+                    });
                 }}
                 onDragEnd={(e) => {
                     onChange({
@@ -31,7 +41,13 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick 
                         y: e.target.y(),
                     });
                 }}
-                {...shapeProps}
+                {...restProps}
+                fillPatternImage={image}
+                fillPatternOffsetX={0}
+                fillPatternOffsetY={0}
+                fillPatternScaleX={0.1}
+                fillPatternScaleY={0.1}
+                fillPatternRepeat="no-repeat"
             />
         </React.Fragment>
     );
