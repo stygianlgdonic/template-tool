@@ -13,9 +13,6 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick 
 
     const { patternImageUrl, ...restProps } = shapeProps
     const [image] = useImage(patternImageUrl || null)
-    const polRadius = restProps.radius;
-    const imageWidth = image ? image.width : 10;
-    const imageHeight = image ? image.height : 10;
 
     return (
         <React.Fragment>
