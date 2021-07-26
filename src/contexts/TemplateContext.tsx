@@ -45,9 +45,10 @@ export const INITIAL_STATE = {
     ],
 }
 
-export const TemplateContext = createContext(null)
+const TemplateContext = createContext(null)
+TemplateContext.displayName = 'TemplateContext';
 
-export const TemplateProvider = ({ children }) => {
+const TemplateProvider = ({ children }) => {
 
     const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
 
@@ -60,3 +61,5 @@ export const TemplateProvider = ({ children }) => {
     );
 
 }
+
+export { TemplateContext, TemplateProvider }
