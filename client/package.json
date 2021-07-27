@@ -4,20 +4,29 @@
     "license": "MIT",
     "scripts": {
         "start:tsc": "tsc -b -w --preserveWatchOutput",
-        "start": "concurrently \"npm start:tsc\" \"razzle start\"",
+        "start": "concurrently \"yarn start:tsc\" \"razzle start\"",
         "build": "tsc -b && razzle build",
         "test": "razzle test --env=jsdom",
         "start:prod": "NODE_ENV=production node build/server.js"
     },
     "dependencies": {
         "@heroicons/react": "^1.0.2",
-        "express": "^4.17.1",
-        "postcss-import": "^14.0.2",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "react-router-dom": "^5.1.2",
+        "@shrugsy/use-immer-state": "^3.1.2",
+        "@types/react-color": "^3.0.5",
+        "@types/webfontloader": "^1.6.33",
         "babel-polyfill": "^6.26.0",
-        "express-http-proxy": "1.2.0"
+        "express": "^4.17.1",
+        "express-http-proxy": "1.2.0",
+        "konva": "^8.1.1",
+        "postcss-import": "^14.0.2",
+        "react": "^17.0.2",
+        "react-color": "^2.19.3",
+        "react-dom": "^17.0.2",
+        "react-konva": "^17.0.2-5",
+        "react-router-dom": "^5.1.2",
+        "use-file-upload": "^1.0.9",
+        "use-image": "^1.0.8",
+        "webfontloader": "^1.6.28"
     },
     "devDependencies": {
         "@testing-library/dom": "^7.29.4",
