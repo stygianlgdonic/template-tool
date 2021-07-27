@@ -6,7 +6,7 @@ const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
     return (
         <div className="bg-indigo600 h-16 flex">
 
-            <div className="flex flex-row items-center justify-between w-full px-10">
+            <div className="flex flex-row items-center justify-between w-full px-8">
 
                 <div className="flex flex-row items-center">
                     <button className="flex flex-row items-center">
