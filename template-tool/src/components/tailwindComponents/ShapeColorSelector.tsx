@@ -90,20 +90,30 @@ const ShapeColorSelector: React.FC<Props> = ({
 
     const handleFillPatternScaleX = (e) => {
         setTemplateData(prev => {
-            prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fillPatternScaleX = parseFloat(e.target.value)
         })
     }
 
-    const handleFillPatternScaleY = () => {
-
+    const handleFillPatternScaleY = (e) => {
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fillPatternScaleY = parseFloat(e.target.value)
+        })
     }
 
-    const handleFillPatternOffsetX = () => {
-
+    const handleFillPatternOffsetX = (e) => {
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fillPatternOffsetX = parseFloat(e.target.value)
+        })
     }
 
-    const handleFillPatternOffsetY = () => {
-
+    const handleFillPatternOffsetY = (e) => {
+        setTemplateData(prev => {
+            const selectedShape = prev.variations[variationIndex].shapes.find(item => item.id === selectedId)
+            selectedShape.fillPatternOffsetY = parseFloat(e.target.value)
+        })
     }
 
 
@@ -125,6 +135,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                     <input
                         className="border mb-5"
                         type="number"
+                        min={0}
                         value={selectedShapeData?.cornerRadius}
                         onChange={handleCornerRadius}
                     />
@@ -133,8 +144,42 @@ const ShapeColorSelector: React.FC<Props> = ({
                         className="border mb-5"
                         type="number"
                         value={selectedShapeData?.opacity}
-                        step={0.1} min={0.1} max={1.0}
+                        step={0.1}
+                        min={0.1}
+                        max={1.0}
                         onChange={handleOpacity}
+                    />
+                    <p>Image Scale X: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        step={0.1}
+                        value={selectedShapeData?.fillPatternScaleX}
+                        onChange={handleFillPatternScaleX}
+                    />
+                    <p>Image Scale Y: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        step={0.1}
+                        value={selectedShapeData?.fillPatternScaleY}
+                        onChange={handleFillPatternScaleY}
+                    />
+                    <p>Image offset X: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        step={0.1}
+                        value={selectedShapeData?.fillPatternOffsetX}
+                        onChange={handleFillPatternOffsetX}
+                    />
+                    <p>Image offset Y: </p>
+                    <input
+                        className="border mb-5"
+                        type="number"
+                        step={0.1}
+                        value={selectedShapeData?.fillPatternOffsetY}
+                        onChange={handleFillPatternOffsetY}
                     />
                     <p>Borer color:</p>
                     <SketchPicker

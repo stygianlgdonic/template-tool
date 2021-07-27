@@ -40,13 +40,13 @@ const ULine: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick })
                         y: e.target.y(),
                     });
                 }}
-                {...restProps}
                 fillPatternImage={image}
                 fillPatternOffsetX={0}
                 fillPatternOffsetY={0}
                 fillPatternScaleX={0.1}
                 fillPatternScaleY={0.1}
                 fillPatternRepeat="no-repeat"
+                {...restProps}
             />
         </React.Fragment>
     );
