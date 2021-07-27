@@ -20,6 +20,11 @@ const DesignTool: React.FC = () => {
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
 
+    useEffect(() => {
+        setIsOpenColorPicker(false)
+        setIsEditTextBox(false)
+    }, [selectedId])
+
     const unSelectAll = () => {
         setIsOpenColorPicker(false)
         setIsEditTextBox(false)
