@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 // database configs
 
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongodb/boilerplate";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/local";
 if (ENV === "test") {
   MONGODB_URI = global.__MONGO_URI__;
 }
