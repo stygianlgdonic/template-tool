@@ -1,0 +1,14 @@
+p.separator {
+    line-height:1em;
+    border-bottom:2px solid #D1D5DB;
+}
+p.separator:before {
+    content:"OR";
+    position:relative;
+    left:55%;
+    right:40%;
+    margin-left:-2.5em;
+    padding:0 0.3em;
+    top:0.5em;
+    background:white;
+}
