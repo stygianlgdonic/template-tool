@@ -40,11 +40,17 @@ module.exports = {
 
             bordercolor: '#D1D5DB',
             rightbackgroundcolor: '#F3F4F6',
+            svgcolor: '#C4C4C4',
+            fuschia: "#EF5DA8",
+            bluish: "#818CF8"
         },
+
 
     },
     variants: {
-        extend: {},
+        extend: {
+            fontWeight: ['hover', 'focus'],
+        },
     },
     plugins: [
         require('tailwindcss-font-inter')()
