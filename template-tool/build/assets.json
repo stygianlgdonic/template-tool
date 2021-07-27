@@ -1,0 +1,49 @@
+{
+  "1": {
+    "js": [
+      "/static/js/1.1cd2b866.chunk.js"
+    ],
+    "map": [
+      "/static/js/1.1cd2b866.chunk.js.map"
+    ],
+    "chunks": [
+      1
+    ]
+  },
+  "2": {
+    "js": [
+      "/static/js/2.edd29502.chunk.js"
+    ],
+    "map": [
+      "/static/js/2.edd29502.chunk.js.map"
+    ],
+    "chunks": [
+      2
+    ]
+  },
+  "client": {
+    "css": [
+      "/static/css/client.6746daa1.css"
+    ],
+    "js": [
+      "/static/js/client.040ae05c.js"
+    ],
+    "map": [
+      "/static/css/client.6746daa1.css.map",
+      "/static/js/client.040ae05c.js.map"
+    ],
+    "chunks": [
+      0
+    ]
+  },
+  "noentry": {
+    "ico": [
+      "/favicon.ico"
+    ],
+    "txt": [
+      "/robots.txt",
+      "/static/js/1.1cd2b866.chunk.js.LICENSE.txt",
+      "/static/js/client.040ae05c.js.LICENSE.txt"
+    ]
+  }
+}
