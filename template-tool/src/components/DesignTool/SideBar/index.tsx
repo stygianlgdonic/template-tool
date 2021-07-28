@@ -9,32 +9,32 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
     const handleAddNewRect = () => {
         setTemplateData((prev) => {
             let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultRect, id: `shapes_${shapeID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultRect, id: `shapes_${shapeID.toString()}` })
         })
     }
 
     const handleAddNewCircle = () => {
         setTemplateData((prev) => {
             let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultCircle, id: `shapes_${shapeID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultCircle, id: `shapes_${shapeID.toString()}` })
         })
     }
     const handleAddNewTrianlge = () => {
         setTemplateData((prev) => {
             let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultTriangle, id: `shapes_${shapeID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultTriangle, id: `shapes_${shapeID.toString()}` })
         })
     }
     const handleAddNewPolygon = () => {
         setTemplateData((prev) => {
             let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultPolygon, id: `shapes_${shapeID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultPolygon, id: `shapes_${shapeID.toString()}` })
         })
     }
     const handleAddNewRoundedRect = () => {
         setTemplateData((prev) => {
             let shapeID = new Date().getTime();
-            prev.variations[variationIndex].shapes.push({ ...defaultRoundedRect, id: `shapes_${shapeID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultRoundedRect, id: `shapes_${shapeID.toString()}` })
         })
     }
 
@@ -43,7 +43,7 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
 
             setTemplateData((prev) => {
                 let svgId = new Date().getTime()
-                prev.variations[variationIndex].svgs.push({
+                prev.variations[variationIndex].elements.push({
 
                     id: `svgs_${svgId.toString()}`,
                     svgString: SVG_STRING,
@@ -64,7 +64,7 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
                     //base64encoded string
                     setTemplateData((prev) => {
                         let imageID = new Date().getTime();
-                        prev.variations[variationIndex].images.push({
+                        prev.variations[variationIndex].elements.push({
                             ...defaultImage,
                             src: reader.result,
                             id: `images_${imageID.toString()}`
@@ -77,7 +77,7 @@ const SideBar = ({ variationIndex, setTemplateData }) => {
     const handleAddNewText = () => {
         setTemplateData((prev) => {
             let textID = new Date().getTime();
-            prev.variations[variationIndex].textBoxes.push({ ...defaultTextBox, id: `textBoxes_${textID.toString()}` })
+            prev.variations[variationIndex].elements.push({ ...defaultTextBox, id: `textBoxes_${textID.toString()}` })
         })
     }
 

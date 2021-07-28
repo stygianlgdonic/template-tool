@@ -11,16 +11,16 @@ const TopToolBar = ({
     const onBringtoFront = () => {
         if (!selectedId) return
         setTemplateData((prev) => {
-            const shapeIndex = prev.variations[variationIndex][selectedId.split("_")[0]].findIndex(
+            const shapeIndex = prev.variations[variationIndex].elements.findIndex(
                 (item) => item.id === selectedId
             );
-            if (shapeIndex < (prev.variations[variationIndex][selectedId.split("_")[0]].length - 1)) {
+            if (shapeIndex < (prev.variations[variationIndex].elements.length - 1)) {
 
-                const temp = prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex]
+                const temp = prev.variations[variationIndex].elements[shapeIndex]
 
-                prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex] = prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex + 1]
+                prev.variations[variationIndex].elements[shapeIndex] = prev.variations[variationIndex].elements[shapeIndex + 1]
 
-                prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex + 1] = temp
+                prev.variations[variationIndex].elements[shapeIndex + 1] = temp
 
             }
         });
@@ -29,18 +29,18 @@ const TopToolBar = ({
     const onBringtoBack = () => {
         if (!selectedId) return
         setTemplateData((prev) => {
-            const shapeIndex = prev.variations[variationIndex][selectedId.split("_")[0]].findIndex(
+            const shapeIndex = prev.variations[variationIndex].elements.findIndex(
                 (item) => item.id === selectedId
             );
 
             // NOTE - shapeIndex > 1 because index 0 is for background
             if (shapeIndex > 1) {
 
-                const temp = prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex]
+                const temp = prev.variations[variationIndex].elements[shapeIndex]
 
-                prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex] = prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex - 1]
+                prev.variations[variationIndex].elements[shapeIndex] = prev.variations[variationIndex].elements[shapeIndex - 1]
 
-                prev.variations[variationIndex][selectedId.split("_")[0]][shapeIndex - 1] = temp
+                prev.variations[variationIndex].elements[shapeIndex - 1] = temp
 
             }
         });

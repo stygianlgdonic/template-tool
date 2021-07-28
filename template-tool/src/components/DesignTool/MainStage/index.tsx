@@ -387,7 +387,7 @@ const MainStage = ({
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
             >
-                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "rectangle")?.map((rect, i) => {
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "rectangle")?.map((rect, i) => {
                     return (
                         <Rectangle
                             key={i}
@@ -409,14 +409,14 @@ const MainStage = ({
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === rect.id)
-                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === rect.id)
+                                    prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
                     );
                 })}
-                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "circle")?.map((circle, i) => {
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "circle")?.map((circle, i) => {
                     return (
                         <UCircle
                             key={i}
@@ -427,14 +427,14 @@ const MainStage = ({
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === circle.id)
-                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === circle.id)
+                                    prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
                     );
                 })}
-                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "line")?.map((line, i) => {
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "line")?.map((line, i) => {
                     return (
                         <ULine
                             key={i}
@@ -445,14 +445,14 @@ const MainStage = ({
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === line.id)
-                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === line.id)
+                                    prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
                     );
                 })}
-                {templateData.variations[variationIndex].shapes?.filter(item => item.type === "polygon")?.map((polygon, i) => {
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "polygon")?.map((polygon, i) => {
                     return (
                         <UPolygon
                             key={i}
@@ -463,14 +463,14 @@ const MainStage = ({
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].shapes.findIndex(item => item.id === polygon.id)
-                                    prev.variations[variationIndex].shapes[index] = newAttrs
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === polygon.id)
+                                    prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
                     );
                 })}
-                {templateData.variations[variationIndex].svgs?.map((item, index) => (
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "svg")?.map((item, index) => (
                     <USvg
                         key={index}
                         svgProps={item}
@@ -479,14 +479,15 @@ const MainStage = ({
                         }}
                         onEditClick={handleEditSelectedItem}
                         onChange={(event) => setTemplateData((prev) => {
-                            prev.variations[variationIndex].svgs[index] = {
-                                ...prev.variations[variationIndex].svgs[index],
+                            const svgIndex = prev.variations[variationIndex].elements.findIndex(svgItem => svgItem.id === item.id)
+                            prev.variations[variationIndex].elements[svgIndex] = {
+                                ...prev.variations[variationIndex].elements[svgIndex],
                                 ...JSON.parse(JSON.stringify(event.target.attrs))
                             }
                         })}
                     />
                 ))}
-                {templateData.variations[variationIndex].images?.map((item, index) => (
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "image")?.map((item, index) => (
                     <UImage
                         key={index}
                         imageProps={item}
@@ -494,14 +495,15 @@ const MainStage = ({
                             setSelectedId(item.id)
                         }}
                         onChange={(event) => setTemplateData((prev) => {
-                            prev.variations[variationIndex].images[index] = {
-                                ...prev.variations[variationIndex].images[index],
+                            const imageIndex = prev.variations[variationIndex].elements.findIndex(img => img.id === item.id)
+                            prev.variations[variationIndex].elements[imageIndex] = {
+                                ...prev.variations[variationIndex].elements[imageIndex],
                                 ...JSON.parse(JSON.stringify(event.target.attrs))
                             }
                         })}
                     />
                 ))}
-                {templateData.variations[variationIndex].textBoxes?.map((item, index) => (
+                {templateData.variations[variationIndex].elements?.filter(item => item.type === "text")?.map((item, index) => (
                     <UText
                         key={index}
                         textProps={item}
@@ -510,7 +512,8 @@ const MainStage = ({
                         }}
                         onEditClick={handleEditSelectedItem}
                         onChange={(event) => setTemplateData((prev) => {
-                            prev.variations[variationIndex].textBoxes[index] = { ...event.target.attrs }
+                            const txtIndex = prev.variations[variationIndex].elements.findIndex(txt => txt.id === item.id)
+                            prev.variations[variationIndex].elements[txtIndex] = { ...event.target.attrs }
                         })}
                     />
                 ))}

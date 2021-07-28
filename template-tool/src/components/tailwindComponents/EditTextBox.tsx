@@ -19,22 +19,22 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
 
     useEffect(() => {
         if (selectedId?.split("_")[0] === "textBoxes") {
-            const index = templateData.variations[variationIndex].textBoxes.findIndex(item => item.id === selectedId)
-            setInputValue(templateData.variations[variationIndex].textBoxes[index].text)
-            setFontSize(templateData.variations[variationIndex].textBoxes[index].fontSize)
-            setFontFamily(templateData.variations[variationIndex].textBoxes[index].fontFamily)
-            setTextAlign(templateData.variations[variationIndex].textBoxes[index].align)
+            const index = templateData.variations[variationIndex].elements.findIndex(item => item.id === selectedId)
+            setInputValue(templateData.variations[variationIndex].elements[index].text)
+            setFontSize(templateData.variations[variationIndex].elements[index].fontSize)
+            setFontFamily(templateData.variations[variationIndex].elements[index].fontFamily)
+            setTextAlign(templateData.variations[variationIndex].elements[index].align)
         }
     }, [selectedId])
 
     const handleSave = () => {
         setTemplateData(prev => {
-            const index = prev.variations[variationIndex].textBoxes.findIndex(item => item.id === selectedId)
-            prev.variations[variationIndex].textBoxes[index].text = inputValue
-            prev.variations[variationIndex].textBoxes[index].fontSize = fontSize
-            prev.variations[variationIndex].textBoxes[index].fontStyle = fontStyle
-            prev.variations[variationIndex].textBoxes[index].fontFamily = fontFamily
-            prev.variations[variationIndex].textBoxes[index].align = textAlign
+            const index = prev.variations[variationIndex].elements.findIndex(item => item.id === selectedId)
+            prev.variations[variationIndex].elements[index].text = inputValue
+            prev.variations[variationIndex].elements[index].fontSize = fontSize
+            prev.variations[variationIndex].elements[index].fontStyle = fontStyle
+            prev.variations[variationIndex].elements[index].fontFamily = fontFamily
+            prev.variations[variationIndex].elements[index].align = textAlign
         })
         handleCloseEditTextModal()
     }
