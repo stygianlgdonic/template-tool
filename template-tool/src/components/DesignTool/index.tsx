@@ -15,7 +15,7 @@ const DesignTool: React.FC = () => {
 
     const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
-    const [templateData, setTemplateData, { goForward, goBack, stepNum }] = useContext(TemplateContext)
+    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -52,7 +52,7 @@ const DesignTool: React.FC = () => {
 
     const onUndo = () => {
         !!setSelectedId && unSelectAll();
-        stepNum > 1 && goBack();
+        stepNum > 0 && goBack();
     };
     const onRedo = () => {
         !!setSelectedId && unSelectAll();
