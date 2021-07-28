@@ -5,7 +5,7 @@ import CardHeader from './tailwindComponents/CardHeader/CardHeader';
 const Card: React.FC = (): JSX.Element => {
 
     return (
-        <div className="h-screen">
+        <div className="h-full">
             <div>
                 <CardHeader />
             </div>

@@ -15,10 +15,10 @@ const ElementSelector: React.FC = (): JSX.Element => {
             <div className="mt-6 w-full px-4">
                 <Shapes />
             </div>
-            <div className="mt-6 w-full px-4">
+            <div className="mt-6 w-full">
                 <Stickers />
             </div>
-            <div className="mt-6 w-full px-4">
+            <div className="mt-6 w-full">
                 <Buttons />
             </div>
         </div>

@@ -4,7 +4,7 @@ interface BioProps {
 }
 const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
     return (
-        <div className="bg-indigo600 h-16 flex">
+        <div className="bg-indigo600  flex h-full">
 
             <div className="flex flex-row items-center justify-between w-full px-8">
 
@@ -20,9 +20,12 @@ const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
                 <div>
                     <h1 className="text-white">{document_title}</h1>
                 </div>
-                <div className="bg-white p-2 border-0 rounded-md">
-                    <button className="text-base text-gray94 leading-6 font-medium">Save & Share</button>
-                </div>
+                <button>
+
+                    <div className="bg-white p-2 border-0 rounded-md">
+                        <p className="text-base text-gray94 leading-6 font-medium">Save & Share</p>
+                    </div>
+                </button>
             </div>
         </div>
     )
