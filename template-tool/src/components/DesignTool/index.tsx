@@ -61,6 +61,11 @@ const DesignTool: React.FC = () => {
     };
     const onRedo = () => {
         !!setSelectedId && unSelectAll();
+        if (stepNum > 0) {
+            if (variationIndex > 0 && (history[stepNum].variations.length > history[stepNum + 1].variations.length)) {
+                setVariationIndex(variationIndex - 1)
+            }
+        }
         stepNum < (history.length - 1) && goForward();
     };
 
