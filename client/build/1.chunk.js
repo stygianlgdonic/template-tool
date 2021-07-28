@@ -23,7 +23,7 @@ let document_title = "Untitled design - Employees";
 
 const CreateCardLayout = () => {
   return __jsx("div", {
-    className: "   ",
+    className: " h-screen ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -31,6 +31,10 @@ const CreateCardLayout = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
+    style: {
+      height: '8vh'
+    },
+    className: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -46,7 +50,10 @@ const CreateCardLayout = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "h-full",
+    className: "",
+    style: {
+      height: '92vh'
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -57,7 +64,7 @@ const CreateCardLayout = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 17
     }
   })));
@@ -88,7 +95,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Card = () => {
   return __jsx("div", {
-    className: "h-screen",
+    className: "h-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2085,13 +2092,21 @@ const SideBarNav = () => {
       lineNumber: 9,
       columnNumber: 13
     }
-  }, __jsx("div", {
-    className: "flex items-center  hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1",
+  }, __jsx("button", {
+    className: "w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10,
       columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "flex items-center  hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     className: "text-svgcolor",
@@ -2103,8 +2118,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 21
+      lineNumber: 13,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M2.31802 2.31802C0.56066 4.07538 0.56066 6.92462 2.31802 8.68198L10.0001 16.364L17.682 8.68198C19.4393 6.92462 19.4393 4.07538 17.682 2.31802C15.9246 0.56066 13.0754 0.56066 11.318 2.31802L10.0001 3.63609L8.68198 2.31802C6.92462 0.56066 4.07538 0.56066 2.31802 2.31802Z",
@@ -2115,24 +2130,32 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 25
+      lineNumber: 14,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-lightGray font-medium pl-3",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
-      columnNumber: 21
+      lineNumber: 19,
+      columnNumber: 25
     }
-  }, "Elements")), __jsx("div", {
+  }, "Elements"))), __jsx("button", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
     className: "flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 17
+      lineNumber: 23,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "15",
@@ -2143,8 +2166,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 21
+      lineNumber: 24,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M13.8867 0.109375L14.0625 3.83594H13.6172C13.5312 3.17969 13.4141 2.71094 13.2656 2.42969C13.0234 1.97656 12.6992 1.64453 12.293 1.43359C11.8945 1.21484 11.3672 1.10547 10.7109 1.10547H8.47266V13.2461C8.47266 14.2227 8.57812 14.832 8.78906 15.0742C9.08594 15.4023 9.54297 15.5664 10.1602 15.5664H10.7109V16H3.97266V15.5664H4.53516C5.20703 15.5664 5.68359 15.3633 5.96484 14.957C6.13672 14.707 6.22266 14.1367 6.22266 13.2461V1.10547H4.3125C3.57031 1.10547 3.04297 1.16016 2.73047 1.26953C2.32422 1.41797 1.97656 1.70312 1.6875 2.125C1.39844 2.54688 1.22656 3.11719 1.17188 3.83594H0.726562L0.914062 0.109375H13.8867Z",
@@ -2152,24 +2175,32 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 25
+      lineNumber: 25,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-lightGray font-medium pl-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 21
+      lineNumber: 28,
+      columnNumber: 25
     }
-  }, "Text")), __jsx("div", {
+  }, "Text"))), __jsx("button", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
     className: "flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 17
+      lineNumber: 32,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "18",
@@ -2180,8 +2211,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 21
+      lineNumber: 33,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M1 13L5.58579 8.41421C6.36683 7.63317 7.63316 7.63316 8.41421 8.41421L13 13M11 11L12.5858 9.41421C13.3668 8.63317 14.6332 8.63316 15.4142 9.41421L17 11M11 5H11.01M3 17H15C16.1046 17 17 16.1046 17 15V3C17 1.89543 16.1046 1 15 1H3C1.89543 1 1 1.89543 1 3V15C1 16.1046 1.89543 17 3 17Z",
@@ -2192,24 +2223,32 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 25
+      lineNumber: 34,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-lightGray font-medium pl-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 21
+      lineNumber: 38,
+      columnNumber: 25
     }
-  }, "Images")), __jsx("div", {
+  }, "Images"))), __jsx("button", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
     className: "flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 17
+      lineNumber: 42,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "18",
@@ -2220,8 +2259,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 21
+      lineNumber: 43,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M17 10V3C17 1.89543 16.1046 1 15 1H3C1.89543 1 1 1.89543 1 3V10M17 10V15C17 16.1046 16.1046 17 15 17H3C1.89543 17 1 16.1046 1 15V10M17 10H14.4142C14.149 10 13.8946 10.1054 13.7071 10.2929L11.2929 12.7071C11.1054 12.8946 10.851 13 10.5858 13H7.41421C7.149 13 6.89464 12.8946 6.70711 12.7071L4.29289 10.2929C4.10536 10.1054 3.851 10 3.58579 10H1",
@@ -2232,24 +2271,32 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 25
+      lineNumber: 44,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-lightGray font-medium pl-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 21
+      lineNumber: 49,
+      columnNumber: 25
     }
-  }, "Backgrounds")), __jsx("div", {
+  }, "Backgrounds"))), __jsx("button", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
     className: "flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 17
+      lineNumber: 55,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "20",
@@ -2260,8 +2307,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
-      columnNumber: 21
+      lineNumber: 56,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M10 3C10 1.89543 10.8954 1 12 1C13.1046 1 14 1.89543 14 3V4C14 4.55228 14.4477 5 15 5H18C18.5523 5 19 5.44772 19 6V9C19 9.55228 18.5523 10 18 10H17C15.8954 10 15 10.8954 15 12C15 13.1046 15.8954 14 17 14H18C18.5523 14 19 14.4477 19 15V18C19 18.5523 18.5523 19 18 19H15C14.4477 19 14 18.5523 14 18V17C14 15.8954 13.1046 15 12 15C10.8954 15 10 15.8954 10 17V18C10 18.5523 9.55228 19 9 19H6C5.44772 19 5 18.5523 5 18V15C5 14.4477 4.55228 14 4 14H3C1.89543 14 1 13.1046 1 12C1 10.8954 1.89543 10 3 10H4C4.55228 10 5 9.55228 5 9V6C5 5.44772 5.44772 5 6 5H9C9.55228 5 10 4.55228 10 4V3Z",
@@ -2272,23 +2319,23 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
-      columnNumber: 25
+      lineNumber: 57,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-lightGray font-medium pl-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 21
+      lineNumber: 62,
+      columnNumber: 25
     }
-  }, "Logo")), __jsx("div", {
+  }, "Logo"))), __jsx("div", {
     className: "mt-6 flex justify-end w-9/12  mx-auto mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 70,
       columnNumber: 17
     }
   }, __jsx("svg", {
@@ -2300,7 +2347,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 72,
       columnNumber: 21
     }
   }, __jsx("path", {
@@ -2311,16 +2358,24 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 73,
       columnNumber: 25
     }
-  }))), __jsx("div", {
+  }))), __jsx("button", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
     className: "flex w-9/12 items-center justify-center h-12 border-0 rounded-md bg-indigo600 px-auto  mx-auto relative",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
-      columnNumber: 17
+      lineNumber: 78,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     className: "",
@@ -2332,8 +2387,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 21
+      lineNumber: 82,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M13.2995 17.5994H0.5V0.800049H14.0994V15.1995",
@@ -2342,8 +2397,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
-      columnNumber: 25
+      lineNumber: 83,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M0.5 6.7998L5.2998 2L10.0996 6.7998",
@@ -2352,8 +2407,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 25
+      lineNumber: 84,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M8.09961 4.79988L10.2995 2.59998L14.0994 6.39982",
@@ -2362,8 +2417,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
-      columnNumber: 25
+      lineNumber: 85,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M8.09985 9.19904L6.49902 10.7999L14.8991 19.1999L16.4999 17.5991L8.09985 9.19904Z",
@@ -2372,8 +2427,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
-      columnNumber: 25
+      lineNumber: 86,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M8.89551 13.1955L10.4954 11.5956",
@@ -2382,8 +2437,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
-      columnNumber: 25
+      lineNumber: 87,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M6.49935 9.19973L4.89941 7.59979",
@@ -2392,8 +2447,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
-      columnNumber: 25
+      lineNumber: 88,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M5.30013 10.7996H3.7002",
@@ -2402,8 +2457,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
-      columnNumber: 25
+      lineNumber: 89,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M8.09961 7.99978V6.39984",
@@ -2412,8 +2467,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
-      columnNumber: 25
+      lineNumber: 90,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M6.49976 12.3996L5.2998 13.5995",
@@ -2422,8 +2477,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
-      columnNumber: 25
+      lineNumber: 91,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M9.69922 9.19971L10.8992 7.99976",
@@ -2432,8 +2487,8 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
-      columnNumber: 25
+      lineNumber: 92,
+      columnNumber: 29
     }
   }), __jsx("path", {
     d: "M0.5 15.5994H11.2996",
@@ -2442,18 +2497,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 25
+      lineNumber: 93,
+      columnNumber: 29
     }
-  })), __jsx("button", {
+  })), __jsx("p", {
     className: "text-white font-medium pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
-      columnNumber: 21
+      lineNumber: 97,
+      columnNumber: 25
     }
-  }, "Brandify"))));
+  }, "Brandify")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SideBarNav);
@@ -2471,7 +2526,7 @@ const SideBarNav = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/BackgroundSelector/BackgroundSelector */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/BackgroundSelector.tsx");
+/* harmony import */ var _components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ElementSelector/ElementSelector */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/ElementSelector.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\SubNavBar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2486,32 +2541,24 @@ const SubNavBar = () => {
       lineNumber: 9,
       columnNumber: 9
     }
-  }, __jsx("div", {
-    className: "w-full h-full",
+  }, __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 13
     }
-  }, __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 17
-    }
-  })));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SubNavBar);
 
 /***/ }),
 
-/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/BackgroundSelector.tsx":
-/*!**************************************************************************************************************************************!*\
-  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/BackgroundSelector.tsx ***!
-  \**************************************************************************************************************************************/
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/ElementSelector.tsx":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/ElementSelector.tsx ***!
+  \********************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2519,11 +2566,11 @@ const SubNavBar = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ElementSelector/components/SearchBar/SearchBar */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
-/* harmony import */ var _components_AddBackgroundImage_AddBackgroundImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AddBackgroundImage/AddBackgroundImage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/AddBackgroundImage/AddBackgroundImage.tsx");
-/* harmony import */ var _components_BackgroundColor_BackgroundColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/BackgroundColor/BackgroundColor */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/BackgroundColor/BackgroundColor.tsx");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/style.css");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\BackgroundSelector\\BackgroundSelector.tsx";
+/* harmony import */ var _components_Buttons_Buttons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Buttons/Buttons */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Buttons/Buttons.tsx");
+/* harmony import */ var _components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/SearchBar/SearchBar */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
+/* harmony import */ var _components_Shapes_Shapes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Shapes/Shapes */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Shapes/Shapes.tsx");
+/* harmony import */ var _components_Stickers_Stickers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Stickers/Stickers */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/Stickers.tsx");
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\ElementSelector.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2531,13 +2578,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const BackgroundSelector = () => {
+const ElementSelector = () => {
   return __jsx("div", {
-    className: " flex   flex-col justify-center w-full ",
+    className: " flex   flex-col justify-center w-full  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 9,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2545,25 +2592,25 @@ const BackgroundSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 11,
       columnNumber: 13
     }
-  }, __jsx(_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 12,
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "flex flex-col p-6",
+    className: "mt-6 w-full px-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 13
     }
-  }, __jsx(_components_BackgroundColor_BackgroundColor__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx(_components_Shapes_Shapes__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2571,15 +2618,14 @@ const BackgroundSelector = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "p-6 text-gray95",
+    className: "mt-6 w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18,
       columnNumber: 13
     }
-  }, __jsx("p", {
-    className: "separator",
+  }, __jsx(_components_Stickers_Stickers__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2587,13 +2633,14 @@ const BackgroundSelector = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
+    className: "mt-6 w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21,
       columnNumber: 13
     }
-  }, __jsx(_components_AddBackgroundImage_AddBackgroundImage__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx(_components_Buttons_Buttons__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2603,14 +2650,14 @@ const BackgroundSelector = () => {
   })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (BackgroundSelector);
+/* harmony default export */ __webpack_exports__["default"] = (ElementSelector);
 
 /***/ }),
 
-/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/AddBackgroundImage/AddBackgroundImage.tsx":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/AddBackgroundImage/AddBackgroundImage.tsx ***!
-  \********************************************************************************************************************************************************************/
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Buttons/Buttons.tsx":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Buttons/Buttons.tsx ***!
+  \*******************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2618,44 +2665,135 @@ const BackgroundSelector = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\BackgroundSelector\\components\\AddBackgroundImage\\AddBackgroundImage.tsx";
+/* harmony import */ var _Stickers_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Stickers/styles.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css");
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\Buttons\\Buttons.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const AddBackgroundImage = () => {
+
+const sideScroll = (element, speed, distance, step) => {
+  let scrollAmount = 0;
+  const slideTimer = setInterval(() => {
+    element.scrollLeft += step;
+    scrollAmount += Math.abs(step);
+
+    if (scrollAmount >= distance) {
+      clearInterval(slideTimer);
+    }
+  }, speed);
+};
+
+const Buttons = () => {
+  const contentWrapper = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   return __jsx("div", {
-    className: " flex   flex-col justify-center w-full p-6 ",
+    className: "h-full flex  flex-col",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
+      lineNumber: 22,
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "mt-2 w-full",
+    className: "flex flex-row justify-between items-center w-full mb-4 px-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, __jsx("h1", {
-    className: "font-bold text-xl text-gray95",
+    className: "text-lg text-gray94 font-bold",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 27,
       columnNumber: 17
     }
-  }, "Add background image")), __jsx("div", {
-    className: "flex flex-row bg-bluish w-full rounded-md h-12 items-center justify-center mt-4",
+  }, "Buttons"), __jsx("button", {
+    className: "text-md text-gray95 font-medium",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  }, "See all")), __jsx("div", {
+    className: "flex flex-row items-center justify-between h-28 px-1",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
       columnNumber: 13
     }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " mt-2",
+    onClick: () => {
+      sideScroll(contentWrapper.current, 25, 100, -10);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 21
+    }
   }, __jsx("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 24
+    }
+  }, __jsx("path", {
+    d: "M9 13L6 10M6 10L9 7M6 10L14 10M1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10Z",
+    stroke: "#111827",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    className: "flex flex-row flex-grow  gap-4 w-80  overflow-x-scroll flex-shrink-0  mx-2 no-scrollbar ",
+    ref: contentWrapper,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "bg-fuschia text-white flex flex-row w-40 justify-center  h-12 rounded-md flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row justify-center items-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 25
+    }
+  }, __jsx("svg", {
+    className: "mr-2",
     width: "16",
     height: "12",
     viewBox: "0 0 16 12",
@@ -2664,8 +2802,8 @@ const AddBackgroundImage = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 17
+      lineNumber: 46,
+      columnNumber: 29
     }
   }, __jsx("path", {
     d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
@@ -2673,8 +2811,8 @@ const AddBackgroundImage = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 21
+      lineNumber: 47,
+      columnNumber: 33
     }
   }), __jsx("path", {
     d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
@@ -2682,316 +2820,197 @@ const AddBackgroundImage = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 48,
+      columnNumber: 33
+    }
+  })), "Button text")), __jsx("div", {
+    className: "bg-bluish text-white flex flex-row w-40 justify-center h-12 rounded-md  flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
       columnNumber: 21
-    }
-  })), __jsx("button", {
-    className: " text-white ml-2",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 17
-    }
-  }, "Select from gallery")), __jsx("div", {
-    className: "flex flex-row bg-jacksonsGray w-full border-2 border-lightGray rounded-md h-12 items-center justify-center mt-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 13
-    }
-  }, __jsx("svg", {
-    width: "17",
-    height: "12",
-    viewBox: "0 0 17 12",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 17
-    }
-  }, __jsx("path", {
-    d: "M0.503 1.884L8.5 5.882L16.497 1.884C16.4674 1.37444 16.2441 0.895488 15.8728 0.545227C15.5016 0.194965 15.0104 -9.35847e-05 14.5 3.36834e-08H2.5C1.98958 -9.35847e-05 1.49845 0.194965 1.12718 0.545227C0.755908 0.895488 0.532604 1.37444 0.503 1.884Z",
-    fill: "#4B5563",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 21
-    }
-  }), __jsx("path", {
-    d: "M16.5 4.118L8.5 8.118L0.5 4.118V10C0.5 10.5304 0.710714 11.0391 1.08579 11.4142C1.46086 11.7893 1.96957 12 2.5 12H14.5C15.0304 12 15.5391 11.7893 15.9142 11.4142C16.2893 11.0391 16.5 10.5304 16.5 10V4.118Z",
-    fill: "#4B5563",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 21
-    }
-  })), __jsx("button", {
-    className: " text-lightGray ml-2",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 17
-    }
-  }, "Design on Canva")));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (AddBackgroundImage);
-
-/***/ }),
-
-/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/BackgroundColor/BackgroundColor.tsx":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/components/BackgroundColor/BackgroundColor.tsx ***!
-  \**************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\BackgroundSelector\\components\\BackgroundColor\\BackgroundColor.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-const BackgroundColor = () => {
-  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  return __jsx("div", {
-    className: " flex   flex-col justify-center w-full  ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 9
-    }
-  }, __jsx("div", {
-    className: " mt-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 13
-    }
-  }, __jsx("h1", {
-    className: "font-bold text-xl text-gray95",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 17
-    }
-  }, "Select background color")), __jsx("div", {
-    className: " mt-4 flex flex-row items-center gap-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 13
     }
   }, __jsx("button", {
+    className: "flex flex-row justify-center items-center",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 17
+      lineNumber: 55,
+      columnNumber: 25
     }
   }, __jsx("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 28 28",
+    className: "mr-2",
+    width: "16",
+    height: "12",
+    viewBox: "0 0 16 12",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 21
+      lineNumber: 56,
+      columnNumber: 29
     }
   }, __jsx("path", {
-    d: "M11.7059 4.05883H4.05882C2.36948 4.05883 1 5.42831 1 7.11765V23.9412C1 25.6305 2.36948 27 4.05882 27H20.8824C22.5717 27 23.9412 25.6305 23.9412 23.9412V16.2941M21.7783 1.89591C22.9728 0.701364 24.9095 0.701364 26.1041 1.89591C27.2986 3.09045 27.2986 5.02719 26.1041 6.22174L12.9729 19.3529H8.64706L8.64706 15.0271L21.7783 1.89591Z",
-    stroke: "#4B5563",
+    d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 33
+    }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 33
+    }
+  })), "Button text")), __jsx("div", {
+    className: "bg-yellowish text-white flex flex-row w-40 justify-center h-12 rounded-md flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row justify-center items-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 25
+    }
+  }, __jsx("svg", {
+    className: "mr-2",
+    width: "16",
+    height: "12",
+    viewBox: "0 0 16 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 29
+    }
+  }, __jsx("path", {
+    d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 33
+    }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 33
+    }
+  })), "Button text")), __jsx("div", {
+    className: "bg-greenish text-white flex flex-row w-40 justify-center h-12 rounded-md flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row justify-center items-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 25
+    }
+  }, __jsx("svg", {
+    className: "mr-2",
+    width: "16",
+    height: "12",
+    viewBox: "0 0 16 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 29
+    }
+  }, __jsx("path", {
+    d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 33
+    }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 33
+    }
+  })), "Button text"))), __jsx("div", {
+    className: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: "mt-2",
+    onClick: () => {
+      sideScroll(contentWrapper.current, 25, 100, 10);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 24
+    }
+  }, __jsx("path", {
+    d: "M11 7L14 10M14 10L11 13M14 10L6 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z",
+    stroke: "#111827",
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
-      columnNumber: 25
+      lineNumber: 90,
+      columnNumber: 29
     }
-  }))), __jsx("button", {
-    type: "button",
-    onClick: () => setShowModal(true),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 17
-    }
-  }, __jsx("svg", {
-    width: "40",
-    height: "40",
-    viewBox: "0 0 40 40",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 21
-    }
-  }, __jsx("rect", {
-    x: "0.5",
-    y: "0.5",
-    width: "39",
-    height: "39",
-    rx: "5.5",
-    fill: "#4F46E5",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 25
-    }
-  }), __jsx("rect", {
-    x: "0.5",
-    y: "0.5",
-    width: "39",
-    height: "39",
-    rx: "5.5",
-    stroke: "#EEF2FF",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 25
-    }
-  }))), __jsx("button", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 17
-    }
-  }, __jsx("svg", {
-    width: "40",
-    height: "40",
-    viewBox: "0 0 40 40",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 21
-    }
-  }, __jsx("rect", {
-    width: "40",
-    height: "40",
-    rx: "6",
-    fill: "#5DEFC3",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 25
-    }
-  }))), __jsx("button", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 17
-    }
-  }, __jsx("svg", {
-    width: "40",
-    height: "40",
-    viewBox: "0 0 40 40",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 21
-    }
-  }, __jsx("rect", {
-    width: "40",
-    height: "40",
-    rx: "6",
-    fill: "#EEA146",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 25
-    }
-  }))), __jsx("button", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48,
-      columnNumber: 17
-    }
-  }, __jsx("svg", {
-    width: "40",
-    height: "40",
-    viewBox: "0 0 40 40",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50,
-      columnNumber: 21
-    }
-  }, __jsx("rect", {
-    width: "40",
-    height: "40",
-    rx: "6",
-    fill: "#EE4646",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 25
-    }
-  })))));
+  }))))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (BackgroundColor);
-
-/***/ }),
-
-/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/style.css":
-/*!*************************************************************************************************************************!*\
-  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/style.css ***!
-  \*************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default.a);
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, "p.separator {\r\n    line-height:1em;\r\n    border-bottom:2px solid #D1D5DB;\r\n}\r\np.separator:before {\r\n    content:\"OR\";\r\n    position:relative;\r\n    left:55%;\r\n    right:40%;\r\n    margin-left:-2.5em;\r\n    padding:0 0.3em;\r\n    top:0.5em;\r\n    background:white;\r\n}", "",{"version":3,"sources":["webpack://./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/style.css"],"names":[],"mappings":"AAAA;IACI,eAAe;IACf,+BAA+B;AACnC;AACA;IACI,YAAY;IACZ,iBAAiB;IACjB,QAAQ;IACR,SAAS;IACT,kBAAkB;IAClB,eAAe;IACf,SAAS;IACT,gBAAgB;AACpB","sourcesContent":["p.separator {\r\n    line-height:1em;\r\n    border-bottom:2px solid #D1D5DB;\r\n}\r\np.separator:before {\r\n    content:\"OR\";\r\n    position:relative;\r\n    left:55%;\r\n    right:40%;\r\n    margin-left:-2.5em;\r\n    padding:0 0.3em;\r\n    top:0.5em;\r\n    background:white;\r\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
-
+/* harmony default export */ __webpack_exports__["default"] = (Buttons);
 
 /***/ }),
 
@@ -3020,7 +3039,7 @@ const SearchBar = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12",
+    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12 z-50",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3066,7 +3085,7 @@ const SearchBar = () => {
       columnNumber: 29
     }
   })))), __jsx("input", {
-    className: "w-full rounded text-sm text-gray95 outline-none",
+    className: "w-full rounded text-sm text-gray95 outline-none h-12 z-0 ",
     type: "text",
     placeholder: "Search anything from elements",
     __self: undefined,
@@ -3079,6 +3098,575 @@ const SearchBar = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchBar);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Shapes/Shapes.tsx":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Shapes/Shapes.tsx ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\Shapes\\Shapes.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const Shapes = () => {
+  return __jsx("div", {
+    className: "h-full flex w-full  flex-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "flex flex-row justify-between items-center w-full mb-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 13
+    }
+  }, __jsx("h1", {
+    className: "text-lg text-gray94 font-bold",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 17
+    }
+  }, "Shapes"), __jsx("button", {
+    className: "text-md text-gray95 font-medium",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 17
+    }
+  }, "See all")), __jsx("div", {
+    className: "flex flex-row justify-between mt-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " focus:ring focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "63",
+    height: "63",
+    viewBox: "0 0 63 63",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 25
+    }
+  }, __jsx("rect", {
+    width: "63",
+    height: "63",
+    fill: "#D1D5DB",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " focus:ring focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "64",
+    height: "63",
+    viewBox: "0 0 64 63",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 25
+    }
+  }, __jsx("ellipse", {
+    cx: "32",
+    cy: "31.5",
+    rx: "32",
+    ry: "31.5",
+    fill: "#D1D5DB",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " focus:ring focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "80",
+    height: "69",
+    viewBox: "0 0 80 69",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 25
+    }
+  }, __jsx("path", {
+    d: "M40 0L79.8372 69H0.16283L40 0Z",
+    fill: "#D1D5DB",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " focus:ring focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "64",
+    height: "63",
+    viewBox: "0 0 64 63",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 25
+    }
+  }, __jsx("ellipse", {
+    cx: "32",
+    cy: "31.5",
+    rx: "32",
+    ry: "31.5",
+    fill: "#D1D5DB",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 29
+    }
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Shapes);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/Stickers.tsx":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/Stickers.tsx ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css");
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\Stickers\\Stickers.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+const sideScroll = (element, speed, distance, step) => {
+  let scrollAmount = 0;
+  const slideTimer = setInterval(() => {
+    element.scrollLeft += step;
+    scrollAmount += Math.abs(step);
+
+    if (scrollAmount >= distance) {
+      clearInterval(slideTimer);
+    }
+  }, speed);
+};
+
+const Stickers = () => {
+  const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_mailicon"]);
+  const contentWrapper = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
+  return __jsx("div", {
+    className: "h-full flex  flex-col ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "flex flex-row justify-between items-center w-full px-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 13
+    }
+  }, __jsx("h1", {
+    className: "text-lg text-gray94 font-bold",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 17
+    }
+  }, "Stickers"), __jsx("button", {
+    className: "text-md text-gray95 font-medium",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 17
+    }
+  }, "See all")), __jsx("div", {
+    className: "flex flex-row mt-4  overflow-x-scroll  items-center overflow-hidden  no-scrollbar",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: " pl-1 mt-3",
+    onClick: () => {
+      sideScroll(contentWrapper.current, 25, 100, -10);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 24
+    }
+  }, __jsx("path", {
+    d: "M9 13L6 10M6 10L9 7M6 10L14 10M1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10Z",
+    stroke: "#111827",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    className: "flex flex-row flex-grow  gap-4 h-28 w-80 overflow-x-scroll no-scrollbar flex-shrink-0  mx-2    relative",
+    ref: contentWrapper,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0 flex-grow",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 56
+    }
+  }))), __jsx("div", {
+    className: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: "  pr-1  mt-3 ",
+    onClick: () => {
+      sideScroll(contentWrapper.current, 25, 100, 10);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 24
+    }
+  }, __jsx("path", {
+    d: "M11 7L14 10M14 10L11 13M14 10L6 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z",
+    stroke: "#111827",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 29
+    }
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Stickers);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default.a);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".no-scrollbar::-webkit-scrollbar {\r\n    display: none;\r\n  }\r\n  \r\n  .no-scrollbar {\r\n    -ms-overflow-style: none;  /* IE and Edge */\r\n    scrollbar-width: none;  /* Firefox */\r\n  }", "",{"version":3,"sources":["webpack://./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css"],"names":[],"mappings":"AAAA;IACI,aAAa;EACf;;EAEA;IACE,wBAAwB,GAAG,gBAAgB;IAC3C,qBAAqB,GAAG,YAAY;EACtC","sourcesContent":[".no-scrollbar::-webkit-scrollbar {\r\n    display: none;\r\n  }\r\n  \r\n  .no-scrollbar {\r\n    -ms-overflow-style: none;  /* IE and Edge */\r\n    scrollbar-width: none;  /* Firefox */\r\n  }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -3105,67 +3693,59 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const DesignTool = () => {
   return __jsx("div", {
-    className: "   ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 9
-    }
-  }, __jsx("div", {
     className: "w-full grid grid-cols-12 font-inter h-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13,
-      columnNumber: 13
+      columnNumber: 9
     }
   }, __jsx("div", {
-    className: "col-span-2  h-full w-full border-bordercolor border-r-2 ",
+    className: "col-span-2 w-full border-bordercolor border-r-2 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14,
-      columnNumber: 17
+      columnNumber: 13
     }
   }, __jsx(_Components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 21
+      lineNumber: 15,
+      columnNumber: 17
     }
   })), __jsx("div", {
-    className: "col-span-3  h-full w-full ",
+    className: "col-span-3 h-full w-full  ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }, __jsx(_Components_SubNavBar_SubNavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18,
       columnNumber: 17
     }
-  }, __jsx(_Components_SubNavBar_SubNavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), __jsx("div", {
+    className: "col-span-7 h-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 21
+      lineNumber: 20,
+      columnNumber: 13
     }
-  })), __jsx("div", {
-    className: "col-span-7   h-full",
+  }, __jsx(_Components_Card_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21,
       columnNumber: 17
     }
-  }, __jsx(_Components_Card_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 21
-    }
-  }))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (DesignTool);
@@ -3191,7 +3771,7 @@ const Header = ({
   document_title
 }) => {
   return __jsx("div", {
-    className: "bg-indigo600 h-16 flex",
+    className: "bg-indigo600  flex h-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3269,26 +3849,121 @@ const Header = ({
       lineNumber: 21,
       columnNumber: 21
     }
-  }, document_title)), __jsx("div", {
-    className: "bg-white p-2 border-0 rounded-md",
+  }, document_title)), __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
       columnNumber: 17
     }
-  }, __jsx("button", {
+  }, __jsx("div", {
+    className: "bg-white p-2 border-0 rounded-md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 21
+    }
+  }, __jsx("p", {
     className: "text-base text-gray94 leading-6 font-medium",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 21
+      lineNumber: 26,
+      columnNumber: 25
     }
-  }, "Save & Share"))));
+  }, "Save & Share")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./src/contexts/TemplateContext.tsx":
+/*!******************************************!*\
+  !*** ./src/contexts/TemplateContext.tsx ***!
+  \******************************************/
+/*! exports provided: INITIAL_STATE, TemplateContext, TemplateProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_STATE", function() { return INITIAL_STATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateContext", function() { return TemplateContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateProvider", function() { return TemplateProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const INITIAL_STATE = {
+  palette: [{
+    name: "primary",
+    color: "#ff0000"
+  }, {
+    name: "secondary",
+    color: "#00ff00"
+  }, {
+    name: "tertiary",
+    color: "#0000ff"
+  }],
+  variations: [{
+    name: "untitled",
+    face: "",
+    textBoxes: [],
+    images: [],
+    svgs: [],
+    shapes: [{
+      id: 'shapes_background',
+      type: "rectangle",
+      x: 0,
+      y: 0,
+      width: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
+      height: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height,
+      // fill: '#F0F0F0',
+      fillLinearGradientStartPoint: {
+        x: 0,
+        y: 0
+      },
+      fillLinearGradientEndPoint: {
+        x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
+        y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
+      },
+      fillLinearGradientColorStops: [0, '#F0F0F0', 1, '#F0F0F0'],
+      draggable: false
+    }]
+  }]
+};
+const TemplateContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+const TemplateProvider = ({
+  children
+}) => {
+  const [templateData, setTemplateData, {
+    goForward,
+    goBack,
+    stepNum,
+    history
+  }] = Object(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__["useImmerState"])(INITIAL_STATE);
+  return __jsx(TemplateContext.Provider, {
+    value: [templateData, setTemplateData, {
+      goForward,
+      goBack,
+      stepNum,
+      history
+    }],
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 9
+    }
+  }, children);
+};
 
 /***/ }),
 

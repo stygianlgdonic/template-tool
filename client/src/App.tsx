@@ -1,26 +1,21 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import "tailwindcss/tailwind.css"
+import NoSSR from './NoSSR'
+import { BrowserRouter as Router, useRoutes } from "react-router-dom"
+import './App.css';
 const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'));
 const CreateCardLayout = React.lazy(() => import('./Screens/CreateCardLayout/CreateCardLayout'));
-import 'tailwindcss/tailwind.css';
-import NoSSR from './NoSSR'
-import './App.css';
-import { TemplateProvider } from './contexts/TemplateContext';
-// import Dashboard from './components/Dashboard/Dashboard';
 
-const App = () => (
-    <Switch>
-        <NoSSR>
-            <Route exact={true} path="/" render={() => (
-                <React.Suspense fallback={<div className="text-red-700">Loading ...</div>}>
-                    <TemplateProvider>
-                        <CreateCardLayout />
-                    </TemplateProvider>
-                </React.Suspense>)
-            } />
+const App = () => {
+    const routing = useRoutes([
+        { path: '/', element: <Dashboard /> }]);
 
-        </NoSSR>
-    </Switch>
-);
+    return (
+
+        { routing }
+
+    );
+}
+
 
 export default App;
