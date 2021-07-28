@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { TemplateContext } from '../../contexts/TemplateContext';
+import { INITIAL_STATE, TemplateContext } from '../../contexts/TemplateContext';
 import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
 import swal from "sweetalert"
@@ -52,7 +52,12 @@ const DesignTool: React.FC = () => {
 
     const onUndo = () => {
         !!setSelectedId && unSelectAll();
-        stepNum > 0 && goBack();
+        if (stepNum > 0) {
+            if (variationIndex > 0 && (history[stepNum].variations.length > history[stepNum - 1].variations.length)) {
+                setVariationIndex(variationIndex - 1)
+            }
+            goBack();
+        }
     };
     const onRedo = () => {
         !!setSelectedId && unSelectAll();
@@ -71,11 +76,33 @@ const DesignTool: React.FC = () => {
         if (templateData.variations.length < 3) {
             setTemplateData(prev => {
                 prev.variations.push(templateData.variations[variationIndex])
-            }, false)
+            })
             setVariationIndex(prev => (prev + 1))
         } else {
             swal("Cannot create more than 3 variations!")
         }
+    }
+
+    const handleDeleteVariation = () => {
+        const variationsLength = templateData.variations.length
+        swal({
+            title: "Are you sure?",
+            text: "Do you want to delete this variation?",
+            icon: "warning",
+            buttons: ["Cancel", "Confirm"],
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                if (variationsLength > 1) {
+                    setTemplateData(prev => {
+                        prev.variations.splice(variationIndex, 1)
+                        if (variationIndex === (variationsLength - 1)) setVariationIndex(variationIndex - 1)
+                    })
+                } else {
+                    setTemplateData(INITIAL_STATE)
+                }
+            }
+        });
     }
 
     const handleEditSelectedItem = () => {
@@ -156,6 +183,10 @@ const DesignTool: React.FC = () => {
                             className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
                             onClick={handleAddVariation}
                         >Add New Variation</button>
+                        <button
+                            className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                            onClick={handleDeleteVariation}
+                        >Delete variation</button>
                     </div>
                 </div>
 
