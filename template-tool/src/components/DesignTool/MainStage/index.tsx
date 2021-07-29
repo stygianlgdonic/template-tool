@@ -387,11 +387,11 @@ const MainStage = ({
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
             >
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "rectangle")?.map((rect, i) => {
-                    return (
+                {templateData.variations[variationIndex].elements?.map((elem, i) => {
+                    if (elem.type === "rectangle") return (
                         <Rectangle
                             key={i}
-                            shapeProps={rect}
+                            shapeProps={elem}
                             onSelect={(e) => {
                                 if (e.current !== undefined) {
                                     let temp = nodesArray;
@@ -401,7 +401,7 @@ const MainStage = ({
                                     $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
-                                setSelectedId(rect.id);
+                                setSelectedId(elem.id);
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
@@ -409,114 +409,117 @@ const MainStage = ({
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === rect.id)
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
                                     prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
-                    );
-                })}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "circle")?.map((circle, i) => {
-                    return (
+                    )
+
+                    if (elem.type === "circle") return (
                         <UCircle
                             key={i}
-                            shapeProps={circle}
+                            shapeProps={elem}
                             onSelect={() => {
-                                setSelectedId(circle.id)
+                                setSelectedId(elem.id)
                             }}
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === circle.id)
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
                                     prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
-                    );
-                })}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "line")?.map((line, i) => {
-                    return (
+                    )
+
+                    if (elem.type === "line") return (
                         <ULine
                             key={i}
-                            shapeProps={line}
+                            shapeProps={elem}
                             onSelect={() => {
-                                setSelectedId(line.id)
+                                setSelectedId(elem.id)
                             }}
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === line.id)
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
                                     prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
-                    );
-                })}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "polygon")?.map((polygon, i) => {
-                    return (
+                    )
+
+                    if (elem.type === "polygon") return (
                         <UPolygon
                             key={i}
-                            shapeProps={polygon}
+                            shapeProps={elem}
                             onSelect={() => {
-                                setSelectedId(polygon.id)
+                                setSelectedId(elem.id)
                             }}
                             onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === polygon.id)
+                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
                                     prev.variations[variationIndex].elements[index] = newAttrs
                                 });
                             }}
                         />
-                    );
+                    )
+
+                    if (elem.type === "svg") return (
+                        <USvg
+                            key={i}
+                            svgProps={elem}
+                            onSelect={() => {
+                                setSelectedId(elem.id)
+                            }}
+                            onEditClick={handleEditSelectedItem}
+                            onChange={(event) => setTemplateData((prev) => {
+                                const svgIndex = prev.variations[variationIndex].elements.findIndex(svgItem => svgItem.id === elem.id)
+                                prev.variations[variationIndex].elements[svgIndex] = {
+                                    ...prev.variations[variationIndex].elements[svgIndex],
+                                    ...JSON.parse(JSON.stringify(event.target.attrs))
+                                }
+                            })}
+                        />
+                    )
+
+                    if (elem.type === "image") return (
+                        <UImage
+                            key={i}
+                            imageProps={elem}
+                            onSelect={() => {
+                                setSelectedId(elem.id)
+                            }}
+                            onChange={(event) => setTemplateData((prev) => {
+                                const imageIndex = prev.variations[variationIndex].elements.findIndex(img => img.id === elem.id)
+                                prev.variations[variationIndex].elements[imageIndex] = {
+                                    ...prev.variations[variationIndex].elements[imageIndex],
+                                    ...JSON.parse(JSON.stringify(event.target.attrs))
+                                }
+                            })}
+                        />
+                    )
+
+                    if (elem.type === "text") return (
+                        <UText
+                            key={i}
+                            textProps={elem}
+                            onSelect={() => {
+                                setSelectedId(elem.id)
+                            }}
+                            onEditClick={handleEditSelectedItem}
+                            onChange={(event) => setTemplateData((prev) => {
+                                const txtIndex = prev.variations[variationIndex].elements.findIndex(txt => txt.id === elem.id)
+                                prev.variations[variationIndex].elements[txtIndex] = { ...event.target.attrs }
+                            })}
+                        />
+                    )
+
+
                 })}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "svg")?.map((item, index) => (
-                    <USvg
-                        key={index}
-                        svgProps={item}
-                        onSelect={() => {
-                            setSelectedId(item.id)
-                        }}
-                        onEditClick={handleEditSelectedItem}
-                        onChange={(event) => setTemplateData((prev) => {
-                            const svgIndex = prev.variations[variationIndex].elements.findIndex(svgItem => svgItem.id === item.id)
-                            prev.variations[variationIndex].elements[svgIndex] = {
-                                ...prev.variations[variationIndex].elements[svgIndex],
-                                ...JSON.parse(JSON.stringify(event.target.attrs))
-                            }
-                        })}
-                    />
-                ))}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "image")?.map((item, index) => (
-                    <UImage
-                        key={index}
-                        imageProps={item}
-                        onSelect={() => {
-                            setSelectedId(item.id)
-                        }}
-                        onChange={(event) => setTemplateData((prev) => {
-                            const imageIndex = prev.variations[variationIndex].elements.findIndex(img => img.id === item.id)
-                            prev.variations[variationIndex].elements[imageIndex] = {
-                                ...prev.variations[variationIndex].elements[imageIndex],
-                                ...JSON.parse(JSON.stringify(event.target.attrs))
-                            }
-                        })}
-                    />
-                ))}
-                {templateData.variations[variationIndex].elements?.filter(item => item.type === "text")?.map((item, index) => (
-                    <UText
-                        key={index}
-                        textProps={item}
-                        onSelect={() => {
-                            setSelectedId(item.id)
-                        }}
-                        onEditClick={handleEditSelectedItem}
-                        onChange={(event) => setTemplateData((prev) => {
-                            const txtIndex = prev.variations[variationIndex].elements.findIndex(txt => txt.id === item.id)
-                            prev.variations[variationIndex].elements[txtIndex] = { ...event.target.attrs }
-                        })}
-                    />
-                ))}
+
                 <TransformerComponent
                     id={`tr${selectedId}`}
                     $tr={$tr}

@@ -1,10 +1,10 @@
 {
   "1": {
     "js": [
-      "/static/js/1.d944095d.chunk.js"
+      "/static/js/1.4b1ce0fa.chunk.js"
     ],
     "map": [
-      "/static/js/1.d944095d.chunk.js.map"
+      "/static/js/1.4b1ce0fa.chunk.js.map"
     ],
     "chunks": [
       1
@@ -26,11 +26,11 @@
       "/static/css/client.6746daa1.css"
     ],
     "js": [
-      "/static/js/client.5e3318aa.js"
+      "/static/js/client.d381addb.js"
     ],
     "map": [
       "/static/css/client.6746daa1.css.map",
-      "/static/js/client.5e3318aa.js.map"
+      "/static/js/client.d381addb.js.map"
     ],
     "chunks": [
       0
@@ -42,8 +42,8 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.d944095d.chunk.js.LICENSE.txt",
-      "/static/js/client.5e3318aa.js.LICENSE.txt"
+      "/static/js/1.4b1ce0fa.chunk.js.LICENSE.txt",
+      "/static/js/client.d381addb.js.LICENSE.txt"
     ]
   }
 }
