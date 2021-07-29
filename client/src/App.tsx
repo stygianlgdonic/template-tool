@@ -5,6 +5,7 @@ import { BrowserRouter, useRoutes, Routes, Route } from "react-router-dom"
 import './App.css';
 // const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'));
 import Dashboard from './../src/Screens/Dashboard/Dashboard';
+import Registration from './../src/Screens/Registration/Registration';
 import CreateCardLayout from './../src/Screens/CreateCardLayout/CreateCardLayout';
 import Centerboard from './components/Centerboard/Centerboard';
 import LeftSidebar from './components/LeftSideBar/LeftSidebar';
@@ -41,6 +42,10 @@ const App = () => {
                         </Route>
                     </TemplateProvider>
                 </DesignToolProvider>
+                <Route path="/signin" element={<Registration />}>
+
+
+                </Route>
 
             </Routes>
         </NoSSR>

@@ -28,7 +28,10 @@ module.exports = {
             redish: '#EE4646',
             green: '#059669',
             yellow: '#FAAB60',
+            indigo700: '#4338CA',
             indigo600: '#4F46E5',
+            indigo500: '#6366F1',
+            indigo400: '#818CF8',
             red600: '#DC2626',
             green500: '#10B981',
             greenish: '#5DEFC3',
@@ -38,6 +41,7 @@ module.exports = {
 
 
             gray900: '#111827',
+            gray50: '#FAFAFA',
             grayshade: '#F9F9F9',
 
             indigo100: '#E0E7FF',
