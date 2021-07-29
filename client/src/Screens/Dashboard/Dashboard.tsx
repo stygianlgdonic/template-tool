@@ -2,6 +2,9 @@ import React from 'react';
 import LeftSidebar from './../../components/LeftSideBar/LeftSidebar'
 import RightSidebar from './../../components/RightSidebar/RightSidebar';
 import Centerboard from './../../components/Centerboard/Centerboard';
+import {
+    Outlet
+} from 'react-router-dom';
 const Dashboard: React.FC = () => {
 
     return (
@@ -22,6 +25,7 @@ const Dashboard: React.FC = () => {
                     <RightSidebar />
                 </div>
             </div>
+            <Outlet />
         </div>
 
     )

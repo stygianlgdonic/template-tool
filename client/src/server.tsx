@@ -31,7 +31,7 @@ export const renderApp = (req: express.Request, res: express.Response) => {
     const markup = renderToString(
         <App />
     );
-
+    console.log(markup)
     if (context.url) {
         return { redirect: context.url };
     } else {
