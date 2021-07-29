@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "87cfe262ace5718d9f4c";
+/******/ 	var hotCurrentHash = "c7778800f25b0fcfee1d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -823,10 +823,10 @@ module.exports =
 /*!***************************!*\
   !*** ./build/assets.json ***!
   \***************************/
-/*! exports provided: 0, client, noentry, default */
+/*! exports provided: client, noentry, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"],\"png\":[\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\"]}}");
+module.exports = JSON.parse("{\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"],\"png\":[\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\"]}}");
 
 /***/ }),
 
