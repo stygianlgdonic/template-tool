@@ -19,27 +19,26 @@ const App = () => {
     return (
 
         <NoSSR >
-            <Routes>
+            <Suspense fallback={<p>Loading ...</p>}>
+                <Routes>
 
-                <Route path="/" element={<Dashboard />}>
-                </Route>
+                    <Route path="/" element={<Dashboard />}>
+                    </Route>
 
-                <DesignToolProvider>
-                    <TemplateProvider>
-                        <Suspense fallback={
-                            <p>Loading ...</p>
-                        }>
+                    <DesignToolProvider>
+                        <TemplateProvider>
+
                             <Route path="createcard" element={<CreateCardLayout />}>
                             </Route>
-                        </Suspense>
-                    </TemplateProvider>
-                </DesignToolProvider>
-                <Route path="/signin" element={<Registration />}>
+                        </TemplateProvider>
+                    </DesignToolProvider>
+                    <Route path="/signin" element={<Registration />}>
 
 
-                </Route>
+                    </Route>
 
-            </Routes>
+                </Routes>
+            </Suspense >
         </NoSSR>
     );
 }

@@ -8,33 +8,14 @@ import TextSelector from './components/TextSelector/TextSelector';
 const SubNavBar: React.FC = (): JSX.Element => {
     const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
     return (
-        <div className="border-bordercolor border-r-2 ">
 
-            <div className="h-full flex flex-col w-full">
+        <div className="h-full flex flex-col w-full border-bordercolor border-r-2 ">
 
-                {designToolnavigator === 'element' && <ElementSelector />}
-
-            </div>
-            <div className="h-full flex flex-col  w-full">
-
-                {designToolnavigator === 'text' && <TextSelector />}
-
-            </div>
-            <div className="h-full flex flex-col  w-full">
-
-                {designToolnavigator === 'images' && <ImageSelector />}
-
-            </div>
-            <div className=" flex flex-col w-full">
-
-                {designToolnavigator === 'background' && <BackgroundSelector />}
-
-            </div>
-            <div className="h-full flex flex-col  w-full">
-
-                {designToolnavigator === 'logo' && <TextSelector />}
-
-            </div>
+            {designToolnavigator === 'element' && <ElementSelector />}
+            {designToolnavigator === 'text' && <TextSelector />}
+            {designToolnavigator === 'images' && <ImageSelector />}
+            {designToolnavigator === 'background' && <BackgroundSelector />}
+            {designToolnavigator === 'logo' && <TextSelector />}
 
         </div>
     )

@@ -29,7 +29,7 @@ const Buttons: React.FC = (): JSX.Element => {
 
                 <button className="text-md text-gray95 font-medium">See all</button>
             </div>
-            <div className="flex flex-row items-center justify-between h-28 px-1" >
+            <div className="flex flex-row items-center justify-between h-28 px-2" >
                 <div>
 
                     <button className=" mt-2" onClick={() => {
@@ -40,7 +40,7 @@ const Buttons: React.FC = (): JSX.Element => {
 
                     </button>
                 </div>
-                <div className="flex flex-row flex-grow  gap-4 w-80  overflow-x-scroll flex-shrink-0  mx-2 no-scrollbar " ref={contentWrapper} >
+                <div className="flex flex-row flex-grow  gap-4 w-72  overflow-x-scroll flex-shrink-0  mx-2 no-scrollbar " ref={contentWrapper} >
                     <div className="bg-fuschia text-white flex flex-row w-40 justify-center  h-12 rounded-md flex-shrink-0">
                         <button className="flex flex-row justify-center items-center">
                             <svg className="mr-2" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
