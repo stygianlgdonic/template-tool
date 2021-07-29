@@ -18,7 +18,34 @@ const DesignTool: React.FC = () => {
             <div className="col-span-7 h-full ">
                 <Card />
             </div>
-        </div>
+            <div>
+                <nav className=" w-64 absolute overflow-x-scroll bg-gray-700 top-10  right-0 h-screen text-black">
+                    <div className="flex pr-2 justify-end">
+                        <button className="p-2 text-xl font-bold"></button>
+                    </div>
+                    <h1 className="text-xl text-center font-bold pt-5">Menu</h1>
+                    <ul className="list-none  text-center">
+                        <li className="my-8">
+                            <a href="#"></a>Teams
+                        </li>
+                        <li className="my-8">
+                            <a href="#"></a>Projects
+                        </li>
+                        <li className="my-8">
+                            <a href="#"></a>Favourites
+                        </li>
+                        <li className="my-8">
+                            <a href="#"></a>Notifications
+                        </li>
+                        <li className="my-8">
+                            <a href="#"></a>Members
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div >
+
+
     )
 };
 

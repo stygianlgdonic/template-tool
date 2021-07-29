@@ -13,7 +13,7 @@ export default function Example() {
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
                         Or{' '}
-                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        <a href="#" className="font-medium text-indigo600 hover:text-indigo-500">
                             start your 14-day free trial
                         </a>
                     </p>
@@ -31,7 +31,7 @@ export default function Example() {
                                 type="email"
                                 autoComplete="email"
                                 required
-                                className="appearance-none rounded-none  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo500 focus:border-indigo500 focus:z-10 sm:text-sm"
+                                className="appearance-none rounded-none  relative block w-full px-3 py-2 border border-gray300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo500 focus:border-indigo500 focus:z-10 sm:text-sm"
                                 placeholder="Email address"
                             />
                         </div>
@@ -45,7 +45,7 @@ export default function Example() {
                                 type="password"
                                 autoComplete="current-password"
                                 required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2  border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                className="appearance-none rounded-none relative block w-full px-3 py-2  border border-gray300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Password"
                             />
                         </div>

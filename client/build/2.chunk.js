@@ -71,7 +71,7 @@ function Example() {
     }
   }, "Or", ' ', __jsx("a", {
     href: "#",
-    className: "font-medium text-indigo-600 hover:text-indigo-500",
+    className: "font-medium text-indigo600 hover:text-indigo-500",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -129,7 +129,7 @@ function Example() {
     type: "email",
     autoComplete: "email",
     required: true,
-    className: "appearance-none rounded-none  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo500 focus:border-indigo500 focus:z-10 sm:text-sm",
+    className: "appearance-none rounded-none  relative block w-full px-3 py-2 border border-gray300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo500 focus:border-indigo500 focus:z-10 sm:text-sm",
     placeholder: "Email address",
     __self: this,
     __source: {
@@ -159,7 +159,7 @@ function Example() {
     type: "password",
     autoComplete: "current-password",
     required: true,
-    className: "appearance-none rounded-none relative block w-full px-3 py-2  border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
+    className: "appearance-none rounded-none relative block w-full px-3 py-2  border border-gray300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
     placeholder: "Password",
     __self: this,
     __source: {

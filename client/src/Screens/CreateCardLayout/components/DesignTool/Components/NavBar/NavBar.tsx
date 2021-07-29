@@ -51,7 +51,7 @@ const SideBarNav: React.FC = () => {
                     </div>
 
                 </button>
-                <button className="w-full">
+                <button className="w-full" onClick={() => setDesignToolnavigator('logo')}>
 
                     <div className="flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

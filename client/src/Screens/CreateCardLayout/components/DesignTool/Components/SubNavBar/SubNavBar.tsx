@@ -3,6 +3,7 @@ import { DesignToolContext } from '../../../../../../contexts/DesignToolContext'
 import BackgroundSelector from './components/BackgroundSelector/BackgroundSelector';
 import ElementSelector from './components/ElementSelector/ElementSelector';
 import ImageSelector from './components/ImageSelector/ImageSelector';
+import LogoSelector from './components/LogoSelector/LogoSelector';
 import TextSelector from './components/TextSelector/TextSelector';
 
 const SubNavBar: React.FC = (): JSX.Element => {
@@ -15,7 +16,7 @@ const SubNavBar: React.FC = (): JSX.Element => {
             {designToolnavigator === 'text' && <TextSelector />}
             {designToolnavigator === 'images' && <ImageSelector />}
             {designToolnavigator === 'background' && <BackgroundSelector />}
-            {designToolnavigator === 'logo' && <TextSelector />}
+            {designToolnavigator === 'logo' && <LogoSelector />}
 
         </div>
     )

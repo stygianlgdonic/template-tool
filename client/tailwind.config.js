@@ -42,6 +42,7 @@ module.exports = {
 
             gray900: '#111827',
             gray50: '#FAFAFA',
+            gray300: '#D4D4D8',
             grayshade: '#F9F9F9',
 
             indigo100: '#E0E7FF',
@@ -50,7 +51,8 @@ module.exports = {
             rightbackgroundcolor: '#F3F4F6',
             svgcolor: '#C4C4C4',
             fuschia: "#EF5DA8",
-            bluish: "#818CF8"
+            bluish: "#818CF8",
+            indigoish: "#C7D2FE"
         },
 
 
