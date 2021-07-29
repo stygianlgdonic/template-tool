@@ -18,6 +18,7 @@ const DesignTool: React.FC = () => {
             <div className="col-span-7 h-full ">
                 <Card />
             </div>
+            <div></div>
             <div>
                 <nav className=" w-64 absolute overflow-x-scroll bg-gray-700 top-10  right-0 h-screen text-black">
                     <div className="flex pr-2 justify-end">
