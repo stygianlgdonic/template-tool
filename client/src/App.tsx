@@ -8,6 +8,7 @@ import Centerboard from './components/Centerboard/Centerboard';
 import LeftSidebar from './components/LeftSideBar/LeftSidebar';
 import { DesignToolProvider } from './contexts/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
+import { HeaderProvider } from './contexts/HeaderContext';
 
 const Registration = React.lazy(() => import('./Screens/Registration/Registration'))
 const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'))
@@ -27,9 +28,11 @@ const App = () => {
 
                     <DesignToolProvider>
                         <TemplateProvider>
+                            <HeaderProvider>
 
-                            <Route path="createcard" element={<CreateCardLayout />}>
-                            </Route>
+                                <Route path="createcard" element={<CreateCardLayout />}>
+                                </Route>
+                            </HeaderProvider>
                         </TemplateProvider>
                     </DesignToolProvider>
                     <Route path="/signin" element={<Registration />}>

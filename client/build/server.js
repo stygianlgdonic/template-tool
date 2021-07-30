@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9840fa3e2933e87afa07";
+/******/ 	var hotCurrentHash = "a3e31b65d5241b5270b0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1361,6 +1361,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
 /* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
+/* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1368,6 +1369,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
  // const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'));
+
 
 
 
@@ -1380,7 +1382,7 @@ const App = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Suspense"], {
@@ -1388,21 +1390,21 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 23,
         columnNumber: 33
       }
     }, "Loading ..."),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 13
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 17
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1411,29 +1413,36 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 46
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 21
     }
   }), __jsx(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__["DesignToolProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 29,
       columnNumber: 21
     }
   }, __jsx(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__["TemplateProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 30,
       columnNumber: 25
+    }
+  }, __jsx(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__["HeaderProvider"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 29
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "createcard",
@@ -1441,30 +1450,30 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31,
-        columnNumber: 63
+        lineNumber: 33,
+        columnNumber: 67
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 29
+      lineNumber: 33,
+      columnNumber: 33
     }
-  }))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+  })))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/signin",
     element: __jsx(Registration, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 38,
         columnNumber: 52
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 38,
       columnNumber: 21
     }
   }))));
@@ -1535,7 +1544,46 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 12,
+      columnNumber: 9
+    }
+  }, children);
+};
+
+/***/ }),
+
+/***/ "./src/contexts/HeaderContext.tsx":
+/*!****************************************!*\
+  !*** ./src/contexts/HeaderContext.tsx ***!
+  \****************************************/
+/*! exports provided: INITIAL_STATE, HeaderContext, HeaderProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_STATE", function() { return INITIAL_STATE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderContext", function() { return HeaderContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+const INITIAL_STATE = {};
+const HeaderContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+const HeaderProvider = ({
+  children
+}) => {
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  return __jsx(HeaderContext.Provider, {
+    value: [open, setOpen],
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
       columnNumber: 9
     }
   }, children);

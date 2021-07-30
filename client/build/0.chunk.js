@@ -85,49 +85,74 @@ const CreateCardLayout = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _MainCanvas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainCanvas */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/index.tsx");
-/* harmony import */ var _tailwindComponents_CardHeader_CardHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tailwindComponents/CardHeader/CardHeader */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/tailwindComponents/CardHeader/CardHeader.tsx");
+/* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
+/* harmony import */ var _Preview_components_Drawer_Drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Preview/components/Drawer/Drawer */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Preview/components/Drawer/Drawer.tsx");
+/* harmony import */ var _MainCanvas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MainCanvas */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/index.tsx");
+/* harmony import */ var _tailwindComponents_CardHeader_CardHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tailwindComponents/CardHeader/CardHeader */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/tailwindComponents/CardHeader/CardHeader.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\Card.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+
+
 const Card = () => {
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_1__["HeaderContext"]);
   return __jsx("div", {
     className: "h-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 13,
       columnNumber: 9
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 14,
       columnNumber: 13
     }
-  }, __jsx(_tailwindComponents_CardHeader_CardHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx(_tailwindComponents_CardHeader_CardHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 15,
       columnNumber: 17
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 17,
       columnNumber: 13
     }
-  }, __jsx(_MainCanvas__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_MainCanvas__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  })), __jsx("div", {
+    className: "z-50",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 13
+    }
+  }, __jsx(_Preview_components_Drawer_Drawer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    isOpen: open,
+    setIsOpen: setOpen,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
       columnNumber: 17
     }
   })));
@@ -2519,6 +2544,129 @@ const SideBarNav = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SideBarNav);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Preview/components/Drawer/Drawer.tsx":
+/*!************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/Preview/components/Drawer/Drawer.tsx ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Drawer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Preview\\components\\Drawer\\Drawer.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const image = __webpack_require__(/*! ./../../../../../../../../assets/images/preview.png */ "./src/assets/images/preview.png");
+
+function Drawer({
+  isOpen,
+  setIsOpen
+}) {
+  return __jsx("main", {
+    className: " fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500 opacity-0 translate-x-full "),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 9
+    }
+  }, __jsx("section", {
+    className: " w-screen max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " + (isOpen ? " translate-x-0  " : " translate-x-full "),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 13
+    }
+  }, __jsx("article", {
+    className: "relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "h-full flex ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "pl-4  h-full flex items-center",
+    onClick: () => {
+      setIsOpen(false);
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 25
+    }
+  }, __jsx("svg", {
+    className: "w-2",
+    width: "14",
+    height: "22",
+    viewBox: "0 0 14 22",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 29
+    }
+  }, __jsx("path", {
+    d: "M2.24023 2L11.9842 11L2.24023 20",
+    stroke: "#374151",
+    "stroke-width": "4",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 33
+    }
+  }))), __jsx("div", {
+    className: "flex justify-center w-full ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 25
+    }
+  }, __jsx("img", {
+    src: image,
+    className: "order-2 border-bordercolor  mt-8 shadow-lg w-60 h-64",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 29
+    }
+  }))))), __jsx("section", {
+    className: " w-screen h-full cursor-pointer ",
+    onClick: () => {
+      setIsOpen(false);
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 13
+    }
+  }));
+}
 
 /***/ }),
 
@@ -5277,6 +5425,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const DesignTool = () => {
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx("div", {
     className: "w-full grid grid-cols-12 font-inter ",
     style: {
@@ -5285,7 +5437,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 15,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -5293,14 +5445,14 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 16,
       columnNumber: 13
     }
   }, __jsx(_Components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 17,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -5308,14 +5460,14 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 19,
       columnNumber: 13
     }
   }, __jsx(_Components_SubNavBar_SubNavBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 20,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -5323,151 +5475,17 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 22,
       columnNumber: 13
     }
   }, __jsx(_Components_Card_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 17
-    }
-  })), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 13
-    }
-  }), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 13
-    }
-  }, __jsx("nav", {
-    className: " w-64 absolute overflow-x-scroll bg-gray-700 top-10  right-0 h-screen text-black",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 23,
       columnNumber: 17
     }
-  }, __jsx("div", {
-    className: "flex pr-2 justify-end",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 21
-    }
-  }, __jsx("button", {
-    className: "p-2 text-xl font-bold",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 25
-    }
-  })), __jsx("h1", {
-    className: "text-xl text-center font-bold pt-5",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 21
-    }
-  }, "Menu"), __jsx("ul", {
-    className: "list-none  text-center",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 21
-    }
-  }, __jsx("li", {
-    className: "my-8",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 25
-    }
-  }, __jsx("a", {
-    href: "#",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 29
-    }
-  }), "Teams"), __jsx("li", {
-    className: "my-8",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 25
-    }
-  }, __jsx("a", {
-    href: "#",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 29
-    }
-  }), "Projects"), __jsx("li", {
-    className: "my-8",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 25
-    }
-  }, __jsx("a", {
-    href: "#",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 29
-    }
-  }), "Favourites"), __jsx("li", {
-    className: "my-8",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 25
-    }
-  }, __jsx("a", {
-    href: "#",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 29
-    }
-  }), "Notifications"), __jsx("li", {
-    className: "my-8",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 25
-    }
-  }, __jsx("a", {
-    href: "#",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 29
-    }
-  }), "Members")))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (DesignTool);
@@ -5487,20 +5505,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\Header\\Header.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
 const Header = ({
   document_title
 }) => {
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_2__["HeaderContext"]);
   return __jsx("div", {
     className: "bg-indigo600  flex h-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 10,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -5508,7 +5532,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 12,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -5516,7 +5540,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 14,
       columnNumber: 17
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -5524,7 +5548,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 15,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -5532,7 +5556,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 17,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -5544,7 +5568,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 19,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -5556,7 +5580,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 20,
       columnNumber: 33
     }
   })), __jsx("h1", {
@@ -5564,14 +5588,14 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 22,
       columnNumber: 29
     }
   }, "Back to Dashboard")))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 26,
       columnNumber: 17
     }
   }, __jsx("h1", {
@@ -5579,33 +5603,50 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 27,
       columnNumber: 21
     }
-  }, document_title)), __jsx("button", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    className: "bg-white p-2 border-0 rounded-md",
+  }, document_title)), __jsx("div", {
+    className: "gap-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
       columnNumber: 21
+    }
+  }, __jsx("div", {
+    className: "bg-white p-2 border-0 rounded-md mr-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 25
     }
   }, __jsx("p", {
     className: "text-base text-gray94 leading-6 font-medium",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 25
+      lineNumber: 34,
+      columnNumber: 29
     }
-  }, "Save & Share")))));
+  }, "Save & Share"))), __jsx("button", {
+    className: "bg-bluish border-0 rounded-md text-base text-white leading-6 font-medium p-2",
+    onClick: () => setOpen(!open),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 21
+    }
+  }, "Preview"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -5631,6 +5672,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABx
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABgCAYAAABlqZ4+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAlxSURBVHgB7Z1rbFzFFcfP3LX34d2NjRM7TRQ1IY4TlBBqB4iEKrVJpaKqVSqbRhRU2iRVpfZDpYAESP3SXANV2zxwqFSpqoTsQlCignDVqm0IrQmohdK0JICjJBbETjAJMYlfu/a+7zDnmk38uO+9M3eM+Ekr2Xu9V7v/PXNm/mceBpAQVaV1sIBQQDIeP5DbQxL5gT37sg/CAoGAJGD0kUSuh/24ZcbTx2mB7lJ/FhsEiZEiEtW96RaSzJ2E2QIiW0i1clL2qAw8Ep/Yn99RItpBoGCXB6WNykAj8bED2c4SaN0OBESkjcpAIlH9ZWYVqSZdML/5OkWqqBQeiXr+C5NXwETATKoI/Scm4NqlnNVttuA9Htub2QkSIDQSH9+f3a0BHDS7jsINnZuEUoHqv9cvj8DyphiEYyHTexJCurW81hFkVAoREYcvSjK3h1IwzWdD56Zg+EJm3vPhmALLmmpgMRPUFAKDpEQ7fv5orBsCgLuI0/lPYeM/2mJ0PZ8pwWDfJKRHC5b3kTkquYqo7stsIQrpMet9Mf+9fyrFhNQc3U/WqOQmIto3jVLV7Prwhaye/7wgW1T6LuKn+a+L5b82o+vYaVw+nzHMf26QKSp9FVHPfzh8obDK6DrmP2y+mVQJ/EKGqPRNRDv7hh0HClgevvhJ0FHpi4ho36yGL5ffn2KPypqvE4KKyopEtLNvGHWDp9MwPpwHUQQRlZ5F1O1bqKrHKv/1/2/C8fDFb0RGpScR3dq3oBAVla5ErMS+BQnvqHQsol/2LSh4RqUjEf22b0HCIyptRbTLf5XYt6DwOypNRZzOf3k2/qM7ja77Zd+cQFjpmHIIcr+i0lDEIOzbXCIRAvVLFNh8VwzWrquGfb8YBR74EZXzRFR/nWsjVbQrCPtW5tbbwrDjR7WwbHkIEsnpGYzel6fgUPcEjFzlk3cricpZIvIsXznl3u8l4f7vJ9kbNr5+pi8Hh59NwzuncuA3XqNSf6smqw+ug1GH4tlMHlXMd1HAHyQd/e2RQyk48mwKeOA2Koks9q1xaQh+/8xSV6/5zZNj0PvSFPDATVQqTEDTDmSMFQ7O/GdcyPhv69drwC3b2uLAC/zMF/rSzECk9UAyhOlGFdJVZdaBiCpflWluDoNbbl5dDfG4ApOT/L7kEZbCsDO1ikrDyXucPBcpIFLUvPX28QT/Wd+ZUWmEoYhB+N/Ra+7HnKUii5Rr4qzmiEnHKs0iz+Er7kW8eLEAxWKw5TZEGhFxYO2W2jo53r40Iq7fGHH7EojFPhdxFv1n3c/DXBwoggxII+Kxv7sfNB/9WxpkQBoRz57Ow+iI856WTVHAa71ZkAGptmD88yXnxY3XX8tAqRR8z4xIJWLvP5wLc5hT8cELUol4aagIz3Xbi/PCkRQMfSBHp4JIt6Oq5/k0vPm6ea77/4ksHOqSJwoRqUSsY4Pnr2ytgb1PjMCLf5zd82JH8vzhNPyqY1Sv+MRq5HnrVSABCtPjm9+Owz33JvUy8X/fyMIzT0/A0b9Owm2tEdCYtXvzjRxMpjW97rj74TpW/S7Bc10T8OorwS8UIB37s/My+VvHroEIUBCMqm3tcUgkbkTWX3rS8PTvJgxf8+RvG2D1murrv6Pn7ns7By+wKL10iX+e3HT34nnPBRKJm++KQtv2BKy/1biGuK09AR8Pl+DPL94Y8lSHCfzkp7WzBETwi/ja3TX649+vYgSPw5Ur/GYhjRAu4gO7FsH2+xK2f/fDH9fC8hVV8K/jGT1Kt92TgA0brQu3X/5qVH/wnH8xQqiIt2+OOhKwzDe+FdcfbrnvgaTexPveEbMuUmgX1/Yd5wJWCk69ikKYiA0NCmxscT+P4pWm5un5FxEIE7H1jiiIBAXcdKf7GqUXhImI+VA0t2wQE/nCRFz6BfGjqTs2f4YiMcSmT1atFi8ifnHlBVE8ESLimmZxHcpccFkeb4SIGIsHd15H3U3uZxHdIkTE+nr+H8SMWIz/FyhERFHjNSNElMyEfDqNBjcXUhCwIclQxGVNMfCTCwPB7W356LJ/5bEV64yX/xnWE5HUSEFfCZXP+rNgCEtW2+9PQuvtEWho5J8jz7Ap2JePTkHvscoXgYajCqzamIDETcY9Pek4kB0wXyWrQf+Jcd+ELNPMhh0tmyKwZm0Y1q0P69MClXL14xKcfjcP7/UXdOH8WrMYS4agqWWRvnLWEFwtq3aO1kExepAQssPsRrheGxe98wIHxQ2NCqy8uRoWLwnphdcwK8JixC5eoujvNJ+jTBgK46MlGB/X4DJrpljV/pDN+g2cL8DVYf8LsY1fjMKKW8xLcRToHyAdffB6/6/uy6hMyD1mLxi+mIWhswtr55RXQlVE7xcaV5r3DRqFhzoeieo7zWYNoj7dw9clunnLBOa/ptZFejM2hDVfqtFd6iOx4zeemoP9bioNBvtSkB6VZ/LcL5L1VbD6S4sgVG02QCenaEFrt9wMNBN1/9RBAspus+uiF8bzxj7/wVPqw1HDfd6WngjPKlQIdJpdn95hPwWlwsJt3pj/UDzT/SoExjQNOsr5z/hPbHDSvBdqnsT8t/bOWsvhCy0V29VHE6es7uNs07jdqSNFqvfcvLet+QlG3op1cdP8x5rvcUhH2lWVjNndy90ZEDbDoIWSJ3Fjj5W1tcp/RriuE6l7MzvZMAjzpOFOLL/top9g/mtqTZraN8x/tEQfUnmcATGXhZgnndg3mqdbuZ5GMhcZ7KJTcPiCTdgs/7Fn/6SlI7uc5D+T11eG7HYRy1dW9o1S2sHchwoV4Evt3M4uTqVKcP7khNDm7cC+jTH71j7TvnnFtwkIJ3ly+vAN/nYR7dvKDUnz/Gdi37zi/0meAdtFJ/aNjf9Ur/nPCC5TYUHYRVv7BrPLV37CbT7R/mwJ/4ZBftk3r/A9InraLuIpJyaHtGnwARsGVXJIZV1jmOW/hLV94/x/CsSc+M7JLvpt37wibH2HnV3Ek09wPOmkefOyb14RukjGD7vI0755RfhKIxRSqSadrKkZH2bOymrYvI3sol35qlL75pXAlmu5zZMi7JtXglvzBjgwn2wjJNRpZRc/PJfWOxDL/OeTffNKoCIidnnSGn/tm1cC36qJAlAl00pBe8rN63D1AU2HtwYtIBJ4JM7ELk+W4WXfvCKViIilXTRYfSAD0u28R3+L4zz24yyfi/ZNH/9JJiAiXSTOpNy8Rdm3zyxYNQfJ+QSAlyDHf8UJBQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "./src/assets/images/preview.png":
+/*!***************************************!*\
+  !*** ./src/assets/images/preview.png ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/preview.06b7f3b0.png";
 
 /***/ }),
 
