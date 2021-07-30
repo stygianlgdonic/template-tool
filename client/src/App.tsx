@@ -12,6 +12,7 @@ import { TemplateProvider } from './contexts/TemplateContext';
 const Registration = React.lazy(() => import('./Screens/Registration/Registration'))
 const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'))
 const CreateCardLayout = React.lazy(() => import('./../src/Screens/CreateCardLayout/CreateCardLayout'));
+const SignUp = React.lazy(() => import('./Screens/Registration/Signup/Signup'))
 
 const App = () => {
 
@@ -33,8 +34,8 @@ const App = () => {
                         </TemplateProvider>
                     </DesignToolProvider>
                     <Route path="/signin" element={<Registration />}>
-
-
+                    </Route>
+                    <Route path="/signup" element={<SignUp />}>
                     </Route>
 
                 </Routes>

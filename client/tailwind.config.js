@@ -50,7 +50,9 @@ module.exports = {
             rightbackgroundcolor: '#F3F4F6',
             svgcolor: '#C4C4C4',
             fuschia: "#EF5DA8",
-            bluish: "#818CF8"
+            bluish: "#818CF8",
+            deletebutton: "#FEE2E2",
+            deletebuttontext: "#B91C1C",
         },
 
 
