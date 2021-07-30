@@ -1,73 +1,14 @@
 {
-  "1": {
-    "css": [
-      "/static/css/1.6e4a165f.chunk.css"
-    ],
-    "js": [
-      "/static/js/1.35068bbe.chunk.js"
-    ],
-    "map": [
-      "/static/css/1.6e4a165f.chunk.css.map",
-      "/static/js/1.35068bbe.chunk.js.map"
-    ],
-    "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.f8d31d61.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.f8d31d61.chunk.js.map"
-    ],
-    "chunks": [
-      2
-    ]
-  },
-  "3": {
-    "js": [
-      "/static/js/3.7bf1c9f8.chunk.js"
-    ],
-    "map": [
-      "/static/js/3.7bf1c9f8.chunk.js.map"
-    ],
-    "chunks": [
-      3
-    ]
-  },
-  "client": {
-    "css": [
-      "/static/css/client.5862ae05.css"
-    ],
-    "js": [
-      "/static/js/client.97365d2b.js"
-    ],
-    "map": [
-      "/static/css/client.5862ae05.css.map",
-      "/static/js/client.97365d2b.js.map"
-    ],
-    "chunks": [
-      0
-    ]
-  },
   "noentry": {
-    "ico": [
-      "/favicon.ico"
-    ],
-    "txt": [
-      "/robots.txt",
-      "/static/js/1.35068bbe.chunk.js.LICENSE.txt",
-      "/static/js/client.97365d2b.js.LICENSE.txt"
-    ],
     "jpg": [
-      "/static/media/1.f5f798cc.jpg"
+      "http://localhost:3001/static/media/1.f5f798cc.jpg"
     ],
     "png": [
-      "/static/media/ALP-Summer.63b90db3.png",
-      "/static/media/card1.9acd410d.png",
-      "/static/media/card2.a3e6d397.png",
-      "/static/media/insta.638d5ee2.png"
+      "http://localhost:3001/static/media/ALP-Summer.63b90db3.png",
+      "http://localhost:3001/static/media/card1.9acd410d.png",
+      "http://localhost:3001/static/media/card2.a3e6d397.png",
+      "http://localhost:3001/static/media/insta.638d5ee2.png",
+      "http://localhost:3001/static/media/preview.06b7f3b0.png"
     ]
   }
 }

@@ -2559,22 +2559,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Drawer; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SubNavBar_components_ElementSelector_components_Stickers_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Preview\\components\\Drawer\\Drawer.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const image = __webpack_require__(/*! ./../../../../../../../../assets/images/preview.png */ "./src/assets/images/preview.png");
 
+
 function Drawer({
   isOpen,
   setIsOpen
 }) {
   return __jsx("main", {
-    className: " fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500 opacity-0 translate-x-full "),
+    style: {
+      height: '91vh'
+    },
+    className: " fixed overflow-y-auto no-scrollbar  flex-grow z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500 opacity-0 translate-x-full "),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
+      lineNumber: 7,
       columnNumber: 9
     }
   }, __jsx("section", {
@@ -2582,35 +2587,43 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 16,
       columnNumber: 13
     }
   }, __jsx("article", {
-    className: "relative w-screen max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    className: "h-full flex ",
+    className: "relative w-screen max-w-full pb-10 flex flex-col h-full overflow-y-scroll no-scrollbar  ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "h-full flex  ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
       columnNumber: 21
     }
+  }, __jsx("div", {
+    className: "flex items-center ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 25
+    }
   }, __jsx("button", {
-    className: "pl-4  h-full flex items-center",
+    className: "pl-4  h-full flex items-center fixed ",
     onClick: () => {
       setIsOpen(false);
     },
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 25
+      lineNumber: 28,
+      columnNumber: 29
     }
   }, __jsx("svg", {
     className: "w-2",
@@ -2622,8 +2635,8 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 29
+      lineNumber: 31,
+      columnNumber: 33
     }
   }, __jsx("path", {
     d: "M2.24023 2L11.9842 11L2.24023 20",
@@ -2634,27 +2647,175 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 33
+      lineNumber: 32,
+      columnNumber: 37
     }
-  }))), __jsx("div", {
-    className: "flex justify-center w-full ",
+  })))), __jsx("div", {
+    className: "flex flex-col justify-start mt-6 w-full ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 37,
       columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: "justify-center flex ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 29
     }
   }, __jsx("img", {
     src: image,
-    className: "order-2 border-bordercolor  mt-8 shadow-lg w-60 h-64",
+    className: "border-bordercolor  border-2 shadow-lg ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 41,
+      columnNumber: 33
+    }
+  })), __jsx("div", {
+    className: "px-14 mt-6 mb-6 ",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
       columnNumber: 29
     }
-  }))))), __jsx("section", {
+  }, __jsx("div", {
+    className: "flex flex-col justify-center mb-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    className: "text-sm text-gray94 pb-1",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 37
+    }
+  }, "First_name"), __jsx("input", {
+    className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
+    type: "text",
+    placeholder: "Add first name to test",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 37
+    }
+  })), __jsx("div", {
+    className: "flex flex-col justify-center mb-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    className: "text-sm text-gray94 pb-1",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 37
+    }
+  }, "First_name"), __jsx("input", {
+    className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
+    type: "text",
+    placeholder: "Add first name to test",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 37
+    }
+  })), __jsx("div", {
+    className: "flex flex-col justify-center mb-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    className: "text-sm text-gray94 pb-1",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 37
+    }
+  }, "First_name"), __jsx("input", {
+    className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
+    type: "text",
+    placeholder: "Add first name to test",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 37
+    }
+  })), __jsx("button", {
+    className: "w-full mt-14 mb-8",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 33
+    }
+  }, __jsx("div", {
+    className: "w-full flex flex-row bg-indigo600  justify-center items-center rounded-md h-12 i mt-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 37
+    }
+  }, __jsx("svg", {
+    width: "16",
+    height: "12",
+    viewBox: "0 0 16 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 41
+    }
+  }, __jsx("path", {
+    d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
+    fill: "white",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 45
+    }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 45
+    }
+  })), __jsx("p", {
+    className: " text-white pl-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 41
+    }
+  }, "Get sharable code")))))))), __jsx("section", {
     className: " w-screen h-full cursor-pointer ",
     onClick: () => {
       setIsOpen(false);
@@ -2662,7 +2823,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 76,
       columnNumber: 13
     }
   }));
