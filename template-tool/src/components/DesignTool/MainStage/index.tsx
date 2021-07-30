@@ -524,6 +524,7 @@ const MainStage = ({
                     id={`tr${selectedId}`}
                     $tr={$tr}
                     selectedShapeName={selectedId}
+                    templateData={templateData}
                 />
                 <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
             </Layer>
