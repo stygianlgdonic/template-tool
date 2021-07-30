@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "9840fa3e2933e87afa07";
+=======
+/******/ 	var hotCurrentHash = "95e80cfa4333bb9e9aa4";
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1361,7 +1365,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
 /* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
+=======
+var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\App.tsx";
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1374,13 +1382,21 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const Registration = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Registration */ "./src/Screens/Registration/Registration.tsx")));
 const Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Screens/Dashboard/Dashboard */ "./src/Screens/Dashboard/Dashboard.tsx")));
 const CreateCardLayout = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../src/Screens/CreateCardLayout/CreateCardLayout */ "./src/Screens/CreateCardLayout/CreateCardLayout.tsx")));
+<<<<<<< HEAD
+=======
+const SignUp = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Signup/Signup */ "./src/Screens/Registration/Signup/Signup.tsx")));
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 
 const App = () => {
   return __jsx(_NoSSR__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 21,
+=======
+      lineNumber: 22,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Suspense"], {
@@ -1388,21 +1404,33 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 22,
+=======
+        lineNumber: 23,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
         columnNumber: 33
       }
     }, "Loading ..."),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 22,
+=======
+      lineNumber: 23,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 13
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 23,
+=======
+      lineNumber: 24,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 17
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1411,28 +1439,44 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 25,
+=======
+        lineNumber: 26,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
         columnNumber: 46
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 25,
+=======
+      lineNumber: 26,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 21
     }
   }), __jsx(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__["DesignToolProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 28,
+=======
+      lineNumber: 29,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 21
     }
   }, __jsx(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__["TemplateProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 29,
+=======
+      lineNumber: 30,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 25
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1441,14 +1485,22 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 31,
+=======
+        lineNumber: 32,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
         columnNumber: 63
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 31,
+=======
+      lineNumber: 32,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 29
     }
   }))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1457,14 +1509,38 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 35,
+=======
+        lineNumber: 36,
         columnNumber: 52
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 21
+    }
+  }), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/signup",
+    element: __jsx(SignUp, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
+        columnNumber: 52
+      }
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 35,
+=======
+      lineNumber: 38,
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
       columnNumber: 21
     }
   }))));
@@ -1518,7 +1594,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DesignToolProvider", function() { return DesignToolProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
+=======
+var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1560,7 +1640,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+=======
+var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1683,7 +1767,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\server.tsx";
+=======
+var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\server.tsx";
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -1742,7 +1830,11 @@ const renderApp = (req, res) => {
     };
   }
 };
+<<<<<<< HEAD
 const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\HP\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+=======
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
   const {
     html = '',
     redirect = false
@@ -1941,10 +2033,17 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\src */"./src/index.ts");
 module.exports = __webpack_require__(/*! !!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+=======
+__webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+>>>>>>> agha3200/ch53/user-can-signup-and-login-to-the-platform
 
 
 /***/ }),

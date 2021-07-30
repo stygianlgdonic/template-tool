@@ -52,7 +52,8 @@ module.exports = {
             svgcolor: '#C4C4C4',
             fuschia: "#EF5DA8",
             bluish: "#818CF8",
-            indigoish: "#C7D2FE"
+            deletebutton: "#FEE2E2",
+            deletebuttontext: "#B91C1C",
         },
 
 
