@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { HeaderContext } from '../../../../contexts/HeaderContext';
 interface BioProps {
     document_title: string,
 }
 const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
+    const [open, setOpen] = useContext(HeaderContext)
     return (
         <div className="bg-indigo600  flex h-full">
 
@@ -24,12 +26,21 @@ const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
                 <div>
                     <h1 className="text-white">{document_title}</h1>
                 </div>
-                <button>
+                <div className="gap-4">
 
-                    <div className="bg-white p-2 border-0 rounded-md">
-                        <p className="text-base text-gray94 leading-6 font-medium">Save & Share</p>
-                    </div>
-                </button>
+                    <button>
+
+                        <div className="bg-white p-2 border-0 rounded-md mr-4">
+                            <p className="text-base text-gray94 leading-6 font-medium">Save & Share</p>
+                        </div>
+                    </button>
+                    <button
+                        className="bg-bluish border-0 rounded-md text-base text-white leading-6 font-medium p-2"
+                        onClick={() => setOpen(!open)}
+                    >
+                        Preview
+                    </button>
+                </div>
             </div>
         </div>
     )
