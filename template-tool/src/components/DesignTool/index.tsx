@@ -119,9 +119,8 @@ const DesignTool: React.FC = () => {
     }
 
     const handleDeleteSelectedItem = () => {
-        const type = selectedId.split("_")[0]
         setTemplateData(prev => {
-            prev.variations[variationIndex][type] = prev.variations[variationIndex][type].filter(
+            prev.variations[variationIndex].elements = prev.variations[variationIndex].elements.filter(
                 item => item.id !== selectedId
             )
             unSelectAll()
