@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { INITIAL_STATE, TemplateContext } from '../../contexts/TemplateContext';
 import SelectVariation from "../tailwindComponents/SelectVariation"
 import SaveVariation from "../tailwindComponents/SaveVariation"
+import SaveTemplate from "../tailwindComponents/SaveTemplate"
 import swal from "sweetalert"
 import SideBar from './SideBar';
 import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
 import EditingTools from './EditingTools';
+import { NavLink } from 'react-router-dom';
 
 const DesignTool: React.FC = () => {
 
@@ -19,6 +21,7 @@ const DesignTool: React.FC = () => {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
+    const [isOpenSaveTemplateModal, setIsOpenSaveTemplateModal] = useState(false)
 
     useEffect(() => {
         setIsOpenColorPicker(false)
@@ -131,16 +134,39 @@ const DesignTool: React.FC = () => {
         setIsEditTextBox(false)
     }
 
+    const openSaveTemplateModal = () => {
+        setIsOpenSaveTemplateModal(true)
+    }
+
+    const handleSaveTemplate = (tagsList: string[], selectedCategory: string) => {
+        console.log({ tagsList, selectedCategory })
+        // TODO - handle crud into db here
+        setIsOpenSaveTemplateModal(false)
+    }
+
     return (
         <div className="min-w-max">
-            <div className="h-20 mb-5 flex flex-wrap justify-center content-center bg-green-800">
+            <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-green-800">
+                <NavLink
+                    to="/"
+                    className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Select Palette</NavLink>
                 <p className="text-xl text-white">Tempalte Design</p>
+                <button
+                    onClick={openSaveTemplateModal}
+                    className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Save Template</button>
             </div>
 
             {showSaveVariationModal && (
                 <SaveVariation
                     templateData={templateData}
                     handleSaveVariation={handleSaveVariation}
+                />
+            )}
+
+            {isOpenSaveTemplateModal && (
+                <SaveTemplate
+                    templateData={templateData}
+                    handleSaveTemplate={handleSaveTemplate}
                 />
             )}
 
