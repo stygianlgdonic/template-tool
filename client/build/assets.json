@@ -1,84 +1,13 @@
 {
-  "1": {
-    "css": [
-      "/static/css/1.6e4a165f.chunk.css"
-    ],
-    "js": [
-      "/static/js/1.8049c1c5.chunk.js"
-    ],
-    "map": [
-      "/static/css/1.6e4a165f.chunk.css.map",
-      "/static/js/1.8049c1c5.chunk.js.map"
-    ],
-    "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.361f8063.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.361f8063.chunk.js.map"
-    ],
-    "chunks": [
-      2
-    ]
-  },
-  "3": {
-    "js": [
-      "/static/js/3.535d9125.chunk.js"
-    ],
-    "map": [
-      "/static/js/3.535d9125.chunk.js.map"
-    ],
-    "chunks": [
-      3
-    ]
-  },
-  "4": {
-    "js": [
-      "/static/js/4.0e98891c.chunk.js"
-    ],
-    "map": [
-      "/static/js/4.0e98891c.chunk.js.map"
-    ],
-    "chunks": [
-      4
-    ]
-  },
-  "client": {
-    "css": [
-      "/static/css/client.8121275f.css"
-    ],
-    "js": [
-      "/static/js/client.9c9d412a.js"
-    ],
-    "map": [
-      "/static/css/client.8121275f.css.map",
-      "/static/js/client.9c9d412a.js.map"
-    ],
-    "chunks": [
-      0
-    ]
-  },
   "noentry": {
-    "ico": [
-      "/favicon.ico"
-    ],
-    "txt": [
-      "/robots.txt",
-      "/static/js/1.8049c1c5.chunk.js.LICENSE.txt",
-      "/static/js/client.9c9d412a.js.LICENSE.txt"
-    ],
     "jpg": [
-      "/static/media/1.f5f798cc.jpg"
+      "http://localhost:3001/static/media/1.f5f798cc.jpg"
     ],
     "png": [
-      "/static/media/ALP-Summer.63b90db3.png",
-      "/static/media/card1.9acd410d.png",
-      "/static/media/card2.a3e6d397.png",
-      "/static/media/insta.638d5ee2.png"
+      "http://localhost:3001/static/media/ALP-Summer.63b90db3.png",
+      "http://localhost:3001/static/media/card1.9acd410d.png",
+      "http://localhost:3001/static/media/card2.a3e6d397.png",
+      "http://localhost:3001/static/media/insta.638d5ee2.png"
     ]
   }
 }
