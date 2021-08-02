@@ -3,6 +3,8 @@ import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../utils/defaults';
 
 export const INITIAL_STATE = {
+    dimensions: { width: stageDimensions.width, height: stageDimensions.height },
+    tags: [],
     palette: [
         { name: "primary", color: "#ff0000" },
         { name: "secondary", color: "#00ff00" },
@@ -12,9 +14,6 @@ export const INITIAL_STATE = {
         {
             name: "untitled",
             face: "",
-            // textBoxes: [],
-            // images: [],
-            // svgs: [],
             elements: [{
                 id: 'shapes_background',
                 type: "rectangle",
