@@ -8,8 +8,8 @@ const SideBarNav: React.FC = () => {
         <div className="h-full fixed flex  flex-col w-2/12 ">
 
             <div className="flex flex-col justify-start text-left items-start leading-10  px-2 text-lightGray w-full  h-full mt-6 ">
-                <button className="w-full" onClick={() => setDesignToolnavigator('element')}>
-                    <div className="flex items-center  hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1">
+                <button className="w-full active:bg-rightbackgroundcolor bg-white" onClick={() => setDesignToolnavigator('element')}>
+                    <div className="flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1">
 
                         <svg className="text-svgcolor" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.31802 2.31802C0.56066 4.07538 0.56066 6.92462 2.31802 8.68198L10.0001 16.364L17.682 8.68198C19.4393 6.92462 19.4393 4.07538 17.682 2.31802C15.9246 0.56066 13.0754 0.56066 11.318 2.31802L10.0001 3.63609L8.68198 2.31802C6.92462 0.56066 4.07538 0.56066 2.31802 2.31802Z" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

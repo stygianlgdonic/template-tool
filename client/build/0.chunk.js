@@ -2312,7 +2312,7 @@ const SideBarNav = () => {
       columnNumber: 13
     }
   }, __jsx("button", {
-    className: "w-full",
+    className: "w-full active:bg-rightbackgroundcolor bg-white",
     onClick: () => setDesignToolnavigator('element'),
     __self: undefined,
     __source: {
@@ -2321,7 +2321,7 @@ const SideBarNav = () => {
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex items-center  hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1",
+    className: "flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3056,7 +3056,7 @@ const SubNavBar = () => {
     1: setDesignToolnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   return __jsx("div", {
-    className: "h-full flex flex-col w-full border-bordercolor border-r-2 ",
+    className: "h-full flex flex-col w-full border-bordercolor border ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -5485,91 +5485,107 @@ const TextSelector = () => {
       lineNumber: 25,
       columnNumber: 13
     }
-  }, __jsx("div", {
-    className: "hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md ",
+  }, __jsx("button", {
+    className: "hover:bg-indigo100",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 17
     }
-  }, __jsx("button", {
-    className: "text-sm  hover:font-bold font-normal",
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor w-32 h-9 rounded-md ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28,
       columnNumber: 21
     }
-  }, "Company_name")), __jsx("div", {
-    className: "hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md",
+  }, "Company_name")), __jsx("button", {
+    className: "hover:bg-indigo100",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 32,
       columnNumber: 17
     }
-  }, __jsx("button", {
-    className: "text-sm  hover:font-bold font-normal",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 21
-    }
-  }, "Company_name")), __jsx("div", {
-    className: "hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: "text-sm  hover:font-bold font-normal",
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
       columnNumber: 21
     }
-  }, "Company_name")), __jsx("div", {
-    className: "hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md",
+  }, "Company_name")), __jsx("button", {
+    className: "hover:bg-indigo100",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 38,
       columnNumber: 17
     }
-  }, __jsx("button", {
-    className: "text-sm  hover:font-bold font-normal",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 21
-    }
-  }, "Business_name")), __jsx("div", {
-    className: "hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: "text-sm  hover:font-bold font-normal",
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 40,
       columnNumber: 21
     }
-  }, "Website_URL"))), __jsx("div", {
+  }, "Company_name")), __jsx("button", {
+    className: "hover:bg-indigo100",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 21
+    }
+  }, "Business_name Amazon")), __jsx("button", {
+    className: "hover:bg-indigo100",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 21
+    }
+  }, "Website_URL")), __jsx("button", {
+    className: "hover:bg-indigo100",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor h-9 rounded-md ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 21
+    }
+  }, "Pakistan Super League"))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
       columnNumber: 13
     }
   }, __jsx("button", {
@@ -5577,7 +5593,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 66,
       columnNumber: 17
     }
   }, "Didn\u2019t find the right merge tag?")), __jsx("div", {
@@ -5585,7 +5601,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 68,
       columnNumber: 13
     }
   }, __jsx("svg", {
@@ -5597,7 +5613,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 69,
       columnNumber: 17
     }
   }, __jsx("g", {
@@ -5605,7 +5621,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 70,
       columnNumber: 21
     }
   }, __jsx("g", {
@@ -5613,7 +5629,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 71,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -5622,7 +5638,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 72,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -5634,14 +5650,14 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 73,
       columnNumber: 29
     }
   }))), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 76,
       columnNumber: 21
     }
   }, __jsx("filter", {
@@ -5655,7 +5671,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 77,
       columnNumber: 25
     }
   }, __jsx("feFlood", {
@@ -5664,7 +5680,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 78,
       columnNumber: 29
     }
   }), __jsx("feColorMatrix", {
@@ -5675,7 +5691,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 79,
       columnNumber: 29
     }
   }), __jsx("feOffset", {
@@ -5683,7 +5699,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 80,
       columnNumber: 29
     }
   }), __jsx("feGaussianBlur", {
@@ -5691,7 +5707,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 81,
       columnNumber: 29
     }
   }), __jsx("feColorMatrix", {
@@ -5700,7 +5716,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 82,
       columnNumber: 29
     }
   }), __jsx("feBlend", {
@@ -5710,7 +5726,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 83,
       columnNumber: 29
     }
   }), __jsx("feBlend", {
@@ -5721,7 +5737,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 84,
       columnNumber: 29
     }
   })), __jsx("clipPath", {
@@ -5729,7 +5745,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 86,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -5738,7 +5754,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 87,
       columnNumber: 29
     }
   })))), __jsx("button", {
@@ -5746,7 +5762,7 @@ const TextSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 92,
       columnNumber: 17
     }
   }, "Create custom merge tag")));
@@ -5794,7 +5810,7 @@ const DesignTool = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "col-span-2 w-full border-bordercolor border-r-2 ",
+    className: "col-span-2 w-full  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,

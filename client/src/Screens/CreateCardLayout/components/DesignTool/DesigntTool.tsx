@@ -13,7 +13,7 @@ const DesignTool: React.FC = () => {
 
     return (
         <div className="w-full grid grid-cols-12 font-inter " style={{ height: '92vh' }}>
-            <div className="col-span-2 w-full border-bordercolor border-r-2 ">
+            <div className="col-span-2 w-full  ">
                 <NavBar />
             </div>
             <div className="col-span-3 h-full w-full  ">
