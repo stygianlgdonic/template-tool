@@ -5,11 +5,11 @@ import Imageheader from "./components/ImageHeader/imageheader";
 
 const CardHeader: React.FC = (): JSX.Element => {
     return (
-        <div className="flex flex-col h-18">
+        <div className="flex flex-col h-18 z-50">
             <div className="py-2 ">
                 <TextHeader />
             </div>
-            <div className="border-b-2 border-bordercolor"></div>
+            <div className=""></div>
         </div>
     );
 };

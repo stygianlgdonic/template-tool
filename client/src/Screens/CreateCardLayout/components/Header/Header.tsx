@@ -34,12 +34,7 @@ const Header: React.FC<BioProps> = ({ document_title }): JSX.Element => {
                             <p className="text-base text-gray94 leading-6 font-medium">Save & Share</p>
                         </div>
                     </button>
-                    <button
-                        className="bg-bluish border-0 rounded-md text-base text-white leading-6 font-medium p-2"
-                        onClick={() => setOpen(!open)}
-                    >
-                        Preview
-                    </button>
+
                 </div>
             </div>
         </div>

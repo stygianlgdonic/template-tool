@@ -12,22 +12,28 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_DesignTool_DesigntTool__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/DesignTool/DesigntTool */ "./src/Screens/CreateCardLayout/components/DesignTool/DesigntTool.tsx");
-/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Header/Header */ "./src/Screens/CreateCardLayout/components/Header/Header.tsx");
+/* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
+/* harmony import */ var _components_DesignTool_DesigntTool__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/DesignTool/DesigntTool */ "./src/Screens/CreateCardLayout/components/DesignTool/DesigntTool.tsx");
+/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Header/Header */ "./src/Screens/CreateCardLayout/components/Header/Header.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\CreateCardLayout.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
 let document_title = "Untitled design - Employees";
 
 const CreateCardLayout = () => {
+  const {
+    0: open,
+    1: setOpen
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_1__["HeaderContext"]);
   return __jsx("div", {
     className: " ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 12,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -38,36 +44,97 @@ const CreateCardLayout = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 13
     }
-  }, __jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
     document_title: document_title,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "",
+    className: "relative",
     style: {
       height: '92vh'
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 16,
       columnNumber: 13
     }
-  }, __jsx(_components_DesignTool_DesigntTool__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_components_DesignTool_DesigntTool__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 17
     }
-  })));
+  }), __jsx("div", {
+    className: "w-10 absolute h-full right-0 top-0 bg-white ",
+    style: {
+      paddingTop: '54px'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "w-6  ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 21
+    }
+  }), __jsx("button", {
+    onClick: () => setOpen(!open),
+    className: "flex  bg-gray50 items-center h-full pt-10 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 21
+    }
+  }, __jsx("div", {
+    className: "w-4 h-8 bg-white rounded-r rounded-full flex items-center pl-1",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 25
+    }
+  }, __jsx("svg", {
+    className: "w-3 h-3",
+    width: "13",
+    height: "22",
+    viewBox: "0 0 13 22",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 29
+    }
+  }, __jsx("path", {
+    d: "M11 20L2 11L11 2",
+    stroke: "#374151",
+    "stroke-width": "4",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 33
+    }
+  })))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CreateCardLayout);
@@ -103,7 +170,7 @@ const Card = () => {
     1: setOpen
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_1__["HeaderContext"]);
   return __jsx("div", {
-    className: "h-full",
+    className: "h-full  bg-gray50 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -111,6 +178,7 @@ const Card = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
+    className: "bg-white",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -125,6 +193,7 @@ const Card = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
+    className: " ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1622,7 +1691,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const CardHeader = () => {
   return __jsx("div", {
-    className: "flex flex-col h-18",
+    className: "flex flex-col h-18 z-50",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1645,7 +1714,7 @@ const CardHeader = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "border-b-2 border-bordercolor",
+    className: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1679,12 +1748,12 @@ const TextHeader = () => {
   const [openstyle, setOpenstyle] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const [open, setOpen] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   return __jsx("div", {
-    className: "flex flex-row items-center justify-center gap-4 px-6",
+    className: "flex flex-row items-center justify-center gap-4 px-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9,
-      columnNumber: 5
+      columnNumber: 9
     }
   }, __jsx("div", {
     className: "flex items-center",
@@ -1692,7 +1761,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10,
-      columnNumber: 7
+      columnNumber: 13
     }
   }, __jsx("div", {
     className: "relative inline-block text-left ",
@@ -1700,7 +1769,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("div", {
     role: "menu",
@@ -1711,7 +1780,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("button", {
     onClick: () => setOpen(true),
@@ -1724,7 +1793,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, "Poppins thin", __jsx("svg", {
     className: "w-5 h-5 ml-2 -mr-1",
@@ -1736,7 +1805,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("path", {
     "fill-rule": "evenodd",
@@ -1746,14 +1815,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
-      columnNumber: 17
+      columnNumber: 33
     }
   })))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("div", {
     className: open ? " origin-top-left absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" : "hidden",
@@ -1765,7 +1834,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, __jsx("div", {
     className: "",
@@ -1774,7 +1843,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 55,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -1785,7 +1854,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 56,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin"), __jsx("a", {
     href: "#",
@@ -1796,7 +1865,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 64,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin")), __jsx("div", {
     className: "",
@@ -1805,7 +1874,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 73,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -1816,7 +1885,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 74,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin"), __jsx("a", {
     href: "#",
@@ -1827,7 +1896,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 82,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin")), __jsx("div", {
     className: "",
@@ -1836,7 +1905,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 91,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -1847,7 +1916,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 92,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin"), __jsx("a", {
     href: "#",
@@ -1858,7 +1927,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 100,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin")), __jsx("div", {
     className: "",
@@ -1867,7 +1936,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 109,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -1878,7 +1947,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 110,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Poppins thin")))))), __jsx("div", {
     className: "z-50 flex items-center",
@@ -1886,7 +1955,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 123,
-      columnNumber: 7
+      columnNumber: 13
     }
   }, __jsx("div", {
     className: "relative inline-block text-left ",
@@ -1894,7 +1963,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 124,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("div", {
     role: "menu",
@@ -1905,7 +1974,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 125,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("button", {
     onClick: () => setOpenstyle(true),
@@ -1918,7 +1987,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 131,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, "Heading 1", __jsx("svg", {
     className: "w-5 h-5 ml-2 -mr-1",
@@ -1930,7 +1999,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 140,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("path", {
     "fill-rule": "evenodd",
@@ -1940,14 +2009,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 147,
-      columnNumber: 17
+      columnNumber: 33
     }
   })))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 156,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("div", {
     className: openstyle ? " origin-top-left absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" : "hidden",
@@ -1959,7 +2028,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 157,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, __jsx("div", {
     className: "",
@@ -1968,7 +2037,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 168,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -1979,7 +2048,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 169,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 1"), __jsx("a", {
     href: "#",
@@ -1990,7 +2059,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 177,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 2")), __jsx("div", {
     className: "",
@@ -1999,7 +2068,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 186,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -2010,7 +2079,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 187,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 3"), __jsx("a", {
     href: "#",
@@ -2021,7 +2090,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 195,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 4")), __jsx("div", {
     className: "",
@@ -2030,7 +2099,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 204,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -2041,7 +2110,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 205,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 5"), __jsx("a", {
     href: "#",
@@ -2052,7 +2121,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 213,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 6")), __jsx("div", {
     className: "",
@@ -2061,7 +2130,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 222,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("a", {
     href: "#",
@@ -2072,21 +2141,21 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 223,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, "Heading 6"))))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 235,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 236,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("button", {
     className: "ml-10 text-lg font-bold text-black",
@@ -2094,14 +2163,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 237,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, "A"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 240,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "ml-10 text-lg font-bold text-black",
@@ -2109,14 +2178,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 241,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, "B")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 243,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "ml-10 text-lg italic font-bold text-black",
@@ -2124,7 +2193,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 244,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, "I")), __jsx("div", {
     className: "py-4 ml-6 border-r-2 border-bordercolor",
@@ -2132,7 +2201,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 248,
-      columnNumber: 9
+      columnNumber: 17
     }
   }), __jsx("div", {
     className: "ml-6",
@@ -2140,7 +2209,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 249,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("svg", {
     width: "23",
@@ -2152,7 +2221,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 250,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("path", {
     d: "M1 1H22M1 9H11.5M1 17H22",
@@ -2164,7 +2233,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 257,
-      columnNumber: 13
+      columnNumber: 25
     }
   }))), __jsx("div", {
     className: "py-4 ml-6 border-r-2 border-bordercolor",
@@ -2172,7 +2241,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 266,
-      columnNumber: 9
+      columnNumber: 17
     }
   }), __jsx("div", {
     className: "ml-6 text-lg italic font-bold text-black",
@@ -2180,14 +2249,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 267,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 268,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, "Effects")), __jsx("div", {
     className: "py-4 ml-6 border-r-2 border-bordercolor",
@@ -2195,7 +2264,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 270,
-      columnNumber: 9
+      columnNumber: 17
     }
   }), __jsx("div", {
     className: "ml-6",
@@ -2203,7 +2272,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 271,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("svg", {
     width: "25",
@@ -2216,7 +2285,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 272,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("rect", {
     width: "25",
@@ -2226,14 +2295,14 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 280,
-      columnNumber: 13
+      columnNumber: 25
     }
   }), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 281,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, __jsx("pattern", {
     id: "pattern0",
@@ -2244,7 +2313,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 282,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("use", {
     xlinkHref: "#image0",
@@ -2253,7 +2322,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 288,
-      columnNumber: 17
+      columnNumber: 33
     }
   })), __jsx("image", {
     id: "image0",
@@ -2264,7 +2333,7 @@ const TextHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 290,
-      columnNumber: 15
+      columnNumber: 29
     }
   }))))));
 };
@@ -2285,8 +2354,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\NavBar\\NavBar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -2312,7 +2383,7 @@ const SideBarNav = () => {
       columnNumber: 13
     }
   }, __jsx("button", {
-    className: "w-full active:bg-rightbackgroundcolor bg-white",
+    className: "w-full focus:bg-rightbackgroundcolor h-10",
     onClick: () => setDesignToolnavigator('element'),
     __self: undefined,
     __source: {
@@ -2321,7 +2392,7 @@ const SideBarNav = () => {
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1 h-10 mb-1",
+    className: "flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 h-10 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2362,7 +2433,7 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Elements"))), __jsx("button", {
-    className: "w-full",
+    className: "w-full focus:bg-rightbackgroundcolor h-10",
     onClick: () => setDesignToolnavigator('text'),
     __self: undefined,
     __source: {
@@ -2408,7 +2479,7 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Text"))), __jsx("button", {
-    className: "w-full",
+    className: "w-full focus:bg-rightbackgroundcolor h-10",
     onClick: () => setDesignToolnavigator('images'),
     __self: undefined,
     __source: {
@@ -2457,7 +2528,7 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Images"))), __jsx("button", {
-    className: "w-full",
+    className: "w-full focus:bg-rightbackgroundcolor h-10",
     onClick: () => setDesignToolnavigator('background'),
     __self: undefined,
     __source: {
@@ -2506,7 +2577,7 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Backgrounds"))), __jsx("button", {
-    className: "w-full",
+    className: "w-full focus:bg-rightbackgroundcolor h-10",
     onClick: () => setDesignToolnavigator('logo'),
     __self: undefined,
     __source: {
@@ -2555,14 +2626,15 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Logo"))), __jsx("div", {
-    className: "mt-6 flex justify-end w-9/12  mx-auto mb-1",
+    className: " mt-6  mb-1 flex  w-full justify-end relative group items-center  mx-auto ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 69,
       columnNumber: 17
     }
   }, __jsx("svg", {
+    className: "mr-8",
     width: "16",
     height: "16",
     viewBox: "0 0 16 16",
@@ -2571,7 +2643,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 71,
       columnNumber: 21
     }
   }, __jsx("path", {
@@ -2582,7 +2654,34 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 25
+    }
+  })), __jsx("div", {
+    className: "absolute bottom-0   flex-col  hidden mb-6 group-hover:flex ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
       lineNumber: 74,
+      columnNumber: 21
+    }
+  }, __jsx("span", {
+    className: "relative z-10 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md bg-indigo500 shadow-lg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 25
+    }
+  }, "Brandify Everything."), __jsx("div", {
+    className: "w-3 h-3 transform rotate-45 -mt-2  flex justify-end bg-indigo500 z-50",
+    style: {
+      marginLeft: '94px'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
       columnNumber: 25
     }
   }))), __jsx("button", {
@@ -2590,7 +2689,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 82,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2598,7 +2697,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 84,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2611,7 +2710,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 88,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2621,7 +2720,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 89,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2631,7 +2730,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 90,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2641,7 +2740,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 91,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2651,7 +2750,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 92,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2661,7 +2760,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 93,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2671,7 +2770,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 94,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2681,7 +2780,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 95,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2691,7 +2790,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 96,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2701,7 +2800,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 97,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2711,7 +2810,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 98,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -2721,7 +2820,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 99,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -2729,13 +2828,38 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 103,
       columnNumber: 25
     }
   }, "Brandify")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SideBarNav);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css":
+/*!****************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default.a);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".tooltip{\r\n    visibility: hidden;\r\n    position: absolute;\r\n  }\r\n  .has-tooltip:hover .tooltip {\r\n    visibility: visible;\r\n    z-index: 100;\r\n  }", "",{"version":3,"sources":["webpack://./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,kBAAkB;EACpB;EACA;IACE,mBAAmB;IACnB,YAAY;EACd","sourcesContent":[".tooltip{\r\n    visibility: hidden;\r\n    position: absolute;\r\n  }\r\n  .has-tooltip:hover .tooltip {\r\n    visibility: visible;\r\n    z-index: 100;\r\n  }"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -2767,7 +2891,7 @@ function Drawer({
     style: {
       height: '91vh'
     },
-    className: " fixed overflow-y-auto no-scrollbar  flex-grow z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500 opacity-0 translate-x-full "),
+    className: " fixed overflow-y-auto no-scrollbar z-50  flex-grow z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500 opacity-0 translate-x-full "),
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -3698,10 +3822,10 @@ const Buttons = () => {
       columnNumber: 21
     }
   }, __jsx("svg", {
-    width: "20",
-    height: "20",
+    width: "26",
+    height: "26",
     viewBox: "0 0 20 20",
-    fill: "none",
+    fill: "#D1D5DB",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
@@ -3711,7 +3835,7 @@ const Buttons = () => {
     }
   }, __jsx("path", {
     d: "M9 13L6 10M6 10L9 7M6 10L14 10M1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10Z",
-    stroke: "#111827",
+    stroke: "#ffffff",
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
@@ -3722,12 +3846,20 @@ const Buttons = () => {
       columnNumber: 29
     }
   })))), __jsx("div", {
+    className: " h-28 z-50 -mr-12 bg-gradient-to-r w-12 from-white  bg-opacity-50 to-transparent",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
     className: "flex flex-row flex-grow  gap-4 w-72  overflow-x-scroll flex-shrink-0  mx-2 no-scrollbar ",
     ref: contentWrapper,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3735,7 +3867,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 45,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -3743,7 +3875,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 46,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -3756,20 +3888,11 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 29
     }
   }, __jsx("path", {
     d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
-    fill: "white",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47,
-      columnNumber: 33
-    }
-  }), __jsx("path", {
-    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
     fill: "white",
     __self: undefined,
     __source: {
@@ -3777,12 +3900,21 @@ const Buttons = () => {
       lineNumber: 48,
       columnNumber: 33
     }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 33
+    }
   })), "Button text")), __jsx("div", {
     className: "bg-bluish text-white flex flex-row w-40 justify-center h-12 rounded-md  flex-shrink-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -3790,7 +3922,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 56,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -3803,20 +3935,11 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 57,
       columnNumber: 29
     }
   }, __jsx("path", {
     d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
-    fill: "white",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 57,
-      columnNumber: 33
-    }
-  }), __jsx("path", {
-    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
     fill: "white",
     __self: undefined,
     __source: {
@@ -3824,12 +3947,21 @@ const Buttons = () => {
       lineNumber: 58,
       columnNumber: 33
     }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 33
+    }
   })), "Button text")), __jsx("div", {
     className: "bg-yellowish text-white flex flex-row w-40 justify-center h-12 rounded-md flex-shrink-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -3837,7 +3969,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -3850,20 +3982,11 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 29
     }
   }, __jsx("path", {
     d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
-    fill: "white",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 67,
-      columnNumber: 33
-    }
-  }), __jsx("path", {
-    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
     fill: "white",
     __self: undefined,
     __source: {
@@ -3871,12 +3994,21 @@ const Buttons = () => {
       lineNumber: 68,
       columnNumber: 33
     }
+  }), __jsx("path", {
+    d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
+    fill: "white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 33
+    }
   })), "Button text")), __jsx("div", {
     className: "bg-greenish text-white flex flex-row w-40 justify-center h-12 rounded-md flex-shrink-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 75,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -3884,7 +4016,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 76,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -3897,7 +4029,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 77,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -3906,7 +4038,7 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 78,
       columnNumber: 33
     }
   }), __jsx("path", {
@@ -3915,15 +4047,23 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 79,
       columnNumber: 33
     }
   })), "Button text"))), __jsx("div", {
+    className: " h-28 z-50 -ml-12 bg-gradient-to-l w-12 from-white  bg-opacity-100 to-transparent",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
     className: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 87,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -3934,31 +4074,31 @@ const Buttons = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 89,
       columnNumber: 21
     }
   }, __jsx("svg", {
-    width: "20",
-    height: "20",
+    width: "26",
+    height: "26",
     viewBox: "0 0 20 20",
-    fill: "none",
+    fill: "#D1D5DB",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 91,
       columnNumber: 24
     }
   }, __jsx("path", {
     d: "M11 7L14 10M14 10L11 13M14 10L6 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z",
-    stroke: "#111827",
+    stroke: "#ffffff",
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 92,
       columnNumber: 29
     }
   }))))));
@@ -4364,10 +4504,10 @@ const Stickers = () => {
       columnNumber: 21
     }
   }, __jsx("svg", {
-    width: "20",
-    height: "20",
+    width: "26",
+    height: "26",
     viewBox: "0 0 20 20",
-    fill: "none",
+    fill: "#D1D5DB",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
@@ -4377,7 +4517,7 @@ const Stickers = () => {
     }
   }, __jsx("path", {
     d: "M9 13L6 10M6 10L9 7M6 10L14 10M1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10Z",
-    stroke: "#111827",
+    stroke: "#ffffff",
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
@@ -4388,12 +4528,20 @@ const Stickers = () => {
       columnNumber: 29
     }
   })))), __jsx("div", {
-    className: "flex flex-row flex-grow  gap-4 h-28 w-72 overflow-x-scroll no-scrollbar flex-shrink-0  mx-1    relative",
-    ref: contentWrapper,
+    className: " h-28 z-50 -mr-12 bg-gradient-to-r w-12 from-white  bg-opacity-80 to-transparent",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
+    className: "flex flex-row flex-grow  gap-4 h-28  w-56 overflow-x-scroll z-10 no-scrollbar flex-shrink-0    relative",
+    ref: contentWrapper,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -4401,7 +4549,7 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 21
     }
   }, " ", __jsx("img", {
@@ -4410,23 +4558,6 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
-      columnNumber: 56
-    }
-  })), __jsx("button", {
-    className: "flex-shrink-0",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 21
-    }
-  }, " ", __jsx("img", {
-    src: svg,
-    className: "w-12 flex-shrink-0",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 51,
       columnNumber: 56
     }
@@ -4547,49 +4678,74 @@ const Stickers = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 58,
+      columnNumber: 56
+    }
+  })), __jsx("button", {
+    className: "flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 21
+    }
+  }, " ", __jsx("img", {
+    src: svg,
+    className: "w-12 flex-shrink-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
       columnNumber: 56
     }
   }))), __jsx("div", {
+    className: " h-28 z-50 -ml-12 bg-gradient-to-l w-12 from-white  bg-opacity-50 to-transparent",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
     className: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 63,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "pr-2  mt-3 ",
+    className: "pr-2  mt-3",
     onClick: () => {
       sideScroll(contentWrapper.current, 25, 100, 10);
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 65,
       columnNumber: 21
     }
   }, __jsx("svg", {
-    width: "20",
-    height: "20",
+    width: "26",
+    height: "26",
     viewBox: "0 0 20 20",
-    fill: "none",
+    fill: "#D1D5DB",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 67,
       columnNumber: 24
     }
   }, __jsx("path", {
     d: "M11 7L14 10M14 10L11 13M14 10L6 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z",
-    stroke: "#111827",
+    stroke: "#ffffff",
     "stroke-width": "2",
     "stroke-linecap": "round",
     "stroke-linejoin": "round",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 68,
       columnNumber: 29
     }
   }))))));
@@ -4719,7 +4875,7 @@ const Frames = () => {
       columnNumber: 17
     }
   }, "Frames"), __jsx("div", {
-    className: " w-full gap-4 grid grid-cols-3   mt-6 ",
+    className: " w-full gap-4 grid grid-cols-4     mt-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -5799,7 +5955,7 @@ const DesignTool = () => {
     1: setOpen
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx("div", {
-    className: "w-full grid grid-cols-12 font-inter ",
+    className: "w-full grid grid-cols-12 font-inter  ",
     style: {
       height: '92vh'
     },
@@ -6006,16 +6162,7 @@ const Header = ({
       lineNumber: 34,
       columnNumber: 29
     }
-  }, "Save & Share"))), __jsx("button", {
-    className: "bg-bluish border-0 rounded-md text-base text-white leading-6 font-medium p-2",
-    onClick: () => setOpen(!open),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 21
-    }
-  }, "Preview"))));
+  }, "Save & Share"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
