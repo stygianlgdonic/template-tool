@@ -58,9 +58,12 @@ module.exports = {
 
 
     },
+
     variants: {
         extend: {
             fontWeight: ['hover', 'focus'],
+            backgroundColor: ['active'],
+            display: ['group-hover'],
         },
     },
     plugins: [

@@ -11,7 +11,7 @@ const Frames: React.FC = (): JSX.Element => {
                 <h1 className="font-bold text-xl">
                     Frames
                 </h1>
-                <div className=" w-full gap-4 grid grid-cols-3   mt-6 ">
+                <div className=" w-full gap-4 grid grid-cols-4     mt-6 ">
                     <div>
                         <button>
                             <img src={image2} className="w-16 h-18" />

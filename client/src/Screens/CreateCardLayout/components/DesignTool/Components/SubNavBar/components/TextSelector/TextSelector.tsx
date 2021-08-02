@@ -23,22 +23,43 @@ const TextSelector: React.FC = (): JSX.Element => {
 
             </div>
             <div className="flex flex-row flex-wrap  gap-4  mt-4 ">
+                <button className="hover:bg-indigo100">
 
-                <div className="hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md ">
-                    <button className="text-sm  hover:font-bold font-normal">Company_name</button>
-                </div>
-                <div className="hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md">
-                    <button className="text-sm  hover:font-bold font-normal">Company_name</button>
-                </div>
-                <div className="hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md ">
-                    <button className="text-sm  hover:font-bold font-normal">Company_name</button>
-                </div>
-                <div className="hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md">
-                    <button className="text-sm  hover:font-bold font-normal">Business_name</button>
-                </div>
-                <div className="hover:bg-indigo100 px-2 py-1 border-2 border-bordercolor w-32 h-9 rounded-md">
-                    <button className="text-sm  hover:font-bold font-normal">Website_URL</button>
-                </div>
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor w-32 h-9 rounded-md ">
+                        Company_name
+                    </div>
+                </button>
+                <button className="hover:bg-indigo100">
+
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ">
+                        Company_name
+                    </div>
+                </button>
+                <button className="hover:bg-indigo100">
+
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ">
+                        Company_name
+                    </div>
+                </button>
+                <button className="hover:bg-indigo100">
+
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ">
+                        Business_name Amazon
+                    </div>
+                </button>
+                <button className="hover:bg-indigo100">
+
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor  h-9 rounded-md ">
+                        Website_URL
+                    </div>
+                </button>
+                <button className="hover:bg-indigo100">
+
+                    <div className="hover:font-bold px-2 text-sm   font-normal py-1 border-2 border-bordercolor h-9 rounded-md ">
+                        Pakistan Super League
+                    </div>
+                </button>
+
             </div>
 
             <div>
