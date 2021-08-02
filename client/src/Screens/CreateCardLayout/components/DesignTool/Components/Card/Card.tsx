@@ -1,11 +1,18 @@
 import React from 'react';
 import MainCanvas from "./MainCanvas"
+import CardHeader from './tailwindComponents/CardHeader/CardHeader';
 
 const Card: React.FC = (): JSX.Element => {
 
     return (
-        <div className="">
-            <MainCanvas />
+        <div className="h-full">
+            <div>
+                <CardHeader />
+            </div>
+            <div>
+
+                <MainCanvas />
+            </div>
         </div>
     )
 };

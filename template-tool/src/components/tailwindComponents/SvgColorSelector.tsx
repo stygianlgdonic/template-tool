@@ -18,13 +18,13 @@ const SvgColorSelector: React.FC<Props> = ({
 
     const [currentColor, setCurrentColor] = useState("#171717")
 
-    const svgData = templateData.variations[variationIndex].svgs.find(item => item.id === selectedId)
+    const svgData = templateData.variations[variationIndex].elements.find(item => item.id === selectedId)
     const colors = svg.getColors(svgData.svgString);
     const colorMap = svgData.colorMap
 
     const handleSvgElementColorChange = (oldColor: string, newColor: string) => {
         setTemplateData(prev => {
-            prev.variations[variationIndex].svgs.find(item => item.id === selectedId)
+            prev.variations[variationIndex].elements.find(item => item.id === selectedId)
                 .colorMap[oldColor] = newColor
         })
     }

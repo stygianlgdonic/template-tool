@@ -61,12 +61,13 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClic
                         y: e.target.y(),
                     });
                 }}
-                {...restProps}
                 fillPatternImage={image}
-                fillPatternOffset={{ x: 0, y: 0 }}
+                fillPatternOffsetX={0}
+                fillPatternOffsetY={0}
                 fillPatternScaleX={patternScale}
                 fillPatternScaleY={patternScale}
                 fillPatternRepeat="no-repeat"
+                {...restProps}
             />
         </React.Fragment>
     );

@@ -8,12 +8,14 @@ let document_title = "Untitled design - Employees"
 const CreateCardLayout: React.FC = () => {
 
     return (
-        <div className="   ">
-            <div>
+        <div className=" ">
+            <div style={{ height: '8vh' }} className="">
                 <Header document_title={document_title} />
             </div>
-            <div className="h-full">
+            <div className="" style={{ height: '92vh' }}>
+
                 <DesignTool />
+
             </div>
         </div>
 
