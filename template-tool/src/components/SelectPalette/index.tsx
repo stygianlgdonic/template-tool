@@ -33,7 +33,7 @@ const SelectPalette = () => {
     }
 
     return (
-        <div>
+        <div className="min-w-max">
             {showColorPicker && (
                 <PaletteColorSelect
                     currentSelectedColor={currentSelectedColor.color}
@@ -41,10 +41,15 @@ const SelectPalette = () => {
                     handleCloseColorPicker={handleCloseColorPicker}
                 />
             )}
-            <div className="h-20 flex flex-wrap justify-center content-center bg-green-800">
-                <p className="text-xl text-white">Select palette for your template</p>
-            </div>
-            {templateData.palette.map((item, index) => (
+            <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
+                <NavLink
+                    to={ROUTE_NAMES.home}
+                    className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >
+                    Back to home
+                </NavLink>
+                <p className="text-xl text-white">Select Palette</p>
+                <div></div>
+            </div>            {templateData.palette.map((item, index) => (
                 <div key={index} className="h-10 mt-5 mb-5 flex flex-wrap justify-center content-center" >
                     <p className="w-48">{item.name}</p> <div
                         className="w-10 h-10 border border-black"
@@ -55,7 +60,7 @@ const SelectPalette = () => {
             ))}
             <div className="flex justify-center">
                 <NavLink
-                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-gray300 hover:text-gray900 transition-colors duration-150 bg-gray900 rounded-lg focus:shadow-outline hover:bg-bluish"
                     to={ROUTE_NAMES.design_tool}
                 >
                     Proceed

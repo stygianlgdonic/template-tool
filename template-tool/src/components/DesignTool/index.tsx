@@ -10,8 +10,13 @@ import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
 import EditingTools from './EditingTools';
 import { NavLink } from 'react-router-dom';
+import { ROUTE_NAMES } from '../../routes/route_names';
+import { addNewTemplate } from '../../services/templateService';
+// import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
+
+    // const addNewTemplateMutation = useMutation(addNewTemplate)
 
     const [variationIndex, setVariationIndex] = useState<number>(0)
 
@@ -138,17 +143,18 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = (tagsList: string[], selectedCategory: string) => {
-        console.log({ tagsList, selectedCategory })
+    const handleSaveTemplate = (tags: string[], selectedCategory: string) => {
+        console.log({ tags, selectedCategory })
         // TODO - handle crud into db here
+        addNewTemplate({ ...templateData, tags })
         setIsOpenSaveTemplateModal(false)
     }
 
     return (
-        <div className="min-w-max">
-            <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-green-800">
+        <div className="min-w-max bg-gray300 h-screen">
+            <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
                 <NavLink
-                    to="/"
+                    to={ROUTE_NAMES.select_palette}
                     className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Select Palette</NavLink>
                 <p className="text-xl text-white">Tempalte Design</p>
                 <button
