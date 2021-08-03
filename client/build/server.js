@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "996203e0feb4c57c0d1a";
+/******/ 	var hotCurrentHash = "02ea2b6d23bd35ebd87f";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1665,7 +1665,7 @@ const INITIAL_STATE = {
         x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
         y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
       },
-      fillLinearGradientColorStops: [0, '#Ffffff', 1, '#ffffff'],
+      fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
       draggable: false
     }, {
       name: "object",

@@ -208,7 +208,7 @@ const Card = () => {
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "z-50",
+    className: "z-50 overflow-y-hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2548,7 +2548,7 @@ function Drawer({
       columnNumber: 9
     }
   }, __jsx("section", {
-    className: " w-screen max-w-lg right-0 absolute bg-transparent h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " + (isOpen ? " translate-x-0  " : " translate-x-full "),
+    className: " w-screen max-w-lg right-0 absolute bg-transparent h-full  delay-400 duration-500 ease-in-out transition-all transform  " + (isOpen ? " translate-x-0  " : " translate-x-full "),
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2556,7 +2556,7 @@ function Drawer({
       columnNumber: 13
     }
   }, __jsx("article", {
-    className: "relative w-screen max-w-full pb-10 flex flex-col h-full overflow-y-scroll no-scrollbar  bg-white",
+    className: "relative w-screen max-w-full pb-20 flex flex-col h-full overflow-y-scroll no-scrollbar mb-8 ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2572,7 +2572,10 @@ function Drawer({
       columnNumber: 21
     }
   }, __jsx("div", {
-    className: "flex items-center  h-full",
+    className: "flex items-center  w-4 h-full ",
+    style: {
+      marginTop: '89px'
+    },
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2580,7 +2583,7 @@ function Drawer({
       columnNumber: 25
     }
   }, __jsx("button", {
-    className: "pl-4 h-full flex items-center mt-32 fixed bg-transparent z-50  ",
+    className: " pl-4 mr-2 h-full flex items-center  fixed b z-50 bg-transparent  ",
     onClick: () => {
       setIsOpen(false);
     },
@@ -2589,6 +2592,14 @@ function Drawer({
       fileName: _jsxFileName,
       lineNumber: 28,
       columnNumber: 29
+    }
+  }, __jsx("div", {
+    className: "bg-white rounded-r rounded-full h-20 items-center w-10 flex flex-row pl-2 ml-2",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 33
     }
   }, __jsx("svg", {
     className: "w-2",
@@ -2600,8 +2611,8 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 33
+      lineNumber: 34,
+      columnNumber: 37
     }
   }, __jsx("path", {
     d: "M2.24023 2L11.9842 11L2.24023 20",
@@ -2612,15 +2623,15 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 37
+      lineNumber: 35,
+      columnNumber: 41
     }
-  })))), __jsx("div", {
-    className: "flex flex-col justify-start mt-6  w-full ",
+  }))))), __jsx("div", {
+    className: "flex flex-col justify-start w-full ml-6 bg-white h-full mt-2",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 41,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -2628,7 +2639,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 44,
       columnNumber: 29
     }
   }, __jsx("img", {
@@ -2637,15 +2648,15 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 45,
       columnNumber: 33
     }
   })), __jsx("div", {
-    className: "px-14 mt-6 mb-6 ",
+    className: "px-14 mt-6 mb-6 bg-white ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 47,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -2653,7 +2664,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 49,
       columnNumber: 33
     }
   }, __jsx("p", {
@@ -2661,51 +2672,25 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 50,
       columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
     className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
     type: "text",
     placeholder: "Add first name to test",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48,
-      columnNumber: 37
-    }
-  })), __jsx("div", {
-    className: "flex flex-col justify-center mb-4",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50,
-      columnNumber: 33
-    }
-  }, __jsx("p", {
-    className: "text-sm text-gray94 pb-1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 51,
       columnNumber: 37
     }
-  }, "First_name"), __jsx("input", {
-    className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
-    type: "text",
-    placeholder: "Add first name to test",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52,
-      columnNumber: 37
-    }
   })), __jsx("div", {
     className: "flex flex-col justify-center mb-4",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 53,
       columnNumber: 33
     }
   }, __jsx("p", {
@@ -2713,7 +2698,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 54,
       columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
@@ -2723,7 +2708,33 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 55,
+      columnNumber: 37
+    }
+  })), __jsx("div", {
+    className: "flex flex-col justify-center mb-4",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    className: "text-sm text-gray94 pb-1",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 37
+    }
+  }, "First_name"), __jsx("input", {
+    className: "border-2 border-bordercolor rounded-md text-sm text-gray9f h-9 outline-none px-4",
+    type: "text",
+    placeholder: "Add first name to test",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
       columnNumber: 37
     }
   })), __jsx("button", {
@@ -2731,7 +2742,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 61,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -2739,7 +2750,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 62,
       columnNumber: 37
     }
   }, __jsx("svg", {
@@ -2751,7 +2762,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 64,
       columnNumber: 41
     }
   }, __jsx("path", {
@@ -2760,7 +2771,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 65,
       columnNumber: 45
     }
   }), __jsx("path", {
@@ -2769,7 +2780,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 66,
       columnNumber: 45
     }
   })), __jsx("p", {
@@ -2777,7 +2788,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 69,
       columnNumber: 41
     }
   }, "Get sharable code")))))))), __jsx("section", {
@@ -2788,7 +2799,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 80,
       columnNumber: 13
     }
   }));
