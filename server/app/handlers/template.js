@@ -98,7 +98,6 @@ async function deleteTemplate(request, response, next) {
 
   try {
     const templates = await Template.readTemplates({}, {}, skip, limit);
-    console.log({templates})
     return response.json(templates);
   } catch (err) {
     return next(err);

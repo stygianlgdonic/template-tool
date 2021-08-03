@@ -33,7 +33,6 @@
       "usageCount": {
         "type": "number"
       }     
-    },
-    "required": ["id"]
+    }
   }
   
