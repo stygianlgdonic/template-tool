@@ -10,11 +10,11 @@ const Card: React.FC = (): JSX.Element => {
 
 
     return (
-        <div className="h-full  bg-gray50 ">
+        <div className="h-full  bg-canvasbgcolor  ">
             <div className="bg-white">
                 <CardHeader />
             </div>
-            <div className=" ">
+            <div className=" mt-10">
 
                 <MainCanvas />
             </div>
