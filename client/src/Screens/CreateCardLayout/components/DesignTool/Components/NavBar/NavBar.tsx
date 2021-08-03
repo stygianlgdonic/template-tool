@@ -3,12 +3,13 @@ import { DesignToolContext } from '../../../../../../contexts/DesignToolContext'
 import "./style.css"
 const SideBarNav: React.FC = () => {
     const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
+    const [showModal, setShowModal] = React.useState(false);
 
     return (
-        <div className="h-full fixed flex  flex-col w-2/12 ">
+        <div className="h-full fixed flex  flex-col w-2/12 " >
 
             <div className="flex flex-col justify-start text-left items-start leading-10  px-2 text-lightGray w-full  h-full mt-6 ">
-                <button className="w-full focus:bg-rightbackgroundcolor h-10" onClick={() => setDesignToolnavigator('element')}>
+                <button className="w-full active:bg-rightbackgroundcolor focus:bg-rightbackgroundcolor  h-10" onClick={() => setDesignToolnavigator('element')}>
                     <div className="flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 h-10 mb-1">
 
                         <svg className="text-svgcolor" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +21,7 @@ const SideBarNav: React.FC = () => {
                         <p className="text-lightGray font-medium pl-3">Elements</p>
                     </div>
                 </button>
-                <button className="w-full focus:bg-rightbackgroundcolor h-10" onClick={() => setDesignToolnavigator('text')}>
+                <button className={designToolnavigator === "text" ? "w-full focus:bg-rightbackgroundcolor h-10" : "w-full  h-10"} onClick={() => setDesignToolnavigator('text')}>
                     <div className="flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1">
                         <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.8867 0.109375L14.0625 3.83594H13.6172C13.5312 3.17969 13.4141 2.71094 13.2656 2.42969C13.0234 1.97656 12.6992 1.64453 12.293 1.43359C11.8945 1.21484 11.3672 1.10547 10.7109 1.10547H8.47266V13.2461C8.47266 14.2227 8.57812 14.832 8.78906 15.0742C9.08594 15.4023 9.54297 15.5664 10.1602 15.5664H10.7109V16H3.97266V15.5664H4.53516C5.20703 15.5664 5.68359 15.3633 5.96484 14.957C6.13672 14.707 6.22266 14.1367 6.22266 13.2461V1.10547H4.3125C3.57031 1.10547 3.04297 1.16016 2.73047 1.26953C2.32422 1.41797 1.97656 1.70312 1.6875 2.125C1.39844 2.54688 1.22656 3.11719 1.17188 3.83594H0.726562L0.914062 0.109375H13.8867Z" fill="#D1D5DB" />
@@ -66,15 +67,21 @@ const SideBarNav: React.FC = () => {
 
 
 
-                <div className=" mt-6  mb-1 flex  w-full justify-end relative group items-center  mx-auto ">
+                <div className=" mt-6  mb-1 flex  w-full justify-end relative items-center  mx-auto " onClick={() => setShowModal(!showModal)}>
+                    <button onClick={() => setShowModal(true)}>
 
-                    <svg className="mr-8" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 4C9 4.55228 8.55228 5 8 5C7.44772 5 7 4.55228 7 4C7 3.44772 7.44772 3 8 3C8.55228 3 9 3.44772 9 4ZM7 7C6.44772 7 6 7.44772 6 8C6 8.55229 6.44772 9 7 9V12C7 12.5523 7.44772 13 8 13H9C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11V8C9 7.44772 8.55228 7 8 7H7Z" fill="#4338CA" />
-                    </svg>
-                    <div className="absolute bottom-0   flex-col  hidden mb-6 group-hover:flex ">
-                        <span className="relative z-10 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md bg-indigo500 shadow-lg">Brandify Everything.</span>
-                        <div className="w-3 h-3 transform rotate-45 -mt-2  flex justify-end bg-indigo500 z-50" style={{ marginLeft: '94px' }}></div>
-                    </div>
+                        <svg className="mr-8" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 4C9 4.55228 8.55228 5 8 5C7.44772 5 7 4.55228 7 4C7 3.44772 7.44772 3 8 3C8.55228 3 9 3.44772 9 4ZM7 7C6.44772 7 6 7.44772 6 8C6 8.55229 6.44772 9 7 9V12C7 12.5523 7.44772 13 8 13H9C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11V8C9 7.44772 8.55228 7 8 7H7Z" fill="#4338CA" />
+                        </svg>
+                    </button>
+                    {showModal ? (
+                        <>
+                            <div className="absolute bottom-0   flex-col  mb-6 flex ">
+                                <span className="relative z-10 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md bg-indigo500 shadow-lg">Brandify Everything.</span>
+                                <div className="w-3 h-3 transform rotate-45 -mt-2  flex justify-end bg-indigo500 z-50" style={{ marginLeft: '94px' }}></div>
+                            </div>
+                        </>
+                    ) : null}
                 </div>
 
 
