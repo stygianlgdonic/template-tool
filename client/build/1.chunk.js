@@ -2728,7 +2728,7 @@ const CreateEmail = ({
       columnNumber: 21
     }
   }, newModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "fixed inset-0 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none z-60 focus:outline-none",
+    className: "fixed inset-0 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none  focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
