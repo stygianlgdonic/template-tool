@@ -3022,18 +3022,18 @@ const CreateEmail = ({
       columnNumber: 25
     }
   }, "Close"))))), __jsx("div", {
-    className: "fixed inset-0 z-0 bg-black opacity-25",
+    className: "fixed inset-0 z-0 bg-black opacity-25 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
+      lineNumber: 160,
       columnNumber: 17
     }
   })) : null), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174,
+      lineNumber: 167,
       columnNumber: 11
     }
   }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", __jsx("div", {
@@ -3041,7 +3041,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178,
+      lineNumber: 171,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3052,7 +3052,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 179,
+      lineNumber: 172,
       columnNumber: 19
     }
   }, " ", __jsx("div", {
@@ -3060,7 +3060,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
+      lineNumber: 178,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3068,7 +3068,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 179,
       columnNumber: 23
     }
   }, __jsx("div", {
@@ -3076,14 +3076,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 187,
+      lineNumber: 180,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188,
+      lineNumber: 181,
       columnNumber: 27
     }
   }, __jsx("h3", {
@@ -3091,7 +3091,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 182,
       columnNumber: 29
     }
   }, "Select Template")), __jsx("div", {
@@ -3099,7 +3099,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193,
+      lineNumber: 186,
       columnNumber: 27
     }
   }, __jsx("div", {
@@ -3107,7 +3107,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 187,
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -3115,7 +3115,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195,
+      lineNumber: 188,
       columnNumber: 31
     }
   }, "Most Popular", " "), __jsx("img", {
@@ -3124,7 +3124,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198,
+      lineNumber: 191,
       columnNumber: 31
     }
   })))), __jsx("div", {
@@ -3132,7 +3132,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202,
+      lineNumber: 195,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -3141,7 +3141,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 203,
+      lineNumber: 196,
       columnNumber: 27
     }
   }, __jsx("span", {
@@ -3149,7 +3149,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207,
+      lineNumber: 200,
       columnNumber: 29
     }
   }, "x")))), __jsx("div", {
@@ -3157,7 +3157,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 206,
       columnNumber: 23
     }
   }, __jsx("div", {
@@ -3165,14 +3165,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 207,
       columnNumber: 25
     }
   }, __jsx(_Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215,
+      lineNumber: 208,
       columnNumber: 27
     }
   }))), __jsx("div", {
@@ -3180,7 +3180,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 218,
+      lineNumber: 211,
       columnNumber: 23
     }
   }, __jsx("button", {
@@ -3188,7 +3188,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 219,
+      lineNumber: 212,
       columnNumber: 25
     }
   }, "Employes"), __jsx("button", {
@@ -3196,7 +3196,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 222,
+      lineNumber: 215,
       columnNumber: 25
     }
   }, "Events"), __jsx("button", {
@@ -3204,7 +3204,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 225,
+      lineNumber: 218,
       columnNumber: 25
     }
   }, "Promotion"), __jsx("button", {
@@ -3212,14 +3212,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 228,
+      lineNumber: 221,
       columnNumber: 25
     }
   }, "Property")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 232,
+      lineNumber: 225,
       columnNumber: 23
     }
   }, __jsx("h1", {
@@ -3227,7 +3227,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233,
+      lineNumber: 226,
       columnNumber: 25
     }
   }, "Your Designs")), __jsx("div", {
@@ -3235,14 +3235,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237,
+      lineNumber: 230,
       columnNumber: 23
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 238,
+      lineNumber: 231,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -3254,7 +3254,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 232,
       columnNumber: 27
     }
   }, __jsx("svg", {
@@ -3265,7 +3265,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 246,
+      lineNumber: 239,
       columnNumber: 29
     }
   }, __jsx("g", {
@@ -3273,7 +3273,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 252,
+      lineNumber: 245,
       columnNumber: 31
     }
   }, __jsx("path", {
@@ -3282,7 +3282,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 246,
       columnNumber: 33
     }
   }), __jsx("path", {
@@ -3294,14 +3294,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257,
+      lineNumber: 250,
       columnNumber: 33
     }
   })), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 265,
+      lineNumber: 258,
       columnNumber: 31
     }
   }, __jsx("filter", {
@@ -3315,7 +3315,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266,
+      lineNumber: 259,
       columnNumber: 33
     }
   }, __jsx("feFlood", {
@@ -3324,7 +3324,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 275,
+      lineNumber: 268,
       columnNumber: 35
     }
   }), __jsx("feColorMatrix", {
@@ -3335,7 +3335,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 279,
+      lineNumber: 272,
       columnNumber: 35
     }
   }), __jsx("feOffset", {
@@ -3343,7 +3343,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 285,
+      lineNumber: 278,
       columnNumber: 35
     }
   }), __jsx("feGaussianBlur", {
@@ -3351,7 +3351,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 286,
+      lineNumber: 279,
       columnNumber: 35
     }
   }), __jsx("feColorMatrix", {
@@ -3360,7 +3360,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 287,
+      lineNumber: 280,
       columnNumber: 35
     }
   }), __jsx("feBlend", {
@@ -3370,7 +3370,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 291,
+      lineNumber: 284,
       columnNumber: 35
     }
   }), __jsx("feBlend", {
@@ -3381,7 +3381,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 296,
+      lineNumber: 289,
       columnNumber: 35
     }
   })))), __jsx("p", {
@@ -3389,14 +3389,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 305,
+      lineNumber: 298,
       columnNumber: 29
     }
   }, "Create New Personalized Template"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 310,
+      lineNumber: 303,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -3404,7 +3404,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 311,
+      lineNumber: 304,
       columnNumber: 27
     }
   }, __jsx("img", {
@@ -3415,7 +3415,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 312,
+      lineNumber: 305,
       columnNumber: 29
     }
   }), __jsx("p", {
@@ -3423,14 +3423,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 318,
+      lineNumber: 311,
       columnNumber: 29
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 323,
+      lineNumber: 316,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -3438,7 +3438,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 324,
+      lineNumber: 317,
       columnNumber: 27
     }
   }, __jsx("img", {
@@ -3449,7 +3449,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 325,
+      lineNumber: 318,
       columnNumber: 29
     }
   }), __jsx("p", {
@@ -3457,14 +3457,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 331,
+      lineNumber: 324,
       columnNumber: 29
     }
   }, "Warm welcome to employees")))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 337,
+      lineNumber: 330,
       columnNumber: 23
     }
   }, __jsx("h1", {
@@ -3472,7 +3472,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 338,
+      lineNumber: 331,
       columnNumber: 25
     }
   }, "For you")), __jsx("div", {
@@ -3480,7 +3480,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 342,
+      lineNumber: 335,
       columnNumber: 23
     }
   }, __jsx("div", {
@@ -3488,14 +3488,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 343,
+      lineNumber: 336,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 344,
+      lineNumber: 337,
       columnNumber: 27
     }
   }, __jsx("button", {
@@ -3503,7 +3503,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 345,
+      lineNumber: 338,
       columnNumber: 29
     }
   }, __jsx("img", {
@@ -3514,7 +3514,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 346,
+      lineNumber: 339,
       columnNumber: 31
     }
   }), __jsx("p", {
@@ -3522,14 +3522,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 352,
+      lineNumber: 345,
       columnNumber: 31
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 357,
+      lineNumber: 350,
       columnNumber: 27
     }
   }, __jsx("button", {
@@ -3537,7 +3537,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 358,
+      lineNumber: 351,
       columnNumber: 29
     }
   }, __jsx("img", {
@@ -3548,7 +3548,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 359,
+      lineNumber: 352,
       columnNumber: 31
     }
   }), __jsx("p", {
@@ -3556,14 +3556,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 365,
+      lineNumber: 358,
       columnNumber: 31
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 370,
+      lineNumber: 363,
       columnNumber: 27
     }
   }, __jsx("button", {
@@ -3571,7 +3571,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 371,
+      lineNumber: 364,
       columnNumber: 29
     }
   }, __jsx("img", {
@@ -3582,7 +3582,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 372,
+      lineNumber: 365,
       columnNumber: 31
     }
   }), __jsx("p", {
@@ -3590,14 +3590,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 378,
+      lineNumber: 371,
       columnNumber: 31
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 383,
+      lineNumber: 376,
       columnNumber: 27
     }
   }, __jsx("button", {
@@ -3605,7 +3605,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 384,
+      lineNumber: 377,
       columnNumber: 29
     }
   }, __jsx("img", {
@@ -3616,7 +3616,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 385,
+      lineNumber: 378,
       columnNumber: 31
     }
   }), __jsx("p", {
@@ -3624,7 +3624,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 391,
+      lineNumber: 384,
       columnNumber: 31
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -3632,7 +3632,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 401,
+      lineNumber: 394,
       columnNumber: 17
     }
   })) : null))));
