@@ -68,7 +68,9 @@ module.exports = {
             deletebuttontext: "#B91C1C",
             createEmail: "#4B5563",
             createEmail2: "#D1D5DB",
-            gray40: "#656565"
+            SolidColor: "#6366F1",
+            gradientColor: "#374151",
+
         },
 
 

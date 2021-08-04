@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { SketchPicker } from 'react-color'
 import { googleFontsList } from '../../utils/defaults'
 
 interface Props {
@@ -16,6 +17,7 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
     const [fontStyle, setFontStyle] = useState<string>("normal")
     const [fontFamily, setFontFamily] = useState(googleFontsList[0]);
     const [textAlign, setTextAlign] = useState("left")
+    const [fontColor, setFontColor] = useState("#000000")
 
     useEffect(() => {
         if (selectedId?.split("_")[0] === "textBoxes") {
@@ -24,6 +26,7 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
             setFontSize(templateData.variations[variationIndex].elements[index].fontSize)
             setFontFamily(templateData.variations[variationIndex].elements[index].fontFamily)
             setTextAlign(templateData.variations[variationIndex].elements[index].align)
+            setFontColor(templateData.variations[variationIndex].elements[index].color)
         }
     }, [selectedId])
 
@@ -35,6 +38,7 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
             prev.variations[variationIndex].elements[index].fontStyle = fontStyle
             prev.variations[variationIndex].elements[index].fontFamily = fontFamily
             prev.variations[variationIndex].elements[index].align = textAlign
+            prev.variations[variationIndex].elements[index].fill = fontColor
         })
         handleCloseEditTextModal()
     }
@@ -79,8 +83,14 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
                             );
                         })}
                     </select>
+                    <p>Text color:</p>
+                    <SketchPicker
+                        width="150px"
+                        color={fontColor}
+                        onChange={(color) => setFontColor(color.hex)}
+                    />
                 </div>
-                <div className="">
+                <div className="mt-5">
                     <textarea
                         className="border h-40 w-full"
                         style={{
@@ -88,6 +98,7 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
                             fontSize: fontSize,
                             fontStyle: fontStyle,
                             textAlign: textAlign as "center",
+                            color: fontColor
                         }}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
