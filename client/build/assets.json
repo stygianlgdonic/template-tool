@@ -1,94 +1,23 @@
 {
-  "1": {
-    "css": [
-      "/static/css/1.1d91d9be.chunk.css"
-    ],
-    "js": [
-      "/static/js/1.74b5c6ea.chunk.js"
-    ],
-    "map": [
-      "/static/css/1.1d91d9be.chunk.css.map",
-      "/static/js/1.74b5c6ea.chunk.js.map"
-    ],
-    "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.df32b8d4.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.df32b8d4.chunk.js.map"
-    ],
-    "chunks": [
-      2
-    ]
-  },
-  "3": {
-    "js": [
-      "/static/js/3.535d9125.chunk.js"
-    ],
-    "map": [
-      "/static/js/3.535d9125.chunk.js.map"
-    ],
-    "chunks": [
-      3
-    ]
-  },
-  "4": {
-    "js": [
-      "/static/js/4.0e98891c.chunk.js"
-    ],
-    "map": [
-      "/static/js/4.0e98891c.chunk.js.map"
-    ],
-    "chunks": [
-      4
-    ]
-  },
-  "client": {
-    "css": [
-      "/static/css/client.fdffe0c3.css"
-    ],
-    "js": [
-      "/static/js/client.5245dc91.js"
-    ],
-    "map": [
-      "/static/css/client.fdffe0c3.css.map",
-      "/static/js/client.5245dc91.js.map"
-    ],
-    "chunks": [
-      0
-    ]
-  },
   "noentry": {
-    "ico": [
-      "/favicon.ico"
-    ],
-    "txt": [
-      "/robots.txt",
-      "/static/js/1.74b5c6ea.chunk.js.LICENSE.txt",
-      "/static/js/client.5245dc91.js.LICENSE.txt"
-    ],
     "png": [
-      "/static/media/01.2e91d53b.png",
-      "/static/media/02.adc8b2dd.png",
-      "/static/media/03.6bbdf893.png",
-      "/static/media/04.50f8bcb9.png",
-      "/static/media/ALP-Summer.63b90db3.png",
-      "/static/media/card1.9acd410d.png",
-      "/static/media/card2.a3e6d397.png",
-      "/static/media/image.f528bd77.png",
-      "/static/media/image1.3ff551f0.png",
-      "/static/media/image3.6df75f11.png",
-      "/static/media/image4.9cb172b4.png",
-      "/static/media/image5.f1b1f809.png",
-      "/static/media/insta.638d5ee2.png",
-      "/static/media/preview.06b7f3b0.png"
+      "http://localhost:3001/static/media/01.2e91d53b.png",
+      "http://localhost:3001/static/media/02.adc8b2dd.png",
+      "http://localhost:3001/static/media/03.6bbdf893.png",
+      "http://localhost:3001/static/media/04.50f8bcb9.png",
+      "http://localhost:3001/static/media/ALP-Summer.63b90db3.png",
+      "http://localhost:3001/static/media/card1.9acd410d.png",
+      "http://localhost:3001/static/media/card2.a3e6d397.png",
+      "http://localhost:3001/static/media/image.f528bd77.png",
+      "http://localhost:3001/static/media/image1.3ff551f0.png",
+      "http://localhost:3001/static/media/image3.6df75f11.png",
+      "http://localhost:3001/static/media/image4.9cb172b4.png",
+      "http://localhost:3001/static/media/image5.f1b1f809.png",
+      "http://localhost:3001/static/media/insta.638d5ee2.png",
+      "http://localhost:3001/static/media/preview.06b7f3b0.png"
     ],
     "jpg": [
-      "/static/media/1.f5f798cc.jpg"
+      "http://localhost:3001/static/media/1.f5f798cc.jpg"
     ]
   }
 }
