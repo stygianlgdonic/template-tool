@@ -18,7 +18,7 @@ const Card: React.FC = (): JSX.Element => {
 
                 <MainCanvas />
             </div>
-            <div className="z-50" >
+            <div className="z-50 overflow-y-hidden" >
                 <Drawer isOpen={open} setIsOpen={setOpen}></Drawer>
             </div >
 

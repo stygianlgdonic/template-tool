@@ -15,33 +15,36 @@ export default function Drawer({ isOpen, setIsOpen }) {
         >
             <section
                 className={
-                    " w-screen max-w-lg right-0 absolute bg-transparent h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
+                    " w-screen max-w-lg right-0 absolute bg-transparent h-full  delay-400 duration-500 ease-in-out transition-all transform  " +
                     (isOpen ? " translate-x-0  " : " translate-x-full ")
                 }
             >
-                <article className="relative w-screen max-w-full pb-10 flex flex-col h-full overflow-y-scroll no-scrollbar  bg-white">
+                <article className="relative w-screen max-w-full pb-20 flex flex-col h-full overflow-y-scroll no-scrollbar mb-8 ">
 
                     <div className="h-full flex  " >
 
-                        <div className="flex items-center  h-full">
+                        <div className="flex items-center  w-4 h-full " style={{ marginTop: '89px' }}>
 
-                            <button className="pl-4 h-full flex items-center mt-32 fixed bg-transparent z-50  " onClick={() => {
+                            <button className=" pl-4 mr-2 h-full flex items-center  fixed b z-50 bg-transparent  " onClick={() => {
 
                                 setIsOpen(false);
                             }}>
-                                <svg className="w-2" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.24023 2L11.9842 11L2.24023 20" stroke="#374151" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                <div className="bg-white rounded-r rounded-full h-20 items-center w-10 flex flex-row pl-2 ml-2">
+
+                                    <svg className="w-2" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.24023 2L11.9842 11L2.24023 20" stroke="#374151" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
 
                             </button>
                         </div>
-                        <div className="flex flex-col justify-start mt-6  w-full ">
+                        <div className="flex flex-col justify-start w-full ml-6 bg-white h-full mt-2" >
 
 
                             <div className="justify-center flex ">
                                 <img src={image} className="border-bordercolor  border-2 shadow-lg " />
                             </div>
-                            <div className="px-14 mt-6 mb-6 ">
+                            <div className="px-14 mt-6 mb-6 bg-white ">
 
                                 <div className="flex flex-col justify-center mb-4">
                                     <p className="text-sm text-gray94 pb-1">First_name</p>
