@@ -4,7 +4,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
   const [openstyle, setOpenstyle] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   return (
-    <div className="flex justify-around ">
+    <div className="flex justify-around w-full mr-96">
       <div className="flex mt-2 ">
         <svg
           width="40"
@@ -17,19 +17,22 @@ const ElementHeader: React.FC = (): JSX.Element => {
         </svg>
         {/* ////////////////////// */}
         <div className="ml-10 w-60">
-          <div className="relative mt-1" onClick={() => setOpen(!open)}>
+          <div
+            className="relative w-32 mt-1 h-9 "
+            onClick={() => setOpen(open)}
+          >
             <button
               type="button"
-              onClick={() => setOpen(true)}
-              className="relative w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              onClick={() => setOpen(false)}
+              className="relative w-full py-2 pl-3 pr-10 text-left rounded-lg shadow-sm cursor-default border- focus:outline-none focus:ring-border focus:ring-indigo500 focus:border-indigo500 sm:text-sm"
               aria-haspopup="listbox"
               aria-expanded="true"
               aria-labelledby="listbox-label"
             >
-              <span className="block truncate">Tom Cook</span>
+              <span className="block truncate border-4 border-elementColor bg-elementColor"></span>
               <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-gray400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -44,7 +47,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
               </span>
             </button>
             <ul
-              className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+              className="absolute z-10 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg w-52 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               role="listbox"
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-option-3"
@@ -54,22 +57,31 @@ const ElementHeader: React.FC = (): JSX.Element => {
                 id="listbox-option-0"
                 role="option"
               >
-                <span className="block font-normal truncate">Wade Cooper</span>
-                <span className="text-indigo-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-                  <svg
-                    className="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                {/* borders selection */}
+                <div className="flex mb-2">
+                  <span className="block w-full h-4 truncate border-4 border-elementColor bg-elementColor"></span>
+                  <span className="ml-2">4</span>
+                </div>
+                <div className="flex mb-2 ">
+                  <span className="block w-full h-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
+                  <span className="ml-2">2</span>
+                </div>
+                <div className="flex ">
+                  <span className="block w-full h-1 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
+                  <span className="ml-2">1</span>
+                </div>
+                {/* border selection end */}
+                <div className=""></div>
+                {/* color grid start */}
+                <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3 ">
+                  <button className="w-10 h-10 rounded-md bg-indigo600"></button>
+                  <button className="w-10 h-10 rounded-md bg-fuschia"></button>
+                  <button className="w-10 h-10 rounded-md bg-greenish"></button>
+                  <button className="w-10 h-10 rounded-md bg-yellowish"></button>
+                  <button className="w-10 h-10 rounded-md bg-redish"></button>
+                  <button className="w-10 h-10 rounded-md bg-gray900"></button>
+                </div>
+                {/* color grid end */}
               </li>
             </ul>
           </div>
@@ -77,7 +89,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
       </div>
       {/* this is the differnce */}
 
-      <div className="w-6 h-full mt-4 ">
+      <div className="w-6 h-full mt-4">
         <img src={image} />
       </div>
       {/* <div className="ml-6">

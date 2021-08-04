@@ -1,6 +1,6 @@
 import React from "react";
 interface Prop {
-  closeModal: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
 }
 const BackgroundColorModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
   //   const [showModal, setShowModal] = React.useState(false);
@@ -36,9 +36,9 @@ const BackgroundColorModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
               </div>
               <button
                 className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
-                onClick={() => closeModal(false)}
+                onClick={closeModal}
               >
-                <span className="block w-6 h-6 text-2xl text-black outline-none bg-red focus:outline-none">
+                <span className="block w-6 h-6 text-2xl text-black bg-transparent outline-none focus:outline-none">
                   ×
                 </span>
               </button>
