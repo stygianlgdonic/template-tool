@@ -1,1 +1,0 @@
-{"version":3,"file":"server.2e40e100a9a9bd9714d1.hot-update.js","sources":["webpack:///./src/routes/route_names.tsx"],"sourcesContent":["export const ROUTE_NAMES = {\r\n    select_palette: \"/selectPalette\",\r\n    design_tool: \"/tool\",\r\n}"],"mappings":";;;;;;;;;;;AAAA;AAAA;AAAA;AACA;AACA;AAFA;;;;A","sourceRoot":""}

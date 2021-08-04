@@ -15,7 +15,7 @@ const TransformerComponent: React.FC<Props> = ({ id, selectedShapeName, template
 
     useEffect(() => {
         checkNode();
-    }, [selectedShapeName, templateData.variations.elements])
+    }, [selectedShapeName, templateData.variations])
     const checkNode = () => {
         const stage = $tr.current.getStage();
         const selectedNode = stage.findOne("#" + selectedShapeName);
