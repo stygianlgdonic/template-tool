@@ -25,11 +25,11 @@ export default function Drawer({ isOpen, setIsOpen }) {
 
                         <div className="flex items-center  w-4 h-full " style={{ marginTop: '89px' }}>
 
-                            <button className=" pl-4 mr-2 h-full flex items-center  fixed b z-50 bg-transparent  " onClick={() => {
+                            <button className=" pl-4 mr-2 h-full flex items-center fixed b z-50 bg-transparent 3xl:mt-top  " onClick={() => {
 
                                 setIsOpen(false);
                             }}>
-                                <div className="bg-white rounded-r rounded-full h-20 items-center w-10 flex flex-row pl-2 ml-2">
+                                <div className="bg-white rounded-r rounded-full h-20   items-center w-10 flex flex-row pl-2 ml-2">
 
                                     <svg className="w-2" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.24023 2L11.9842 11L2.24023 20" stroke="#374151" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
@@ -38,7 +38,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
 
                             </button>
                         </div>
-                        <div className="flex flex-col justify-start w-full ml-6 bg-white h-full mt-2" >
+                        <div className="flex flex-col justify-start w-full ml-6 bg-white h-full pt-3 mt-2 3xl:mt-3 " >
 
 
                             <div className="justify-center flex ">
