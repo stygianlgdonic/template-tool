@@ -39,7 +39,6 @@
       "workspaceId": {
         "type": "string"
       }      
-    },
-    "required": ["id", "ownerId"]
+    }
   }
   
