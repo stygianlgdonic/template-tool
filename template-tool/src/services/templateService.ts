@@ -36,7 +36,9 @@ async function addNewTemplate(templateData: any) {
     return response.json()
 }
 
-async function getTemplateByID(templateID: string) {
+async function getTemplateByID(templateID: string | undefined) {
+    if (!templateID) return
+
     const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`)
     if (!response.ok) {
         throw new Error("Error while fetching Templates")
