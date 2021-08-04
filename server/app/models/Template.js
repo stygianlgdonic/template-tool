@@ -8,7 +8,7 @@ const { APIError } = require("../helpers");
 const Schema = mongoose.Schema;
 
 const templateSchema = new Schema({
-  // id: String,
+  categoryId: String,
   dimensions: Object,
   variations: [Object],
   palette: [Object],
@@ -34,7 +34,7 @@ templateSchema.statics = {
     // }
     try {
       const template = await newTemplate.save();
-      return template.toObject();
+      return template._id;
     } catch (error) {
       console.log(error)
       return error

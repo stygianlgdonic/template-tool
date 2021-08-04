@@ -2,7 +2,7 @@
 const { validate } = require("jsonschema");
 
 // app imports
-const { Template } = require("../models");
+const { Template, TemplateCategory } = require("../models");
 const { APIError, parseSkipLimit } = require("../helpers");
 const { templateNewSchema, templateUpdateSchema } = require("../schemas");
 
@@ -22,8 +22,20 @@ async function createTemplate(request, response, next) {
   }
 
   try {
-    const newTemplate = await Template.createTemplate(new Template(request.body));
-    return response.status(201).json(newTemplate);
+    const templateId = await Template.createTemplate(new Template(request.body));
+    const {categoryId} = new Template(request.body)
+    if (templateId && categoryId) {
+      const templateCategoryData = await TemplateCategory.readTemplateCategory(categoryId)
+      if (templateCategoryData) {        
+        const { templateList } = templateCategoryData
+        if (templateList) {
+          templateList.push(templateId)
+          await TemplateCategory.updateTemplateCategory(categoryId,templateCategoryData)
+        }
+      }
+    }
+    console.log(categoryId)
+    return response.status(201).json({status: 'Success', message:'Successfully added Template'});
   } catch (err) {
     return next(err);
   }

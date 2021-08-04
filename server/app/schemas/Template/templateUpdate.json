@@ -3,7 +3,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "categoryId": {
       "type": "string"
     },
     "dimensions": {

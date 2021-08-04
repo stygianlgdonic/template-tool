@@ -41,7 +41,7 @@ async function getTemplateByID(templateID: string | undefined) {
 
     const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`)
     if (!response.ok) {
-        throw new Error("Error while fetching Templates")
+        throw new Error("Error while fetching Template")
     }
     return response.json()
 }
@@ -70,7 +70,7 @@ async function deleteTemplateByID(templateID: string) {
     })
     console.log({ response })
     if (!response.ok) {
-        throw new Error("Error while updating template")
+        throw new Error("Error while delete template")
     }
     return response.json()
 }
