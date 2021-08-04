@@ -1,10 +1,7 @@
 import React from 'react'
-import { ORIGINAL_SVG_updownicon, stageDimensions } from '../../../../utils/defaults'
 import SearchBar from './SearchBar'
 import { useQuery } from 'react-query'
 import { getAllTemplates } from '../../../../services/templateService'
-import { Layer, Stage } from 'react-konva'
-import Elements from './Elements'
 import TemplatePreview from './TemplatePreview'
 
 const TemplateList = () => {
@@ -73,9 +70,10 @@ const TemplateList = () => {
                     </div>
                     <div className="pl-6 mt-4 flex flex-row flex-wrap gap-4">
                         {data.map((item, index) => {
-                            return (<div>
-                                <TemplatePreview templateData={item} index={index} />
-                            </div>
+                            return (
+                                <div key={index} >
+                                    <TemplatePreview templateObj={item} />
+                                </div>
                             )
                         })}
 
