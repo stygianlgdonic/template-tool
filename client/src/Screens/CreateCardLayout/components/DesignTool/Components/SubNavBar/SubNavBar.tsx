@@ -17,6 +17,7 @@ const SubNavBar: React.FC = (): JSX.Element => {
             {designToolnavigator === 'images' && <ImageSelector />}
             {designToolnavigator === 'background' && <BackgroundSelector />}
             {designToolnavigator === 'logo' && <LogoSelector />}
+            {designToolnavigator === 'texttool' && <LogoSelector />}
 
         </div>
     )
