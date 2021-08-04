@@ -61,7 +61,7 @@ const SelectPalette = () => {
             <div className="flex justify-center">
                 <NavLink
                     className="inline-flex items-center h-8 px-4 m-2 text-sm text-gray300 hover:text-gray900 transition-colors duration-150 bg-gray900 rounded-lg focus:shadow-outline hover:bg-bluish"
-                    to={ROUTE_NAMES.design_tool}
+                    to={"/tool"}
                 >
                     Proceed
                 </NavLink>

@@ -8,8 +8,6 @@ interface Props {
 
 const Elements: React.FC<Props> = ({ konvaItem, index }) => {
 
-    console.log({ konvaItem })
-
     if (!konvaItem) return (<></>)
 
     return (

@@ -9,20 +9,35 @@ import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
 import EditingTools from './EditingTools';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { ROUTE_NAMES } from '../../routes/route_names';
+import { useQuery } from 'react-query';
 import { template_service } from '../../services/templateService';
 // import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
+    const browserHistory = useHistory()
+
+    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
+    const [justUpdated, setJustUpdated] = useState(false)
+
+    let { templateID } = useParams<{ templateID: any }>()
+    const { data, error, isLoading } = useQuery<any, Error>(["currentTemplate", templateID], () => template_service.getTemplateByID(templateID))
+
+    useEffect(() => {
+        if (!!justUpdated) return
+
+        if (!!data && !error) {
+            setTemplateData(data)
+            setJustUpdated(true)
+        }
+    }, [data])
 
     // const addNewTemplateMutation = useMutation(addNewTemplate)
-
     const [variationIndex, setVariationIndex] = useState<number>(0)
 
     const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
-    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -143,13 +158,15 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = (tags: string[], selectedCategory: string) => {
-        console.log({ tags, selectedCategory })
-        // TODO - handle crud into db here
-        template_service.addNewTemplate({ ...templateData, tags })
+    const handleSaveTemplate = async (tags: string[], selectedCategory: string) => {
+        if (!!templateID) {
+            await template_service.updateTemplateByID(templateID, { ...templateData, tags })
+        } else {
+            await template_service.addNewTemplate({ ...templateData, tags })
+            browserHistory.push(ROUTE_NAMES.home)
+        }
         setIsOpenSaveTemplateModal(false)
     }
-
     return (
         <div className="min-w-max bg-gray300 h-screen">
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
