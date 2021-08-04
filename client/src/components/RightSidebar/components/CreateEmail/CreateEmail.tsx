@@ -65,7 +65,7 @@ const CreateEmail: React.FC<BioProps> = ({
                     <div>
                         {newModal ? (
                             <>
-                                <div className="fixed inset-0 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none  focus:outline-none">
+                                <div className="fixed inset-0 flex items-center z-50 justify-center overflow-x-hidden overflow-y-auto outline-none  focus:outline-none">
                                     <div className="relative w-auto max-w-3xl mx-auto my-6">
                                         {/*content*/}
                                         <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
@@ -153,18 +153,11 @@ const CreateEmail: React.FC<BioProps> = ({
                                                 >
                                                     Close
                                                 </button>
-                                                {/* <button
-                          className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
-                          type="button"
-                          onClick={() => setShowModal(false)}
-                        >
-                          Save Changes
-                        </button> */}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+                                <div className="fixed inset-0 z-0 opacity-25 bg-black "></div>
                             </>
                         ) : null}
                     </div>
