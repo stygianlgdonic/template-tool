@@ -21,7 +21,7 @@ const DesignTool: React.FC = () => {
     const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
     const [justUpdated, setJustUpdated] = useState(false)
 
-    let { templateID } = useParams<{ templateID: any }>()
+    let { templateID } = useParams<{ templateID: string | undefined }>()
     const { data, error, isLoading } = useQuery<any, Error>(["currentTemplate", templateID], () => template_service.getTemplateByID(templateID))
 
     useEffect(() => {
@@ -167,6 +167,26 @@ const DesignTool: React.FC = () => {
         }
         setIsOpenSaveTemplateModal(false)
     }
+
+    const handleDeleteTemplate = () => {
+        swal({
+            title: "Are you sure?",
+            text: "Do you want to delete this Template?",
+            icon: "warning",
+            buttons: ["Cancel", "Confirm"],
+            dangerMode: true,
+        }).then(async (willDelete) => {
+            if (willDelete) {
+                if (!!templateID) {
+                    await template_service.deleteTemplateByID(templateID)
+                } else {
+                    setTemplateData(INITIAL_STATE)
+                }
+                browserHistory.push(ROUTE_NAMES.home)
+            }
+        });
+    }
+
     return (
         <div className="min-w-max bg-gray300 h-screen">
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
@@ -174,9 +194,14 @@ const DesignTool: React.FC = () => {
                     to={ROUTE_NAMES.select_palette}
                     className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Select Palette</NavLink>
                 <p className="text-xl text-white">Tempalte Design</p>
-                <button
-                    onClick={openSaveTemplateModal}
-                    className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Save Template</button>
+                <div className="flex gap-2">
+                    <button
+                        onClick={openSaveTemplateModal}
+                        className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Save Template</button>
+                    <button
+                        onClick={handleDeleteTemplate}
+                        className="text-white font-semibold py-2 px-4 border border-red rounded" >Delete Template</button>
+                </div>
             </div>
 
             {showSaveVariationModal && (
