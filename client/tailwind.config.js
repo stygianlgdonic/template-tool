@@ -55,6 +55,8 @@ module.exports = {
             canvasbgcolor: "#E5E5E5",
             deletebutton: "#FEE2E2",
             deletebuttontext: "#B91C1C",
+            createEmail: "#4B5563",
+            createEmail2: "#D1D5DB",
 
         },
 

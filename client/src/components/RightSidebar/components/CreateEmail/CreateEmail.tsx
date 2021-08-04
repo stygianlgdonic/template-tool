@@ -71,7 +71,7 @@ const CreateEmail: React.FC<BioProps> = ({
                     <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                       {/*header*/}
                       <div className="flex items-start justify-between p-5 rounded-t border-blueGray-200">
-                        <h3 className="text-3xl font-semibold">
+                        <h3 className="text-3xl font-bold leading-9 font-inter text-gray900">
                           Create New Personalized Email
                         </h3>
                         <button
@@ -84,68 +84,88 @@ const CreateEmail: React.FC<BioProps> = ({
                         </button>
                       </div>
                       {/*body*/}
-                      <div className="relative flex-auto p-6">
+                      <div className="relative flex-auto p-6 mb-6 text-lg font-bold text-createEmail font-inter ">
                         <p> Create For Email</p>
                         <div className="flex justify-between gap-4 ">
                           <div className="h-40 border-2 border-transparent shadow-md w-96 ">
-                            <div className="flex p-10 ">
-                              <svg
-                                width="60"
-                                height="72"
-                                viewBox="0 0 60 72"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect width="60" height="72" fill="#F3F4F6" />
-                              </svg>
-                              <div className="mt-2 ml-4">
-                                <h1>HEADER</h1>
-                                <p>Dimensions:1920x240</p>
+                            <button>
+                              <div className="flex p-10 ">
+                                <svg
+                                  width="60"
+                                  height="72"
+                                  viewBox="0 0 60 72"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect width="60" height="72" fill="#F3F4F6" />
+                                </svg>
+                                <div className="mt-2 ml-4">
+                                  <div className="font-bold text-left text-createEmail font-inter">
+                                    <h1>HEADER</h1>
+                                  </div>
+                                  <div className="text-sm text-createEmail2 font-inter">
+                                    <p>Dimensions:1920x240</p>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                            </button>
                           </div>
                           <div className="h-40 border-2 border-transparent shadow-md w-72 ">
-                            <div className="flex p-10 ">
-                              <svg
-                                width="60"
-                                height="72"
-                                viewBox="0 0 60 72"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect width="60" height="72" fill="#F3F4F6" />
-                              </svg>
-                              <div className="mt-2 ml-4">
-                                <h1>BODY</h1>
-                                <p>Dimensions:1080x1080</p>
+                            <button>
+                              <div className="flex p-8">
+                                <svg
+                                  width="60"
+                                  height="72"
+                                  viewBox="0 0 60 72"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect width="60" height="72" fill="#F3F4F6" />
+                                </svg>
+                                <div className="mt-2 ml-2">
+                                  <div className="font-bold text-left text-createEmail font-inter">
+                                    <h1>BODY</h1>
+                                  </div>
+                                  <div className="text-sm text-createEmail2 font-inter">
+                                    <p>Dimensions:1080x1080</p>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                            </button>
                           </div>
                         </div>
-                        <div className="mt-3">Create For Social Media</div>
-                        <div className="flex justify-between gap-4">
-                          <div className="h-40 border-2 border-transparent shadow-md w-96 ">
-                            <div className="flex p-10 ">
-                              <svg
-                                width="60"
-                                height="72"
-                                viewBox="0 0 60 72"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <rect width="60" height="72" fill="#F3F4F6" />
-                              </svg>
-                              <div className="mt-2 ml-4">
-                                <h1>Feature IMAGE</h1>
-                                <p>Dimensions:1080x1080</p>
+                        <div className="mt-6 mb-6 text-lg font-bold text-createEmail font-inter">
+                          Create For Social Media
+                        </div>
+                        <div className="flex justify-between gap-4 mb-3">
+                          <button>
+                            <div className="h-40 border-2 border-transparent shadow-md w-96 ">
+                              <div className="flex p-10 ">
+                                <svg
+                                  width="60"
+                                  height="72"
+                                  viewBox="0 0 60 72"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <rect width="60" height="72" fill="#F3F4F6" />
+                                </svg>
+                                <div className="mt-2 ml-4">
+                                  <div className="font-bold text-left text-createEmail font-inter">
+                                    <h1>Feature IMAGE</h1>
+                                  </div>
+                                  <div className="text-sm text-createEmail2 font-inter">
+                                    <p>Dimensions:1080x1080</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          </button>
                           {/* <div className="h-40 border-2 border-transparent shadow-md w-72 "></div> */}
                         </div>
                       </div>
                       {/*footer*/}
-                      <div className="flex items-center justify-end p-6 rounded-b border-blueGray-200">
+                      {/* <div className="flex items-center justify-end p-6 rounded-b border-blueGray-200">
                         <button
                           className="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
                           type="button"
@@ -153,7 +173,7 @@ const CreateEmail: React.FC<BioProps> = ({
                         >
                           Close
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -194,7 +214,7 @@ const CreateEmail: React.FC<BioProps> = ({
                         </div>
                         <div className="border-b border-solid border-bordercolor ">
                           <button
-                            className="flex items-center mt-1 ml-auto mr-1 text-sm font-semibold leading-none text-black rounded-full outline-none  bg-bluish focus:outline-none"
+                            className="flex items-center mt-1 ml-auto mr-1 text-sm font-semibold leading-none text-black rounded-full outline-none bg-bluish focus:outline-none"
                             onClick={() => setShowModal(false)}
                           >
                             <span className="block w-8 text-lg text-white bg-transparent outline-none focus:outline-none">
@@ -301,27 +321,27 @@ const CreateEmail: React.FC<BioProps> = ({
                           </button>
                         </div>
                         <div>
-                          <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                          <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                             <img
                               src={image2}
                               className="rounded-md"
                               width="200"
                               height="110"
                             />
-                            <p className="mt-2 text-sm  text-lightGray">
+                            <p className="mt-2 text-sm text-lightGray">
                               Welcome card for employee
                             </p>
                           </button>
                         </div>
                         <div>
-                          <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                          <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                             <img
                               src={image1}
                               className="rounded-md"
                               width="200"
                               height="110"
                             />
-                            <p className="mt-2 text-sm  text-lightGray">
+                            <p className="mt-2 text-sm text-lightGray">
                               Warm welcome to employees
                             </p>
                           </button>
@@ -335,53 +355,53 @@ const CreateEmail: React.FC<BioProps> = ({
                       <div className="relative flex-auto p-6">
                         <div className="flex flex-row gap-4 ">
                           <div>
-                            <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                            <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                               <img
                                 src={image2}
                                 className="rounded-md"
                                 width="200"
                                 height="110"
                               />
-                              <p className="mt-2 text-sm  text-lightGray">
+                              <p className="mt-2 text-sm text-lightGray">
                                 Welcome card for employee
                               </p>
                             </button>
                           </div>
                           <div>
-                            <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                            <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                               <img
                                 src={image3}
                                 className="rounded-md"
                                 width="200"
                                 height="110"
                               />
-                              <p className="mt-2 text-sm  text-lightGray">
+                              <p className="mt-2 text-sm text-lightGray">
                                 Welcome card for employee
                               </p>
                             </button>
                           </div>
                           <div>
-                            <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                            <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                               <img
                                 src={image4}
                                 className="rounded-md"
                                 width="200"
                                 height="110"
                               />
-                              <p className="mt-2 text-sm  text-lightGray">
+                              <p className="mt-2 text-sm text-lightGray">
                                 Welcome card for employee
                               </p>
                             </button>
                           </div>
                           <div>
-                            <button className="flex flex-col items-center justify-center rounded-md  border-bordercolor">
+                            <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
                               <img
                                 src={image3}
                                 className="rounded-md"
                                 width="200"
                                 height="110"
                               />
-                              <p className="mt-2 text-sm  text-lightGray">
+                              <p className="mt-2 text-sm text-lightGray">
                                 Warm welcome to employees
                               </p>
                             </button>
