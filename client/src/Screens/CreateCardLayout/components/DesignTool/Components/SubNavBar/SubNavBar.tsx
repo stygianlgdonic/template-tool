@@ -10,13 +10,14 @@ const SubNavBar: React.FC = (): JSX.Element => {
     const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
     return (
 
-        <div className="h-full flex flex-col w-full border-bordercolor border-r-2 ">
+        <div className="h-full flex flex-col w-full border-bordercolor border ">
 
             {designToolnavigator === 'element' && <ElementSelector />}
             {designToolnavigator === 'text' && <TextSelector />}
             {designToolnavigator === 'images' && <ImageSelector />}
             {designToolnavigator === 'background' && <BackgroundSelector />}
             {designToolnavigator === 'logo' && <LogoSelector />}
+            {designToolnavigator === 'texttool' && <LogoSelector />}
 
         </div>
     )

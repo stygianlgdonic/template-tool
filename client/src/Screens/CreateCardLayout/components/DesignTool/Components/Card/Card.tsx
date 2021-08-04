@@ -10,17 +10,18 @@ const Card: React.FC = (): JSX.Element => {
 
 
     return (
-        <div className="h-full">
-            <div>
+        <div className="h-full  bg-canvasbgcolor  ">
+            <div className="bg-white">
                 <CardHeader />
             </div>
-            <div>
+            <div className=" mt-10">
 
                 <MainCanvas />
             </div>
-            <div className="z-50" >
+            <div className="z-50 overflow-y-hidden" >
                 <Drawer isOpen={open} setIsOpen={setOpen}></Drawer>
             </div >
+
         </div>
     )
 };

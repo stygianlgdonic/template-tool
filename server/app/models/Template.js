@@ -8,7 +8,7 @@ const { APIError } = require("../helpers");
 const Schema = mongoose.Schema;
 
 const templateSchema = new Schema({
-  id: String,
+  // id: String,
   dimensions: Object,
   variations: [Object],
   palette: [Object],
@@ -24,16 +24,21 @@ templateSchema.statics = {
    * @returns {Promise<Template, APIError>}
    */
   async createTemplate(newTemplate) {
-    const duplicate = await this.findOne({ id: newTemplate.id });
-    if (duplicate) {
-      throw new APIError(
-        409,
-        "Template Already Exists",
-        `There is already a template with id '${newTemplate.id}'.`
-      );
+    // const duplicate = await this.findOne({ id: newTemplate.id });
+    // if (duplicate) {
+    //   throw new APIError(
+    //     409,
+    //     "Template Already Exists",
+    //     `There is already a template with id '${newTemplate.id}'.`
+    //   );
+    // }
+    try {
+      const template = await newTemplate.save();
+      return template.toObject();
+    } catch (error) {
+      console.log(error)
+      return error
     }
-    const template = await newTemplate.save();
-    return template.toObject();
   },
   /**
    * Delete a single Template
@@ -41,7 +46,7 @@ templateSchema.statics = {
    * @returns {Promise<Template, APIError>}
    */
   async deleteTemplate(id) {
-    const deleted = await this.findOneAndRemove({ id });
+    const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
       throw new APIError(404, "Template Not Found", `No template '${id}' found.`);
     }
@@ -53,8 +58,7 @@ templateSchema.statics = {
    * @returns {Promise<Template, APIError>}
    */
   async readTemplate(id) {
-    const template = await this.findOne({ id });
-
+    const template = await this.findOne({ _id : id });
     if (!template) {
       throw new APIError(404, "Template Not Found", `No template '${id}' found.`);
     }
@@ -77,7 +81,12 @@ templateSchema.statics = {
     if (!templates.length) {
       return [];
     }
-    return templates.map(template => template.toObject());
+    //Since Documents donot contain Doc ID by Default, Adding it manually
+    const templatesWithId = templates.map((item)=>{
+      const convertedToObject = item.toObject()
+      return {...convertedToObject, id: item._id}
+    })
+    return templatesWithId;
   },
   /**
    * Patch/Update a single Template
@@ -86,7 +95,7 @@ templateSchema.statics = {
    * @returns {Promise<Template, APIError>}
    */
   async updateTemplate(id, templateUpdate) {
-    const template = await this.findOneAndUpdate({ id }, templateUpdate, {
+    const template = await this.findOneAndUpdate({ _id: id }, templateUpdate, {
       new: true
     });
     if (!template) {

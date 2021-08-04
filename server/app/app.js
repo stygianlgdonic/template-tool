@@ -1,15 +1,15 @@
 // npm packages
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const express = require("express");
 Promise = require("bluebird"); // eslint-disable-line
 
 // app imports
 const { connectToDatabase, globalResponseHeaders } = require("./config");
 const { errorHandler } = require("./handlers");
-const { thingsRouter } = require("./routers");
+const { thingsRouter, templateRouter } = require("./routers");
 
 // global constants
-dotenv.config();
+// dotenv.config();
 const app = express();
 const {
   bodyParserHandler,
@@ -30,6 +30,8 @@ app.use(bodyParserHandler); // error handling specific to body parser only
 app.use(globalResponseHeaders);
 
 app.use("/things", thingsRouter);
+
+app.use("/template", templateRouter)
 
 // catch-all for 404 "Not Found" errors
 app.get("*", fourOhFourHandler);

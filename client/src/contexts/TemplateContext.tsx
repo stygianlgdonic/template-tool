@@ -3,6 +3,8 @@ import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../utils/defaults';
 
 export const INITIAL_STATE = {
+    dimensions: { width: stageDimensions.width, height: stageDimensions.height },
+    tags: [],
     palette: [
         { name: "primary", color: "#ff0000" },
         { name: "secondary", color: "#00ff00" },
@@ -12,10 +14,7 @@ export const INITIAL_STATE = {
         {
             name: "untitled",
             face: "",
-            textBoxes: [],
-            images: [],
-            svgs: [],
-            shapes: [{
+            elements: [{
                 id: 'shapes_background',
                 type: "rectangle",
                 x: 0,
@@ -25,9 +24,9 @@ export const INITIAL_STATE = {
                 // fill: '#F0F0F0',
                 fillLinearGradientStartPoint: { x: 0, y: 0 },
                 fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
-                fillLinearGradientColorStops: [0, '#F0F0F0', 1, '#F0F0F0'],
+                fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
                 draggable: false,
-            }],
+            }, { name: "object", x: 150, y: 150, width: 100, stroke: "#000000", strokeWidth: 4, height: 100, fill: '#FF0000', draggable: true, type: "rectangle" }],
         }
     ],
 }

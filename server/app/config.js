@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
-
+// const dotenv = require("dotenv");
+// dotenv.config();
 const APP_NAME = "Boilerplate API";
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
 
-// database configs
+console.log(process.env.MONGODB_URI)
 
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/local";
+// database configs
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/animals";
+
 if (ENV === "test") {
   MONGODB_URI = global.__MONGO_URI__;
 }
@@ -28,6 +31,11 @@ async function connectToDatabase() {
       useFindAndModify: false
     });
     console.log(`${APP_NAME} successfully connected to database.`);
+
+    const connection = mongoose.connection;
+    connection.once('open', ()=>{
+      console.log('Database connection is successfully established')
+    })
   } catch (error) {
     console.log(error);
     process.exit(1);
