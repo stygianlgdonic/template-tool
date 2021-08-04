@@ -1,39 +1,28 @@
 {
-  "1": {
+  "0": {
     "js": [
-      "/static/js/1.dabb3417.chunk.js"
+      "/static/js/0.f399fc98.chunk.js"
     ],
     "map": [
-      "/static/js/1.dabb3417.chunk.js.map"
+      "/static/js/0.f399fc98.chunk.js.map"
     ],
     "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.10eba269.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.10eba269.chunk.js.map"
-    ],
-    "chunks": [
-      2
+      0
     ]
   },
   "client": {
     "css": [
-      "/static/css/client.870d0440.css"
+      "/static/css/client.389fc836.css"
     ],
     "js": [
-      "/static/js/client.488c2846.js"
+      "/static/js/client.92a969bc.js"
     ],
     "map": [
-      "/static/css/client.870d0440.css.map",
-      "/static/js/client.488c2846.js.map"
+      "/static/css/client.389fc836.css.map",
+      "/static/js/client.92a969bc.js.map"
     ],
     "chunks": [
-      0
+      1
     ]
   },
   "noentry": {
@@ -42,8 +31,7 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.dabb3417.chunk.js.LICENSE.txt",
-      "/static/js/client.488c2846.js.LICENSE.txt"
+      "/static/js/client.92a969bc.js.LICENSE.txt"
     ],
     "svg": [
       "/static/media/chevron-down.c16040f3.svg",
