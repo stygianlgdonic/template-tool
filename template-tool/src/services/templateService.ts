@@ -2,7 +2,8 @@ const URL_ENDPOINTS = {
     getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
     getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
     createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
-    updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
+    updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
+    deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 }
 
 export const template_service = {
@@ -62,6 +63,13 @@ async function updateTemplateByID(templateID: string, templateData: any) {
 }
 
 async function deleteTemplateByID(templateID: string) {
-    return null
+    const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}`, {
+        method: "DELETE",
+    })
+    console.log({ response })
+    if (!response.ok) {
+        throw new Error("Error while updating template")
+    }
+    return response.json()
 }
 
