@@ -9,20 +9,35 @@ import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
 import EditingTools from './EditingTools';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { ROUTE_NAMES } from '../../routes/route_names';
+import { useQuery } from 'react-query';
 import { template_service } from '../../services/templateService';
 // import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
+    const browserHistory = useHistory()
+
+    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
+    const [justUpdated, setJustUpdated] = useState(false)
+
+    let { templateID } = useParams<{ templateID: string | undefined }>()
+    const { data, error, isLoading } = useQuery<any, Error>(["currentTemplate", templateID], () => template_service.getTemplateByID(templateID))
+
+    useEffect(() => {
+        if (!!justUpdated) return
+
+        if (!!data && !error) {
+            setTemplateData(data)
+            setJustUpdated(true)
+        }
+    }, [data])
 
     // const addNewTemplateMutation = useMutation(addNewTemplate)
-
     const [variationIndex, setVariationIndex] = useState<number>(0)
 
     const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
-    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -143,11 +158,33 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = (tags: string[], selectedCategory: string) => {
-        console.log({ tags, selectedCategory })
-        // TODO - handle crud into db here
-        template_service.addNewTemplate({ ...templateData, tags })
+    const handleSaveTemplate = async (tags: string[], selectedCategory: string) => {
+        if (!!templateID) {
+            await template_service.updateTemplateByID(templateID, { ...templateData, tags })
+        } else {
+            await template_service.addNewTemplate({ ...templateData, tags })
+            browserHistory.push(ROUTE_NAMES.home)
+        }
         setIsOpenSaveTemplateModal(false)
+    }
+
+    const handleDeleteTemplate = () => {
+        swal({
+            title: "Are you sure?",
+            text: "Do you want to delete this Template?",
+            icon: "warning",
+            buttons: ["Cancel", "Confirm"],
+            dangerMode: true,
+        }).then(async (willDelete) => {
+            if (willDelete) {
+                if (!!templateID) {
+                    await template_service.deleteTemplateByID(templateID)
+                } else {
+                    setTemplateData(INITIAL_STATE)
+                }
+                browserHistory.push(ROUTE_NAMES.home)
+            }
+        });
     }
 
     return (
@@ -157,9 +194,14 @@ const DesignTool: React.FC = () => {
                     to={ROUTE_NAMES.select_palette}
                     className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Select Palette</NavLink>
                 <p className="text-xl text-white">Tempalte Design</p>
-                <button
-                    onClick={openSaveTemplateModal}
-                    className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Save Template</button>
+                <div className="flex gap-2">
+                    <button
+                        onClick={openSaveTemplateModal}
+                        className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >Save Template</button>
+                    <button
+                        onClick={handleDeleteTemplate}
+                        className="text-white font-semibold py-2 px-4 border border-red rounded" >Delete Template</button>
+                </div>
             </div>
 
             {showSaveVariationModal && (

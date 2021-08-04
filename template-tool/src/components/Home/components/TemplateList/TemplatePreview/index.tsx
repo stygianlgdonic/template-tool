@@ -1,20 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Layer, Stage } from 'react-konva'
 import { TemplateContext } from '../../../../../contexts/TemplateContext'
 import { stageDimensions } from '../../../../../utils/defaults'
 import Elements from '../Elements'
+import { useHistory } from "react-router-dom"
+import { ROUTE_NAMES } from '../../../../../routes/route_names'
 
 interface Props {
     templateObj: any
 }
 
 const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
-    const [selectedVariation, setSelectedVariation] = useState(0)
+    const history = useHistory()
     const [templateData, setTemplateData] = useContext(TemplateContext)
 
     const handleEditTemplate = () => {
         setTemplateData(templateObj, false)
-
+        history.push(`/tool/${templateObj.id}`)
     }
 
     return (
@@ -30,7 +32,7 @@ const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
                 <Layer
                     listening={false}
                 >
-                    {templateObj?.variations[selectedVariation]?.elements?.map((item, index) => (
+                    {templateObj?.variations[0]?.elements?.map((item, index) => (
                         <Elements key={index} konvaItem={item} index={index} />
                     ))}
                 </Layer>

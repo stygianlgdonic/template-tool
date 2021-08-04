@@ -2,6 +2,17 @@ module.exports = {
     purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     darkMode: false, // or 'media' or 'class'
     theme: {
+        extend: {
+            screens: {
+                '3xl': '1600px',
+            },
+        },
+        extend: {
+            margin: {
+                'top': '14.55',
+            },
+        },
+
         colors: {
             //Purple
             jacksonsGray: "#F9FAFB",
@@ -52,7 +63,7 @@ module.exports = {
             svgcolor: '#C4C4C4',
             fuschia: "#EF5DA8",
             bluish: "#818CF8",
-            canvasbgcolor: "#E5E5E5",
+            canvasbgcolor: "#F9FAFB",
             deletebutton: "#FEE2E2",
             deletebuttontext: "#B91C1C",
             createEmail: "#4B5563",
@@ -71,6 +82,7 @@ module.exports = {
             backgroundColor: ['active'],
             display: ['group-hover'],
         },
+
     },
     plugins: [
         require('tailwindcss-font-inter')()
