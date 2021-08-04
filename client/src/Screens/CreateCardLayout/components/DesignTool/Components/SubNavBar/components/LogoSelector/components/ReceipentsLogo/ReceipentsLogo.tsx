@@ -2,6 +2,7 @@ import React from "react";
 
 const ReceipentsLogo: React.FC = (): JSX.Element => {
   const [showModal, setShowModal] = React.useState(false);
+  const [ShowToolTip, setShowToolTip] = React.useState(false);
   return (
     <div className="flex flex-col w-full h-full px-4">
       <div className="w-full ">
@@ -241,21 +242,49 @@ const ReceipentsLogo: React.FC = (): JSX.Element => {
                         </div>
                       </div>
                       {/* select 2 end */}
-                      <div className="mt-6 ml-2">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                      <div className="mt-2 ml-2">
+                        {/* tool tip start */}
+                        <div
+                          className="relative flex items-center justify-end w-full mx-auto mt-6 mb-1 "
+                          onClick={() => setShowToolTip(!ShowToolTip)}
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 12C9 12.5523 8.55229 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55229 11 9 11.4477 9 12ZM8 3C7.44772 3 7 3.44772 7 4V8C7 8.55228 7.44772 9 8 9C8.55229 9 9 8.55228 9 8V4C9 3.44772 8.55229 3 8 3Z"
-                            fill="#4338CA"
-                          />
-                        </svg>
+                          <button onClick={() => setShowToolTip(true)}>
+                            <svg
+                              className="mr-8"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 4C9 4.55228 8.55228 5 8 5C7.44772 5 7 4.55228 7 4C7 3.44772 7.44772 3 8 3C8.55228 3 9 3.44772 9 4ZM7 7C6.44772 7 6 7.44772 6 8C6 8.55229 6.44772 9 7 9V12C7 12.5523 7.44772 13 8 13H9C9.55228 13 10 12.5523 10 12C10 11.4477 9.55228 11 9 11V8C9 7.44772 8.55228 7 8 7H7Z"
+                                fill="#4338CA"
+                              />
+                            </svg>
+                          </button>
+                          {ShowToolTip ? (
+                            <>
+                              <div className="absolute bottom-0 flex flex-col mb-6 ">
+                                <span className="relative z-10 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md shadow-lg ml-60 w-52 bg-indigo500">
+                                  Cardclan will fetch logo of your receipent
+                                  from his <b>website URL</b>
+                                  <div className="text-sm font-inter">
+                                    <button>Got it</button>
+                                  </div>
+                                </span>
+                                <div
+                                  className="z-50 flex justify-end w-3 h-3 -mt-2 transform rotate-45 bg-indigo500"
+                                  style={{ marginLeft: "410px" }}
+                                ></div>
+                              </div>
+                            </>
+                          ) : null}
+                        </div>
+
+                        {/* tool tip end */}
                       </div>
                     </div>
                     <button
