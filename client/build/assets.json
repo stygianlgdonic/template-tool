@@ -4,11 +4,11 @@
       "/static/css/1.1d91d9be.chunk.css"
     ],
     "js": [
-      "/static/js/1.74b5c6ea.chunk.js"
+      "/static/js/1.453b501c.chunk.js"
     ],
     "map": [
       "/static/css/1.1d91d9be.chunk.css.map",
-      "/static/js/1.74b5c6ea.chunk.js.map"
+      "/static/js/1.453b501c.chunk.js.map"
     ],
     "chunks": [
       1
@@ -52,11 +52,11 @@
       "/static/css/client.fdffe0c3.css"
     ],
     "js": [
-      "/static/js/client.5245dc91.js"
+      "/static/js/client.fb128af3.js"
     ],
     "map": [
       "/static/css/client.fdffe0c3.css.map",
-      "/static/js/client.5245dc91.js.map"
+      "/static/js/client.fb128af3.js.map"
     ],
     "chunks": [
       0
@@ -68,8 +68,8 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.74b5c6ea.chunk.js.LICENSE.txt",
-      "/static/js/client.5245dc91.js.LICENSE.txt"
+      "/static/js/1.453b501c.chunk.js.LICENSE.txt",
+      "/static/js/client.fb128af3.js.LICENSE.txt"
     ],
     "png": [
       "/static/media/01.2e91d53b.png",
