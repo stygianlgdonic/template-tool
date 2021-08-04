@@ -25,16 +25,21 @@ cardSchema.statics = {
    * @returns {Promise<Card, APIError>}
    */
   async createCard(newCard) {
-    const duplicate = await this.findOne({ id: newCard.id });
-    if (duplicate) {
-      throw new APIError(
-        409,
-        "Card Already Exists",
-        `There is already a card with id '${newCard.id}'.`
-      );
+    // const duplicate = await this.findOne({ id: newCard.id });
+    // if (duplicate) {
+    //   throw new APIError(
+    //     409,
+    //     "Card Already Exists",
+    //     `There is already a card with id '${newCard.id}'.`
+    //   );
+    // }
+    try {
+      const card = await newCard.save();
+      return card.toObject();
+    } catch (error) {
+      console.log(error)
+      return error
     }
-    const card = await newCard.save();
-    return card.toObject();
   },
   /**
    * Delete a single Card
@@ -42,7 +47,7 @@ cardSchema.statics = {
    * @returns {Promise<Card, APIError>}
    */
   async deleteCard(id) {
-    const deleted = await this.findOneAndRemove({ id });
+    const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
       throw new APIError(404, "Card Not Found", `No card '${id}' found.`);
     }
@@ -54,7 +59,7 @@ cardSchema.statics = {
    * @returns {Promise<Card, APIError>}
    */
   async readCard(id) {
-    const card = await this.findOne({ id });
+    const card = await this.findOne({ _id: id });
 
     if (!card) {
       throw new APIError(404, "Card Not Found", `No card '${id}' found.`);
@@ -78,7 +83,12 @@ cardSchema.statics = {
     if (!cards.length) {
       return [];
     }
-    return cards.map(card => card.toObject());
+    //Since Documents donot contain Doc ID by Default, Adding it manually
+    const cardsWithId = cards.map((item) => {
+      const convertedToObject = item.toObject()
+      return { ...convertedToObject, id: item._id }
+    })
+    return cardsWithId;
   },
   /**
    * Patch/Update a single Card
@@ -87,7 +97,7 @@ cardSchema.statics = {
    * @returns {Promise<Card, APIError>}
    */
   async updateCard(id, cardUpdate) {
-    const card = await this.findOneAndUpdate({ id }, cardUpdate, {
+    const card = await this.findOneAndUpdate({ _id: id }, cardUpdate, {
       new: true
     });
     if (!card) {

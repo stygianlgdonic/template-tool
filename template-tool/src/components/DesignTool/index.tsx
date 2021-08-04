@@ -11,8 +11,8 @@ import MainStage from './MainStage';
 import EditingTools from './EditingTools';
 import { NavLink, useParams } from 'react-router-dom';
 import { ROUTE_NAMES } from '../../routes/route_names';
-import { addNewTemplate, getTemplateByID, updateTemplateByID } from '../../services/templateService';
 import { useQuery } from 'react-query';
+import { template_service } from '../../services/templateService';
 // import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
@@ -20,7 +20,7 @@ const DesignTool: React.FC = () => {
 
     const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
 
-    const { data, error, isLoading } = useQuery<any, Error>("currentTemplate", getTemplateByID(templateID))
+    const { data, error, isLoading } = useQuery<any, Error>(["currentTemplate", templateID], () => template_service.getTemplateByID(templateID))
     setTemplateData(data)
 
     // const addNewTemplateMutation = useMutation(addNewTemplate)
@@ -153,9 +153,9 @@ const DesignTool: React.FC = () => {
         console.log({ templateData, tags, selectedCategory })
         return
         if (!!templateData.id) {
-            updateTemplateByID(templateData.id, templateData)
+            template_service.updateTemplateByID(templateData.id, templateData)
         } else {
-            addNewTemplate({ ...templateData, tags })
+            template_service.addNewTemplate({ ...templateData, tags })
         }
         setIsOpenSaveTemplateModal(false)
     }

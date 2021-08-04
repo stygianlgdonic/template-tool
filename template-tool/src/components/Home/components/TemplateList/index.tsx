@@ -1,12 +1,12 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import { useQuery } from 'react-query'
-import { getAllTemplates } from '../../../../services/templateService'
+import { template_service } from '../../../../services/templateService'
 import TemplatePreview from './TemplatePreview'
 
 const TemplateList = () => {
 
-    const { data, error, isLoading } = useQuery<any, Error>("templates", getAllTemplates)
+    const { data, error, isLoading } = useQuery<any, Error>("templates", template_service.getAllTemplates)
     console.log({ data })
 
     if (isLoading) {
