@@ -1,18 +1,31 @@
-export const getAllTemplates = async () => {
-    const response = await fetch(`https://polar-tor-04971.herokuapp.com/template`)
+const URL_ENDPOINTS = {
+    getAllTemplatesURL : "https://polar-tor-04971.herokuapp.com/template",
+    createTemplateURL : "https://polar-tor-04971.herokuapp.com/template"
+}
+
+export const template_service = {
+    getAllTemplates,
+    addNewTemplate,
+    getTemplateByID,
+    updateTemplateByID,
+    deleteTemplateByID
+}
+
+async function getAllTemplates (){
+    const response = await fetch(URL_ENDPOINTS.getAllTemplatesURL)
     if (!response.ok) {
         throw new Error("Error while fetching Templates")
     }
     return response.json()
 }
 
-export const addNewTemplate = async (templateData: any) => {
+async function addNewTemplate (templateData: any) {
     const newData = { ...templateData, id: "opdude" }
     console.log({
         newData: JSON.stringify(newData)
     })
 
-    const response = await fetch(`https://polar-tor-04971.herokuapp.com/template`, {
+    const response = await fetch(URL_ENDPOINTS.createTemplateURL, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -26,15 +39,15 @@ export const addNewTemplate = async (templateData: any) => {
     return response.json()
 }
 
-export const getTemplateByID = (templateID: string) => {
+async function getTemplateByID (templateID: string) {
     return null
 }
 
-export const updateTemplateByID = (templateID: string, templateData: any) => {
+async function updateTemplateByID (templateID: string, templateData: any) {
     return null
 }
 
-export const deleteTemplateByID = (templateID: string) => {
+async function deleteTemplateByID (templateID: string) {
     return null
 }
 
