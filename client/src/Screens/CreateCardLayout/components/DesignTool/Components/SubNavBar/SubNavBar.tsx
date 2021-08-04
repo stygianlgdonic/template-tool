@@ -5,6 +5,9 @@ import ElementSelector from './components/ElementSelector/ElementSelector';
 import ImageSelector from './components/ImageSelector/ImageSelector';
 import LogoSelector from './components/LogoSelector/LogoSelector';
 import TextSelector from './components/TextSelector/TextSelector';
+import FontStyletool from './components/TextSelector/components/FontStyleTool/FontStyletool';
+import FontColortool from './components/TextSelector/components/FontColortool/FontColortool';
+import EffectStyletool from './components/TextSelector/components/EffectStyletool/EffectStyletool';
 
 const SubNavBar: React.FC = (): JSX.Element => {
     const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
@@ -17,7 +20,9 @@ const SubNavBar: React.FC = (): JSX.Element => {
             {designToolnavigator === 'images' && <ImageSelector />}
             {designToolnavigator === 'background' && <BackgroundSelector />}
             {designToolnavigator === 'logo' && <LogoSelector />}
-            {designToolnavigator === 'texttool' && <LogoSelector />}
+            {designToolnavigator === 'texttool' && <FontStyletool />}
+            {designToolnavigator === 'fonttool' && <FontColortool />}
+            {designToolnavigator === 'effecttool' && <EffectStyletool />}
 
         </div>
     )
