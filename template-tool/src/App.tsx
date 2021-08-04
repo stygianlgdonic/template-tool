@@ -6,11 +6,21 @@ import { TemplateProvider } from "./contexts/TemplateContext"
 const DesignTool = React.lazy(() => import('./components/DesignTool/index'));
 const SelectPalette = React.lazy(() => import('./components/SelectPalette/index'));
 import 'tailwindcss/tailwind.css';
+import Home from './components/Home';
 
 const App = () => (
     <Switch>
         <NoSSR>
             <TemplateProvider>
+                <Route
+                    exact={true}
+                    path={ROUTE_NAMES.home}
+                    render={() => (
+                        <React.Suspense fallback={<div>Loading ...</div>}>
+                            <Home />
+                        </React.Suspense>)
+                    }
+                />
                 <Route
                     exact={true}
                     path={ROUTE_NAMES.select_palette}

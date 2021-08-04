@@ -1,4 +1,5 @@
 export const ROUTE_NAMES = {
-    select_palette: "/",
+    home: "/",
+    select_palette: "/selectPalette",
     design_tool: "/tool",
 }
