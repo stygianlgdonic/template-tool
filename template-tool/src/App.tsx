@@ -39,6 +39,15 @@ const App = () => (
                         </React.Suspense>)
                     }
                 />
+                <Route
+                    exact={true}
+                    path={ROUTE_NAMES.design_tool_noID}
+                    render={() => (
+                        <React.Suspense fallback={<div>Loading ...</div>}>
+                            <DesignTool />
+                        </React.Suspense>)
+                    }
+                />
             </TemplateProvider>
         </NoSSR>
     </Switch >
