@@ -8,7 +8,6 @@ const { APIError } = require("../helpers");
 const Schema = mongoose.Schema;
 
 const templateCategorySchema = new Schema({
-  id: String,
   name: String,
   templateList: [String],
 });
@@ -20,16 +19,21 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async createTemplateCategory(newTemplateCategory) {
-    const duplicate = await this.findOne({ id: newTemplateCategory.id });
-    if (duplicate) {
-      throw new APIError(
-        409,
-        "TemplateCategory Already Exists",
-        `There is already a templateCategory with id '${newTemplateCategory.id}'.`
-      );
+    // const duplicate = await this.findOne({ id: newTemplateCategory.id });
+    // if (duplicate) {
+    //   throw new APIError(
+    //     409,
+    //     "TemplateCategory Already Exists",
+    //     `There is already a templateCategory with id '${newTemplateCategory.id}'.`
+    //   );
+    // }
+    try {
+      console.log(newTemplateCategory)
+      const templateCategory = await newTemplateCategory.save();
+      return templateCategory.toObject();      
+    } catch (error) {
+      return error
     }
-    const templateCategory = await newTemplateCategory.save();
-    return templateCategory.toObject();
   },
   /**
    * Delete a single TemplateCategory
@@ -37,7 +41,7 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async deleteTemplateCategory(id) {
-    const deleted = await this.findOneAndRemove({ id });
+    const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
       throw new APIError(404, "TemplateCategory Not Found", `No templateCategory '${id}' found.`);
     }
@@ -49,7 +53,7 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async readTemplateCategory(id) {
-    const templateCategory = await this.findOne({ id });
+    const templateCategory = await this.findOne({ _id : id });
 
     if (!templateCategory) {
       throw new APIError(404, "TemplateCategory Not Found", `No templateCategory '${id}' found.`);
@@ -73,7 +77,12 @@ templateCategorySchema.statics = {
     if (!templateCategorys.length) {
       return [];
     }
-    return templateCategorys.map(templateCategory => templateCategory.toObject());
+    //Since Documents donot contain Doc ID by Default, Adding it manually
+    const templatesWithId = templateCategorys.map((item)=>{
+      const convertedToObject = item.toObject()
+      return {...convertedToObject, id: item._id}
+    })
+    return templatesWithId;
   },
   /**
    * Patch/Update a single TemplateCategory
@@ -82,7 +91,7 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async updateTemplateCategory(id, templateCategoryUpdate) {
-    const templateCategory = await this.findOneAndUpdate({ id }, templateCategoryUpdate, {
+    const templateCategory = await this.findOneAndUpdate({ _id: id }, templateCategoryUpdate, {
       new: true
     });
     if (!templateCategory) {
