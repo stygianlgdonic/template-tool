@@ -9,6 +9,7 @@ import LeftSidebar from './components/LeftSideBar/LeftSidebar';
 import { DesignToolProvider } from './contexts/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
 import { HeaderProvider } from './contexts/HeaderContext';
+import { TemplatetoolProvider } from './contexts/Templatetool';
 
 const Registration = React.lazy(() => import('./Screens/Registration/Registration'))
 const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'))
@@ -22,26 +23,26 @@ const App = () => {
 
         <NoSSR >
             <Suspense fallback={<p>Loading ...</p>}>
-                <Routes>
+                <DesignToolProvider>
+                    <TemplateProvider>
+                        <Routes>
 
-                    <Route path="/" element={<Dashboard />}>
-                    </Route>
+                            <Route path="/" element={<Dashboard />}>
+                            </Route>
 
-                    <DesignToolProvider>
-                        <TemplateProvider>
                             <HeaderProvider>
 
                                 <Route path="createcard" element={<CreateCardLayout />}>
                                 </Route>
                             </HeaderProvider>
-                        </TemplateProvider>
-                    </DesignToolProvider>
-                    <Route path="/signin" element={<Registration />}>
-                    </Route>
-                    <Route path="/signup" element={<SignUp />}>
-                    </Route>
+                            <Route path="/signin" element={<Registration />}>
+                            </Route>
+                            <Route path="/signup" element={<SignUp />}>
+                            </Route>
 
-                </Routes>
+                        </Routes>
+                    </TemplateProvider>
+                </DesignToolProvider>
             </Suspense >
         </NoSSR>
     );

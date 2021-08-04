@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "4e0db94fe7efeba6423e";
+/******/ 	var hotCurrentHash = "bbece1baf91186ef336b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -859,7 +859,7 @@ module.exports =
 /*! exports provided: 0, 1, 2, 3, client, noentry, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"png\":[\"http://localhost:3001/static/media/01.2e91d53b.png\",\"http://localhost:3001/static/media/02.adc8b2dd.png\",\"http://localhost:3001/static/media/03.6bbdf893.png\",\"http://localhost:3001/static/media/04.50f8bcb9.png\",\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/image.f528bd77.png\",\"http://localhost:3001/static/media/image1.3ff551f0.png\",\"http://localhost:3001/static/media/image3.6df75f11.png\",\"http://localhost:3001/static/media/image4.9cb172b4.png\",\"http://localhost:3001/static/media/image5.f1b1f809.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\",\"http://localhost:3001/static/media/preview.06b7f3b0.png\"],\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"]}}");
+module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"png\":[\"http://localhost:3001/static/media/01.2e91d53b.png\",\"http://localhost:3001/static/media/02.adc8b2dd.png\",\"http://localhost:3001/static/media/03.6bbdf893.png\",\"http://localhost:3001/static/media/04.50f8bcb9.png\",\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/echo.2b90d1ba.png\",\"http://localhost:3001/static/media/glitch.c3fda1d1.png\",\"http://localhost:3001/static/media/image.f528bd77.png\",\"http://localhost:3001/static/media/image1.3ff551f0.png\",\"http://localhost:3001/static/media/image3.6df75f11.png\",\"http://localhost:3001/static/media/image4.9cb172b4.png\",\"http://localhost:3001/static/media/image5.f1b1f809.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\",\"http://localhost:3001/static/media/lift.b13cf734.png\",\"http://localhost:3001/static/media/neon.7fca1e10.png\",\"http://localhost:3001/static/media/preview.06b7f3b0.png\",\"http://localhost:3001/static/media/shadow.161b9d54.png\",\"http://localhost:3001/static/media/splice.6bc44619.png\"],\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"]}}");
 
 /***/ }),
 
@@ -1383,7 +1383,7 @@ const App = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Suspense"], {
@@ -1391,22 +1391,36 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
+        lineNumber: 25,
         columnNumber: 33
       }
     }, "Loading ..."),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 13
+    }
+  }, __jsx(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__["DesignToolProvider"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 17
+    }
+  }, __jsx(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__["TemplateProvider"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 21
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 17
+      lineNumber: 28,
+      columnNumber: 25
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/",
@@ -1414,35 +1428,21 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 46
+        lineNumber: 30,
+        columnNumber: 54
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 21
-    }
-  }), __jsx(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__["DesignToolProvider"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 30,
-      columnNumber: 21
+      columnNumber: 29
     }
-  }, __jsx(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__["TemplateProvider"], {
+  }), __jsx(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__["HeaderProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 25
-    }
-  }, __jsx(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__["HeaderProvider"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 33,
       columnNumber: 29
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1451,31 +1451,31 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
+        lineNumber: 35,
         columnNumber: 67
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 33
     }
-  })))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+  })), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/signin",
     element: __jsx(Registration, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39,
-        columnNumber: 52
+        lineNumber: 38,
+        columnNumber: 60
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 21
+      lineNumber: 38,
+      columnNumber: 29
     }
   }), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     path: "/signup",
@@ -1483,17 +1483,17 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
-        columnNumber: 52
+        lineNumber: 40,
+        columnNumber: 60
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 21
+      lineNumber: 40,
+      columnNumber: 29
     }
-  }))));
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -2134,6 +2134,17 @@ module.exports = require("react-dom/server");
 /***/ (function(module, exports) {
 
 module.exports = require("react-konva");
+
+/***/ }),
+
+/***/ "react-query":
+/*!******************************!*\
+  !*** external "react-query" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-query");
 
 /***/ }),
 
