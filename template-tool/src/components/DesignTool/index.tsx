@@ -9,12 +9,19 @@ import WebFont from "webfontloader";
 import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
 import EditingTools from './EditingTools';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { ROUTE_NAMES } from '../../routes/route_names';
-import { addNewTemplate } from '../../services/templateService';
+import { addNewTemplate, getTemplateByID, updateTemplateByID } from '../../services/templateService';
+import { useQuery } from 'react-query';
 // import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
+    let { templateID } = useParams<{ templateID: string }>()
+
+    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
+
+    const { data, error, isLoading } = useQuery<any, Error>("currentTemplate", getTemplateByID(templateID))
+    setTemplateData(data)
 
     // const addNewTemplateMutation = useMutation(addNewTemplate)
 
@@ -22,7 +29,6 @@ const DesignTool: React.FC = () => {
 
     const [showSaveVariationModal, setShowSaveVariationModal] = useState(false)
 
-    const [templateData, setTemplateData, { goForward, goBack, stepNum, history }] = useContext(TemplateContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -144,12 +150,17 @@ const DesignTool: React.FC = () => {
     }
 
     const handleSaveTemplate = (tags: string[], selectedCategory: string) => {
-        console.log({ tags, selectedCategory })
-        // TODO - handle crud into db here
-        addNewTemplate({ ...templateData, tags })
+        console.log({ templateData, tags, selectedCategory })
+        return
+        if (!!templateData.id) {
+            updateTemplateByID(templateData.id, templateData)
+        } else {
+            addNewTemplate({ ...templateData, tags })
+        }
         setIsOpenSaveTemplateModal(false)
     }
 
+    console.log({ templateData })
     return (
         <div className="min-w-max bg-gray300 h-screen">
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
