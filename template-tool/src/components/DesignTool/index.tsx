@@ -11,7 +11,7 @@ import MainStage from './MainStage';
 import EditingTools from './EditingTools';
 import { NavLink } from 'react-router-dom';
 import { ROUTE_NAMES } from '../../routes/route_names';
-import { addNewTemplate } from '../../services/templateService';
+import { template_service } from '../../services/templateService';
 // import { useMutation } from 'react-query';
 
 const DesignTool: React.FC = () => {
@@ -146,7 +146,7 @@ const DesignTool: React.FC = () => {
     const handleSaveTemplate = (tags: string[], selectedCategory: string) => {
         console.log({ tags, selectedCategory })
         // TODO - handle crud into db here
-        addNewTemplate({ ...templateData, tags })
+        template_service.addNewTemplate({ ...templateData, tags })
         setIsOpenSaveTemplateModal(false)
     }
 
