@@ -1,10 +1,10 @@
 {
   "1": {
     "js": [
-      "/static/js/1.77216c64.chunk.js"
+      "/static/js/1.9127bb4c.chunk.js"
     ],
     "map": [
-      "/static/js/1.77216c64.chunk.js.map"
+      "/static/js/1.9127bb4c.chunk.js.map"
     ],
     "chunks": [
       1
@@ -37,11 +37,11 @@
       "/static/css/client.e20b229e.css"
     ],
     "js": [
-      "/static/js/client.7e8b4e4f.js"
+      "/static/js/client.88f9721c.js"
     ],
     "map": [
       "/static/css/client.e20b229e.css.map",
-      "/static/js/client.7e8b4e4f.js.map"
+      "/static/js/client.88f9721c.js.map"
     ],
     "chunks": [
       0
@@ -53,9 +53,9 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.77216c64.chunk.js.LICENSE.txt",
+      "/static/js/1.9127bb4c.chunk.js.LICENSE.txt",
       "/static/js/3.68b7d0d4.chunk.js.LICENSE.txt",
-      "/static/js/client.7e8b4e4f.js.LICENSE.txt"
+      "/static/js/client.88f9721c.js.LICENSE.txt"
     ],
     "svg": [
       "/static/media/chevron-down.c16040f3.svg",
