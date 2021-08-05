@@ -1,10 +1,10 @@
 {
   "1": {
     "js": [
-      "/static/js/1.8e41ff1d.chunk.js"
+      "/static/js/1.77216c64.chunk.js"
     ],
     "map": [
-      "/static/js/1.8e41ff1d.chunk.js.map"
+      "/static/js/1.77216c64.chunk.js.map"
     ],
     "chunks": [
       1
@@ -23,10 +23,10 @@
   },
   "3": {
     "js": [
-      "/static/js/3.d90123a8.chunk.js"
+      "/static/js/3.68b7d0d4.chunk.js"
     ],
     "map": [
-      "/static/js/3.d90123a8.chunk.js.map"
+      "/static/js/3.68b7d0d4.chunk.js.map"
     ],
     "chunks": [
       3
@@ -37,11 +37,11 @@
       "/static/css/client.e20b229e.css"
     ],
     "js": [
-      "/static/js/client.d782ebf6.js"
+      "/static/js/client.7e8b4e4f.js"
     ],
     "map": [
       "/static/css/client.e20b229e.css.map",
-      "/static/js/client.d782ebf6.js.map"
+      "/static/js/client.7e8b4e4f.js.map"
     ],
     "chunks": [
       0
@@ -53,9 +53,9 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.8e41ff1d.chunk.js.LICENSE.txt",
-      "/static/js/3.d90123a8.chunk.js.LICENSE.txt",
-      "/static/js/client.d782ebf6.js.LICENSE.txt"
+      "/static/js/1.77216c64.chunk.js.LICENSE.txt",
+      "/static/js/3.68b7d0d4.chunk.js.LICENSE.txt",
+      "/static/js/client.7e8b4e4f.js.LICENSE.txt"
     ],
     "svg": [
       "/static/media/chevron-down.c16040f3.svg",
