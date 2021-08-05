@@ -1705,7 +1705,7 @@ const CardHeader = () => {
     }
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_2__["TemplateContext"]);
   return __jsx("div", {
-    className: "z-50 flex-col py-2  h-18",
+    className: "z-50 flex-col py-2 h-18",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4097,12 +4097,15 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const BackgroundColor = () => {
   const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false); //   const [backgroundmodal, setBackgroundModal] = React.useState(false);
 
+  console.log({
+    showModal
+  });
   return __jsx("div", {
     className: "flex flex-col justify-center w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 9,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -4110,7 +4113,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 10,
       columnNumber: 7
     }
   }, __jsx("h1", {
@@ -4118,7 +4121,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 11,
       columnNumber: 9
     }
   }, "Select background color")), __jsx("div", {
@@ -4126,14 +4129,14 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 7
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 16,
       columnNumber: 9
     }
   }, __jsx("svg", {
@@ -4145,7 +4148,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 11
     }
   }, __jsx("path", {
@@ -4157,7 +4160,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 13
     }
   }))), __jsx("div", {
@@ -4166,23 +4169,35 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 34,
       columnNumber: 9
     }
-  }, showModal ? __jsx(_BackgroundColorModal_BackgroundColorModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    closeModal: setShowModal,
+  }), __jsx("div", {
+    style: {
+      display: showModal ? "" : "none"
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 13
+      lineNumber: 43,
+      columnNumber: 9
     }
-  }) : null), __jsx("button", {
+  }, __jsx(_BackgroundColorModal_BackgroundColorModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    closeModal: () => {
+      setShowModal(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 11
+    }
+  })), __jsx("button", {
     className: "w-10 h-10 rounded-md bg-fuschia",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 50,
       columnNumber: 9
     }
   }), __jsx("button", {
@@ -4190,7 +4205,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 51,
       columnNumber: 9
     }
   }), __jsx("button", {
@@ -4198,7 +4213,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 52,
       columnNumber: 9
     }
   }), __jsx("button", {
@@ -4206,7 +4221,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 53,
       columnNumber: 9
     }
   })));
@@ -4326,7 +4341,7 @@ const BackgroundColorModal = ({
     }
   })), __jsx("button", {
     className: "float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none",
-    onClick: () => closeModal(false),
+    onClick: closeModal,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4334,7 +4349,7 @@ const BackgroundColorModal = ({
       columnNumber: 15
     }
   }, __jsx("span", {
-    className: "block w-6 h-6 text-2xl text-black outline-none bg-red focus:outline-none",
+    className: "block w-6 h-6 text-2xl text-black bg-transparent outline-none focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,

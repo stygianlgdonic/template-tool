@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => {
 
 
             <div className="w-full mx-auto grid grid-cols-12 font-inter ">
-                <div className="col-span-2">
+                <div className="col-span-2  w-full">
 
                     <LeftSidebar />
                 </div>
