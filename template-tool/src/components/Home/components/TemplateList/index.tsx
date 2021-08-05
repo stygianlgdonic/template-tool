@@ -3,6 +3,9 @@ import SearchBar from './SearchBar'
 import { useQuery } from 'react-query'
 import { template_service } from '../../../../services/templateService'
 import TemplatePreview from './TemplatePreview'
+import { ErrorBoundary } from 'react-error-boundary'
+import SearchBarFallback from '../../../../ErrorFallacks/SearchBarFallback'
+import TemplatePreviewFallback from '../../../../ErrorFallacks/TemplatePreviewFallback'
 
 const TemplateList = () => {
 
@@ -54,7 +57,12 @@ const TemplateList = () => {
                     <div className="w-full flex justify-center">
 
                         <div className="mt-3 w-3/6 ">
-                            <SearchBar />
+                            <ErrorBoundary
+                                FallbackComponent={SearchBarFallback}
+                                onReset={() => { }}
+                            >
+                                <SearchBar />
+                            </ErrorBoundary>
 
                         </div>
                     </div>
@@ -72,7 +80,12 @@ const TemplateList = () => {
                         {data.map((item, index) => {
                             return (
                                 <div key={index} >
-                                    <TemplatePreview templateObj={item} />
+                                    <ErrorBoundary
+                                        FallbackComponent={TemplatePreviewFallback}
+                                        onReset={() => { }}
+                                    >
+                                        <TemplatePreview templateObj={item} />
+                                    </ErrorBoundary>
                                 </div>
                             )
                         })}
