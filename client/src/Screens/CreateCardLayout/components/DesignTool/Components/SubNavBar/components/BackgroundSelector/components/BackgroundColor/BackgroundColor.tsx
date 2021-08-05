@@ -3,6 +3,7 @@ import BackgroundColorModal from "../BackgroundColorModal/BackgroundColorModal";
 const BackgroundColor: React.FC = (): JSX.Element => {
   const [showModal, setShowModal] = React.useState(false);
   //   const [backgroundmodal, setBackgroundModal] = React.useState(false);
+  console.log({ showModal });
 
   return (
     <div className="flex flex-col justify-center w-full ">
@@ -34,10 +35,17 @@ const BackgroundColor: React.FC = (): JSX.Element => {
           className="w-10 h-10 rounded-md bg-indigo600"
           onClick={() => setShowModal(true)}
         >
-          {showModal ? (
-            <BackgroundColorModal closeModal={setShowModal} />
-          ) : null}
+          {/* {showModal ? ( */}
+
+          {/* ) : null} */}
           {/* modal end */}
+        </div>
+        <div style={{ display: showModal ? "" : "none" }}>
+          <BackgroundColorModal
+            closeModal={() => {
+              setShowModal(false);
+            }}
+          />
         </div>
         <button className="w-10 h-10 rounded-md bg-fuschia"></button>
         <button className="w-10 h-10 rounded-md bg-greenish"></button>

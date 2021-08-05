@@ -70,6 +70,7 @@ module.exports = {
             createEmail2: "#D1D5DB",
             SolidColor: "#6366F1",
             gradientColor: "#374151",
+            elementColor: "#4B5563",
 
         },
 
