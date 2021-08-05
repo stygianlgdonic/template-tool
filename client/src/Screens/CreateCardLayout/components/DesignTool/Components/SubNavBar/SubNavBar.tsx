@@ -10,7 +10,12 @@ import FontColortool from './components/TextSelector/components/FontColortool/Fo
 import EffectStyletool from './components/TextSelector/components/EffectStyletool/EffectStyletool';
 
 const SubNavBar: React.FC = (): JSX.Element => {
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
+    const {
+        designToolnavigator, setDesignToolnavigator,
+        selectedId, setSelectedId,
+        cardData, setCardData,
+        cardHistory: { goForward, goBack, stepNum, history }
+    } = useContext(DesignToolContext)
     return (
 
         <div className="h-full flex flex-col w-full border-bordercolor border ">

@@ -5,10 +5,9 @@ interface Props {
     shapeProps: any
     onSelect: any
     onChange: any
-    onEditClick: any
 }
 
-const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick }) => {
+const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
     const shapeRef = useRef(null)
 
     const { patternImageUrl, ...restProps } = shapeProps
@@ -20,8 +19,6 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick 
                 ref={shapeRef}
                 onClick={onSelect}
                 onTap={onSelect}
-                onDblClick={onEditClick}
-                onDblTap={onEditClick}
                 draggable
                 strokeScaleEnabled={false}
                 onTransformEnd={(e) => {
