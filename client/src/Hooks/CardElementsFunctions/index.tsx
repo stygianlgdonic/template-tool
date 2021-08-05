@@ -2,7 +2,7 @@ import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
 import { useContext } from 'react';
 import { DesignToolContext } from '../../contexts/DesignToolContext';
-import { defaultImage, defaultSvg, fontSizeArray } from "../../utils/defaults";
+import { defaultImage, defaultSvg, fontSizeArray, stageDimensions } from "../../utils/defaults";
 
 const CardElementsFunctions = () => {
     const {
@@ -204,6 +204,113 @@ const CardElementsFunctions = () => {
         })
     }
 
+    const handleBorderWidthChange = (value: any) => {
+        setCardData(prev => {
+            const shapeIndex = prev.elements.findIndex(
+                (item) => item.id === selectedId
+            );
+            prev.elements[shapeIndex].fontFamily = value
+        })
+    }
+
+    const handleFillImagePattern = () => {
+        selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
+            ({ file }: any) => {
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+
+                reader.onload = () => {
+                    //base64encoded string => reader.result
+                    setCardData((prev) => {
+                        const selectedShape = prev.elements.find(item => item.id === selectedId)
+                        selectedShape.fill = ""
+                        selectedShape.patternImageUrl = reader.result
+                    })
+                };
+            })
+    }
+
+    const handleStrokeWidthChange = e => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.strokeWidth = parseInt(e.target.value)
+        })
+    }
+
+    const handleCornerRadius = e => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.cornerRadius = parseInt(e.target.value)
+        })
+    }
+
+    const handleOpacity = e => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.opacity = parseFloat(e.target.value)
+        })
+    }
+
+    const handleStrokeColor = (color) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.stroke = color.hex
+        })
+    }
+
+    const handleShapeFill = (color: string) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fill = color
+            selectedShape.patternImageUrl = undefined
+        })
+    }
+
+    const handleGradientColor = (color1: string, color2: string) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fill = ""
+            selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
+            selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
+            selectedShape.fillLinearGradientEndPoint = {
+                x: selectedId === "shapes_background" ? stageDimensions.width : 100,
+                y: selectedId === "shapes_background" ? stageDimensions.height : 100
+            }
+            selectedShape.patternImageUrl = undefined
+        })
+    }
+
+    const handleFillPatternScaleX = (e) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fillPatternScaleX = parseFloat(e.target.value)
+        })
+    }
+
+    const handleFillPatternScaleY = (e) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fillPatternScaleY = parseFloat(e.target.value)
+        })
+    }
+
+    const handleFillPatternOffsetX = (e) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fillPatternOffsetX = parseInt(e.target.value)
+        })
+    }
+
+    const handleFillPatternOffsetY = (e) => {
+        setCardData(prev => {
+            const selectedShape = prev.elements.find(item => item.id === selectedId)
+            selectedShape.fillPatternOffsetY = parseInt(e.target.value)
+        })
+    }
+
+
+
     return {
         handleAddNewRect,
         handleAddNewCircle,
@@ -223,7 +330,19 @@ const CardElementsFunctions = () => {
         handleTextAlign,
         handleTextOpacity,
         handleTextColor,
-        handleFontFamily
+        handleFontFamily,
+        handleBorderWidthChange,
+        handleFillImagePattern,
+        handleStrokeWidthChange,
+        handleCornerRadius,
+        handleOpacity,
+        handleStrokeColor,
+        handleShapeFill,
+        handleGradientColor,
+        handleFillPatternScaleX,
+        handleFillPatternScaleY,
+        handleFillPatternOffsetX,
+        handleFillPatternOffsetY
     }
 }
 
