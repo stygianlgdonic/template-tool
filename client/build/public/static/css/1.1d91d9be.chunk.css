@@ -1,0 +1,2 @@
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}.tooltip{visibility:hidden;position:absolute}.has-tooltip:hover .tooltip{visibility:visible;z-index:100}p.separator{line-height:1em;border-bottom:2px solid #d1d5db}p.separator:before{content:"OR";position:relative;left:55%;right:40%;margin-left:-2.5em;padding:0 .3em;top:.5em;background:#fff}
+/*# sourceMappingURL=1.1d91d9be.chunk.css.map*/
