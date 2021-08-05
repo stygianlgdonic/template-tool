@@ -1,16 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { TemplateContext } from '../../../../../../../contexts/TemplateContext';
-import SideBar from './SideBar';
 import WebFont from "webfontloader";
-import TopToolBar from './TopToolBar';
 import MainStage from './MainStage';
-import EditingTools from './EditingTools';
+import { DesignToolContext } from '../../../../../../../contexts/DesignToolContext';
 
 const DesignTool: React.FC = () => {
 
-    const [variationIndex, setVariationIndex] = useState<number>(0)
-
-    const [templateData, setTemplateData, { goForward, goBack, stepNum }] = useContext(TemplateContext)
+    const [, , cardData, setCardData, { goForward, goBack, stepNum }] = useContext(DesignToolContext)
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
     const [isEditTextBox, setIsEditTextBox] = useState(false)
@@ -59,8 +54,8 @@ const DesignTool: React.FC = () => {
 
     const handleDeleteSelectedItem = () => {
         const type = selectedId?.split("_")[0]
-        setTemplateData(prev => {
-            prev.variations[variationIndex][type] = prev.variations[variationIndex][type].filter(
+        setCardData(prev => {
+            prev.elements = prev.elements.filter(
                 item => item.id !== selectedId
             )
             unSelectAll()
@@ -93,9 +88,8 @@ const DesignTool: React.FC = () => {
                     /> */}
                     <div className="flex justify-center mt-5 h-full">
                         <MainStage
-                            templateData={templateData}
-                            setTemplateData={setTemplateData}
-                            variationIndex={variationIndex}
+                            cardData={cardData}
+                            setCardData={setCardData}
                             selectedId={selectedId}
                             setSelectedId={setSelectedId}
                             unSelectAll={unSelectAll}
