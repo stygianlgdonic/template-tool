@@ -18,7 +18,6 @@ const MainStage = ({
     selectedId,
     setSelectedId,
     unSelectAll,
-    handleEditSelectedItem
 }) => {
 
     const GUIDELINE_OFFSET = 5
@@ -406,7 +405,6 @@ const MainStage = ({
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
                             // }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setCardData((prev) => {
                                     const index = prev.elements.findIndex(item => item.id === elem.id)
@@ -423,7 +421,6 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setCardData((prev) => {
                                     const index = prev.elements.findIndex(item => item.id === elem.id)
@@ -440,7 +437,6 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setCardData((prev) => {
                                     const index = prev.elements.findIndex(item => item.id === elem.id)
@@ -457,7 +453,6 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
                                 setCardData((prev) => {
                                     const index = prev.elements.findIndex(item => item.id === elem.id)
@@ -474,7 +469,6 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(event) => setCardData((prev) => {
                                 const svgIndex = prev.elements.findIndex(svgItem => svgItem.id === elem.id)
                                 prev.elements[svgIndex] = {
@@ -509,7 +503,6 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(event) => setCardData((prev) => {
                                 const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
                                 prev.elements[txtIndex] = { ...event.target.attrs }

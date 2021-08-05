@@ -6,7 +6,12 @@ const TextHeader: React.FC = (): JSX.Element => {
     const [openstyle, setOpenstyle] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     //   const [showTransformModal, setShowTransformModal] = React.useState(false);
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
+    const {
+        designToolnavigator, setDesignToolnavigator,
+        selectedId, setSelectedId,
+        cardData, setCardData,
+        cardHistory: { goForward, goBack, stepNum, history }
+    } = useContext(DesignToolContext)
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 ">
             <div className="flex items-center">

@@ -6,10 +6,9 @@ interface Props {
     shapeProps: any
     onSelect: any
     onChange: any
-    onEditClick: any
 }
 
-const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClick }) => {
+const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
 
     const shapeRef = useRef(null)
 
@@ -30,8 +29,6 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, onEditClic
                 ref={shapeRef}
                 onClick={onSelect}
                 onTap={onSelect}
-                onDblClick={onEditClick}
-                onDblTap={onEditClick}
                 draggable
                 strokeScaleEnabled={false}
                 onTransformEnd={(e) => {

@@ -1,9 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import { DesignToolContext } from '../../../../../../../../../../contexts/DesignToolContext';
-import { googleFontsList } from '../../../../../../../../../../utils/defaults'
+import React, { useEffect } from 'react';
 import WebFont from "webfontloader";
 const FontStyletool: React.FC = (): JSX.Element => {
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
     useEffect(() => {
         WebFont.load({
             google: {

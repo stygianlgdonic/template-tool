@@ -1,0 +1,19 @@
+exports.id = 0;
+exports.modules = {
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/TextSelector/components/FontColortool/FontColortool.tsx":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/TextSelector/components/FontColortool/FontColortool.tsx ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/razzle/config/babel-loader/razzle-babel-loader.js):\nSyntaxError: D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\TextSelector\\components\\FontColortool\\FontColortool.tsx: Unexpected token (15:31)\n\n\u001b[0m \u001b[90m 13 |\u001b[39m     useEffect(() \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m         console\u001b[33m.\u001b[39mlog(colorQuery\u001b[33m.\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 16 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m         fetch(\u001b[32m`https://api.color.pizza/v1/names/?name=${colorQuery}&goodnamesonly=true`\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m             \u001b[33m.\u001b[39mthen(response \u001b[33m=>\u001b[39m response\u001b[33m.\u001b[39mjson())\u001b[0m\n    at Object._raise (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:788:17)\n    at Object.raiseWithData (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:781:17)\n    at Object.raise (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Object.unexpected (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:9929:16)\n    at Object.parseIdentifierName (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:12150:18)\n    at Object.parseIdentifier (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:12128:23)\n    at Object.parseMember (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10973:103)\n    at Object.parseSubscript (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10960:19)\n    at Object.parseSubscript (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:7127:18)\n    at Object.parseSubscripts (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10931:19)\n    at Object.parseExprSubscripts (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10920:17)\n    at Object.parseUpdate (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Object.parseMaybeUnary (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Object.parseMaybeUnary (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:7624:20)\n    at Object.parseExprOps (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Object.parseMaybeConditional (D:\\dev\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)");
+
+/***/ }),
+
+/***/ "./src/assets/images/custom.png":
+false
+
+};
+//# sourceMappingURL=0.15d960b18f2ca5868023.hot-update.js.map

@@ -28,13 +28,16 @@ export const DesignToolProvider = ({ children }) => {
 
     const [designToolnavigator, setDesignToolnavigator] = useState('element')
     const [cardData, setCardData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     return (
         <DesignToolContext.Provider
-            value={[
+            value={{
                 designToolnavigator, setDesignToolnavigator,
-                cardData, setCardData, { goForward, goBack, stepNum, history }
-            ]}
+                selectedId, setSelectedId,
+                cardData, setCardData,
+                cardHistory: { goForward, goBack, stepNum, history }
+            }}
         >
             {children}
         </DesignToolContext.Provider >

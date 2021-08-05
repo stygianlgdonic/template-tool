@@ -2,7 +2,12 @@ import React, { useContext, useState } from 'react';
 import { DesignToolContext } from '../../../../../../contexts/DesignToolContext';
 import "./style.css"
 const SideBarNav: React.FC = () => {
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
+    const {
+        designToolnavigator, setDesignToolnavigator,
+        selectedId, setSelectedId,
+        cardData, setCardData,
+        cardHistory: { goForward, goBack, stepNum, history }
+    } = useContext(DesignToolContext)
     const [showModal, setShowModal] = React.useState(false);
 
     return (
