@@ -401,7 +401,8 @@ const MainStage = ({
                                     $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
-                                setSelectedId(elem.id);
+                                if (elem.id !== "shapes_background")
+                                    setSelectedId(elem.id);
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
