@@ -27,6 +27,7 @@ export const DesignToolContext = createContext(null)
 export const DesignToolProvider = ({ children }) => {
 
     const [designToolnavigator, setDesignToolnavigator] = useState('element')
+    const [designHeadernavigator, setDesignHeadernavigator] = useState('')
     const [cardData, setCardData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -34,6 +35,7 @@ export const DesignToolProvider = ({ children }) => {
         <DesignToolContext.Provider
             value={{
                 designToolnavigator, setDesignToolnavigator,
+                designHeadernavigator, setDesignHeadernavigator,
                 selectedId, setSelectedId,
                 cardData, setCardData,
                 cardHistory: { goForward, goBack, stepNum, history }

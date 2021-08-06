@@ -7,6 +7,7 @@ const DesignTool: React.FC = () => {
 
     const {
         designToolnavigator, setDesignToolnavigator,
+        designHeadernavigator, setDesignHeadernavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
         cardHistory: { goForward, goBack, stepNum, history }
@@ -17,8 +18,25 @@ const DesignTool: React.FC = () => {
             setSelectedId()
         }
     }
+    const dude = cardData.elements.find((item, index) => selectedId === item.id)
 
     useEffect(() => {
+        if (!selectedId) return
+
+        const dude = cardData.elements.find((item, index) => selectedId === item.id)
+        if (dude?.type === 'text') {
+            setDesignHeadernavigator('text')
+        }
+        if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
+            setDesignHeadernavigator('rect')
+        }
+
+
+
+    })
+
+    useEffect(() => {
+
         document.addEventListener("keydown", handleEscape, false);
         WebFont.load({
             google: {
