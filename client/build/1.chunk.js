@@ -3881,16 +3881,13 @@ const TemplatePreview = ({
     navigate(`/createcard`);
   };
 
-  console.log({
-    treeee: templateObj
-  });
   return __jsx("button", {
     // onClick={handleEditTemplate}
     className: "border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], {
@@ -3901,7 +3898,7 @@ const TemplatePreview = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -3909,7 +3906,7 @@ const TemplatePreview = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 30,
       columnNumber: 17
     }
   }, templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$variatio = templateObj.variations[0]) === null || _templateObj$variatio === void 0 ? void 0 : (_templateObj$variatio2 = _templateObj$variatio.elements) === null || _templateObj$variatio2 === void 0 ? void 0 : _templateObj$variatio2.map((item, index) => __jsx(_Elements__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -3919,7 +3916,7 @@ const TemplatePreview = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 34,
       columnNumber: 25
     }
   })))));

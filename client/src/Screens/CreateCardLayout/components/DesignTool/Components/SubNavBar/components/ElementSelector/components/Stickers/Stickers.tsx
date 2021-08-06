@@ -45,7 +45,7 @@ const Stickers: React.FC = (): JSX.Element => {
 
                     </button>
                 </div>
-                <div className=" h-28 z-50 -mr-12 bg-gradient-to-r w-12 from-white  bg-opacity-80 to-transparent"></div>
+                <div className=" h-28 z-50 -mr-8 bg-gradient-to-r w-8 from-white  bg-opacity-80 to-transparent"></div>
                 <div className="flex flex-row flex-grow  gap-4 h-28  w-56 overflow-x-scroll z-10 no-scrollbar flex-shrink-0    relative" ref={contentWrapper}>
 
                     <button className="flex-shrink-0"> <img src={svg} className="w-12 flex-shrink-0 flex-grow" /></button>
@@ -59,7 +59,7 @@ const Stickers: React.FC = (): JSX.Element => {
                     <button className="flex-shrink-0"> <img src={svg} className="w-12 flex-shrink-0" /></button>
 
                 </div>
-                <div className=" h-28 z-50 -ml-12 bg-gradient-to-l w-12 from-white  bg-opacity-50 to-transparent"></div>
+                <div className=" h-28 z-50 -ml-8 bg-gradient-to-l w-8 from-white  bg-opacity-50 to-transparent"></div>
                 <div className="">
 
                     <button className="pr-2  mt-3" onClick={() => {

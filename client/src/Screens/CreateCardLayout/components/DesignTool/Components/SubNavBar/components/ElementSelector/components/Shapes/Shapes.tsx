@@ -1,6 +1,8 @@
 import React from 'react';
+import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 
 const Shapes: React.FC = (): JSX.Element => {
+    const { handleAddNewText } = CardElementsFunctions()
     return (
         <div className="h-full flex w-full  flex-col">
 
