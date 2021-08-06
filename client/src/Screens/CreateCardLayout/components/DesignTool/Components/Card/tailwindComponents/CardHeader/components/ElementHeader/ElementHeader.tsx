@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const ElementHeader: React.FC = (): JSX.Element => {
-  const [openstyle, setOpenstyle] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
+  // const [openstyle, setOpenstyle] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const [openDropDown, setopenDropDown] = useState(false);
   // !!state?false:true;
   return (
     <div className="flex justify-between w-11/12 ml-14">
       <div className="flex">
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="40" height="40" rx="6" fill="#FC7B7B" />
-        </svg>
-        {/* ////////////////////// */}
+        <button className="w-10 h-10 rounded-md bg-fuschia"></button>
         <div className="ml-10 ">
           <div
             className="relative mt-1"
@@ -46,20 +37,6 @@ const ElementHeader: React.FC = (): JSX.Element => {
                     fill="#9CA3AF"
                   />
                 </svg>
-
-                {/* <svg
-                  className="w-5 h-5 text-gray400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg> */}
               </span>
             </button>
             <ul
@@ -70,21 +47,27 @@ const ElementHeader: React.FC = (): JSX.Element => {
               style={{ display: openDropDown ? "" : "none" }}
             >
               <li
-                className="relative py-2 pl-8 pr-4 text-gray-900 cursor-default select-none"
+                className="relative w-full py-2 pl-8 pr-4 text-gray-900 cursor-default select-none "
                 id="listbox-option-0"
                 role="option"
               >
                 <div className="flex mb-2">
-                  <span className="block w-full h-4 truncate border-4 border-elementColor bg-elementColor"></span>
-                  <span className="ml-2">4</span>
+                  <button className="flex w-full">
+                    <span className="block w-full h-4 truncate border-4 border-elementColor bg-elementColor"></span>
+                    <span className="ml-2">4</span>
+                  </button>
                 </div>
                 <div className="flex mb-2 ">
-                  <span className="block w-full h-2 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
-                  <span className="ml-2 ">2</span>
+                  <button className="flex w-full">
+                    <span className="block w-full h-2 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
+                    <span className="ml-2 ">2</span>
+                  </button>
                 </div>
                 <div className="flex ">
-                  <span className="block w-full h-1 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
-                  <span className="ml-2">1</span>
+                  <button className="flex w-full">
+                    <span className="block w-full h-1 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
+                    <span className="ml-2">1</span>
+                  </button>
                 </div>
                 <div className=""></div>
                 <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3 ">

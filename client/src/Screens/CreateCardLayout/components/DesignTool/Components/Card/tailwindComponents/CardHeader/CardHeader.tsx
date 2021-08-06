@@ -9,7 +9,7 @@ const CardHeader: React.FC = (): JSX.Element => {
     useContext(TemplateContext);
   return (
     <div className="z-50 flex-col py-2 h-18">
-      <ElementHeader />
+      <TextHeader />
     </div>
   );
 };
