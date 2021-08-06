@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require('./auth');
 // const dotenv = require("dotenv");
 // dotenv.config();
 const APP_NAME = "Boilerplate API";

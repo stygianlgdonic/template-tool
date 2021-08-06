@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Text } from 'react-konva'
 
-const UText = ({ textProps, onChange, onSelect, onEditClick }) => {
+const UText = ({ textProps, onChange, onSelect }) => {
     const textNode = useRef(null)
 
     return (
@@ -10,8 +10,6 @@ const UText = ({ textProps, onChange, onSelect, onEditClick }) => {
             draggable
             onClick={onSelect}
             onTap={onSelect}
-            onDblClick={onEditClick}
-            onDblTap={onEditClick}
             onTransform={(e) => {
                 let SX = textNode.current.scaleX();
                 let W = textNode.current.width();

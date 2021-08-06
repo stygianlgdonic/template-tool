@@ -19,6 +19,8 @@ import TopToolBarFallback from '../../ErrorFallacks/TopToolBarFallback';
 import SideBarFallback from '../../ErrorFallacks/SideBarFallback';
 import SaveVariationFallback from '../../ErrorFallacks/SaveVariationFallback';
 import SaveTemplateFallback from '../../ErrorFallacks/SaveTemplateFallback';
+import SelectVariationFallback from '../../ErrorFallacks/SelectVariationFallback';
+import EditingToolsFallback from '../../ErrorFallacks/EditingToolsFallback';
 
 const DesignTool: React.FC = () => {
     const browserHistory = useHistory()
@@ -162,11 +164,11 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = async (tags: string[], selectedCategory: string) => {
+    const handleSaveTemplate = async (tags: string[], categoryId: string) => {
         if (!!templateID) {
-            await template_service.updateTemplateByID(templateID, { ...templateData, tags })
+            await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
         } else {
-            await template_service.addNewTemplate({ ...templateData, tags })
+            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)
@@ -263,6 +265,7 @@ const DesignTool: React.FC = () => {
                             setTemplateData={setTemplateData}
                             variationIndex={variationIndex}
                             selectedId={selectedId}
+                            setSelectedId={setSelectedId}
                         />
                     </ErrorBoundary>
                     <div className="flex justify-center mt-5">
@@ -283,11 +286,16 @@ const DesignTool: React.FC = () => {
                     </div>
 
                     <div className="flex justify-center mt-5">
-                        <SelectVariation
-                            variations={templateData.variations}
-                            variationIndex={variationIndex}
-                            setVariationIndex={setVariationIndex}
-                        />
+                        <ErrorBoundary
+                            FallbackComponent={SelectVariationFallback}
+                            onReset={() => { }}
+                        >
+                            <SelectVariation
+                                variations={templateData.variations}
+                                variationIndex={variationIndex}
+                                setVariationIndex={setVariationIndex}
+                            />
+                        </ErrorBoundary>
                     </div>
 
                     <div className="flex justify-center">
@@ -308,18 +316,23 @@ const DesignTool: React.FC = () => {
 
                 {/* third col */}
                 <div className={selectedId ? "" : "hidden"}>
-                    <EditingTools
-                        selectedId={selectedId}
-                        unSelectAll={unSelectAll}
-                        isOpenColorPicker={isOpenColorPicker}
-                        isEditTextBox={isEditTextBox}
-                        templateData={templateData}
-                        setTemplateData={setTemplateData}
-                        variationIndex={variationIndex}
-                        handleEditSelectedItem={handleEditSelectedItem}
-                        handleDeleteSelectedItem={handleDeleteSelectedItem}
-                        handleCloseEditTextModal={handleCloseEditTextModal}
-                    />
+                    <ErrorBoundary
+                        FallbackComponent={EditingToolsFallback}
+                        onReset={() => { }}
+                    >
+                        <EditingTools
+                            selectedId={selectedId}
+                            unSelectAll={unSelectAll}
+                            isOpenColorPicker={isOpenColorPicker}
+                            isEditTextBox={isEditTextBox}
+                            templateData={templateData}
+                            setTemplateData={setTemplateData}
+                            variationIndex={variationIndex}
+                            handleEditSelectedItem={handleEditSelectedItem}
+                            handleDeleteSelectedItem={handleDeleteSelectedItem}
+                            handleCloseEditTextModal={handleCloseEditTextModal}
+                        />
+                    </ErrorBoundary>
                 </div>
 
             </div>

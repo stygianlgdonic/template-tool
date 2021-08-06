@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { DesignToolContext } from '../../../../../../../../../../contexts/DesignToolContext';
+import React from 'react';
 const image1 = require('./../../../../../../../../../../assets/images/hollow.png');
 const image2 = require('./../../../../../../../../../../assets/images/splice.png');
 const image3 = require('./../../../../../../../../../../assets/images/echo.png');
@@ -8,7 +7,6 @@ const image5 = require('./../../../../../../../../../../assets/images/glitch.png
 const image6 = require('./../../../../../../../../../../assets/images/lift.png');
 const image7 = require('./../../../../../../../../../../assets/images/shadow.png');
 const FontStyletool: React.FC = (): JSX.Element => {
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
 
     return (
 

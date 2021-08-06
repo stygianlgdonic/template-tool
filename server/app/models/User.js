@@ -1,6 +1,8 @@
 // npm packages
 const mongoose = require("mongoose");
 
+
+const bcrypt = require('bcrypt');
 // app imports
 const { APIError } = require("../helpers");
 
@@ -8,7 +10,15 @@ const { APIError } = require("../helpers");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  id: String,
+  email:{
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
   firstName: String,
   lastName: String,
   emailAccounts: [String],
@@ -22,6 +32,24 @@ const userSchema = new Schema({
   workspaceList: [String]
 });
 
+userSchema.pre(
+  'save',
+  async function(next) {
+    const user = this;
+    const hash = await bcrypt.hash(this.password, 10);
+
+    this.password = hash;
+    next();
+  }
+);
+
+userSchema.methods.isValidPassword = async function(password) {
+  const user = this;
+  const compare = await bcrypt.compare(password, user.password);
+
+  return compare;
+}
+
 userSchema.statics = {
   /**
    * Create a Single New User
@@ -29,24 +57,29 @@ userSchema.statics = {
    * @returns {Promise<User, APIError>}
    */
   async createUser(newUser) {
-    const duplicate = await this.findOne({ id: newUser.id });
-    if (duplicate) {
-      throw new APIError(
-        409,
-        "User Already Exists",
-        `There is already a User with name '${newUser.id}'.`
-      );
+    // const duplicate = await this.findOne({ id: newUser.id });
+    // if (duplicate) {
+    //   throw new APIError(
+    //     409,
+    //     "User Already Exists",
+    //     `There is already a User with name '${newUser.id}'.`
+    //   );
+    // }
+    try {      
+      const user = await newUser.save();
+      return user.toObject();
+    } catch (error) {
+      console.log(error)
+      return error
     }
-    const user = await newUser.save();
-    return user.toObject();
   },
   /**
    * Delete a single User
    * @param {String} name - the User's name
    * @returns {Promise<User, APIError>}
    */
-  async deleteUser(name) {
-    const deleted = await this.findOneAndRemove({ id });
+  async deleteUser(id) {
+    const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
       throw new APIError(404, "User Not Found", `No User '${name}' found.`);
     }
@@ -58,7 +91,7 @@ userSchema.statics = {
    * @returns {Promise<User, APIError>}
    */
   async readUser(id) {
-    const user = await this.findOne({ id });
+    const user = await this.findOne({ _id : id });
 
     if (!user) {
       throw new APIError(404, "User Not Found", `No User '${id}' found.`);
@@ -82,7 +115,12 @@ userSchema.statics = {
     if (!users.length) {
       return [];
     }
-    return users.map(user => user.toObject());
+    //Since Documents donot contain Doc ID by Default, Adding it manually
+    const usersWithId = users.map((user)=>{
+      const convertedToObject = user.toObject()
+      return {...convertedToObject, id: user._id}
+    })
+    return usersWithId;
   },
   /**
    * Patch/Update a single user
@@ -91,7 +129,7 @@ userSchema.statics = {
    * @returns {Promise<User, APIError>}
    */
   async updateUser(id, userUpdate) {
-    const user = await this.findOneAndUpdate({ id }, userUpdate, {
+    const user = await this.findOneAndUpdate({ _id: id }, userUpdate, {
       new: true
     });
     if (!user) {

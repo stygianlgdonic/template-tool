@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
 import TransformModal from "../TransformModal/TransformModal";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
@@ -9,8 +10,15 @@ const TextHeader: React.FC = (): JSX.Element => {
   const [openDropDown, setopenDropDown] = useState(false);
   const [mergeDropDown, setmergeDropDown] = useState(false);
   //   const [showTransformModal, setShowTransformModal] = React.useState(false);
-  const [designToolnavigator, setDesignToolnavigator] =
-    useContext(DesignToolContext);
+  const {
+    designToolnavigator,
+    setDesignToolnavigator,
+    selectedId,
+    setSelectedId,
+    cardData,
+    setCardData,
+    cardHistory: { goForward, goBack, stepNum, history },
+  } = useContext(DesignToolContext);
   return (
     <div className="flex flex-row items-center justify-center gap-4 px-6 ">
       <div className="flex items-center">

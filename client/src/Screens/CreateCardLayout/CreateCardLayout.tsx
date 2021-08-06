@@ -12,11 +12,7 @@ const CreateCardLayout: React.FC = () => {
       <div style={{ height: "8vh" }} className="">
         <Header document_title={document_title} />
       </div>
-      <div
-        className="relative"
-        style={{ height: "92vh" }}
-        // onClick={() => setopenDropDown(!!openDropDown ? false : true)}
-      >
+      <div className="relative" style={{ height: "88vh" }}>
         <DesignTool />
         <div
           className="absolute top-0 right-0 h-full bg-white w-14"
@@ -25,7 +21,8 @@ const CreateCardLayout: React.FC = () => {
           <div className="w-6 "></div>
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center h-full pt-10 mt-1 bg-canvasbgcolor"
+            className="flex items-center h-full pt-10 bg-canvasbgcolor "
+            style={{ marginTop: "7px" }}
           >
             <div className="relative flex items-center w-10 h-20 pl-1 bg-white rounded-full rounded-r -right-6">
               <svg

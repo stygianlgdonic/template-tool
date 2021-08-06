@@ -27,7 +27,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
               style={{ marginTop: "89px" }}
             >
               <button
-                className="fixed z-50 flex items-center h-full pl-4 mr-2 bg-transparent  b 3xl:mt-top"
+                className="fixed z-50 flex items-center h-full pl-4 mr-2 bg-transparent b 3xl:mt-top"
                 onClick={() => {
                   setIsOpen(false);
                 }}

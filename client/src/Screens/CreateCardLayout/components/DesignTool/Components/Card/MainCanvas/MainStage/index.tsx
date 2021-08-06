@@ -13,13 +13,11 @@ import UImage from '../UImage';
 declare const window: any
 
 const MainStage = ({
-    templateData,
-    setTemplateData,
-    variationIndex,
+    cardData,
+    setCardData,
     selectedId,
     setSelectedId,
     unSelectAll,
-    handleEditSelectedItem,
 }) => {
 
     const GUIDELINE_OFFSET = 5
@@ -387,7 +385,7 @@ const MainStage = ({
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
             >
-                {templateData.variations[variationIndex].elements?.map((elem, i) => {
+                {cardData.elements?.map((elem, i) => {
                     if (elem.type === "rectangle") return (
                         <Rectangle
                             key={i}
@@ -401,16 +399,16 @@ const MainStage = ({
                                     $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
-                                setSelectedId(elem.id);
+                                if (elem.id !== "shapes_background")
+                                    setSelectedId(elem.id);
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
                             // }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
-                                setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
-                                    prev.variations[variationIndex].elements[index] = newAttrs
+                                setCardData((prev) => {
+                                    const index = prev.elements.findIndex(item => item.id === elem.id)
+                                    prev.elements[index] = newAttrs
                                 });
                             }}
                         />
@@ -423,11 +421,10 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
-                                setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
-                                    prev.variations[variationIndex].elements[index] = newAttrs
+                                setCardData((prev) => {
+                                    const index = prev.elements.findIndex(item => item.id === elem.id)
+                                    prev.elements[index] = newAttrs
                                 });
                             }}
                         />
@@ -440,11 +437,10 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
-                                setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
-                                    prev.variations[variationIndex].elements[index] = newAttrs
+                                setCardData((prev) => {
+                                    const index = prev.elements.findIndex(item => item.id === elem.id)
+                                    prev.elements[index] = newAttrs
                                 });
                             }}
                         />
@@ -457,11 +453,10 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
                             onChange={(newAttrs) => {
-                                setTemplateData((prev) => {
-                                    const index = prev.variations[variationIndex].elements.findIndex(item => item.id === elem.id)
-                                    prev.variations[variationIndex].elements[index] = newAttrs
+                                setCardData((prev) => {
+                                    const index = prev.elements.findIndex(item => item.id === elem.id)
+                                    prev.elements[index] = newAttrs
                                 });
                             }}
                         />
@@ -474,11 +469,10 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
-                            onChange={(event) => setTemplateData((prev) => {
-                                const svgIndex = prev.variations[variationIndex].elements.findIndex(svgItem => svgItem.id === elem.id)
-                                prev.variations[variationIndex].elements[svgIndex] = {
-                                    ...prev.variations[variationIndex].elements[svgIndex],
+                            onChange={(event) => setCardData((prev) => {
+                                const svgIndex = prev.elements.findIndex(svgItem => svgItem.id === elem.id)
+                                prev.elements[svgIndex] = {
+                                    ...prev.elements[svgIndex],
                                     ...JSON.parse(JSON.stringify(event.target.attrs))
                                 }
                             })}
@@ -492,10 +486,10 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onChange={(event) => setTemplateData((prev) => {
-                                const imageIndex = prev.variations[variationIndex].elements.findIndex(img => img.id === elem.id)
-                                prev.variations[variationIndex].elements[imageIndex] = {
-                                    ...prev.variations[variationIndex].elements[imageIndex],
+                            onChange={(event) => setCardData((prev) => {
+                                const imageIndex = prev.elements.findIndex(img => img.id === elem.id)
+                                prev.elements[imageIndex] = {
+                                    ...prev.elements[imageIndex],
                                     ...JSON.parse(JSON.stringify(event.target.attrs))
                                 }
                             })}
@@ -509,10 +503,9 @@ const MainStage = ({
                             onSelect={() => {
                                 setSelectedId(elem.id)
                             }}
-                            onEditClick={handleEditSelectedItem}
-                            onChange={(event) => setTemplateData((prev) => {
-                                const txtIndex = prev.variations[variationIndex].elements.findIndex(txt => txt.id === elem.id)
-                                prev.variations[variationIndex].elements[txtIndex] = { ...event.target.attrs }
+                            onChange={(event) => setCardData((prev) => {
+                                const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
+                                prev.elements[txtIndex] = { ...event.target.attrs }
                             })}
                         />
                     )

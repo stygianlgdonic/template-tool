@@ -40,7 +40,7 @@ const Buttons: React.FC = (): JSX.Element => {
 
                     </button>
                 </div>
-                <div className=" h-28 z-50 -mr-12 bg-gradient-to-r w-12 from-white  bg-opacity-50 to-transparent"></div>
+                <div className=" h-28 z-50 -mr-6 bg-gradient-to-r w-6 from-white  bg-opacity-50 to-transparent"></div>
                 <div className="flex flex-row flex-grow  gap-4 w-72  overflow-x-scroll flex-shrink-0  mx-2 no-scrollbar " ref={contentWrapper} >
                     <div className="bg-fuschia text-white flex flex-row w-40 justify-center  h-12 rounded-md flex-shrink-0">
                         <button className="flex flex-row justify-center items-center">
@@ -83,7 +83,7 @@ const Buttons: React.FC = (): JSX.Element => {
                         </button>
                     </div>
                 </div>
-                <div className=" h-28 z-50 -ml-12 bg-gradient-to-l w-12 from-white  bg-opacity-100 to-transparent"></div>
+                <div className=" h-28 z-50 -ml-6 bg-gradient-to-l w-6 from-white  bg-opacity-100 to-transparent"></div>
                 <div className="">
 
                     <button className="mt-2" onClick={() => {

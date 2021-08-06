@@ -2,11 +2,13 @@
 // const dotenv = require("dotenv");
 const express = require("express");
 Promise = require("bluebird"); // eslint-disable-line
+const passport = require('passport');
+
 
 // app imports
 const { connectToDatabase, globalResponseHeaders } = require("./config");
 const { errorHandler } = require("./handlers");
-const { thingsRouter, templateRouter, cardRouter, templateCategoryRouter } = require("./routers");
+const { thingsRouter, templateRouter, cardRouter, templateCategoryRouter, secureRouter, userRouter } = require("./routers");
 
 // global constants
 // dotenv.config();
@@ -36,6 +38,10 @@ app.use("/template", templateRouter)
 app.use("/card", cardRouter)
 
 app.use("/templatecategory", templateCategoryRouter)
+
+app.use("/user", passport.authenticate('jwt', { session: false }),secureRouter)
+
+app.use('/', userRouter);
 
 
 // catch-all for 404 "Not Found" errors

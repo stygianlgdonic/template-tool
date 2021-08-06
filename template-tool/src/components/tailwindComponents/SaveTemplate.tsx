@@ -5,6 +5,7 @@ import CustomTextField from "./CustomTextField";
 import LoadingButton from "./LoadingButton";
 import useSvg from "../../utils/useSvg";
 import CustomSelect from "./CustomSelect";
+import useCategoryList from "../../hooks/useCategoryList";
 
 const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
 
@@ -17,8 +18,8 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
     const [tagsList, setTagsList] = useState([]);
     const [isFirstTag, setIsFirstTag] = useState(true);
     const [tag, setTag] = useState("");
-    const [categoryList, setCategoryList] = useState(["cat1", "cat2", "cat3"])
-    const [selectedCategory, setSelectedCategory] = useState(categoryList[0])
+    const { categoriesList, error, isLoading } = useCategoryList()
+    const [selectedCategory, setSelectedCategory] = useState(!!categoriesList ? categoriesList[0] : null)
 
     useEffect(() => {
         if (!!templateData.tags?.length) {
@@ -76,7 +77,7 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
     }
 
     const onSubmit = () => {
-        handleSaveTemplate(tagsList, selectedCategory)
+        handleSaveTemplate(tagsList, selectedCategory?.id)
     }
 
     return (
@@ -119,9 +120,9 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
                                 <div className="z-20" >
                                     <CustomSelect
                                         label="Select Category"
-                                        value={selectedCategory}
+                                        value={selectedCategory?.name || "none"}
                                         onChange={onCategoryChange}
-                                        dataArray={categoryList}
+                                        dataArray={categoriesList}
                                     />
                                 </div>
 
