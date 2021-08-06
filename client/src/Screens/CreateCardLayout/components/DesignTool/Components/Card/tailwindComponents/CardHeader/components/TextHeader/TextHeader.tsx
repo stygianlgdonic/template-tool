@@ -17,9 +17,9 @@ const TextHeader: React.FC = (): JSX.Element => {
         cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
     return (
-        <div className="flex flex-row items-center justify-center gap-4 px-6 ">
+        <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
             <div className="flex items-center">
-                <div className="relative inline-block text-left ">
+                <div className="relative inline-block text-left  ">
                     <div
                         role="menu"
                         aria-orientation="vertical"

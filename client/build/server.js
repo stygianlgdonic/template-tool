@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "29ae4ee1569beea278b1";
+/******/ 	var hotCurrentHash = "e6dd45262e811ed397bc";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1586,6 +1586,10 @@ const DesignToolProvider = ({
     0: designToolnavigator,
     1: setDesignToolnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('element');
+  const {
+    0: designHeadernavigator,
+    1: setDesignHeadernavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [cardData, setCardData, {
     goForward,
     goBack,
@@ -1600,6 +1604,8 @@ const DesignToolProvider = ({
     value: {
       designToolnavigator,
       setDesignToolnavigator,
+      designHeadernavigator,
+      setDesignHeadernavigator,
       selectedId,
       setSelectedId,
       cardData,
@@ -1614,7 +1620,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 9
     }
   }, children);
