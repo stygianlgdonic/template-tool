@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
+import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
 import TransformModal from "../TransformModal/TransformModal";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const TextHeader: React.FC = (): JSX.Element => {
@@ -17,6 +18,7 @@ const TextHeader: React.FC = (): JSX.Element => {
         cardData, setCardData,
         cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
+    const { handleFontStyle, handleTextAlign } = CardElementsFunctions()
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
             <div className="flex items-center">
@@ -100,10 +102,10 @@ const TextHeader: React.FC = (): JSX.Element => {
                     </div>
                 </div>
                 <div>
-                    <button className="ml-10 text-lg font-bold text-black">B</button>
+                    <button className="ml-10 text-lg font-bold text-black" onClick={() => handleFontStyle("bold")}>B</button>
                 </div>
                 <div>
-                    <button className="ml-10 text-lg italic font-bold text-black">
+                    <button className="ml-10 text-lg italic font-bold text-black" onClick={() => handleFontStyle("italic")}>
                         I
                     </button>
                 </div>
@@ -142,19 +144,20 @@ const TextHeader: React.FC = (): JSX.Element => {
 
                                         <div className="w-full flex gap-4 justify-center ">
 
-                                            <button><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button onClick={() => handleTextAlign("justify")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 1H17M1 7H17M1 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             </button>
-                                            <button><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H17M1 7H9M1 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            </button>
-                                            <button><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             </button>
-                                            <button>
+                                            <button onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+
+                                            </button>
+                                            <button onClick={() => handleTextAlign("right")}>
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>

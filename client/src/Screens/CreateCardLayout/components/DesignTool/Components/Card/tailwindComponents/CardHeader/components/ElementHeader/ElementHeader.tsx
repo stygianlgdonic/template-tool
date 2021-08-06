@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
+import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const ElementHeader: React.FC = (): JSX.Element => {
     // const [openstyle, setOpenstyle] = React.useState(false);
@@ -15,11 +16,12 @@ const ElementHeader: React.FC = (): JSX.Element => {
         cardData, setCardData,
         cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
+    const { handleBorderWidthChange, handleStrokeColor } = CardElementsFunctions()
     // !!state?false:true;
     return (
         <div className="flex justify-between w-11/12 ml-14">
             <div className="flex">
-                <button className="w-10 h-10 rounded-md bg-fuschia"></button>
+                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => setDesignToolnavigator("fonttool")}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"
@@ -63,31 +65,31 @@ const ElementHeader: React.FC = (): JSX.Element => {
                                 role="option"
                             >
                                 <div className="flex mb-2">
-                                    <button className="flex w-full">
+                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(15)}>
                                         <span className="block w-full h-4 truncate border-4 border-elementColor bg-elementColor"></span>
                                         <span className="ml-2">4</span>
                                     </button>
                                 </div>
                                 <div className="flex mb-2 ">
-                                    <button className="flex w-full">
+                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(10)}>
                                         <span className="block w-full h-2 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
                                         <span className="ml-2 ">2</span>
                                     </button>
                                 </div>
                                 <div className="flex ">
-                                    <button className="flex w-full">
+                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(5)}>
                                         <span className="block w-full h-1 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
                                         <span className="ml-2">1</span>
                                     </button>
                                 </div>
                                 <div className=""></div>
                                 <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3 ">
-                                    <button className="w-10 h-10 rounded-md bg-indigo600"></button>
-                                    <button className="w-10 h-10 rounded-md bg-fuschia"></button>
-                                    <button className="w-10 h-10 rounded-md bg-greenish"></button>
-                                    <button className="w-10 h-10 rounded-md bg-yellowish"></button>
-                                    <button className="w-10 h-10 rounded-md bg-redish"></button>
-                                    <button className="w-10 h-10 rounded-md bg-gray900"></button>
+                                    <button className="w-10 h-10 rounded-md bg-indigo600" onClick={() => handleStrokeColor("#4F46E5")} ></button>
+                                    <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => handleStrokeColor("#EF5DA8")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-greenish" onClick={() => handleStrokeColor("#5DEFC3")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-yellowish" onClick={() => handleStrokeColor("#EEA146")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-redish" onClick={() => handleStrokeColor("#EE4646")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-gray900" onClick={() => handleStrokeColor("#111827")}></button>
                                 </div>
                             </li>
                         </ul>

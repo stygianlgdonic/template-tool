@@ -13,7 +13,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\Registration\\Registration.tsx";
+=======
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\Registration\\Registration.tsx";
+>>>>>>> jawad/6august
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function Example() {

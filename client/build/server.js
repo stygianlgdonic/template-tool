@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "fe62a2992c4c5a1a7673";
+/******/ 	var hotCurrentHash = "f4811d7de395ebae9a25";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1362,7 +1362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
 /* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\App.tsx";
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1547,7 +1547,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1574,7 +1574,7 @@ const INITIAL_STATE = {
       x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
       y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
     },
-    fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
+    fillLinearGradientColorStops: [0, '#ffffff', 1, '#ffffff'],
     draggable: false
   }]
 };
@@ -1642,7 +1642,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1684,7 +1684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1851,7 +1851,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\server.tsx";
+var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\server.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -1910,7 +1910,7 @@ const renderApp = (req, res) => {
     };
   }
 };
-const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("D:\\dev\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\HP\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
   const {
     html = '',
     redirect = false
@@ -2193,10 +2193,10 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
-__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
-__webpack_require__(/*! D:\dev\cardclan-backend\client\src */"./src/index.ts");
-module.exports = __webpack_require__(/*! !!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
 
 
 /***/ }),
