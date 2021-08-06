@@ -33,7 +33,7 @@ const ReceipentsLogo: React.FC = (): JSX.Element => {
                         </svg>
                     </button>
                 </div>
-                <div className=" h-28 z-50 -mr-12 bg-gradient-to-r w-12 from-white  bg-opacity-80 to-transparent"></div>
+                <div className=" h-28 z-50 -mr-6 bg-gradient-to-r w-6 from-white  bg-opacity-80 to-transparent"></div>
                 <div className=" mt-4 flex flex-row flex-shrink-0 px-1 gap-3 flex-grow w-72 overflow-x-scroll  items-center overflow-hidden relative no-scrollbar" ref={contentWrapper}>
                     <button className="flex flex-col justify-center items-center w-20 h-16 border-dashed border-2 rounded-md border-bordercolor flex-shrink-0">
                         <svg className="bg-indigo400 rounded-full" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@ const ReceipentsLogo: React.FC = (): JSX.Element => {
                         </svg>
                     </button>
                 </div>
-                <div className=" h-28 z-50 -ml-12 bg-gradient-to-l w-12 from-white  bg-opacity-50 to-transparent"></div>
+                <div className=" h-28 z-50 -ml-8 bg-gradient-to-l w-8 from-white  bg-opacity-50 to-transparent"></div>
                 <div className="">
                     <button className="pr-2  mt-3 " onClick={() => {
                         sideScroll(contentWrapper.current, 25, 100, 10);

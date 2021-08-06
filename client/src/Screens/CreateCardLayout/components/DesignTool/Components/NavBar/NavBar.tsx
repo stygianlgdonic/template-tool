@@ -2,14 +2,19 @@ import React, { useContext, useState } from 'react';
 import { DesignToolContext } from '../../../../../../contexts/DesignToolContext';
 import "./style.css"
 const SideBarNav: React.FC = () => {
-    const [designToolnavigator, setDesignToolnavigator] = useContext(DesignToolContext)
+    const {
+        designToolnavigator, setDesignToolnavigator,
+        selectedId, setSelectedId,
+        cardData, setCardData,
+        cardHistory: { goForward, goBack, stepNum, history }
+    } = useContext(DesignToolContext)
     const [showModal, setShowModal] = React.useState(false);
-
+    console.log({ treeee: designToolnavigator })
     return (
         <div className="h-full fixed flex  flex-col w-2/12 " >
 
             <div className="flex flex-col justify-start text-left items-start leading-10  px-2 text-lightGray w-full  h-full mt-6 ">
-                <button className="w-full active:bg-rightbackgroundcolor focus:bg-rightbackgroundcolor  h-10" onClick={() => setDesignToolnavigator('element')}>
+                <button className={designToolnavigator === 'element' ? "w-full  focus:bg-rightbackgroundcolor  h-10" : "w-full h-10"} onClick={() => setDesignToolnavigator('element')}>
                     <div className="flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm  pl-5 h-10 mb-1">
 
                         <svg className="text-svgcolor" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +24,7 @@ const SideBarNav: React.FC = () => {
 
 
                         <p className="text-lightGray font-medium pl-3">Elements</p>
-                    </div>
+                    </div>"w-full  focus:bg-rightbackgroundcolor  h-10"
                 </button>
                 <button className={designToolnavigator === "text" ? "w-full focus:bg-rightbackgroundcolor h-10" : "w-full  h-10"} onClick={() => setDesignToolnavigator('text')}>
                     <div className="flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-lg border-0 rounded-sm  pl-5 mb-1">

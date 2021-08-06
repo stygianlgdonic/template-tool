@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { NavLink } from 'react-router-dom'
+import CategoryListFallback from '../../ErrorFallacks/CategoryListFallback'
+import TemplateListFallback from '../../ErrorFallacks/TemplateListFallback'
 import { ROUTE_NAMES } from '../../routes/route_names'
 import CategoryList from './components/CategoryList'
 import TemplateList from './components/TemplateList'
@@ -63,10 +66,20 @@ const Home = () => {
                         {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
                         <div className="w-full h-full rounded border-dashed border-2 border-gray-300">
                             <div className={selectedNavLink === navLinksList[0] ? "" : "hidden"}>
-                                <CategoryList />
+                                <ErrorBoundary
+                                    FallbackComponent={CategoryListFallback}
+                                    onReset={() => { }}
+                                >
+                                    <CategoryList />
+                                </ErrorBoundary>
                             </div>
                             <div className={selectedNavLink === navLinksList[1] ? "" : "hidden"}>
-                                <TemplateList />
+                                <ErrorBoundary
+                                    FallbackComponent={TemplateListFallback}
+                                    onReset={() => { }}
+                                >
+                                    <TemplateList />
+                                </ErrorBoundary>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
         <main
             style={{ height: '91vh' }}
             className={
-                " fixed overflow-y-auto no-scrollbar z-50  flex-grow   inset-0 transform ease-in-out " +
+                " fixed overflow-y-hidden no-scrollbar z-50  flex-grow   inset-0 transform ease-in-out " +
                 (isOpen
                     ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  "
                     : " transition-all delay-500  translate-x-full ")
@@ -19,17 +19,17 @@ export default function Drawer({ isOpen, setIsOpen }) {
                     (isOpen ? " translate-x-0  " : " translate-x-full ")
                 }
             >
-                <article className="relative w-screen max-w-full pb-20 flex flex-col h-full overflow-y-scroll no-scrollbar mb-8 ">
+                <article className="relative w-screen max-w-full pb-20 overflow-y-hidden  flex flex-col h-full no-scrollbar mb-8 ">
 
-                    <div className="h-full flex  " >
+                    <div className="h-full flex " >
 
                         <div className="flex items-center  w-4 h-full " style={{ marginTop: '89px' }}>
 
-                            <button className=" pl-4 mr-2 h-full flex items-center fixed b z-50 bg-transparent 3xl:mt-top  " onClick={() => {
+                            <button className=" pl-4 mr-2 h-full flex items-center fixed  z-50 bg-transparent 3xl:mt-top  " onClick={() => {
 
                                 setIsOpen(false);
                             }}>
-                                <div className="bg-white rounded-r rounded-full h-20   items-center w-10 flex flex-row pl-2 ml-2">
+                                <div className="bg-white rounded-r rounded-full h-20  items-center w-10 flex flex-row pl-2 ml-2">
 
                                     <svg className="w-2" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.24023 2L11.9842 11L2.24023 20" stroke="#374151" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
@@ -38,7 +38,7 @@ export default function Drawer({ isOpen, setIsOpen }) {
 
                             </button>
                         </div>
-                        <div className="flex flex-col justify-start w-full ml-6 bg-white h-full pt-3 mt-2 3xl:mt-3 " >
+                        <div className="flex flex-col justify-start w-full ml-6 3xl:bg-green bg-white  pt-3 mt-2 overflow-y-scroll no-scrollbar" style={{ height: '92vh' }} >
 
 
                             <div className="justify-center flex ">

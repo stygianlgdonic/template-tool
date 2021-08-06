@@ -24,9 +24,10 @@ const EditTextBox: React.FC<Props> = ({ selectedId, variationIndex, templateData
             const index = templateData.variations[variationIndex].elements.findIndex(item => item.id === selectedId)
             setInputValue(templateData.variations[variationIndex].elements[index].text)
             setFontSize(templateData.variations[variationIndex].elements[index].fontSize)
+            setFontStyle(templateData.variations[variationIndex].elements[index].fontStyle)
             setFontFamily(templateData.variations[variationIndex].elements[index].fontFamily)
             setTextAlign(templateData.variations[variationIndex].elements[index].align)
-            setFontColor(templateData.variations[variationIndex].elements[index].color)
+            setFontColor(templateData.variations[variationIndex].elements[index].fill)
         }
     }, [selectedId])
 

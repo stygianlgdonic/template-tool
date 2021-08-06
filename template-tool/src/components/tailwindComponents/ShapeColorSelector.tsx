@@ -105,14 +105,14 @@ const ShapeColorSelector: React.FC<Props> = ({
     const handleFillPatternOffsetX = (e) => {
         setTemplateData(prev => {
             const selectedShape = prev.variations[variationIndex].elements.find(item => item.id === selectedId)
-            selectedShape.fillPatternOffsetX = parseFloat(e.target.value)
+            selectedShape.fillPatternOffsetX = parseInt(e.target.value)
         })
     }
 
     const handleFillPatternOffsetY = (e) => {
         setTemplateData(prev => {
             const selectedShape = prev.variations[variationIndex].elements.find(item => item.id === selectedId)
-            selectedShape.fillPatternOffsetY = parseFloat(e.target.value)
+            selectedShape.fillPatternOffsetY = parseInt(e.target.value)
         })
     }
 
@@ -169,7 +169,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                     <input
                         className="border mb-5"
                         type="number"
-                        step={0.1}
+                        step={10}
                         value={selectedShapeData?.fillPatternOffsetX}
                         onChange={handleFillPatternOffsetX}
                     />
@@ -177,7 +177,7 @@ const ShapeColorSelector: React.FC<Props> = ({
                     <input
                         className="border mb-5"
                         type="number"
-                        step={0.1}
+                        step={10}
                         value={selectedShapeData?.fillPatternOffsetY}
                         onChange={handleFillPatternOffsetY}
                     />

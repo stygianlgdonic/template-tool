@@ -12,7 +12,7 @@ const DesignTool: React.FC = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="w-full grid grid-cols-12 font-inter  " style={{ height: '92vh' }}>
+        <div className="w-full grid grid-cols-12 font-inter  h-full" >
             <div className="col-span-2 w-full  ">
                 <NavBar />
             </div>

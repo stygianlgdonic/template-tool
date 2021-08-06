@@ -9,7 +9,6 @@ import LeftSidebar from './components/LeftSideBar/LeftSidebar';
 import { DesignToolProvider } from './contexts/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
 import { HeaderProvider } from './contexts/HeaderContext';
-import { TemplatetoolProvider } from './contexts/Templatetool';
 
 const Registration = React.lazy(() => import('./Screens/Registration/Registration'))
 const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'))

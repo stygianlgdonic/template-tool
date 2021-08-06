@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "75efced5cc6279e267e1";
+/******/ 	var hotCurrentHash = "29ae4ee1569beea278b1";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1383,7 +1383,7 @@ const App = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Suspense"], {
@@ -1391,35 +1391,35 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 24,
         columnNumber: 33
       }
     }, "Loading ..."),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__["DesignToolProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, __jsx(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__["TemplateProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 21
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 25
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1428,21 +1428,21 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 29,
         columnNumber: 54
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 29
     }
   }), __jsx(_contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__["HeaderProvider"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 29
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1451,14 +1451,14 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 34,
         columnNumber: 67
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 33
     }
   })), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1467,14 +1467,14 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 60
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 29
     }
   }), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -1483,14 +1483,14 @@ const App = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 39,
         columnNumber: 60
       }
     }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 29
     }
   }))))));
@@ -1544,10 +1544,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DesignToolProvider", function() { return DesignToolProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const INITIAL_STATE = {};
+
+
+const INITIAL_STATE = {
+  dimensions: {
+    width: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
+    height: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
+  },
+  labels: [],
+  elements: [{
+    id: 'shapes_background',
+    type: "rectangle",
+    x: 0,
+    y: 0,
+    width: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
+    height: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height,
+    // fill: '#F0F0F0',
+    fillLinearGradientStartPoint: {
+      x: 0,
+      y: 0
+    },
+    fillLinearGradientEndPoint: {
+      x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
+      y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
+    },
+    fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
+    draggable: false
+  }]
+};
 const DesignToolContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
 const DesignToolProvider = ({
   children
@@ -1556,12 +1586,35 @@ const DesignToolProvider = ({
     0: designToolnavigator,
     1: setDesignToolnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('element');
+  const [cardData, setCardData, {
+    goForward,
+    goBack,
+    stepNum,
+    history
+  }] = Object(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__["useImmerState"])(INITIAL_STATE);
+  const {
+    0: selectedId,
+    1: setSelectedId
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   return __jsx(DesignToolContext.Provider, {
-    value: [designToolnavigator, setDesignToolnavigator],
+    value: {
+      designToolnavigator,
+      setDesignToolnavigator,
+      selectedId,
+      setSelectedId,
+      cardData,
+      setCardData,
+      cardHistory: {
+        goForward,
+        goBack,
+        stepNum,
+        history
+      }
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 34,
       columnNumber: 9
     }
   }, children);
@@ -1678,6 +1731,37 @@ const INITIAL_STATE = {
       fill: '#FF0000',
       draggable: true,
       type: "rectangle"
+    }, {
+      name: "object",
+      x: 150,
+      y: 150,
+      width: 100,
+      stroke: "#000000",
+      strokeWidth: 4,
+      height: 100,
+      fill: '#FF0000',
+      draggable: true,
+      type: "rectangle"
+    }, {
+      name: "object",
+      x: 150,
+      y: 150,
+      width: 100,
+      stroke: "#000000",
+      strokeWidth: 4,
+      height: 100,
+      fill: '#FF0000',
+      draggable: true,
+      type: "rectangle"
+    }, {
+      name: "object",
+      text: 'New text',
+      x: 150,
+      y: 200,
+      fontSize: 20,
+      draggable: true,
+      width: 200,
+      type: "text"
     }]
   }]
 };
@@ -1701,7 +1785,7 @@ const TemplateProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 45,
       columnNumber: 9
     }
   }, children);
@@ -1959,7 +2043,8 @@ const defaultTextBox = {
   fontSize: 20,
   draggable: true,
   width: 200,
-  type: "text"
+  type: "text",
+  fill: "#000000"
 };
 const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo'];
 const fontSizeArray = [{
@@ -2148,6 +2233,17 @@ module.exports = require("react-query");
 
 /***/ }),
 
+/***/ "react-range":
+/*!******************************!*\
+  !*** external "react-range" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-range");
+
+/***/ }),
+
 /***/ "react-router-dom":
 /*!***********************************!*\
   !*** external "react-router-dom" ***!
@@ -2156,6 +2252,17 @@ module.exports = require("react-query");
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
+
+/***/ }),
+
+/***/ "use-file-upload":
+/*!**********************************!*\
+  !*** external "use-file-upload" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("use-file-upload");
 
 /***/ }),
 

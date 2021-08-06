@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { Layer, Stage } from 'react-konva'
 import { useNavigate } from 'react-router-dom'
 import { TemplateContext } from '../../../../../contexts/TemplateContext'
-import { TemplatetoolContext } from '../../../../../contexts/Templatetool'
 import { stageDimensions } from '../../../../../utils/defaults'
 import Elements from '../Elements'
 
@@ -18,7 +17,6 @@ const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
         setTemplateData(templateObj, false)
         navigate(`/createcard`)
     }
-    console.log({ treeee: templateObj })
     return (
         <button
             // onClick={handleEditTemplate}
