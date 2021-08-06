@@ -24,9 +24,13 @@ export const INITIAL_STATE = {
                 // fill: '#F0F0F0',
                 fillLinearGradientStartPoint: { x: 0, y: 0 },
                 fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
-                fillLinearGradientColorStops: [0, '#Ffffff', 1, '#ffffff'],
+                fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
                 draggable: false,
-            }, { name: "object", x: 150, y: 150, width: 100, stroke: "#000000", strokeWidth: 4, height: 100, fill: '#FF0000', draggable: true, type: "rectangle" }],
+            }, { name: "object", x: 150, y: 150, width: 100, stroke: "#000000", strokeWidth: 4, height: 100, fill: '#FF0000', draggable: true, type: "rectangle" },
+            { name: "object", x: 150, y: 150, width: 100, stroke: "#000000", strokeWidth: 4, height: 100, fill: '#FF0000', draggable: true, type: "rectangle" },
+            { name: "object", x: 150, y: 150, width: 100, stroke: "#000000", strokeWidth: 4, height: 100, fill: '#FF0000', draggable: true, type: "rectangle" },
+
+            { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text" }],
         }
     ],
 }

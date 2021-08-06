@@ -22,26 +22,26 @@ const App = () => {
 
         <NoSSR >
             <Suspense fallback={<p>Loading ...</p>}>
-                <Routes>
+                <DesignToolProvider>
+                    <TemplateProvider>
+                        <Routes>
 
-                    <Route path="/" element={<Dashboard />}>
-                    </Route>
+                            <Route path="/" element={<Dashboard />}>
+                            </Route>
 
-                    <DesignToolProvider>
-                        <TemplateProvider>
                             <HeaderProvider>
 
                                 <Route path="createcard" element={<CreateCardLayout />}>
                                 </Route>
                             </HeaderProvider>
-                        </TemplateProvider>
-                    </DesignToolProvider>
-                    <Route path="/signin" element={<Registration />}>
-                    </Route>
-                    <Route path="/signup" element={<SignUp />}>
-                    </Route>
+                            <Route path="/signin" element={<Registration />}>
+                            </Route>
+                            <Route path="/signup" element={<SignUp />}>
+                            </Route>
 
-                </Routes>
+                        </Routes>
+                    </TemplateProvider>
+                </DesignToolProvider>
             </Suspense >
         </NoSSR>
     );

@@ -1,10 +1,10 @@
 {
   "1": {
     "js": [
-      "/static/js/1.dabb3417.chunk.js"
+      "/static/js/1.4dcccdd5.chunk.js"
     ],
     "map": [
-      "/static/js/1.dabb3417.chunk.js.map"
+      "/static/js/1.4dcccdd5.chunk.js.map"
     ],
     "chunks": [
       1
@@ -12,25 +12,36 @@
   },
   "2": {
     "js": [
-      "/static/js/2.10eba269.chunk.js"
+      "/static/js/2.00ed587c.chunk.js"
     ],
     "map": [
-      "/static/js/2.10eba269.chunk.js.map"
+      "/static/js/2.00ed587c.chunk.js.map"
     ],
     "chunks": [
       2
     ]
   },
-  "client": {
-    "css": [
-      "/static/css/client.870d0440.css"
-    ],
+  "3": {
     "js": [
-      "/static/js/client.488c2846.js"
+      "/static/js/3.253beb5e.chunk.js"
     ],
     "map": [
-      "/static/css/client.870d0440.css.map",
-      "/static/js/client.488c2846.js.map"
+      "/static/js/3.253beb5e.chunk.js.map"
+    ],
+    "chunks": [
+      3
+    ]
+  },
+  "client": {
+    "css": [
+      "/static/css/client.e20b229e.css"
+    ],
+    "js": [
+      "/static/js/client.001b1e2d.js"
+    ],
+    "map": [
+      "/static/css/client.e20b229e.css.map",
+      "/static/js/client.001b1e2d.js.map"
     ],
     "chunks": [
       0
@@ -42,8 +53,9 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.dabb3417.chunk.js.LICENSE.txt",
-      "/static/js/client.488c2846.js.LICENSE.txt"
+      "/static/js/1.4dcccdd5.chunk.js.LICENSE.txt",
+      "/static/js/3.253beb5e.chunk.js.LICENSE.txt",
+      "/static/js/client.001b1e2d.js.LICENSE.txt"
     ],
     "svg": [
       "/static/media/chevron-down.c16040f3.svg",

@@ -1,6 +1,19 @@
 import React from 'react';
+import CardElementsFunctions from '../../../../../../../../Hooks/CardElementsFunctions';
+import { defaultTextBox, fontSizeArray } from '../../../../../../../../utils/defaults';
 
 const TextSelector: React.FC = (): JSX.Element => {
+
+    const { handleAddNewText } = CardElementsFunctions()
+
+    const handleTextAdd = (type: "Header" | "Sub header" | "body text") => {
+        const textTypeFont = fontSizeArray.find(item => item.name === type).size
+        handleAddNewText({
+            ...defaultTextBox,
+            fontSize: textTypeFont
+        })
+    }
+
     return (
         <div className=" flex   flex-col justify-center w-full p-6 ">
 
@@ -8,9 +21,15 @@ const TextSelector: React.FC = (): JSX.Element => {
                 <h1 className="mt-3 font-bold text-xl">Click text to add to page</h1>
             </div>
             <div className="mt-6 w-full flex flex-col justify-start items-start">
-                <button className="text-5xl leading-none font-normal text-gray94 mb-2"><h1>Heading 1</h1></button>
-                <button className="text-4xl leading-none font-normal text-gray94 mb-2"><h1>Heading 2</h1></button>
-                <button className="text-4xl leading-none font-normal text-gray94"><h1>Body 1</h1></button>
+                <button
+                    onClick={() => handleTextAdd("Header")}
+                    className="text-5xl leading-none font-normal text-gray94 mb-2"><p>Heading 1</p></button>
+                <button
+                    onClick={() => handleTextAdd("Sub header")}
+                    className="text-5xl leading-none font-normal text-gray94 mb-2"><p>Sub header</p></button>
+                <button
+                    onClick={() => handleTextAdd("body text")}
+                    className="text-5xl leading-none font-normal text-gray94 mb-2"><p>body text</p></button>
             </div>
             <div className="mt-6 w-full border-b-2 border-bordercolor">
             </div>

@@ -3,9 +3,6 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "string"
-    },
     "name": {
       "type": "string"
     },
@@ -15,6 +12,5 @@
         "type": "object"
       }
     }     
-  },
-  "required": ["id", "name"]
+  }
 }

@@ -10,7 +10,7 @@ const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-w
 
 interface Props {
     templateData: any
-    handleSaveTemplate: (tagsList: string[], selectedCategory: string) => void
+    handleSaveTemplate: (tags: string[], selectedCategory: string) => void
 }
 
 const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => {
