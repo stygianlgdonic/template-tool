@@ -1,65 +1,8 @@
 {
-  "1": {
-    "js": [
-      "/static/js/1.4dcccdd5.chunk.js"
-    ],
-    "map": [
-      "/static/js/1.4dcccdd5.chunk.js.map"
-    ],
-    "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.00ed587c.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.00ed587c.chunk.js.map"
-    ],
-    "chunks": [
-      2
-    ]
-  },
-  "3": {
-    "js": [
-      "/static/js/3.253beb5e.chunk.js"
-    ],
-    "map": [
-      "/static/js/3.253beb5e.chunk.js.map"
-    ],
-    "chunks": [
-      3
-    ]
-  },
-  "client": {
-    "css": [
-      "/static/css/client.e20b229e.css"
-    ],
-    "js": [
-      "/static/js/client.001b1e2d.js"
-    ],
-    "map": [
-      "/static/css/client.e20b229e.css.map",
-      "/static/js/client.001b1e2d.js.map"
-    ],
-    "chunks": [
-      0
-    ]
-  },
   "noentry": {
-    "ico": [
-      "/favicon.ico"
-    ],
-    "txt": [
-      "/robots.txt",
-      "/static/js/1.4dcccdd5.chunk.js.LICENSE.txt",
-      "/static/js/3.253beb5e.chunk.js.LICENSE.txt",
-      "/static/js/client.001b1e2d.js.LICENSE.txt"
-    ],
     "svg": [
-      "/static/media/chevron-down.c16040f3.svg",
-      "/static/media/plus.cc6d96c4.svg"
+      "http://localhost:4001/static/media/chevron-down.c16040f3.svg",
+      "http://localhost:4001/static/media/plus.cc6d96c4.svg"
     ]
   }
 }

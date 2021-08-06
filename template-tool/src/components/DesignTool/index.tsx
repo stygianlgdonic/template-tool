@@ -164,11 +164,11 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = async (tags: string[], selectedCategory: string) => {
+    const handleSaveTemplate = async (tags: string[], categoryId: string) => {
         if (!!templateID) {
-            await template_service.updateTemplateByID(templateID, { ...templateData, tags })
+            await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
         } else {
-            await template_service.addNewTemplate({ ...templateData, tags })
+            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)
@@ -265,6 +265,7 @@ const DesignTool: React.FC = () => {
                             setTemplateData={setTemplateData}
                             variationIndex={variationIndex}
                             selectedId={selectedId}
+                            setSelectedId={setSelectedId}
                         />
                     </ErrorBoundary>
                     <div className="flex justify-center mt-5">

@@ -31,7 +31,7 @@ const CustomSelect: React.FC<any> = ({ label, value, onChange, dataArray, width,
                             <li
                                 key={ind}
                                 className="text-mineShaft select-none cursor-pointer relative py-2 pl-3 pr-9 hover:bg-gray94  "
-                                value={val}
+                                value={val.name}
                                 onClick={() => {
                                     onChange(val)
                                     setIsComponentVisible(false)
@@ -39,7 +39,7 @@ const CustomSelect: React.FC<any> = ({ label, value, onChange, dataArray, width,
                             >
                                 <div className="flex items-center">
                                     <h2 className="text-jacksonsPurple font-normal ml-3 block truncate ">
-                                        {titleCase(val)}
+                                        {titleCase(val.name)}
                                     </h2>
                                 </div>
                             </li>
