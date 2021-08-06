@@ -94,6 +94,16 @@ const CardElementsFunctions = () => {
     });
   };
 
+  const handleAddSvg = SVG_STRING => {
+    setCardData(prev => {
+      let svgId = new Date().getTime();
+      prev.elements.push(_objectSpread({
+        id: `svgs_${svgId.toString()}`,
+        svgString: SVG_STRING
+      }, _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["defaultSvg"]));
+    });
+  };
+
   const handleImageUpload = () => {
     selectFile({
       accept: "image/png, image/jpg, image/jpeg",
@@ -333,6 +343,7 @@ const CardElementsFunctions = () => {
     handleAddNewTrianlge,
     handleAddNewPolygon,
     handleSvgUpload,
+    handleAddSvg,
     handleImageUpload,
     handleAddNewText,
     handleDeleteSelectedItem,
