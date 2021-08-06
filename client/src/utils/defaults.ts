@@ -8,6 +8,14 @@ export const defaultCircle = { name: "object", x: 200, y: 100, radius: 50, strok
 export const defaultPolygon = { name: "object", x: 100, y: 150, sides: 6, stroke: "#000000", strokeWidth: 4, radius: 70, fill: '#FF0000', type: "polygon" }
 export const defaultTriangle = { name: "object", x: 20, y: 200, stroke: "#000000", strokeWidth: 4, fill: "#FF0000", points: [0, 100, 50, 0, 100, 100], tension: 0, closed: true, type: "line", }
 export const defaultTextBox = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "#000000" }
+
+export const textHollow = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "white", stroke: "black" };
+export const textLift = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "black", shadowEnabled: true, shadowBlur: 10 };
+export const textShadow = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "black", shadowEnabled: true, shadowColor: "grey", shadowOffset: { x: 2, y: 2 }, shadowBlur: 2 };
+export const textSplice = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", shadowColor: "grey", shadowOffset: { x: 2, y: 2 }, shadowBlur: 5, fill: "white", stroke: "black" };
+export const textGlitch = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "darkerblue", shadowEnabled: true, shadowColor: "magenta", shadowOffset: { x: -2, y: -2 }, shadowBlur: 2 };
+export const textNeon = { name: "object", text: 'New text', x: 150, y: 200, fontSize: 20, draggable: true, width: 200, type: "text", fill: "magenta", shadowColor: "magenta", shadowEnabled: true, shadowBlur: 10 };
+
 export const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo']
 export const fontSizeArray = [{ name: "Header", size: 40, }, { name: "Sub header", size: 25, }, { name: "body text", size: 15, }]
 
