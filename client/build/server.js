@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "458df678dcda06223b8c";
+/******/ 	var hotCurrentHash = "78e64e16772fa64a496d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -2230,6 +2230,17 @@ module.exports = require("react-konva");
 /***/ (function(module, exports) {
 
 module.exports = require("react-query");
+
+/***/ }),
+
+/***/ "react-range":
+/*!******************************!*\
+  !*** external "react-range" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-range");
 
 /***/ }),
 
