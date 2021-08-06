@@ -1,10 +1,10 @@
 exports.ids = [3];
 exports.modules = {
 
-/***/ "./src/Screens/Registration/Signup/Signup.tsx":
-/*!****************************************************!*\
-  !*** ./src/Screens/Registration/Signup/Signup.tsx ***!
-  \****************************************************/
+/***/ "./src/layouts/LoggedOutLayout/Registration/Signup/Signup.tsx":
+/*!********************************************************************!*\
+  !*** ./src/layouts/LoggedOutLayout/Registration/Signup/Signup.tsx ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,25 +13,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\Registration\\Signup\\Signup.tsx";
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/auth_service */ "./src/services/auth_service.ts");
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Signup\\Signup.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 function Example() {
+  const {
+    0: userObj,
+    1: setuserObj
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    email: "",
+    password: "",
+    againPassword: ""
+  });
+
+  const onhandlechange = (value, name) => {
+    setuserObj(_objectSpread(_objectSpread({}, userObj), {}, {
+      [name]: value
+    }));
+  };
+
+  const onhandleSubmit = async e => {
+    e.preventDefault();
+
+    if (!!userObj.email && !!userObj.password && !!userObj.againPassword && userObj.password === userObj.againPassword) {
+      const res = await _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["userAuthenticationService"].signupUser(userObj.email, userObj.password);
+      console.log({
+        res
+      });
+      alert(res);
+    }
+  };
+
   return __jsx("div", {
     className: "flex flex-col justify-center min-h-screen py-12 bg-gray50 sm:px-6 lg:px-8",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 7
+      lineNumber: 29,
+      columnNumber: 5
     }
   }, __jsx("div", {
     className: "sm:mx-auto sm:w-full sm:max-w-md",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 9
+      lineNumber: 30,
+      columnNumber: 7
     }
   }, __jsx("img", {
     className: "w-auto h-12 mx-auto",
@@ -40,49 +76,50 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 11
+      lineNumber: 31,
+      columnNumber: 9
     }
   }), __jsx("h2", {
     className: "mt-6 text-3xl font-extrabold text-center text-gray-900",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 11
+      lineNumber: 36,
+      columnNumber: 9
     }
   }, "Sign up to get the full experience")), __jsx("div", {
     className: "mt-8 sm:mx-auto sm:w-full sm:max-w-md",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 9
+      lineNumber: 45,
+      columnNumber: 7
     }
   }, __jsx("div", {
     className: "px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 11
+      lineNumber: 46,
+      columnNumber: 9
     }
   }, __jsx("form", {
     className: "space-y-6",
     action: "#",
+    onSubmit: onhandleSubmit,
     method: "POST",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 13
+      lineNumber: 47,
+      columnNumber: 11
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
-      columnNumber: 15
+      lineNumber: 48,
+      columnNumber: 13
     }
   }, __jsx("label", {
     htmlFor: "email",
@@ -90,20 +127,22 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 17
+      lineNumber: 49,
+      columnNumber: 15
     }
   }, "Email address"), __jsx("div", {
     className: "mt-1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 17
+      lineNumber: 52,
+      columnNumber: 15
     }
   }, __jsx("input", {
+    onChange: e => onhandlechange(e.target.value, e.target.name),
     id: "email",
     name: "email",
+    value: userObj.email,
     type: "email",
     autoComplete: "email",
     required: true,
@@ -111,15 +150,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 19
+      lineNumber: 53,
+      columnNumber: 17
     }
   }))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 15
+      lineNumber: 66,
+      columnNumber: 13
     }
   }, __jsx("label", {
     htmlFor: "password",
@@ -127,20 +166,22 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 17
+      lineNumber: 67,
+      columnNumber: 15
     }
   }, "Password"), __jsx("div", {
     className: "mt-1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 17
+      lineNumber: 70,
+      columnNumber: 15
     }
   }, __jsx("input", {
+    onChange: e => onhandlechange(e.target.value, e.target.name),
     id: "password",
     name: "password",
+    value: userObj.password,
     type: "password",
     autoComplete: "current-password",
     required: true,
@@ -148,15 +189,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 19
+      lineNumber: 71,
+      columnNumber: 17
     }
   })), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 17
+      lineNumber: 82,
+      columnNumber: 15
     }
   }, __jsx("label", {
     htmlFor: "password",
@@ -164,7 +205,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 83,
       columnNumber: 17
     }
   }, "Confirm Password"), __jsx("div", {
@@ -172,12 +213,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 86,
       columnNumber: 17
     }
   }, __jsx("input", {
+    onChange: e => onhandlechange(e.target.value, e.target.name),
     id: "password",
-    name: "password",
+    name: "againPassword",
+    value: userObj.againPassword,
     type: "password",
     autoComplete: "current-password",
     required: true,
@@ -185,7 +228,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 87,
       columnNumber: 19
     }
   }))), __jsx("div", {
@@ -193,7 +236,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 100,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -201,7 +244,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 101,
       columnNumber: 17
     }
   }, __jsx("input", {
@@ -212,7 +255,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 102,
       columnNumber: 19
     }
   }), __jsx("label", {
@@ -221,14 +264,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 108,
       columnNumber: 19
     }
   }, "Remember me"))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 120,
       columnNumber: 15
     }
   }, __jsx("button", {
@@ -237,7 +280,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 121,
       columnNumber: 17
     }
   }, "Sign Up")))), __jsx("div", {
@@ -245,63 +288,63 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
-      columnNumber: 13
+      lineNumber: 131,
+      columnNumber: 11
     }
   }, __jsx("div", {
     className: "relative",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
-      columnNumber: 15
+      lineNumber: 132,
+      columnNumber: 13
     }
   }, __jsx("div", {
     className: "absolute inset-0 flex items-center",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
-      columnNumber: 17
+      lineNumber: 133,
+      columnNumber: 15
     }
   }, __jsx("div", {
     className: "w-full border-t border-gray-300",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
-      columnNumber: 19
+      lineNumber: 134,
+      columnNumber: 17
     }
   })), __jsx("div", {
     className: "relative flex justify-center text-sm",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
-      columnNumber: 17
+      lineNumber: 136,
+      columnNumber: 15
     }
   }, __jsx("span", {
     className: "px-2 text-gray-500 bg-white",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
-      columnNumber: 19
+      lineNumber: 137,
+      columnNumber: 17
     }
   }, "Or continue with"))), __jsx("div", {
     className: "grid grid-cols-3 gap-3 mt-6",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
-      columnNumber: 15
+      lineNumber: 141,
+      columnNumber: 13
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
-      columnNumber: 17
+      lineNumber: 142,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -309,16 +352,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
-      columnNumber: 19
+      lineNumber: 143,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
-      columnNumber: 21
+      lineNumber: 147,
+      columnNumber: 19
     }
   }, "Sign in with Facebook"), __jsx("svg", {
     className: "w-5 h-5",
@@ -328,8 +371,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
-      columnNumber: 21
+      lineNumber: 148,
+      columnNumber: 19
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -338,15 +381,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
-      columnNumber: 23
+      lineNumber: 149,
+      columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
-      columnNumber: 17
+      lineNumber: 158,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -354,16 +397,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
-      columnNumber: 19
+      lineNumber: 159,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 21
+      lineNumber: 163,
+      columnNumber: 19
     }
   }, "Sign in with Twitter"), __jsx("svg", {
     className: "w-5 h-5",
@@ -373,23 +416,23 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 21
+      lineNumber: 164,
+      columnNumber: 19
     }
   }, __jsx("path", {
     d: "M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 23
+      lineNumber: 165,
+      columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
-      columnNumber: 17
+      lineNumber: 170,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -397,16 +440,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
-      columnNumber: 19
+      lineNumber: 171,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
-      columnNumber: 21
+      lineNumber: 175,
+      columnNumber: 19
     }
   }, "Sign in with GitHub"), __jsx("svg", {
     className: "w-5 h-5",
@@ -416,8 +459,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145,
-      columnNumber: 21
+      lineNumber: 176,
+      columnNumber: 19
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -426,10 +469,76 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
-      columnNumber: 23
+      lineNumber: 177,
+      columnNumber: 21
     }
   })))))))));
+}
+
+/***/ }),
+
+/***/ "./src/services/auth_service.ts":
+/*!**************************************!*\
+  !*** ./src/services/auth_service.ts ***!
+  \**************************************/
+/*! exports provided: userAuthenticationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userAuthenticationService", function() { return userAuthenticationService; });
+const userAuthenticationService = {
+  signupUser,
+  loginUser
+};
+
+function signupUser(email, password) {
+  new Promise((resolve, reject) => {
+    try {
+      const res = fetch("http://localhost:5000/signup", {
+        // credentials: "include",
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+      console.log({
+        res
+      });
+      resolve(res);
+    } catch (err) {
+      console.log("Sign Up error =>", err);
+      reject(err);
+    }
+  });
+}
+
+async function loginUser(email, password) {
+  new Promise((resolve, reject) => {
+    try {
+      const res = fetch("http://localhost:5000/login", {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+      resolve(res);
+    } catch (err) {
+      reject(err);
+    }
+  });
 }
 
 /***/ })

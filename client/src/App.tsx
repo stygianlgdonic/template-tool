@@ -10,10 +10,10 @@ import { DesignToolProvider } from './contexts/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
 import { HeaderProvider } from './contexts/HeaderContext';
 
-const Registration = React.lazy(() => import('./Screens/Registration/Registration'))
-const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'))
-const CreateCardLayout = React.lazy(() => import('./../src/Screens/CreateCardLayout/CreateCardLayout'));
-const SignUp = React.lazy(() => import('./Screens/Registration/Signup/Signup'))
+const Registration = React.lazy(() => import('./layouts/LoggedOutLayout/Registration/Registration'))
+const Dashboard = React.lazy(() => import('./layouts/LoggedInLayout/Dashboard/Dashboard'))
+const CreateCardLayout = React.lazy(() => import('./layouts/LoggedInLayout/CreateCardLayout/CreateCardLayout'));
+const SignUp = React.lazy(() => import('./layouts/LoggedOutLayout/Registration/Signup/Signup'))
 
 const App = () => {
 
