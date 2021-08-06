@@ -16,7 +16,7 @@ export const INITIAL_STATE = {
         // fill: '#F0F0F0',
         fillLinearGradientStartPoint: { x: 0, y: 0 },
         fillLinearGradientEndPoint: { x: stageDimensions.width, y: stageDimensions.height },
-        fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
+        fillLinearGradientColorStops: [0, '#ffffff', 1, '#ffffff'],
         draggable: false,
     }],
 }
