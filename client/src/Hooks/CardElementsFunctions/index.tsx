@@ -198,6 +198,15 @@ const CardElementsFunctions = () => {
         })
     }
 
+    const handleTextEffect = (textObj: any) => {
+        setCardData(prev => {
+            const shapeIndex = prev.elements.findIndex(
+                (item) => item.id === selectedId
+            );
+            prev.elements[shapeIndex] = textObj
+        })
+    }
+
     const handleTextColor = (color: string) => {
         setCardData(prev => {
             const shapeIndex = prev.elements.findIndex(
@@ -342,6 +351,7 @@ const CardElementsFunctions = () => {
         handleTextTransform,
         handleTextAlign,
         handleTextOpacity,
+        handleTextEffect,
         handleTextColor,
         handleFontFamily,
         handleBorderWidthChange,
