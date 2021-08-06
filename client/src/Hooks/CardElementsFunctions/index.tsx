@@ -56,6 +56,18 @@ const CardElementsFunctions = () => {
         })
     }
 
+    const handleAddSvg = (SVG_STRING: string) => {
+        setCardData((prev) => {
+            let svgId = new Date().getTime()
+            prev.elements.push({
+
+                id: `svgs_${svgId.toString()}`,
+                svgString: SVG_STRING,
+                ...defaultSvg
+            })
+        })
+    }
+
     const handleImageUpload = () => {
         selectFile({ accept: "image/png, image/jpg, image/jpeg", multiple: false },
             ({ file }: any) => {
@@ -317,6 +329,7 @@ const CardElementsFunctions = () => {
         handleAddNewTrianlge,
         handleAddNewPolygon,
         handleSvgUpload,
+        handleAddSvg,
         handleImageUpload,
         handleAddNewText,
         handleDeleteSelectedItem,
