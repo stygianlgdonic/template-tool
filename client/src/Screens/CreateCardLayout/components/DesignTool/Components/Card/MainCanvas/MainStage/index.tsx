@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Stage, Layer, Rect } from 'react-konva';
 import Rectangle from "../Rectangle"
 import UCircle from "../UCircle"
@@ -17,7 +17,6 @@ const MainStage = ({
     setCardData,
     selectedId,
     setSelectedId,
-    unSelectAll,
 }) => {
 
     const GUIDELINE_OFFSET = 5
@@ -257,7 +256,7 @@ const MainStage = ({
         // deselect when clicked on empty area
         const clickedOnEmpty = e.target === e.target.getStage();
         if (clickedOnEmpty) {
-            unSelectAll();
+            setSelectedId(null);
             $tr.current.nodes([]);
             setNodes([]);
             // layerRef.current.remove(selectionRectangle);
@@ -330,12 +329,13 @@ const MainStage = ({
         if (selectionRectRef.current.visible()) {
             return;
         }
-        let stage = e.target.getStage();
+        let isBackground = e.target.attrs.id === "shapes_background";
         let layer = $layer.current;
         let tr = $tr.current;
         // if click on empty area - remove all selections
-        if (e.target === stage) {
-            unSelectAll();
+        if (isBackground) {
+            console.log({ isBackground })
+            setSelectedId(null);
             setNodes([]);
             tr.nodes([]);
             layer.draw();
@@ -377,7 +377,7 @@ const MainStage = ({
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
             onTouchStart={checkDeselect}
-            onClick={onClickTap}
+            // onClick={onClickTap}
             {...stageDimensions}
         >
             <Layer
@@ -399,8 +399,10 @@ const MainStage = ({
                                     $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
-                                if (elem.id !== "shapes_background")
+                                if (elem.id !== "shapes_background") {
                                     setSelectedId(elem.id);
+                                }
+                                else { onClickTap(e) }
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
@@ -516,6 +518,7 @@ const MainStage = ({
                     id={`tr${selectedId}`}
                     $tr={$tr}
                     selectedShapeName={selectedId}
+                    setSelectedId={setSelectedId}
                 />
                 <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
             </Layer>
