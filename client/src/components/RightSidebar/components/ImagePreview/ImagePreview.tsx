@@ -18,7 +18,7 @@ const ImagePreview: React.FC<BioProps> = ({ date, creator, last_edited_by, image
     const svg3 = generatesvgUrl(ORIGINAL_SVG_deleteicon)
 
     return (
-        <div className="mt-4 overflow-y-auto overscroll-y-auto w-full flex self-center bg-white justify-center border-0 shadow-sm rounded-lg pb-10">
+        <div className="mt-4 overflow-y-auto overscroll-y-auto w-full flex self-center bg-white justify-center border  rounded-lg pb-10 shadow-md">
             <div className=" pt-4">
                 <div className="flex justify-center flex-col items-center">
                     <div className="flex flex-row">
