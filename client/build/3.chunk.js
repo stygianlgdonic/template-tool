@@ -495,9 +495,9 @@ const userAuthenticationService = {
 function signupUser(email, password) {
   new Promise((resolve, reject) => {
     try {
-      const res = fetch("http://localhost:5000/signup", {
+      const res = fetch("https://52cb497b0b4f.ngrok.io/signup", {
         // credentials: "include",
-        mode: 'cors',
+        // mode: 'cors',
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Accept': 'application/json',
