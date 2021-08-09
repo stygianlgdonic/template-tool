@@ -1,10 +1,10 @@
 exports.ids = [3];
 exports.modules = {
 
-/***/ "./src/Screens/Registration/Signup/Signup.tsx":
-/*!****************************************************!*\
-  !*** ./src/Screens/Registration/Signup/Signup.tsx ***!
-  \****************************************************/
+/***/ "./src/Screens/Registration/Registration.tsx":
+/*!***************************************************!*\
+  !*** ./src/Screens/Registration/Registration.tsx ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\Registration\\Signup\\Signup.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\Registration\\Registration.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function Example() {
@@ -23,7 +23,7 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 4,
-      columnNumber: 7
+      columnNumber: 5
     }
   }, __jsx("div", {
     className: "sm:mx-auto sm:w-full sm:max-w-md",
@@ -31,7 +31,7 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5,
-      columnNumber: 9
+      columnNumber: 7
     }
   }, __jsx("img", {
     className: "w-auto h-12 mx-auto",
@@ -41,7 +41,7 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6,
-      columnNumber: 11
+      columnNumber: 9
     }
   }), __jsx("h2", {
     className: "mt-6 text-3xl font-extrabold text-center text-gray-900",
@@ -49,23 +49,40 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11,
+      columnNumber: 9
+    }
+  }, "Sign in to your account"), __jsx("p", {
+    className: "mt-2 text-sm text-center text-gray-600",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 9
+    }
+  }, "Or", " ", __jsx("a", {
+    href: "#",
+    className: "font-medium text-indigo600 hover:text-indigo-500",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
       columnNumber: 11
     }
-  }, "Sign up to get the full experience")), __jsx("div", {
+  }, "start your 14-day free trial"))), __jsx("div", {
     className: "mt-8 sm:mx-auto sm:w-full sm:max-w-md",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 9
+      lineNumber: 25,
+      columnNumber: 7
     }
   }, __jsx("div", {
     className: "px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 11
+      lineNumber: 26,
+      columnNumber: 9
     }
   }, __jsx("form", {
     className: "space-y-6",
@@ -74,15 +91,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 13
+      lineNumber: 27,
+      columnNumber: 11
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
-      columnNumber: 15
+      lineNumber: 28,
+      columnNumber: 13
     }
   }, __jsx("label", {
     htmlFor: "email",
@@ -90,16 +107,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 17
+      lineNumber: 29,
+      columnNumber: 15
     }
   }, "Email address"), __jsx("div", {
     className: "mt-1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 17
+      lineNumber: 35,
+      columnNumber: 15
     }
   }, __jsx("input", {
     id: "email",
@@ -111,15 +128,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 19
+      lineNumber: 36,
+      columnNumber: 17
     }
   }))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 15
+      lineNumber: 47,
+      columnNumber: 13
     }
   }, __jsx("label", {
     htmlFor: "password",
@@ -127,53 +144,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 17
+      lineNumber: 48,
+      columnNumber: 15
     }
   }, "Password"), __jsx("div", {
     className: "mt-1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 17
-    }
-  }, __jsx("input", {
-    id: "password",
-    name: "password",
-    type: "password",
-    autoComplete: "current-password",
-    required: true,
-    className: "block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 19
-    }
-  })), __jsx("div", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 17
-    }
-  }, __jsx("label", {
-    htmlFor: "password",
-    className: "block mt-6 text-sm font-medium text-gray-700",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 54,
-      columnNumber: 17
-    }
-  }, "Confirm Password"), __jsx("div", {
-    className: "mt-1",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 57,
-      columnNumber: 17
+      columnNumber: 15
     }
   }, __jsx("input", {
     id: "password",
@@ -185,24 +165,24 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
-      columnNumber: 19
+      lineNumber: 55,
+      columnNumber: 17
     }
   }))), __jsx("div", {
-    className: "flex items-center justify-between mt-6",
+    className: "flex items-center justify-between",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 15
+      lineNumber: 66,
+      columnNumber: 13
     }
   }, __jsx("div", {
     className: "flex items-center",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
-      columnNumber: 17
+      lineNumber: 67,
+      columnNumber: 15
     }
   }, __jsx("input", {
     id: "remember-me",
@@ -212,8 +192,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 19
+      lineNumber: 68,
+      columnNumber: 17
     }
   }), __jsx("label", {
     htmlFor: "remember-me",
@@ -221,87 +201,104 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
-      columnNumber: 19
+      lineNumber: 74,
+      columnNumber: 17
     }
-  }, "Remember me"))), __jsx("div", {
+  }, "Remember me")), __jsx("div", {
+    className: "text-sm",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 82,
       columnNumber: 15
+    }
+  }, __jsx("a", {
+    href: "#",
+    className: "font-medium text-indigo-600 hover:text-indigo-500",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 17
+    }
+  }, "Forgot your password?"))), __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 13
     }
   }, __jsx("button", {
     type: "submit",
-    className: "flex justify-center w-full px-4 py-2 mt-4 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-indigo600 hover:bg-indigo700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo500",
+    className: "flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-indigo600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
-      columnNumber: 17
+      lineNumber: 93,
+      columnNumber: 15
     }
-  }, "Sign Up")))), __jsx("div", {
+  }, "Sign in"))), __jsx("div", {
     className: "mt-6",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
-      columnNumber: 13
+      lineNumber: 102,
+      columnNumber: 11
     }
   }, __jsx("div", {
     className: "relative",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
-      columnNumber: 15
+      lineNumber: 103,
+      columnNumber: 13
     }
   }, __jsx("div", {
     className: "absolute inset-0 flex items-center",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
-      columnNumber: 17
+      lineNumber: 104,
+      columnNumber: 15
     }
   }, __jsx("div", {
     className: "w-full border-t border-gray-300",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
-      columnNumber: 19
+      lineNumber: 105,
+      columnNumber: 17
     }
   })), __jsx("div", {
     className: "relative flex justify-center text-sm",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
-      columnNumber: 17
+      lineNumber: 107,
+      columnNumber: 15
     }
   }, __jsx("span", {
     className: "px-2 text-gray-500 bg-white",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
-      columnNumber: 19
+      lineNumber: 108,
+      columnNumber: 17
     }
   }, "Or continue with"))), __jsx("div", {
     className: "grid grid-cols-3 gap-3 mt-6",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
-      columnNumber: 15
+      lineNumber: 114,
+      columnNumber: 13
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
-      columnNumber: 17
+      lineNumber: 115,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -309,16 +306,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
-      columnNumber: 19
+      lineNumber: 116,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
-      columnNumber: 21
+      lineNumber: 120,
+      columnNumber: 19
     }
   }, "Sign in with Facebook"), __jsx("svg", {
     className: "w-5 h-5",
@@ -328,8 +325,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
-      columnNumber: 21
+      lineNumber: 121,
+      columnNumber: 19
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -338,15 +335,15 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
-      columnNumber: 23
+      lineNumber: 127,
+      columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
-      columnNumber: 17
+      lineNumber: 136,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -354,16 +351,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
-      columnNumber: 19
+      lineNumber: 137,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 21
+      lineNumber: 141,
+      columnNumber: 19
     }
   }, "Sign in with Twitter"), __jsx("svg", {
     className: "w-5 h-5",
@@ -373,23 +370,23 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 21
+      lineNumber: 142,
+      columnNumber: 19
     }
   }, __jsx("path", {
     d: "M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 23
+      lineNumber: 148,
+      columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
-      columnNumber: 17
+      lineNumber: 153,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "#",
@@ -397,16 +394,16 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
-      columnNumber: 19
+      lineNumber: 154,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "sr-only",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
-      columnNumber: 21
+      lineNumber: 158,
+      columnNumber: 19
     }
   }, "Sign in with GitHub"), __jsx("svg", {
     className: "w-5 h-5",
@@ -416,8 +413,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145,
-      columnNumber: 21
+      lineNumber: 159,
+      columnNumber: 19
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -426,8 +423,8 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
-      columnNumber: 23
+      lineNumber: 165,
+      columnNumber: 21
     }
   })))))))));
 }

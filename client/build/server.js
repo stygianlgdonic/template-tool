@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "46d4b3ccafadbeb7ce2c";
+/******/ 	var hotCurrentHash = "edbf6e5721060bc61a4b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1373,10 +1373,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const Registration = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Registration */ "./src/Screens/Registration/Registration.tsx")));
-const Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Screens/Dashboard/Dashboard */ "./src/Screens/Dashboard/Dashboard.tsx")));
-const CreateCardLayout = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../src/Screens/CreateCardLayout/CreateCardLayout */ "./src/Screens/CreateCardLayout/CreateCardLayout.tsx")));
-const SignUp = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Signup/Signup */ "./src/Screens/Registration/Signup/Signup.tsx")));
+const Registration = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Registration */ "./src/Screens/Registration/Registration.tsx")));
+const Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Screens/Dashboard/Dashboard */ "./src/Screens/Dashboard/Dashboard.tsx")));
+const CreateCardLayout = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./../src/Screens/CreateCardLayout/CreateCardLayout */ "./src/Screens/CreateCardLayout/CreateCardLayout.tsx")));
+const SignUp = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.lazy(() => __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./Screens/Registration/Signup/Signup */ "./src/Screens/Registration/Signup/Signup.tsx")));
 
 const App = () => {
   return __jsx(_NoSSR__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1600,18 +1600,12 @@ const DesignToolProvider = ({
     0: selectedId,
     1: setSelectedId
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
-  const {
-    0: isOpenFallbackModal,
-    1: setIsOpenFallbackModal
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx(DesignToolContext.Provider, {
     value: {
       designToolnavigator,
       setDesignToolnavigator,
       designHeadernavigator,
       setDesignHeadernavigator,
-      isOpenFallbackModal,
-      setIsOpenFallbackModal,
       selectedId,
       setSelectedId,
       cardData,
@@ -1626,7 +1620,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 35,
       columnNumber: 9
     }
   }, children);
@@ -2284,6 +2278,17 @@ module.exports = require("jest-message-util");
 
 /***/ }),
 
+/***/ "object-assign":
+/*!********************************!*\
+  !*** external "object-assign" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("object-assign");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
@@ -2347,6 +2352,28 @@ module.exports = require("react-range");
 /***/ (function(module, exports) {
 
 module.exports = require("react-router-dom");
+
+/***/ }),
+
+/***/ "scheduler":
+/*!****************************!*\
+  !*** external "scheduler" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("scheduler");
+
+/***/ }),
+
+/***/ "scheduler/tracing":
+/*!************************************!*\
+  !*** external "scheduler/tracing" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("scheduler/tracing");
 
 /***/ }),
 

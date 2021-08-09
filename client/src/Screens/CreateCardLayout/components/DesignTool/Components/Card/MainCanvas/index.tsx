@@ -11,12 +11,6 @@ const DesignTool: React.FC = () => {
         cardData, setCardData,
     } = useContext(DesignToolContext)
 
-    const handleEscape = (e) => {
-        if (e.key === "Escape") {
-            setSelectedId()
-        }
-    }
-
     useEffect(() => {
         if (!selectedId) return
 
@@ -29,6 +23,12 @@ const DesignTool: React.FC = () => {
         }
 
     })
+
+    const handleEscape = (e) => {
+        if (e.key === "Escape") {
+            setSelectedId(null)
+        }
+    }
 
     useEffect(() => {
 
@@ -52,7 +52,6 @@ const DesignTool: React.FC = () => {
                     setCardData={setCardData}
                     selectedId={selectedId}
                     setSelectedId={setSelectedId}
-                    unSelectAll={() => setSelectedId(null)}
                 />
             </div>
         </div>

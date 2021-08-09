@@ -17,8 +17,8 @@ const CardHeader: React.FC = (): JSX.Element => {
 
         <div style={{ height: "61px" }} className="z-50 flex-col py-2  
         ">
-            {designHeadernavigator === "text" && <TextHeader />}
-            {designHeadernavigator === "rect" && <ElementHeader />}
+            {!!selectedId && designHeadernavigator === "text" && <TextHeader />}
+            {!!selectedId && designHeadernavigator === "rect" && <ElementHeader />}
         </div>
     );
 };
