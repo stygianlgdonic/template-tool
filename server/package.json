@@ -1,5 +1,5 @@
 {
-  "author": "Michael Hueter <mthueter@gmail.com>",
+  "author": "Wakas Abbasid",
   "version": "2.0.0",
   "name": "docker-node-express-boilerplate",
   "description": "Boilerplate Dockerized Express code to launch new RESTful APIs.",
@@ -8,6 +8,10 @@
     "url": "git@github.com:mhueter/docker-node-express-boilerplate.git"
   },
   "main": "app/app.js",
+  "engines": {
+    "node": "14.16.1",
+    "npm": "6.14.12"
+  },
   "scripts": {
     "test": "jest",
     "dev": "env-cmd -f .env npx nodemon app/server.js",
@@ -16,12 +20,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "bluebird": "3.7.2",
     "env-cmd": "^10.1.0",
     "express": "4.17.1",
     "jsonschema": "1.4.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.7",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
