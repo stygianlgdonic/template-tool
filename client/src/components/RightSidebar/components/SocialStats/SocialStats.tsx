@@ -20,7 +20,7 @@ const StatGraph: React.FC<BioProps> = ({ fb_impressions, fb_clicks, socialmedia1
     const svg2 = generatesvgUrl(ORIGINAL_SVG_bluedoticon)
     const svg3 = generatesvgUrl(ORIGINAL_SVG_greendoticon)
     return (
-        <div className=" border-0 rounded-md bg-white  w-full   py-6">
+        <div className=" border shadow-md rounded-md bg-white  w-full   py-6">
             <div>
                 <h1 className="text-xl leading-7 font-medium px-6 mb-4">Sources</h1>
 

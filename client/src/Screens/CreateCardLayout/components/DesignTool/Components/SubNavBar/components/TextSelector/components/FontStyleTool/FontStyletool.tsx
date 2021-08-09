@@ -42,21 +42,21 @@ const FontStyletool: React.FC = (): JSX.Element => {
             <div >
                 <h1 className="text-md text-gray40 mt-4" >Template Fonts</h1>
                 <div className="flex flex-col justify-end w-full ">
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Maven Pro" }} onClick={() => handleFontFamily("Maven Pro")}>Maven Pro</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Shadows Into Light" }} onClick={() => handleFontFamily("Shadows Into Light")}>Shadows Into Light</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Euphoria Script" }} onClick={() => handleFontFamily("Euphoria Script")}>Euphoria Script</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex hover:bg-lightindigo rounded-md justify-start" style={{ fontFamily: "Maven Pro" }} onClick={() => handleFontFamily("Maven Pro")}>Maven Pro</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex hover:bg-lightindigo rounded-md justify-start" style={{ fontFamily: "Shadows Into Light" }} onClick={() => handleFontFamily("Shadows Into Light")}>Shadows Into Light</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex hover:bg-lightindigo rounded-md justify-start" style={{ fontFamily: "Euphoria Script" }} onClick={() => handleFontFamily("Euphoria Script")}>Euphoria Script</button>
                 </div>
             </div>
             <div className="border-b-2 border-bordercolor mt-4" ></div>
             <div>
                 <h1 className="text-md text-gray40 mt-4" >Popular Fonts</h1>
                 <div className="flex flex-col justify-end w-full ">
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Playfair Display" }} onClick={() => handleFontFamily("Playfair Display")} >Playfair Display</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "East Sea Dokdo" }} onClick={() => handleFontFamily("East Sea Dokdo")}  >East Sea Dokdo</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Kristi" }} onClick={() => handleFontFamily("Kristi")}>Kristi</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Lobster Two" }} onClick={() => handleFontFamily("Lobster Two")}>Lobster Two</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Caveat" }} onClick={() => handleFontFamily("Caveat")}>Caveat</button>
-                    <button className="text-lg text-black mt-1 pl-2 flex justify-start" style={{ fontFamily: "Swanky and Moo Moo" }} onClick={() => handleFontFamily("Swanky and Moo Moo")} >Swanky and Moo Moo</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Playfair Display" }} onClick={() => handleFontFamily("Playfair Display")} >Playfair Display</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "East Sea Dokdo" }} onClick={() => handleFontFamily("East Sea Dokdo")}  >East Sea Dokdo</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Kristi" }} onClick={() => handleFontFamily("Kristi")}>Kristi</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Lobster Two" }} onClick={() => handleFontFamily("Lobster Two")}>Lobster Two</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Caveat" }} onClick={() => handleFontFamily("Caveat")}>Caveat</button>
+                    <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Swanky and Moo Moo" }} onClick={() => handleFontFamily("Swanky and Moo Moo")} >Swanky and Moo Moo</button>
                 </div>
             </div>
 

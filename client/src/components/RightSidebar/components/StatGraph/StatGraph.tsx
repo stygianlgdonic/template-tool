@@ -17,7 +17,7 @@ const StatGraph: React.FC<BioProps> = ({ impressions, link_clicks, conversionrat
     const svg2 = generatesvgUrl(ORIGINAL_SVG_bluedoticon)
     const svg3 = generatesvgUrl(ORIGINAL_SVG_greendoticon)
     return (
-        <div className=" border-0 rounded-md bg-white  w-full px-4  py-6">
+        <div className="  rounded-md bg-white  w-full px-4  py-6 shadow-md border">
             <div className="flex flex-row justify-between">
                 <div>
                     <h1 className="text-xl text-black leading-7 font-medium">Stats</h1>
