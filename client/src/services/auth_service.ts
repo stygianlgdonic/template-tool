@@ -8,14 +8,15 @@ export const userAuthenticationService =
 function signupUser(email: string, password: string) {
     new Promise((resolve, reject) => {
         try {
-            const res = fetch("https://52cb497b0b4f.ngrok.io/signup",
+            const res = fetch("http://localhost:5000",
                 {
                     // credentials: "include",
                     // mode: 'cors',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Accept': '/',
+                        'Content-Type': 'application/json',
+                        "User-Agent": "Thunder Client (https://www.thunderclient.io)"
                     },
                     method: "POST",
                     body: JSON.stringify({ email, password })

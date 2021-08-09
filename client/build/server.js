@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "afe72e46d7e6a44df0a7";
+/******/ 	var hotCurrentHash = "0a9826f50c71336e9211";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -859,7 +859,7 @@ module.exports =
 /*! exports provided: 0, 1, 2, 3, client, noentry, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{}}");
+module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"png\":[\"http://localhost:3001/static/media/01.2e91d53b.png\",\"http://localhost:3001/static/media/02.adc8b2dd.png\",\"http://localhost:3001/static/media/03.6bbdf893.png\",\"http://localhost:3001/static/media/04.50f8bcb9.png\",\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/echo.2b90d1ba.png\",\"http://localhost:3001/static/media/glitch.c3fda1d1.png\",\"http://localhost:3001/static/media/image.f528bd77.png\",\"http://localhost:3001/static/media/image1.3ff551f0.png\",\"http://localhost:3001/static/media/image3.6df75f11.png\",\"http://localhost:3001/static/media/image4.9cb172b4.png\",\"http://localhost:3001/static/media/image5.f1b1f809.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\",\"http://localhost:3001/static/media/lift.b13cf734.png\",\"http://localhost:3001/static/media/neon.7fca1e10.png\",\"http://localhost:3001/static/media/preview.06b7f3b0.png\",\"http://localhost:3001/static/media/shadow.161b9d54.png\",\"http://localhost:3001/static/media/splice.6bc44619.png\"],\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"]}}");
 
 /***/ }),
 
