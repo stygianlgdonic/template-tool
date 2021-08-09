@@ -10,12 +10,11 @@ const Schema = mongoose.Schema;
 const cardSchema = new Schema({
   id: String,
   ownerId: [String],
-  images: [Object],
-  textBoxes: [Object],
-  shapes: [Object],
+  elements: [Object],
   dimensions: Object,
   templateId: String,
   workspaceId: String,
+  labels: [String],
 });
 
 cardSchema.statics = {
