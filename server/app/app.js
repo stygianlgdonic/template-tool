@@ -35,6 +35,9 @@ app.use(express.json({ type: "*/*" }));
 app.use(bodyParserHandler); // error handling specific to body parser only
 
 // response headers setup; CORS
+const cors = require("cors");
+app.use(cors());
+
 // app.use(globalResponseHeaders);
 
 app.use(

@@ -8,21 +8,19 @@ export const userAuthenticationService =
 function signupUser(email: string, password: string) {
     new Promise((resolve, reject) => {
         try {
-            const res = fetch("http://localhost:5000",
+            const res = fetch("http://localhost:5000/signup",
                 {
-                    // credentials: "include",
-                    // mode: 'cors',
+                    credentials: "same-origin",
                     headers: {
                         'Access-Control-Allow-Origin': '*',
-                        'Accept': '/',
+                        'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        "User-Agent": "Thunder Client (https://www.thunderclient.io)"
                     },
                     method: "POST",
                     body: JSON.stringify({ email, password })
                 })
 
-            console.log({ res })
+            console.log({ ...res })
             resolve(res)
         }
         catch (err) {
