@@ -329,12 +329,11 @@ const MainStage = ({
         if (selectionRectRef.current.visible()) {
             return;
         }
-        let isBackground = e.target.attrs.id === "shapes_background";
+        let stage = e.target.getStage();
         let layer = $layer.current;
         let tr = $tr.current;
         // if click on empty area - remove all selections
-        if (isBackground) {
-            console.log({ isBackground })
+        if (e.target === stage) {
             setSelectedId(null);
             setNodes([]);
             tr.nodes([]);
@@ -369,6 +368,7 @@ const MainStage = ({
         }
         layer.draw();
     };
+
 
     return (
         <Stage
