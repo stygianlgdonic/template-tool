@@ -30,12 +30,14 @@ export const DesignToolProvider = ({ children }) => {
     const [designHeadernavigator, setDesignHeadernavigator] = useState('')
     const [cardData, setCardData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
     const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [isOpenFallbackModal, setIsOpenFallbackModal] = useState<boolean>(false)
 
     return (
         <DesignToolContext.Provider
             value={{
                 designToolnavigator, setDesignToolnavigator,
                 designHeadernavigator, setDesignHeadernavigator,
+                isOpenFallbackModal, setIsOpenFallbackModal,
                 selectedId, setSelectedId,
                 cardData, setCardData,
                 cardHistory: { goForward, goBack, stepNum, history }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Stage, Layer, Rect } from 'react-konva';
 import Rectangle from "../Rectangle"
 import UCircle from "../UCircle"
@@ -9,6 +9,8 @@ import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import { stageDimensions } from '../../../../../../../../utils/defaults';
 import UImage from '../UImage';
+import ImageFallbackModal from '../../tailwindComponents/CardHeader/components/ImageFallbackModal/ImageFallbackModal';
+import { DesignToolContext } from '../../../../../../../../contexts/DesignToolContext';
 
 declare const window: any
 
@@ -20,7 +22,11 @@ const MainStage = ({
     unSelectAll,
 }) => {
 
+    const { isOpenFallbackModal, setIsOpenFallbackModal } = useContext(DesignToolContext)
+    const [shapeLocation, setShapeLocation] = useState({ x: 0, y: 0 })
+
     const GUIDELINE_OFFSET = 5
+    const $StageContainer = useRef(null)
     const $stage = useRef(null)
     const $layer = useRef(null)
     const $tr = useRef(null)
@@ -370,156 +376,180 @@ const MainStage = ({
         layer.draw();
     };
 
+    useEffect(() => {
+        const stageContainerRect = $StageContainer.current.getBoundingClientRect()
+        const nodes = $tr.current.nodes()
+        if (!!nodes.length && nodes.length === 1) {
+            setShapeLocation({
+                x: nodes[0].getClientRect().x + stageContainerRect.left,
+                y: nodes[0].getClientRect().y + stageContainerRect.top
+            })
+        }
+    }, [selectedId, isOpenFallbackModal])
+
     return (
-        <Stage
-            ref={$stage}
-            onMouseDown={onMouseDown}
-            onMouseUp={onMouseUp}
-            onMouseMove={onMouseMove}
-            onTouchStart={checkDeselect}
-            onClick={onClickTap}
-            {...stageDimensions}
-        >
-            <Layer
-                ref={$layer}
-                onDragMove={_onDragMove}
-                onDragEnd={_onDragEnd}
-            >
-                {cardData.elements?.map((elem, i) => {
-                    if (elem.type === "rectangle") return (
-                        <Rectangle
-                            key={i}
-                            shapeProps={elem}
-                            onSelect={(e) => {
-                                if (e.current !== undefined) {
-                                    let temp = nodesArray;
-                                    if (!nodesArray.includes(e.current)) temp.push(e.current);
-                                    setNodes(temp);
-                                    $tr.current.nodes(nodesArray);
-                                    $tr.current.nodes(nodesArray);
-                                    $tr.current.getLayer().batchDraw();
-                                }
-                                if (elem.id !== "shapes_background")
-                                    setSelectedId(elem.id);
-                            }}
-                            // onSelect={() => {
-                            //     setSelectedId(rect.id)
-                            // }}
-                            onChange={(newAttrs) => {
-                                setCardData((prev) => {
-                                    const index = prev.elements.findIndex(item => item.id === elem.id)
-                                    prev.elements[index] = newAttrs
-                                });
-                            }}
-                        />
-                    )
-
-                    if (elem.type === "circle") return (
-                        <UCircle
-                            key={i}
-                            shapeProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(newAttrs) => {
-                                setCardData((prev) => {
-                                    const index = prev.elements.findIndex(item => item.id === elem.id)
-                                    prev.elements[index] = newAttrs
-                                });
-                            }}
-                        />
-                    )
-
-                    if (elem.type === "line") return (
-                        <ULine
-                            key={i}
-                            shapeProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(newAttrs) => {
-                                setCardData((prev) => {
-                                    const index = prev.elements.findIndex(item => item.id === elem.id)
-                                    prev.elements[index] = newAttrs
-                                });
-                            }}
-                        />
-                    )
-
-                    if (elem.type === "polygon") return (
-                        <UPolygon
-                            key={i}
-                            shapeProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(newAttrs) => {
-                                setCardData((prev) => {
-                                    const index = prev.elements.findIndex(item => item.id === elem.id)
-                                    prev.elements[index] = newAttrs
-                                });
-                            }}
-                        />
-                    )
-
-                    if (elem.type === "svg") return (
-                        <USvg
-                            key={i}
-                            svgProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(event) => setCardData((prev) => {
-                                const svgIndex = prev.elements.findIndex(svgItem => svgItem.id === elem.id)
-                                prev.elements[svgIndex] = {
-                                    ...prev.elements[svgIndex],
-                                    ...JSON.parse(JSON.stringify(event.target.attrs))
-                                }
-                            })}
-                        />
-                    )
-
-                    if (elem.type === "image") return (
-                        <UImage
-                            key={i}
-                            imageProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(event) => setCardData((prev) => {
-                                const imageIndex = prev.elements.findIndex(img => img.id === elem.id)
-                                prev.elements[imageIndex] = {
-                                    ...prev.elements[imageIndex],
-                                    ...JSON.parse(JSON.stringify(event.target.attrs))
-                                }
-                            })}
-                        />
-                    )
-
-                    if (elem.type === "text") return (
-                        <UText
-                            key={i}
-                            textProps={elem}
-                            onSelect={() => {
-                                setSelectedId(elem.id)
-                            }}
-                            onChange={(event) => setCardData((prev) => {
-                                const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
-                                prev.elements[txtIndex] = { ...event.target.attrs }
-                            })}
-                        />
-                    )
-
-
-                })}
-                <TransformerComponent
-                    id={`tr${selectedId}`}
-                    $tr={$tr}
-                    selectedShapeName={selectedId}
+        <>
+            <div className={isOpenFallbackModal ? "" : "hidden"}>
+                <ImageFallbackModal
+                    closeModal={() => {
+                        setIsOpenFallbackModal(false);
+                    }}
+                    shapeLocation={shapeLocation}
                 />
-                <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
-            </Layer>
-        </Stage>
+            </div>
+            <div ref={$StageContainer}>
+                <Stage
+                    ref={$stage}
+                    onMouseDown={onMouseDown}
+                    onMouseUp={onMouseUp}
+                    onMouseMove={onMouseMove}
+                    onTouchStart={checkDeselect}
+                    onClick={onClickTap}
+                    {...stageDimensions}
+                >
+                    <Layer
+                        ref={$layer}
+                        onDragMove={_onDragMove}
+                        onDragEnd={_onDragEnd}
+                    >
+                        {cardData.elements?.map((elem, i) => {
+                            if (elem.type === "rectangle") return (
+                                <Rectangle
+                                    key={i}
+                                    shapeProps={elem}
+                                    onSelect={(e) => {
+                                        if (e.current !== undefined) {
+                                            let temp = nodesArray;
+                                            if (!nodesArray.includes(e.current)) temp.push(e.current);
+                                            setNodes(temp);
+                                            $tr.current.nodes(nodesArray);
+                                            $tr.current.nodes(nodesArray);
+                                            $tr.current.getLayer().batchDraw();
+                                        }
+                                        if (elem.id !== "shapes_background")
+                                            setSelectedId(elem.id);
+                                    }}
+                                    openFallbackModal={() => setIsOpenFallbackModal(true)}
+                                    // onSelect={() => {
+                                    //     setSelectedId(rect.id)
+                                    // }}
+                                    onChange={(newAttrs) => {
+                                        setCardData((prev) => {
+                                            const index = prev.elements.findIndex(item => item.id === elem.id)
+                                            prev.elements[index] = newAttrs
+                                        });
+                                    }}
+                                />
+                            )
+
+                            if (elem.type === "circle") return (
+                                <UCircle
+                                    key={i}
+                                    shapeProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(newAttrs) => {
+                                        setCardData((prev) => {
+                                            const index = prev.elements.findIndex(item => item.id === elem.id)
+                                            prev.elements[index] = newAttrs
+                                        });
+                                    }}
+                                />
+                            )
+
+                            if (elem.type === "line") return (
+                                <ULine
+                                    key={i}
+                                    shapeProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(newAttrs) => {
+                                        setCardData((prev) => {
+                                            const index = prev.elements.findIndex(item => item.id === elem.id)
+                                            prev.elements[index] = newAttrs
+                                        });
+                                    }}
+                                />
+                            )
+
+                            if (elem.type === "polygon") return (
+                                <UPolygon
+                                    key={i}
+                                    shapeProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(newAttrs) => {
+                                        setCardData((prev) => {
+                                            const index = prev.elements.findIndex(item => item.id === elem.id)
+                                            prev.elements[index] = newAttrs
+                                        });
+                                    }}
+                                />
+                            )
+
+                            if (elem.type === "svg") return (
+                                <USvg
+                                    key={i}
+                                    svgProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(event) => setCardData((prev) => {
+                                        const svgIndex = prev.elements.findIndex(svgItem => svgItem.id === elem.id)
+                                        prev.elements[svgIndex] = {
+                                            ...prev.elements[svgIndex],
+                                            ...JSON.parse(JSON.stringify(event.target.attrs))
+                                        }
+                                    })}
+                                />
+                            )
+
+                            if (elem.type === "image") return (
+                                <UImage
+                                    key={i}
+                                    imageProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(event) => setCardData((prev) => {
+                                        const imageIndex = prev.elements.findIndex(img => img.id === elem.id)
+                                        prev.elements[imageIndex] = {
+                                            ...prev.elements[imageIndex],
+                                            ...JSON.parse(JSON.stringify(event.target.attrs))
+                                        }
+                                    })}
+                                />
+                            )
+
+                            if (elem.type === "text") return (
+                                <UText
+                                    key={i}
+                                    textProps={elem}
+                                    onSelect={() => {
+                                        setSelectedId(elem.id)
+                                    }}
+                                    onChange={(event) => setCardData((prev) => {
+                                        const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
+                                        prev.elements[txtIndex] = { ...event.target.attrs }
+                                    })}
+                                />
+                            )
+
+
+                        })}
+                        <TransformerComponent
+                            id={`tr${selectedId}`}
+                            $tr={$tr}
+                            selectedShapeName={selectedId}
+                        />
+                        <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
+                    </Layer>
+                </Stage>
+            </div>
+        </>
     )
 }
 

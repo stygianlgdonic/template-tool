@@ -1,22 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
-import TransformModal from "../TransformModal/TransformModal";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const TextHeader: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
-    const [openstyle, setOpenstyle] = React.useState(false);
     const [values, setValues] = React.useState([0])
-    const [value, setValue] = React.useState(0)
     const [open, setOpen] = React.useState(false);
-    //   const [showTransformModal, setShowTransformModal] = React.useState(false);
     const {
-        designToolnavigator, setDesignToolnavigator,
-        selectedId, setSelectedId,
-        cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
+        setDesignToolnavigator
     } = useContext(DesignToolContext)
     const { handleFontStyle, handleTextAlign } = CardElementsFunctions()
     return (
@@ -27,10 +20,8 @@ const TextHeader: React.FC = (): JSX.Element => {
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="menu-button"
-                    // onClick={() => setOpen(!open)}
                     >
                         <button
-                            //   onClick={() => setOpen(true)}
                             type="button"
                             className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="menu-button"
@@ -63,14 +54,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                         </button>
                     </div>
                 </div>
-                {/* modal for transform */}
-                <div style={{ display: open ? "" : "none" }}>
-                    <TransformModal
-                        closeModal={() => {
-                            setOpen(false);
-                        }}
-                    />
-                </div>
+
                 <div>
                     <div>
                         <button className="ml-10 text-lg font-bold text-black" onClick={() => setDesignToolnavigator('fonttool')}>

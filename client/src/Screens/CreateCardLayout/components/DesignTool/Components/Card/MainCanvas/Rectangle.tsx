@@ -6,9 +6,10 @@ interface Props {
     shapeProps: any
     onSelect: any
     onChange: any
+    openFallbackModal: () => void
 }
 
-const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
+const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange, openFallbackModal }) => {
 
     const shapeRef = useRef(null)
 
@@ -29,6 +30,8 @@ const Rectangle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
                 ref={shapeRef}
                 onClick={onSelect}
                 onTap={onSelect}
+                onDblClick={openFallbackModal}
+                onDblTap={openFallbackModal}
                 draggable
                 strokeScaleEnabled={false}
                 onTransformEnd={(e) => {

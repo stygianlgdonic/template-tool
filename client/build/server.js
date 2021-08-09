@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9b146ee0a27b201c8881";
+/******/ 	var hotCurrentHash = "46d4b3ccafadbeb7ce2c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1600,12 +1600,18 @@ const DesignToolProvider = ({
     0: selectedId,
     1: setSelectedId
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: isOpenFallbackModal,
+    1: setIsOpenFallbackModal
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx(DesignToolContext.Provider, {
     value: {
       designToolnavigator,
       setDesignToolnavigator,
       designHeadernavigator,
       setDesignHeadernavigator,
+      isOpenFallbackModal,
+      setIsOpenFallbackModal,
       selectedId,
       setSelectedId,
       cardData,
@@ -1620,7 +1626,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 9
     }
   }, children);

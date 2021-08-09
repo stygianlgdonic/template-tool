@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import WebFont from "webfontloader";
 import MainStage from './MainStage';
 import { DesignToolContext } from '../../../../../../../contexts/DesignToolContext';
@@ -6,11 +6,9 @@ import { DesignToolContext } from '../../../../../../../contexts/DesignToolConte
 const DesignTool: React.FC = () => {
 
     const {
-        designToolnavigator, setDesignToolnavigator,
-        designHeadernavigator, setDesignHeadernavigator,
+        setDesignHeadernavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
 
     const handleEscape = (e) => {
@@ -18,7 +16,6 @@ const DesignTool: React.FC = () => {
             setSelectedId()
         }
     }
-    const dude = cardData.elements.find((item, index) => selectedId === item.id)
 
     useEffect(() => {
         if (!selectedId) return
@@ -30,8 +27,6 @@ const DesignTool: React.FC = () => {
         if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
             setDesignHeadernavigator('rect')
         }
-
-
 
     })
 
