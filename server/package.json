@@ -8,6 +8,10 @@
     "url": "git@github.com:mhueter/docker-node-express-boilerplate.git"
   },
   "main": "app/app.js",
+  "engines": {
+    "node": "14.16.1",
+    "npm": "6.14.12"
+  },
   "scripts": {
     "test": "jest",
     "dev": "env-cmd -f .env npx nodemon app/server.js",
