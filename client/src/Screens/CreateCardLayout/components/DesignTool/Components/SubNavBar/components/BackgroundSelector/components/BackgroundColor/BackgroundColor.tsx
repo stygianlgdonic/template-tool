@@ -31,26 +31,21 @@ const BackgroundColor: React.FC = (): JSX.Element => {
           </svg>
         </button>
 
-        <div
+        <button
           className="w-10 h-10 rounded-md bg-indigo600"
           onClick={() => setShowModal(true)}
-        >
-          {/* {showModal ? ( */}
-
-          {/* ) : null} */}
-          {/* modal end */}
-        </div>
-        <div style={{ display: showModal ? "" : "none" }}>
-          <BackgroundColorModal
-            closeModal={() => {
-              setShowModal(false);
-            }}
-          />
-        </div>
+        ></button>
         <button className="w-10 h-10 rounded-md bg-fuschia"></button>
         <button className="w-10 h-10 rounded-md bg-greenish"></button>
         <button className="w-10 h-10 rounded-md bg-yellowish"></button>
         <button className="w-10 h-10 rounded-md bg-redish"></button>
+      </div>
+      <div style={{ display: showModal ? "" : "none" }}>
+        <BackgroundColorModal
+          closeModal={() => {
+            setShowModal(false);
+          }}
+        />
       </div>
     </div>
   );

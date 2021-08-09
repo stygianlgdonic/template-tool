@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "29ae4ee1569beea278b1";
+/******/ 	var hotCurrentHash = "9b146ee0a27b201c8881";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -859,7 +859,7 @@ module.exports =
 /*! exports provided: 0, 1, 2, 3, client, noentry, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"png\":[\"http://localhost:3001/static/media/01.2e91d53b.png\",\"http://localhost:3001/static/media/02.adc8b2dd.png\",\"http://localhost:3001/static/media/03.6bbdf893.png\",\"http://localhost:3001/static/media/04.50f8bcb9.png\",\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/echo.2b90d1ba.png\",\"http://localhost:3001/static/media/glitch.c3fda1d1.png\",\"http://localhost:3001/static/media/image.f528bd77.png\",\"http://localhost:3001/static/media/image1.3ff551f0.png\",\"http://localhost:3001/static/media/image3.6df75f11.png\",\"http://localhost:3001/static/media/image4.9cb172b4.png\",\"http://localhost:3001/static/media/image5.f1b1f809.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\",\"http://localhost:3001/static/media/lift.b13cf734.png\",\"http://localhost:3001/static/media/neon.7fca1e10.png\",\"http://localhost:3001/static/media/preview.06b7f3b0.png\",\"http://localhost:3001/static/media/shadow.161b9d54.png\",\"http://localhost:3001/static/media/splice.6bc44619.png\"],\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"]}}");
+module.exports = JSON.parse("{\"0\":{\"js\":[\"http://localhost:3001/static/js/0.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/0.chunk.js.map\"],\"chunks\":[0]},\"1\":{\"js\":[\"http://localhost:3001/static/js/1.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/1.chunk.js.map\"],\"chunks\":[1]},\"2\":{\"js\":[\"http://localhost:3001/static/js/2.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/2.chunk.js.map\"],\"chunks\":[2]},\"3\":{\"js\":[\"http://localhost:3001/static/js/3.chunk.js\"],\"map\":[\"http://localhost:3001/static/js/3.chunk.js.map\"],\"chunks\":[3]},\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"png\":[\"http://localhost:3001/static/media/01.2e91d53b.png\",\"http://localhost:3001/static/media/02.adc8b2dd.png\",\"http://localhost:3001/static/media/03.6bbdf893.png\",\"http://localhost:3001/static/media/04.50f8bcb9.png\",\"http://localhost:3001/static/media/ALP-Summer.63b90db3.png\",\"http://localhost:3001/static/media/card1.9acd410d.png\",\"http://localhost:3001/static/media/card2.a3e6d397.png\",\"http://localhost:3001/static/media/glitch.c3fda1d1.png\",\"http://localhost:3001/static/media/image.f528bd77.png\",\"http://localhost:3001/static/media/image1.3ff551f0.png\",\"http://localhost:3001/static/media/image3.6df75f11.png\",\"http://localhost:3001/static/media/image4.9cb172b4.png\",\"http://localhost:3001/static/media/image5.f1b1f809.png\",\"http://localhost:3001/static/media/insta.638d5ee2.png\",\"http://localhost:3001/static/media/lift.b13cf734.png\",\"http://localhost:3001/static/media/neon.7fca1e10.png\",\"http://localhost:3001/static/media/preview.06b7f3b0.png\",\"http://localhost:3001/static/media/shadow.161b9d54.png\",\"http://localhost:3001/static/media/splice.6bc44619.png\"],\"jpg\":[\"http://localhost:3001/static/media/1.f5f798cc.jpg\"]}}");
 
 /***/ }),
 
@@ -1362,7 +1362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
 /* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\App.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1547,7 +1547,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1574,7 +1574,7 @@ const INITIAL_STATE = {
       x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
       y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
     },
-    fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
+    fillLinearGradientColorStops: [0, '#ffffff', 1, '#ffffff'],
     draggable: false
   }]
 };
@@ -1586,6 +1586,10 @@ const DesignToolProvider = ({
     0: designToolnavigator,
     1: setDesignToolnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('element');
+  const {
+    0: designHeadernavigator,
+    1: setDesignHeadernavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [cardData, setCardData, {
     goForward,
     goBack,
@@ -1600,6 +1604,8 @@ const DesignToolProvider = ({
     value: {
       designToolnavigator,
       setDesignToolnavigator,
+      designHeadernavigator,
+      setDesignHeadernavigator,
       selectedId,
       setSelectedId,
       cardData,
@@ -1614,7 +1620,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 9
     }
   }, children);
@@ -1636,7 +1642,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1678,7 +1684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1845,7 +1851,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\server.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\server.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -1904,7 +1910,7 @@ const renderApp = (req, res) => {
     };
   }
 };
-const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\HP\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("D:\\dev\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
   const {
     html = '',
     redirect = false
@@ -1924,7 +1930,7 @@ const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-power
 /*!*******************************!*\
   !*** ./src/utils/defaults.ts ***!
   \*******************************/
-/*! exports provided: stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, googleFontsList, fontSizeArray, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
+/*! exports provided: stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, defaultTextNoEffect, defaultTextHollow, defaultTextLift, defaultTextShadow, defaultTextSplice, defaultTextGlitch, defaultTextNeon, googleFontsList, fontSizeArray, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1939,6 +1945,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultPolygon", function() { return defaultPolygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTriangle", function() { return defaultTriangle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextBox", function() { return defaultTextBox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextNoEffect", function() { return defaultTextNoEffect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextHollow", function() { return defaultTextHollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextLift", function() { return defaultTextLift; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextShadow", function() { return defaultTextShadow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextSplice", function() { return defaultTextSplice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextGlitch", function() { return defaultTextGlitch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextNeon", function() { return defaultTextNeon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "googleFontsList", function() { return googleFontsList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontSizeArray", function() { return fontSizeArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_mailicon", function() { return ORIGINAL_SVG_mailicon; });
@@ -2046,6 +2059,82 @@ const defaultTextBox = {
   type: "text",
   fill: "#000000"
 };
+const defaultTextNoEffect = {
+  fill: "black",
+  stroke: "",
+  shadowEnabled: false,
+  shadowBlur: 0,
+  shadowColor: "",
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextHollow = {
+  fill: "white",
+  stroke: "black",
+  shadowColor: "",
+  shadowEnabled: false,
+  shadowBlur: 0,
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextLift = {
+  fill: "black",
+  shadowEnabled: true,
+  shadowBlur: 10,
+  stroke: "",
+  shadowColor: "",
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextShadow = {
+  fill: "black",
+  shadowEnabled: true,
+  shadowColor: "grey",
+  shadowOffset: {
+    x: 2,
+    y: 2
+  },
+  shadowBlur: 2,
+  stroke: ""
+};
+const defaultTextSplice = {
+  shadowColor: "grey",
+  shadowOffset: {
+    x: 2,
+    y: 2
+  },
+  shadowBlur: 5,
+  fill: "white",
+  stroke: "black",
+  shadowEnabled: true
+};
+const defaultTextGlitch = {
+  fill: "darkerblue",
+  shadowEnabled: true,
+  shadowColor: "magenta",
+  shadowOffset: {
+    x: -2,
+    y: -2
+  },
+  shadowBlur: 2,
+  stroke: ""
+};
+const defaultTextNeon = {
+  fill: "magenta",
+  shadowColor: "magenta",
+  shadowEnabled: true,
+  shadowBlur: 10,
+  shadowOffset: {
+    x: -2,
+    y: -2
+  }
+};
 const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo'];
 const fontSizeArray = [{
   name: "Header",
@@ -2104,10 +2193,10 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
-__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
-__webpack_require__(/*! C:\Users\HP\cardclan-backend\client\src */"./src/index.ts");
-module.exports = __webpack_require__(/*! !!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
 
 
 /***/ }),

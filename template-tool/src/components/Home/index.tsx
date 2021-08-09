@@ -11,7 +11,7 @@ const navLinksList = ["categories", "templates"]
 
 const Home = () => {
 
-    const [selectedNavLink, setSelectedNavLink] = useState<string>(navLinksList[1])
+    const [selectedNavLink, setSelectedNavLink] = useState<string>(navLinksList[0])
 
     return (
         <div className="min-w-max">
