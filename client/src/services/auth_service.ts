@@ -10,7 +10,8 @@ async function signupUser(email: string, password: string) {
     try {
         const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
             {
-                credentials: "same-origin",
+                // credentials: "same-origin",
+                // credentials: "include",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Accept': 'application/json',
@@ -34,7 +35,9 @@ async function loginUser(email: string, password: string) {
     try {
         const res = await fetch("https://hyper-engage-staging.herokuapp.com/login",
             {
+
                 credentials: "same-origin",
+                // withCredentials: "true",
                 // credentials: 'include',
                 headers: {
                     'Access-Control-Allow-Origin': '*',

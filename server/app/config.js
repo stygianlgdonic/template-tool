@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
-require('./auth');
+require("./auth");
 // const dotenv = require("dotenv");
 // dotenv.config();
 const APP_NAME = "Boilerplate API";
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
 
-console.log(process.env.MONGODB_URI)
+console.log(process.env.MONGODB_URI);
 
 // database configs
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/animals";
+let MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/animals";
 
 if (ENV === "test") {
   MONGODB_URI = global.__MONGO_URI__;
@@ -29,14 +30,14 @@ async function connectToDatabase() {
       autoIndex: false,
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false
+      useFindAndModify: false,
     });
     console.log(`${APP_NAME} successfully connected to database.`);
 
     const connection = mongoose.connection;
-    connection.once('open', ()=>{
-      console.log('Database connection is successfully established')
-    })
+    connection.once("open", () => {
+      console.log("Database connection is successfully established");
+    });
   } catch (error) {
     console.log(error);
     process.exit(1);
@@ -50,6 +51,7 @@ async function connectToDatabase() {
 function globalResponseHeaders(request, response, next) {
   response.header("Access-Control-Allow-Origin", "*");
   response.header(
+    request.headers.origin,
     "Access-Control-Allow-Headers",
     "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization"
   );
@@ -67,5 +69,5 @@ module.exports = {
   MONGODB_URI,
   PORT,
   connectToDatabase,
-  globalResponseHeaders
+  globalResponseHeaders,
 };

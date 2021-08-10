@@ -42,7 +42,7 @@ app.use(cookieParser()); // Cookie parser to read and set cookies
 const cors = require("cors");
 app.use(cors());
 
-// app.use(globalResponseHeaders);s
+app.use(globalResponseHeaders);
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
