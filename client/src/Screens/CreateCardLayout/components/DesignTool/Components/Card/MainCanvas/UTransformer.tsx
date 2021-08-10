@@ -54,6 +54,7 @@ const TransformerComponent: React.FC<Props> = ({
             <Transformer
                 id={id}
                 ref={$tr}
+                padding={5}
                 ignoreStroke={true}
                 boundBoxFunc={(oldBox, newBox) => {
                     if (selectedShapeName === "shapes_background") return oldBox
