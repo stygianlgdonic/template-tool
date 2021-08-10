@@ -76,6 +76,10 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/newroute", mustBeLoggedIn, (req, res) => {
+  res.send("Route only accessible if cookie set");
+});
+
 // Our token checker middleware
 function mustBeLoggedIn(req, res, next) {
   jwt.verify(req.cookies.cookieToken, jwtsecret, function (err, decoded) {
