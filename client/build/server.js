@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
+/******/ 	var hotCurrentHash = "5590240663b2524270a8";
+=======
 /******/ 	var hotCurrentHash = "76924653f868ee9d7b03";
+>>>>>>> staging
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1362,7 +1366,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
 /* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
+<<<<<<< HEAD
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\App.tsx";
+=======
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1547,7 +1555,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesingToolReducers */ "./src/contexts/DesignTool/DesingToolReducers.ts");
+<<<<<<< HEAD
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+=======
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1779,7 +1791,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+=======
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1821,7 +1837,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+=======
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1988,7 +2008,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
+<<<<<<< HEAD
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\server.tsx";
+=======
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\server.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -2047,7 +2071,11 @@ const renderApp = (req, res) => {
     };
   }
 };
+<<<<<<< HEAD
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("D:\\dev\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+=======
 const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\HP\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+>>>>>>> staging
   const {
     html = '',
     redirect = false
@@ -2067,11 +2095,20 @@ const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-power
 /*!*******************************!*\
   !*** ./src/utils/defaults.ts ***!
   \*******************************/
+<<<<<<< HEAD
+/*! exports provided: googleFontsList, fontSizeArray, stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, defaultTextNoEffect, defaultTextHollow, defaultTextLift, defaultTextShadow, defaultTextSplice, defaultTextGlitch, defaultTextNeon, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
+=======
 /*! exports provided: stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, defaultTextNoEffect, defaultTextHollow, defaultTextLift, defaultTextShadow, defaultTextSplice, defaultTextGlitch, defaultTextNeon, googleFontsList, fontSizeArray, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
+>>>>>>> staging
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "googleFontsList", function() { return googleFontsList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontSizeArray", function() { return fontSizeArray; });
+=======
+>>>>>>> staging
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stageDimensions", function() { return stageDimensions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG", function() { return ORIGINAL_SVG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultImage", function() { return defaultImage; });
@@ -2089,8 +2126,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextSplice", function() { return defaultTextSplice; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextGlitch", function() { return defaultTextGlitch; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextNeon", function() { return defaultTextNeon; });
+<<<<<<< HEAD
+=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "googleFontsList", function() { return googleFontsList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontSizeArray", function() { return fontSizeArray; });
+>>>>>>> staging
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_mailicon", function() { return ORIGINAL_SVG_mailicon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_imageicon", function() { return ORIGINAL_SVG_imageicon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_eyeicon", function() { return ORIGINAL_SVG_eyeicon; });
@@ -2102,6 +2142,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_updownicon", function() { return ORIGINAL_SVG_updownicon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_bluedoticon", function() { return ORIGINAL_SVG_bluedoticon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_greendoticon", function() { return ORIGINAL_SVG_greendoticon; });
+<<<<<<< HEAD
+const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo'];
+const fontSizeArray = [{
+  name: "Header",
+  size: 40
+}, {
+  name: "Sub header",
+  size: 25
+}, {
+  name: "body text",
+  size: 15
+}];
+=======
+>>>>>>> staging
 const stageDimensions = {
   width: 500,
   height: 500
@@ -2190,7 +2244,12 @@ const defaultTextBox = {
   text: 'New text',
   x: 150,
   y: 200,
+<<<<<<< HEAD
+  fontSize: fontSizeArray[0].size,
+  fontFamily: googleFontsList[0],
+=======
   fontSize: 20,
+>>>>>>> staging
   draggable: true,
   width: 200,
   type: "text",
@@ -2272,6 +2331,8 @@ const defaultTextNeon = {
     y: -2
   }
 };
+<<<<<<< HEAD
+=======
 const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo'];
 const fontSizeArray = [{
   name: "Header",
@@ -2283,6 +2344,7 @@ const fontSizeArray = [{
   name: "body text",
   size: 15
 }];
+>>>>>>> staging
 const ORIGINAL_SVG_mailicon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 13.4088V6.30415C1 5.77211 1.25994 5.27527 1.69269 4.98015L7.13713 1.26725C7.65964 0.910917 8.34036 0.910917 8.86287 1.26725L14.3073 4.98015C14.7401 5.27527 15 5.77211 15 6.30415V13.4088M1 13.4088C1 14.2876 1.69645 15 2.55556 15H13.4444C14.3036 15 15 14.2876 15 13.4088M1 13.4088L6.25 9.82846M15 13.4088L9.75 9.82846M1 6.24816L6.25 9.82846M15 6.24816L9.75 9.82846M9.75 9.82846L8.86287 10.4334C8.34036 10.7898 7.65964 10.7898 7.13713 10.4334L6.25 9.82846" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
@@ -2330,10 +2392,17 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+=======
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\src */"./src/index.ts");
 module.exports = __webpack_require__(/*! !!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+>>>>>>> staging
 
 
 /***/ }),
@@ -2426,6 +2495,20 @@ module.exports = require("react");
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "react-color":
+/*!******************************!*\
+  !*** external "react-color" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-color");
+
+/***/ }),
+
+=======
+>>>>>>> staging
 /***/ "react-dom":
 /*!****************************!*\
   !*** external "react-dom" ***!

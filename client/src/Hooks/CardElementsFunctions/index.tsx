@@ -297,17 +297,55 @@ const CardElementsFunctions = () => {
         })
     }
 
-    const handleGradientColor = (color1: string, color2: string) => {
+    const handleGradientColor = (color1: string, color2: string, backgroundID?: undefined | "shapes_background") => {
         setCardData(prev => {
-            const selectedShape = prev.elements.find(item => item.id === selectedId)
-            selectedShape.fill = ""
-            selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
-            selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
-            selectedShape.fillLinearGradientEndPoint = {
-                x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                y: selectedId === "shapes_background" ? stageDimensions.height : 100
+            if (!!backgroundID) {
+                prev.elements[0].fill = ""
+                prev.elements[0].fillLinearGradientColorStops = [0, color1, 1, color2]
+                prev.elements[0].fillLinearGradientStartPoint = { x: 0, y: 0 }
+                prev.elements[0].fillLinearGradientEndPoint = {
+                    x: stageDimensions.width,
+                    y: stageDimensions.height
+                }
+                prev.elements[0].patternImageUrl = undefined
+            } else {
+                const selectedShape = prev.elements.find(item => item.id === selectedId)
+                selectedShape.fill = ""
+                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
+                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
+                selectedShape.fillLinearGradientEndPoint = {
+                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
+                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
+                }
+                selectedShape.patternImageUrl = undefined
             }
-            selectedShape.patternImageUrl = undefined
+        })
+    }
+
+    const handleRadialGradientColor = (color1: string, color2: string, backgroundID?: undefined | "shapes_background") => {
+        setCardData(prev => {
+            if (!!backgroundID) {
+                prev.elements[0].fill = ""
+                prev.elements[0].fillLinearGradientColorStops = undefined
+                prev.elements[0].fillLinearGradientStartPoint = undefined
+                prev.elements[0].fillLinearGradientEndPoint = undefined
+                prev.elements[0].patternImageUrl = undefined
+                prev.elements[0].fillRadialGradientStartPoint = { x: stageDimensions.width / 2, y: stageDimensions.height / 2 }
+                prev.elements[0].fillRadialGradientStartRadius = 0
+                prev.elements[0].fillRadialGradientEndPoint = { x: 0, y: 0 }
+                prev.elements[0].fillRadialGradientEndRadius = 750
+                prev.elements[0].fillRadialGradientColorStops = [0, color1, 1, color2]
+            } else {
+                const selectedShape = prev.elements.find(item => item.id === selectedId)
+                selectedShape.fill = ""
+                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
+                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
+                selectedShape.fillLinearGradientEndPoint = {
+                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
+                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
+                }
+                selectedShape.patternImageUrl = undefined
+            }
         })
     }
 
@@ -370,6 +408,7 @@ const CardElementsFunctions = () => {
         handleStrokeColor,
         handleFill,
         handleGradientColor,
+        handleRadialGradientColor,
         handleFillPatternScaleX,
         handleFillPatternScaleY,
         handleFillPatternOffsetX,
