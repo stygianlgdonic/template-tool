@@ -1,6 +1,203 @@
 exports.ids = [0];
 exports.modules = {
 
+/***/ "./node_modules/react-konva-utils/es/html.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-konva-utils/es/html.js ***!
+  \***************************************************/
+/*! exports provided: Html */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Html", function() { return Html; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_2__);
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+const needForceStyle = (el) => {
+    const pos = window.getComputedStyle(el).position;
+    const ok = pos === 'absolute' || pos === 'relative';
+    return !ok;
+};
+const Html = ({ children, groupProps, divProps, transform }) => {
+    const groupRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
+    const container = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef();
+    const shouldTransform = transform !== null && transform !== void 0 ? transform : true;
+    const handleTransform = () => {
+        const div = container.current;
+        if (!div) {
+            return;
+        }
+        if (shouldTransform && groupRef.current) {
+            const tr = groupRef.current.getAbsoluteTransform();
+            const attrs = tr.decompose();
+            div.style.position = 'absolute';
+            div.style.zIndex = '10';
+            div.style.top = '0px';
+            div.style.left = '0px';
+            div.style.transform = `translate(${attrs.x}px, ${attrs.y}px) rotate(${attrs.rotation}deg) scaleX(${attrs.scaleX}) scaleY(${attrs.scaleY})`;
+            div.style.transformOrigin = 'top left';
+        }
+        else {
+            div.style.position = '';
+            div.style.zIndex = '';
+            div.style.top = '';
+            div.style.left = '';
+            div.style.transform = ``;
+            div.style.transformOrigin = '';
+        }
+        const _a = divProps || {}, { style } = _a, restProps = __rest(_a, ["style"]);
+        Object.assign(div.style, style);
+        Object.assign(div, restProps);
+    };
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(() => {
+        var _a;
+        const group = groupRef.current;
+        if (!group) {
+            return;
+        }
+        const parent = (_a = group.getStage()) === null || _a === void 0 ? void 0 : _a.container();
+        if (!parent) {
+            return;
+        }
+        let div = document.createElement('div');
+        container.current = div;
+        parent.appendChild(div);
+        if (shouldTransform && needForceStyle(parent)) {
+            parent.style.position = 'relative';
+        }
+        group.on('absoluteTransformChange', handleTransform);
+        handleTransform();
+        return () => {
+            var _a;
+            group.off('absoluteTransformChange', handleTransform);
+            react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(div);
+            (_a = div.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(div);
+        };
+    }, [shouldTransform]);
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(() => {
+        handleTransform();
+    }, [divProps]);
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(() => {
+        react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(children, container.current);
+    });
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_konva__WEBPACK_IMPORTED_MODULE_2__["Group"], Object.assign({ ref: groupRef }, groupProps));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/react-konva-utils/es/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-konva-utils/es/index.js ***!
+  \****************************************************/
+/*! exports provided: Html, Portal, useImage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./html */ "./node_modules/react-konva-utils/es/html.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Html", function() { return _html__WEBPACK_IMPORTED_MODULE_0__["Html"]; });
+
+/* harmony import */ var _portal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./portal */ "./node_modules/react-konva-utils/es/portal.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Portal", function() { return _portal__WEBPACK_IMPORTED_MODULE_1__["Portal"]; });
+
+/* harmony import */ var _use_image__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-image */ "./node_modules/react-konva-utils/es/use-image.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useImage", function() { return _use_image__WEBPACK_IMPORTED_MODULE_2__["useImage"]; });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-konva-utils/es/portal.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-konva-utils/es/portal.js ***!
+  \*****************************************************/
+/*! exports provided: Portal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Portal", function() { return Portal; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Portal = ({ selector, enabled, children }) => {
+    const outer = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
+    const inner = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
+    const safeRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef();
+    const shouldMove = enabled !== null && enabled !== void 0 ? enabled : true;
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.useLayoutEffect(() => {
+        if (!outer.current || !inner.current) {
+            return;
+        }
+        safeRef.current = inner.current;
+        const stage = outer.current.getStage();
+        const newContainer = stage.findOne(selector);
+        if (shouldMove && newContainer) {
+            inner.current.moveTo(newContainer);
+        }
+        else {
+            inner.current.moveTo(outer.current);
+        }
+        outer.current.getLayer().batchDraw();
+        if (newContainer) {
+            newContainer.getLayer().batchDraw();
+        }
+    }, [selector, shouldMove]);
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(() => {
+        return () => {
+            var _a;
+            (_a = safeRef.current) === null || _a === void 0 ? void 0 : _a.destroy();
+        };
+    }, []);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_konva__WEBPACK_IMPORTED_MODULE_1__["Group"], { name: "_outer_portal", ref: outer },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_konva__WEBPACK_IMPORTED_MODULE_1__["Group"], { name: "_inner_portal", ref: inner }, children)));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/react-konva-utils/es/use-image.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-konva-utils/es/use-image.js ***!
+  \********************************************************/
+/*! exports provided: useImage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var use_image__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! use-image */ "use-image");
+/* harmony import */ var use_image__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(use_image__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "useImage", function() { return use_image__WEBPACK_IMPORTED_MODULE_0___default.a; });
+
+
+
+/***/ }),
+
 /***/ "./src/Hooks/CardElementsFunctions/index.tsx":
 /*!***************************************************!*\
   !*** ./src/Hooks/CardElementsFunctions/index.tsx ***!
@@ -1862,7 +2059,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../tailwindComponents/CardHeader/components/ImageFallbackModal/ImageFallbackModal */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/tailwindComponents/CardHeader/components/ImageFallbackModal/ImageFallbackModal.tsx");
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'react-konva-utils'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_konva_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-konva-utils */ "./node_modules/react-konva-utils/es/index.js");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\UTransformer.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1936,21 +2133,21 @@ const TransformerComponent = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49,
-      columnNumber: 13
+      columnNumber: 7
     }
-  }, __jsx(!(function webpackMissingModule() { var e = new Error("Cannot find module 'react-konva-utils'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+  }, __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_3__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 61,
-      columnNumber: 17
+      columnNumber: 9
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 62,
-      columnNumber: 21
+      columnNumber: 11
     }
   }, __jsx("button", {
     onClick: handleOpenFallbackModal,
@@ -1958,11 +2155,11 @@ const TransformerComponent = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 63,
-      columnNumber: 25
+      columnNumber: 13
     }
   }, __jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    className: "h-6 w-6",
+    className: "w-6 h-6",
     fill: "none",
     viewBox: "0 0 24 24",
     stroke: "currentColor",
@@ -1970,7 +2167,7 @@ const TransformerComponent = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 64,
-      columnNumber: 29
+      columnNumber: 15
     }
   }, __jsx("path", {
     "stroke-linecap": "round",
@@ -1980,16 +2177,16 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
-      columnNumber: 33
+      lineNumber: 71,
+      columnNumber: 17
     }
   }))), __jsx("div", {
     className: !!isOpenFallbackModal ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
-      columnNumber: 25
+      lineNumber: 79,
+      columnNumber: 13
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
     closeModal: () => {// setIsOpenFallbackModal(false);
@@ -1997,8 +2194,8 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 29
+      lineNumber: 80,
+      columnNumber: 15
     }
   }))))));
 };
