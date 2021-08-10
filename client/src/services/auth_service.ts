@@ -12,11 +12,12 @@ async function signupUser(email: string, password: string) {
             {
                 // credentials: "same-origin",
                 // mode: 'cors'
-                credentials: "include",
                 headers: {
+                    "credentials": "include",
                     'Access-Control-Allow-Origin': '*',
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'Access-Control-Allow-Credentials': "true",
                 },
                 method: "POST",
                 body: JSON.stringify({ email: email, password: password })
