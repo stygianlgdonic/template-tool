@@ -328,6 +328,15 @@ const MainStage = ({
         });
         $tr.current.nodes(elements);
         setNodes(elements)
+
+        // NOTE - if only one node is within group setSelectedId for that element
+        if (elements?.length === 1) {
+            setSelectedId(elements[0].attrs.id)
+        } else {
+            setSelectedId(null)
+            emptyCardHeader()
+        }
+
         selection.current.visible = false;
         // disable click event
         Konva.listenClickTap = false;
@@ -335,10 +344,6 @@ const MainStage = ({
     };
 
     const onClickTap = (e) => {
-        const isBackground = e.target.attrs?.id === "shapes_background"
-        if (isBackground) {
-            setSelectedId(null)
-        }
         // if we are selecting with rect, do nothing
         if (selectionRectRef.current.visible()) {
             return;

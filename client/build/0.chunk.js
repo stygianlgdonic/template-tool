@@ -214,11 +214,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -241,6 +243,9 @@ const CardElementsFunctions = () => {
       history
     }
   } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
+  const {
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_5__["default"])();
   const [file, selectFile] = Object(use_file_upload__WEBPACK_IMPORTED_MODULE_1__["useFileUpload"])();
 
   const handleAddNewRect = rectData => {
@@ -249,6 +254,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, rectData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -258,6 +264,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, circleData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -267,6 +274,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, triangleData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -276,6 +284,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, polygonData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -287,6 +296,7 @@ const CardElementsFunctions = () => {
           id: `svgs_${svgId.toString()}`,
           svgString: SVG_STRING
         }, _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["defaultSvg"]));
+        setSelectedId(`svgs_${svgId.toString()}`);
       });
     });
   };
@@ -298,6 +308,7 @@ const CardElementsFunctions = () => {
         id: `svgs_${svgId.toString()}`,
         svgString: SVG_STRING
       }, _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["defaultSvg"]));
+      setSelectedId(`svgs_${svgId.toString()}`);
     });
   };
 
@@ -319,6 +330,7 @@ const CardElementsFunctions = () => {
             src: reader.result,
             id: `images_${imageID.toString()}`
           }));
+          setSelectedId(`images_${imageID.toString()}`);
         });
       };
     });
@@ -330,6 +342,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, textData), {}, {
         id: `textBoxes_${textID.toString()}`
       }));
+      setSelectedId(`textBoxes_${textID.toString()}`);
     });
   };
 
@@ -363,15 +376,18 @@ const CardElementsFunctions = () => {
     setCardData(prev => {
       prev.elements = prev.elements.filter(item => item.id !== selectedId);
       setSelectedId(null);
+      emptyCardHeader();
     });
   };
 
   const onUndo = () => {
+    emptyCardHeader();
     !!setSelectedId && setSelectedId(null);
     stepNum > 1 && goBack();
   };
 
   const onRedo = () => {
+    emptyCardHeader();
     !!setSelectedId && setSelectedId(null);
     stepNum < history.length - 1 && goForward();
   };
@@ -415,13 +431,6 @@ const CardElementsFunctions = () => {
     setCardData(prev => {
       const shapeIndex = prev.elements.findIndex(item => item.id === selectedId);
       prev.elements[shapeIndex] = textObj;
-    });
-  };
-
-  const handleTextColor = color => {
-    setCardData(prev => {
-      const shapeIndex = prev.elements.findIndex(item => item.id === selectedId);
-      prev.elements[shapeIndex].fill = color;
     });
   };
 
@@ -488,11 +497,16 @@ const CardElementsFunctions = () => {
     });
   };
 
-  const handleShapeFill = color => {
+  const handleFill = (color, backgroundID) => {
     setCardData(prev => {
-      const selectedShape = prev.elements.find(item => item.id === selectedId);
-      selectedShape.fill = color;
-      selectedShape.patternImageUrl = undefined;
+      if (!!backgroundID) {
+        prev.elements[0].fill = color;
+        prev.elements[0].patternImageUrl = undefined;
+      } else {
+        const selectedShape = prev.elements.find(item => item.id === selectedId);
+        selectedShape.fill = color;
+        selectedShape.patternImageUrl = undefined;
+      }
     });
   };
 
@@ -561,7 +575,6 @@ const CardElementsFunctions = () => {
     handleTextAlign,
     handleTextOpacity,
     handleTextEffect,
-    handleTextColor,
     handleFontFamily,
     handleBorderWidthChange,
     handleFillImagePattern,
@@ -569,7 +582,7 @@ const CardElementsFunctions = () => {
     handleCornerRadius,
     handleOpacity,
     handleStrokeColor,
-    handleShapeFill,
+    handleFill,
     handleGradientColor,
     handleFillPatternScaleX,
     handleFillPatternScaleY,
@@ -1243,7 +1256,15 @@ const MainStage = ({
       }
     });
     $tr.current.nodes(elements);
-    setNodes(elements);
+    setNodes(elements); // NOTE - if only one node is within group setSelectedId for that element
+
+    if ((elements === null || elements === void 0 ? void 0 : elements.length) === 1) {
+      setSelectedId(elements[0].attrs.id);
+    } else {
+      setSelectedId(null);
+      emptyCardHeader();
+    }
+
     selection.current.visible = false; // disable click event
 
     Konva.listenClickTap = false;
@@ -1251,15 +1272,7 @@ const MainStage = ({
   };
 
   const onClickTap = e => {
-    var _e$target$attrs;
-
-    const isBackground = ((_e$target$attrs = e.target.attrs) === null || _e$target$attrs === void 0 ? void 0 : _e$target$attrs.id) === "shapes_background";
-
-    if (isBackground) {
-      setSelectedId(null);
-    } // if we are selecting with rect, do nothing
-
-
+    // if we are selecting with rect, do nothing
     if (selectionRectRef.current.visible()) {
       return;
     }
@@ -1316,7 +1329,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 388,
+      lineNumber: 393,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1326,7 +1339,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 396,
+      lineNumber: 401,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1360,7 +1373,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 403,
+        lineNumber: 408,
         columnNumber: 25
       }
     });
@@ -1379,7 +1392,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 433,
+        lineNumber: 438,
         columnNumber: 25
       }
     });
@@ -1398,7 +1411,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 449,
+        lineNumber: 454,
         columnNumber: 25
       }
     });
@@ -1417,7 +1430,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 465,
+        lineNumber: 470,
         columnNumber: 25
       }
     });
@@ -1434,7 +1447,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 481,
+        lineNumber: 486,
         columnNumber: 25
       }
     });
@@ -1451,7 +1464,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 498,
+        lineNumber: 503,
         columnNumber: 25
       }
     });
@@ -1468,7 +1481,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 515,
+        lineNumber: 520,
         columnNumber: 25
       }
     });
@@ -1480,7 +1493,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 530,
+      lineNumber: 535,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1489,7 +1502,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 536,
+      lineNumber: 541,
       columnNumber: 17
     }
   })));
@@ -2108,13 +2121,18 @@ const TransformerComponent = ({
   }, [selectedShapeName]);
 
   const checkNode = () => {
+    const trNodes = $tr.current.nodes();
+    console.log({
+      trNodes
+    }); // return
+
     const stage = $tr.current.getStage();
     const selectedNode = stage.findOne("#" + selectedShapeName);
 
     if (selectedNode) {
       $tr.current.nodes([selectedNode]);
     } else {
-      $tr.current.detach();
+      !trNodes.length && $tr.current.detach();
       setSelectedId(null);
     }
 
@@ -2149,14 +2167,14 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 54,
       columnNumber: 13
     }
   }, __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_3__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 66,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2164,7 +2182,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 67,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2172,7 +2190,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 68,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2184,7 +2202,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 69,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2195,7 +2213,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 70,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -2203,7 +2221,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 73,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2212,7 +2230,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 74,
       columnNumber: 29
     }
   }))))));
@@ -5031,8 +5049,7 @@ const BackgroundSelector = () => {
   };
 
   const {
-    handleTextColor,
-    handleShapeFill
+    handleFill
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (!colorQuery) return;
@@ -5140,31 +5157,31 @@ const BackgroundSelector = () => {
       lineNumber: 54,
       columnNumber: 17
     }
-  }, console.log(colorsArray), colorsArray.map(item => __jsx("button", {
+  }, colorsArray.map(item => __jsx("button", {
     style: {
       backgroundColor: item
     },
     className: "h-10 w-10 rounded-md",
-    onClick: () => handleTextColor(item),
+    onClick: () => handleFill(item, "shapes_background"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
-      columnNumber: 29
+      lineNumber: 56,
+      columnNumber: 25
     }
   })))), __jsx("div", {
     className: "flex flex-col p-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 61,
       columnNumber: 13
     }
   }, __jsx(_components_BackgroundColor_BackgroundColor__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 63,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -5172,7 +5189,7 @@ const BackgroundSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 65,
       columnNumber: 13
     }
   }, __jsx("p", {
@@ -5180,21 +5197,21 @@ const BackgroundSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 66,
       columnNumber: 17
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 68,
       columnNumber: 13
     }
   }, __jsx(_components_AddBackgroundImage_AddBackgroundImage__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 69,
       columnNumber: 17
     }
   })));
@@ -9328,8 +9345,7 @@ const FontStyletool = () => {
   };
 
   const {
-    handleTextColor,
-    handleShapeFill
+    handleFill
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (!colorQuery) return;
@@ -9442,7 +9458,7 @@ const FontStyletool = () => {
       backgroundColor: item
     },
     className: "h-10 w-10 rounded-md",
-    onClick: () => handleTextColor(item),
+    onClick: () => handleFill(item),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,

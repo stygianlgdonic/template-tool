@@ -25,13 +25,18 @@ const TransformerComponent: React.FC<Props> = ({
     useEffect(() => {
         checkNode();
     }, [selectedShapeName])
+
     const checkNode = () => {
+        const trNodes = $tr.current.nodes()
+        console.log({ trNodes })
+        // return
+
         const stage = $tr.current.getStage();
         const selectedNode = stage.findOne("#" + selectedShapeName);
         if (selectedNode) {
             $tr.current.nodes([selectedNode])
         } else {
-            $tr.current.detach();
+            !trNodes.length && $tr.current.detach();
             setSelectedId(null)
         }
         $tr.current.getLayer().batchDraw();

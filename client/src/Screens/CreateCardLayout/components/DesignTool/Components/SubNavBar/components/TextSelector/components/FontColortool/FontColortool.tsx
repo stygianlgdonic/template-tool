@@ -9,7 +9,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
-    const { handleTextColor, handleShapeFill } = CardElementsFunctions()
+    const { handleFill } = CardElementsFunctions()
     useEffect(() => {
 
         if (!colorQuery) return
@@ -55,7 +55,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
                     {console.log(colorsArray)}
                     {
                         colorsArray.map(item =>
-                            <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleTextColor(item)}></button>
+                            <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
 
                         )}
                 </div>
