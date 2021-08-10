@@ -9,6 +9,11 @@ module.exports = {
             },
         },
         extend: {
+            inset: {
+                '600': '30.6rem',
+            }
+        },
+        extend: {
             margin: {
                 'top': '14.55',
             },
@@ -72,9 +77,10 @@ module.exports = {
                 SolidColor: "#6366F1",
                 gradientColor: "#374151",
                 elementColor: "#4B5563",
+                deletecolor: "#FEE2E2"
 
-            },
-        },
+            }
+        }
 
 
     },
@@ -83,7 +89,7 @@ module.exports = {
         extend: {
             fontWeight: ['hover', 'focus'],
             backgroundColor: ['active'],
-            display: ['group-hover'],
+            display: ['group-hover']
         },
 
     },

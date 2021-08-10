@@ -121,7 +121,7 @@ const Dashboard = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "w-full mx-auto grid grid-cols-12 font-inter ",
+    className: "w-full  grid grid-cols-12 font-inter ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -129,7 +129,7 @@ const Dashboard = () => {
       columnNumber: 13
     }
   }, __jsx("div", {
-    className: "col-span-2  w-full",
+    className: "col-span-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -144,7 +144,7 @@ const Dashboard = () => {
       columnNumber: 21
     }
   })), __jsx("div", {
-    className: "col-span-7 bg-jacksonsGray overflow-y-auto",
+    className: "col-span-7 bg-jacksonsGray overflow-y-auto h-sccreen",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -315,6 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Centerboard/components/StatsCardinfo/StatCardinfo */ "./src/components/Centerboard/components/StatsCardinfo/StatCardinfo.tsx");
 /* harmony import */ var _Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Centerboard/components/ImagesInfo/ImagesInfo */ "./src/components/Centerboard/components/ImagesInfo/ImagesInfo.tsx");
+/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -331,7 +332,12 @@ const cardimage2 = __webpack_require__(/*! ./../../assets/images/card2.png */ ".
 
 
 
+
 const Centerboard = () => {
+  const {
+    dashboardnavigator,
+    setDashboardnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__["DesignToolContext"]);
   let Card_1_title = "Personlized Images";
   let Card_1_impressions = 7540;
   let Card_1_clicks = 122;
@@ -355,7 +361,7 @@ const Centerboard = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -363,25 +369,25 @@ const Centerboard = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 44,
       columnNumber: 13
     }
-  }, __jsx(_components_HomeCard_HomeCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, dashboardnavigator === "home" && __jsx(_components_HomeCard_HomeCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 17
+      lineNumber: 45,
+      columnNumber: 51
     }
   })), __jsx("div", {
     className: "mt-6 flex flex-row  justify-between mb-10 gap-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 47,
       columnNumber: 13
     }
-  }, __jsx(_components_StatCard_StatCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, dashboardnavigator === "home" && __jsx(_components_StatCard_StatCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
     bio: Card_1_title,
     bio1: Card_1_impressions,
     bio2: Card_1_clicks,
@@ -392,10 +398,10 @@ const Centerboard = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 17
+      lineNumber: 48,
+      columnNumber: 51
     }
-  }), __jsx(_components_StatCard_StatCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), dashboardnavigator === "home" && __jsx(_components_StatCard_StatCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
     bio: Card_2_title,
     bio1: Card_2_impressions,
     bio2: Card_2_clicks,
@@ -406,42 +412,23 @@ const Centerboard = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 17
+      lineNumber: 49,
+      columnNumber: 51
     }
   })), __jsx("div", {
     className: "",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47,
-      columnNumber: 13
-    }
-  }, __jsx(_components_RecentActivity_RecentActivity__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48,
-      columnNumber: 17
-    }
-  })), __jsx("div", {
-    className: "",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50,
-      columnNumber: 13
-    }
-  }, __jsx(_RightSidebar_components_CreateEmail_CreateEmail__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    bio1: email_title_1,
-    bio2: email_text_1,
-    bio3: email_button_text_1,
-    bio4: _utils_defaults__WEBPACK_IMPORTED_MODULE_5__["ORIGINAL_SVG_mailicon"],
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 52,
-      columnNumber: 17
+      columnNumber: 13
+    }
+  }, dashboardnavigator === "home" && __jsx(_components_RecentActivity_RecentActivity__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 51
     }
   })), __jsx("div", {
     className: "",
@@ -451,12 +438,16 @@ const Centerboard = () => {
       lineNumber: 55,
       columnNumber: 13
     }
-  }, __jsx(_Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, dashboardnavigator === "images" && __jsx(_RightSidebar_components_CreateEmail_CreateEmail__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    bio1: email_title_1,
+    bio2: email_text_1,
+    bio3: email_button_text_1,
+    bio4: _utils_defaults__WEBPACK_IMPORTED_MODULE_5__["ORIGINAL_SVG_mailicon"],
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
-      columnNumber: 17
+      lineNumber: 56,
+      columnNumber: 53
     }
   })), __jsx("div", {
     className: "",
@@ -466,12 +457,27 @@ const Centerboard = () => {
       lineNumber: 59,
       columnNumber: 13
     }
-  }, __jsx(_Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, dashboardnavigator === "images" && __jsx(_Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 60,
-      columnNumber: 17
+      columnNumber: 53
+    }
+  })), __jsx("div", {
+    className: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 13
+    }
+  }, dashboardnavigator === "images" && __jsx(_Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63,
+      columnNumber: 53
     }
   })));
 };
@@ -787,6 +793,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageStat/ImageStat */ "./src/components/Centerboard/components/ImagesInfo/ImageStat/ImageStat.tsx");
+/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -794,7 +801,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const image1 = __webpack_require__(/*! ./../../../../assets/images/ALP-Summer.png */ "./src/assets/images/ALP-Summer.png");
 
+
+
 const ImagesInfo = () => {
+  const {
+    sidebarnavigator,
+    setSidebarnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
   let Card_1_title = "ALP";
   let Card_1_views = 121;
   let Card_1_clicks = 541;
@@ -805,7 +818,7 @@ const ImagesInfo = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 18,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -813,7 +826,7 @@ const ImagesInfo = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 19,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -821,15 +834,15 @@ const ImagesInfo = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 20,
       columnNumber: 17
     }
-  }, "Your Images"), __jsx("button", {
+  }, "Your Personalized Images"), __jsx("button", {
     className: "mt-10 mr-4 border-2 border-alto rounded-md px-4 py-2 mb-6 text-white bg-indigo600",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 21,
       columnNumber: 17
     }
   }, "Filters")), __jsx("div", {
@@ -837,7 +850,7 @@ const ImagesInfo = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 23,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -845,49 +858,51 @@ const ImagesInfo = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, __jsx("div", {
     className: "mb-6 w-full ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 17
-    }
-  }, __jsx(_ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: Card_1_title,
-    sale: Card_1_sale,
-    views: Card_1_views,
-    clicks: Card_1_clicks,
-    time: Card_1_time,
-    image: image1,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 21
-    }
-  })), __jsx("div", {
-    className: "mb-6 w-full",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 17
-    }
-  }, __jsx(_ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: Card_1_title,
-    sale: Card_1_sale,
-    views: Card_1_views,
-    clicks: Card_1_clicks,
-    time: Card_1_time,
-    image: image1,
+    onClick: () => setSidebarnavigator('stat'),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
+      columnNumber: 17
+    }
+  }, __jsx(_ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: Card_1_title,
+    sale: Card_1_sale,
+    views: Card_1_views,
+    clicks: Card_1_clicks,
+    time: Card_1_time,
+    image: image1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 21
+    }
+  })), __jsx("div", {
+    className: "mb-6 w-full",
+    onClick: () => setSidebarnavigator('images'),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  }, __jsx(_ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: Card_1_title,
+    sale: Card_1_sale,
+    views: Card_1_views,
+    clicks: Card_1_clicks,
+    time: Card_1_time,
+    image: image1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
       columnNumber: 21
     }
   }))));
@@ -2069,8 +2084,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -2078,23 +2095,25 @@ const image = __webpack_require__(/*! ./1.jpg */ "./src/components/LeftSideBar/1
 
 const LeftSidebar = () => {
   const {
-    0: state,
-    1: setState
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+    dashboardnavigator,
+    setDashboardnavigator,
+    sidebarnavigator,
+    setSidebarnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
   return __jsx("div", {
-    className: "h-full fixed flex flex-col w-full",
+    className: "h-full fixed flex flex-col  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 13,
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "flex justify-start ml-6 items-start mx-auto mt-6 align-middle mb-8",
+    className: "flex justify-start ml-6 items-start mx-auto mt-6 align-middle mb-8 w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 14,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2102,7 +2121,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 16,
       columnNumber: 17
     }
   }, __jsx("img", {
@@ -2111,7 +2130,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 17,
       columnNumber: 21
     }
   })), __jsx("div", {
@@ -2119,7 +2138,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 19,
       columnNumber: 17
     }
   }, __jsx("h3", {
@@ -2127,7 +2146,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 20,
       columnNumber: 21
     }
   }, "Tom Cook"), __jsx("button", {
@@ -2135,31 +2154,35 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 21,
       columnNumber: 21
     }
   }, "View Profile"))), __jsx("div", {
-    className: "flex flex-col justify-start text-left items-start ml-6 leading-10 text-lightGray w-1/6",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 13
-    }
-  }, __jsx("button", {
-    className: " w-full  ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    className: "flex hover:bg-lightindigo  focus:bg-lightindigo  w-5/6 hover:rounded-lg border-0 rounded-md pl-2",
+    className: "flex flex-col justify-start text-left items-start ml-2 leading-10 text-lightGray  w-full  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
+      columnNumber: 13
+    }
+  }, __jsx("button", {
+    className: " w-full  ",
+    onClick: () => {
+      setDashboardnavigator('home');
+      setSidebarnavigator('');
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: dashboardnavigator === "home" ? "flex hover:bg-lightindigo  focus:bg-lightindigo  w-60 hover:rounded-lg border-0 rounded-md pl-2 bg-lightindigo" : "flex hover:bg-lightindigo  focus:bg-lightindigo  w-60 hover:rounded-lg border-0 rounded-md pl-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2170,7 +2193,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 31,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2182,7 +2205,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 32,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -2190,33 +2213,25 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 35,
       columnNumber: 25
     }
-  }, "Home"))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    className: "w-full  h-10",
-    to: "/createcard",
+  }, "Home"))), __jsx("button", {
+    className: "w-full",
+    onClick: () => setDashboardnavigator('images'),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 39,
       columnNumber: 17
     }
-  }, __jsx("button", {
-    className: "w-full",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 21
-    }
   }, __jsx("div", {
-    className: "flex hover:bg-lightindigo w-5/6 hover:rounded-lg border-0 rounded-md pl-2",
+    className: dashboardnavigator === "images" ? "flex hover:bg-lightindigo  focus:bg-lightindigo  w-60 hover:rounded-lg border-0 rounded-md pl-2 bg-lightindigo" : "flex hover:bg-lightindigo  focus:bg-lightindigo  w-60 hover:rounded-lg border-0 rounded-md pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 25
+      lineNumber: 41,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     className: "mr-2 w-4",
@@ -2226,8 +2241,8 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 29
+      lineNumber: 42,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M1 14.5L6.15901 9.34099C7.03769 8.46231 8.46231 8.46231 9.34099 9.34099L14.5 14.5M12.25 12.25L14.034 10.466C14.9127 9.58731 16.3373 9.58731 17.216 10.466L19 12.25M12.25 5.5H12.2613M3.25 19H16.75C17.9926 19 19 17.9926 19 16.75V3.25C19 2.00736 17.9926 1 16.75 1H3.25C2.00736 1 1 2.00736 1 3.25V16.75C1 17.9926 2.00736 19 3.25 19Z",
@@ -2238,31 +2253,31 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 33
+      lineNumber: 43,
+      columnNumber: 29
     }
   })), __jsx("button", {
     className: "text-lightGray font-medium",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 29
+      lineNumber: 45,
+      columnNumber: 25
     }
-  }, "Personlized Images ")))), __jsx("button", {
+  }, "Personlized Images "))), __jsx("button", {
     className: "w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 48,
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex hover:bg-lightindigo w-5/6 hover:rounded-md border-0 rounded-md pl-2",
+    className: "flex hover:bg-lightindigo hover:rounded-md border-0  w-60 rounded-md pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 50,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2273,7 +2288,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 51,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2285,7 +2300,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 52,
       columnNumber: 29
     }
   })), __jsx("button", {
@@ -2293,7 +2308,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 55,
       columnNumber: 25
     }
   }, "Email Campaigns"))), __jsx("button", {
@@ -2301,15 +2316,15 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 58,
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex hover:bg-lightindigo w-5/6 hover:rounded-md border-0 rounded-md pl-2",
+    className: "flex hover:bg-lightindigo hover:rounded-md border-0  w-60 rounded-md pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 60,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2320,7 +2335,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 61,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2332,7 +2347,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 62,
       columnNumber: 29
     }
   })), __jsx("button", {
@@ -2340,7 +2355,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 66,
       columnNumber: 25
     }
   }, "Activities"))), __jsx("button", {
@@ -2348,15 +2363,15 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 69,
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex hover:bg-lightindigo w-5/6 hover:rounded-md border-0 rounded-md pl-2",
+    className: "flex hover:bg-lightindigo hover:rounded-md border-0  w-60 rounded-md pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 71,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2367,7 +2382,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 72,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2379,7 +2394,7 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 73,
       columnNumber: 29
     }
   })), __jsx("button", {
@@ -2387,24 +2402,33 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 77,
       columnNumber: 25
     }
-  }, "Prospects"))), __jsx("button", {
+  }, "Prospects"))), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+    className: "w-full  h-10",
+    to: "/createcard",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
     className: "w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
-      columnNumber: 17
+      lineNumber: 81,
+      columnNumber: 21
     }
   }, __jsx("div", {
-    className: "flex hover:bg-lightindigo w-5/6 hover:rounded-md border-0 rounded-lg pl-2",
+    className: "flex hover:bg-lightindigo hover:rounded-md border-0  w-60 rounded-md pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
-      columnNumber: 21
+      lineNumber: 83,
+      columnNumber: 25
     }
   }, __jsx("svg", {
     className: "mr-2 w-4",
@@ -2414,8 +2438,8 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 25
+      lineNumber: 84,
+      columnNumber: 29
     }
   }, __jsx("path", {
     d: "M8.32463 2.31731C8.75103 0.560897 11.249 0.560897 11.6754 2.31731C11.9508 3.45193 13.2507 3.99038 14.2478 3.38285C15.7913 2.44239 17.5576 4.2087 16.6172 5.75218C16.0096 6.74925 16.5481 8.04918 17.6827 8.32463C19.4391 8.75103 19.4391 11.249 17.6827 11.6754C16.5481 11.9508 16.0096 13.2507 16.6172 14.2478C17.5576 15.7913 15.7913 17.5576 14.2478 16.6172C13.2507 16.0096 11.9508 16.5481 11.6754 17.6827C11.249 19.4391 8.75103 19.4391 8.32463 17.6827C8.04918 16.5481 6.74926 16.0096 5.75219 16.6172C4.2087 17.5576 2.44239 15.7913 3.38285 14.2478C3.99038 13.2507 3.45193 11.9508 2.31731 11.6754C0.560897 11.249 0.560897 8.75103 2.31731 8.32463C3.45193 8.04918 3.99037 6.74926 3.38285 5.75218C2.44239 4.2087 4.2087 2.44239 5.75219 3.38285C6.74926 3.99037 8.04918 3.45193 8.32463 2.31731Z",
@@ -2426,8 +2450,8 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
-      columnNumber: 29
+      lineNumber: 85,
+      columnNumber: 33
     }
   }), __jsx("path", {
     d: "M13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z",
@@ -2438,18 +2462,18 @@ const LeftSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
-      columnNumber: 29
+      lineNumber: 86,
+      columnNumber: 33
     }
   })), __jsx("button", {
     className: "text-lightGray font-medium",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
-      columnNumber: 25
+      lineNumber: 90,
+      columnNumber: 29
     }
-  }, "Settings")))));
+  }, "Settings"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LeftSidebar);
@@ -2472,6 +2496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ImagePreview_ImagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ImagePreview/ImagePreview */ "./src/components/RightSidebar/components/ImagePreview/ImagePreview.tsx");
 /* harmony import */ var _components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/StatGraph/StatGraph */ "./src/components/RightSidebar/components/StatGraph/StatGraph.tsx");
 /* harmony import */ var _components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/SocialStats/SocialStats */ "./src/components/RightSidebar/components/SocialStats/SocialStats.tsx");
+/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2481,6 +2506,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const image1 = __webpack_require__(/*! ./../../assets/images/ALP-Summer.png */ "./src/assets/images/ALP-Summer.png");
+
 
 
 
@@ -2504,20 +2530,34 @@ let insta_clicks = 244;
 let socialmedia2 = "Instagram";
 
 const RightSidebar = () => {
+  const {
+    dashboardnavigator,
+    setDashboardnavigator,
+    sidebarnavigator,
+    setSidebarnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_6__["DesignToolContext"]);
   return __jsx("div", {
-    className: "pt-36 overflow-y-auto bg-rightbackgroundcolor h-full px-4",
+    className: "pt-36 overflow-y-auto  h-full px-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 44,
       columnNumber: 9
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 45,
       columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: dashboardnavigator === "home" ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 17
     }
   }, __jsx(_components_CreateEmail_CreateEmail__WEBPACK_IMPORTED_MODULE_1__["default"], {
     bio1: email_title_1,
@@ -2527,8 +2567,8 @@ const RightSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 17
+      lineNumber: 48,
+      columnNumber: 21
     }
   }), __jsx(_components_CreateEmail_CreateEmail__WEBPACK_IMPORTED_MODULE_1__["default"], {
     bio1: email_title_2,
@@ -2538,14 +2578,15 @@ const RightSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 17
+      lineNumber: 49,
+      columnNumber: 21
     }
-  })), __jsx("div", {
+  }))), __jsx("div", {
+    className: dashboardnavigator === "images" && sidebarnavigator === "stat" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 54,
       columnNumber: 13
     }
   }, __jsx(_components_ImagePreview_ImagePreview__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -2556,15 +2597,15 @@ const RightSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 55,
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "mt-6",
+    className: dashboardnavigator === "images" && sidebarnavigator === "stat" ? " mt-6" : "hidden mt-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 60,
       columnNumber: 13
     }
   }, __jsx(_components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2574,15 +2615,15 @@ const RightSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 61,
       columnNumber: 17
     }
   })), __jsx("div", {
-    className: "mt-6",
+    className: dashboardnavigator === "images" && sidebarnavigator === "stat" ? "mt-6" : "hidden mt-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 65,
       columnNumber: 13
     }
   }, __jsx(_components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2595,7 +2636,7 @@ const RightSidebar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 66,
       columnNumber: 17
     }
   })));
@@ -2658,14 +2699,20 @@ const CreateEmail = ({
     data,
     error,
     isLoading
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_4__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_6__["template_service"].getAllTemplates); // console.log({ data })
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_4__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_6__["template_service"].getAllTemplates);
+  console.log({
+    data
+  });
+  console.log({
+    error
+  });
 
   if (isLoading) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36,
+        lineNumber: 37,
         columnNumber: 17
       }
     }, "Getting all templates ..."));
@@ -2676,7 +2723,7 @@ const CreateEmail = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 45,
         columnNumber: 17
       }
     }, error.message));
@@ -2686,7 +2733,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2694,7 +2741,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2702,7 +2749,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2710,7 +2757,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -2719,7 +2766,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 25
     }
   }), __jsx("h1", {
@@ -2727,7 +2774,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 56,
       columnNumber: 25
     }
   }, bio1)), __jsx("div", {
@@ -2735,7 +2782,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 58,
       columnNumber: 21
     }
   }, __jsx("p", {
@@ -2743,7 +2790,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 25
     }
   }, bio2)), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -2751,7 +2798,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 63,
       columnNumber: 21
     }
   }), __jsx("button", {
@@ -2759,7 +2806,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 64,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -2767,7 +2814,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2780,7 +2827,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2792,7 +2839,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 74,
       columnNumber: 33
     }
   })), __jsx("p", {
@@ -2800,14 +2847,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 83,
       columnNumber: 29
     }
   }, bio3))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 88,
       columnNumber: 21
     }
   }, newModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -2815,7 +2862,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 91,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -2823,7 +2870,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 92,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -2831,7 +2878,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 94,
       columnNumber: 41
     }
   }, __jsx("div", {
@@ -2839,7 +2886,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 96,
       columnNumber: 45
     }
   }, __jsx("h3", {
@@ -2847,7 +2894,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 97,
       columnNumber: 49
     }
   }, "Create New Personalized Email"), __jsx("button", {
@@ -2856,7 +2903,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 100,
       columnNumber: 49
     }
   }, __jsx("span", {
@@ -2864,7 +2911,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 104,
       columnNumber: 53
     }
   }, "\xD7"))), __jsx("div", {
@@ -2872,14 +2919,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 110,
       columnNumber: 45
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 111,
       columnNumber: 49
     }
   }, " Create For Email"), __jsx("div", {
@@ -2887,7 +2934,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 112,
       columnNumber: 49
     }
   }, __jsx("div", {
@@ -2895,14 +2942,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 113,
       columnNumber: 53
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 114,
       columnNumber: 57
     }
   }, __jsx("div", {
@@ -2910,7 +2957,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 115,
       columnNumber: 61
     }
   }, __jsx("svg", {
@@ -2922,7 +2969,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 116,
       columnNumber: 65
     }
   }, __jsx("rect", {
@@ -2932,7 +2979,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 123,
       columnNumber: 69
     }
   })), __jsx("div", {
@@ -2940,7 +2987,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 125,
       columnNumber: 65
     }
   }, __jsx("div", {
@@ -2948,14 +2995,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125,
+      lineNumber: 126,
       columnNumber: 69
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 127,
       columnNumber: 73
     }
   }, "HEADER")), __jsx("div", {
@@ -2963,14 +3010,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 129,
       columnNumber: 69
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 130,
       columnNumber: 73
     }
   }, "Dimensions:1920x240")))))), __jsx("div", {
@@ -2978,14 +3025,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 136,
       columnNumber: 53
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 137,
       columnNumber: 57
     }
   }, __jsx("div", {
@@ -2993,7 +3040,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 138,
       columnNumber: 61
     }
   }, __jsx("svg", {
@@ -3005,7 +3052,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 139,
       columnNumber: 65
     }
   }, __jsx("rect", {
@@ -3015,7 +3062,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145,
+      lineNumber: 146,
       columnNumber: 69
     }
   })), __jsx("div", {
@@ -3023,7 +3070,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 148,
       columnNumber: 65
     }
   }, __jsx("div", {
@@ -3031,14 +3078,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 149,
       columnNumber: 69
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149,
+      lineNumber: 150,
       columnNumber: 73
     }
   }, "BODY")), __jsx("div", {
@@ -3046,14 +3093,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 152,
       columnNumber: 69
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 153,
       columnNumber: 73
     }
   }, "Dimensions:1080x1080"))))))), __jsx("div", {
@@ -3061,7 +3108,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 49
     }
   }, "Create For Social Media"), __jsx("div", {
@@ -3069,14 +3116,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162,
+      lineNumber: 163,
       columnNumber: 49
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 164,
       columnNumber: 53
     }
   }, __jsx("div", {
@@ -3084,7 +3131,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 165,
       columnNumber: 57
     }
   }, __jsx("div", {
@@ -3092,7 +3139,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 166,
       columnNumber: 61
     }
   }, __jsx("svg", {
@@ -3104,7 +3151,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166,
+      lineNumber: 167,
       columnNumber: 65
     }
   }, __jsx("rect", {
@@ -3114,7 +3161,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173,
+      lineNumber: 174,
       columnNumber: 69
     }
   })), __jsx("div", {
@@ -3122,7 +3169,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 65
     }
   }, __jsx("div", {
@@ -3130,14 +3177,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176,
+      lineNumber: 177,
       columnNumber: 69
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177,
+      lineNumber: 178,
       columnNumber: 73
     }
   }, "Feature IMAGE")), __jsx("div", {
@@ -3145,14 +3192,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 179,
+      lineNumber: 180,
       columnNumber: 69
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 180,
+      lineNumber: 181,
       columnNumber: 73
     }
   }, "Dimensions:1080x1080"))))))))))), __jsx("div", {
@@ -3160,14 +3207,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202,
+      lineNumber: 203,
       columnNumber: 33
     }
   })) : null), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 210,
       columnNumber: 21
     }
   }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", __jsx("div", {
@@ -3175,7 +3222,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 214,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -3186,7 +3233,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 215,
       columnNumber: 37
     }
   }, " ", __jsx("div", {
@@ -3194,7 +3241,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 220,
+      lineNumber: 221,
       columnNumber: 41
     }
   }, __jsx("div", {
@@ -3202,7 +3249,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 221,
+      lineNumber: 222,
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -3210,7 +3257,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 222,
+      lineNumber: 223,
       columnNumber: 49
     }
   }, __jsx("button", {
@@ -3219,7 +3266,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 223,
+      lineNumber: 224,
       columnNumber: 53
     }
   }, __jsx("span", {
@@ -3227,7 +3274,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227,
+      lineNumber: 228,
       columnNumber: 57
     }
   }, "\xD7"))), __jsx("div", {
@@ -3235,14 +3282,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 232,
+      lineNumber: 233,
       columnNumber: 49
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233,
+      lineNumber: 234,
       columnNumber: 53
     }
   }, __jsx("h3", {
@@ -3250,7 +3297,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 234,
+      lineNumber: 235,
       columnNumber: 57
     }
   }, "Select Template")), __jsx("div", {
@@ -3258,7 +3305,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 238,
+      lineNumber: 239,
       columnNumber: 53
     }
   }, __jsx("div", {
@@ -3266,7 +3313,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 240,
       columnNumber: 57
     }
   }, __jsx("button", {
@@ -3274,7 +3321,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 240,
+      lineNumber: 241,
       columnNumber: 61
     }
   }, "Most Popular", " "), __jsx("img", {
@@ -3283,7 +3330,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 243,
+      lineNumber: 244,
       columnNumber: 61
     }
   }))))), __jsx("div", {
@@ -3291,7 +3338,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249,
+      lineNumber: 250,
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -3299,14 +3346,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 250,
+      lineNumber: 251,
       columnNumber: 49
     }
   }, __jsx(_Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 251,
+      lineNumber: 252,
       columnNumber: 53
     }
   }))), __jsx("div", {
@@ -3314,7 +3361,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 254,
+      lineNumber: 255,
       columnNumber: 45
     }
   }, __jsx("button", {
@@ -3322,7 +3369,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 255,
+      lineNumber: 256,
       columnNumber: 49
     }
   }, "Employes"), __jsx("button", {
@@ -3330,7 +3377,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258,
+      lineNumber: 259,
       columnNumber: 49
     }
   }, "Events"), __jsx("button", {
@@ -3338,7 +3385,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 261,
+      lineNumber: 262,
       columnNumber: 49
     }
   }, "Promotion"), __jsx("button", {
@@ -3346,14 +3393,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 264,
+      lineNumber: 265,
       columnNumber: 49
     }
   }, "Property")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 268,
+      lineNumber: 269,
       columnNumber: 45
     }
   }, __jsx("h1", {
@@ -3361,7 +3408,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 269,
+      lineNumber: 270,
       columnNumber: 49
     }
   }, "Your Designs")), __jsx("div", {
@@ -3369,14 +3416,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 273,
+      lineNumber: 274,
       columnNumber: 45
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 274,
+      lineNumber: 275,
       columnNumber: 49
     }
   }, __jsx("button", {
@@ -3388,7 +3435,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 275,
+      lineNumber: 276,
       columnNumber: 53
     }
   }, __jsx("svg", {
@@ -3399,7 +3446,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 282,
+      lineNumber: 283,
       columnNumber: 57
     }
   }, __jsx("g", {
@@ -3407,7 +3454,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 288,
+      lineNumber: 289,
       columnNumber: 61
     }
   }, __jsx("path", {
@@ -3416,7 +3463,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289,
+      lineNumber: 290,
       columnNumber: 65
     }
   }), __jsx("path", {
@@ -3428,14 +3475,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 293,
+      lineNumber: 294,
       columnNumber: 65
     }
   })), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 301,
+      lineNumber: 302,
       columnNumber: 61
     }
   }, __jsx("filter", {
@@ -3449,7 +3496,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 302,
+      lineNumber: 303,
       columnNumber: 65
     }
   }, __jsx("feFlood", {
@@ -3458,7 +3505,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 311,
+      lineNumber: 312,
       columnNumber: 69
     }
   }), __jsx("feColorMatrix", {
@@ -3469,7 +3516,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 315,
+      lineNumber: 316,
       columnNumber: 69
     }
   }), __jsx("feOffset", {
@@ -3477,7 +3524,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 321,
+      lineNumber: 322,
       columnNumber: 69
     }
   }), __jsx("feGaussianBlur", {
@@ -3485,7 +3532,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 322,
+      lineNumber: 323,
       columnNumber: 69
     }
   }), __jsx("feColorMatrix", {
@@ -3494,7 +3541,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 323,
+      lineNumber: 324,
       columnNumber: 69
     }
   }), __jsx("feBlend", {
@@ -3504,7 +3551,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 327,
+      lineNumber: 328,
       columnNumber: 69
     }
   }), __jsx("feBlend", {
@@ -3515,7 +3562,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 332,
+      lineNumber: 333,
       columnNumber: 69
     }
   })))), __jsx("p", {
@@ -3523,14 +3570,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 341,
+      lineNumber: 342,
       columnNumber: 57
     }
   }, "Create New Personalized Template"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 346,
+      lineNumber: 347,
       columnNumber: 49
     }
   }, __jsx("div", {
@@ -3538,7 +3585,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 347,
+      lineNumber: 348,
       columnNumber: 53
     }
   }, data.map((item, index) => {
@@ -3547,7 +3594,7 @@ const CreateEmail = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 350,
+        lineNumber: 351,
         columnNumber: 65
       }
     }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -3555,7 +3602,7 @@ const CreateEmail = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 351,
+        lineNumber: 352,
         columnNumber: 69
       }
     }));
@@ -3563,7 +3610,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 364,
+      lineNumber: 365,
       columnNumber: 45
     }
   }, __jsx("h1", {
@@ -3571,7 +3618,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 365,
+      lineNumber: 366,
       columnNumber: 49
     }
   }, "For you")), __jsx("div", {
@@ -3579,7 +3626,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 369,
+      lineNumber: 370,
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -3587,14 +3634,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 370,
+      lineNumber: 371,
       columnNumber: 49
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 371,
+      lineNumber: 372,
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -3602,7 +3649,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 372,
+      lineNumber: 373,
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -3613,7 +3660,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 373,
+      lineNumber: 374,
       columnNumber: 61
     }
   }), __jsx("p", {
@@ -3621,14 +3668,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 379,
+      lineNumber: 380,
       columnNumber: 61
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 384,
+      lineNumber: 385,
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -3636,7 +3683,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 385,
+      lineNumber: 386,
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -3647,7 +3694,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 386,
+      lineNumber: 387,
       columnNumber: 61
     }
   }), __jsx("p", {
@@ -3655,14 +3702,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 392,
+      lineNumber: 393,
       columnNumber: 61
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 397,
+      lineNumber: 398,
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -3670,7 +3717,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 398,
+      lineNumber: 399,
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -3681,7 +3728,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 399,
+      lineNumber: 400,
       columnNumber: 61
     }
   }), __jsx("p", {
@@ -3689,14 +3736,14 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 405,
+      lineNumber: 406,
       columnNumber: 61
     }
   }, "Welcome card for employee"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 410,
+      lineNumber: 411,
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -3704,7 +3751,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 411,
+      lineNumber: 412,
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -3715,7 +3762,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 412,
+      lineNumber: 413,
       columnNumber: 61
     }
   }), __jsx("p", {
@@ -3723,7 +3770,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 418,
+      lineNumber: 419,
       columnNumber: 61
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -3731,7 +3778,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 428,
+      lineNumber: 429,
       columnNumber: 33
     }
   })) : null))));
@@ -3957,7 +4004,7 @@ const ImagePreview = ({
   const svg2 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_attachementicon"]);
   const svg3 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_deleteicon"]);
   return __jsx("div", {
-    className: "mt-4 overflow-y-auto overscroll-y-auto w-full flex self-center bg-white justify-center border-0 shadow-sm rounded-lg pb-10",
+    className: "mt-4 overflow-y-auto overscroll-y-auto w-full flex self-center bg-white justify-center border  rounded-lg pb-10 shadow-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4233,7 +4280,7 @@ const StatGraph = ({
   const svg2 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_bluedoticon"]);
   const svg3 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_greendoticon"]);
   return __jsx("div", {
-    className: " border-0 rounded-md bg-white  w-full   py-6",
+    className: " border shadow-md rounded-md bg-white  w-full   py-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4437,7 +4484,7 @@ const StatGraph = ({
   const svg2 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_bluedoticon"]);
   const svg3 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_greendoticon"]);
   return __jsx("div", {
-    className: " border-0 rounded-md bg-white  w-full px-4  py-6",
+    className: "  rounded-md bg-white  w-full px-4  py-6 shadow-md border",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,

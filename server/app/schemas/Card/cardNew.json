@@ -12,20 +12,8 @@
           "type": "string"
         }
       },
-      "images": {
-        "type": "array",
-        "items": {
-          "type": "object"
-        }
-      },
-      "textBoxes": {
-        "type": "array",
-        "items": {
-          "type": "object"
-        }
-      },
-      "shapes": {
-        "type": "array",
+      "elements":{
+        "type":"array",
         "items": {
           "type": "object"
         }
@@ -38,6 +26,12 @@
       },
       "workspaceId": {
         "type": "string"
+      },
+      "labels":{
+        "type":"array",
+        "items": {
+          "type": "string"
+        }
       }      
     }
   }

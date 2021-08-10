@@ -167,7 +167,7 @@ const CardElementsFunctions = () => {
             const shapeIndex = prev.elements.findIndex(
                 (item) => item.id === selectedId
             );
-            prev.elements[shapeIndex].fontSize = fontSizeArray.find(item => item.name === type).size
+            prev.elements[shapeIndex].fontStyle = type
         })
     }
 
@@ -185,7 +185,7 @@ const CardElementsFunctions = () => {
             const shapeIndex = prev.elements.findIndex(
                 (item) => item.id === selectedId
             );
-            prev.elements[shapeIndex].textAlign = type
+            prev.elements[shapeIndex].align = type
         })
     }
 
@@ -195,6 +195,15 @@ const CardElementsFunctions = () => {
                 (item) => item.id === selectedId
             );
             prev.elements[shapeIndex].opacity = parseFloat(value)
+        })
+    }
+
+    const handleTextEffect = (textObj: any) => {
+        setCardData(prev => {
+            const shapeIndex = prev.elements.findIndex(
+                (item) => item.id === selectedId
+            );
+            prev.elements[shapeIndex] = textObj
         })
     }
 
@@ -221,7 +230,7 @@ const CardElementsFunctions = () => {
             const shapeIndex = prev.elements.findIndex(
                 (item) => item.id === selectedId
             );
-            prev.elements[shapeIndex].fontFamily = value
+            prev.elements[shapeIndex].strokeWidth = value
         })
     }
 
@@ -264,10 +273,10 @@ const CardElementsFunctions = () => {
         })
     }
 
-    const handleStrokeColor = (color) => {
+    const handleStrokeColor = (color: string) => {
         setCardData(prev => {
             const selectedShape = prev.elements.find(item => item.id === selectedId)
-            selectedShape.stroke = color.hex
+            selectedShape.stroke = color
         })
     }
 
@@ -342,6 +351,7 @@ const CardElementsFunctions = () => {
         handleTextTransform,
         handleTextAlign,
         handleTextOpacity,
+        handleTextEffect,
         handleTextColor,
         handleFontFamily,
         handleBorderWidthChange,

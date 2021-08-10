@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "4a70e83ed5fc7e17424f";
+/******/ 	var hotCurrentHash = "8e087060d99ddf051add";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1574,7 +1574,7 @@ const INITIAL_STATE = {
       x: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
       y: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height
     },
-    fillLinearGradientColorStops: [0, '#60affa', 1, '#60affa'],
+    fillLinearGradientColorStops: [0, '#ffffff', 1, '#ffffff'],
     draggable: false
   }]
 };
@@ -1586,6 +1586,14 @@ const DesignToolProvider = ({
     0: designToolnavigator,
     1: setDesignToolnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('element');
+  const {
+    0: dashboardnavigator,
+    1: setDashboardnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('home');
+  const {
+    0: sidebarnavigator,
+    1: setSidebarnavigator
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const {
     0: designHeadernavigator,
     1: setDesignHeadernavigator
@@ -1604,6 +1612,10 @@ const DesignToolProvider = ({
     value: {
       designToolnavigator,
       setDesignToolnavigator,
+      sidebarnavigator,
+      setSidebarnavigator,
+      dashboardnavigator,
+      setDashboardnavigator,
       designHeadernavigator,
       setDesignHeadernavigator,
       selectedId,
@@ -1620,7 +1632,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 37,
       columnNumber: 9
     }
   }, children);
@@ -1930,7 +1942,7 @@ const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-power
 /*!*******************************!*\
   !*** ./src/utils/defaults.ts ***!
   \*******************************/
-/*! exports provided: stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, googleFontsList, fontSizeArray, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
+/*! exports provided: stageDimensions, ORIGINAL_SVG, defaultImage, defaultSvg, defaultRect, defaultRoundedRect, defaultCircle, defaultPolygon, defaultTriangle, defaultTextBox, defaultTextNoEffect, defaultTextHollow, defaultTextLift, defaultTextShadow, defaultTextSplice, defaultTextGlitch, defaultTextNeon, googleFontsList, fontSizeArray, ORIGINAL_SVG_mailicon, ORIGINAL_SVG_imageicon, ORIGINAL_SVG_eyeicon, ORIGINAL_SVG_impressionicon, ORIGINAL_SVG_arrow_upicon, ORIGINAL_SVG_editicon, ORIGINAL_SVG_attachementicon, ORIGINAL_SVG_deleteicon, ORIGINAL_SVG_updownicon, ORIGINAL_SVG_bluedoticon, ORIGINAL_SVG_greendoticon */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1945,6 +1957,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultPolygon", function() { return defaultPolygon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTriangle", function() { return defaultTriangle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextBox", function() { return defaultTextBox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextNoEffect", function() { return defaultTextNoEffect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextHollow", function() { return defaultTextHollow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextLift", function() { return defaultTextLift; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextShadow", function() { return defaultTextShadow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextSplice", function() { return defaultTextSplice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextGlitch", function() { return defaultTextGlitch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultTextNeon", function() { return defaultTextNeon; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "googleFontsList", function() { return googleFontsList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontSizeArray", function() { return fontSizeArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORIGINAL_SVG_mailicon", function() { return ORIGINAL_SVG_mailicon; });
@@ -2051,6 +2070,82 @@ const defaultTextBox = {
   width: 200,
   type: "text",
   fill: "#000000"
+};
+const defaultTextNoEffect = {
+  fill: "black",
+  stroke: "",
+  shadowEnabled: false,
+  shadowBlur: 0,
+  shadowColor: "",
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextHollow = {
+  fill: "white",
+  stroke: "black",
+  shadowColor: "",
+  shadowEnabled: false,
+  shadowBlur: 0,
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextLift = {
+  fill: "black",
+  shadowEnabled: true,
+  shadowBlur: 10,
+  stroke: "",
+  shadowColor: "",
+  shadowOffset: {
+    x: 0,
+    y: 0
+  }
+};
+const defaultTextShadow = {
+  fill: "black",
+  shadowEnabled: true,
+  shadowColor: "grey",
+  shadowOffset: {
+    x: 2,
+    y: 2
+  },
+  shadowBlur: 2,
+  stroke: ""
+};
+const defaultTextSplice = {
+  shadowColor: "grey",
+  shadowOffset: {
+    x: 2,
+    y: 2
+  },
+  shadowBlur: 5,
+  fill: "white",
+  stroke: "black",
+  shadowEnabled: true
+};
+const defaultTextGlitch = {
+  fill: "darkerblue",
+  shadowEnabled: true,
+  shadowColor: "magenta",
+  shadowOffset: {
+    x: -2,
+    y: -2
+  },
+  shadowBlur: 2,
+  stroke: ""
+};
+const defaultTextNeon = {
+  fill: "magenta",
+  shadowColor: "magenta",
+  shadowEnabled: true,
+  shadowBlur: 10,
+  shadowOffset: {
+    x: -2,
+    y: -2
+  }
 };
 const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo'];
 const fontSizeArray = [{
