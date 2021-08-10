@@ -45,6 +45,7 @@ const BackgroundColor: React.FC = (): JSX.Element => {
                     closeModal={() => {
                         setShowModal(false);
                     }}
+                    currentColor={"#60affa"}
                 />
             </div>
         </div>
