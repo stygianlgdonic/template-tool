@@ -44,8 +44,7 @@ app.use(cors());
 
 app.use(globalResponseHeaders);
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-
+app.use(cors({ origin: true, credentials: true }));
 app.use(
   "/things",
   passport.authenticate("jwt", { session: false }),
