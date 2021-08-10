@@ -2,7 +2,7 @@ import React, { createContext, useState, useReducer } from 'react'
 
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../../utils/defaults';
-import { designToolReducer, designToolInit } from './DesignToolReducers';
+import { designToolReducer, designToolInit } from './DesingToolReducers';
 
 export const INITIAL_STATE = {
     dimensions: { width: stageDimensions.width, height: stageDimensions.height },

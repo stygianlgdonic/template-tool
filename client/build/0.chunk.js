@@ -680,7 +680,7 @@ const CreateCardLayout = () => {
   })), __jsx("div", {
     className: "relative",
     style: {
-      height: "88vh"
+      height: "92vh"
     },
     __self: undefined,
     __source: {
@@ -2143,6 +2143,7 @@ const TransformerComponent = ({
       columnNumber: 17
     }
   }, __jsx("div", {
+    className: (selectedShapeName === null || selectedShapeName === void 0 ? void 0 : selectedShapeName.split("_")[0]) === "shapes" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2381,7 +2382,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/NavBarActions */ "./src/contexts/DesignTool/NavBarActions.ts");
+/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\ElementHeader\\ElementHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2415,8 +2416,8 @@ const ElementHeader = () => {
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])(); // !!state?false:true;
 
   const {
-    selectFontToolNav
-  } = Object(_contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    selectShapeColorSubNav
+  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
   return __jsx("div", {
     className: "flex  justify-start  ",
     __self: undefined,
@@ -2435,7 +2436,7 @@ const ElementHeader = () => {
     }
   }, __jsx("button", {
     className: "w-10 h-10 rounded-md bg-fuschia",
-    onClick: selectFontToolNav,
+    onClick: selectShapeColorSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3236,7 +3237,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/NavBarActions */ "./src/contexts/DesignTool/NavBarActions.ts");
+/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\TextHeader\\TextHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -3264,10 +3265,10 @@ const TextHeader = () => {
     handleDeleteSelectedItem
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])();
   const {
-    selectTextToolNav,
-    selectFontToolNav,
-    selectEffectToolNav
-  } = Object(_contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    selectTextToolSubNav,
+    selectEffectToolSubNav,
+    selectFontColorToolSubNav
+  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
   return __jsx("div", {
     className: "flex flex-row items-center justify-center gap-4 px-6 h-full ",
     __self: undefined,
@@ -3308,7 +3309,7 @@ const TextHeader = () => {
     id: "menu-button",
     "aria-expanded": "true",
     "aria-haspopup": "true",
-    onClick: selectTextToolNav,
+    onClick: selectTextToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3371,7 +3372,7 @@ const TextHeader = () => {
     }
   }, __jsx("button", {
     className: "ml-10 text-lg font-bold text-black",
-    onClick: selectFontToolNav,
+    onClick: selectFontColorToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3838,7 +3839,7 @@ const TextHeader = () => {
       columnNumber: 17
     }
   }, __jsx("button", {
-    onClick: selectEffectToolNav,
+    onClick: selectEffectToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4894,61 +4895,68 @@ const SubNavBar = () => {
       lineNumber: 18,
       columnNumber: 9
     }
-  }, designToolState.navbar_selection === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, designToolState.sub_navbar_selection === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20,
-      columnNumber: 64
+      columnNumber: 68
     }
-  }), designToolState.navbar_selection === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), designToolState.sub_navbar_selection === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21,
-      columnNumber: 61
+      columnNumber: 65
     }
-  }), designToolState.navbar_selection === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), designToolState.sub_navbar_selection === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22,
-      columnNumber: 63
+      columnNumber: 67
     }
-  }), designToolState.navbar_selection === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), designToolState.sub_navbar_selection === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
-      columnNumber: 67
+      columnNumber: 71
     }
-  }), designToolState.navbar_selection === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), designToolState.sub_navbar_selection === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24,
-      columnNumber: 61
+      columnNumber: 65
     }
-  }), designToolState.navbar_selection === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), designToolState.sub_navbar_selection === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
-      columnNumber: 65
+      columnNumber: 69
     }
-  }), designToolState.navbar_selection === 'fonttool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), designToolState.sub_navbar_selection === 'fontColorTool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
-      columnNumber: 65
+      columnNumber: 74
     }
-  }), designToolState.navbar_selection === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), designToolState.sub_navbar_selection === 'shapeColor' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27,
-      columnNumber: 67
+      columnNumber: 71
+    }
+  }), designToolState.sub_navbar_selection === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 71
     }
   }));
 };
@@ -10594,37 +10602,72 @@ const NavBarActions = () => {
     });
   };
 
-  const selectTextToolNav = () => {
+  return {
+    selectElementNav,
+    selectTextNav,
+    selectImagesNav,
+    selectBackgroundNav,
+    selectLogoNav
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBarActions);
+
+/***/ }),
+
+/***/ "./src/contexts/DesignTool/SubnavbarActions.ts":
+/*!*****************************************************!*\
+  !*** ./src/contexts/DesignTool/SubnavbarActions.ts ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+
+
+
+const SubNavbarActions = () => {
+  const {
+    designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+
+  const selectShapeColorSubNav = () => {
+    designToolDispatch({
+      type: "Select_Shape_Color_Nav"
+    });
+  };
+
+  const selectTextToolSubNav = () => {
     designToolDispatch({
       type: "Select_Texttool_Nav"
     });
   };
 
-  const selectFontToolNav = () => {
+  const selectFontColorToolSubNav = () => {
     designToolDispatch({
-      type: "Select_Fonttool_Nav"
+      type: "Select_Font_Color_Tool_Nav"
     });
   };
 
-  const selectEffectToolNav = () => {
+  const selectEffectToolSubNav = () => {
     designToolDispatch({
       type: "Select_Effecttool_Nav"
     });
   };
 
   return {
-    selectElementNav,
-    selectTextNav,
-    selectImagesNav,
-    selectBackgroundNav,
-    selectLogoNav,
-    selectTextToolNav,
-    selectFontToolNav,
-    selectEffectToolNav
+    selectShapeColorSubNav,
+    selectTextToolSubNav,
+    selectFontColorToolSubNav,
+    selectEffectToolSubNav
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (NavBarActions);
+/* harmony default export */ __webpack_exports__["default"] = (SubNavbarActions);
 
 /***/ }),
 

@@ -17,14 +17,15 @@ const SubNavBar: React.FC = (): JSX.Element => {
 
         <div className="h-full flex flex-col w-full border-bordercolor border ">
 
-            {designToolState.navbar_selection === 'element' && <ElementSelector />}
-            {designToolState.navbar_selection === 'text' && <TextSelector />}
-            {designToolState.navbar_selection === 'images' && <ImageSelector />}
-            {designToolState.navbar_selection === 'background' && <BackgroundSelector />}
-            {designToolState.navbar_selection === 'logo' && <LogoSelector />}
-            {designToolState.navbar_selection === 'texttool' && <FontStyletool />}
-            {designToolState.navbar_selection === 'fonttool' && <FontColortool />}
-            {designToolState.navbar_selection === 'effecttool' && <EffectStyletool />}
+            {designToolState.sub_navbar_selection === 'element' && <ElementSelector />}
+            {designToolState.sub_navbar_selection === 'text' && <TextSelector />}
+            {designToolState.sub_navbar_selection === 'images' && <ImageSelector />}
+            {designToolState.sub_navbar_selection === 'background' && <BackgroundSelector />}
+            {designToolState.sub_navbar_selection === 'logo' && <LogoSelector />}
+            {designToolState.sub_navbar_selection === 'texttool' && <FontStyletool />}
+            {designToolState.sub_navbar_selection === 'fontColorTool' && <FontColortool />}
+            {designToolState.sub_navbar_selection === 'shapeColor' && <FontColortool />}
+            {designToolState.sub_navbar_selection === 'effecttool' && <EffectStyletool />}
 
         </div>
     )

@@ -19,15 +19,6 @@ const NavBarActions = () => {
     const selectLogoNav = () => {
         designToolDispatch({ type: "Select_Logo_Nav" })
     }
-    const selectTextToolNav = () => {
-        designToolDispatch({ type: "Select_Texttool_Nav" })
-    }
-    const selectFontToolNav = () => {
-        designToolDispatch({ type: "Select_Fonttool_Nav" })
-    }
-    const selectEffectToolNav = () => {
-        designToolDispatch({ type: "Select_Effecttool_Nav" })
-    }
 
     return {
         selectElementNav,
@@ -35,9 +26,6 @@ const NavBarActions = () => {
         selectImagesNav,
         selectBackgroundNav,
         selectLogoNav,
-        selectTextToolNav,
-        selectFontToolNav,
-        selectEffectToolNav,
     }
 
 }

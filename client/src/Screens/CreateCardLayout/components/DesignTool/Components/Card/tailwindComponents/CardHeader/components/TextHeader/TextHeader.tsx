@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
-import NavBarActions from "../../../../../../../../../../contexts/DesignTool/NavBarActions";
+import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const TextHeader: React.FC = (): JSX.Element => {
@@ -12,7 +12,7 @@ const TextHeader: React.FC = (): JSX.Element => {
     const [value, setValue] = React.useState(0)
     const [open, setOpen] = React.useState(false);
     const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem } = CardElementsFunctions()
-    const { selectTextToolNav, selectFontToolNav, selectEffectToolNav } = NavBarActions()
+    const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
 
 
     return (
@@ -30,7 +30,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                             id="menu-button"
                             aria-expanded="true"
                             aria-haspopup="true"
-                            onClick={selectTextToolNav}
+                            onClick={selectTextToolSubNav}
                         >
                             Poppins thin
                         </button>
@@ -60,7 +60,7 @@ const TextHeader: React.FC = (): JSX.Element => {
 
                 <div>
                     <div>
-                        <button className="ml-10 text-lg font-bold text-black" onClick={selectFontToolNav}>
+                        <button className="ml-10 text-lg font-bold text-black" onClick={selectFontColorToolSubNav}>
 
                             <svg className="mt-2" width="30" height="30" viewBox="0 0 36 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.392 27L13.9943 22.3807H20.8125L22.4062 27H25.2017L18.9205 9.54545H15.8778L9.59659 27H12.392ZM14.7614 20.1648L17.3352 12.7159H17.4716L20.0455 20.1648H14.7614Z" fill="black" />
@@ -177,7 +177,7 @@ const TextHeader: React.FC = (): JSX.Element => {
 
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
                 <div className="ml-6 text-lg italic font-bold text-black ">
-                    <button onClick={selectEffectToolNav} >Effects</button>
+                    <button onClick={selectEffectToolSubNav} >Effects</button>
                     {/* <Range
                         step={1}
                         min={0}

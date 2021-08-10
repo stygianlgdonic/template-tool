@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "684171171b301b7f22cc";
+/******/ 	var hotCurrentHash = "becea331edf06402b51a";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1546,7 +1546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
-/* harmony import */ var _DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesignToolReducers */ "./src/contexts/DesignTool/DesignToolReducers.ts");
+/* harmony import */ var _DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesingToolReducers */ "./src/contexts/DesignTool/DesingToolReducers.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1612,7 +1612,7 @@ const DesignToolProvider = ({
   const {
     0: designToolState,
     1: designToolDispatch
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolReducer"], _DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolInit"]);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolReducer"], _DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolInit"]);
   return __jsx(DesignToolContext.Provider, {
     value: {
       designToolnavigator,
@@ -1647,9 +1647,9 @@ const DesignToolProvider = ({
 
 /***/ }),
 
-/***/ "./src/contexts/DesignTool/DesignToolReducers.ts":
+/***/ "./src/contexts/DesignTool/DesingToolReducers.ts":
 /*!*******************************************************!*\
-  !*** ./src/contexts/DesignTool/DesignToolReducers.ts ***!
+  !*** ./src/contexts/DesignTool/DesingToolReducers.ts ***!
   \*******************************************************/
 /*! exports provided: designToolInit, designToolReducer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1665,55 +1665,85 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 const designToolInit = {
-  navbar_selection: "element"
+  navbar_selection: "element",
+  sub_navbar_selection: "element"
 };
 const designToolReducer = (designToolState, action) => {
-  if (action.type == 'Select_Element_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "element"
-    });
-  }
+  switch (action.type) {
+    case 'Select_Element_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "element",
+          sub_navbar_selection: "element"
+        });
+      }
 
-  if (action.type == 'Select_Text_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "text"
-    });
-  }
+    case 'Select_Text_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "text",
+          sub_navbar_selection: "text"
+        });
+      }
 
-  if (action.type == 'Select_Images_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "images"
-    });
-  }
+    case 'Select_Images_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "images",
+          sub_navbar_selection: "images"
+        });
+      }
 
-  if (action.type == 'Select_Background_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "background"
-    });
-  }
+    case 'Select_Background_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "background",
+          sub_navbar_selection: "background"
+        });
+      }
 
-  if (action.type == 'Select_Logo_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "logo"
-    });
-  }
+    case 'Select_Logo_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "logo",
+          sub_navbar_selection: "logo"
+        });
+      }
 
-  if (action.type == 'Select_Texttool_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "texttool"
-    });
-  }
+    case 'Select_Shape_Color_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "element",
+          sub_navbar_selection: "shapeColor"
+        });
+      }
 
-  if (action.type == 'Select_Fonttool_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "fonttool"
-    });
-  }
+    case 'Select_Texttool_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "text",
+          sub_navbar_selection: "texttool"
+        });
+      }
 
-  if (action.type == 'Select_Effecttool_Nav') {
-    return _objectSpread(_objectSpread({}, designToolState), {}, {
-      navbar_selection: "effecttool"
-    });
+    case 'Select_Font_Color_Tool_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "text",
+          sub_navbar_selection: "fontColorTool"
+        });
+      }
+
+    case 'Select_Effecttool_Nav':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          navbar_selection: "text",
+          sub_navbar_selection: "effecttool"
+        });
+      }
+
+    default:
+      throw new Error("cannot update reducer");
   }
 };
 
