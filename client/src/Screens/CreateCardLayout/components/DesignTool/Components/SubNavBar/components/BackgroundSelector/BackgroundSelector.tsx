@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import CardElementsFunctions from '../../../../../../../../Hooks/CardElementsFunctions';
-import SearchBar from '../ElementSelector/components/SearchBar/SearchBar';
 import AddBackgroundImage from './components/AddBackgroundImage/AddBackgroundImage';
 import BackgroundColor from './components/BackgroundColor/BackgroundColor';
+import BackgroundColorModal from './components/BackgroundColorModal/BackgroundColorModal';
 import "./style.css"
 const BackgroundSelector: React.FC = (): JSX.Element => {
     const [colorQuery, setColorQuery] = useState<string>("")
     const [colorsArray, setColorsArray] = useState([])
+    const [showColorModal, setShowColorModal] = useState(false)
+    const [currentColor, setCurrentColor] = useState("#171717")
 
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
-    const { handleFill } = CardElementsFunctions()
     useEffect(() => {
 
         if (!colorQuery) return
@@ -53,8 +53,19 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
                 <h1 className="text-md text-gray40 mt-4" >Search results</h1>
                 <div className=" mt-4 flex flex-row items-center justify-between">
                     {colorsArray.map(item =>
-                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item, "shapes_background")}></button>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md"
+                            onClick={() => {
+                                setShowColorModal(true)
+                                setCurrentColor(item)
+                            }}
+                        ></button>
                     )}
+                </div>
+                <div className={showColorModal ? "" : "hidden"}>
+                    <BackgroundColorModal
+                        closeModal={() => setShowColorModal(false)}
+                        currentColor={currentColor}
+                    />
                 </div>
 
             </div>
