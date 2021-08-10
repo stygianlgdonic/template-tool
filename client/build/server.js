@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "74c1c1ca8b61f7a725a5";
+/******/ 	var hotCurrentHash = "5590240663b2524270a8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -2201,7 +2201,7 @@ const defaultTextBox = {
   text: 'New text',
   x: 150,
   y: 200,
-  fontSize: 20,
+  fontSize: fontSizeArray[0].size,
   fontFamily: googleFontsList[0],
   draggable: true,
   width: 200,

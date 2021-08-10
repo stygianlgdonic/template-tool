@@ -3,7 +3,11 @@ import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
 import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
+import { fontSizeArray } from "../../../../../../../../../../utils/defaults";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
+
+type textFontSizeType = "Header" | "Sub header" | "body text"
+
 const TextHeader: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
@@ -50,8 +54,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                         aria-expanded="true"
                         aria-labelledby="listbox-label"
                     >
-
-                        Heading 1
+                        {!!selectedText ? fontSizeArray.find(item => item.size === selectedText.fontSize)?.name : "Heading"}
                     </button>
                     <ul
                         className="absolute z-10 py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
@@ -65,12 +68,14 @@ const TextHeader: React.FC = (): JSX.Element => {
                             id="listbox-option-0"
                             role="option"
                         >
-                            <div className="flex mb-2">
-                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('Header')}>
-                                    Heading 1
-                                </button>
-                            </div>
-                            <div className="flex mb-2  w-full">
+                            {fontSizeArray.map((item, index) => (
+                                <div key={index} className="flex mb-2">
+                                    <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize(item.name as textFontSizeType)}>
+                                        {item.name}
+                                    </button>
+                                </div>
+                            ))}
+                            {/* <div className="flex mb-2  w-full">
                                 <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('Sub header')} >
                                     Sub Header
                                 </button>
@@ -80,7 +85,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                     Body Text
                                 </button>
                             </div>
-                            <div className=""></div>
+                            <div className=""></div> */}
 
                         </li>
                     </ul>
