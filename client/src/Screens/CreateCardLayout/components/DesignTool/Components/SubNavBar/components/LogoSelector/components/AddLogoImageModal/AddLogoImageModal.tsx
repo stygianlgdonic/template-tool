@@ -183,7 +183,7 @@ const AddLogoImageModal: React.FC<Prop> = React.forwardRef(
                       {ShowToolTip ? (
                         <>
                           <div className="absolute bottom-0 flex flex-col mb-6 ">
-                            <span className="relative z-auto h-24 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md shadow-lg ml-60 w-52 bg-indigo500">
+                            <span className="relative z-auto w-full h-24 p-3 text-xs leading-none text-white whitespace-no-wrap rounded-md shadow-lg ml-60 bg-indigo500">
                               Cardclan will fetch logo of your receipent from
                               his <b>website URL</b>
                               <div className="mt-5 mb-2 text-sm font-inter">
@@ -192,7 +192,7 @@ const AddLogoImageModal: React.FC<Prop> = React.forwardRef(
                             </span>
                             <div
                               className="z-50 flex justify-end w-3 h-3 -mt-2 transform rotate-45 bg-indigo500"
-                              style={{ marginLeft: "400px" }}
+                              style={{ marginLeft: "350px" }}
                             ></div>
                           </div>
                         </>

@@ -33,7 +33,7 @@ const BackgroundColorModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
             </label>
 
             <div className="flex items-start justify-between p-5 rounded-t border-blueGray-200 ">
-              <div className="flex gap-2">
+              <div className="flex gap-2 ml-2">
                 <div>
                   <button
                     onClick={() => setfillType(false)}
