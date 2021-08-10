@@ -1,7 +1,8 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useReducer } from 'react'
 
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../utils/defaults';
+import { designToolReducer, designToolInit } from './DesignToolReducers';
 
 export const INITIAL_STATE = {
     dimensions: { width: stageDimensions.width, height: stageDimensions.height },
@@ -31,6 +32,8 @@ export const DesignToolProvider = ({ children }) => {
     const [cardData, setCardData, { goForward, goBack, stepNum, history }] = useImmerState(INITIAL_STATE)
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
+    const [designToolState, designToolDispatch] = useReducer(designToolReducer, designToolInit)
+
     return (
         <DesignToolContext.Provider
             value={{
@@ -38,7 +41,8 @@ export const DesignToolProvider = ({ children }) => {
                 designHeadernavigator, setDesignHeadernavigator,
                 selectedId, setSelectedId,
                 cardData, setCardData,
-                cardHistory: { goForward, goBack, stepNum, history }
+                cardHistory: { goForward, goBack, stepNum, history },
+                designToolState, designToolDispatch
             }}
         >
             {children}

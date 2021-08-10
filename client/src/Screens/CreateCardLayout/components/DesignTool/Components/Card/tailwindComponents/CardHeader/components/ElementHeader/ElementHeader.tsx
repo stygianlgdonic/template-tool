@@ -10,18 +10,14 @@ const ElementHeader: React.FC = (): JSX.Element => {
     const [openDropDown, setopenDropDown] = useState(false);
     // !!state?false:true;
     const {
-        designToolnavigator, setDesignToolnavigator,
-        designHeadernavigator, setDesignHeadernavigator,
-        selectedId, setSelectedId,
-        cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
+        designToolDispatch,
     } = useContext(DesignToolContext)
     const { handleBorderWidthChange, handleStrokeColor } = CardElementsFunctions()
     // !!state?false:true;
     return (
         <div className="flex justify-between w-11/12 ml-14">
             <div className="flex">
-                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => setDesignToolnavigator("fonttool")}></button>
+                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => designToolDispatch({ type: "fonttool" })}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"

@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "edbf6e5721060bc61a4b";
+/******/ 	var hotCurrentHash = "0e33b234b404c41a97e8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1547,8 +1547,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesignToolReducers */ "./src/contexts/DesignToolReducers.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignToolContext.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -1600,6 +1602,10 @@ const DesignToolProvider = ({
     0: selectedId,
     1: setSelectedId
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const {
+    0: designToolState,
+    1: designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolReducer"], _DesignToolReducers__WEBPACK_IMPORTED_MODULE_3__["designToolInit"]);
   return __jsx(DesignToolContext.Provider, {
     value: {
       designToolnavigator,
@@ -1615,15 +1621,89 @@ const DesignToolProvider = ({
         goBack,
         stepNum,
         history
-      }
+      },
+      designToolState,
+      designToolDispatch
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 38,
       columnNumber: 9
     }
   }, children);
+};
+
+/***/ }),
+
+/***/ "./src/contexts/DesignToolReducers.ts":
+/*!********************************************!*\
+  !*** ./src/contexts/DesignToolReducers.ts ***!
+  \********************************************/
+/*! exports provided: designToolInit, designToolReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "designToolInit", function() { return designToolInit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "designToolReducer", function() { return designToolReducer; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const designToolInit = {
+  navbar_selection: "element"
+};
+const designToolReducer = (designToolState, action) => {
+  if (action.type == 'element') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "element"
+    });
+  }
+
+  if (action.type == 'text') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "text"
+    });
+  }
+
+  if (action.type == 'images') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "images"
+    });
+  }
+
+  if (action.type == 'background') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "background"
+    });
+  }
+
+  if (action.type == 'logo') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "logo"
+    });
+  }
+
+  if (action.type == 'texttool') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "texttool"
+    });
+  }
+
+  if (action.type == 'fonttool') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "fonttool"
+    });
+  }
+
+  if (action.type == 'effecttool') {
+    return _objectSpread(_objectSpread({}, designToolState), {}, {
+      navbar_selection: "effecttool"
+    });
+  }
 };
 
 /***/ }),

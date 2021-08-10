@@ -11,23 +11,20 @@ import EffectStyletool from './components/TextSelector/components/EffectStyletoo
 
 const SubNavBar: React.FC = (): JSX.Element => {
     const {
-        designToolnavigator, setDesignToolnavigator,
-        selectedId, setSelectedId,
-        cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
+        designToolState,
     } = useContext(DesignToolContext)
     return (
 
         <div className="h-full flex flex-col w-full border-bordercolor border ">
 
-            {designToolnavigator === 'element' && <ElementSelector />}
-            {designToolnavigator === 'text' && <TextSelector />}
-            {designToolnavigator === 'images' && <ImageSelector />}
-            {designToolnavigator === 'background' && <BackgroundSelector />}
-            {designToolnavigator === 'logo' && <LogoSelector />}
-            {designToolnavigator === 'texttool' && <FontStyletool />}
-            {designToolnavigator === 'fonttool' && <FontColortool />}
-            {designToolnavigator === 'effecttool' && <EffectStyletool />}
+            {designToolState.navbar_selection === 'element' && <ElementSelector />}
+            {designToolState.navbar_selection === 'text' && <TextSelector />}
+            {designToolState.navbar_selection === 'images' && <ImageSelector />}
+            {designToolState.navbar_selection === 'background' && <BackgroundSelector />}
+            {designToolState.navbar_selection === 'logo' && <LogoSelector />}
+            {designToolState.navbar_selection === 'texttool' && <FontStyletool />}
+            {designToolState.navbar_selection === 'fonttool' && <FontColortool />}
+            {designToolState.navbar_selection === 'effecttool' && <EffectStyletool />}
 
         </div>
     )

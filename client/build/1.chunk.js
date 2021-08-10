@@ -1048,14 +1048,11 @@ const MainStage = ({
       return;
     }
 
-    let isBackground = e.target.attrs.id === "shapes_background";
+    let stage = e.target.getStage();
     let layer = $layer.current;
     let tr = $tr.current; // if click on empty area - remove all selections
 
-    if (isBackground) {
-      console.log({
-        isBackground
-      });
+    if (e.target === stage) {
       setSelectedId(null);
       setNodes([]);
       tr.nodes([]);
@@ -2206,20 +2203,7 @@ const ElementHeader = () => {
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false); // !!state?false:true;
 
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    designHeadernavigator,
-    setDesignHeadernavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
+    designToolDispatch
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   const {
     handleBorderWidthChange,
@@ -2231,7 +2215,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 18,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2239,16 +2223,18 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 19,
       columnNumber: 13
     }
   }, __jsx("button", {
     className: "w-10 h-10 rounded-md bg-fuschia",
-    onClick: () => setDesignToolnavigator("fonttool"),
+    onClick: () => designToolDispatch({
+      type: "fonttool"
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 20,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -2256,7 +2242,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 21,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2265,7 +2251,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 22,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2277,7 +2263,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 26,
       columnNumber: 25
     }
   }, __jsx("span", {
@@ -2285,7 +2271,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 33,
       columnNumber: 29
     }
   }), __jsx("span", {
@@ -2293,7 +2279,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 34,
       columnNumber: 29
     }
   }, __jsx("svg", {
@@ -2305,7 +2291,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 35,
       columnNumber: 33
     }
   }, __jsx("path", {
@@ -2316,7 +2302,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 42,
       columnNumber: 37
     }
   })))), __jsx("ul", {
@@ -2330,7 +2316,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 51,
       columnNumber: 25
     }
   }, __jsx("li", {
@@ -2340,7 +2326,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 58,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -2348,7 +2334,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 63,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2357,7 +2343,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 64,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2365,7 +2351,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 65,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2373,7 +2359,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 66,
       columnNumber: 41
     }
   }, "4"))), __jsx("div", {
@@ -2381,7 +2367,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 69,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2390,7 +2376,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 70,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2398,7 +2384,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 71,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2406,7 +2392,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 72,
       columnNumber: 41
     }
   }, "2"))), __jsx("div", {
@@ -2414,7 +2400,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 75,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2423,7 +2409,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 76,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2431,7 +2417,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 77,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2439,7 +2425,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 78,
       columnNumber: 41
     }
   }, "1"))), __jsx("div", {
@@ -2447,7 +2433,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 81,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -2455,7 +2441,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 82,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2464,7 +2450,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 83,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2473,7 +2459,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 84,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2482,7 +2468,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 85,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2491,7 +2477,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 86,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2500,7 +2486,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 87,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2509,7 +2495,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 88,
       columnNumber: 37
     }
   }))))))));
@@ -2892,7 +2878,7 @@ const TextHeader = () => {
   const [values, setValues] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([0]);
   const [open, setOpen] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const {
-    setDesignToolnavigator
+    designToolDispatch
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
   const {
     handleFontStyle,
@@ -2938,7 +2924,9 @@ const TextHeader = () => {
     id: "menu-button",
     "aria-expanded": "true",
     "aria-haspopup": "true",
-    onClick: () => setDesignToolnavigator('texttool'),
+    onClick: () => designToolDispatch({
+      type: 'texttool'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3001,7 +2989,9 @@ const TextHeader = () => {
     }
   }, __jsx("button", {
     className: "ml-10 text-lg font-bold text-black",
-    onClick: () => setDesignToolnavigator('fonttool'),
+    onClick: () => designToolDispatch({
+      type: 'fonttool'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3467,7 +3457,9 @@ const TextHeader = () => {
       columnNumber: 17
     }
   }, __jsx("button", {
-    onClick: () => setDesignToolnavigator('effecttool'),
+    onClick: () => designToolDispatch({
+      type: 'effecttool'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3616,29 +3608,16 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const SideBarNav = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
+    designToolState,
+    designToolDispatch
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  console.log({
-    treeee: designToolnavigator
-  });
   return __jsx("div", {
     className: "h-full fixed flex  flex-col w-2/12 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 10,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -3646,16 +3625,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 12,
       columnNumber: 13
     }
   }, __jsx("button", {
-    className: designToolnavigator === 'element' ? "w-full   bg-rightbackgroundcolor  h-10" : "w-full h-10 ",
-    onClick: () => setDesignToolnavigator('element'),
+    className: designToolState.navbar_selection === 'element' ? "w-full   bg-rightbackgroundcolor  h-10" : "w-full h-10 ",
+    onClick: () => designToolDispatch({
+      type: 'element'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 13,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3663,7 +3644,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 14,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3676,7 +3657,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 16,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3688,7 +3669,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 17,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -3696,16 +3677,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 22,
       columnNumber: 25
     }
   }, "Elements"))), __jsx("button", {
-    className: designToolnavigator === "text" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('text'),
+    className: designToolState.navbar_selection === "text" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: () => designToolDispatch({
+      type: 'text'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3713,7 +3696,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 26,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3725,7 +3708,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 27,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3734,7 +3717,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 28,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -3742,16 +3725,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 31,
       columnNumber: 25
     }
   }, "Text"))), __jsx("button", {
-    className: designToolnavigator === "images" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('images'),
+    className: designToolState.navbar_selection === "images" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: () => designToolDispatch({
+      type: 'images'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 34,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3759,7 +3744,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 35,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3771,7 +3756,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 36,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3783,7 +3768,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 37,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -3791,16 +3776,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 41,
       columnNumber: 25
     }
   }, "Images"))), __jsx("button", {
-    className: designToolnavigator === "background" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('background'),
+    className: designToolState.navbar_selection === "background" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: () => designToolDispatch({
+      type: 'background'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 44,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3808,7 +3795,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 45,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3820,7 +3807,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 46,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3832,7 +3819,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 47,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -3840,16 +3827,18 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 52,
       columnNumber: 25
     }
   }, "Backgrounds"))), __jsx("button", {
-    className: designToolnavigator === "logo" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('logo'),
+    className: designToolState.navbar_selection === "logo" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: () => designToolDispatch({
+      type: 'logo'
+    }),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 56,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3857,7 +3846,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 58,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3869,7 +3858,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 59,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3881,7 +3870,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 60,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -3889,7 +3878,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 65,
       columnNumber: 25
     }
   }, "Logo"))), __jsx("div", {
@@ -3898,7 +3887,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 71,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -3906,7 +3895,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 72,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3919,7 +3908,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 74,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3930,7 +3919,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 75,
       columnNumber: 29
     }
   }))), showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -3938,7 +3927,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 80,
       columnNumber: 29
     }
   }, __jsx("span", {
@@ -3946,7 +3935,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 81,
       columnNumber: 33
     }
   }, "Brandify Everything."), __jsx("div", {
@@ -3957,7 +3946,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 82,
       columnNumber: 33
     }
   }))) : null), __jsx("button", {
@@ -3965,7 +3954,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 90,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3973,7 +3962,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 92,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -3986,7 +3975,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 96,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3996,7 +3985,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 97,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4006,7 +3995,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 98,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4016,7 +4005,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 99,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4026,7 +4015,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 100,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4036,7 +4025,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 101,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4046,7 +4035,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 102,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4056,7 +4045,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 103,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4066,7 +4055,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 104,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4076,7 +4065,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 105,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4086,7 +4075,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 106,
       columnNumber: 29
     }
   }), __jsx("path", {
@@ -4096,7 +4085,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 107,
       columnNumber: 29
     }
   })), __jsx("p", {
@@ -4104,7 +4093,7 @@ const SideBarNav = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 111,
       columnNumber: 25
     }
   }, "Brandify")))));
@@ -4469,82 +4458,71 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const SubNavBar = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
+    designToolState
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   return __jsx("div", {
     className: "h-full flex flex-col w-full border-bordercolor border ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 18,
       columnNumber: 9
     }
-  }, designToolnavigator === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, designToolState.navbar_selection === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 64
+    }
+  }), designToolState.navbar_selection === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 61
+    }
+  }), designToolState.navbar_selection === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 63
+    }
+  }), designToolState.navbar_selection === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
-      columnNumber: 51
+      columnNumber: 67
     }
-  }), designToolnavigator === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), designToolState.navbar_selection === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24,
-      columnNumber: 48
+      columnNumber: 61
     }
-  }), designToolnavigator === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), designToolState.navbar_selection === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
-      columnNumber: 50
+      columnNumber: 65
     }
-  }), designToolnavigator === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), designToolState.navbar_selection === 'fonttool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
-      columnNumber: 54
+      columnNumber: 65
     }
-  }), designToolnavigator === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), designToolState.navbar_selection === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27,
-      columnNumber: 48
-    }
-  }), designToolnavigator === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 52
-    }
-  }), designToolnavigator === 'fonttool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 52
-    }
-  }), designToolnavigator === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 54
+      columnNumber: 67
     }
   }));
 };
