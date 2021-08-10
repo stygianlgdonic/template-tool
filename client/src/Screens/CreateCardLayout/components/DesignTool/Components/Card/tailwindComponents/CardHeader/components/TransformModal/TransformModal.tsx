@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
+import SelectImageModal from "../SelectImageModal/SelectImageModal";
 interface Prop {
   closeModal: () => void;
 }
 const TransformModal: React.FC<Prop> = React.forwardRef(
   ({ closeModal }): JSX.Element => {
+    const [Open, setOpen] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
     const [ShowToolTip, setShowToolTip] = React.useState(false);
     const [openDropDown, setopenDropDown] = useState(false);
@@ -41,7 +43,7 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                 >
                   <label
                     id="listbox-label"
-                    className="block text-sm font-medium text-grey"
+                    className="block text-xs not-italic font-medium leading-5 text-grey"
                   >
                     FallBack
                   </label>
@@ -82,7 +84,14 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                         id="listbox-option-0"
                         role="option"
                       >
-                        <span className="block font-normal">avatar</span>
+                        <span className="block font-normal">avatar.jpeg</span>
+                      </li>
+                      <li
+                        className="relative w-full py-2 pl-3 text-gray-900 cursor-default select-none pr-9"
+                        id="listbox-option-0"
+                        role="option"
+                      >
+                        <span className="block font-normal">none</span>
                       </li>
                     </ul>
                   </div>
@@ -96,7 +105,7 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                 >
                   <label
                     id="listbox-label"
-                    className="block text-sm font-medium text-grey"
+                    className="block text-xs not-italic font-medium leading-5 text-grey"
                   >
                     Merge Tag
                   </label>
@@ -144,8 +153,9 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                     </ul>
                   </div>
                 </div>
-                <div className="mt-6 ml-2">
+                <div className="mt-5 ml-2">
                   <button
+                    onClick={() => setOpen(true)}
                     type="button"
                     className="inline-flex items-center w-32 px-3 py-2 text-sm font-medium leading-4 text-white border border-transparent rounded-md shadow-sm h-7 bg-indigo600 hover:bg-indigo700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
@@ -164,16 +174,15 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                 </div>
                 {/* second select end */}
               </div>
-              {/* <div className="flex items-center justify-end p-6 rounded-b ">
-                     <button
-                      className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-indigo active:bg-indigo700 hover:shadow-lg focus:outline-none"
-                      type="button"
-                      onClick={() => setOpen(false)}
-                    >
-                      Close
-                    </button> 
-                  </div> */}
             </div>
+          </div>
+
+          <div style={{ display: open ? "" : "none" }}>
+            <SelectImageModal
+              closeModal={() => {
+                setOpen(false);
+              }}
+            />
           </div>
         </div>
         <div className="fixed inset-0 z-40 opacity-25"></div>
