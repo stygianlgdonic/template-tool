@@ -14,11 +14,15 @@ export default function Example() {
   const onhandleSubmit = async (e) => {
     e.preventDefault()
 
+    if (userObj.password !== userObj.againPassword) {
+      alert("Passwords dont match, Try again!")
 
-    if (!!userObj.email && !!userObj.password && !!userObj.againPassword && userObj.password === userObj.againPassword) {
+    }
+    else if (!!userObj.email && !!userObj.password && !!userObj.againPassword && userObj.password === userObj.againPassword) {
+      console.log({ userObj })
       const res = await userAuthenticationService.signupUser(userObj.email, userObj.password)
       console.log({ res })
-      alert(res)
+      alert(res.message)
 
     }
 

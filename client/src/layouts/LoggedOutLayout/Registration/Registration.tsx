@@ -10,9 +10,12 @@ export default function Example() {
   }
 
   const onhandleSubmit = async () => {
+    console.log(userObj)
     if (!!userObj.email && !!userObj.password) {
-      const res = userAuthenticationService.loginUser(userObj.email, userObj.password)
-      alert(res)
+      console.log(typeof (userObj.email))
+      const res = await userAuthenticationService.loginUser(userObj.email, userObj.password)
+      console.log(res)
+      alert(res.message)
     }
     else {
       alert("Please provide complete details")
