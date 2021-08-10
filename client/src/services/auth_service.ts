@@ -11,7 +11,8 @@ async function signupUser(email: string, password: string) {
         const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
             {
                 // credentials: "same-origin",
-                // credentials: "include",
+                // mode: 'cors'
+                credentials: "include",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Accept': 'application/json',

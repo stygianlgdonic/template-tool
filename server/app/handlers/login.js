@@ -15,7 +15,7 @@ const login = async (req, res, next) => {
 
         const body = { _id: user._id, email: user.email };
         const token = jwt.sign({ user: body }, "TOP_SECRET");
-        res.cookie("cookieToken", token, { httpOnly: true });
+        res.cookie("cookieToken", token);
         return res.json({ token });
       });
     } catch (error) {
