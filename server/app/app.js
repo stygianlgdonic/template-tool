@@ -1,3 +1,4 @@
+// res.cookie("newToken","tokenABC")
 // npm packages
 // const dotenv = require("dotenv");
 const express = require("express");
@@ -43,6 +44,8 @@ app.use(cors());
 
 // app.use(globalResponseHeaders);s
 
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
 app.use(
   "/things",
   passport.authenticate("jwt", { session: false }),
@@ -73,6 +76,17 @@ app.get("/logout", (req, res) => {
   res.clearCookie("cookieToken");
   res.redirect("/");
 });
+
+// Our token checker middleware
+function mustBeLoggedIn(req, res, next) {
+  jwt.verify(req.cookies.cookieToken, jwtsecret, function (err, decoded) {
+    if (err) {
+      res.redirect("/");
+    } else {
+      next();
+    }
+  });
+}
 
 app.use("/", userRouter);
 

@@ -35,6 +35,7 @@ async function loginUser(email: string, password: string) {
         const res = await fetch("https://hyper-engage-staging.herokuapp.com/login",
             {
                 credentials: "same-origin",
+                // credentials: 'include',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     "Access-Control-Allow-Credentials": "true",

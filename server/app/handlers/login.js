@@ -1,7 +1,5 @@
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
-const express = require("express");
 
 const login = async (req, res, next) => {
   passport.authenticate("login", async (err, user, info) => {
@@ -18,7 +16,6 @@ const login = async (req, res, next) => {
         const body = { _id: user._id, email: user.email };
         const token = jwt.sign({ user: body }, "TOP_SECRET");
         res.cookie("cookieToken", token, { httpOnly: true });
-
         return res.json({ token });
       });
     } catch (error) {
