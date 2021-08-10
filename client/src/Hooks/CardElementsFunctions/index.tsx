@@ -1,8 +1,9 @@
 import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
 import { useContext } from 'react';
-import { DesignToolContext } from '../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 import { defaultImage, defaultSvg, fontSizeArray, stageDimensions } from "../../utils/defaults";
+import CardHeaderActions from "../../contexts/DesignTool/CardHeaderActions";
 
 const CardElementsFunctions = () => {
     const {
@@ -11,6 +12,7 @@ const CardElementsFunctions = () => {
         cardData, setCardData,
         cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
+    const { emptyCardHeader } = CardHeaderActions()
 
     const [file, selectFile] = useFileUpload()
 
@@ -19,6 +21,7 @@ const CardElementsFunctions = () => {
         setCardData((prev) => {
             let shapeID = new Date().getTime();
             prev.elements.push({ ...rectData, id: `shapes_${shapeID.toString()}` })
+            setSelectedId(`shapes_${shapeID.toString()}`)
         })
     }
 
@@ -26,18 +29,21 @@ const CardElementsFunctions = () => {
         setCardData((prev) => {
             let shapeID = new Date().getTime();
             prev.elements.push({ ...circleData, id: `shapes_${shapeID.toString()}` })
+            setSelectedId(`shapes_${shapeID.toString()}`)
         })
     }
     const handleAddNewTrianlge = (triangleData: any) => {
         setCardData((prev) => {
             let shapeID = new Date().getTime();
             prev.elements.push({ ...triangleData, id: `shapes_${shapeID.toString()}` })
+            setSelectedId(`shapes_${shapeID.toString()}`)
         })
     }
     const handleAddNewPolygon = (polygonData: any) => {
         setCardData((prev) => {
             let shapeID = new Date().getTime();
             prev.elements.push({ ...polygonData, id: `shapes_${shapeID.toString()}` })
+            setSelectedId(`shapes_${shapeID.toString()}`)
         })
     }
 
@@ -52,6 +58,7 @@ const CardElementsFunctions = () => {
                     svgString: SVG_STRING,
                     ...defaultSvg
                 })
+                setSelectedId(`svgs_${svgId.toString()}`)
             })
         })
     }
@@ -65,6 +72,7 @@ const CardElementsFunctions = () => {
                 svgString: SVG_STRING,
                 ...defaultSvg
             })
+            setSelectedId(`svgs_${svgId.toString()}`)
         })
     }
 
@@ -84,6 +92,7 @@ const CardElementsFunctions = () => {
                             src: reader.result,
                             id: `images_${imageID.toString()}`
                         })
+                        setSelectedId(`images_${imageID.toString()}`)
                     })
                 };
             })
@@ -93,6 +102,7 @@ const CardElementsFunctions = () => {
         setCardData((prev) => {
             let textID = new Date().getTime();
             prev.elements.push({ ...textData, id: `textBoxes_${textID.toString()}` })
+            setSelectedId(`textBoxes_${textID.toString()}`)
         })
     }
 
@@ -141,14 +151,17 @@ const CardElementsFunctions = () => {
                 item => item.id !== selectedId
             )
             setSelectedId(null)
+            emptyCardHeader()
         })
     }
 
     const onUndo = () => {
+        emptyCardHeader()
         !!setSelectedId && setSelectedId(null);
         stepNum > 1 && goBack();
     };
     const onRedo = () => {
+        emptyCardHeader()
         !!setSelectedId && setSelectedId(null);
         stepNum < (history.length - 1) && goForward();
     };
@@ -204,15 +217,6 @@ const CardElementsFunctions = () => {
                 (item) => item.id === selectedId
             );
             prev.elements[shapeIndex] = textObj
-        })
-    }
-
-    const handleTextColor = (color: string) => {
-        setCardData(prev => {
-            const shapeIndex = prev.elements.findIndex(
-                (item) => item.id === selectedId
-            );
-            prev.elements[shapeIndex].fill = color
         })
     }
 
@@ -280,11 +284,16 @@ const CardElementsFunctions = () => {
         })
     }
 
-    const handleShapeFill = (color: string) => {
+    const handleFill = (color: string, backgroundID: undefined | "shapes_background") => {
         setCardData(prev => {
-            const selectedShape = prev.elements.find(item => item.id === selectedId)
-            selectedShape.fill = color
-            selectedShape.patternImageUrl = undefined
+            if (!!backgroundID) {
+                prev.elements[0].fill = color
+                prev.elements[0].patternImageUrl = undefined
+            } else {
+                const selectedShape = prev.elements.find(item => item.id === selectedId)
+                selectedShape.fill = color
+                selectedShape.patternImageUrl = undefined
+            }
         })
     }
 
@@ -352,7 +361,6 @@ const CardElementsFunctions = () => {
         handleTextAlign,
         handleTextOpacity,
         handleTextEffect,
-        handleTextColor,
         handleFontFamily,
         handleBorderWidthChange,
         handleFillImagePattern,
@@ -360,7 +368,7 @@ const CardElementsFunctions = () => {
         handleCornerRadius,
         handleOpacity,
         handleStrokeColor,
-        handleShapeFill,
+        handleFill,
         handleGradientColor,
         handleFillPatternScaleX,
         handleFillPatternScaleY,

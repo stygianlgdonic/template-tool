@@ -11,7 +11,7 @@ const cardimage2 = require('./../../assets/images/card2.png');
 import { ORIGINAL_SVG_mailicon } from './../../utils/defaults'
 import StatCardinfo from './../Centerboard/components/StatsCardinfo/StatCardinfo'
 import Imageinfo from './../Centerboard/components/ImagesInfo/ImagesInfo'
-import { DesignToolContext } from '../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 const Centerboard: React.FC = () => {
 
     const {

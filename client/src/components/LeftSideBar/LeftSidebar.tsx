@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { DesignToolContext } from '../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 const image = require('./1.jpg')
 
 const LeftSidebar: React.FC = () => {

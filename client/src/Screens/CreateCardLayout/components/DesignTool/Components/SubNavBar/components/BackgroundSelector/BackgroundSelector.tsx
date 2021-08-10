@@ -11,7 +11,7 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
-    const { handleTextColor, handleShapeFill } = CardElementsFunctions()
+    const { handleFill } = CardElementsFunctions()
     useEffect(() => {
 
         if (!colorQuery) return
@@ -52,12 +52,9 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
             <div className={!!colorsArray.length ? "px-6" : "hidden"} >
                 <h1 className="text-md text-gray40 mt-4" >Search results</h1>
                 <div className=" mt-4 flex flex-row items-center justify-between">
-                    {console.log(colorsArray)}
-                    {
-                        colorsArray.map(item =>
-                            <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleTextColor(item)}></button>
-
-                        )}
+                    {colorsArray.map(item =>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item, "shapes_background")}></button>
+                    )}
                 </div>
 
             </div>

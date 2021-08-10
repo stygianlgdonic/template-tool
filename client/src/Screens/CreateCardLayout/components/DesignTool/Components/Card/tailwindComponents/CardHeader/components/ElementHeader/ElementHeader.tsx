@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Range } from "react-range";
-import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
+import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
+import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
+
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const ElementHeader: React.FC = (): JSX.Element => {
     // const [openstyle, setOpenstyle] = React.useState(false);
@@ -12,19 +14,15 @@ const ElementHeader: React.FC = (): JSX.Element => {
     const [values, setValues] = React.useState([0.01])
     // !!state?false:true;
     const [showeModal, seteShowModal] = React.useState(false);
-    const {
-        designToolnavigator, setDesignToolnavigator,
-        designHeadernavigator, setDesignHeadernavigator,
-        selectedId, setSelectedId,
-        cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
-    } = useContext(DesignToolContext)
     const { handleBorderWidthChange, handleStrokeColor, handleDeleteSelectedItem, handleTextOpacity } = CardElementsFunctions()
     // !!state?false:true;
+
+    const { selectShapeColorSubNav } = SubNavbarActions()
+
     return (
         <div className="flex  justify-start  " >
             <div className="flex pl-12">
-                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => setDesignToolnavigator("fonttool")}></button>
+                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={selectShapeColorSubNav}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"

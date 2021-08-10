@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DesignToolContext } from '../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../contexts/DesignTool/DesignToolContext';
 import BackgroundSelector from './components/BackgroundSelector/BackgroundSelector';
 import ElementSelector from './components/ElementSelector/ElementSelector';
 import ImageSelector from './components/ImageSelector/ImageSelector';
@@ -11,23 +11,21 @@ import EffectStyletool from './components/TextSelector/components/EffectStyletoo
 
 const SubNavBar: React.FC = (): JSX.Element => {
     const {
-        designToolnavigator, setDesignToolnavigator,
-        selectedId, setSelectedId,
-        cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
+        designToolState
     } = useContext(DesignToolContext)
     return (
 
         <div className="h-full flex flex-col w-full border-bordercolor border ">
 
-            {designToolnavigator === 'element' && <ElementSelector />}
-            {designToolnavigator === 'text' && <TextSelector />}
-            {designToolnavigator === 'images' && <ImageSelector />}
-            {designToolnavigator === 'background' && <BackgroundSelector />}
-            {designToolnavigator === 'logo' && <LogoSelector />}
-            {designToolnavigator === 'texttool' && <FontStyletool />}
-            {designToolnavigator === 'fonttool' && <FontColortool />}
-            {designToolnavigator === 'effecttool' && <EffectStyletool />}
+            {designToolState.sub_navbar_selection === 'element' && <ElementSelector />}
+            {designToolState.sub_navbar_selection === 'text' && <TextSelector />}
+            {designToolState.sub_navbar_selection === 'images' && <ImageSelector />}
+            {designToolState.sub_navbar_selection === 'background' && <BackgroundSelector />}
+            {designToolState.sub_navbar_selection === 'logo' && <LogoSelector />}
+            {designToolState.sub_navbar_selection === 'texttool' && <FontStyletool />}
+            {designToolState.sub_navbar_selection === 'fontColorTool' && <FontColortool />}
+            {designToolState.sub_navbar_selection === 'shapeColor' && <FontColortool />}
+            {designToolState.sub_navbar_selection === 'effecttool' && <EffectStyletool />}
 
         </div>
     )
