@@ -2,6 +2,9 @@
 // const dotenv = require("dotenv");
 const express = require("express");
 Promise = require("bluebird"); // eslint-disable-line
+const cookieParser = require("cookie-parser");
+const csurf = require("csurf");
+const csrfProtection = csurf({ cookie: { httpOnly: true } });
 const passport = require("passport");
 
 // app imports
@@ -33,7 +36,7 @@ connectToDatabase();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ type: "*/*" }));
 app.use(bodyParserHandler); // error handling specific to body parser only
-
+app.use(cookieParser()); // Cookie parser to read and set cookies
 // response headers setup; CORS
 const cors = require("cors");
 app.use(cors());
@@ -65,6 +68,11 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   secureRouter
 );
+
+app.get("/logout", (req, res) => {
+  res.clearCookie("cookieToken");
+  res.redirect("/");
+});
 
 app.use("/", userRouter);
 
