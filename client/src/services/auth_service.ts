@@ -8,7 +8,7 @@ export const userAuthenticationService =
 async function signupUser(email: string, password: string) {
     // new Promise(async (resolve, reject) => {
     try {
-        const res = await fetch("http://hyper-engage-staging.herokuapp.com/signup",
+        const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
             {
                 credentials: "same-origin",
                 headers: {
@@ -37,6 +37,7 @@ async function loginUser(email: string, password: string) {
                 credentials: "same-origin",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
+                    "Access-Control-Allow-Credentials": "true",
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
@@ -44,9 +45,9 @@ async function loginUser(email: string, password: string) {
                 body: JSON.stringify({ email: email, password: password })
             })
 
-        console.log(res.json())
+        // console.log("--->", res.json())
 
-        return (res.json())
+        return res.json()
     }
     catch (err) {
         console.log("Error Occured", err)

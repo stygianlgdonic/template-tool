@@ -1,3 +1,4 @@
+import e from "express";
 import React, { useState } from "react";
 import { userAuthenticationService } from "../../../services/auth_service";
 export default function Example() {
@@ -9,13 +10,13 @@ export default function Example() {
     setuserObj({ ...userObj, [label]: value })
   }
 
-  const onhandleSubmit = async () => {
+  const onhandleSubmit = async (e) => {
+    e.preventDefault()
     console.log(userObj)
     if (!!userObj.email && !!userObj.password) {
-      console.log(typeof (userObj.email))
       const res = await userAuthenticationService.loginUser(userObj.email, userObj.password)
       console.log(res)
-      alert(res.message)
+      alert(res.token)
     }
     else {
       alert("Please provide complete details")

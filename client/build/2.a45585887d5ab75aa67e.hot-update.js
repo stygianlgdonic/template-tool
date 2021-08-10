@@ -1,0 +1,19 @@
+exports.id = 2;
+exports.modules = {
+
+/***/ "./src/layouts/LoggedOutLayout/Registration/Registration.tsx":
+/*!*******************************************************************!*\
+  !*** ./src/layouts/LoggedOutLayout/Registration/Registration.tsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/razzle/config/babel-loader/razzle-babel-loader.js):\nSyntaxError: D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Registration.tsx: Unexpected token (20:16)\n\n\u001b[0m \u001b[90m 18 |\u001b[39m       \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m userAuthenticationService\u001b[33m.\u001b[39mloginUser(userObj\u001b[33m.\u001b[39memail\u001b[33m,\u001b[39m userObj\u001b[33m.\u001b[39mpassword)\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m       console\u001b[33m.\u001b[39mlog(res)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m       alert(res\u001b[33m.\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m     \u001b[36melse\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m       alert(\u001b[32m\"Please provide complete details\"\u001b[39m)\u001b[0m\n    at Object._raise (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:796:17)\n    at Object.raiseWithData (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:789:17)\n    at Object.raise (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:750:17)\n    at Object.unexpected (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:3257:16)\n    at Object.parseIdentifierName (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:12371:18)\n    at Object.parseIdentifier (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:12349:23)\n    at Object.parseMember (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11149:103)\n    at Object.parseSubscript (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11136:19)\n    at Object.parseSubscript (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:9061:18)\n    at Object.parseSubscripts (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11107:19)\n    at Object.parseExprSubscripts (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11096:17)\n    at Object.parseUpdate (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11070:21)\n    at Object.parseMaybeUnary (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:11048:23)\n    at Object.parseMaybeUnary (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:9567:20)\n    at Object.parseExprOps (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10891:23)\n    at Object.parseMaybeConditional (D:\\Hyper Engage Backend\\cardclan-backend\\client\\node_modules\\@babel\\parser\\lib\\index.js:10865:23)");
+
+/***/ }),
+
+/***/ "./src/services/auth_service.ts":
+false
+
+};
+//# sourceMappingURL=2.a45585887d5ab75aa67e.hot-update.js.map
