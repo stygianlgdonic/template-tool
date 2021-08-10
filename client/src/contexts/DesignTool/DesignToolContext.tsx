@@ -1,7 +1,7 @@
 import React, { createContext, useState, useReducer } from 'react'
 
 import { useImmerState } from '@shrugsy/use-immer-state';
-import { stageDimensions } from '../utils/defaults';
+import { stageDimensions } from '../../utils/defaults';
 import { designToolReducer, designToolInit } from './DesignToolReducers';
 
 export const INITIAL_STATE = {

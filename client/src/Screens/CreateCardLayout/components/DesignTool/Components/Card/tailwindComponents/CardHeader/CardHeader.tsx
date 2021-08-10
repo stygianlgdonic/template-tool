@@ -3,7 +3,7 @@ import ElementHeader from "./components/ElementHeader/ElementHeader";
 import TextHeader from "./components/TextHeader/TextHeader";
 import Imageheader from "./components/ImageHeader/imageheader";
 import { TemplateContext } from "../../../../../../../../contexts/TemplateContext";
-import { DesignToolContext } from "../../../../../../../../contexts/DesignToolContext";
+import { DesignToolContext } from "../../../../../../../../contexts/DesignTool/DesignToolContext";
 
 const CardHeader: React.FC = (): JSX.Element => {
     const {

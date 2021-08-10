@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import WebFont from "webfontloader";
 import MainStage from './MainStage';
-import { DesignToolContext } from '../../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
 
 const DesignTool: React.FC = () => {
 

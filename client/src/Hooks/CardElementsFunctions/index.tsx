@@ -1,7 +1,7 @@
 import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
 import { useContext } from 'react';
-import { DesignToolContext } from '../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 import { defaultImage, defaultSvg, fontSizeArray, stageDimensions } from "../../utils/defaults";
 
 const CardElementsFunctions = () => {

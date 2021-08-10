@@ -9,7 +9,7 @@ const image1 = require('./../../assets/images/ALP-Summer.png');
 
 import StatGraph from './components/StatGraph/StatGraph';
 import SocialStats from './components/SocialStats/SocialStats';
-import { DesignToolContext } from '../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 
 
 let email_title_1 = "Create a new email campaign"

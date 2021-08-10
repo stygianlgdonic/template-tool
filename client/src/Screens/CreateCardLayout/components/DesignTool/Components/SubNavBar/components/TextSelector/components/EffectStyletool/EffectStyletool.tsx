@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DesignToolContext } from '../../../../../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../../../../../contexts/DesignTool/DesignToolContext';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 import { defaultTextGlitch, defaultTextHollow, defaultTextLift, defaultTextNeon, defaultTextNoEffect, defaultTextShadow, defaultTextSplice } from '../../../../../../../../../../utils/defaults';
 const image1 = require('./../../../../../../../../../../assets/images/hollow.png');

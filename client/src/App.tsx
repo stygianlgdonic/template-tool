@@ -3,10 +3,7 @@ import "tailwindcss/tailwind.css"
 import NoSSR from './NoSSR'
 import { Routes, Route } from "react-router-dom"
 import './App.css';
-// const Dashboard = React.lazy(() => import('./Screens/Dashboard/Dashboard'));
-import Centerboard from './components/Centerboard/Centerboard';
-import LeftSidebar from './components/LeftSideBar/LeftSidebar';
-import { DesignToolProvider } from './contexts/DesignToolContext';
+import { DesignToolProvider } from './contexts/DesignTool/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
 import { HeaderProvider } from './contexts/HeaderContext';
 

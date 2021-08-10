@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DesignToolContext } from '../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../contexts/DesignTool/DesignToolContext';
 import BackgroundSelector from './components/BackgroundSelector/BackgroundSelector';
 import ElementSelector from './components/ElementSelector/ElementSelector';
 import ImageSelector from './components/ImageSelector/ImageSelector';
@@ -11,7 +11,7 @@ import EffectStyletool from './components/TextSelector/components/EffectStyletoo
 
 const SubNavBar: React.FC = (): JSX.Element => {
     const {
-        designToolState,
+        designToolState
     } = useContext(DesignToolContext)
     return (
 

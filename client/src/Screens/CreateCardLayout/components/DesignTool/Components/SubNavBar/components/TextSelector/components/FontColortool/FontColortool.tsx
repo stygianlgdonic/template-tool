@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { DesignToolContext } from '../../../../../../../../../../contexts/DesignToolContext';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 const image = require('./../../../../../../../../../../assets/images/custom.png');
 const FontStyletool: React.FC = (): JSX.Element => {

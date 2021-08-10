@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Range } from "react-range";
-import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
+import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
+import NavBarActions from "../../../../../../../../../../contexts/DesignTool/NavBarActions";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
+
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const ElementHeader: React.FC = (): JSX.Element => {
     // const [openstyle, setOpenstyle] = React.useState(false);
@@ -12,15 +14,15 @@ const ElementHeader: React.FC = (): JSX.Element => {
     const [values, setValues] = React.useState([0.01])
     // !!state?false:true;
     const [showeModal, seteShowModal] = React.useState(false);
-    const {
-        designToolDispatch,
-    } = useContext(DesignToolContext)
     const { handleBorderWidthChange, handleStrokeColor, handleDeleteSelectedItem, handleTextOpacity } = CardElementsFunctions()
     // !!state?false:true;
+
+    const { selectFontToolNav } = NavBarActions()
+
     return (
         <div className="flex  justify-start  " >
             <div className="flex pl-12">
-                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => designToolDispatch({ type: "fonttool" })}></button>
+                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={selectFontToolNav}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"

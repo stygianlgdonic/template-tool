@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DesignToolContext, INITIAL_STATE } from "../../contexts/DesignToolContext";
+import { DesignToolContext, INITIAL_STATE } from "../../contexts/DesignTool/DesignToolContext";
 import { HeaderContext } from "../../contexts/HeaderContext";
 import DesignTool from "./components/DesignTool/DesigntTool";
 import Header from "./components/Header/Header";
