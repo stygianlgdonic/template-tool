@@ -6,12 +6,14 @@ const image = require("./../../../../../../../../../../assets/images/opacity.png
 const TextHeader: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
-    const [values, setValues] = React.useState([0])
+    const [openstyle, setOpenstyle] = React.useState(false);
+    const [values, setValues] = React.useState([0.01])
+    const [value, setValue] = React.useState(0)
     const [open, setOpen] = React.useState(false);
     const {
         designToolDispatch
     } = useContext(DesignToolContext)
-    const { handleFontStyle, handleTextAlign } = CardElementsFunctions()
+    const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem } = CardElementsFunctions()
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
             <div className="flex items-center">
@@ -85,11 +87,11 @@ const TextHeader: React.FC = (): JSX.Element => {
                         </button>
                     </div>
                 </div>
-                <div>
-                    <button className="ml-10 text-lg font-bold text-black" onClick={() => handleFontStyle("bold")}>B</button>
+                <div className="">
+                    <button className="ml-10 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("bold")}>B</button>
                 </div>
                 <div>
-                    <button className="ml-10 text-lg italic font-bold text-black" onClick={() => handleFontStyle("italic")}>
+                    <button className="ml-10 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("italic")}>
                         I
                     </button>
                 </div>
@@ -221,12 +223,13 @@ const TextHeader: React.FC = (): JSX.Element => {
                                         <div className="w-full flex gap-4 justify-center ">
 
                                             <Range
-                                                step={1}
-                                                min={0}
-                                                max={75}
+                                                step={0.01}
+                                                min={0.01}
+                                                max={1}
                                                 values={values}
                                                 onChange={(values) => {
-                                                    setValues(values)
+                                                    setValues(values);
+                                                    handleTextOpacity(values)
                                                 }}
                                                 renderTrack={({ props, children }) => (
                                                     <div
@@ -252,8 +255,15 @@ const TextHeader: React.FC = (): JSX.Element => {
                         </>
                     ) : null}
                 </div>
+                <div className="py-4 ml-4 border-r-2 border-bordercolor"></div>
+                <div >
+                    <button className=" flex bg-transparent hover:bg-deletecolor rounded-md w-10 h-9 items-center justify-center ml-3" onClick={() => handleDeleteSelectedItem()}>
+                        <svg width="20" height="23" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.1875 4.56858L12.4828 12.9017C12.4221 13.6199 11.7145 14.1764 10.8619 14.1764H4.13807C3.28553 14.1764 2.57794 13.6199 2.5172 12.9017L1.8125 4.56858M5.875 7.31368V11.4313M9.125 7.31368V11.4313M9.9375 4.56858V2.50976C9.9375 2.13074 9.57373 1.82349 9.125 1.82349H5.875C5.42627 1.82349 5.0625 2.13074 5.0625 2.50976V4.56858M1 4.56858H14" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
 
-
+                </div>
             </div>
         </div>
     );

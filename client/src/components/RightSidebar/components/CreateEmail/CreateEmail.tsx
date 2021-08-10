@@ -28,7 +28,8 @@ const CreateEmail: React.FC<BioProps> = ({
     const [showModal, setShowModal] = React.useState(false);
     const [newModal, setNewModal] = React.useState(false);
     const { data, error, isLoading } = useQuery<any, Error>("templates", template_service.getAllTemplates)
-    // console.log({ data })
+    console.log({ data })
+    console.log({ error })
 
     if (isLoading) {
         return (
