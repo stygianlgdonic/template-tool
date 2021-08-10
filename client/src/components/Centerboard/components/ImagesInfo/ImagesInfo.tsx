@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Imagestat from './ImageStat/ImageStat'
 const image1 = require('./../../../../assets/images/ALP-Summer.png');
 import generatesvgUrl from '../../../../utils/generatesvgUrl'
-import { DesignToolContext } from '../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../contexts/DesignTool/DesignToolContext';
 
 const ImagesInfo: React.FC = () => {
     const {

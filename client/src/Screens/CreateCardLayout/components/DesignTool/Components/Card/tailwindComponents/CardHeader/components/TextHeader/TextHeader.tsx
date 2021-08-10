@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Range } from "react-range";
-import { DesignToolContext } from "../../../../../../../../../../contexts/DesignToolContext";
+import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
+import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
 import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
 const image = require("./../../../../../../../../../../assets/images/opacity.png");
 const TextHeader: React.FC = (): JSX.Element => {
@@ -10,10 +11,10 @@ const TextHeader: React.FC = (): JSX.Element => {
     const [values, setValues] = React.useState([0.01])
     const [value, setValue] = React.useState(0)
     const [open, setOpen] = React.useState(false);
-    const {
-        setDesignToolnavigator
-    } = useContext(DesignToolContext)
-    const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem } = CardElementsFunctions()
+    const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
+    const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
+    const [openDropDown, setopenDropDown] = useState(false);
+
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
             <div className="flex items-center">
@@ -25,11 +26,11 @@ const TextHeader: React.FC = (): JSX.Element => {
                     >
                         <button
                             type="button"
-                            className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                            className="inline-flex  w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="menu-button"
                             aria-expanded="true"
                             aria-haspopup="true"
-                            onClick={() => setDesignToolnavigator('texttool')}
+                            onClick={selectTextToolSubNav}
                         >
                             Poppins thin
                         </button>
@@ -37,7 +38,53 @@ const TextHeader: React.FC = (): JSX.Element => {
                 </div>
             </div>
             <div className="z-50 flex items-center">
-                <div className="relative inline-block text-left ">
+                <div
+                    className="relative mt-1"
+                    onClick={() => setopenDropDown(!!openDropDown ? false : true)}
+                >
+                    <button
+                        type="button"
+                        className="relative flex flex-row  items-center  py-2 px-4 text-left border-2 rounded-lg shadow-sm  h-10 border-bordercolor hover:bg-lightindigo focus:outline-none focus:ring-border  sm:text-sm"
+                        aria-haspopup="listbox"
+                        aria-expanded="true"
+                        aria-labelledby="listbox-label"
+                    >
+
+                        Heading 1
+                    </button>
+                    <ul
+                        className="absolute z-10 py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                        role="listbox"
+                        aria-labelledby="listbox-label"
+                        aria-activedescendant="listbox-option-3"
+                        style={{ display: openDropDown ? "" : "none" }}
+                    >
+                        <li
+                            className="relative  py-2  mr-8 text-gray-900  w-32 cursor-default select-none "
+                            id="listbox-option-0"
+                            role="option"
+                        >
+                            <div className="flex mb-2">
+                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('Header')}>
+                                    Heading 1
+                                </button>
+                            </div>
+                            <div className="flex mb-2  w-full">
+                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('Sub header')} >
+                                    Sub Header
+                                </button>
+                            </div>
+                            <div className="flex ">
+                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('body text')}>
+                                    Body Text
+                                </button>
+                            </div>
+                            <div className=""></div>
+
+                        </li>
+                    </ul>
+                </div>
+                {/* <div className="relative inline-block text-left ">
                     <div
                         role="menu"
                         aria-orientation="vertical"
@@ -55,11 +102,11 @@ const TextHeader: React.FC = (): JSX.Element => {
                             Heading 1
                         </button>
                     </div>
-                </div>
+                </div> */}
 
                 <div>
                     <div>
-                        <button className="ml-10 text-lg font-bold text-black" onClick={() => setDesignToolnavigator('fonttool')}>
+                        <button className="ml-10 text-lg font-bold text-black" onClick={selectFontColorToolSubNav}>
 
                             <svg className="mt-2" width="30" height="30" viewBox="0 0 36 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.392 27L13.9943 22.3807H20.8125L22.4062 27H25.2017L18.9205 9.54545H15.8778L9.59659 27H12.392ZM14.7614 20.1648L17.3352 12.7159H17.4716L20.0455 20.1648H14.7614Z" fill="black" />
@@ -88,15 +135,15 @@ const TextHeader: React.FC = (): JSX.Element => {
                     </div>
                 </div>
                 <div className="">
-                    <button className="ml-10 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("bold")}>B</button>
+                    <button className="ml-4 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("bold")}>B</button>
                 </div>
                 <div>
-                    <button className="ml-10 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("italic")}>
+                    <button className="ml-4 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("italic")}>
                         I
                     </button>
                 </div>
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
-                <button className="ml-6 relative" onClick={() => setShowModal(true)}>
+                <button className="ml-6 relative rounded-md hover:bg-lightindigo h-10 w-10 pl-2 " onClick={() => setShowModal(true)}>
                     <svg
                         width="23"
                         height="18"
@@ -126,24 +173,21 @@ const TextHeader: React.FC = (): JSX.Element => {
                                     {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
-                                    <div className=" absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center pt-5 pb-4 overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ">
+                                    <div className=" absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ">
 
-                                        <div className="w-full flex gap-4 justify-center ">
+                                        <div className="w-full flex gap-4 justify-center my-2">
 
-                                            <button onClick={() => handleTextAlign("justify")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H17M1 7H17M1 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            </button>
-                                            <button onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             </button>
-                                            <button onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
 
                                             </button>
-                                            <button onClick={() => handleTextAlign("right")}>
+                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
                                                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
@@ -158,25 +202,9 @@ const TextHeader: React.FC = (): JSX.Element => {
                         </>
                     ) : null}
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
                 <div className="ml-6 text-lg italic font-bold text-black ">
-                    <button onClick={() => setDesignToolnavigator('effecttool')} >Effects</button>
+                    <button onClick={selectEffectToolSubNav} >Effects</button>
                     {/* <Range
                         step={1}
                         min={0}
@@ -203,7 +231,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                 </div>
 
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
-                <button className="ml-6" onClick={() => seteShowModal(true)}>
+                <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
                     <img src={image} />
                 </button>
                 <div>
@@ -218,7 +246,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                     {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
-                                    <div className=" absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center pt-5 pb-4 overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ">
+                                    <div className=" absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ">
 
                                         <div className="w-full flex gap-4 justify-center ">
 
@@ -234,7 +262,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                                 renderTrack={({ props, children }) => (
                                                     <div
                                                         {...props}
-                                                        className="w-full h-3 pr-2 my-4 bg-gray-200 rounded-md"
+                                                        className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
                                                     >
                                                         {children}
                                                     </div>
@@ -242,7 +270,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                                 renderThumb={({ props }) => (
                                                     <div
                                                         {...props}
-                                                        className="w-5 h-5 transform translate-x-10 bg-indigo-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                        className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                     />
                                                 )}
                                             />
@@ -265,7 +293,7 @@ const TextHeader: React.FC = (): JSX.Element => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 export default TextHeader;

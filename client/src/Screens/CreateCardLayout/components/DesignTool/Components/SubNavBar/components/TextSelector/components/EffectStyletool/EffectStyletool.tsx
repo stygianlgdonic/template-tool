@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DesignToolContext } from '../../../../../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../../../../../contexts/DesignTool/DesignToolContext';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 import { defaultTextGlitch, defaultTextHollow, defaultTextLift, defaultTextNeon, defaultTextNoEffect, defaultTextShadow, defaultTextSplice } from '../../../../../../../../../../utils/defaults';
 const image1 = require('./../../../../../../../../../../assets/images/hollow.png');
@@ -64,7 +64,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
                 Effects
             </h1>
             </div>
-            <div className="border-b-2 border-bordercolor mt-6 " ></div>
+            <div className="border-b border-bordercolor mt-6 " ></div>
             <div> <h1 className="font-medium text-lg mt-6">
                 Style
             </h1>

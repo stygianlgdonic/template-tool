@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DesignToolContext, INITIAL_STATE } from "../../contexts/DesignToolContext";
+import { DesignToolContext, INITIAL_STATE } from "../../contexts/DesignTool/DesignToolContext";
 import { HeaderContext } from "../../contexts/HeaderContext";
 import DesignTool from "./components/DesignTool/DesigntTool";
 import Header from "./components/Header/Header";
@@ -43,7 +43,7 @@ const CreateCardLayout: React.FC = () => {
                     handleSaveCard={handleSaveCard}
                 />
             </div>
-            <div className="relative" style={{ height: "88vh" }}>
+            <div className="relative" style={{ height: "92vh" }}>
                 <DesignTool />
                 <div
                     className="absolute top-0 right-0 h-full bg-white w-14"

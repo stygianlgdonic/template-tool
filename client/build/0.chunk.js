@@ -212,13 +212,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var use_file_upload__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(use_file_upload__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -240,7 +242,10 @@ const CardElementsFunctions = () => {
       stepNum,
       history
     }
-  } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
+  const {
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_5__["default"])();
   const [file, selectFile] = Object(use_file_upload__WEBPACK_IMPORTED_MODULE_1__["useFileUpload"])();
 
   const handleAddNewRect = rectData => {
@@ -249,6 +254,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, rectData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -258,6 +264,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, circleData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -267,6 +274,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, triangleData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -276,6 +284,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, polygonData), {}, {
         id: `shapes_${shapeID.toString()}`
       }));
+      setSelectedId(`shapes_${shapeID.toString()}`);
     });
   };
 
@@ -287,6 +296,7 @@ const CardElementsFunctions = () => {
           id: `svgs_${svgId.toString()}`,
           svgString: SVG_STRING
         }, _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["defaultSvg"]));
+        setSelectedId(`svgs_${svgId.toString()}`);
       });
     });
   };
@@ -298,6 +308,7 @@ const CardElementsFunctions = () => {
         id: `svgs_${svgId.toString()}`,
         svgString: SVG_STRING
       }, _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["defaultSvg"]));
+      setSelectedId(`svgs_${svgId.toString()}`);
     });
   };
 
@@ -319,6 +330,7 @@ const CardElementsFunctions = () => {
             src: reader.result,
             id: `images_${imageID.toString()}`
           }));
+          setSelectedId(`images_${imageID.toString()}`);
         });
       };
     });
@@ -330,6 +342,7 @@ const CardElementsFunctions = () => {
       prev.elements.push(_objectSpread(_objectSpread({}, textData), {}, {
         id: `textBoxes_${textID.toString()}`
       }));
+      setSelectedId(`textBoxes_${textID.toString()}`);
     });
   };
 
@@ -363,15 +376,18 @@ const CardElementsFunctions = () => {
     setCardData(prev => {
       prev.elements = prev.elements.filter(item => item.id !== selectedId);
       setSelectedId(null);
+      emptyCardHeader();
     });
   };
 
   const onUndo = () => {
+    emptyCardHeader();
     !!setSelectedId && setSelectedId(null);
     stepNum > 1 && goBack();
   };
 
   const onRedo = () => {
+    emptyCardHeader();
     !!setSelectedId && setSelectedId(null);
     stepNum < history.length - 1 && goForward();
   };
@@ -415,13 +431,6 @@ const CardElementsFunctions = () => {
     setCardData(prev => {
       const shapeIndex = prev.elements.findIndex(item => item.id === selectedId);
       prev.elements[shapeIndex] = textObj;
-    });
-  };
-
-  const handleTextColor = color => {
-    setCardData(prev => {
-      const shapeIndex = prev.elements.findIndex(item => item.id === selectedId);
-      prev.elements[shapeIndex].fill = color;
     });
   };
 
@@ -488,11 +497,16 @@ const CardElementsFunctions = () => {
     });
   };
 
-  const handleShapeFill = color => {
+  const handleFill = (color, backgroundID) => {
     setCardData(prev => {
-      const selectedShape = prev.elements.find(item => item.id === selectedId);
-      selectedShape.fill = color;
-      selectedShape.patternImageUrl = undefined;
+      if (!!backgroundID) {
+        prev.elements[0].fill = color;
+        prev.elements[0].patternImageUrl = undefined;
+      } else {
+        const selectedShape = prev.elements.find(item => item.id === selectedId);
+        selectedShape.fill = color;
+        selectedShape.patternImageUrl = undefined;
+      }
     });
   };
 
@@ -561,7 +575,6 @@ const CardElementsFunctions = () => {
     handleTextAlign,
     handleTextOpacity,
     handleTextEffect,
-    handleTextColor,
     handleFontFamily,
     handleBorderWidthChange,
     handleFillImagePattern,
@@ -569,7 +582,7 @@ const CardElementsFunctions = () => {
     handleCornerRadius,
     handleOpacity,
     handleStrokeColor,
-    handleShapeFill,
+    handleFill,
     handleGradientColor,
     handleFillPatternScaleX,
     handleFillPatternScaleY,
@@ -593,7 +606,7 @@ const CardElementsFunctions = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
 /* harmony import */ var _components_DesignTool_DesigntTool__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/DesignTool/DesigntTool */ "./src/Screens/CreateCardLayout/components/DesignTool/DesigntTool.tsx");
 /* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Header/Header */ "./src/Screens/CreateCardLayout/components/Header/Header.tsx");
@@ -627,13 +640,13 @@ const CreateCardLayout = () => {
   const {
     cardData,
     setCardData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]); // TODO - use this method for creating new card with selected dimensions
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]); // TODO - use this method for creating new card with selected dimensions
 
   const createNewCard = cardDimensions => {
     setCardData(prev => {
       prev.dimensions = _objectSpread({}, cardDimensions);
       prev.labels = [];
-      prev.elements = [_objectSpread(_objectSpread({}, _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["INITIAL_STATE"].elements[0]), {}, {
+      prev.elements = [_objectSpread(_objectSpread({}, _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["INITIAL_STATE"].elements[0]), {}, {
         width: cardDimensions.width,
         height: cardDimensions.height
       })];
@@ -680,7 +693,7 @@ const CreateCardLayout = () => {
   })), __jsx("div", {
     className: "relative",
     style: {
-      height: "88vh"
+      height: "92vh"
     },
     __self: undefined,
     __source: {
@@ -878,6 +891,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UTransformer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../UTransformer */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/UTransformer.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _UImage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../UImage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/UImage.tsx");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../../../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\MainStage\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -901,6 +915,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 const MainStage = ({
   cardData,
   setCardData,
@@ -909,6 +924,9 @@ const MainStage = ({
 }) => {
   var _cardData$elements;
 
+  const {
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__["default"])();
   const GUIDELINE_OFFSET = 5;
   const $stage = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const $layer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
@@ -926,6 +944,11 @@ const MainStage = ({
     1: setNodes
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const Konva = window.Konva;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (!nodesArray.length) {
+      emptyCardHeader();
+    }
+  }, [nodesArray.length]);
 
   const getLineGuideStops = skipShape => {
     const vertical = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width];
@@ -1233,6 +1256,15 @@ const MainStage = ({
       }
     });
     $tr.current.nodes(elements);
+    setNodes(elements); // NOTE - if only one node is within group setSelectedId for that element
+
+    if ((elements === null || elements === void 0 ? void 0 : elements.length) === 1) {
+      setSelectedId(elements[0].attrs.id);
+    } else {
+      setSelectedId(null);
+      emptyCardHeader();
+    }
+
     selection.current.visible = false; // disable click event
 
     Konva.listenClickTap = false;
@@ -1292,13 +1324,12 @@ const MainStage = ({
     onMouseDown: onMouseDown,
     onMouseUp: onMouseUp,
     onMouseMove: onMouseMove,
-    onTouchStart: checkDeselect // onClick={onClickTap}
-
+    onTouchStart: checkDeselect
   }, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 374,
+      lineNumber: 393,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1308,7 +1339,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 383,
+      lineNumber: 401,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1320,7 +1351,6 @@ const MainStage = ({
           let temp = nodesArray;
           if (!nodesArray.includes(e.current)) temp.push(e.current);
           setNodes(temp);
-          $tr.current.nodes(nodesArray);
           $tr.current.nodes(nodesArray);
           $tr.current.getLayer().batchDraw();
         }
@@ -1343,7 +1373,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 390,
+        lineNumber: 408,
         columnNumber: 25
       }
     });
@@ -1362,7 +1392,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 420,
+        lineNumber: 438,
         columnNumber: 25
       }
     });
@@ -1381,7 +1411,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 436,
+        lineNumber: 454,
         columnNumber: 25
       }
     });
@@ -1400,7 +1430,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 452,
+        lineNumber: 470,
         columnNumber: 25
       }
     });
@@ -1417,7 +1447,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 468,
+        lineNumber: 486,
         columnNumber: 25
       }
     });
@@ -1434,7 +1464,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 485,
+        lineNumber: 503,
         columnNumber: 25
       }
     });
@@ -1451,7 +1481,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 502,
+        lineNumber: 520,
         columnNumber: 25
       }
     });
@@ -1463,7 +1493,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 517,
+      lineNumber: 535,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1472,7 +1502,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 523,
+      lineNumber: 541,
       columnNumber: 17
     }
   })));
@@ -2091,13 +2121,18 @@ const TransformerComponent = ({
   }, [selectedShapeName]);
 
   const checkNode = () => {
+    const trNodes = $tr.current.nodes();
+    console.log({
+      trNodes
+    }); // return
+
     const stage = $tr.current.getStage();
     const selectedNode = stage.findOne("#" + selectedShapeName);
 
     if (selectedNode) {
       $tr.current.nodes([selectedNode]);
     } else {
-      $tr.current.detach();
+      !trNodes.length && $tr.current.detach();
       setSelectedId(null);
     }
 
@@ -2132,42 +2167,43 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
-      columnNumber: 7
+      lineNumber: 54,
+      columnNumber: 13
     }
   }, __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_3__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
-      columnNumber: 9
+      lineNumber: 66,
+      columnNumber: 17
     }
   }, __jsx("div", {
+    className: (selectedShapeName === null || selectedShapeName === void 0 ? void 0 : selectedShapeName.split("_")[0]) === "shapes" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
-      columnNumber: 11
+      lineNumber: 67,
+      columnNumber: 21
     }
   }, __jsx("button", {
     onClick: handleOpenFallbackModal,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
-      columnNumber: 13
+      lineNumber: 68,
+      columnNumber: 25
     }
   }, __jsx("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    className: "w-6 h-6",
+    className: "h-6 w-6",
     fill: "none",
     viewBox: "0 0 24 24",
     stroke: "currentColor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
-      columnNumber: 15
+      lineNumber: 69,
+      columnNumber: 29
     }
   }, __jsx("path", {
     "stroke-linecap": "round",
@@ -2177,16 +2213,16 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 17
+      lineNumber: 70,
+      columnNumber: 33
     }
   }))), __jsx("div", {
     className: !!isOpenFallbackModal ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
-      columnNumber: 13
+      lineNumber: 73,
+      columnNumber: 25
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
     closeModal: () => {// setIsOpenFallbackModal(false);
@@ -2194,8 +2230,8 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 15
+      lineNumber: 74,
+      columnNumber: 29
     }
   }))))));
 };
@@ -2218,7 +2254,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! webfontloader */ "webfontloader");
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _MainStage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainStage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/MainStage/index.tsx");
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2226,30 +2263,37 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const DesignTool = () => {
   const {
-    setDesignHeadernavigator,
+    selectShapeCardHeader,
+    selectTextCardHeader,
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  const {
     selectedId,
     setSelectedId,
     cardData,
     setCardData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    if (!selectedId) return;
-    const dude = cardData.elements.find((item, index) => selectedId === item.id);
+    if (!!selectedId) {
+      const dude = cardData.elements.find((item, index) => selectedId === item.id);
 
-    if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'text') {
-      setDesignHeadernavigator('text');
-    }
+      if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'text') {
+        selectTextCardHeader();
+      }
 
-    if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'rectangle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'svg' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'circle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'polygon') {
-      setDesignHeadernavigator('rect');
+      if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'rectangle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'svg' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'circle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'polygon') {
+        selectShapeCardHeader();
+      }
     }
-  });
+  }, [selectedId]);
 
   const handleEscape = e => {
     if (e.key === "Escape") {
       setSelectedId(null);
+      emptyCardHeader();
     }
   };
 
@@ -2269,7 +2313,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 52,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2277,7 +2321,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 53,
       columnNumber: 13
     }
   }, __jsx(_MainStage__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2288,7 +2332,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 54,
       columnNumber: 17
     }
   })));
@@ -2311,7 +2355,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_ElementHeader_ElementHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ElementHeader/ElementHeader */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/tailwindComponents/CardHeader/components/ElementHeader/ElementHeader.tsx");
 /* harmony import */ var _components_TextHeader_TextHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TextHeader/TextHeader */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/tailwindComponents/CardHeader/components/TextHeader/TextHeader.tsx");
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\CardHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2321,21 +2365,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const CardHeader = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    designHeadernavigator,
-    setDesignHeadernavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
+    designToolState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
   return __jsx("div", {
     style: {
       height: "61px"
@@ -2344,24 +2375,40 @@ const CardHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 12,
       columnNumber: 9
     }
-  }, !!selectedId && designHeadernavigator === "text" && __jsx(_components_TextHeader_TextHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx("div", {
+    className: designToolState.card_header_state === "text" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 66
+      lineNumber: 14,
+      columnNumber: 13
     }
-  }), !!selectedId && designHeadernavigator === "rect" && __jsx(_components_ElementHeader_ElementHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_components_TextHeader_TextHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 66
+      lineNumber: 15,
+      columnNumber: 17
     }
-  }));
+  })), __jsx("div", {
+    className: designToolState.card_header_state === "shape" ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }, __jsx(_components_ElementHeader_ElementHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 17
+    }
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CardHeader);
@@ -2381,7 +2428,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\ElementHeader\\ElementHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2408,34 +2455,21 @@ const ElementHeader = () => {
 
   const [showeModal, seteShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    designHeadernavigator,
-    setDesignHeadernavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
-  const {
     handleBorderWidthChange,
     handleStrokeColor,
     handleDeleteSelectedItem,
     handleTextOpacity
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])(); // !!state?false:true;
 
+  const {
+    selectShapeColorSubNav
+  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
   return __jsx("div", {
     className: "flex  justify-start  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2443,16 +2477,16 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("button", {
     className: "w-10 h-10 rounded-md bg-fuschia",
-    onClick: () => setDesignToolnavigator("fonttool"),
+    onClick: selectShapeColorSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 25,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -2460,7 +2494,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 26,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2469,7 +2503,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 27,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2481,7 +2515,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 31,
       columnNumber: 25
     }
   }, __jsx("span", {
@@ -2489,7 +2523,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 38,
       columnNumber: 29
     }
   }), __jsx("span", {
@@ -2497,7 +2531,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 39,
       columnNumber: 29
     }
   }, __jsx("svg", {
@@ -2509,7 +2543,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 40,
       columnNumber: 33
     }
   }, __jsx("path", {
@@ -2520,7 +2554,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 47,
       columnNumber: 37
     }
   })))), __jsx("ul", {
@@ -2534,7 +2568,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 56,
       columnNumber: 25
     }
   }, __jsx("li", {
@@ -2544,7 +2578,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 63,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -2552,7 +2586,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 68,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2561,7 +2595,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 69,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2569,7 +2603,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 70,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2577,7 +2611,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 71,
       columnNumber: 41
     }
   }, "4"))), __jsx("div", {
@@ -2585,7 +2619,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 74,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2594,7 +2628,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 75,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2602,7 +2636,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 76,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2610,7 +2644,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 77,
       columnNumber: 41
     }
   }, "2"))), __jsx("div", {
@@ -2618,7 +2652,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 80,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2627,7 +2661,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 81,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2635,7 +2669,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 82,
       columnNumber: 41
     }
   }), __jsx("span", {
@@ -2643,7 +2677,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 83,
       columnNumber: 41
     }
   }, "1"))), __jsx("div", {
@@ -2651,7 +2685,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 86,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -2659,7 +2693,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 87,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2668,7 +2702,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 88,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2677,7 +2711,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 89,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2686,7 +2720,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 90,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2695,7 +2729,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 91,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2704,7 +2738,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 92,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2713,7 +2747,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 93,
       columnNumber: 37
     }
   }))))))), __jsx("div", {
@@ -2724,14 +2758,14 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 100,
       columnNumber: 13
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 102,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -2740,7 +2774,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 103,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -2748,14 +2782,14 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 104,
       columnNumber: 25
     }
   }))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 107,
       columnNumber: 17
     }
   }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -2766,7 +2800,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 111,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -2774,7 +2808,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 112,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -2784,7 +2818,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
+      lineNumber: 114,
       columnNumber: 37
     }
   }), __jsx("div", {
@@ -2792,7 +2826,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 118,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -2800,7 +2834,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 120,
       columnNumber: 41
     }
   }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
@@ -2820,7 +2854,7 @@ const ElementHeader = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134,
+        lineNumber: 132,
         columnNumber: 53
       }
     }), children),
@@ -2831,14 +2865,14 @@ const ElementHeader = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142,
+        lineNumber: 140,
         columnNumber: 53
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 122,
       columnNumber: 45
     }
   })))))) : null), __jsx("div", {
@@ -2846,14 +2880,14 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 155,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 156,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -2862,7 +2896,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 157,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2874,7 +2908,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 158,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2886,7 +2920,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161,
+      lineNumber: 159,
       columnNumber: 29
     }
   }))))));
@@ -3808,7 +3842,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\TextHeader\\TextHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -3830,20 +3864,27 @@ const TextHeader = () => {
   const [value, setValue] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(0);
   const [open, setOpen] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const {
-    setDesignToolnavigator
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
-  const {
     handleFontStyle,
     handleTextAlign,
     handleTextOpacity,
-    handleDeleteSelectedItem
+    handleDeleteSelectedItem,
+    handleChangeFontSize
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  const {
+    selectTextToolSubNav,
+    selectEffectToolSubNav,
+    selectFontColorToolSubNav
+  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  const {
+    0: openDropDown,
+    1: setopenDropDown
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   return __jsx("div", {
     className: "flex flex-row items-center justify-center gap-4 px-6 h-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 19,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -3851,7 +3892,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 20,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -3859,7 +3900,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3869,20 +3910,20 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 21
     }
   }, __jsx("button", {
     type: "button",
-    className: "inline-flex justify-center w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500",
+    className: "inline-flex  w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500",
     id: "menu-button",
     "aria-expanded": "true",
     "aria-haspopup": "true",
-    onClick: () => setDesignToolnavigator('texttool'),
+    onClick: selectTextToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 25
     }
   }, "Poppins thin")))), __jsx("div", {
@@ -3890,62 +3931,134 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 13
     }
   }, __jsx("div", {
-    className: "relative inline-block text-left ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 17
-    }
-  }, __jsx("div", {
-    role: "menu",
-    "aria-orientation": "vertical",
-    "aria-labelledby": "menu-button",
-    onClick: () => setOpen(!open),
+    className: "relative mt-1",
+    onClick: () => setopenDropDown(!!openDropDown ? false : true),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41,
-      columnNumber: 21
+      columnNumber: 17
     }
   }, __jsx("button", {
-    onClick: () => setOpen(true),
     type: "button",
-    className: "inline-flex justify-center w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500",
-    id: "menu-button",
+    className: "relative flex flex-row  items-center  py-2 px-4 text-left border-2 rounded-lg shadow-sm  h-10 border-bordercolor hover:bg-lightindigo focus:outline-none focus:ring-border  sm:text-sm",
+    "aria-haspopup": "listbox",
     "aria-expanded": "true",
-    "aria-haspopup": "true",
+    "aria-labelledby": "listbox-label",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
+      columnNumber: 21
+    }
+  }, "Heading 1"), __jsx("ul", {
+    className: "absolute z-10 py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm",
+    role: "listbox",
+    "aria-labelledby": "listbox-label",
+    "aria-activedescendant": "listbox-option-3",
+    style: {
+      display: openDropDown ? "" : "none"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 21
+    }
+  }, __jsx("li", {
+    className: "relative  py-2  mr-8 text-gray-900  w-32 cursor-default select-none ",
+    id: "listbox-option-0",
+    role: "option",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
       columnNumber: 25
     }
-  }, "Heading 1"))), __jsx("div", {
+  }, __jsx("div", {
+    className: "flex mb-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 67,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    className: "flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo",
+    onClick: () => handleChangeFontSize('Header'),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68,
+      columnNumber: 33
+    }
+  }, "Heading 1")), __jsx("div", {
+    className: "flex mb-2  w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    className: "flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo",
+    onClick: () => handleChangeFontSize('Sub header'),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 33
+    }
+  }, "Sub Header")), __jsx("div", {
+    className: "flex ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    className: "flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo",
+    onClick: () => handleChangeFontSize('body text'),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 33
+    }
+  }, "Body Text")), __jsx("div", {
+    className: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 29
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
       columnNumber: 17
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 108,
       columnNumber: 21
     }
   }, __jsx("button", {
     className: "ml-10 text-lg font-bold text-black",
-    onClick: () => setDesignToolnavigator('fonttool'),
+    onClick: selectFontColorToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 109,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -3958,7 +4071,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 111,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -3967,7 +4080,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 112,
       columnNumber: 33
     }
   }), __jsx("g", {
@@ -3975,7 +4088,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 113,
       columnNumber: 33
     }
   }, __jsx("rect", {
@@ -3988,7 +4101,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 114,
       columnNumber: 37
     }
   })), __jsx("rect", {
@@ -4001,14 +4114,14 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 116,
       columnNumber: 33
     }
   }), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 117,
       columnNumber: 33
     }
   }, __jsx("filter", {
@@ -4022,7 +4135,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 118,
       columnNumber: 37
     }
   }, __jsx("feFlood", {
@@ -4031,7 +4144,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 119,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4042,7 +4155,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 120,
       columnNumber: 41
     }
   }), __jsx("feOffset", {
@@ -4050,7 +4163,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 121,
       columnNumber: 41
     }
   }), __jsx("feGaussianBlur", {
@@ -4058,7 +4171,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 122,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4067,7 +4180,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 123,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -4077,7 +4190,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 124,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4088,7 +4201,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 125,
       columnNumber: 41
     }
   }), __jsx("feOffset", {
@@ -4096,7 +4209,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 126,
       columnNumber: 41
     }
   }), __jsx("feGaussianBlur", {
@@ -4104,7 +4217,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 127,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4113,7 +4226,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 128,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -4123,7 +4236,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 129,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -4134,7 +4247,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 130,
       columnNumber: 41
     }
   }))))))), __jsx("div", {
@@ -4142,32 +4255,32 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 137,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "ml-10 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
+    className: "ml-4 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
     onClick: () => handleFontStyle("bold"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 138,
       columnNumber: 21
     }
   }, "B")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 140,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "ml-10 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
+    className: "ml-4 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
     onClick: () => handleFontStyle("italic"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 141,
       columnNumber: 21
     }
   }, "I")), __jsx("div", {
@@ -4175,16 +4288,16 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 145,
       columnNumber: 17
     }
   }), __jsx("button", {
-    className: "ml-6 relative",
+    className: "ml-6 relative rounded-md hover:bg-lightindigo h-10 w-10 pl-2 ",
     onClick: () => setShowModal(true),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 146,
       columnNumber: 17
     }
   }, __jsx("svg", {
@@ -4196,7 +4309,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 147,
       columnNumber: 21
     }
   }, __jsx("path", {
@@ -4208,14 +4321,14 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 154,
       columnNumber: 25
     }
   }))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 164,
       columnNumber: 17
     }
   }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -4226,7 +4339,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 168,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4234,7 +4347,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 169,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -4244,63 +4357,32 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 171,
       columnNumber: 37
     }
   }), __jsx("div", {
-    className: " absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center pt-5 pb-4 overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ",
+    className: " absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 176,
       columnNumber: 37
     }
   }, __jsx("div", {
-    className: "w-full flex gap-4 justify-center ",
+    className: "w-full flex gap-4 justify-center my-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 178,
       columnNumber: 41
     }
   }, __jsx("button", {
-    onClick: () => handleTextAlign("justify"),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 45
-    }
-  }, __jsx("svg", {
-    width: "18",
-    height: "14",
-    viewBox: "0 0 18 14",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 96
-    }
-  }, __jsx("path", {
-    d: "M1 1H17M1 7H17M1 13H17",
-    stroke: "#111827",
-    "stroke-width": "2",
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 49
-    }
-  }))), __jsx("button", {
+    className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
     onClick: () => handleTextAlign("left"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 181,
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4312,8 +4394,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
-      columnNumber: 93
+      lineNumber: 181,
+      columnNumber: 180
     }
   }, __jsx("path", {
     d: "M1 1H17M1 7H17M1 13H8",
@@ -4324,15 +4406,16 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 182,
       columnNumber: 49
     }
   }))), __jsx("button", {
+    className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
     onClick: () => handleTextAlign("center"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 185,
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4344,8 +4427,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
-      columnNumber: 95
+      lineNumber: 185,
+      columnNumber: 182
     }
   }, __jsx("path", {
     d: "M1 1H17M1 9H17",
@@ -4356,15 +4439,16 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 186,
       columnNumber: 49
     }
   }))), __jsx("button", {
+    className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
     onClick: () => handleTextAlign("right"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
+      lineNumber: 190,
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4376,7 +4460,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 191,
       columnNumber: 49
     }
   }, __jsx("path", {
@@ -4388,7 +4472,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 192,
       columnNumber: 53
     }
   })))))))) : null), __jsx("div", {
@@ -4396,7 +4480,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177,
+      lineNumber: 205,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -4404,15 +4488,15 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178,
+      lineNumber: 206,
       columnNumber: 17
     }
   }, __jsx("button", {
-    onClick: () => setDesignToolnavigator('effecttool'),
+    onClick: selectEffectToolSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 179,
+      lineNumber: 207,
       columnNumber: 21
     }
   }, "Effects")), __jsx("div", {
@@ -4420,16 +4504,16 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 233,
       columnNumber: 17
     }
   }), __jsx("button", {
-    className: "ml-6",
+    className: "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md",
     onClick: () => seteShowModal(true),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206,
+      lineNumber: 234,
       columnNumber: 17
     }
   }, __jsx("img", {
@@ -4437,14 +4521,14 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207,
+      lineNumber: 235,
       columnNumber: 21
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 237,
       columnNumber: 17
     }
   }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -4455,7 +4539,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 241,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4463,7 +4547,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 242,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -4473,15 +4557,15 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 244,
       columnNumber: 37
     }
   }), __jsx("div", {
-    className: " absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center pt-5 pb-4 overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ",
+    className: " absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 221,
+      lineNumber: 249,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -4489,7 +4573,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 223,
+      lineNumber: 251,
       columnNumber: 41
     }
   }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
@@ -4505,29 +4589,29 @@ const TextHeader = () => {
       props,
       children
     }) => __jsx("div", _extends({}, props, {
-      className: "w-full h-3 pr-2 my-4 bg-gray-200 rounded-md",
+      className: "w-full h-3 pr-2 my-4 bg-indigo600 rounded-md",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 235,
+        lineNumber: 263,
         columnNumber: 53
       }
     }), children),
     renderThumb: ({
       props
     }) => __jsx("div", _extends({}, props, {
-      className: "w-5 h-5 transform translate-x-10 bg-indigo-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+      className: "w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 243,
+        lineNumber: 271,
         columnNumber: 53
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 225,
+      lineNumber: 253,
       columnNumber: 45
     }
   })))))) : null), __jsx("div", {
@@ -4535,14 +4619,14 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258,
+      lineNumber: 286,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 259,
+      lineNumber: 287,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -4551,7 +4635,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 260,
+      lineNumber: 288,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -4563,7 +4647,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 261,
+      lineNumber: 289,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -4575,7 +4659,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 262,
+      lineNumber: 290,
       columnNumber: 29
     }
   }))))));
@@ -4596,33 +4680,28 @@ const TextHeader = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../contexts/DesignTool/NavBarActions */ "./src/contexts/DesignTool/NavBarActions.ts");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/NavBar/style.css");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\NavBar\\NavBar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+
 const SideBarNav = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+    designToolState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+  const {
+    selectElementNav,
+    selectTextNav,
+    selectImagesNav,
+    selectBackgroundNav,
+    selectLogoNav
+  } = Object(_contexts_DesignTool_NavBarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
   const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  console.log({
-    treeee: designToolnavigator
-  });
   return __jsx("div", {
     className: "h-full fixed flex  flex-col w-2/12 ",
     __self: undefined,
@@ -4640,8 +4719,8 @@ const SideBarNav = () => {
       columnNumber: 13
     }
   }, __jsx("button", {
-    className: designToolnavigator === 'element' ? "w-full   bg-rightbackgroundcolor  h-10" : "w-full h-10 ",
-    onClick: () => setDesignToolnavigator('element'),
+    className: designToolState.navbar_selection === 'element' ? "w-full   bg-rightbackgroundcolor  h-10" : "w-full h-10 ",
+    onClick: selectElementNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4690,8 +4769,8 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Elements"))), __jsx("button", {
-    className: designToolnavigator === "text" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('text'),
+    className: designToolState.navbar_selection === "text" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: selectTextNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4736,8 +4815,8 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Text"))), __jsx("button", {
-    className: designToolnavigator === "images" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('images'),
+    className: designToolState.navbar_selection === "images" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: selectImagesNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4785,8 +4864,8 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Images"))), __jsx("button", {
-    className: designToolnavigator === "background" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('background'),
+    className: designToolState.navbar_selection === "background" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: selectBackgroundNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4834,8 +4913,8 @@ const SideBarNav = () => {
       columnNumber: 25
     }
   }, "Backgrounds"))), __jsx("button", {
-    className: designToolnavigator === "logo" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
-    onClick: () => setDesignToolnavigator('logo'),
+    className: designToolState.navbar_selection === "logo" ? "w-full bg-rightbackgroundcolor h-10" : "w-full  h-10",
+    onClick: selectLogoNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4843,7 +4922,7 @@ const SideBarNav = () => {
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: "flex items-center hover:bg-rightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1",
+    className: "flex items-center hover:bg-lightrightbackgroundcolor w-full hover:rounded-sm border-0 rounded-sm  pl-5 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -5435,7 +5514,7 @@ function Drawer({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/BackgroundSelector/BackgroundSelector */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/BackgroundSelector/BackgroundSelector.tsx");
 /* harmony import */ var _components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ElementSelector/ElementSelector */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/ElementSelector.tsx");
 /* harmony import */ var _components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ImageSelector/ImageSelector */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ImageSelector/ImageSelector.tsx");
@@ -5459,82 +5538,78 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const SubNavBar = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+    designToolState
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   return __jsx("div", {
     className: "h-full flex flex-col w-full border-bordercolor border ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 18,
       columnNumber: 9
     }
-  }, designToolnavigator === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, designToolState.sub_navbar_selection === 'element' && __jsx(_components_ElementSelector_ElementSelector__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 68
+    }
+  }), designToolState.sub_navbar_selection === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 65
+    }
+  }), designToolState.sub_navbar_selection === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 67
+    }
+  }), designToolState.sub_navbar_selection === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
-      columnNumber: 51
+      columnNumber: 71
     }
-  }), designToolnavigator === 'text' && __jsx(_components_TextSelector_TextSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), designToolState.sub_navbar_selection === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24,
-      columnNumber: 48
+      columnNumber: 65
     }
-  }), designToolnavigator === 'images' && __jsx(_components_ImageSelector_ImageSelector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), designToolState.sub_navbar_selection === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
-      columnNumber: 50
+      columnNumber: 69
     }
-  }), designToolnavigator === 'background' && __jsx(_components_BackgroundSelector_BackgroundSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), designToolState.sub_navbar_selection === 'fontColorTool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
-      columnNumber: 54
+      columnNumber: 74
     }
-  }), designToolnavigator === 'logo' && __jsx(_components_LogoSelector_LogoSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), designToolState.sub_navbar_selection === 'shapeColor' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27,
-      columnNumber: 48
+      columnNumber: 71
     }
-  }), designToolnavigator === 'texttool' && __jsx(_components_TextSelector_components_FontStyleTool_FontStyletool__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), designToolState.sub_navbar_selection === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28,
-      columnNumber: 52
-    }
-  }), designToolnavigator === 'fonttool' && __jsx(_components_TextSelector_components_FontColortool_FontColortool__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 52
-    }
-  }), designToolnavigator === 'effecttool' && __jsx(_components_TextSelector_components_EffectStyletool_EffectStyletool__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 54
+      columnNumber: 71
     }
   }));
 };
@@ -5581,8 +5656,7 @@ const BackgroundSelector = () => {
   };
 
   const {
-    handleTextColor,
-    handleShapeFill
+    handleFill
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (!colorQuery) return;
@@ -5690,31 +5764,31 @@ const BackgroundSelector = () => {
       lineNumber: 54,
       columnNumber: 17
     }
-  }, console.log(colorsArray), colorsArray.map(item => __jsx("button", {
+  }, colorsArray.map(item => __jsx("button", {
     style: {
       backgroundColor: item
     },
     className: "h-10 w-10 rounded-md",
-    onClick: () => handleTextColor(item),
+    onClick: () => handleFill(item, "shapes_background"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
-      columnNumber: 29
+      lineNumber: 56,
+      columnNumber: 25
     }
   })))), __jsx("div", {
     className: "flex flex-col p-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 61,
       columnNumber: 13
     }
   }, __jsx(_components_BackgroundColor_BackgroundColor__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 63,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -5722,7 +5796,7 @@ const BackgroundSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 65,
       columnNumber: 13
     }
   }, __jsx("p", {
@@ -5730,21 +5804,21 @@ const BackgroundSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 66,
       columnNumber: 17
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 68,
       columnNumber: 13
     }
   }, __jsx(_components_AddBackgroundImage_AddBackgroundImage__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 69,
       columnNumber: 17
     }
   })));
@@ -8429,7 +8503,7 @@ const ElementSelector = () => {
       columnNumber: 13
     }
   }), __jsx("div", {
-    className: "border-b-2 border-bordercolor mt-12",
+    className: "border-b border-bordercolor mt-12 mx-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9292,7 +9366,7 @@ const TextSelector = () => {
       columnNumber: 84
     }
   }, "body text"))), __jsx("div", {
-    className: "mt-6 w-full border-b-2 border-bordercolor",
+    className: "mt-6 w-full border-b border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9645,7 +9719,7 @@ const TextSelector = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignToolContext */ "./src/contexts/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\TextSelector\\components\\EffectStyletool\\EffectStyletool.tsx";
@@ -9678,7 +9752,7 @@ const FontStyletool = () => {
   const {
     selectedId,
     cardData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
   const {
     handleTextEffect
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_2__["default"])();
@@ -9748,7 +9822,7 @@ const FontStyletool = () => {
       columnNumber: 19
     }
   }, "Effects")), __jsx("div", {
-    className: "border-b-2 border-bordercolor mt-6 ",
+    className: "border-b border-bordercolor mt-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9994,8 +10068,7 @@ const FontStyletool = () => {
   };
 
   const {
-    handleTextColor,
-    handleShapeFill
+    handleFill
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (!colorQuery) return;
@@ -10011,7 +10084,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -10019,7 +10092,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 36,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -10027,14 +10100,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 21
     }
   }, __jsx("span", {
@@ -10042,7 +10115,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -10054,7 +10127,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 41,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -10065,7 +10138,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 42,
       columnNumber: 33
     }
   })))), __jsx("input", {
@@ -10076,7 +10149,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 47,
       columnNumber: 21
     }
   }))), __jsx("div", {
@@ -10084,7 +10157,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 52,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10092,7 +10165,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 53,
       columnNumber: 17
     }
   }, "Search results"), __jsx("div", {
@@ -10100,7 +10173,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 54,
       columnNumber: 17
     }
   }, console.log(colorsArray), colorsArray.map(item => __jsx("button", {
@@ -10108,11 +10181,11 @@ const FontStyletool = () => {
       backgroundColor: item
     },
     className: "h-10 w-10 rounded-md",
-    onClick: () => handleTextColor(item),
+    onClick: () => handleFill(item),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 58,
       columnNumber: 29
     }
   })))), __jsx("div", {
@@ -10120,7 +10193,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 63,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10128,7 +10201,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 64,
       columnNumber: 17
     }
   }, "Document Colors"), __jsx("div", {
@@ -10136,14 +10209,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 65,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 66,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -10152,10 +10225,18 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 67,
       columnNumber: 25
     }
   })), __jsx("button", {
+    className: " bg-greenish h-10 w-10 rounded-md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 21
+    }
+  }), __jsx("button", {
     className: " bg-greenish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
@@ -10179,27 +10260,19 @@ const FontStyletool = () => {
       lineNumber: 72,
       columnNumber: 21
     }
-  }), __jsx("button", {
-    className: " bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 73,
-      columnNumber: 21
-    }
   }))), __jsx("div", {
     className: "border-b-2 border-bordercolor mt-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 76,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 77,
       columnNumber: 13
     }
   }, __jsx("button", {
@@ -10207,7 +10280,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 78,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -10215,7 +10288,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 78,
       columnNumber: 62
     }
   }, "+"), "Add your brand colors in Brand Kit")), __jsx("div", {
@@ -10223,14 +10296,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 80,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 81,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10238,7 +10311,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 82,
       columnNumber: 17
     }
   }, "Photo Colors"), __jsx("div", {
@@ -10246,14 +10319,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 83,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 84,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -10262,7 +10335,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 85,
       columnNumber: 25
     }
   })), __jsx("button", {
@@ -10270,11 +10343,19 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 87,
       columnNumber: 21
     }
   }), __jsx("button", {
     className: "bg-fuschia h-10 w-10 rounded-md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 21
+    }
+  }), __jsx("button", {
+    className: "bg-greenish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10282,7 +10363,7 @@ const FontStyletool = () => {
       columnNumber: 21
     }
   }), __jsx("button", {
-    className: "bg-greenish h-10 w-10 rounded-md",
+    className: "bg-redish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10290,19 +10371,11 @@ const FontStyletool = () => {
       columnNumber: 21
     }
   }), __jsx("button", {
-    className: "bg-redish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 91,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
     className: "bg-yellowish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 91,
       columnNumber: 21
     }
   }))), __jsx("div", {
@@ -10310,14 +10383,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 94,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 95,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10325,7 +10398,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 96,
       columnNumber: 17
     }
   }, "Default Colors"), __jsx("div", {
@@ -10333,7 +10406,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 97,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -10341,7 +10414,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 98,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -10349,7 +10422,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 100,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10357,11 +10430,19 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 101,
       columnNumber: 25
     }
   }), __jsx("button", {
     className: "bg-fuschia h-10 w-10 rounded-md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-greenish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10369,7 +10450,7 @@ const FontStyletool = () => {
       columnNumber: 25
     }
   }), __jsx("button", {
-    className: "bg-greenish h-10 w-10 rounded-md",
+    className: "bg-redish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10377,19 +10458,11 @@ const FontStyletool = () => {
       columnNumber: 25
     }
   }), __jsx("button", {
-    className: "bg-redish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 105,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
     className: "bg-yellowish h-10 w-10 rounded-md",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 105,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -10397,7 +10470,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 107,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -10405,7 +10478,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 109,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10413,7 +10486,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 110,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10421,7 +10494,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 111,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10429,7 +10502,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 112,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10437,7 +10510,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 113,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -10445,7 +10518,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 114,
       columnNumber: 25
     }
   })))));
@@ -10567,7 +10640,7 @@ const FontStyletool = () => {
       columnNumber: 13
     }
   }, __jsx("h1", {
-    className: "text-md text-gray40 mt-2",
+    className: "text-md text-gray40 mt-2 font-bold",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10625,7 +10698,7 @@ const FontStyletool = () => {
       columnNumber: 13
     }
   }, __jsx("h1", {
-    className: "text-md text-gray40 mt-4",
+    className: "text-md text-gray40 mt-4 font-bold",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10692,7 +10765,7 @@ const FontStyletool = () => {
       columnNumber: 13
     }
   }, __jsx("h1", {
-    className: "text-md text-gray40 mt-4",
+    className: "text-md text-gray40 mt-4 font-bold",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -11265,6 +11338,174 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABo
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/contexts/DesignTool/CardHeaderActions.ts":
+/*!******************************************************!*\
+  !*** ./src/contexts/DesignTool/CardHeaderActions.ts ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+
+
+
+const CardHeaderActions = () => {
+  const {
+    designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+
+  const emptyCardHeader = () => {
+    designToolDispatch({
+      type: "Empty_Card_Header"
+    });
+  };
+
+  const selectTextCardHeader = () => {
+    designToolDispatch({
+      type: "Select_Text_Card_Header"
+    });
+  };
+
+  const selectShapeCardHeader = () => {
+    designToolDispatch({
+      type: "Select_Shape_Card_Header"
+    });
+  };
+
+  return {
+    emptyCardHeader,
+    selectTextCardHeader,
+    selectShapeCardHeader
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CardHeaderActions);
+
+/***/ }),
+
+/***/ "./src/contexts/DesignTool/NavBarActions.ts":
+/*!**************************************************!*\
+  !*** ./src/contexts/DesignTool/NavBarActions.ts ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+
+
+
+const NavBarActions = () => {
+  const {
+    designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+
+  const selectElementNav = () => {
+    designToolDispatch({
+      type: "Select_Element_Nav"
+    });
+  };
+
+  const selectTextNav = () => {
+    designToolDispatch({
+      type: "Select_Text_Nav"
+    });
+  };
+
+  const selectImagesNav = () => {
+    designToolDispatch({
+      type: "Select_Images_Nav"
+    });
+  };
+
+  const selectBackgroundNav = () => {
+    designToolDispatch({
+      type: "Select_Background_Nav"
+    });
+  };
+
+  const selectLogoNav = () => {
+    designToolDispatch({
+      type: "Select_Logo_Nav"
+    });
+  };
+
+  return {
+    selectElementNav,
+    selectTextNav,
+    selectImagesNav,
+    selectBackgroundNav,
+    selectLogoNav
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBarActions);
+
+/***/ }),
+
+/***/ "./src/contexts/DesignTool/SubnavbarActions.ts":
+/*!*****************************************************!*\
+  !*** ./src/contexts/DesignTool/SubnavbarActions.ts ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+
+
+
+const SubNavbarActions = () => {
+  const {
+    designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+
+  const selectShapeColorSubNav = () => {
+    designToolDispatch({
+      type: "Select_Shape_Color_Nav"
+    });
+  };
+
+  const selectTextToolSubNav = () => {
+    designToolDispatch({
+      type: "Select_Texttool_Nav"
+    });
+  };
+
+  const selectFontColorToolSubNav = () => {
+    designToolDispatch({
+      type: "Select_Font_Color_Tool_Nav"
+    });
+  };
+
+  const selectEffectToolSubNav = () => {
+    designToolDispatch({
+      type: "Select_Effecttool_Nav"
+    });
+  };
+
+  return {
+    selectShapeColorSubNav,
+    selectTextToolSubNav,
+    selectFontColorToolSubNav,
+    selectEffectToolSubNav
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SubNavbarActions);
 
 /***/ }),
 

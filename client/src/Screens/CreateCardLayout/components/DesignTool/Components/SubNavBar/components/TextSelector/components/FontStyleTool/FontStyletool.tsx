@@ -32,7 +32,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
 
             <div className="flex-row flex justify-between items-center mt-6  ">
-                <h1 className="text-md text-gray40 mt-2" >My Fonts</h1>
+                <h1 className="text-md text-gray40 mt-2 font-bold" >My Fonts</h1>
                 <button className="text-md text-indigo600 font-medium"> <span className="text-2xl ">+</span>Add new Font</button>
             </div>
             <div>
@@ -40,7 +40,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
             <div className="border-b-2 border-bordercolor mt-4" ></div>
             <div >
-                <h1 className="text-md text-gray40 mt-4" >Template Fonts</h1>
+                <h1 className="text-md text-gray40 mt-4 font-bold" >Template Fonts</h1>
                 <div className="flex flex-col justify-end w-full ">
                     <button className="text-lg text-black mt-1 pl-2 flex hover:bg-lightindigo rounded-md justify-start" style={{ fontFamily: "Maven Pro" }} onClick={() => handleFontFamily("Maven Pro")}>Maven Pro</button>
                     <button className="text-lg text-black mt-1 pl-2 flex hover:bg-lightindigo rounded-md justify-start" style={{ fontFamily: "Shadows Into Light" }} onClick={() => handleFontFamily("Shadows Into Light")}>Shadows Into Light</button>
@@ -49,7 +49,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
             <div className="border-b-2 border-bordercolor mt-4" ></div>
             <div>
-                <h1 className="text-md text-gray40 mt-4" >Popular Fonts</h1>
+                <h1 className="text-md text-gray40 mt-4 font-bold" >Popular Fonts</h1>
                 <div className="flex flex-col justify-end w-full ">
                     <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "Playfair Display" }} onClick={() => handleFontFamily("Playfair Display")} >Playfair Display</button>
                     <button className="text-lg text-black mt-1 pl-2 flex justify-start hover:bg-lightindigo rounded-md" style={{ fontFamily: "East Sea Dokdo" }} onClick={() => handleFontFamily("East Sea Dokdo")}  >East Sea Dokdo</button>
