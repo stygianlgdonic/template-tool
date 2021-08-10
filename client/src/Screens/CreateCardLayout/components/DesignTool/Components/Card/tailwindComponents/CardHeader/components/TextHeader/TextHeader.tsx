@@ -7,13 +7,13 @@ const image = require("./../../../../../../../../../../assets/images/opacity.png
 const TextHeader: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
-    const [openstyle, setOpenstyle] = React.useState(false);
     const [values, setValues] = React.useState([0.01])
-    const [value, setValue] = React.useState(0)
-    const [open, setOpen] = React.useState(false);
     const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
     const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
     const [openDropDown, setopenDropDown] = useState(false);
+    const { cardData, selectedId } = useContext(DesignToolContext)
+
+    const selectedText = cardData.elements.find(item => item.id === selectedId)
 
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
@@ -31,8 +31,9 @@ const TextHeader: React.FC = (): JSX.Element => {
                             aria-expanded="true"
                             aria-haspopup="true"
                             onClick={selectTextToolSubNav}
+                            style={{ fontFamily: selectedText?.fontFamily }}
                         >
-                            Poppins thin
+                            {selectedText?.fontFamily}
                         </button>
                     </div>
                 </div>
