@@ -1,6 +1,7 @@
 export const designToolInit: any = {
     navbar_selection: "element",
-    sub_navbar_selection: "element"
+    sub_navbar_selection: "element",
+    card_header_state: "",
 }
 
 export const designToolReducer = (designToolState, action) => {
@@ -66,6 +67,24 @@ export const designToolReducer = (designToolState, action) => {
                 ...designToolState,
                 navbar_selection: "text",
                 sub_navbar_selection: "effecttool"
+            }
+        }
+        case 'Select_Shape_Card_Header': {
+            return {
+                ...designToolState,
+                card_header_state: "shape"
+            }
+        }
+        case 'Select_Text_Card_Header': {
+            return {
+                ...designToolState,
+                card_header_state: "text"
+            }
+        }
+        case 'Empty_Card_Header': {
+            return {
+                ...designToolState,
+                card_header_state: ""
             }
         }
         default:

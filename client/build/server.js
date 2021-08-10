@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "becea331edf06402b51a";
+/******/ 	var hotCurrentHash = "1b8e79a42550ded515d7";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1595,10 +1595,6 @@ const DesignToolProvider = ({
     0: sidebarnavigator,
     1: setSidebarnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const {
-    0: designHeadernavigator,
-    1: setDesignHeadernavigator
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [cardData, setCardData, {
     goForward,
     goBack,
@@ -1621,8 +1617,6 @@ const DesignToolProvider = ({
       setSidebarnavigator,
       dashboardnavigator,
       setDashboardnavigator,
-      designHeadernavigator,
-      setDesignHeadernavigator,
       selectedId,
       setSelectedId,
       cardData,
@@ -1639,7 +1633,7 @@ const DesignToolProvider = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 9
     }
   }, children);
@@ -1666,7 +1660,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 const designToolInit = {
   navbar_selection: "element",
-  sub_navbar_selection: "element"
+  sub_navbar_selection: "element",
+  card_header_state: ""
 };
 const designToolReducer = (designToolState, action) => {
   switch (action.type) {
@@ -1739,6 +1734,27 @@ const designToolReducer = (designToolState, action) => {
         return _objectSpread(_objectSpread({}, designToolState), {}, {
           navbar_selection: "text",
           sub_navbar_selection: "effecttool"
+        });
+      }
+
+    case 'Select_Shape_Card_Header':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          card_header_state: "shape"
+        });
+      }
+
+    case 'Select_Text_Card_Header':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          card_header_state: "text"
+        });
+      }
+
+    case 'Empty_Card_Header':
+      {
+        return _objectSpread(_objectSpread({}, designToolState), {}, {
+          card_header_state: ""
         });
       }
 

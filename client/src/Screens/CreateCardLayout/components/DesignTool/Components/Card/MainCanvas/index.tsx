@@ -2,31 +2,35 @@ import React, { useContext, useEffect } from 'react';
 import WebFont from "webfontloader";
 import MainStage from './MainStage';
 import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
+import CardHeaderActions from '../../../../../../../contexts/DesignTool/CardHeaderActions';
 
 const DesignTool: React.FC = () => {
 
+    const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
+
     const {
-        setDesignHeadernavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
     } = useContext(DesignToolContext)
 
     useEffect(() => {
-        if (!selectedId) return
-
-        const dude = cardData.elements.find((item, index) => selectedId === item.id)
-        if (dude?.type === 'text') {
-            setDesignHeadernavigator('text')
+        if (!!selectedId) {
+            const dude = cardData.elements.find((item, index) => selectedId === item.id)
+            if (dude?.type === 'text') {
+                selectTextCardHeader()
+            }
+            if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
+                selectShapeCardHeader()
+            }
         }
-        if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
-            setDesignHeadernavigator('rect')
-        }
 
-    })
+
+    }, [selectedId])
 
     const handleEscape = (e) => {
         if (e.key === "Escape") {
             setSelectedId(null)
+            emptyCardHeader()
         }
     }
 

@@ -9,6 +9,7 @@ import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import { stageDimensions } from '../../../../../../../../utils/defaults';
 import UImage from '../UImage';
+import CardHeaderActions from '../../../../../../../../contexts/DesignTool/CardHeaderActions';
 
 declare const window: any
 
@@ -18,6 +19,8 @@ const MainStage = ({
     selectedId,
     setSelectedId,
 }) => {
+
+    const { emptyCardHeader } = CardHeaderActions()
 
     const GUIDELINE_OFFSET = 5
     const $stage = useRef(null)
@@ -34,6 +37,12 @@ const MainStage = ({
 
     const [nodesArray, setNodes] = useState([]);
     const Konva = window.Konva;
+
+    useEffect(() => {
+        if (!nodesArray.length) {
+            emptyCardHeader()
+        }
+    }, [nodesArray.length])
 
     const getLineGuideStops = skipShape => {
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
@@ -318,6 +327,7 @@ const MainStage = ({
             }
         });
         $tr.current.nodes(elements);
+        setNodes(elements)
         selection.current.visible = false;
         // disable click event
         Konva.listenClickTap = false;
@@ -325,6 +335,10 @@ const MainStage = ({
     };
 
     const onClickTap = (e) => {
+        const isBackground = e.target.attrs?.id === "shapes_background"
+        if (isBackground) {
+            setSelectedId(null)
+        }
         // if we are selecting with rect, do nothing
         if (selectionRectRef.current.visible()) {
             return;
@@ -377,7 +391,6 @@ const MainStage = ({
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
             onTouchStart={checkDeselect}
-            // onClick={onClickTap}
             {...stageDimensions}
         >
             <Layer
@@ -396,13 +409,13 @@ const MainStage = ({
                                     if (!nodesArray.includes(e.current)) temp.push(e.current);
                                     setNodes(temp);
                                     $tr.current.nodes(nodesArray);
-                                    $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
                                 if (elem.id !== "shapes_background") {
                                     setSelectedId(elem.id);
+                                } else {
+                                    onClickTap(e)
                                 }
-                                else { onClickTap(e) }
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)

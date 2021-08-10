@@ -878,6 +878,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UTransformer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../UTransformer */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/UTransformer.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _UImage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../UImage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/UImage.tsx");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../../../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\MainStage\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -901,6 +902,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 const MainStage = ({
   cardData,
   setCardData,
@@ -909,6 +911,9 @@ const MainStage = ({
 }) => {
   var _cardData$elements;
 
+  const {
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__["default"])();
   const GUIDELINE_OFFSET = 5;
   const $stage = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const $layer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
@@ -926,6 +931,11 @@ const MainStage = ({
     1: setNodes
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const Konva = window.Konva;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (!nodesArray.length) {
+      emptyCardHeader();
+    }
+  }, [nodesArray.length]);
 
   const getLineGuideStops = skipShape => {
     const vertical = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width];
@@ -1233,6 +1243,7 @@ const MainStage = ({
       }
     });
     $tr.current.nodes(elements);
+    setNodes(elements);
     selection.current.visible = false; // disable click event
 
     Konva.listenClickTap = false;
@@ -1240,7 +1251,15 @@ const MainStage = ({
   };
 
   const onClickTap = e => {
-    // if we are selecting with rect, do nothing
+    var _e$target$attrs;
+
+    const isBackground = ((_e$target$attrs = e.target.attrs) === null || _e$target$attrs === void 0 ? void 0 : _e$target$attrs.id) === "shapes_background";
+
+    if (isBackground) {
+      setSelectedId(null);
+    } // if we are selecting with rect, do nothing
+
+
     if (selectionRectRef.current.visible()) {
       return;
     }
@@ -1292,13 +1311,12 @@ const MainStage = ({
     onMouseDown: onMouseDown,
     onMouseUp: onMouseUp,
     onMouseMove: onMouseMove,
-    onTouchStart: checkDeselect // onClick={onClickTap}
-
+    onTouchStart: checkDeselect
   }, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 374,
+      lineNumber: 388,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1308,7 +1326,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 383,
+      lineNumber: 396,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1320,7 +1338,6 @@ const MainStage = ({
           let temp = nodesArray;
           if (!nodesArray.includes(e.current)) temp.push(e.current);
           setNodes(temp);
-          $tr.current.nodes(nodesArray);
           $tr.current.nodes(nodesArray);
           $tr.current.getLayer().batchDraw();
         }
@@ -1343,7 +1360,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 390,
+        lineNumber: 403,
         columnNumber: 25
       }
     });
@@ -1362,7 +1379,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 420,
+        lineNumber: 433,
         columnNumber: 25
       }
     });
@@ -1381,7 +1398,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 436,
+        lineNumber: 449,
         columnNumber: 25
       }
     });
@@ -1400,7 +1417,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 452,
+        lineNumber: 465,
         columnNumber: 25
       }
     });
@@ -1417,7 +1434,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 468,
+        lineNumber: 481,
         columnNumber: 25
       }
     });
@@ -1434,7 +1451,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 485,
+        lineNumber: 498,
         columnNumber: 25
       }
     });
@@ -1451,7 +1468,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 502,
+        lineNumber: 515,
         columnNumber: 25
       }
     });
@@ -1463,7 +1480,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 517,
+      lineNumber: 530,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1472,7 +1489,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 523,
+      lineNumber: 536,
       columnNumber: 17
     }
   })));
@@ -2220,6 +2237,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _MainStage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainStage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/MainStage/index.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2227,30 +2245,37 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const DesignTool = () => {
   const {
-    setDesignHeadernavigator,
+    selectShapeCardHeader,
+    selectTextCardHeader,
+    emptyCardHeader
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  const {
     selectedId,
     setSelectedId,
     cardData,
     setCardData
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    if (!selectedId) return;
-    const dude = cardData.elements.find((item, index) => selectedId === item.id);
+    if (!!selectedId) {
+      const dude = cardData.elements.find((item, index) => selectedId === item.id);
 
-    if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'text') {
-      setDesignHeadernavigator('text');
-    }
+      if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'text') {
+        selectTextCardHeader();
+      }
 
-    if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'rectangle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'svg' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'circle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'polygon') {
-      setDesignHeadernavigator('rect');
+      if ((dude === null || dude === void 0 ? void 0 : dude.type) === 'rectangle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'svg' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'circle' || (dude === null || dude === void 0 ? void 0 : dude.type) === 'polygon') {
+        selectShapeCardHeader();
+      }
     }
-  });
+  }, [selectedId]);
 
   const handleEscape = e => {
     if (e.key === "Escape") {
       setSelectedId(null);
+      emptyCardHeader();
     }
   };
 
@@ -2270,7 +2295,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 52,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2278,7 +2303,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 53,
       columnNumber: 13
     }
   }, __jsx(_MainStage__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2289,7 +2314,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 54,
       columnNumber: 17
     }
   })));
@@ -2322,20 +2347,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const CardHeader = () => {
   const {
-    designToolnavigator,
-    setDesignToolnavigator,
-    designHeadernavigator,
-    setDesignHeadernavigator,
-    selectedId,
-    setSelectedId,
-    cardData,
-    setCardData,
-    cardHistory: {
-      goForward,
-      goBack,
-      stepNum,
-      history
-    }
+    designToolState
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__["DesignToolContext"]);
   return __jsx("div", {
     style: {
@@ -2345,24 +2357,40 @@ const CardHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 12,
       columnNumber: 9
     }
-  }, !!selectedId && designHeadernavigator === "text" && __jsx(_components_TextHeader_TextHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx("div", {
+    className: designToolState.card_header_state === "text" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 66
+      lineNumber: 14,
+      columnNumber: 13
     }
-  }), !!selectedId && designHeadernavigator === "rect" && __jsx(_components_ElementHeader_ElementHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_components_TextHeader_TextHeader__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 66
+      lineNumber: 15,
+      columnNumber: 17
     }
-  }));
+  })), __jsx("div", {
+    className: designToolState.card_header_state === "shape" ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }, __jsx(_components_ElementHeader_ElementHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 17
+    }
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CardHeader);
@@ -10549,6 +10577,55 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAABRCAYAAACq
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/contexts/DesignTool/CardHeaderActions.ts":
+/*!******************************************************!*\
+  !*** ./src/contexts/DesignTool/CardHeaderActions.ts ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+
+
+
+const CardHeaderActions = () => {
+  const {
+    designToolDispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]);
+
+  const emptyCardHeader = () => {
+    designToolDispatch({
+      type: "Empty_Card_Header"
+    });
+  };
+
+  const selectTextCardHeader = () => {
+    designToolDispatch({
+      type: "Select_Text_Card_Header"
+    });
+  };
+
+  const selectShapeCardHeader = () => {
+    designToolDispatch({
+      type: "Select_Shape_Card_Header"
+    });
+  };
+
+  return {
+    emptyCardHeader,
+    selectTextCardHeader,
+    selectShapeCardHeader
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CardHeaderActions);
 
 /***/ }),
 
