@@ -1,21 +1,14 @@
 {
-  "0": {
-    "js": [
-      "http://localhost:3001/static/js/0.chunk.js"
-    ],
-    "map": [
-      "http://localhost:3001/static/js/0.chunk.js.map"
-    ],
-    "chunks": [
-      0
-    ]
-  },
   "1": {
+    "css": [
+      "/static/css/1.1d91d9be.chunk.css"
+    ],
     "js": [
-      "http://localhost:3001/static/js/1.chunk.js"
+      "/static/js/1.5c742d46.chunk.js"
     ],
     "map": [
-      "http://localhost:3001/static/js/1.chunk.js.map"
+      "/static/css/1.1d91d9be.chunk.css.map",
+      "/static/js/1.5c742d46.chunk.js.map"
     ],
     "chunks": [
       1
@@ -23,10 +16,10 @@
   },
   "2": {
     "js": [
-      "http://localhost:3001/static/js/2.chunk.js"
+      "/static/js/2.c7a46428.chunk.js"
     ],
     "map": [
-      "http://localhost:3001/static/js/2.chunk.js.map"
+      "/static/js/2.c7a46428.chunk.js.map"
     ],
     "chunks": [
       2
@@ -34,24 +27,39 @@
   },
   "3": {
     "js": [
-      "http://localhost:3001/static/js/3.chunk.js"
+      "/static/js/3.535d9125.chunk.js"
     ],
     "map": [
-      "http://localhost:3001/static/js/3.chunk.js.map"
+      "/static/js/3.535d9125.chunk.js.map"
     ],
     "chunks": [
       3
     ]
   },
-  "client": {
+  "4": {
     "js": [
-      "http://localhost:3001/static/js/client.js"
+      "/static/js/4.0e98891c.chunk.js"
     ],
     "map": [
-      "http://localhost:3001/static/js/client.js.map"
+      "/static/js/4.0e98891c.chunk.js.map"
     ],
     "chunks": [
-      "client"
+      4
+    ]
+  },
+  "client": {
+    "css": [
+      "/static/css/client.d24ce881.css"
+    ],
+    "js": [
+      "/static/js/client.06fb2e9f.js"
+    ],
+    "map": [
+      "/static/css/client.d24ce881.css.map",
+      "/static/js/client.06fb2e9f.js.map"
+    ],
+    "chunks": [
+      0
     ]
   },
   "noentry": {
@@ -60,9 +68,9 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.bf0a7916.chunk.js.LICENSE.txt",
-      "/static/js/2.65f3191e.chunk.js.LICENSE.txt",
-      "/static/js/client.06d3d286.js.LICENSE.txt"
+      "/static/js/1.5c742d46.chunk.js.LICENSE.txt",
+      "/static/js/2.c7a46428.chunk.js.LICENSE.txt",
+      "/static/js/client.06fb2e9f.js.LICENSE.txt"
     ],
     "png": [
       "/static/media/01.2e91d53b.png",
