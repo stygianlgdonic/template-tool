@@ -34,7 +34,10 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
     return (
       <>
         {" "}
-        <div className="fixed inset-0 z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none focus:outline-none">
+        <div
+          ref={myRef}
+          className="fixed inset-0 z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none focus:outline-none"
+        >
           <div
             className="relative z-50 max-w-4xl mx-auto my-6 bg-white rounded-md"
             style={{ height: "90vh" }}

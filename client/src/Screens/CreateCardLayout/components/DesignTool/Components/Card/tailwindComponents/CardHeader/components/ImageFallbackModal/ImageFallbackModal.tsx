@@ -25,9 +25,9 @@ const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
     <>
       <div
         ref={myRef}
-        className="absolute z-10 flex items-center justify-center overflow-x-hidden outline-none  focus:outline-none"
+        className="absolute z-10 flex items-center justify-center overflow-x-hidden outline-none focus:outline-none"
       >
-        <div className="relative w-auto max-w-3xl">
+        <div className="relative w-auto max-w-3xl h-96">
           {/*content*/}
           <div className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg outline-none border-gray300 focus:outline-none ">
             {/*header*/}
@@ -142,6 +142,7 @@ const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
               </div>
               <div className="mt-6 ml-2">
                 <button
+                  onClick={() => setOpen(true)}
                   type="button"
                   className="inline-flex items-center w-32 px-3 py-2 text-sm font-medium leading-4 text-white border border-transparent rounded-md shadow-sm h-7 bg-indigo600 hover:bg-indigo700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
