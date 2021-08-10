@@ -57,14 +57,14 @@ const FontStyletool: React.FC = (): JSX.Element => {
 
     return (
 
-        <div className="h-full flex  flex-col w-full px-6">
+        <div className="h-full flex  flex-col w-full pl-6">
 
 
             <div> <h1 className="font-bold text-xl mt-6">
                 Effects
             </h1>
             </div>
-            <div className="border-b border-bordercolor mt-6 " ></div>
+            <div className="border-b border-bordercolor mt-6 mr-6" ></div>
             <div> <h1 className="font-medium text-lg mt-6">
                 Style
             </h1>

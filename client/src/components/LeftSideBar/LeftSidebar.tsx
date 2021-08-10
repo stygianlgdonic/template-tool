@@ -24,7 +24,7 @@ const LeftSidebar: React.FC = () => {
                     </div>
 
                 </div>
-                <div className="flex flex-col justify-start text-left items-start px-2 leading-10 text-lightGray   " style={{ width: '33.5vh' }}>
+                <div className="flex flex-col justify-start text-left items-start px-2 leading-10 text-lightGray   mx-1" style={{ width: '33.5vh' }}>
 
                     <button className=" w-full  " onClick={() => { setDashboardnavigator('home'); setSidebarnavigator('') }}>
 

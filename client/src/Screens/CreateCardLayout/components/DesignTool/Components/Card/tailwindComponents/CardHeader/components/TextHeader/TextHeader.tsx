@@ -143,64 +143,68 @@ const TextHeader: React.FC = (): JSX.Element => {
                     </button>
                 </div>
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
-                <button className="ml-6 relative rounded-md hover:bg-lightindigo h-10 w-10 pl-2 " onClick={() => setShowModal(true)}>
-                    <svg
-                        width="23"
-                        height="18"
-                        viewBox="0 0 23 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M1 1H22M1 9H11.5M1 17H22"
-                            stroke="#4B5563"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </button>
-
-                <div>
-                    {showModal ? (
-                        <>
-
-                            <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-                                    <div onClick={() => setShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
-
-                                    {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
+                <div className="relative">
 
 
-                                    <div className=" absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ">
+                    <button className="ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2 " onClick={() => setShowModal(true)}>
+                        <svg
+                            width="23"
+                            height="18"
+                            viewBox="0 0 23 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M1 1H22M1 9H11.5M1 17H22"
+                                stroke="#4B5563"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
 
-                                        <div className="w-full flex gap-4 justify-center my-2">
+                    <div className=" absolute">
+                        {showModal ? (
+                            <>
+
+                                <div className="z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <div className="flex items-end justify-center min-h-screen px-4 pb-20  text-center sm:block sm:p-0">
+
+                                        <div onClick={() => setShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
+
+                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
-                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            </button>
-                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
+                                        <div className=" border-2 border-bordercolor inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 mt-2 self-end right-0 ">
 
-                                            </button>
-                                            <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
-                                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <div className="w-full flex gap-4 justify-center ">
+
+
+                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                </button>
+                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
 
-                                            </button>
+                                                </button>
+                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
+                                                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                        </>
-                    ) : null}
+                            </>
+                        ) : null}
+                    </div>
                 </div>
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
                 <div className="ml-6 text-lg italic font-bold text-black ">
@@ -231,57 +235,59 @@ const TextHeader: React.FC = (): JSX.Element => {
                 </div>
 
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
-                <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
-                    <img src={image} />
-                </button>
-                <div>
-                    {showeModal ? (
-                        <>
+                <div className=" relative">
+                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
+                        <img src={image} />
+                    </button>
+                    <div className=" absolute">
+                        {showeModal ? (
+                            <>
 
-                            <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div className=" z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <div className=" flex items-end justify-center  min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
-                                    <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
+                                        <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
 
-                                    {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
+                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
-                                    <div className=" absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ">
+                                        <div className="  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-0 right-0 mt-2 " >
 
-                                        <div className="w-full flex gap-4 justify-center ">
+                                            <div className="w-full flex gap-4 justify-center ">
 
-                                            <Range
-                                                step={0.01}
-                                                min={0.01}
-                                                max={1}
-                                                values={values}
-                                                onChange={(values) => {
-                                                    setValues(values);
-                                                    handleTextOpacity(values)
-                                                }}
-                                                renderTrack={({ props, children }) => (
-                                                    <div
-                                                        {...props}
-                                                        className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
-                                                    >
-                                                        {children}
-                                                    </div>
-                                                )}
-                                                renderThumb={({ props }) => (
-                                                    <div
-                                                        {...props}
-                                                        className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                    />
-                                                )}
-                                            />
+                                                <Range
+                                                    step={0.01}
+                                                    min={0.01}
+                                                    max={1}
+                                                    values={values}
+                                                    onChange={(values) => {
+                                                        setValues(values);
+                                                        handleTextOpacity(values)
+                                                    }}
+                                                    renderTrack={({ props, children }) => (
+                                                        <div
+                                                            {...props}
+                                                            className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
+                                                        >
+                                                            {children}
+                                                        </div>
+                                                    )}
+                                                    renderThumb={({ props }) => (
+                                                        <div
+                                                            {...props}
+                                                            className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                        />
+                                                    )}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                        </>
-                    ) : null}
+                            </>
+                        ) : null}
+                    </div>
                 </div>
                 <div className="py-4 ml-4 border-r-2 border-bordercolor"></div>
                 <div >
