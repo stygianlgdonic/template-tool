@@ -2191,7 +2191,7 @@ const LeftSidebar = () => {
       columnNumber: 25
     }
   }, "View Profile"))), __jsx("div", {
-    className: "flex flex-col justify-start text-left items-start px-2 leading-10 text-lightGray   ",
+    className: "flex flex-col justify-start text-left items-start px-2 leading-10 text-lightGray   mx-1",
     style: {
       width: '33.5vh'
     },

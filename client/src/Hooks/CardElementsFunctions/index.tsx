@@ -284,7 +284,7 @@ const CardElementsFunctions = () => {
         })
     }
 
-    const handleFill = (color: string, backgroundID: undefined | "shapes_background") => {
+    const handleFill = (color: string, backgroundID?: undefined | "shapes_background") => {
         setCardData(prev => {
             if (!!backgroundID) {
                 prev.elements[0].fill = color

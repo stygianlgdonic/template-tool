@@ -20,7 +20,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
     const { selectShapeColorSubNav } = SubNavbarActions()
 
     return (
-        <div className="flex  justify-start  " >
+        <div className="flex  justify-between " style={{ width: '110.5vh', }}>
             <div className="flex pl-12">
                 <button className="w-10 h-10 rounded-md bg-fuschia" onClick={selectShapeColorSubNav}></button>
                 <div className="ml-10 ">
@@ -97,60 +97,61 @@ const ElementHeader: React.FC = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row  items-center  mt-1" style={{ marginLeft: '480px' }}>
+            <div className="flex flex-row  items-center  justify-between mt-1" >
 
-                <div>
-                    <button className=" mt-2 relative " onClick={() => seteShowModal(true)}>
+                <div className=" relative">
+                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
                         <img src={image} />
                     </button>
-                </div>
-                <div>
-                    {showeModal ? (
-                        <>
+                    <div className=" absolute">
+                        {showeModal ? (
+                            <>
 
-                            <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div className=" z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                                    <div className=" flex items-end justify-center  min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
-                                    <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
+                                        <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
+
+                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
+                                        <div className="border border-bordercolor  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 right-0 mt-2 " >
 
-                                    <div className="absolute flex align-bottom w-40 h-12 items-center bg-white rounded-lg px-4 justify-center pt-3 pb-4 overflow-hidden shadow-xl top-32 transform transition-all right-16  self-end">
+                                            <div className="w-full flex gap-4 justify-center ">
 
-                                        <div className="w-full flex gap-4 justify-center ">
-
-                                            <Range
-                                                step={0.01}
-                                                min={0.01}
-                                                max={1}
-                                                values={values}
-                                                onChange={(values) => {
-                                                    setValues(values);
-                                                    handleTextOpacity(values)
-                                                }}
-                                                renderTrack={({ props, children }) => (
-                                                    <div
-                                                        {...props}
-                                                        className="w-full h-3 pr-2 my-4 bg-gray-200 rounded-md"
-                                                    >
-                                                        {children}
-                                                    </div>
-                                                )}
-                                                renderThumb={({ props }) => (
-                                                    <div
-                                                        {...props}
-                                                        className="w-5 h-5 transform translate-x-10 bg-indigo-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                    />
-                                                )}
-                                            />
+                                                <Range
+                                                    step={0.01}
+                                                    min={0.01}
+                                                    max={1}
+                                                    values={values}
+                                                    onChange={(values) => {
+                                                        setValues(values);
+                                                        handleTextOpacity(values)
+                                                    }}
+                                                    renderTrack={({ props, children }) => (
+                                                        <div
+                                                            {...props}
+                                                            className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
+                                                        >
+                                                            {children}
+                                                        </div>
+                                                    )}
+                                                    renderThumb={({ props }) => (
+                                                        <div
+                                                            {...props}
+                                                            className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                        />
+                                                    )}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
 
-                        </>
-                    ) : null}
+                            </>
+                        ) : null}
+                    </div>
                 </div>
                 <div className="py-4  ml-4 mr-2 border-r-2 border-bordercolor"></div>
                 <div >

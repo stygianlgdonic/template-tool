@@ -2465,7 +2465,10 @@ const ElementHeader = () => {
     selectShapeColorSubNav
   } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
   return __jsx("div", {
-    className: "flex  justify-start  ",
+    className: "flex  justify-between ",
+    style: {
+      width: '110.5vh'
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2751,10 +2754,7 @@ const ElementHeader = () => {
       columnNumber: 37
     }
   }))))))), __jsx("div", {
-    className: "flex flex-row  items-center  mt-1",
-    style: {
-      marginLeft: '480px'
-    },
+    className: "flex flex-row  items-center  justify-between mt-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2762,6 +2762,7 @@ const ElementHeader = () => {
       columnNumber: 13
     }
   }, __jsx("div", {
+    className: " relative",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2769,7 +2770,7 @@ const ElementHeader = () => {
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: " mt-2 relative ",
+    className: "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md",
     onClick: () => seteShowModal(true),
     __self: undefined,
     __source: {
@@ -2785,31 +2786,32 @@ const ElementHeader = () => {
       lineNumber: 104,
       columnNumber: 25
     }
-  }))), __jsx("div", {
+  })), __jsx("div", {
+    className: " absolute",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
-      columnNumber: 17
+      lineNumber: 106,
+      columnNumber: 21
     }
   }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "fixed z-10 inset-0 overflow-y-auto",
+    className: " z-10 inset-0 overflow-y-auto",
     "aria-labelledby": "modal-title",
     role: "dialog",
     "aria-modal": "true",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
-      columnNumber: 29
+      lineNumber: 110,
+      columnNumber: 33
     }
   }, __jsx("div", {
-    className: "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
+    className: " flex items-end justify-center  min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
-      columnNumber: 33
+      lineNumber: 111,
+      columnNumber: 37
     }
   }, __jsx("div", {
     onClick: () => seteShowModal(false),
@@ -2818,16 +2820,16 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
-      columnNumber: 37
+      lineNumber: 113,
+      columnNumber: 41
     }
   }), __jsx("div", {
-    className: "absolute flex align-bottom w-40 h-12 items-center bg-white rounded-lg px-4 justify-center pt-3 pb-4 overflow-hidden shadow-xl top-32 transform transition-all right-16  self-end",
+    className: "border border-bordercolor  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 right-0 mt-2 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 118,
-      columnNumber: 37
+      columnNumber: 41
     }
   }, __jsx("div", {
     className: "w-full flex gap-4 justify-center ",
@@ -2835,7 +2837,7 @@ const ElementHeader = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 120,
-      columnNumber: 41
+      columnNumber: 45
     }
   }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
     step: 0.01,
@@ -2850,44 +2852,44 @@ const ElementHeader = () => {
       props,
       children
     }) => __jsx("div", _extends({}, props, {
-      className: "w-full h-3 pr-2 my-4 bg-gray-200 rounded-md",
+      className: "w-full h-3 pr-2 my-4 bg-indigo600 rounded-md",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 132,
-        columnNumber: 53
+        columnNumber: 57
       }
     }), children),
     renderThumb: ({
       props
     }) => __jsx("div", _extends({}, props, {
-      className: "w-5 h-5 transform translate-x-10 bg-indigo-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+      className: "w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 140,
-        columnNumber: 53
+        columnNumber: 57
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 122,
-      columnNumber: 45
+      columnNumber: 49
     }
-  })))))) : null), __jsx("div", {
+  })))))) : null)), __jsx("div", {
     className: "py-4  ml-4 mr-2 border-r-2 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 156,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 157,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -2896,7 +2898,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 158,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -2908,7 +2910,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 159,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -2920,7 +2922,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 29
     }
   }))))));
@@ -4291,14 +4293,22 @@ const TextHeader = () => {
       lineNumber: 145,
       columnNumber: 17
     }
-  }), __jsx("button", {
-    className: "ml-6 relative rounded-md hover:bg-lightindigo h-10 w-10 pl-2 ",
-    onClick: () => setShowModal(true),
+  }), __jsx("div", {
+    className: "relative",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 146,
       columnNumber: 17
+    }
+  }, __jsx("button", {
+    className: "ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2 ",
+    onClick: () => setShowModal(true),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 149,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "23",
@@ -4309,8 +4319,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
-      columnNumber: 21
+      lineNumber: 150,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M1 1H22M1 9H11.5M1 17H22",
@@ -4321,34 +4331,35 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
-      columnNumber: 25
+      lineNumber: 157,
+      columnNumber: 29
     }
   }))), __jsx("div", {
+    className: " absolute",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
-      columnNumber: 17
+      lineNumber: 167,
+      columnNumber: 21
     }
   }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "fixed z-10 inset-0 overflow-y-auto",
+    className: "z-10 inset-0 overflow-y-auto",
     "aria-labelledby": "modal-title",
     role: "dialog",
     "aria-modal": "true",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168,
-      columnNumber: 29
+      lineNumber: 171,
+      columnNumber: 33
     }
   }, __jsx("div", {
-    className: "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
+    className: "flex items-end justify-center min-h-screen px-4 pb-20  text-center sm:block sm:p-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169,
-      columnNumber: 33
+      lineNumber: 172,
+      columnNumber: 37
     }
   }, __jsx("div", {
     onClick: () => setShowModal(false),
@@ -4357,24 +4368,24 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171,
-      columnNumber: 37
+      lineNumber: 174,
+      columnNumber: 41
     }
   }), __jsx("div", {
-    className: " absolute inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-56 ",
+    className: " border-2 border-bordercolor inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 mt-2 self-end right-0 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176,
-      columnNumber: 37
+      lineNumber: 179,
+      columnNumber: 41
     }
   }, __jsx("div", {
-    className: "w-full flex gap-4 justify-center my-2",
+    className: "w-full flex gap-4 justify-center ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 178,
-      columnNumber: 41
+      lineNumber: 181,
+      columnNumber: 45
     }
   }, __jsx("button", {
     className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
@@ -4382,8 +4393,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
-      columnNumber: 45
+      lineNumber: 184,
+      columnNumber: 49
     }
   }, __jsx("svg", {
     width: "18",
@@ -4394,8 +4405,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
-      columnNumber: 180
+      lineNumber: 184,
+      columnNumber: 184
     }
   }, __jsx("path", {
     d: "M1 1H17M1 7H17M1 13H8",
@@ -4406,8 +4417,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182,
-      columnNumber: 49
+      lineNumber: 185,
+      columnNumber: 53
     }
   }))), __jsx("button", {
     className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
@@ -4415,8 +4426,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
-      columnNumber: 45
+      lineNumber: 188,
+      columnNumber: 49
     }
   }, __jsx("svg", {
     width: "18",
@@ -4427,8 +4438,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
-      columnNumber: 182
+      lineNumber: 188,
+      columnNumber: 186
     }
   }, __jsx("path", {
     d: "M1 1H17M1 9H17",
@@ -4439,8 +4450,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
-      columnNumber: 49
+      lineNumber: 189,
+      columnNumber: 53
     }
   }))), __jsx("button", {
     className: "hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center",
@@ -4448,8 +4459,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 190,
-      columnNumber: 45
+      lineNumber: 193,
+      columnNumber: 49
     }
   }, __jsx("svg", {
     width: "18",
@@ -4460,8 +4471,8 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 191,
-      columnNumber: 49
+      lineNumber: 194,
+      columnNumber: 53
     }
   }, __jsx("path", {
     d: "M1 1H17M1 7H17M10 13H17",
@@ -4472,15 +4483,15 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 192,
-      columnNumber: 53
+      lineNumber: 195,
+      columnNumber: 57
     }
-  })))))))) : null), __jsx("div", {
+  })))))))) : null)), __jsx("div", {
     className: "py-4 ml-6 border-r-2 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 209,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -4488,7 +4499,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206,
+      lineNumber: 210,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -4496,7 +4507,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207,
+      lineNumber: 211,
       columnNumber: 21
     }
   }, "Effects")), __jsx("div", {
@@ -4504,51 +4515,60 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233,
+      lineNumber: 237,
       columnNumber: 17
     }
-  }), __jsx("button", {
+  }), __jsx("div", {
+    className: " relative",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 238,
+      columnNumber: 17
+    }
+  }, __jsx("button", {
     className: "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md",
     onClick: () => seteShowModal(true),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 234,
-      columnNumber: 17
+      lineNumber: 239,
+      columnNumber: 21
     }
   }, __jsx("img", {
     src: image,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235,
-      columnNumber: 21
+      lineNumber: 240,
+      columnNumber: 25
     }
   })), __jsx("div", {
+    className: " absolute",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237,
-      columnNumber: 17
+      lineNumber: 242,
+      columnNumber: 21
     }
   }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "fixed z-10 inset-0 overflow-y-auto",
+    className: " z-10 inset-0 overflow-y-auto",
     "aria-labelledby": "modal-title",
     role: "dialog",
     "aria-modal": "true",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 241,
-      columnNumber: 29
+      lineNumber: 246,
+      columnNumber: 33
     }
   }, __jsx("div", {
-    className: "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
+    className: " flex items-end justify-center  min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 242,
-      columnNumber: 33
+      lineNumber: 247,
+      columnNumber: 37
     }
   }, __jsx("div", {
     onClick: () => seteShowModal(false),
@@ -4557,24 +4577,24 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 244,
-      columnNumber: 37
+      lineNumber: 249,
+      columnNumber: 41
     }
   }), __jsx("div", {
-    className: " absolute inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-28 mt-2 self-end right-14 ",
+    className: "  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-0 right-0 mt-2 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249,
-      columnNumber: 37
+      lineNumber: 254,
+      columnNumber: 41
     }
   }, __jsx("div", {
     className: "w-full flex gap-4 justify-center ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 251,
-      columnNumber: 41
+      lineNumber: 256,
+      columnNumber: 45
     }
   }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
     step: 0.01,
@@ -4593,8 +4613,8 @@ const TextHeader = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 263,
-        columnNumber: 53
+        lineNumber: 268,
+        columnNumber: 57
       }
     }), children),
     renderThumb: ({
@@ -4604,29 +4624,29 @@ const TextHeader = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 271,
-        columnNumber: 53
+        lineNumber: 276,
+        columnNumber: 57
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
-      columnNumber: 45
+      lineNumber: 258,
+      columnNumber: 49
     }
-  })))))) : null), __jsx("div", {
+  })))))) : null)), __jsx("div", {
     className: "py-4 ml-4 border-r-2 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 286,
+      lineNumber: 292,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 287,
+      lineNumber: 293,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -4635,7 +4655,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 288,
+      lineNumber: 294,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -4647,7 +4667,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289,
+      lineNumber: 295,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -4659,7 +4679,7 @@ const TextHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 290,
+      lineNumber: 296,
       columnNumber: 29
     }
   }))))));
@@ -5236,12 +5256,12 @@ function Drawer({
     style: {
       height: "91vh"
     },
-    className: " fixed overflow-y-auto no-scrollbar z-50  flex-grow   inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500  translate-x-full "),
+    className: " fixed  no-scrollbar z-50  flex-grow   inset-0 transform ease-in-out " + (isOpen ? " transition-opacity opacity-100 duration-500 translate-x-0 translate-y-16  " : " transition-all delay-500  translate-x-full "),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7,
-      columnNumber: 5
+      columnNumber: 9
     }
   }, __jsx("section", {
     className: " w-screen max-w-lg right-0 absolute bg-transparent h-full  delay-400 duration-500 ease-in-out transition-all transform  " + (isOpen ? " translate-x-0  " : " translate-x-full "),
@@ -5249,7 +5269,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17,
-      columnNumber: 7
+      columnNumber: 13
     }
   }, __jsx("article", {
     className: "relative flex flex-col w-screen h-full max-w-full pb-20 mb-8 overflow-y-scroll no-scrollbar ",
@@ -5257,7 +5277,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
-      columnNumber: 9
+      columnNumber: 17
     }
   }, __jsx("div", {
     className: "flex h-full ",
@@ -5265,7 +5285,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24,
-      columnNumber: 11
+      columnNumber: 21
     }
   }, __jsx("div", {
     className: "flex items-center w-4 h-full ",
@@ -5276,7 +5296,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, __jsx("button", {
     className: "fixed z-50 flex items-center h-full pl-4 mr-2 bg-transparent b 3xl:mt-top",
@@ -5287,7 +5307,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("div", {
     className: "flex flex-row items-center w-10 h-20 pl-2 ml-2 bg-white rounded-full rounded-r",
@@ -5295,7 +5315,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, __jsx("svg", {
     className: "w-2",
@@ -5308,7 +5328,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36,
-      columnNumber: 19
+      columnNumber: 37
     }
   }, __jsx("path", {
     d: "M2.24023 2L11.9842 11L2.24023 20",
@@ -5320,15 +5340,18 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44,
-      columnNumber: 21
+      columnNumber: 41
     }
   }))))), __jsx("div", {
-    className: "flex flex-col justify-start w-full h-full pt-3 mt-2 ml-6 bg-white 3xl:mt-3 ",
+    className: "flex flex-col justify-start w-full  pt-3  ml-6 bg-white mt-3  overflow-hidden",
+    style: {
+      height: '92vh'
+    },
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 55,
-      columnNumber: 13
+      columnNumber: 25
     }
   }, __jsx("div", {
     className: "flex justify-center ",
@@ -5336,7 +5359,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 56,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("img", {
     src: image,
@@ -5345,7 +5368,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 57,
-      columnNumber: 17
+      columnNumber: 33
     }
   })), __jsx("div", {
     className: "mt-6 mb-6 bg-white px-14 ",
@@ -5353,7 +5376,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 62,
-      columnNumber: 15
+      columnNumber: 29
     }
   }, __jsx("div", {
     className: "flex flex-col justify-center mb-4",
@@ -5361,7 +5384,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 63,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, __jsx("p", {
     className: "pb-1 text-sm text-gray94",
@@ -5369,7 +5392,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 64,
-      columnNumber: 19
+      columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
     className: "px-4 text-sm border-2 rounded-md outline-none border-bordercolor text-gray9f h-9",
@@ -5379,7 +5402,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 65,
-      columnNumber: 19
+      columnNumber: 37
     }
   })), __jsx("div", {
     className: "flex flex-col justify-center mb-4",
@@ -5387,7 +5410,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 71,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, __jsx("p", {
     className: "pb-1 text-sm text-gray94",
@@ -5395,7 +5418,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 72,
-      columnNumber: 19
+      columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
     className: "px-4 text-sm border-2 rounded-md outline-none border-bordercolor text-gray9f h-9",
@@ -5405,7 +5428,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 73,
-      columnNumber: 19
+      columnNumber: 37
     }
   })), __jsx("div", {
     className: "flex flex-col justify-center mb-4",
@@ -5413,7 +5436,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 79,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, __jsx("p", {
     className: "pb-1 text-sm text-gray94",
@@ -5421,7 +5444,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 80,
-      columnNumber: 19
+      columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
     className: "px-4 text-sm border-2 rounded-md outline-none border-bordercolor text-gray9f h-9",
@@ -5431,7 +5454,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 81,
-      columnNumber: 19
+      columnNumber: 37
     }
   })), __jsx("button", {
     className: "w-full mb-8 mt-14",
@@ -5439,7 +5462,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 87,
-      columnNumber: 17
+      columnNumber: 33
     }
   }, __jsx("div", {
     className: "flex flex-row items-center justify-center w-full h-12 mt-4 rounded-md bg-indigo600 i",
@@ -5447,7 +5470,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 88,
-      columnNumber: 19
+      columnNumber: 37
     }
   }, __jsx("svg", {
     width: "16",
@@ -5459,7 +5482,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 89,
-      columnNumber: 21
+      columnNumber: 41
     }
   }, __jsx("path", {
     d: "M0.00300002 1.884L8 5.882L15.997 1.884C15.9674 1.37444 15.7441 0.895488 15.3728 0.545227C15.0016 0.194965 14.5104 -9.35847e-05 14 3.36834e-08H2C1.48958 -9.35847e-05 0.998447 0.194965 0.627178 0.545227C0.255908 0.895488 0.0326041 1.37444 0.00300002 1.884Z",
@@ -5468,7 +5491,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 96,
-      columnNumber: 23
+      columnNumber: 45
     }
   }), __jsx("path", {
     d: "M16 4.118L8 8.118L0 4.118V10C0 10.5304 0.210714 11.0391 0.585786 11.4142C0.960859 11.7893 1.46957 12 2 12H14C14.5304 12 15.0391 11.7893 15.4142 11.4142C15.7893 11.0391 16 10.5304 16 10V4.118Z",
@@ -5477,7 +5500,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 100,
-      columnNumber: 23
+      columnNumber: 45
     }
   })), __jsx("p", {
     className: "pl-4 text-white ",
@@ -5485,7 +5508,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 106,
-      columnNumber: 21
+      columnNumber: 41
     }
   }, "Get sharable code")))))))), __jsx("section", {
     className: "w-screen h-full cursor-pointer ",
@@ -5496,7 +5519,7 @@ function Drawer({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 114,
-      columnNumber: 7
+      columnNumber: 13
     }
   }));
 }
@@ -9286,7 +9309,7 @@ const TextSelector = () => {
   };
 
   return __jsx("div", {
-    className: " flex   flex-col justify-center w-full p-6 ",
+    className: " flex   flex-col  w-full p-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9310,7 +9333,7 @@ const TextSelector = () => {
       columnNumber: 17
     }
   }, "Click text to add to page")), __jsx("div", {
-    className: "mt-6 w-full flex flex-col justify-start items-start",
+    className: "mt-6 w-full flex flex-col  justify-start ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9319,7 +9342,7 @@ const TextSelector = () => {
     }
   }, __jsx("button", {
     onClick: () => handleTextAdd("Header"),
-    className: "text-5xl leading-none font-normal text-gray94 mb-2",
+    className: "text-3xl leading-none font-normal flex justify-start text-gray94 mb-2 hover:bg-lightindigo px-4 rounded w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9331,11 +9354,11 @@ const TextSelector = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
-      columnNumber: 84
+      columnNumber: 144
     }
   }, "Heading 1")), __jsx("button", {
     onClick: () => handleTextAdd("Sub header"),
-    className: "text-5xl leading-none font-normal text-gray94 mb-2",
+    className: "text-xl leading-none font-normal flex justify-start text-gray94 mb-2 hover:bg-lightindigo px-4 rounded w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9347,11 +9370,11 @@ const TextSelector = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29,
-      columnNumber: 84
+      columnNumber: 143
     }
   }, "Sub header")), __jsx("button", {
     onClick: () => handleTextAdd("body text"),
-    className: "text-5xl leading-none font-normal text-gray94 mb-2",
+    className: "text-lg leading-none font-normal flex justify-start text-gray94 mb-2 hover:bg-lightindigo px-4 rounded w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9363,9 +9386,9 @@ const TextSelector = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32,
-      columnNumber: 84
+      columnNumber: 143
     }
-  }, "body text"))), __jsx("div", {
+  }, "Body text"))), __jsx("div", {
     className: "mt-6 w-full border-b border-bordercolor",
     __self: undefined,
     __source: {
@@ -9799,7 +9822,7 @@ const FontStyletool = () => {
   };
 
   return __jsx("div", {
-    className: "h-full flex  flex-col w-full px-6",
+    className: "h-full flex  flex-col w-full pl-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9822,7 +9845,7 @@ const FontStyletool = () => {
       columnNumber: 19
     }
   }, "Effects")), __jsx("div", {
-    className: "border-b border-bordercolor mt-6 ",
+    className: "border-b border-bordercolor mt-6 mr-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
