@@ -34,36 +34,24 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
     return (
       <>
         {" "}
-        <div
-          ref={myRef}
-          className="fixed inset-0 z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none focus:outline-none"
-        >
+        <div className="absolute z-50 flex items-center justify-center w-screen h-screen overflow-x-auto overflow-y-auto outline-none inherit focus:outline-none">
           <div
-            className="relative z-50 max-w-4xl mx-auto my-6 bg-white rounded-md"
+            ref={myRef}
+            className="absolute z-50 mx-auto my-6 bg-white rounded-md"
             style={{ height: "90vh" }}
           >
             {" "}
             {/*content*/}
             <div className="relative flex flex-col w-full h-full border-0 rounded-lg shadow-lg outline-none focus:outline-none">
               <div className="">
-                <div className="top-0 ">
-                  <button
-                    className="flex items-center ml-auto mr-2 text-sm font-semibold leading-none text-black rounded-full outline-none opacity-30 focus:outline-none"
-                    onClick={() => setShowModal(false)}
-                  >
-                    <span className="top-0 text-2xl outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
-                </div>
                 <div className="flex items-start justify-between w-full px-5 pb-5 border-b border-solid rounded-t border-bordercolor">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray94">
-                      Select Template
+                    <h3 className="mt-8 text-3xl not-italic font-bold leading-9 font-inter text-gray94">
+                      Select Image
                     </h3>
                   </div>
                   <div className="flex flex-row">
-                    <div className="flex flex-row h-8 px-2 border-2 rounded-md text-gray900 w-36 border-bordercolor">
+                    <div className="flex flex-row h-8 px-2 mt-8 border-2 rounded-md text-gray900 w-36 border-bordercolor">
                       <button className="pr-2 text-sm font-medium leading-5 font-inter ">
                         Most Popular
                       </button>
@@ -93,21 +81,21 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
                 </div>
               </div>
               <div className="flex gap-4 px-6 mt-3 ">
-                <button className="h-10 px-4 py-1 rounded-md bg-lightindigo text-indigo700">
+                <button className="h-10 px-4 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter ">
                   Pexels
                 </button>
-                <button className="h-10 px-3 py-1 rounded-md bg-lightindigo text-indigo700">
+                <button className="h-10 px-3 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter">
                   Unsplash
                 </button>
-                <button className="h-10 px-4 py-1 rounded-md bg-lightindigo text-indigo700">
+                <button className="h-10 px-4 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter">
                   Pixabay
                 </button>
-                <button className="h-10 px-3 py-1 rounded-md bg-lightindigo text-indigo700">
+                <button className="h-10 px-3 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter">
                   Property
                 </button>
               </div>
               <div>
-                <h1 className="px-6 mt-6 text-xl font-bold text-gray94">
+                <h1 className="px-6 mt-6 text-2xl not-italic font-bold leading-9 font-inter text-gray94">
                   Your Uploads
                 </h1>
               </div>
@@ -157,7 +145,7 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
               {/* first row end */}
 
               <div>
-                <h1 className="px-6 mt-2 text-xl font-bold text-gray94">
+                <h1 className="px-6 mt-2 text-xl not-italic font-bold leading-9 font-inter text-gray94">
                   Pexels
                 </h1>
               </div>
@@ -208,7 +196,7 @@ const TransformModal: React.FC<Prop> = React.forwardRef(
             </div>
           </div>
         </div>
-        <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+        <div className="fixed z-40 bg-transparent opacity-25"></div>
       </>
     );
   }

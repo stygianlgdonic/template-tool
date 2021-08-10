@@ -3,7 +3,7 @@ import React from "react";
 const SearchBar: React.FC = (): JSX.Element => {
   return (
     <div className="flex items-center justify-center w-full ">
-      <div className="z-50 flex items-center justify-center w-11/12 border rounded-md h-14 border-bordercolor">
+      <div className="z-0 flex items-center justify-center w-11/12 border rounded-md h-14 border-bordercolor">
         <button>
           <span className="flex items-center justify-end w-auto p-3 text-sm text-grey">
             <svg

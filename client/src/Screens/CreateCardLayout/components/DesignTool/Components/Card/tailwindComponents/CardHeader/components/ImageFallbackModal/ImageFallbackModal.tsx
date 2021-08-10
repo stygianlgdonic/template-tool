@@ -24,10 +24,10 @@ const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
   return (
     <>
       <div
-        ref={myRef}
-        className="absolute z-10 flex items-center justify-center overflow-x-hidden outline-none focus:outline-none"
+        // ref={myRef}
+        className="inset-0 z-10 flex items-center justify-center overflow-x-hidden outline-none focus:outline-none"
       >
-        <div className="relative w-auto max-w-3xl h-96">
+        <div ref={myRef} className="relative w-auto max-w-3xl h-96">
           {/*content*/}
           <div className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg outline-none border-gray300 focus:outline-none ">
             {/*header*/}
@@ -163,7 +163,16 @@ const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
             </div>
           </div>
         </div>
-        <div style={{ display: open ? "" : "none" }}>
+        <div
+          className="w-screen h-screen"
+          style={{
+            zIndex: 999999,
+            display: Open ? "" : "none",
+            position: "absolute",
+            top: -300,
+            right: -100,
+          }}
+        >
           <SelectImageModal
             closeModal={() => {
               setOpen(false);
