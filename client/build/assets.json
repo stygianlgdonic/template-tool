@@ -1,67 +1,4 @@
 {
-<<<<<<< HEAD
-  "1": {
-    "css": [
-      "/static/css/1.1d91d9be.chunk.css"
-    ],
-    "js": [
-      "/static/js/1.bf0a7916.chunk.js"
-    ],
-    "map": [
-      "/static/css/1.1d91d9be.chunk.css.map",
-      "/static/js/1.bf0a7916.chunk.js.map"
-    ],
-    "chunks": [
-      1
-    ]
-  },
-  "2": {
-    "js": [
-      "/static/js/2.65f3191e.chunk.js"
-    ],
-    "map": [
-      "/static/js/2.65f3191e.chunk.js.map"
-    ],
-    "chunks": [
-      2
-    ]
-  },
-  "3": {
-    "js": [
-      "/static/js/3.535d9125.chunk.js"
-    ],
-    "map": [
-      "/static/js/3.535d9125.chunk.js.map"
-    ],
-    "chunks": [
-      3
-    ]
-  },
-  "4": {
-    "js": [
-      "/static/js/4.0e98891c.chunk.js"
-    ],
-    "map": [
-      "/static/js/4.0e98891c.chunk.js.map"
-    ],
-    "chunks": [
-      4
-    ]
-  },
-  "client": {
-    "css": [
-      "/static/css/client.b359b88c.css"
-    ],
-    "js": [
-      "/static/js/client.06d3d286.js"
-    ],
-    "map": [
-      "/static/css/client.b359b88c.css.map",
-      "/static/js/client.06d3d286.js.map"
-    ],
-    "chunks": [
-      0
-=======
   "0": {
     "js": [
       "http://localhost:3001/static/js/0.chunk.js"
@@ -115,7 +52,6 @@
     ],
     "chunks": [
       "client"
->>>>>>> agha3200/ch360/select-image-template-modal
     ]
   },
   "noentry": {
