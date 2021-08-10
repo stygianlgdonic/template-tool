@@ -8,7 +8,7 @@ hydrate(
     <QueryClientProvider client={queryClient}>
         <Router>
             <App />
-        </Router>,
+        </Router>
     </QueryClientProvider>,
     document.getElementById('root')
 );

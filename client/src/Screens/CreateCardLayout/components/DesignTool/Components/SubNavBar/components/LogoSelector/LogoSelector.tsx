@@ -7,7 +7,7 @@ const ElementSelector: React.FC = (): JSX.Element => {
         <div className=" flex flex-col justify-center w-full ">
 
             <ReceipentsLogo />
-            <div className="border-b-2 border-bordercolor mt-12"></div>
+            <div className="border-b border-bordercolor mt-12 mx-4"></div>
             <BrandLogo />
         </div>
     )

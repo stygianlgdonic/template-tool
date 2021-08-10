@@ -66,6 +66,7 @@ module.exports = {
 
                 bordercolor: '#D1D5DB',
                 rightbackgroundcolor: '#F3F4F6',
+                lightrightbackgroundcolor: '#f5f8ff',
                 svgcolor: '#C4C4C4',
                 fuschia: "#EF5DA8",
                 bluish: "#818CF8",

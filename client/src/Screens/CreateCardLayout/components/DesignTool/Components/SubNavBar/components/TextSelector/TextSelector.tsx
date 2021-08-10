@@ -31,7 +31,7 @@ const TextSelector: React.FC = (): JSX.Element => {
                     onClick={() => handleTextAdd("body text")}
                     className="text-5xl leading-none font-normal text-gray94 mb-2"><p>body text</p></button>
             </div>
-            <div className="mt-6 w-full border-b-2 border-bordercolor">
+            <div className="mt-6 w-full border-b border-bordercolor">
             </div>
             <div className=" w-full flex flex-row items-center justify-start">
 

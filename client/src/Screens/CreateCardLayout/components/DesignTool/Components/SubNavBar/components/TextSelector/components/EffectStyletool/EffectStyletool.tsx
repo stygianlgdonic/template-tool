@@ -64,7 +64,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
                 Effects
             </h1>
             </div>
-            <div className="border-b-2 border-bordercolor mt-6 " ></div>
+            <div className="border-b border-bordercolor mt-6 " ></div>
             <div> <h1 className="font-medium text-lg mt-6">
                 Style
             </h1>
