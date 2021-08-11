@@ -273,7 +273,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                                     renderTrack={({ props, children }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
+                                                            className="w-full h-3 pr-2 my-4 bg-gray-400 rounded-md"
                                                         >
                                                             {children}
                                                         </div>
@@ -281,7 +281,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                                                     renderThumb={({ props }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                            className="w-5 h-5 transform translate-x-10 bg-indigo600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                         />
                                                     )}
                                                 />
