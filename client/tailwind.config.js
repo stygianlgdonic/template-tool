@@ -78,7 +78,8 @@ module.exports = {
                 SolidColor: "#6366F1",
                 gradientColor: "#374151",
                 elementColor: "#4B5563",
-                deletecolor: "#FEE2E2"
+                deletecolor: "#FEE2E2",
+                createcolor: "#9E9E9E",
 
             }
         }
