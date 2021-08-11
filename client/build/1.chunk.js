@@ -16,37 +16,60 @@ var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardL
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const SearchBar = () => {
+
+const SearchBar = ({
+  shapesArray,
+  setShapesArray,
+  initial_state
+}) => {
+  const {
+    0: searchValue,
+    1: setSearchValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+
+  const handleSearchChange = e => {
+    setSearchValue(e.target.value);
+
+    if (!e.target.value) {
+      setShapesArray(initial_state);
+    } else {
+      const filteredShapes = shapesArray.filter(shape => {
+        return shape.labels.join().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
+      });
+      setShapesArray(filteredShapes);
+    }
+  };
+
   return __jsx("div", {
     className: "flex items-center justify-center w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 5
+      lineNumber: 31,
+      columnNumber: 9
     }
   }, __jsx("div", {
     className: "z-0 flex items-center justify-center w-11/12 border rounded-md h-14 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 7
+      lineNumber: 32,
+      columnNumber: 13
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 9
+      lineNumber: 33,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "flex items-center justify-end w-auto p-3 text-sm text-grey",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 11
+      lineNumber: 34,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "16",
@@ -57,8 +80,8 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 13
+      lineNumber: 35,
+      columnNumber: 25
     }
   }, __jsx("path", {
     "fill-rule": "evenodd",
@@ -68,18 +91,20 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 15
+      lineNumber: 42,
+      columnNumber: 29
     }
   })))), __jsx("input", {
     className: "z-0 w-full h-12 text-sm rounded outline-none text-gray95 ",
     type: "text",
     placeholder: "What would you like to search",
+    value: searchValue,
+    onChange: handleSearchChange,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 9
+      lineNumber: 51,
+      columnNumber: 17
     }
   })));
 };

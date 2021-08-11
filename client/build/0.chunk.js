@@ -977,8 +977,9 @@ const MainStage = ({
 
   const {
     emptyCardHeader
-  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__["default"])();
-  const GUIDELINE_OFFSET = 5;
+  } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_11__["default"])(); // snapping distance
+
+  const GUIDELINE_OFFSET = 10;
   const $stage = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const $layer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const $tr = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
@@ -996,6 +997,7 @@ const MainStage = ({
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const Konva = window.Konva;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    // if no elements are selected, empty card header 
     if (!nodesArray.length) {
       emptyCardHeader();
     }
@@ -1003,14 +1005,14 @@ const MainStage = ({
 
   const getLineGuideStops = skipShape => {
     const vertical = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width];
-    const horizontal = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height]; // and we snap over edges and center of each object on the canvas
+    const horizontal = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height]; // we snap over edges and center of each object on the canvas
 
     $stage.current.find(".object").forEach(guideItem => {
       if (guideItem === skipShape) {
         return;
       }
 
-      const box = guideItem.getClientRect(); // and we can snap to all edges of shapes
+      const box = guideItem.getClientRect(); // we can snap to all edges of shapes
 
       vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
       horizontal.push([box.y, box.y + box.height, box.y + box.height / 2]);
@@ -1019,7 +1021,8 @@ const MainStage = ({
       vertical: vertical.flat(),
       horizontal: horizontal.flat()
     };
-  };
+  }; // getting snapping edges for elements on the Stage
+
 
   const getObjectSnappingEdges = node => {
     const box = node.getClientRect();
@@ -1051,7 +1054,8 @@ const MainStage = ({
         snap: "end"
       }]
     };
-  };
+  }; // getting all guidelines for snapping by calculating if the item bounds are close to the guidlinestop
+
 
   const getGuides = (lineGuideStops, itemBounds) => {
     const resultV = [];
@@ -1072,7 +1076,7 @@ const MainStage = ({
     });
     lineGuideStops.horizontal.forEach(lineGuide => {
       itemBounds.horizontal.forEach(itemBound => {
-        const diff = Math.abs(lineGuide - itemBound.guide);
+        const diff = Math.abs(lineGuide - itemBound.guide); // if the distance between guild line and object snap point is close we can consider this for snapping
 
         if (diff < GUIDELINE_OFFSET) {
           resultH.push({
@@ -1108,7 +1112,8 @@ const MainStage = ({
     }
 
     return guides;
-  };
+  }; // drawing guidelines on stage
+
 
   const drawGuides = guides => {
     guides.forEach(lg => {
@@ -1134,7 +1139,8 @@ const MainStage = ({
         $layer.current.batchDraw();
       }
     });
-  };
+  }; // when dragging any element snap element if its close to snap guideline
+
 
   const _onDragMove = e => {
     const linesArray = $layer.current.find(".guid-line");
@@ -1224,7 +1230,8 @@ const MainStage = ({
           return;
       }
     });
-  };
+  }; // on drag end remove all guidelines from the stage
+
 
   const _onDragEnd = e => {
     const linesArray = $layer.current.find(".guid-line");
@@ -1247,7 +1254,8 @@ const MainStage = ({
 
 
   const updateSelectionRect = () => {
-    const node = selectionRectRef.current;
+    const node = selectionRectRef.current; // while mouseDrag update the selection rect accordingly 
+
     node.setAttrs({
       visible: selection.current.visible,
       x: Math.min(selection.current.x1, selection.current.x2),
@@ -1297,7 +1305,8 @@ const MainStage = ({
       return;
     }
 
-    const selBox = selectionRectRef.current.getClientRect();
+    const selBox = selectionRectRef.current.getClientRect(); // selecting all elements which have intersection with the selection box
+
     const elements = [];
     $layer.current.find(".object").forEach(elementNode => {
       const elBox = elementNode.getClientRect();
@@ -1305,7 +1314,8 @@ const MainStage = ({
       if (Konva.Util.haveIntersection(selBox, elBox)) {
         elements.push(elementNode);
       }
-    });
+    }); // passing all selected elements to transformer
+
     $tr.current.nodes(elements);
     setNodes(elements); // NOTE - if only one node is within group setSelectedId for that element
 
@@ -1374,7 +1384,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 397,
+      lineNumber: 408,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1384,7 +1394,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 405,
+      lineNumber: 416,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1416,7 +1426,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 412,
+        lineNumber: 423,
         columnNumber: 25
       }
     });
@@ -1435,7 +1445,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 440,
+        lineNumber: 451,
         columnNumber: 25
       }
     });
@@ -1454,7 +1464,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 456,
+        lineNumber: 467,
         columnNumber: 25
       }
     });
@@ -1473,7 +1483,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 472,
+        lineNumber: 483,
         columnNumber: 25
       }
     });
@@ -1490,7 +1500,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 488,
+        lineNumber: 499,
         columnNumber: 25
       }
     });
@@ -1507,7 +1517,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 505,
+        lineNumber: 516,
         columnNumber: 25
       }
     });
@@ -1524,7 +1534,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 522,
+        lineNumber: 533,
         columnNumber: 25
       }
     });
@@ -1536,7 +1546,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 537,
+      lineNumber: 548,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1545,7 +1555,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 543,
+      lineNumber: 554,
       columnNumber: 17
     }
   })));
@@ -7324,14 +7334,43 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const initial_state = [{
+  name: "rect",
+  labels: ["rectangle", "square"],
+  element: `<svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="63" height="63" fill="#D1D5DB" />
+                </svg>`
+}, {
+  name: "circle",
+  labels: ["circle", "ellipse"],
+  element: `<svg width="64" height="63" viewBox="0 0 64 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="32" cy="31.5" rx="32" ry="31.5" fill="#D1D5DB" />
+                    </svg>`
+}, {
+  name: "triangle",
+  labels: ["triangle"],
+  element: `<svg width="80" height="69" viewBox="0 0 80 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 0L79.8372 69H0.16283L40 0Z" fill="#D1D5DB" />
+                    </svg>`
+}, {
+  name: "polygon",
+  labels: ["polygon", "hexagon"],
+  element: `<svg width="64" height="63" viewBox="0 0 64 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="32" cy="31.5" rx="32" ry="31.5" fill="#D1D5DB" />
+                    </svg>`
+}];
 
 const ElementSelector = () => {
+  const {
+    0: shapesArray,
+    1: setShapesArray
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initial_state);
   return __jsx("div", {
     className: " flex   flex-col justify-center w-full  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -7339,14 +7378,17 @@ const ElementSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 45,
       columnNumber: 13
     }
   }, __jsx(_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    shapesArray: shapesArray,
+    setShapesArray: setShapesArray,
+    initial_state: initial_state,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 46,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -7354,14 +7396,15 @@ const ElementSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 53,
       columnNumber: 13
     }
   }, __jsx(_components_Shapes_Shapes__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    shapesArray: shapesArray,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 54,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -7369,14 +7412,14 @@ const ElementSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, __jsx(_components_Stickers_Stickers__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 57,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -7384,14 +7427,14 @@ const ElementSelector = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 59,
       columnNumber: 13
     }
   }, __jsx(_components_Buttons_Buttons__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 60,
       columnNumber: 17
     }
   })));
@@ -7792,37 +7835,60 @@ var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardL
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const SearchBar = () => {
+
+const SearchBar = ({
+  shapesArray,
+  setShapesArray,
+  initial_state
+}) => {
+  const {
+    0: searchValue,
+    1: setSearchValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+
+  const handleSearchChange = e => {
+    setSearchValue(e.target.value);
+
+    if (!e.target.value) {
+      setShapesArray(initial_state);
+    } else {
+      const filteredShapes = shapesArray.filter(shape => {
+        return shape.labels.join().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
+      });
+      setShapesArray(filteredShapes);
+    }
+  };
+
   return __jsx("div", {
     className: "flex items-center justify-center w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 5
+      lineNumber: 31,
+      columnNumber: 9
     }
   }, __jsx("div", {
     className: "z-0 flex items-center justify-center w-11/12 border rounded-md h-14 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 7
+      lineNumber: 32,
+      columnNumber: 13
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 9
+      lineNumber: 33,
+      columnNumber: 17
     }
   }, __jsx("span", {
     className: "flex items-center justify-end w-auto p-3 text-sm text-grey",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 11
+      lineNumber: 34,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "16",
@@ -7833,8 +7899,8 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 13
+      lineNumber: 35,
+      columnNumber: 25
     }
   }, __jsx("path", {
     "fill-rule": "evenodd",
@@ -7844,18 +7910,20 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 15
+      lineNumber: 42,
+      columnNumber: 29
     }
   })))), __jsx("input", {
     className: "z-0 w-full h-12 text-sm rounded outline-none text-gray95 ",
     type: "text",
     placeholder: "What would you like to search",
+    value: searchValue,
+    onChange: handleSearchChange,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 9
+      lineNumber: 51,
+      columnNumber: 17
     }
   })));
 };
@@ -7877,25 +7945,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\Shapes\\Shapes.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
-const Shapes = () => {
+
+const Shapes = ({
+  shapesArray
+}) => {
   const {
     handleAddNewRect,
     handleAddNewCircle,
     handleAddNewTrianlge,
     handleAddNewPolygon
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+  const handleAddElement = elementName => {
+    elementName === "rect" && handleAddNewRect(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultRect"]);
+    elementName === "circle" && handleAddNewCircle(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultCircle"]);
+    elementName === "triangle" && handleAddNewTrianlge(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultTriangle"]);
+    elementName === "polygon" && handleAddNewPolygon(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultPolygon"]);
+  };
+
   return __jsx("div", {
     className: "h-full flex w-full  flex-col",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -7903,7 +7983,7 @@ const Shapes = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 23,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -7911,7 +7991,7 @@ const Shapes = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, "Shapes"), __jsx("button", {
@@ -7919,7 +7999,7 @@ const Shapes = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, "See all")), __jsx("div", {
@@ -7927,162 +8007,33 @@ const Shapes = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 30,
       columnNumber: 13
     }
-  }, __jsx("div", {
+  }, shapesArray.map((item, index) => __jsx("div", {
+    key: index,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 17
+      lineNumber: 32,
+      columnNumber: 21
     }
   }, __jsx("button", {
     className: " focus:ring focus:outline-none",
-    onClick: () => handleAddNewRect(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultRect"]),
+    onClick: () => handleAddElement(item.name),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 21
-    }
-  }, __jsx("svg", {
-    width: "63",
-    height: "63",
-    viewBox: "0 0 63 63",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 33,
       columnNumber: 25
     }
-  }, __jsx("rect", {
-    width: "63",
-    height: "63",
-    fill: "#D1D5DB",
+  }, __jsx("img", {
+    alt: "shape",
+    src: Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_3__["default"])(item.element),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 29
-    }
-  })))), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: " focus:ring focus:outline-none",
-    onClick: () => handleAddNewCircle(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultCircle"]),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 21
-    }
-  }, __jsx("svg", {
-    width: "64",
-    height: "63",
-    viewBox: "0 0 64 63",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 25
-    }
-  }, __jsx("ellipse", {
-    cx: "32",
-    cy: "31.5",
-    rx: "32",
-    ry: "31.5",
-    fill: "#D1D5DB",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 29
-    }
-  })))), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: " focus:ring focus:outline-none",
-    onClick: () => handleAddNewTrianlge(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultTriangle"]),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 21
-    }
-  }, __jsx("svg", {
-    width: "80",
-    height: "69",
-    viewBox: "0 0 80 69",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 25
-    }
-  }, __jsx("path", {
-    d: "M40 0L79.8372 69H0.16283L40 0Z",
-    fill: "#D1D5DB",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 29
-    }
-  })))), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: " focus:ring focus:outline-none",
-    onClick: () => handleAddNewPolygon(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["defaultPolygon"]),
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 21
-    }
-  }, __jsx("svg", {
-    width: "64",
-    height: "63",
-    viewBox: "0 0 64 63",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 25
-    }
-  }, __jsx("ellipse", {
-    cx: "32",
-    cy: "31.5",
-    rx: "32",
-    ry: "31.5",
-    fill: "#D1D5DB",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 34,
       columnNumber: 29
     }
   }))))));
