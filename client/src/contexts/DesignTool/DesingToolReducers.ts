@@ -84,7 +84,8 @@ export const designToolReducer = (designToolState, action) => {
         case 'Empty_Card_Header': {
             return {
                 ...designToolState,
-                card_header_state: ""
+                card_header_state: "",
+                sub_navbar_selection: designToolState.navbar_selection
             }
         }
         default:

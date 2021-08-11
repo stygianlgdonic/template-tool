@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "adba64b51c1ea1d6f44f";
+/******/ 	var hotCurrentHash = "d29038a0cac573e4d466";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1754,7 +1754,8 @@ const designToolReducer = (designToolState, action) => {
     case 'Empty_Card_Header':
       {
         return _objectSpread(_objectSpread({}, designToolState), {}, {
-          card_header_state: ""
+          card_header_state: "",
+          sub_navbar_selection: designToolState.navbar_selection
         });
       }
 

@@ -2,8 +2,6 @@ import React from "react";
 import BackgroundColorModal from "../BackgroundColorModal/BackgroundColorModal";
 const BackgroundColor: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
-    //   const [backgroundmodal, setBackgroundModal] = React.useState(false);
-    console.log({ showModal });
 
     return (
         <div className="flex flex-col justify-center w-full ">
