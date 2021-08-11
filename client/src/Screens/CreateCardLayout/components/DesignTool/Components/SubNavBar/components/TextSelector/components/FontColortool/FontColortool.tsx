@@ -79,11 +79,9 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
             <div className="border-b-2 border-bordercolor mt-4" ></div>
             <div>
-                <h1 className="text-md text-gray40 mt-4" >Photo Colors</h1>
-                <div className=" mt-4 flex flex-row items-center justify-between">
-                    <button>
-                        <img src="https://ca.slack-edge.com/T0100HQFETG-U01PVA68RDE-90fc2d0a43dd-72" className="w-10 h-10 rounded-full" />
-                    </button>
+                <h1 className="text-md text-gray40 mt-4" >Shape Colors</h1>
+                <div className=" mt-4 flex flex-row items-center gap-3">
+
                     <button className="bg-indigo600 h-10 w-10 rounded-md"></button>
                     <button className="bg-fuschia h-10 w-10 rounded-md"></button>
                     <button className="bg-greenish h-10 w-10 rounded-md"></button>

@@ -12,41 +12,92 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const SearchBar = () => {
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SearchBar = ({
+  shapesArray,
+  setShapesArray,
+  initial_state
+}) => {
+  const {
+    0: searchValue,
+    1: setSearchValue
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+
+  const handleSearchChange = e => {
+    setSearchValue(e.target.value);
+
+    if (!e.target.value) {
+      setShapesArray(initial_state);
+    } else {
+      const filteredShapes = shapesArray.filter(shape => {
+        return shape.labels.join().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
+      });
+      setShapesArray(filteredShapes);
+    }
+  };
+
+>>>>>>> staging
   return __jsx("div", {
     className: "flex items-center justify-center w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 5,
       columnNumber: 5
+=======
+      lineNumber: 31,
+      columnNumber: 9
+>>>>>>> staging
     }
   }, __jsx("div", {
     className: "z-0 flex items-center justify-center w-11/12 border rounded-md h-14 border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 6,
       columnNumber: 7
+=======
+      lineNumber: 32,
+      columnNumber: 13
+>>>>>>> staging
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 7,
       columnNumber: 9
+=======
+      lineNumber: 33,
+      columnNumber: 17
+>>>>>>> staging
     }
   }, __jsx("span", {
     className: "flex items-center justify-end w-auto p-3 text-sm text-grey",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 8,
       columnNumber: 11
+=======
+      lineNumber: 34,
+      columnNumber: 21
+>>>>>>> staging
     }
   }, __jsx("svg", {
     width: "16",
@@ -57,8 +108,13 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 9,
       columnNumber: 13
+=======
+      lineNumber: 35,
+      columnNumber: 25
+>>>>>>> staging
     }
   }, __jsx("path", {
     "fill-rule": "evenodd",
@@ -68,18 +124,33 @@ const SearchBar = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 16,
       columnNumber: 15
+=======
+      lineNumber: 42,
+      columnNumber: 29
+>>>>>>> staging
     }
   })))), __jsx("input", {
     className: "z-0 w-full h-12 text-sm rounded outline-none text-gray95 ",
     type: "text",
     placeholder: "What would you like to search",
+<<<<<<< HEAD
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
       columnNumber: 9
+=======
+    value: searchValue,
+    onChange: handleSearchChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+>>>>>>> staging
     }
   })));
 };
@@ -129,7 +200,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Centerboard_Centerboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/Centerboard/Centerboard */ "./src/components/Centerboard/Centerboard.tsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\Screens\\Dashboard\\Dashboard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\Dashboard\\Dashboard.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -278,6 +353,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAS4AAABaCAYAAAAG
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./src/assets/images/body.png":
 /*!************************************!*\
   !*** ./src/assets/images/body.png ***!
@@ -289,6 +365,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 
 /***/ }),
 
+=======
+>>>>>>> staging
 /***/ "./src/assets/images/card1.png":
 /*!*************************************!*\
   !*** ./src/assets/images/card1.png ***!
@@ -311,6 +389,7 @@ module.exports = __webpack_require__.p + "static/media/card2.a3e6d397.png";
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./src/assets/images/card5.png":
 /*!*************************************!*\
   !*** ./src/assets/images/card5.png ***!
@@ -333,6 +412,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAABWCAYAAABV
 
 /***/ }),
 
+=======
+>>>>>>> staging
 /***/ "./src/assets/images/fb.png":
 /*!**********************************!*\
   !*** ./src/assets/images/fb.png ***!
@@ -344,6 +425,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAADTCAYAAAD0
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./src/assets/images/featureimage.png":
 /*!********************************************!*\
   !*** ./src/assets/images/featureimage.png ***!
@@ -366,6 +448,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 
 /***/ }),
 
+=======
+>>>>>>> staging
 /***/ "./src/assets/images/insta.png":
 /*!*************************************!*\
   !*** ./src/assets/images/insta.png ***!
@@ -377,6 +461,7 @@ module.exports = __webpack_require__.p + "static/media/insta.638d5ee2.png";
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./src/assets/images/plus.png":
 /*!************************************!*\
   !*** ./src/assets/images/plus.png ***!
@@ -399,6 +484,8 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAABCCAYAAABw
 
 /***/ }),
 
+=======
+>>>>>>> staging
 /***/ "./src/components/Centerboard/Centerboard.tsx":
 /*!****************************************************!*\
   !*** ./src/components/Centerboard/Centerboard.tsx ***!
@@ -418,7 +505,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Centerboard/components/StatsCardinfo/StatCardinfo */ "./src/components/Centerboard/components/StatsCardinfo/StatCardinfo.tsx");
 /* harmony import */ var _Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Centerboard/components/ImagesInfo/ImagesInfo */ "./src/components/Centerboard/components/ImagesInfo/ImagesInfo.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -599,7 +690,11 @@ const Centerboard = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -704,7 +799,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -896,7 +995,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageStat/ImageStat */ "./src/components/Centerboard/components/ImagesInfo/ImageStat/ImageStat.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1025,7 +1128,11 @@ const ImagesInfo = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1800,7 +1907,11 @@ const RecentActivity = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1981,7 +2092,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/react/outline */ "@heroicons/react/outline");
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -2187,7 +2302,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2611,7 +2730,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/StatGraph/StatGraph */ "./src/components/RightSidebar/components/StatGraph/StatGraph.tsx");
 /* harmony import */ var _components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SocialStats/SocialStats */ "./src/components/RightSidebar/components/SocialStats/SocialStats.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2652,7 +2775,11 @@ const RightSidebar = () => {
     setSidebarnavigator
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_7__["DesignToolContext"]);
   return __jsx("div", {
+<<<<<<< HEAD
     className: " overflow-y-hidden  px-4 ",
+=======
+    className: " overflow-y-hidden  ",
+>>>>>>> staging
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2698,7 +2825,11 @@ const RightSidebar = () => {
       columnNumber: 21
     }
   }))), __jsx("div", {
+<<<<<<< HEAD
     className: "flex flex-col justify-center mx-auto items-center mb-4",
+=======
+    className: "flex flex-col justify-center  items-center mb-4",
+>>>>>>> staging
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2783,6 +2914,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-query */ "react-query");
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_3__);
@@ -2790,6 +2922,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
+=======
+/* harmony import */ var _Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var _TemplatePreview__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TemplatePreview */ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2799,22 +2941,44 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+<<<<<<< HEAD
+=======
+
+const image1 = __webpack_require__(/*! ./../../../../assets/images/01.png */ "./src/assets/images/01.png");
+
+const image2 = __webpack_require__(/*! ./../../../../assets/images/02.png */ "./src/assets/images/02.png");
+
+const image3 = __webpack_require__(/*! ./../../../../assets/images/03.png */ "./src/assets/images/03.png");
+
+const image4 = __webpack_require__(/*! ./../../../../assets/images/04.png */ "./src/assets/images/04.png");
+
+>>>>>>> staging
 const CreateEmail = ({
   bio1,
   bio2,
   bio3,
   bio4
 }) => {
+<<<<<<< HEAD
   const svg1 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["ORIGINAL_SVG_updownicon"]);
   const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(bio4);
   const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const [ShowToolTip, setShowToolTip] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+=======
+  const svg1 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_3__["ORIGINAL_SVG_updownicon"]);
+  const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(bio4);
+  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+>>>>>>> staging
   const [newModal, setNewModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const {
     data,
     error,
     isLoading
+<<<<<<< HEAD
   } = Object(react_query__WEBPACK_IMPORTED_MODULE_3__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_6__["template_service"].getAllTemplates);
+=======
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_4__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_6__["template_service"].getAllTemplates);
+>>>>>>> staging
   console.log({
     data
   });
@@ -2827,7 +2991,11 @@ const CreateEmail = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 45,
+=======
+        lineNumber: 37,
+>>>>>>> staging
         columnNumber: 17
       }
     }, "Getting all templates ..."));
@@ -2838,7 +3006,11 @@ const CreateEmail = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
+<<<<<<< HEAD
         lineNumber: 53,
+=======
+        lineNumber: 45,
+>>>>>>> staging
         columnNumber: 17
       }
     }, error.message));
@@ -2848,7 +3020,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 58,
+=======
+      lineNumber: 50,
+>>>>>>> staging
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2856,7 +3032,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 59,
+=======
+      lineNumber: 51,
+>>>>>>> staging
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2864,7 +3044,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 60,
+=======
+      lineNumber: 52,
+>>>>>>> staging
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2872,7 +3056,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 61,
+=======
+      lineNumber: 53,
+>>>>>>> staging
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -2881,7 +3069,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 62,
+=======
+      lineNumber: 54,
+>>>>>>> staging
       columnNumber: 25
     }
   }), __jsx("h1", {
@@ -2889,7 +3081,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 64,
+=======
+      lineNumber: 56,
+>>>>>>> staging
       columnNumber: 25
     }
   }, bio1)), __jsx("div", {
@@ -2897,7 +3093,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 66,
+=======
+      lineNumber: 58,
+>>>>>>> staging
       columnNumber: 21
     }
   }, __jsx("p", {
@@ -2905,7 +3105,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 67,
+=======
+      lineNumber: 59,
+>>>>>>> staging
       columnNumber: 25
     }
   }, bio2)), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -2913,6 +3117,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 71,
       columnNumber: 21
     }
@@ -2924,6 +3129,17 @@ const CreateEmail = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 72,
+=======
+      lineNumber: 63,
+      columnNumber: 21
+    }
+  }), __jsx("button", {
+    onClick: () => setShowModal(true),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+>>>>>>> staging
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -2931,7 +3147,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 75,
+=======
+      lineNumber: 65,
+>>>>>>> staging
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2944,7 +3164,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 76,
+=======
+      lineNumber: 66,
+>>>>>>> staging
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2956,7 +3180,11 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 84,
+=======
+      lineNumber: 74,
+>>>>>>> staging
       columnNumber: 33
     }
   })), __jsx("p", {
@@ -2964,6 +3192,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 93,
       columnNumber: 29
     }
@@ -3568,18 +3797,404 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 107,
+=======
+      lineNumber: 83,
+      columnNumber: 29
+    }
+  }, bio3))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 21
+    }
+  }, newModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    className: "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 33
+    }
+  }, __jsx("div", {
+    className: "relative w-auto max-w-3xl mx-auto my-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 37
+    }
+  }, __jsx("div", {
+    className: "relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 41
+    }
+  }, __jsx("div", {
+    className: "flex items-start justify-between p-5 rounded-t border-blueGray-200",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 45
+    }
+  }, __jsx("h3", {
+    className: "text-3xl font-bold leading-9 font-inter text-gray900",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 49
+    }
+  }, "Create New Personalized Email"), __jsx("button", {
+    className: "float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-20 focus:outline-none",
+    onClick: () => setNewModal(false),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100,
+      columnNumber: 49
+    }
+  }, __jsx("span", {
+    className: "block w-6 h-6 text-2xl text-black bg-white outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 53
+    }
+  }, "\xD7"))), __jsx("div", {
+    className: "relative flex-auto p-6 mb-6 text-lg font-bold text-createEmail font-inter ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 45
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 49
+    }
+  }, " Create For Email"), __jsx("div", {
+    className: "flex justify-between gap-4 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112,
+      columnNumber: 49
+    }
+  }, __jsx("div", {
+    className: "h-40 border-2 border-transparent shadow-md w-96 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 53
+    }
+  }, __jsx("button", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 57
+    }
+  }, __jsx("div", {
+    className: "flex p-10 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 61
+    }
+  }, __jsx("svg", {
+    width: "60",
+    height: "72",
+    viewBox: "0 0 60 72",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116,
+      columnNumber: 65
+    }
+  }, __jsx("rect", {
+    width: "60",
+    height: "72",
+    fill: "#F3F4F6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 69
+    }
+  })), __jsx("div", {
+    className: "mt-2 ml-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125,
+      columnNumber: 65
+    }
+  }, __jsx("div", {
+    className: "font-bold text-left text-createEmail font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 69
+    }
+  }, __jsx("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 73
+    }
+  }, "HEADER")), __jsx("div", {
+    className: "text-sm text-createEmail2 font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129,
+      columnNumber: 69
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130,
+      columnNumber: 73
+    }
+  }, "Dimensions:1920x240")))))), __jsx("div", {
+    className: "h-40 border-2 border-transparent shadow-md w-72 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 136,
+      columnNumber: 53
+    }
+  }, __jsx("button", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 137,
+      columnNumber: 57
+    }
+  }, __jsx("div", {
+    className: "flex p-8",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 138,
+      columnNumber: 61
+    }
+  }, __jsx("svg", {
+    width: "60",
+    height: "72",
+    viewBox: "0 0 60 72",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 139,
+      columnNumber: 65
+    }
+  }, __jsx("rect", {
+    width: "60",
+    height: "72",
+    fill: "#F3F4F6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 69
+    }
+  })), __jsx("div", {
+    className: "mt-2 ml-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 148,
+      columnNumber: 65
+    }
+  }, __jsx("div", {
+    className: "font-bold text-left text-createEmail font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 149,
+      columnNumber: 69
+    }
+  }, __jsx("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 150,
+      columnNumber: 73
+    }
+  }, "BODY")), __jsx("div", {
+    className: "text-sm text-createEmail2 font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+      columnNumber: 69
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153,
+      columnNumber: 73
+    }
+  }, "Dimensions:1080x1080"))))))), __jsx("div", {
+    className: "mt-6 mb-6 text-lg font-bold text-createEmail font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 160,
+      columnNumber: 49
+    }
+  }, "Create For Social Media"), __jsx("div", {
+    className: "flex justify-between gap-4 mb-3",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 163,
+      columnNumber: 49
+    }
+  }, __jsx("button", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164,
+      columnNumber: 53
+    }
+  }, __jsx("div", {
+    className: "h-40 border-2 border-transparent shadow-md w-96 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 57
+    }
+  }, __jsx("div", {
+    className: "flex p-10 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 61
+    }
+  }, __jsx("svg", {
+    width: "60",
+    height: "72",
+    viewBox: "0 0 60 72",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167,
+      columnNumber: 65
+    }
+  }, __jsx("rect", {
+    width: "60",
+    height: "72",
+    fill: "#F3F4F6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 69
+    }
+  })), __jsx("div", {
+    className: "mt-2 ml-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 176,
+      columnNumber: 65
+    }
+  }, __jsx("div", {
+    className: "font-bold text-left text-createEmail font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 177,
+      columnNumber: 69
+    }
+  }, __jsx("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 178,
+      columnNumber: 73
+    }
+  }, "Feature IMAGE")), __jsx("div", {
+    className: "text-sm text-createEmail2 font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 180,
+      columnNumber: 69
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181,
+      columnNumber: 73
+    }
+  }, "Dimensions:1080x1080"))))))))))), __jsx("div", {
+    className: "fixed inset-0 z-0 bg-black opacity-25 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 203,
+      columnNumber: 33
+    }
+  })) : null), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 21
+    }
+  }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", __jsx("div", {
+    className: "fixed inset-0 z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 214,
+>>>>>>> staging
       columnNumber: 33
     }
   }, __jsx("div", {
     className: "relative z-50 max-w-4xl mx-auto my-6 bg-white rounded-md",
     style: {
+<<<<<<< HEAD
       width: "1027px",
       height: "100vh"
+=======
+      height: "90vh"
+>>>>>>> staging
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 108,
+=======
+      lineNumber: 215,
+>>>>>>> staging
       columnNumber: 37
     }
   }, " ", __jsx("div", {
@@ -3587,6 +4202,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 113,
       columnNumber: 41
     }
@@ -3630,13 +4246,61 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 126,
+=======
+      lineNumber: 221,
+      columnNumber: 41
+    }
+  }, __jsx("div", {
+    className: " ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 222,
+      columnNumber: 45
+    }
+  }, __jsx("div", {
+    className: " top-0  ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 223,
+      columnNumber: 49
+    }
+  }, __jsx("button", {
+    className: "flex items-center ml-auto mr-2  text-sm font-semibold leading-none text-black opacity-30 rounded-full outline-none focus:outline-none",
+    onClick: () => setShowModal(false),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 224,
+      columnNumber: 53
+    }
+  }, __jsx("span", {
+    className: "  text-2xl top-0   outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 228,
+      columnNumber: 57
+    }
+  }, "\xD7"))), __jsx("div", {
+    className: "flex items-start justify-between w-full px-5  pb-5 border-b border-solid rounded-t border-bordercolor",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 233,
+>>>>>>> staging
       columnNumber: 49
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 127,
+=======
+      lineNumber: 234,
+>>>>>>> staging
       columnNumber: 53
     }
   }, __jsx("h3", {
@@ -3644,7 +4308,11 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 128,
+=======
+      lineNumber: 235,
+>>>>>>> staging
       columnNumber: 57
     }
   }, "Select Template")), __jsx("div", {
@@ -3652,6 +4320,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 132,
       columnNumber: 53
     }
@@ -4138,11 +4807,334 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
       columnNumber: 57
     }
   }, "See all")))), __jsx("div", {
+=======
+      lineNumber: 239,
+      columnNumber: 53
+    }
+  }, __jsx("div", {
+    className: "flex flex-row h-8 px-2  border-2 rounded-md text-gray900 w border-bordercolor",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 57
+    }
+  }, __jsx("button", {
+    className: "pr-2 text-sm",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 241,
+      columnNumber: 61
+    }
+  }, "Most Popular", " "), __jsx("img", {
+    className: "w-2 ",
+    src: svg1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 244,
+      columnNumber: 61
+    }
+  }))))), __jsx("div", {
+    className: "flex justify-center w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 250,
+      columnNumber: 45
+    }
+  }, __jsx("div", {
+    className: "w-3/6 mt-3 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 251,
+      columnNumber: 49
+    }
+  }, __jsx(_Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 252,
+      columnNumber: 53
+    }
+  }))), __jsx("div", {
+    className: "flex gap-4 px-6 mt-3 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 45
+    }
+  }, __jsx("button", {
+    className: "h-10 px-4 py-1 rounded-md bg-lightindigo text-indigo700",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 256,
+      columnNumber: 49
+    }
+  }, "Employes"), __jsx("button", {
+    className: "h-10 px-3 py-1 rounded-md bg-lightindigo text-indigo700",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 49
+    }
+  }, "Events"), __jsx("button", {
+    className: "h-10 px-4 py-1 rounded-md bg-lightindigo text-indigo700",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 262,
+      columnNumber: 49
+    }
+  }, "Promotion"), __jsx("button", {
+    className: "h-10 px-3 py-1 rounded-md bg-lightindigo text-indigo700",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 265,
+      columnNumber: 49
+    }
+  }, "Property")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269,
+      columnNumber: 45
+    }
+  }, __jsx("h1", {
+    className: "px-6 mt-6 text-xl font-bold text-gray94",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 270,
+      columnNumber: 49
+    }
+  }, "Your Designs")), __jsx("div", {
+    className: "flex flex-row gap-4 pl-6 mt-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 274,
+      columnNumber: 45
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 275,
+      columnNumber: 49
+    }
+  }, __jsx("button", {
+    className: "flex flex-col items-center justify-center py-4 border-2 border-dashed rounded-md border-bordercolor ",
+    onClick: () => {
+      setNewModal(true);
+      setShowModal(false);
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 276,
+      columnNumber: 53
+    }
+  }, __jsx("svg", {
+    className: "w-7",
+    viewBox: "0 0 47 47",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 283,
+      columnNumber: 57
+    }
+  }, __jsx("g", {
+    filter: "url(#filter0_d)",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 289,
+      columnNumber: 61
+    }
+  }, __jsx("path", {
+    d: "M2.24609 22.5C2.24609 10.902 11.6481 1.5 23.2461 1.5C34.8441 1.5 44.2461 10.902 44.2461 22.5C44.2461 34.098 34.8441 43.5 23.2461 43.5C11.6481 43.5 2.24609 34.098 2.24609 22.5Z",
+    fill: "#4F46E5",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 290,
+      columnNumber: 65
+    }
+  }), __jsx("path", {
+    d: "M23.2461 16.5V22.5M23.2461 22.5V28.5M23.2461 22.5H29.2461M23.2461 22.5L17.2461 22.5",
+    stroke: "white",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 294,
+      columnNumber: 65
+    }
+  })), __jsx("defs", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 302,
+      columnNumber: 61
+    }
+  }, __jsx("filter", {
+    id: "filter0_d",
+    x: "0.246094",
+    y: "0.5",
+    width: "46",
+    height: "46",
+    filterUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 303,
+      columnNumber: 65
+    }
+  }, __jsx("feFlood", {
+    "flood-opacity": "0",
+    result: "BackgroundImageFix",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 312,
+      columnNumber: 69
+    }
+  }), __jsx("feColorMatrix", {
+    in: "SourceAlpha",
+    type: "matrix",
+    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+    result: "hardAlpha",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 316,
+      columnNumber: 69
+    }
+  }), __jsx("feOffset", {
+    dy: "1",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 322,
+      columnNumber: 69
+    }
+  }), __jsx("feGaussianBlur", {
+    stdDeviation: "1",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 323,
+      columnNumber: 69
+    }
+  }), __jsx("feColorMatrix", {
+    type: "matrix",
+    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 324,
+      columnNumber: 69
+    }
+  }), __jsx("feBlend", {
+    mode: "normal",
+    in2: "BackgroundImageFix",
+    result: "effect1_dropShadow",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 328,
+      columnNumber: 69
+    }
+  }), __jsx("feBlend", {
+    mode: "normal",
+    in: "SourceGraphic",
+    in2: "effect1_dropShadow",
+    result: "shape",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 333,
+      columnNumber: 69
+    }
+  })))), __jsx("p", {
+    className: "w-5/6 mt-1 text-sm text-lightGray",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 342,
+      columnNumber: 57
+    }
+  }, "Create New Personalized Template"))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 347,
+      columnNumber: 49
+    }
+  }, __jsx("div", {
+    className: "pl-2 flex flex-row flex-wrap gap-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 348,
+      columnNumber: 53
+    }
+  }, data.map((item, index) => {
+    return __jsx("div", {
+      key: index,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 351,
+        columnNumber: 65
+      }
+    }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      templateObj: item,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 352,
+        columnNumber: 69
+      }
+    }));
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 365,
+      columnNumber: 45
+    }
+  }, __jsx("h1", {
+    className: "px-6 mt-2 text-xl font-bold text-gray94",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 366,
+      columnNumber: 49
+    }
+  }, "For you")), __jsx("div", {
+>>>>>>> staging
     className: "relative flex-auto p-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 299,
+=======
+      lineNumber: 370,
+>>>>>>> staging
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -4150,14 +5142,22 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 300,
+=======
+      lineNumber: 371,
+>>>>>>> staging
       columnNumber: 49
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 301,
+=======
+      lineNumber: 372,
+>>>>>>> staging
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -4165,17 +5165,26 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 302,
       columnNumber: 57
     }
   }, __jsx("img", {
     src: image4,
+=======
+      lineNumber: 373,
+      columnNumber: 57
+    }
+  }, __jsx("img", {
+    src: image2,
+>>>>>>> staging
     className: "rounded-md",
     width: "200",
     height: "110",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 303,
       columnNumber: 61
     }
@@ -4192,6 +5201,24 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 314,
+=======
+      lineNumber: 374,
+      columnNumber: 61
+    }
+  }), __jsx("p", {
+    className: "mt-3 text-sm text-lightGray",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 380,
+      columnNumber: 61
+    }
+  }, "Welcome card for employee"))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 385,
+>>>>>>> staging
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -4199,7 +5226,11 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 315,
+=======
+      lineNumber: 386,
+>>>>>>> staging
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -4210,6 +5241,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 316,
       columnNumber: 61
     }
@@ -4226,6 +5258,24 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 327,
+=======
+      lineNumber: 387,
+      columnNumber: 61
+    }
+  }), __jsx("p", {
+    className: "mt-2 text-sm text-lightGray",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 393,
+      columnNumber: 61
+    }
+  }, "Welcome card for employee"))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 398,
+>>>>>>> staging
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -4233,17 +5283,26 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 328,
       columnNumber: 57
     }
   }, __jsx("img", {
     src: image1,
+=======
+      lineNumber: 399,
+      columnNumber: 57
+    }
+  }, __jsx("img", {
+    src: image4,
+>>>>>>> staging
     className: "rounded-md",
     width: "200",
     height: "110",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 329,
       columnNumber: 61
     }
@@ -4260,6 +5319,24 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 339,
+=======
+      lineNumber: 400,
+      columnNumber: 61
+    }
+  }), __jsx("p", {
+    className: "mt-2 text-sm text-lightGray",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 406,
+      columnNumber: 61
+    }
+  }, "Welcome card for employee"))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 411,
+>>>>>>> staging
       columnNumber: 53
     }
   }, __jsx("button", {
@@ -4267,7 +5344,11 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 340,
+=======
+      lineNumber: 412,
+>>>>>>> staging
       columnNumber: 57
     }
   }, __jsx("img", {
@@ -4278,6 +5359,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 341,
       columnNumber: 61
     }
@@ -4287,6 +5369,17 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __source: {
       fileName: _jsxFileName,
       lineNumber: 347,
+=======
+      lineNumber: 413,
+      columnNumber: 61
+    }
+  }), __jsx("p", {
+    className: "mt-2 text-sm text-lightGray",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 419,
+>>>>>>> staging
       columnNumber: 61
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -4294,6 +5387,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 357,
       columnNumber: 33
     }
@@ -4629,6 +5723,470 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
   }));
 });
 /* harmony default export */ __webpack_exports__["default"] = (PersonalizedImageModal);
+=======
+      lineNumber: 429,
+      columnNumber: 33
+    }
+  })) : null))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CreateEmail);
+
+/***/ }),
+
+/***/ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+const Elements = ({
+  konvaItem,
+  index
+}) => {
+  if (!konvaItem) return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "rectangle" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "circle" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Circle"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "line" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Line"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "polygon" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["RegularPolygon"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "svg" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Image"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "image" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Image"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "text" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Text"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 17
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Elements);
+
+/***/ }),
+
+/***/ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+const TemplatePreview = ({
+  templateObj
+}) => {
+  var _templateObj$variatio, _templateObj$variatio2;
+
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
+  const {
+    0: templateData,
+    1: setTemplateData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__["TemplateContext"]);
+  console.log(templateObj);
+
+  const handleEditTemplate = () => {
+    setTemplateData(templateObj, false);
+    navigate(`/createcard`);
+  };
+
+  return __jsx("button", {
+    // onClick={handleEditTemplate}
+    className: "border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], {
+    width: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width * 0.2,
+    height: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height * 0.2,
+    scaleX: 0.2,
+    scaleY: 0.2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 13
+    }
+  }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
+    listening: false,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  }, templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$variatio = templateObj.variations[0]) === null || _templateObj$variatio === void 0 ? void 0 : (_templateObj$variatio2 = _templateObj$variatio.elements) === null || _templateObj$variatio2 === void 0 ? void 0 : _templateObj$variatio2.map((item, index) => __jsx(_Elements__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    key: index,
+    konvaItem: item,
+    index: index,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 25
+    }
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TemplatePreview);
+
+/***/ }),
+
+/***/ "./src/components/RightSidebar/components/ImagePreview/ImagePreview.tsx":
+/*!******************************************************************************!*\
+  !*** ./src/components/RightSidebar/components/ImagePreview/ImagePreview.tsx ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+const ImagePreview = ({
+  date,
+  creator,
+  last_edited_by,
+  image
+}) => {
+  const svg1 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_editicon"]);
+  const svg2 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_attachementicon"]);
+  const svg3 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_1__["ORIGINAL_SVG_deleteicon"]);
+  return __jsx("div", {
+    className: "mt-4 overflow-y-auto overscroll-y-auto w-full  flex self-center  justify-center border  rounded-lg pb-10 shadow-md",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: " pt-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "flex justify-center flex-col items-center px-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "flex flex-row",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 21
+    }
+  }, __jsx("div", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 25
+    }
+  }, __jsx("img", {
+    className: "w-24 h-24 border-0 rounded-md ml-24",
+    src: image,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 29
+    }
+  })), __jsx("button", {
+    className: "top-0 pb-16 ml-8 text-indigo600",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 25
+    }
+  }, "Preview")), __jsx("p", {
+    className: "text-base leading-6 font-medium text-gray900 pt-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 21
+    }
+  }, "My brand sales campaign")), __jsx("div", {
+    className: "flex flex-row justify-center mt-4 px-8",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "flex flex-row",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row border px-2 py-1 rounded-md items-center text-sm text-gray94 border-bordercolor shadow-sm ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 25
+    }
+  }, __jsx("img", {
+    className: "pr-2 w-6",
+    src: svg1,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 150
+    }
+  }), "Edit")), __jsx("div", {
+    className: "flex flex-row px-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row border px-2 py-1 rounded-md items-center text-gray94 text-sm border-bordercolor shadow-sm",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 25
+    }
+  }, __jsx("img", {
+    className: "pr-2 w-6",
+    src: svg2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 149
+    }
+  }), "Use as")), __jsx("div", {
+    className: "flex flex-row",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "flex flex-row border px-2 py-1 rounded-md items-center text-sm text-gray94 border-bordercolor shadow-sm",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 25
+    }
+  }, __jsx("img", {
+    className: "pr-2 w-6",
+    src: svg3,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 149
+    }
+  }), "Archive"))), __jsx("div", {
+    className: " flex justify-center border-t border-gallery mt-4 mb-4 w-full px-0",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 17
+    }
+  }), __jsx("div", {
+    className: "flex flex-col justify-evenly",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "flex flex-row justify-evenly mb-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 21
+    }
+  }, __jsx("h1", {
+    className: " text-gray95 font-medium",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 25
+    }
+  }, "Date Created"), __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 83
+    }
+  }, date)), __jsx("div", {
+    className: "flex flex-row justify-between px-16 mb-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 21
+    }
+  }, __jsx("h1", {
+    className: "text-gray95 font-medium",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 25
+    }
+  }, "Created by"), __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 80
+    }
+  }, creator)), __jsx("div", {
+    className: "flex flex-row justify-evenly mb-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 21
+    }
+  }, __jsx("h1", {
+    className: "text-gray95 font-medium",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 25
+    }
+  }, "Last Edited by"), __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 84
+    }
+  }, last_edited_by)))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ImagePreview);
+>>>>>>> staging
 
 /***/ }),
 
@@ -4645,7 +6203,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -4854,7 +6416,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 

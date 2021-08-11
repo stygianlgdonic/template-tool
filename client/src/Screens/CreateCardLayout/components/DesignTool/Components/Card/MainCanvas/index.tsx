@@ -4,7 +4,13 @@ import MainStage from './MainStage';
 import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
 import CardHeaderActions from '../../../../../../../contexts/DesignTool/CardHeaderActions';
 
-const DesignTool: React.FC = () => {
+interface Props {
+    $stage: any
+    $layer: any
+    $tr: any
+}
+
+const DesignTool: React.FC<Props> = ({ $stage, $layer, $tr }) => {
 
     const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
 
@@ -15,11 +21,11 @@ const DesignTool: React.FC = () => {
 
     useEffect(() => {
         if (!!selectedId) {
-            const dude = cardData.elements.find((item, index) => selectedId === item.id)
-            if (dude?.type === 'text') {
+            const shape = cardData.elements.find((item, index) => selectedId === item.id)
+            if (shape?.type === 'text') {
                 selectTextCardHeader()
             }
-            if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
+            if (shape?.type === 'rectangle' || shape?.type === 'svg' || shape?.type === 'circle' || shape?.type === 'polygon' || shape?.type === 'line') {
                 selectShapeCardHeader()
             }
         }
@@ -52,6 +58,9 @@ const DesignTool: React.FC = () => {
         <div className="min-w-max  flex justify-center flex-col h-full">
             <div className="flex justify-center mt-5 h-full">
                 <MainStage
+                    $stage={$stage}
+                    $layer={$layer}
+                    $tr={$tr}
                     cardData={cardData}
                     setCardData={setCardData}
                     selectedId={selectedId}

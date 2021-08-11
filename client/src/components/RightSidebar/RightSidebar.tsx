@@ -41,7 +41,7 @@ const RightSidebar: React.FC = () => {
     } = useContext(DesignToolContext)
 
     return (
-        <div className=" overflow-y-hidden  px-4 ">
+        <div className=" overflow-y-hidden  ">
 
             <div className={dashboardnavigator === "home" ? " h-screen flex items-center justify-center   " : "hidden"}>
                 <div className="flex flex-col items-center  h-screen justify-center  ">
@@ -52,7 +52,7 @@ const RightSidebar: React.FC = () => {
             </div>
 
 
-            <div className="flex flex-col justify-center mx-auto items-center mb-4">
+            <div className="flex flex-col justify-center  items-center mb-4">
 
                 <div className={dashboardnavigator === "images" && sidebarnavigator === "stat" ? "" : "hidden"}>
                     <ImagePreview date={date} creator={creator} last_edited_by={last_edited_by} image={image1} />

@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "8c691bc790d535d32b83";
+=======
+/******/ 	var hotCurrentHash = "608bb39b50c41514901b";
+>>>>>>> staging
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1362,7 +1366,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
 /* harmony import */ var _contexts_HeaderContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contexts/HeaderContext */ "./src/contexts/HeaderContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\App.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\App.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1547,7 +1555,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesingToolReducers */ "./src/contexts/DesignTool/DesingToolReducers.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1754,7 +1766,12 @@ const designToolReducer = (designToolState, action) => {
     case 'Empty_Card_Header':
       {
         return _objectSpread(_objectSpread({}, designToolState), {}, {
+<<<<<<< HEAD
           card_header_state: ""
+=======
+          card_header_state: "",
+          sub_navbar_selection: designToolState.navbar_selection
+>>>>>>> staging
         });
       }
 
@@ -1779,7 +1796,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1821,7 +1842,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1988,7 +2013,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\src\\server.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\server.tsx";
+>>>>>>> staging
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -2047,7 +2076,11 @@ const renderApp = (req, res) => {
     };
   }
 };
+<<<<<<< HEAD
 const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\Hussnian.usman300\\Documents\\GitHub\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+=======
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("D:\\dev\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+>>>>>>> staging
   const {
     html = '',
     redirect = false
@@ -2143,9 +2176,15 @@ const defaultRect = {
   y: 150,
   width: 100,
   stroke: "#000000",
+<<<<<<< HEAD
   strokeWidth: 4,
   height: 100,
   fill: '#FF0000',
+=======
+  strokeWidth: 0,
+  height: 100,
+  fill: '#D1D5DB',
+>>>>>>> staging
   draggable: true,
   type: "rectangle"
 };
@@ -2155,10 +2194,17 @@ const defaultRoundedRect = {
   y: 250,
   width: 100,
   stroke: "#000000",
+<<<<<<< HEAD
   strokeWidth: 4,
   height: 100,
   cornerRadius: 10,
   fill: '#FF0000',
+=======
+  strokeWidth: 0,
+  height: 100,
+  cornerRadius: 10,
+  fill: '#D1D5DB',
+>>>>>>> staging
   draggable: true,
   type: "rectangle"
 };
@@ -2168,8 +2214,13 @@ const defaultCircle = {
   y: 100,
   radius: 50,
   stroke: "#000000",
+<<<<<<< HEAD
   strokeWidth: 4,
   fill: '#FF0000',
+=======
+  strokeWidth: 0,
+  fill: '#D1D5DB',
+>>>>>>> staging
   draggable: true,
   type: "circle"
 };
@@ -2179,9 +2230,15 @@ const defaultPolygon = {
   y: 150,
   sides: 6,
   stroke: "#000000",
+<<<<<<< HEAD
   strokeWidth: 4,
   radius: 70,
   fill: '#FF0000',
+=======
+  strokeWidth: 0,
+  radius: 70,
+  fill: '#D1D5DB',
+>>>>>>> staging
   type: "polygon"
 };
 const defaultTriangle = {
@@ -2189,8 +2246,13 @@ const defaultTriangle = {
   x: 20,
   y: 200,
   stroke: "#000000",
+<<<<<<< HEAD
   strokeWidth: 4,
   fill: "#FF0000",
+=======
+  strokeWidth: 0,
+  fill: "#D1D5DB",
+>>>>>>> staging
   points: [0, 100, 50, 0, 100, 100],
   tension: 0,
   closed: true,
@@ -2331,10 +2393,17 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
 __webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
 __webpack_require__(/*! C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\src */"./src/index.ts");
 module.exports = __webpack_require__(/*! !!C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\Hussnian.usman300\Documents\GitHub\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+=======
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+>>>>>>> staging
 
 
 /***/ }),
