@@ -1234,19 +1234,17 @@ const MainStage = ({
     }
 
     $layer.current.batchDraw();
-  };
+  }; // const checkDeselect = (e) => {
+  //     // deselect when clicked on empty area
+  //     const clickedOnEmpty = e.target === e.target.getStage();
+  //     if (clickedOnEmpty) {
+  //         setSelectedId(null);
+  //         $tr.current.nodes([]);
+  //         setNodes([]);
+  //         // layerRef.current.remove(selectionRectangle);
+  //     }
+  // };
 
-  const checkDeselect = e => {
-    console.log("check deselect"); // deselect when clicked on empty area
-
-    const clickedOnEmpty = e.target === e.target.getStage();
-
-    if (clickedOnEmpty) {
-      setSelectedId(null);
-      $tr.current.nodes([]);
-      setNodes([]); // layerRef.current.remove(selectionRectangle);
-    }
-  };
 
   const updateSelectionRect = () => {
     const node = selectionRectRef.current;
@@ -1321,62 +1319,56 @@ const MainStage = ({
 
     Konva.listenClickTap = false;
     updateSelectionRect();
-  };
+  }; // 
+  // const onClickTap = (e) => {
+  //     // if we are selecting with rect, do nothing
+  //     if (selectionRectRef.current.visible()) {
+  //         return;
+  //     }
+  //     let stage = e.target.getStage();
+  //     let layer = $layer.current;
+  //     let tr = $tr.current;
+  //     // if click on empty area - remove all selections
+  //     if (e.target.attrs.id === stage) {
+  //         setSelectedId(null);
+  //         setNodes([]);
+  //         tr.nodes([]);
+  //         layer.draw();
+  //         return;
+  //     }
+  //     // do nothing if clicked NOT on our rectangles
+  //     if (!e.target.hasName(".object")) {
+  //         return;
+  //     }
+  //     // do we pressed shift or ctrl?
+  //     const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+  //     const isSelected = tr.nodes().indexOf(e.target) >= 0;
+  //     if (!metaPressed && !isSelected) {
+  //         // if no key pressed and the node is not selected
+  //         // select just one
+  //         tr.nodes([e.target]);
+  //     } else if (metaPressed && isSelected) {
+  //         // if we pressed keys and node was selected
+  //         // we need to remove it from selection:
+  //         const nodes = tr.nodes().slice(); // use slice to have new copy of array
+  //         // remove node from array
+  //         nodes.splice(nodes.indexOf(e.target), 1);
+  //         tr.nodes(nodes);
+  //     } else if (metaPressed && !isSelected) {
+  //         // add the node into selection
+  //         const nodes = tr.nodes().concat([e.target]);
+  //         tr.nodes(nodes);
+  //     }
+  //     layer.draw();
+  // };
 
-  const onClickTap = e => {
-    // if we are selecting with rect, do nothing
-    if (selectionRectRef.current.visible()) {
-      return;
-    }
-
-    let stage = e.target.getStage();
-    let layer = $layer.current;
-    let tr = $tr.current; // if click on empty area - remove all selections
-
-    if (e.target === stage) {
-      setSelectedId(null);
-      setNodes([]);
-      tr.nodes([]);
-      layer.draw();
-      return;
-    } // do nothing if clicked NOT on our rectangles
-
-
-    if (!e.target.hasName(".object")) {
-      return;
-    } // do we pressed shift or ctrl?
-
-
-    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-    const isSelected = tr.nodes().indexOf(e.target) >= 0;
-
-    if (!metaPressed && !isSelected) {
-      // if no key pressed and the node is not selected
-      // select just one
-      tr.nodes([e.target]);
-    } else if (metaPressed && isSelected) {
-      // if we pressed keys and node was selected
-      // we need to remove it from selection:
-      const nodes = tr.nodes().slice(); // use slice to have new copy of array
-      // remove node from array
-
-      nodes.splice(nodes.indexOf(e.target), 1);
-      tr.nodes(nodes);
-    } else if (metaPressed && !isSelected) {
-      // add the node into selection
-      const nodes = tr.nodes().concat([e.target]);
-      tr.nodes(nodes);
-    }
-
-    layer.draw();
-  };
 
   return __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], _extends({
     ref: $stage,
     onMouseDown: onMouseDown,
     onMouseUp: onMouseUp,
-    onMouseMove: onMouseMove,
-    onTouchStart: checkDeselect
+    onMouseMove: onMouseMove // onTouchStart={checkDeselect}
+
   }, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"], {
     __self: undefined,
     __source: {
@@ -1409,8 +1401,6 @@ const MainStage = ({
 
         if (elem.id !== "shapes_background") {
           setSelectedId(elem.id);
-        } else {
-          onClickTap(e);
         }
       } // onSelect={() => {
       //     setSelectedId(rect.id)
@@ -1444,7 +1434,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 439,
+        lineNumber: 437,
         columnNumber: 25
       }
     });
@@ -1463,7 +1453,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 455,
+        lineNumber: 453,
         columnNumber: 25
       }
     });
@@ -1482,7 +1472,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 471,
+        lineNumber: 469,
         columnNumber: 25
       }
     });
@@ -1499,7 +1489,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 487,
+        lineNumber: 485,
         columnNumber: 25
       }
     });
@@ -1516,7 +1506,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 504,
+        lineNumber: 502,
         columnNumber: 25
       }
     });
@@ -1533,7 +1523,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 521,
+        lineNumber: 519,
         columnNumber: 25
       }
     });
@@ -1545,7 +1535,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 536,
+      lineNumber: 534,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1554,7 +1544,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 542,
+      lineNumber: 540,
       columnNumber: 17
     }
   })));

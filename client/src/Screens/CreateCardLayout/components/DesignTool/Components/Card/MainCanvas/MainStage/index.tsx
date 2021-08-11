@@ -261,17 +261,16 @@ const MainStage = ({
         $layer.current.batchDraw();
     };
 
-    const checkDeselect = (e) => {
-        console.log("check deselect")
-        // deselect when clicked on empty area
-        const clickedOnEmpty = e.target === e.target.getStage();
-        if (clickedOnEmpty) {
-            setSelectedId(null);
-            $tr.current.nodes([]);
-            setNodes([]);
-            // layerRef.current.remove(selectionRectangle);
-        }
-    };
+    // const checkDeselect = (e) => {
+    //     // deselect when clicked on empty area
+    //     const clickedOnEmpty = e.target === e.target.getStage();
+    //     if (clickedOnEmpty) {
+    //         setSelectedId(null);
+    //         $tr.current.nodes([]);
+    //         setNodes([]);
+    //         // layerRef.current.remove(selectionRectangle);
+    //     }
+    // };
 
     const updateSelectionRect = () => {
         const node = selectionRectRef.current;
@@ -344,50 +343,51 @@ const MainStage = ({
         updateSelectionRect();
     };
 
-    const onClickTap = (e) => {
-        // if we are selecting with rect, do nothing
-        if (selectionRectRef.current.visible()) {
-            return;
-        }
-        let stage = e.target.getStage();
-        let layer = $layer.current;
-        let tr = $tr.current;
-        // if click on empty area - remove all selections
-        if (e.target === stage) {
-            setSelectedId(null);
-            setNodes([]);
-            tr.nodes([]);
-            layer.draw();
-            return;
-        }
+    // 
+    // const onClickTap = (e) => {
+    //     // if we are selecting with rect, do nothing
+    //     if (selectionRectRef.current.visible()) {
+    //         return;
+    //     }
+    //     let stage = e.target.getStage();
+    //     let layer = $layer.current;
+    //     let tr = $tr.current;
+    //     // if click on empty area - remove all selections
+    //     if (e.target.attrs.id === stage) {
+    //         setSelectedId(null);
+    //         setNodes([]);
+    //         tr.nodes([]);
+    //         layer.draw();
+    //         return;
+    //     }
 
-        // do nothing if clicked NOT on our rectangles
-        if (!e.target.hasName(".object")) {
-            return;
-        }
+    //     // do nothing if clicked NOT on our rectangles
+    //     if (!e.target.hasName(".object")) {
+    //         return;
+    //     }
 
-        // do we pressed shift or ctrl?
-        const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-        const isSelected = tr.nodes().indexOf(e.target) >= 0;
+    //     // do we pressed shift or ctrl?
+    //     const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+    //     const isSelected = tr.nodes().indexOf(e.target) >= 0;
 
-        if (!metaPressed && !isSelected) {
-            // if no key pressed and the node is not selected
-            // select just one
-            tr.nodes([e.target]);
-        } else if (metaPressed && isSelected) {
-            // if we pressed keys and node was selected
-            // we need to remove it from selection:
-            const nodes = tr.nodes().slice(); // use slice to have new copy of array
-            // remove node from array
-            nodes.splice(nodes.indexOf(e.target), 1);
-            tr.nodes(nodes);
-        } else if (metaPressed && !isSelected) {
-            // add the node into selection
-            const nodes = tr.nodes().concat([e.target]);
-            tr.nodes(nodes);
-        }
-        layer.draw();
-    };
+    //     if (!metaPressed && !isSelected) {
+    //         // if no key pressed and the node is not selected
+    //         // select just one
+    //         tr.nodes([e.target]);
+    //     } else if (metaPressed && isSelected) {
+    //         // if we pressed keys and node was selected
+    //         // we need to remove it from selection:
+    //         const nodes = tr.nodes().slice(); // use slice to have new copy of array
+    //         // remove node from array
+    //         nodes.splice(nodes.indexOf(e.target), 1);
+    //         tr.nodes(nodes);
+    //     } else if (metaPressed && !isSelected) {
+    //         // add the node into selection
+    //         const nodes = tr.nodes().concat([e.target]);
+    //         tr.nodes(nodes);
+    //     }
+    //     layer.draw();
+    // };
 
 
     return (
@@ -396,7 +396,7 @@ const MainStage = ({
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
-            onTouchStart={checkDeselect}
+            // onTouchStart={checkDeselect}
             {...stageDimensions}
         >
             <Layer
@@ -419,8 +419,6 @@ const MainStage = ({
                                 }
                                 if (elem.id !== "shapes_background") {
                                     setSelectedId(elem.id);
-                                } else {
-                                    onClickTap(e)
                                 }
                             }}
                             // onSelect={() => {
