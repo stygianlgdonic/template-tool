@@ -262,6 +262,7 @@ const MainStage = ({
     };
 
     const checkDeselect = (e) => {
+        console.log("check deselect")
         // deselect when clicked on empty area
         const clickedOnEmpty = e.target === e.target.getStage();
         if (clickedOnEmpty) {
@@ -287,7 +288,7 @@ const MainStage = ({
 
     const oldPos = React.useRef(null);
     const onMouseDown = (e) => {
-        const isElement = e.target.findAncestor(".elements-container");
+        const isElement = e.target.attrs.id !== "shapes_background";
         const isTransformer = e.target.findAncestor("Transformer");
         if (isElement || isTransformer) {
             return;

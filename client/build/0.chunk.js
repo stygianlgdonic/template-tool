@@ -1237,7 +1237,8 @@ const MainStage = ({
   };
 
   const checkDeselect = e => {
-    // deselect when clicked on empty area
+    console.log("check deselect"); // deselect when clicked on empty area
+
     const clickedOnEmpty = e.target === e.target.getStage();
 
     if (clickedOnEmpty) {
@@ -1263,7 +1264,7 @@ const MainStage = ({
   const oldPos = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
 
   const onMouseDown = e => {
-    const isElement = e.target.findAncestor(".elements-container");
+    const isElement = e.target.attrs.id !== "shapes_background";
     const isTransformer = e.target.findAncestor("Transformer");
 
     if (isElement || isTransformer) {
@@ -1380,7 +1381,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 393,
+      lineNumber: 394,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1390,7 +1391,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 401,
+      lineNumber: 402,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1424,7 +1425,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 408,
+        lineNumber: 409,
         columnNumber: 25
       }
     });
@@ -1443,7 +1444,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 438,
+        lineNumber: 439,
         columnNumber: 25
       }
     });
@@ -1462,7 +1463,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 454,
+        lineNumber: 455,
         columnNumber: 25
       }
     });
@@ -1481,7 +1482,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 470,
+        lineNumber: 471,
         columnNumber: 25
       }
     });
@@ -1498,7 +1499,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 486,
+        lineNumber: 487,
         columnNumber: 25
       }
     });
@@ -1515,7 +1516,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 503,
+        lineNumber: 504,
         columnNumber: 25
       }
     });
@@ -1532,7 +1533,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 520,
+        lineNumber: 521,
         columnNumber: 25
       }
     });
@@ -1544,7 +1545,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 535,
+      lineNumber: 536,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1553,7 +1554,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 541,
+      lineNumber: 542,
       columnNumber: 17
     }
   })));
@@ -2173,10 +2174,6 @@ const TransformerComponent = ({
 
   const checkNode = () => {
     const trNodes = $tr.current.nodes();
-    console.log({
-      trNodes
-    }); // return
-
     const stage = $tr.current.getStage();
     const selectedNode = stage.findOne("#" + selectedShapeName);
 
@@ -2219,14 +2216,14 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_3__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 64,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2234,7 +2231,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 65,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2242,7 +2239,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 66,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2254,7 +2251,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 67,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2265,7 +2262,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 68,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -2273,7 +2270,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 71,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2282,7 +2279,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 72,
       columnNumber: 29
     }
   }))))));
@@ -6438,17 +6435,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const BackgroundColor = () => {
-  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false); //   const [backgroundmodal, setBackgroundModal] = React.useState(false);
-
-  console.log({
-    showModal
-  });
+  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   return __jsx("div", {
     className: "flex flex-col justify-center w-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 7,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -6456,7 +6449,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 8,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -6464,7 +6457,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 9,
       columnNumber: 17
     }
   }, "Select background color")), __jsx("div", {
@@ -6472,14 +6465,14 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 13,
       columnNumber: 13
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 14,
       columnNumber: 17
     }
   }, __jsx("svg", {
@@ -6491,7 +6484,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 15,
       columnNumber: 21
     }
   }, __jsx("path", {
@@ -6503,7 +6496,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 22,
       columnNumber: 25
     }
   }))), __jsx("button", {
@@ -6512,7 +6505,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 32,
       columnNumber: 17
     }
   }), __jsx("button", {
@@ -6520,7 +6513,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 36,
       columnNumber: 17
     }
   }), __jsx("button", {
@@ -6528,7 +6521,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 37,
       columnNumber: 17
     }
   }), __jsx("button", {
@@ -6536,7 +6529,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 38,
       columnNumber: 17
     }
   }), __jsx("button", {
@@ -6544,7 +6537,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 39,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -6554,7 +6547,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 41,
       columnNumber: 13
     }
   }, __jsx(_BackgroundColorModal_BackgroundColorModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -6565,7 +6558,7 @@ const BackgroundColor = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 42,
       columnNumber: 17
     }
   })));

@@ -28,9 +28,6 @@ const TransformerComponent: React.FC<Props> = ({
 
     const checkNode = () => {
         const trNodes = $tr.current.nodes()
-        console.log({ trNodes })
-        // return
-
         const stage = $tr.current.getStage();
         const selectedNode = stage.findOne("#" + selectedShapeName);
         if (selectedNode) {
