@@ -14,6 +14,9 @@ import CardHeaderActions from '../../../../../../../../contexts/DesignTool/CardH
 declare const window: any
 
 const MainStage = ({
+    $stage,
+    $layer,
+    $tr,
     cardData,
     setCardData,
     selectedId,
@@ -24,9 +27,6 @@ const MainStage = ({
 
     // snapping distance
     const GUIDELINE_OFFSET = 10
-    const $stage = useRef(null)
-    const $layer = useRef(null)
-    const $tr = useRef(null)
     const selectionRectRef = useRef(null);
     const selection = useRef({
         visible: false,

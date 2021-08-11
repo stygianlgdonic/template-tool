@@ -8,14 +8,18 @@ const image = require("./../../../../../../../../../../assets/images/opacity.png
 
 type textFontSizeType = "Header" | "Sub header" | "body text"
 
-const TextHeader: React.FC = (): JSX.Element => {
+interface Props {
+    handleDeleteClick: any
+}
+
+const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
     const [values, setValues] = React.useState([0.01])
     const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
     const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
     const [openDropDown, setopenDropDown] = useState(false);
-    const { cardData, selectedId } = useContext(DesignToolContext)
+    const { cardData, selectedId, setSelectedId } = useContext(DesignToolContext)
 
     const selectedText = cardData.elements.find(item => item.id === selectedId)
 
@@ -297,7 +301,7 @@ const TextHeader: React.FC = (): JSX.Element => {
                 </div>
                 <div className="py-4 ml-4 border-r-2 border-bordercolor"></div>
                 <div >
-                    <button className=" flex bg-transparent hover:bg-deletecolor rounded-md w-10 h-9 items-center justify-center ml-3" onClick={() => handleDeleteSelectedItem()}>
+                    <button className=" flex bg-transparent hover:bg-deletecolor rounded-md w-10 h-9 items-center justify-center ml-3" onClick={handleDeleteClick}>
                         <svg width="20" height="23" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.1875 4.56858L12.4828 12.9017C12.4221 13.6199 11.7145 14.1764 10.8619 14.1764H4.13807C3.28553 14.1764 2.57794 13.6199 2.5172 12.9017L1.8125 4.56858M5.875 7.31368V11.4313M9.125 7.31368V11.4313M9.9375 4.56858V2.50976C9.9375 2.13074 9.57373 1.82349 9.125 1.82349H5.875C5.42627 1.82349 5.0625 2.13074 5.0625 2.50976V4.56858M1 4.56858H14" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
