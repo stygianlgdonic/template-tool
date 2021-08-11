@@ -52,6 +52,7 @@ const TransformerComponent: React.FC<Props> = ({
     return (
         <>
             <Transformer
+                shouldOverdrawWholeArea
                 id={id}
                 ref={$tr}
                 padding={5}
