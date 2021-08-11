@@ -1,7 +1,7 @@
 import React from 'react';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 import { defaultCircle, defaultPolygon, defaultRect, defaultTriangle } from '../../../../../../../../../../utils/defaults';
-
+const image = require('./../../../../../../../../../../assets/images/polygon.png')
 const Shapes: React.FC = (): JSX.Element => {
     const { handleAddNewRect, handleAddNewCircle, handleAddNewTrianlge, handleAddNewPolygon } = CardElementsFunctions()
 
@@ -41,9 +41,7 @@ const Shapes: React.FC = (): JSX.Element => {
                 </div>
                 <div>
                     <button className=" focus:ring focus:outline-none" onClick={() => handleAddNewPolygon(defaultPolygon)}>
-                        <svg width="64" height="63" viewBox="0 0 64 63" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <ellipse cx="32" cy="31.5" rx="32" ry="31.5" fill="#D1D5DB" />
-                        </svg>
+                        <img src={image} />
                     </button>
                 </div>
 

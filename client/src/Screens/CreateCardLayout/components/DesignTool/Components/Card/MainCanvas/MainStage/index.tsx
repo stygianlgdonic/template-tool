@@ -537,6 +537,7 @@ const MainStage = ({
                     $tr={$tr}
                     selectedShapeName={selectedId}
                     setSelectedId={setSelectedId}
+                    cardData={cardData}
                 />
                 <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
             </Layer>

@@ -90,7 +90,8 @@ module.exports = {
         extend: {
             fontWeight: ['hover', 'focus'],
             backgroundColor: ['active'],
-            display: ['group-hover']
+            display: ['group-hover'],
+            ringWidth: ['hover', 'active'],
         },
 
     },
