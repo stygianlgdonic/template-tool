@@ -70,7 +70,7 @@ module.exports = {
                 svgcolor: '#C4C4C4',
                 fuschia: "#EF5DA8",
                 bluish: "#818CF8",
-                canvasbgcolor: "#F9FAFB",
+                canvasbgcolor: "#F2F2F2",
                 deletebutton: "#FEE2E2",
                 deletebuttontext: "#B91C1C",
                 createEmail: "#4B5563",

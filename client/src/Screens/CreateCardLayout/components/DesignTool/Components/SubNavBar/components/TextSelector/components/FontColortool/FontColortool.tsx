@@ -6,6 +6,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
     const [colorQuery, setColorQuery] = useState<string>("")
     const [colorsArray, setColorsArray] = useState([])
 
+
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
@@ -23,7 +24,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
             .then(data => {
 
                 const newColors = data.colors.map(item => item.hex)
-                newColors.splice(5)
+                newColors.splice(6)
 
                 setColorsArray(newColors)
             }).catch(error => console.log("No colors found!"))
@@ -51,7 +52,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
             <div className={!!colorsArray.length ? "" : "hidden"} >
                 <h1 className="text-md text-gray40 mt-4" >Search results</h1>
-                <div className=" mt-4 flex flex-row items-center justify-between">
+                <div className=" mt-4 flex flex-row items-center gap-3">
                     {console.log(colorsArray)}
                     {
                         colorsArray.map(item =>
@@ -66,10 +67,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
                     <button>
                         <img src={image} className="w-10 h-10" />
                     </button>
-                    <button className=" bg-greenish h-10 w-10 rounded-md"></button>
-                    <button className=" bg-greenish h-10 w-10 rounded-md"></button>
-                    <button className=" bg-greenish h-10 w-10 rounded-md"></button>
-                    <button className=" bg-greenish h-10 w-10 rounded-md"></button>
+
 
                 </div>
             </div>
@@ -77,39 +75,28 @@ const FontStyletool: React.FC = (): JSX.Element => {
             <div>
                 <button className="text-md text-black mt-4" ><span className="text-2xl mr-6">+</span>Add your brand colors in Brand Kit</button>
             </div>
-            <div className="border-b-2 border-bordercolor mt-4" ></div>
-            <div>
-                <h1 className="text-md text-gray40 mt-4" >Shape Colors</h1>
-                <div className=" mt-4 flex flex-row items-center gap-3">
 
-                    <button className="bg-indigo600 h-10 w-10 rounded-md"></button>
-                    <button className="bg-fuschia h-10 w-10 rounded-md"></button>
-                    <button className="bg-greenish h-10 w-10 rounded-md"></button>
-                    <button className="bg-redish h-10 w-10 rounded-md"></button>
-                    <button className="bg-yellowish h-10 w-10 rounded-md"></button>
-                </div>
-            </div>
             <div className="border-b-2 border-bordercolor mt-4" ></div>
             <div>
                 <h1 className="text-md text-gray40 mt-4" >Default Colors</h1>
                 <div className=" mt-4 flex flex-col items-center ">
-                    <div className=" mt-4 flex flex-row items-center justify-between w-full">
+                    <div className=" mt-4 flex flex-row items-center gap-3 w-full">
 
-                        <button className="bg-gray95 h-10 w-10 rounded-md"></button>
-                        <button className="bg-indigo600 h-10 w-10 rounded-md"></button>
-                        <button className="bg-fuschia h-10 w-10 rounded-md"></button>
-                        <button className="bg-greenish h-10 w-10 rounded-md"></button>
-                        <button className="bg-redish h-10 w-10 rounded-md"></button>
-                        <button className="bg-yellowish h-10 w-10 rounded-md"></button>
+                        <button className="bg-gray95 h-10 w-10 rounded-md" onClick={() => handleFill("#6B7280")} ></button>
+                        <button className="bg-indigo600 h-10 w-10 rounded-md" onClick={() => handleFill("#4F46E5")} ></button>
+                        <button className="bg-fuschia h-10 w-10 rounded-md" onClick={() => handleFill("#EF5DA8")} ></button>
+                        <button className="bg-greenish h-10 w-10 rounded-md" onClick={() => handleFill("#5DEFC3")} ></button>
+                        <button className="bg-redish h-10 w-10 rounded-md" onClick={() => handleFill("#EE4646")} ></button>
+                        <button className="bg-yellowish h-10 w-10 rounded-md" onClick={() => handleFill("#EEA146")} ></button>
                     </div>
-                    <div className=" mt-4 flex flex-row items-center justify-between  w-full">
+                    <div className=" mt-4 flex flex-row items-center gap-3  w-full">
 
-                        <button className="bg-canvasbgcolor h-10 w-10 rounded-md"></button>
-                        <button className="bg-gray95 h-10 w-10 rounded-md"></button>
-                        <button className="bg-lightindigo h-10 w-10 rounded-md"></button>
-                        <button className="bg-fuschia h-10 w-10 rounded-md"></button>
-                        <button className="bg-greenish h-10 w-10 rounded-md"></button>
-                        <button className="bg-yellowish h-10 w-10 rounded-md"></button>
+                        <button className="bg-canvasbgcolor h-10 w-10 rounded-md" onClick={() => handleFill("#f2f2f2")} ></button>
+                        <button className="bg-gray95 h-10 w-10 rounded-md" onClick={() => handleFill("#6B7280")} ></button>
+                        <button className="bg-lightindigo h-10 w-10 rounded-md" onClick={() => handleFill("#E0E7FF")} ></button>
+                        <button className="bg-fuschia h-10 w-10 rounded-md" onClick={() => handleFill("#EF5DA8")} ></button>
+                        <button className="bg-greenish h-10 w-10 rounded-md" onClick={() => handleFill("#5DEFC3")} ></button>
+                        <button className="bg-yellowish h-10 w-10 rounded-md" onClick={() => handleFill("#EEA146")} ></button>
                     </div>
                 </div>
             </div>

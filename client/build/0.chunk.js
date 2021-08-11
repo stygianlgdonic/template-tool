@@ -2309,8 +2309,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MainStage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainStage */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/Card/MainCanvas/MainStage/index.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../contexts/DesignTool/CardHeaderActions */ "./src/contexts/DesignTool/CardHeaderActions.ts");
+/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\MainCanvas\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -2323,6 +2325,9 @@ const DesignTool = () => {
     selectTextCardHeader,
     emptyCardHeader
   } = Object(_contexts_DesignTool_CardHeaderActions__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  const {
+    handleDeleteSelectedItem
+  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_5__["default"])();
   const {
     selectedId,
     setSelectedId,
@@ -2346,7 +2351,7 @@ const DesignTool = () => {
   const handleEscape = e => {
     if (e.key === "Escape") {
       setSelectedId(null);
-      emptyCardHeader();
+      emptyCardHeader(); // handleDeleteSelectedItem()
     }
   };
 
@@ -2366,7 +2371,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 55,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2374,7 +2379,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, __jsx(_MainStage__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2385,7 +2390,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 57,
       columnNumber: 17
     }
   })));
@@ -2481,8 +2486,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
 /* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
-/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
+/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\ElementHeader\\ElementHeader.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2493,11 +2499,11 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 const image = __webpack_require__(/*! ./../../../../../../../../../../assets/images/opacity.png */ "./src/assets/images/opacity.png");
 
 const ElementHeader = () => {
   // const [openstyle, setOpenstyle] = React.useState(false);
-  // const [open, setOpen] = React.useState(false);
   const [openstyle, setOpenstyle] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const [open, setOpen] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const {
@@ -2512,11 +2518,15 @@ const ElementHeader = () => {
     handleStrokeColor,
     handleDeleteSelectedItem,
     handleTextOpacity
-  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])(); // !!state?false:true;
+  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  const {
+    selectedId,
+    cardData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]); // !!state?false:true;
 
   const {
     selectShapeColorSubNav
-  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_3__["default"])();
   return __jsx("div", {
     className: "flex  justify-between ",
     style: {
@@ -2525,7 +2535,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2533,16 +2543,19 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, __jsx("button", {
-    className: "w-10 h-10 rounded-md bg-fuschia",
+    className: "w-10 h-10 rounded-md hover:ring-2 ring-indigo600",
+    style: {
+      backgroundColor: "#60AFFA"
+    },
     onClick: selectShapeColorSubNav,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -2550,7 +2563,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2559,7 +2572,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2571,7 +2584,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 32,
       columnNumber: 25
     }
   }, __jsx("p", {
@@ -2579,7 +2592,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 29
     }
   }, " Select Stroke"), __jsx("svg", {
@@ -2592,7 +2605,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2603,7 +2616,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 33
     }
   }))), __jsx("ul", {
@@ -2617,7 +2630,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 25
     }
   }, __jsx("li", {
@@ -2627,7 +2640,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -2635,7 +2648,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2644,7 +2657,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 60,
       columnNumber: 37
     }
   }, "No Stroke")), __jsx("div", {
@@ -2652,7 +2665,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 64,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -2660,7 +2673,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2669,7 +2682,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2677,7 +2690,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 41
     }
   })), __jsx("p", {
@@ -2685,7 +2698,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 68,
       columnNumber: 46
     }
   }, "4")), __jsx("div", {
@@ -2693,7 +2706,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 71,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2702,7 +2715,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 72,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2710,7 +2723,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 73,
       columnNumber: 41
     }
   })), __jsx("p", {
@@ -2718,7 +2731,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 74,
       columnNumber: 46
     }
   }, "2")), __jsx("div", {
@@ -2726,7 +2739,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 76,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2735,7 +2748,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 77,
       columnNumber: 37
     }
   }, __jsx("span", {
@@ -2743,7 +2756,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 78,
       columnNumber: 41
     }
   })), __jsx("p", {
@@ -2751,7 +2764,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 79,
       columnNumber: 46
     }
   }, "1")), __jsx("div", {
@@ -2759,7 +2772,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 83,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -2767,7 +2780,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 84,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -2775,7 +2788,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 85,
       columnNumber: 37
     }
   }, __jsx("svg", {
@@ -2787,7 +2800,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 85,
       columnNumber: 62
     }
   }, __jsx("path", {
@@ -2799,7 +2812,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 86,
       columnNumber: 41
     }
   }), __jsx("rect", {
@@ -2813,14 +2826,14 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 87,
       columnNumber: 41
     }
   }), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 88,
       columnNumber: 41
     }
   }, __jsx("linearGradient", {
@@ -2833,7 +2846,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 89,
       columnNumber: 45
     }
   }, __jsx("stop", {
@@ -2841,7 +2854,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 90,
       columnNumber: 49
     }
   }), __jsx("stop", {
@@ -2850,7 +2863,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 91,
       columnNumber: 49
     }
   }), __jsx("stop", {
@@ -2859,7 +2872,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 92,
       columnNumber: 49
     }
   }))))), __jsx("button", {
@@ -2868,7 +2881,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 97,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2877,7 +2890,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 98,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2886,7 +2899,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 99,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2895,7 +2908,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 100,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2904,7 +2917,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 101,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2913,7 +2926,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 102,
       columnNumber: 37
     }
   }), __jsx("button", {
@@ -2922,7 +2935,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 103,
       columnNumber: 37
     }
   }))))))), __jsx("div", {
@@ -2930,7 +2943,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 110,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2938,11 +2951,11 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 112,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md focus:ring-indigo600 ring-2 ",
+    className: showeModal ? "ml-6  hover:bg-lightindigo h-10 w-10 px-1 rounded-md border-2 border-indigo600 " : "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md  ",
     onClick: () => {
       seteShowModal(true);
       setopenDropDown(false);
@@ -2950,23 +2963,79 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 113,
       columnNumber: 21
     }
-  }, __jsx("img", {
-    src: image,
+  }, __jsx("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 114,
       columnNumber: 25
     }
-  })), __jsx("div", {
+  }, __jsx("g", {
+    fill: "currentColor",
+    "fill-rule": "evenodd",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 108
+    }
+  }, __jsx("path", {
+    d: "M3 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 151
+    }
+  }), __jsx("path", {
+    d: "M11 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z",
+    opacity: ".45",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 378
+    }
+  }), __jsx("path", {
+    d: "M19 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z",
+    opacity: ".15",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 623
+    }
+  }), __jsx("path", {
+    d: "M7 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z",
+    opacity: ".7",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 868
+    }
+  }), __jsx("path", {
+    d: "M15 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z",
+    opacity: ".3",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 1038
+    }
+  })))), __jsx("div", {
     className: " absolute",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 116,
       columnNumber: 21
     }
   }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -2977,7 +3046,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
+      lineNumber: 120,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -2985,7 +3054,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 121,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -2995,7 +3064,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 123,
       columnNumber: 41
     }
   }), __jsx("div", {
@@ -3003,7 +3072,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 127,
       columnNumber: 41
     }
   }, __jsx("div", {
@@ -3011,7 +3080,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 129,
       columnNumber: 45
     }
   }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
@@ -3027,11 +3096,11 @@ const ElementHeader = () => {
       props,
       children
     }) => __jsx("div", _extends({}, props, {
-      className: "w-4/6 h-3 pr-2 my-4 bg-gray-200 rounded-md",
+      className: "w-full h-3 pr-2 my-4 bg-gray-200 rounded-md",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141,
+        lineNumber: 142,
         columnNumber: 57
       }
     }), children),
@@ -3042,14 +3111,14 @@ const ElementHeader = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 149,
+        lineNumber: 150,
         columnNumber: 57
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 132,
       columnNumber: 49
     }
   }), __jsx("input", {
@@ -3066,7 +3135,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 157,
       columnNumber: 49
     }
   })))))) : null)), __jsx("div", {
@@ -3074,14 +3143,14 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173,
+      lineNumber: 174,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174,
+      lineNumber: 175,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -3090,19 +3159,19 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 21
     }
   }, __jsx("svg", {
     width: "20",
-    height: "23",
+    height: "20",
     viewBox: "0 0 15 16",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176,
+      lineNumber: 177,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -3114,7 +3183,7 @@ const ElementHeader = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177,
+      lineNumber: 178,
       columnNumber: 29
     }
   }))))));
@@ -10634,7 +10703,7 @@ const FontStyletool = () => {
     const fetchURl = colorQuery.charAt(0) !== "#" ? `https://api.color.pizza/v1/names/?name=${colorQuery}&goodnamesonly=true` : `https://api.color.pizza/v1/?values=${colorQuery.substring(1)}&goodnamesonly=true`;
     fetch(fetchURl).then(response => response.json()).then(data => {
       const newColors = data.colors.map(item => item.hex);
-      newColors.splice(5);
+      newColors.splice(6);
       setColorsArray(newColors);
     }).catch(error => console.log("No colors found!"));
   }, [colorQuery]);
@@ -10643,7 +10712,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -10651,7 +10720,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 37,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -10659,14 +10728,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 21
     }
   }, __jsx("span", {
@@ -10674,7 +10743,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -10686,7 +10755,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -10697,7 +10766,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 33
     }
   })))), __jsx("input", {
@@ -10708,7 +10777,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 48,
       columnNumber: 21
     }
   }))), __jsx("div", {
@@ -10716,7 +10785,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10724,15 +10793,15 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 17
     }
   }, "Search results"), __jsx("div", {
-    className: " mt-4 flex flex-row items-center justify-between",
+    className: " mt-4 flex flex-row items-center gap-3",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 17
     }
   }, console.log(colorsArray), colorsArray.map(item => __jsx("button", {
@@ -10744,7 +10813,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 29
     }
   })))), __jsx("div", {
@@ -10752,7 +10821,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 64,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10760,7 +10829,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 17
     }
   }, "Document Colors"), __jsx("div", {
@@ -10768,14 +10837,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -10784,54 +10853,22 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 68,
       columnNumber: 25
     }
-  })), __jsx("button", {
-    className: " bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 69,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: " bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 70,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: " bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: " bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 72,
-      columnNumber: 21
-    }
-  }))), __jsx("div", {
+  })))), __jsx("div", {
     className: "border-b-2 border-bordercolor mt-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 74,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 75,
       columnNumber: 13
     }
   }, __jsx("button", {
@@ -10839,7 +10876,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 76,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -10847,7 +10884,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 76,
       columnNumber: 62
     }
   }, "+"), "Add your brand colors in Brand Kit")), __jsx("div", {
@@ -10855,93 +10892,22 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 79,
       columnNumber: 13
     }
   }), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80,
+      columnNumber: 13
+    }
+  }, __jsx("h1", {
+    className: "text-md text-gray40 mt-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 81,
-      columnNumber: 13
-    }
-  }, __jsx("h1", {
-    className: "text-md text-gray40 mt-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 82,
-      columnNumber: 17
-    }
-  }, "Shape Colors"), __jsx("div", {
-    className: " mt-4 flex flex-row items-center gap-3",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 83,
-      columnNumber: 17
-    }
-  }, __jsx("button", {
-    className: "bg-indigo600 h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 85,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: "bg-fuschia h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 86,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: "bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 87,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: "bg-redish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 88,
-      columnNumber: 21
-    }
-  }), __jsx("button", {
-    className: "bg-yellowish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 89,
-      columnNumber: 21
-    }
-  }))), __jsx("div", {
-    className: "border-b-2 border-bordercolor mt-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 92,
-      columnNumber: 13
-    }
-  }), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 93,
-      columnNumber: 13
-    }
-  }, __jsx("h1", {
-    className: "text-md text-gray40 mt-4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 94,
       columnNumber: 17
     }
   }, "Default Colors"), __jsx("div", {
@@ -10949,19 +10915,118 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 82,
       columnNumber: 17
     }
   }, __jsx("div", {
-    className: " mt-4 flex flex-row items-center justify-between w-full",
+    className: " mt-4 flex flex-row items-center gap-3 w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 83,
       columnNumber: 21
     }
   }, __jsx("button", {
     className: "bg-gray95 h-10 w-10 rounded-md",
+    onClick: () => handleFill("#6B7280"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-indigo600 h-10 w-10 rounded-md",
+    onClick: () => handleFill("#4F46E5"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-fuschia h-10 w-10 rounded-md",
+    onClick: () => handleFill("#EF5DA8"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-greenish h-10 w-10 rounded-md",
+    onClick: () => handleFill("#5DEFC3"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-redish h-10 w-10 rounded-md",
+    onClick: () => handleFill("#EE4646"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-yellowish h-10 w-10 rounded-md",
+    onClick: () => handleFill("#EEA146"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 25
+    }
+  })), __jsx("div", {
+    className: " mt-4 flex flex-row items-center gap-3  w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 21
+    }
+  }, __jsx("button", {
+    className: "bg-canvasbgcolor h-10 w-10 rounded-md",
+    onClick: () => handleFill("#f2f2f2"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-gray95 h-10 w-10 rounded-md",
+    onClick: () => handleFill("#6B7280"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-lightindigo h-10 w-10 rounded-md",
+    onClick: () => handleFill("#E0E7FF"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-fuschia h-10 w-10 rounded-md",
+    onClick: () => handleFill("#EF5DA8"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 25
+    }
+  }), __jsx("button", {
+    className: "bg-greenish h-10 w-10 rounded-md",
+    onClick: () => handleFill("#5DEFC3"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -10969,99 +11034,12 @@ const FontStyletool = () => {
       columnNumber: 25
     }
   }), __jsx("button", {
-    className: "bg-indigo600 h-10 w-10 rounded-md",
+    className: "bg-yellowish h-10 w-10 rounded-md",
+    onClick: () => handleFill("#EEA146"),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 99,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-fuschia h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 100,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 101,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-redish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 102,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-yellowish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 103,
-      columnNumber: 25
-    }
-  })), __jsx("div", {
-    className: " mt-4 flex flex-row items-center justify-between  w-full",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 105,
-      columnNumber: 21
-    }
-  }, __jsx("button", {
-    className: "bg-canvasbgcolor h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 107,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-gray95 h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 108,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-lightindigo h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 109,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-fuschia h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 110,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-greenish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 111,
-      columnNumber: 25
-    }
-  }), __jsx("button", {
-    className: "bg-yellowish h-10 w-10 rounded-md",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 112,
       columnNumber: 25
     }
   })))));
