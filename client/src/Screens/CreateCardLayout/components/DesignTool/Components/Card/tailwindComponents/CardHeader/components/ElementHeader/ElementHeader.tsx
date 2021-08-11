@@ -11,7 +11,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
     const [openstyle, setOpenstyle] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const [openDropDown, setopenDropDown] = useState(false);
-    const [values, setValues] = React.useState([0.01])
+    const [values, setValues] = React.useState<any>([100])
     // !!state?false:true;
     const [showeModal, seteShowModal] = React.useState(false);
     const { handleBorderWidthChange, handleStrokeColor, handleDeleteSelectedItem, handleTextOpacity } = CardElementsFunctions()
@@ -30,67 +30,76 @@ const ElementHeader: React.FC = (): JSX.Element => {
                     >
                         <button
                             type="button"
-                            className="relative w-32 py-2 pl-3 pr-10 text-left border-2 rounded-lg shadow-sm cursor-default h-9 border-bordercolor focus:outline-none focus:ring-border focus:ring-gray300 focus:border-gray300 sm:text-sm"
+                            className="relative w-full text-left flex flex-row border-2  items-center rounded-lg shadow-sm h-9  px-4 border-bordercolor   focus:ring-2  focus:ring-border focus:ring-indigo600 focus:border-gray300 sm:text-sm"
                             aria-haspopup="listbox"
                             aria-expanded="true"
                             aria-labelledby="listbox-label"
                         >
-                            <span className="block truncate border-4 border-elementColor bg-elementColor"></span>
-                            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                <svg
-                                    width="8"
-                                    height="6"
-                                    viewBox="0 0 8 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M0.234315 0.834291C0.546734 0.521871 1.05327 0.521871 1.36569 0.834291L4 3.46861L6.63431 0.834291C6.94673 0.521871 7.45327 0.521871 7.76568 0.834291C8.0781 1.14671 8.0781 1.65324 7.76568 1.96566L4.56569 5.16567C4.25327 5.47809 3.74673 5.47809 3.43431 5.16567L0.234315 1.96566C-0.0781049 1.65324 -0.0781049 1.14671 0.234315 0.834291Z"
-                                        fill="#9CA3AF"
-                                    />
-                                </svg>
-                            </span>
+                            <p className="mr-3 text-elementColor"> Select Stroke</p>
+                            <svg className="" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.234315 0.834352C0.546734 0.521932 1.05327 0.521932 1.36569 0.834352L4 3.46867L6.63431 0.834352C6.94673 0.521932 7.45327 0.521932 7.76568 0.834352C8.0781 1.14677 8.0781 1.6533 7.76568 1.96572L4.56569 5.16573C4.25327 5.47815 3.74673 5.47815 3.43431 5.16573L0.234315 1.96572C-0.0781049 1.6533 -0.0781049 1.14677 0.234315 0.834352Z" fill="#9CA3AF" />
+                            </svg>
+
+
                         </button>
+
                         <ul
-                            className="absolute z-10 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg w-52 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                            className="absolute z-10 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg w-52  ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                             role="listbox"
                             aria-labelledby="listbox-label"
                             aria-activedescendant="listbox-option-3"
                             style={{ display: openDropDown ? "" : "none" }}
                         >
                             <li
-                                className="relative w-full py-2 pl-8 pr-4 text-gray-900 cursor-default select-none "
+                                className="relative w-full py-2 text-gray-900 cursor-default select-none "
                                 id="listbox-option-0"
                                 role="option"
                             >
-                                <div className="flex mb-2">
-                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(15)}>
-                                        <span className="block w-full h-4 truncate border-4 border-elementColor bg-elementColor"></span>
-                                        <span className="ml-2">4</span>
+                                <div className="flex mt-2 mb-3 px-2">
+                                    <button className="flex w-full border border-bordercolor  rounded justify-center hover:bg-lightindigo" onClick={() => handleBorderWidthChange(0)}>
+                                        No Stroke
                                     </button>
                                 </div>
-                                <div className="flex mb-2 ">
-                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(10)}>
-                                        <span className="block w-full h-2 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
-                                        <span className="ml-2 ">2</span>
-                                    </button>
+                                <div className="border-b border-bordercolor w-full"></div>
+                                <div className="flex mb-1 px-2 mt-2">
+                                    <button className="flex w-full hover:ring-2  ring-indigo600 items-center" onClick={() => handleBorderWidthChange(15)}>
+                                        <span className="block w-full h-4 font-normal truncate  mx-1  bg-elementColor"></span>
+                                    </button><p className="ml-2">4</p>
                                 </div>
-                                <div className="flex ">
-                                    <button className="flex w-full" onClick={() => handleBorderWidthChange(5)}>
-                                        <span className="block w-full h-1 mt-2 font-normal truncate border-2 border-elementColor bg-elementColor"></span>
-                                        <span className="ml-2">1</span>
-                                    </button>
+
+                                <div className="flex px-2">
+                                    <button className="flex w-full hover:ring-2  ring-indigo600 items-center" onClick={() => handleBorderWidthChange(10)}>
+                                        <span className="block w-full h-2 font-normal truncate  mx-1  bg-elementColor"></span>
+                                    </button><p className="ml-2">2</p>
                                 </div>
-                                <div className=""></div>
-                                <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-3 ">
-                                    <button className="w-10 h-10 rounded-md bg-indigo600" onClick={() => handleStrokeColor("#4F46E5")} ></button>
-                                    <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => handleStrokeColor("#EF5DA8")}></button>
-                                    <button className="w-10 h-10 rounded-md bg-greenish" onClick={() => handleStrokeColor("#5DEFC3")}></button>
-                                    <button className="w-10 h-10 rounded-md bg-yellowish" onClick={() => handleStrokeColor("#EEA146")}></button>
-                                    <button className="w-10 h-10 rounded-md bg-redish" onClick={() => handleStrokeColor("#EE4646")}></button>
-                                    <button className="w-10 h-10 rounded-md bg-gray900" onClick={() => handleStrokeColor("#111827")}></button>
+                                <div className="flex px-2 ">
+                                    <button className="flex w-full hover:ring-2  ring-indigo600 items-center" onClick={() => handleBorderWidthChange(5)}>
+                                        <span className="block w-full h-1 font-normal truncate  mx-1  bg-elementColor"></span>
+                                    </button><p className="ml-2">1</p>
+                                </div>
+
+
+                                <div className="border-b border-bordercolor w-full"></div>
+                                <div className="grid grid-cols-4  mt-4 mx-3 mb-2">
+                                    <button className="mb-1"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 13V27M27 20L13 20" stroke="#4338CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <rect x="1" y="1" width="38" height="38" rx="5" stroke="url(#paint0_linear)" stroke-width="2" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FA7D7D" />
+                                                <stop offset="0.5" stop-color="#B7EF6F" />
+                                                <stop offset="1" stop-color="#BE6FEF" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    </button>
+                                    <button className="w-10 h-10 rounded-md bg-indigo600 hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#4F46E5")} ></button>
+                                    <button className="w-10 h-10 rounded-md bg-fuschia hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#EF5DA8")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-greenish hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#5DEFC3")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-yellowish hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#EEA146")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-redish hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#EE4646")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-gray900 hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#111827")}></button>
+                                    <button className="w-10 h-10 rounded-md bg-indigo600 hover:ring-2 ring-bluish" onClick={() => handleStrokeColor("#4F46E5")} ></button>
                                 </div>
                             </li>
                         </ul>
@@ -100,7 +109,7 @@ const ElementHeader: React.FC = (): JSX.Element => {
             <div className="flex flex-row  items-center  justify-between mt-1" >
 
                 <div className=" relative">
-                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
+                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md focus:ring-indigo600 ring-2 " onClick={() => { seteShowModal(true); setopenDropDown(false) }}>
                         <img src={image} />
                     </button>
                     <div className=" absolute">
@@ -112,26 +121,26 @@ const ElementHeader: React.FC = (): JSX.Element => {
 
                                         <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
 
-                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
                                         <div className="border border-bordercolor  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 right-0 mt-2 " >
 
                                             <div className="w-full flex gap-4 justify-center ">
 
+
                                                 <Range
-                                                    step={0.01}
-                                                    min={0.01}
-                                                    max={1}
+                                                    step={1}
+                                                    min={1}
+                                                    max={100}
                                                     values={values}
                                                     onChange={(values) => {
                                                         setValues(values);
-                                                        handleTextOpacity(values)
+                                                        handleTextOpacity(values as any / 100)
                                                     }}
                                                     renderTrack={({ props, children }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-full h-3 pr-2 my-4 bg-indigo600 rounded-md"
+                                                            className="w-4/6 h-3 pr-2 my-4 bg-gray-200 rounded-md"
                                                         >
                                                             {children}
                                                         </div>
@@ -139,10 +148,18 @@ const ElementHeader: React.FC = (): JSX.Element => {
                                                     renderThumb={({ props }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-5 h-5 transform translate-x-10 bg-fuschia rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                            className="w-4 h-4 transform translate-x-10 bg-indigo600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                         />
+
                                                     )}
                                                 />
+                                                <input className="ml-3 w-9 focus:outline-none" min="0" max="100" value={values} onChange={(e) => {
+                                                    if (!(parseFloat(e.target.value) > 100)) {
+                                                        setValues([e.target.value]);
+                                                        handleTextOpacity(parseFloat(e.target.value) / 100)
+                                                    }
+
+                                                }}></input>
                                             </div>
                                         </div>
                                     </div>

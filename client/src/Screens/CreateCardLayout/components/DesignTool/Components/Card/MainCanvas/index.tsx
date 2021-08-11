@@ -15,11 +15,11 @@ const DesignTool: React.FC = () => {
 
     useEffect(() => {
         if (!!selectedId) {
-            const dude = cardData.elements.find((item, index) => selectedId === item.id)
-            if (dude?.type === 'text') {
+            const shape = cardData.elements.find((item, index) => selectedId === item.id)
+            if (shape?.type === 'text') {
                 selectTextCardHeader()
             }
-            if (dude?.type === 'rectangle' || dude?.type === 'svg' || dude?.type === 'circle' || dude?.type === 'polygon') {
+            if (shape?.type === 'rectangle' || shape?.type === 'svg' || shape?.type === 'circle' || shape?.type === 'polygon' || shape?.type === 'line') {
                 selectShapeCardHeader()
             }
         }
