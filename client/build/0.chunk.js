@@ -1263,11 +1263,12 @@ const MainStage = ({
 
   const onMouseDown = e => {
     const isElement = e.target.attrs.id !== "shapes_background";
-    const isTransformer = e.target.findAncestor("Transformer");
+    const isTransformer = e.target.findAncestor("Transformer"); // If clicked thing is Element or Transformer then don't detach the transformer from the element(s)
 
     if (isElement || isTransformer) {
       return;
-    }
+    } // Draw selection box
+
 
     const pos = e.target.getStage().getPointerPosition();
     selection.current.visible = true;
@@ -1373,7 +1374,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 394,
+      lineNumber: 397,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1383,7 +1384,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 402,
+      lineNumber: 405,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
@@ -1415,7 +1416,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 409,
+        lineNumber: 412,
         columnNumber: 25
       }
     });
@@ -1434,7 +1435,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 437,
+        lineNumber: 440,
         columnNumber: 25
       }
     });
@@ -1453,7 +1454,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 453,
+        lineNumber: 456,
         columnNumber: 25
       }
     });
@@ -1472,7 +1473,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 469,
+        lineNumber: 472,
         columnNumber: 25
       }
     });
@@ -1489,7 +1490,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 485,
+        lineNumber: 488,
         columnNumber: 25
       }
     });
@@ -1506,7 +1507,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 502,
+        lineNumber: 505,
         columnNumber: 25
       }
     });
@@ -1523,7 +1524,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 519,
+        lineNumber: 522,
         columnNumber: 25
       }
     });
@@ -1535,7 +1536,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 534,
+      lineNumber: 537,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1544,7 +1545,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 540,
+      lineNumber: 543,
       columnNumber: 17
     }
   })));

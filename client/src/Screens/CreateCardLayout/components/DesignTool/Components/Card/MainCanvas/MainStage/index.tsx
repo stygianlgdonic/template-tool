@@ -22,7 +22,8 @@ const MainStage = ({
 
     const { emptyCardHeader } = CardHeaderActions()
 
-    const GUIDELINE_OFFSET = 5
+    // snapping distance
+    const GUIDELINE_OFFSET = 10
     const $stage = useRef(null)
     const $layer = useRef(null)
     const $tr = useRef(null)
@@ -39,6 +40,7 @@ const MainStage = ({
     const Konva = window.Konva;
 
     useEffect(() => {
+        // if no elements are selected, empty card header 
         if (!nodesArray.length) {
             emptyCardHeader()
         }
@@ -48,13 +50,13 @@ const MainStage = ({
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
         const horizontal: any = [0, stageDimensions.height / 2, stageDimensions.height];
 
-        // and we snap over edges and center of each object on the canvas
+        // we snap over edges and center of each object on the canvas
         $stage.current.find(".object").forEach(guideItem => {
             if (guideItem === skipShape) {
                 return;
             }
             const box = guideItem.getClientRect();
-            // and we can snap to all edges of shapes
+            // we can snap to all edges of shapes
             vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
             horizontal.push([box.y, box.y + box.height, box.y + box.height / 2]);
         });
@@ -64,6 +66,7 @@ const MainStage = ({
         };
     };
 
+    // getting snapping edges for elements on the Stage
     const getObjectSnappingEdges = node => {
         const box = node.getClientRect();
 
@@ -105,6 +108,7 @@ const MainStage = ({
         };
     };
 
+    // getting all guidelines for snapping by calculating if the item bounds are close to the guidlinestop
     const getGuides = (lineGuideStops, itemBounds) => {
         const resultV = [];
         const resultH = [];
@@ -127,6 +131,7 @@ const MainStage = ({
         lineGuideStops.horizontal.forEach(lineGuide => {
             itemBounds.horizontal.forEach(itemBound => {
                 const diff = Math.abs(lineGuide - itemBound.guide);
+                // if the distance between guild line and object snap point is close we can consider this for snapping
                 if (diff < GUIDELINE_OFFSET) {
                     resultH.push({
                         lineGuide: lineGuide,
@@ -162,6 +167,7 @@ const MainStage = ({
         return guides;
     };
 
+    // drawing guidelines on stage
     const drawGuides = guides => {
         guides.forEach(lg => {
             if (lg.orientation === "H") {
@@ -188,6 +194,7 @@ const MainStage = ({
         });
     };
 
+    // when dragging any element snap element if its close to snap guideline
     const _onDragMove = e => {
         const linesArray = $layer.current.find(".guid-line")
         if (!!linesArray.length) {
@@ -253,6 +260,7 @@ const MainStage = ({
         });
     };
 
+    // on drag end remove all guidelines from the stage
     const _onDragEnd = e => {
         const linesArray = $layer.current.find(".guid-line")
         if (!!linesArray.length) {
@@ -274,6 +282,7 @@ const MainStage = ({
 
     const updateSelectionRect = () => {
         const node = selectionRectRef.current;
+        // while mouseDrag update the selection rect accordingly 
         node.setAttrs({
             visible: selection.current.visible,
             x: Math.min(selection.current.x1, selection.current.x2),
@@ -289,10 +298,13 @@ const MainStage = ({
     const onMouseDown = (e) => {
         const isElement = e.target.attrs.id !== "shapes_background";
         const isTransformer = e.target.findAncestor("Transformer");
+
+        // If clicked thing is Element or Transformer then don't detach the transformer from the element(s)
         if (isElement || isTransformer) {
             return;
         }
 
+        // Draw selection box
         const pos = e.target.getStage().getPointerPosition();
         selection.current.visible = true;
         selection.current.x1 = pos.x;
@@ -319,6 +331,7 @@ const MainStage = ({
         }
         const selBox = selectionRectRef.current.getClientRect();
 
+        // selecting all elements which have intersection with the selection box
         const elements = [];
         $layer.current.find(".object").forEach((elementNode) => {
             const elBox = elementNode.getClientRect();
@@ -326,6 +339,7 @@ const MainStage = ({
                 elements.push(elementNode);
             }
         });
+        // passing all selected elements to transformer
         $tr.current.nodes(elements);
         setNodes(elements)
 
