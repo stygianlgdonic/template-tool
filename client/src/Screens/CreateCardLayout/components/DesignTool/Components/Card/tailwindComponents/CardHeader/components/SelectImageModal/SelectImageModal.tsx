@@ -103,7 +103,7 @@ const TransformModal: React.FC<Prop> = ({ closeImageModal, handleOpenUploadImage
                             <div className="flex flex-row gap-4 ">
                                 <div className=" h-28">
                                     <button
-                                        onClick={handleOpenUploadImageModal} // ye true hu rha haye wajeeh wo ne image wala modal
+                                        onClick={handleOpenUploadImageModal}
                                         className="flex flex-col items-center justify-center py-6 border-2 border-dashed rounded-md w-52 border-bordercolor"
                                     >
                                         <img className="w-10 h-10" src={plusimage} alt="" />
