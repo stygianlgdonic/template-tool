@@ -2577,12 +2577,14 @@ const ElementHeader = ({
   const {
     handleBorderWidthChange,
     handleStrokeColor,
-    handleTextOpacity
+    handleTextOpacity,
+    getSelectedElementData
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_3__["default"])(); // !!state?false:true;
 
   const {
     selectShapeColorSubNav
   } = Object(_contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  const selectedelement = getSelectedElementData();
   return __jsx("div", {
     className: "flex  justify-between ",
     style: {
@@ -2605,7 +2607,7 @@ const ElementHeader = ({
   }, __jsx("button", {
     className: "w-10 h-10 rounded-md hover:ring-2 ring-indigo600",
     style: {
-      backgroundColor: "#60AFFA"
+      backgroundColor: selectedelement === null || selectedelement === void 0 ? void 0 : selectedelement.fill
     },
     onClick: selectShapeColorSubNav,
     __self: undefined,
