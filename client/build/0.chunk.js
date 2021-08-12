@@ -1011,14 +1011,24 @@ const MainStage = ({
   }, [nodesArray.length]);
 
   const getLineGuideStops = skipShape => {
+    // guidelines for stage center and edges
     const vertical = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width];
     const horizontal = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height]; // we snap over edges and center of each object on the canvas
 
     $stage.current.find(".object").forEach(guideItem => {
+      var _$tr$current, _$tr$current$nodes;
+
       if (guideItem === skipShape) {
         return;
       }
 
+      const isWrapped = (_$tr$current = $tr.current) === null || _$tr$current === void 0 ? void 0 : (_$tr$current$nodes = _$tr$current.nodes()) === null || _$tr$current$nodes === void 0 ? void 0 : _$tr$current$nodes.some(node => node.attrs.id === guideItem.attrs.id);
+      if (isWrapped) return;
+      console.log({
+        skipShape,
+        guideItem,
+        isWrapped
+      });
       const box = guideItem.getClientRect(); // we can snap to all edges of shapes
 
       vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
@@ -1150,20 +1160,25 @@ const MainStage = ({
 
 
   const _onDragMove = e => {
+    var _$tr$current2, _$tr$current2$nodes;
+
     const linesArray = $layer.current.find(".guid-line");
 
     if (!!linesArray.length) {
       linesArray.forEach(item => item.destroy());
     }
 
-    const lineGuideStops = getLineGuideStops(e.target);
-    const itemBounds = getObjectSnappingEdges(e.target);
+    const lineGuideStops = getLineGuideStops(e.target); // Need to snap transformer not shape
+
+    const itemBounds = getObjectSnappingEdges($tr.current);
     const guides = getGuides(lineGuideStops, itemBounds);
 
     if (!guides.length) {
       return;
     }
 
+    const isWrapped = (_$tr$current2 = $tr.current) === null || _$tr$current2 === void 0 ? void 0 : (_$tr$current2$nodes = _$tr$current2.nodes()) === null || _$tr$current2$nodes === void 0 ? void 0 : _$tr$current2$nodes.some(node => node.attrs.id === e.target.attrs.id);
+    if (isWrapped) return;
     drawGuides(guides);
     guides.forEach(lg => {
       switch (lg.snap) {
@@ -1172,6 +1187,9 @@ const MainStage = ({
             switch (lg.orientation) {
               case "V":
                 {
+                  console.log({
+                    INSIDE: e.target
+                  });
                   e.target.x(lg.lineGuide + lg.offset);
                   break;
                 }
@@ -1391,7 +1409,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 408,
+      lineNumber: 421,
       columnNumber: 9
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -1401,12 +1419,12 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 416,
+      lineNumber: 429,
       columnNumber: 13
     }
   }, (_cardData$elements = cardData.elements) === null || _cardData$elements === void 0 ? void 0 : _cardData$elements.map((elem, i) => {
     if (elem.type === "rectangle") return __jsx(_Rectangle__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      key: i,
+      key: elem.id,
       shapeProps: elem,
       onSelect: e => {
         if (e.current !== undefined) {
@@ -1433,12 +1451,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 423,
+        lineNumber: 436,
         columnNumber: 25
       }
     });
     if (elem.type === "circle") return __jsx(_UCircle__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      key: i,
+      key: elem.id,
       shapeProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1452,12 +1470,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 451,
+        lineNumber: 464,
         columnNumber: 25
       }
     });
     if (elem.type === "line") return __jsx(_ULine__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      key: i,
+      key: elem.id,
       shapeProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1471,12 +1489,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 467,
+        lineNumber: 480,
         columnNumber: 25
       }
     });
     if (elem.type === "polygon") return __jsx(_UPolygon__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      key: i,
+      key: elem.id,
       shapeProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1490,12 +1508,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 483,
+        lineNumber: 496,
         columnNumber: 25
       }
     });
     if (elem.type === "svg") return __jsx(_USvg__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      key: i,
+      key: elem.id,
       svgProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1507,12 +1525,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 499,
+        lineNumber: 512,
         columnNumber: 25
       }
     });
     if (elem.type === "image") return __jsx(_UImage__WEBPACK_IMPORTED_MODULE_10__["default"], {
-      key: i,
+      key: elem.id,
       imageProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1524,12 +1542,12 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 516,
+        lineNumber: 529,
         columnNumber: 25
       }
     });
     if (elem.type === "text") return __jsx(_UText__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      key: i,
+      key: elem.id,
       textProps: elem,
       onSelect: () => {
         setSelectedId(elem.id);
@@ -1541,7 +1559,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 533,
+        lineNumber: 546,
         columnNumber: 25
       }
     });
@@ -1554,7 +1572,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 548,
+      lineNumber: 561,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1563,7 +1581,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 555,
+      lineNumber: 568,
       columnNumber: 17
     }
   })));
@@ -2213,6 +2231,7 @@ const TransformerComponent = ({
     id: id,
     ref: $tr,
     padding: 5,
+    rotationSnaps: [0, 90, 180, 270],
     ignoreStroke: true,
     boundBoxFunc: (oldBox, newBox) => {
       if (selectedShapeName === "shapes_background") return oldBox;
@@ -2235,7 +2254,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 69,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2243,7 +2262,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 70,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2251,7 +2270,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 71,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2263,7 +2282,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 72,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2274,7 +2293,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 73,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -2282,7 +2301,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 76,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2291,7 +2310,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 77,
       columnNumber: 29
     }
   }))))));

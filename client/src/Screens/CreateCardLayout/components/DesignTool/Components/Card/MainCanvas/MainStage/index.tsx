@@ -47,6 +47,7 @@ const MainStage = ({
     }, [nodesArray.length])
 
     const getLineGuideStops = skipShape => {
+        // guidelines for stage center and edges
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
         const horizontal: any = [0, stageDimensions.height / 2, stageDimensions.height];
 
@@ -55,6 +56,11 @@ const MainStage = ({
             if (guideItem === skipShape) {
                 return;
             }
+
+            const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === guideItem.attrs.id)
+            if (isWrapped) return
+            console.log({ skipShape, guideItem, isWrapped })
+
             const box = guideItem.getClientRect();
             // we can snap to all edges of shapes
             vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
@@ -201,17 +207,24 @@ const MainStage = ({
             linesArray.forEach(item => item.destroy())
         }
         const lineGuideStops = getLineGuideStops(e.target);
-        const itemBounds = getObjectSnappingEdges(e.target);
+
+        // Need to snap transformer not shape
+        const itemBounds = getObjectSnappingEdges($tr.current);
         const guides = getGuides(lineGuideStops, itemBounds);
         if (!guides.length) {
             return;
         }
+
+        const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === e.target.attrs.id)
+        if (isWrapped) return
+
         drawGuides(guides);
         guides.forEach(lg => {
             switch (lg.snap) {
                 case "start": {
                     switch (lg.orientation) {
                         case "V": {
+                            console.log({ INSIDE: e.target })
                             e.target.x(lg.lineGuide + lg.offset);
                             break;
                         }
@@ -421,7 +434,7 @@ const MainStage = ({
                 {cardData.elements?.map((elem, i) => {
                     if (elem.type === "rectangle") return (
                         <Rectangle
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={(e) => {
                                 if (e.current !== undefined) {
@@ -449,7 +462,7 @@ const MainStage = ({
 
                     if (elem.type === "circle") return (
                         <UCircle
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -465,7 +478,7 @@ const MainStage = ({
 
                     if (elem.type === "line") return (
                         <ULine
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -481,7 +494,7 @@ const MainStage = ({
 
                     if (elem.type === "polygon") return (
                         <UPolygon
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -497,7 +510,7 @@ const MainStage = ({
 
                     if (elem.type === "svg") return (
                         <USvg
-                            key={i}
+                            key={elem.id}
                             svgProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -514,7 +527,7 @@ const MainStage = ({
 
                     if (elem.type === "image") return (
                         <UImage
-                            key={i}
+                            key={elem.id}
                             imageProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -531,7 +544,7 @@ const MainStage = ({
 
                     if (elem.type === "text") return (
                         <UText
-                            key={i}
+                            key={elem.id}
                             textProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)

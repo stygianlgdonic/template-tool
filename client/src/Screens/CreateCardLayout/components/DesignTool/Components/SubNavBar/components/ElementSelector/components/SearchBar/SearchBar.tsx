@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 
 interface Props {
-    shapesArray: any
-    setShapesArray: any
-    initial_state: any
+    shapesArray?: any
+    setShapesArray?: any
+    initial_state?: any
 }
 
 const SearchBar: React.FC<Props> = ({
