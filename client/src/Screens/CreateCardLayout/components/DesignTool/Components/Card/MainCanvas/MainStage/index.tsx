@@ -57,9 +57,9 @@ const MainStage = ({
                 return;
             }
 
-            const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === guideItem.attrs.id)
-            if (isWrapped) return
-            console.log({ skipShape, guideItem, isWrapped })
+            // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === guideItem.attrs.id)
+            // if (isWrapped) return
+            // console.log({ skipShape, guideItem, isWrapped })
 
             const box = guideItem.getClientRect();
             // we can snap to all edges of shapes
@@ -209,14 +209,14 @@ const MainStage = ({
         const lineGuideStops = getLineGuideStops(e.target);
 
         // Need to snap transformer not shape
-        const itemBounds = getObjectSnappingEdges($tr.current);
+        const itemBounds = getObjectSnappingEdges(e.target);
         const guides = getGuides(lineGuideStops, itemBounds);
         if (!guides.length) {
             return;
         }
 
-        const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === e.target.attrs.id)
-        if (isWrapped) return
+        // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === e.target.attrs.id)
+        // if (isWrapped) return
 
         drawGuides(guides);
         guides.forEach(lg => {
