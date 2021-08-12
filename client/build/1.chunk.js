@@ -2693,7 +2693,7 @@ const RightSidebar = () => {
       columnNumber: 13
     }
   }, __jsx("div", {
-    className: "flex flex-col items-center  h-screen justify-center  ",
+    className: "flex flex-col items-center  h-screen justify-center px-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
