@@ -56,6 +56,7 @@ const TransformerComponent: React.FC<Props> = ({
                 id={id}
                 ref={$tr}
                 padding={5}
+                rotationSnaps={[0, 90, 180, 270]}
                 ignoreStroke={true}
                 boundBoxFunc={(oldBox, newBox) => {
                     if (selectedShapeName === "shapes_background") return oldBox
