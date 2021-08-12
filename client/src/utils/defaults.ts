@@ -1,3 +1,5 @@
+export const hex_regex = /#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3}/gi
+
 export const googleFontsList = ['Montserrat', 'Comfortaa', 'Euphoria Script', 'Josefin Sans', 'Oswald', 'Alfa Slab One', 'Bangers', 'Caveat', 'DM Sans', 'East Sea Dokdo', 'Homemade Apple', 'Kristi', 'Lobster Two', 'Maven Pro', 'Monoton', 'Playfair Display', 'Raleway', 'Roboto Slab', 'Shadows Into Light', 'Swanky and Moo Moo']
 export const fontSizeArray = [{ name: "Header", size: 40, }, { name: "Sub header", size: 25, }, { name: "body text", size: 15, }]
 

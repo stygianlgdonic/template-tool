@@ -224,7 +224,6 @@ const MainStage = ({
                 case "start": {
                     switch (lg.orientation) {
                         case "V": {
-                            console.log({ INSIDE: e.target })
                             e.target.x(lg.lineGuide + lg.offset);
                             break;
                         }

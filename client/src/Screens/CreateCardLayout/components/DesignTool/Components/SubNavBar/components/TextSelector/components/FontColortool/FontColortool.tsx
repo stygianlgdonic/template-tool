@@ -10,7 +10,10 @@ const FontStyletool: React.FC = (): JSX.Element => {
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
-    const { handleFill } = CardElementsFunctions()
+    const { handleFill, getDocumentColors } = CardElementsFunctions()
+
+    const documentColors = getDocumentColors()
+
     useEffect(() => {
 
         if (!colorQuery) return
@@ -53,12 +56,10 @@ const FontStyletool: React.FC = (): JSX.Element => {
             <div className={!!colorsArray.length ? "" : "hidden"} >
                 <h1 className="text-md text-gray40 mt-4" >Search results</h1>
                 <div className=" mt-4 flex flex-row items-center gap-3">
-                    {console.log(colorsArray)}
-                    {
-                        colorsArray.map(item =>
-                            <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
+                    {colorsArray.map(item =>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
 
-                        )}
+                    )}
                 </div>
             </div>
             <div className="" >
@@ -67,7 +68,9 @@ const FontStyletool: React.FC = (): JSX.Element => {
                     <button>
                         <img src={image} className="w-10 h-10" />
                     </button>
-
+                    {documentColors.map(item =>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
+                    )}
 
                 </div>
             </div>
