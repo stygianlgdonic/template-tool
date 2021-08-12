@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 import { ORIGINAL_SVG_updownicon } from "../../../../utils/defaults";
@@ -7,6 +7,8 @@ import PersonalizedImageModal from "../PersonalizedImageModal/PersonalizedImageM
 import generatesvgUrl from "../../../../utils/generatesvgUrl";
 import { template_service } from "../../../../services/templateService";
 import TemplatePreview from "./TemplatePreview";
+import SelectSocialMediaTemplateModal from "../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal"
+import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
 // const image1 = require("./../../../../assets/images/01.png");
 // const image2 = require("./../../../../assets/images/02.png");
 // const image3 = require("./../../../../assets/images/03.png");
@@ -28,10 +30,8 @@ const CreateEmail: React.FC<BioProps> = ({
     bio4,
 }): JSX.Element => {
     const svg1 = generatesvgUrl(ORIGINAL_SVG_updownicon);
+    const [DisplayModals, setDisplayModals] = useState<"" | "PersonalizedImage" | "SocialMedia" | "CardSize">("")
     const svg = generatesvgUrl(bio4);
-    const [showModal, setShowModal] = React.useState(false);
-    const [ShowToolTip, setShowToolTip] = React.useState(false);
-    const [newModal, setNewModal] = React.useState(false);
     const { data, error, isLoading } = useQuery<any, Error>(
         "templates",
         template_service.getAllTemplates
@@ -54,6 +54,13 @@ const CreateEmail: React.FC<BioProps> = ({
             </>
         );
     }
+
+    const handleclosemodal = () => {
+        setDisplayModals("")
+    }
+    const HandleChangeDisplayModal = (value: "PersonalizedImage" | "SocialMedia" | "CardSize") => {
+        setDisplayModals(value)
+    }
     return (
         <div>
             <div className="flex flex-col justify-center w-full mx-auto mt-4 ">
@@ -69,9 +76,7 @@ const CreateEmail: React.FC<BioProps> = ({
                         </p>
                     </div>
                     <NavLink to="/createcard"></NavLink>
-                    <button onClick={() => {
-                        setShowModal(true);
-                    }}>
+                    <button onClick={() => HandleChangeDisplayModal("PersonalizedImage")}>
                         <div className="flex flex-row justify-center p-2 mt-4 border-0 rounded-lg bg-indigo">
                             <svg
                                 className="mt-1 mr-4"
@@ -312,11 +317,28 @@ const CreateEmail: React.FC<BioProps> = ({
                     </div> */}
                 </div>
             </div>
-            <div style={{ display: showModal ? "" : "none" }}>
+            <div style={{ display: DisplayModals === "PersonalizedImage" ? "" : "none" }}>
                 <PersonalizedImageModal
-                    closeModal={() => {
-                        setShowModal(false);
-                    }}
+                    displayModalChange={HandleChangeDisplayModal}
+                    closeModal={handleclosemodal}
+                />
+            </div>
+
+            <div style={{
+                display: DisplayModals === "SocialMedia" ? "" : "none",
+            }}>
+                <SelectSocialMediaTemplateModal
+                    closeModal={handleclosemodal}
+                    displayModalChange={HandleChangeDisplayModal}
+                />
+            </div>
+
+
+
+            <div style={{ display: DisplayModals === "CardSize" ? "" : "none", }}>
+                <PersonalizedCardSizeModal
+                    //    displayModalChange={HandleChangeDisplayModal}
+                    closeModal={handleclosemodal}
                 />
             </div>
 

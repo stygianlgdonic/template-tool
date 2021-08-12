@@ -7,10 +7,10 @@ interface Prop {
 }
 const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
     //   const [Open, setOpen] = useState(false);
-    const [OpenImageModal, setOpenImageModal] = useState(false);
+    const [isOpenNewImageModal, setisOpenNewImageModal] = useState(false);//
+    const [OpenImageModal, setOpenImageModal] = useState(false);//showmodal
     const [openDropDown, setopenDropDown] = useState(false);
     const [openMergeDropdown, setopenMergeDropdown] = useState(false);
-    const [isOpenNewImageModal, setisOpenNewImageModal] = useState(false);
     const myRef = useRef(null);
 
     const handleClickOutside = (e) => {
