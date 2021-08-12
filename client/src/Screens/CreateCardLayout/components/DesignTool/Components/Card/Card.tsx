@@ -1,7 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { HeaderContext } from '../../../../../../contexts/HeaderContext';
 import Drawer from '../Preview/components/Drawer/Drawer';
-import Preview from '../Preview/Preview';
 import MainCanvas from "./MainCanvas"
 import CardHeader from './tailwindComponents/CardHeader/CardHeader';
 

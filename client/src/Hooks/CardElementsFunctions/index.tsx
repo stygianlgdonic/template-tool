@@ -316,23 +316,23 @@ const CardElementsFunctions = () => {
         setCardData(prev => {
             if (!!backgroundID) {
                 prev.elements[0].fill = ""
+                prev.elements[0].patternImageUrl = undefined
                 prev.elements[0].fillLinearGradientColorStops = [0, color1, 1, color2]
                 prev.elements[0].fillLinearGradientStartPoint = { x: 0, y: 0 }
                 prev.elements[0].fillLinearGradientEndPoint = {
                     x: stageDimensions.width,
                     y: stageDimensions.height
                 }
-                prev.elements[0].patternImageUrl = undefined
             } else {
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
+                selectedShape.patternImageUrl = undefined
                 selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
                 selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
                 selectedShape.fillLinearGradientEndPoint = {
-                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
+                    x: selectedShape.width,
+                    y: selectedShape.height
                 }
-                selectedShape.patternImageUrl = undefined
             }
         })
     }
@@ -347,19 +347,21 @@ const CardElementsFunctions = () => {
                 prev.elements[0].patternImageUrl = undefined
                 prev.elements[0].fillRadialGradientStartPoint = { x: stageDimensions.width / 2, y: stageDimensions.height / 2 }
                 prev.elements[0].fillRadialGradientStartRadius = 0
-                prev.elements[0].fillRadialGradientEndPoint = { x: 0, y: 0 }
-                prev.elements[0].fillRadialGradientEndRadius = 750
+                prev.elements[0].fillRadialGradientEndPoint = { x: stageDimensions.width / 2, y: stageDimensions.height / 2 }
+                prev.elements[0].fillRadialGradientEndRadius = 360
                 prev.elements[0].fillRadialGradientColorStops = [0, color1, 1, color2]
             } else {
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
-                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
-                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
-                selectedShape.fillLinearGradientEndPoint = {
-                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
-                }
+                selectedShape.fillLinearGradientColorStops = undefined
+                selectedShape.fillLinearGradientStartPoint = undefined
+                selectedShape.fillLinearGradientEndPoint = undefined
                 selectedShape.patternImageUrl = undefined
+                selectedShape.fillRadialGradientStartPoint = { x: selectedShape.width / 2, y: selectedShape.height / 2 }
+                selectedShape.fillRadialGradientStartRadius = 0
+                selectedShape.fillRadialGradientEndPoint = { x: selectedShape.width / 2, y: selectedShape.height / 2 }
+                selectedShape.fillRadialGradientEndRadius = 360
+                selectedShape.fillRadialGradientColorStops = [0, color1, 1, color2]
             }
         })
     }

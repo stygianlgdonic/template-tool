@@ -529,6 +529,7 @@ const CardElementsFunctions = () => {
     setCardData(prev => {
       if (!!backgroundID) {
         prev.elements[0].fill = "";
+        prev.elements[0].patternImageUrl = undefined;
         prev.elements[0].fillLinearGradientColorStops = [0, color1, 1, color2];
         prev.elements[0].fillLinearGradientStartPoint = {
           x: 0,
@@ -538,20 +539,19 @@ const CardElementsFunctions = () => {
           x: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width,
           y: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height
         };
-        prev.elements[0].patternImageUrl = undefined;
       } else {
         const selectedShape = prev.elements.find(item => item.id === selectedId);
         selectedShape.fill = "";
+        selectedShape.patternImageUrl = undefined;
         selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2];
         selectedShape.fillLinearGradientStartPoint = {
           x: 0,
           y: 0
         };
         selectedShape.fillLinearGradientEndPoint = {
-          x: selectedId === "shapes_background" ? _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width : 100,
-          y: selectedId === "shapes_background" ? _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height : 100
+          x: selectedShape.width,
+          y: selectedShape.height
         };
-        selectedShape.patternImageUrl = undefined;
       }
     });
   };
@@ -570,24 +570,29 @@ const CardElementsFunctions = () => {
         };
         prev.elements[0].fillRadialGradientStartRadius = 0;
         prev.elements[0].fillRadialGradientEndPoint = {
-          x: 0,
-          y: 0
+          x: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width / 2,
+          y: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height / 2
         };
-        prev.elements[0].fillRadialGradientEndRadius = 750;
+        prev.elements[0].fillRadialGradientEndRadius = 360;
         prev.elements[0].fillRadialGradientColorStops = [0, color1, 1, color2];
       } else {
         const selectedShape = prev.elements.find(item => item.id === selectedId);
         selectedShape.fill = "";
-        selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2];
-        selectedShape.fillLinearGradientStartPoint = {
-          x: 0,
-          y: 0
-        };
-        selectedShape.fillLinearGradientEndPoint = {
-          x: selectedId === "shapes_background" ? _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width : 100,
-          y: selectedId === "shapes_background" ? _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height : 100
-        };
+        selectedShape.fillLinearGradientColorStops = undefined;
+        selectedShape.fillLinearGradientStartPoint = undefined;
+        selectedShape.fillLinearGradientEndPoint = undefined;
         selectedShape.patternImageUrl = undefined;
+        selectedShape.fillRadialGradientStartPoint = {
+          x: selectedShape.width / 2,
+          y: selectedShape.height / 2
+        };
+        selectedShape.fillRadialGradientStartRadius = 0;
+        selectedShape.fillRadialGradientEndPoint = {
+          x: selectedShape.width / 2,
+          y: selectedShape.height / 2
+        };
+        selectedShape.fillRadialGradientEndRadius = 360;
+        selectedShape.fillRadialGradientColorStops = [0, color1, 1, color2];
       }
     });
   };
@@ -883,7 +888,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 15,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -891,7 +896,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 16,
       columnNumber: 13
     }
   }, __jsx(_tailwindComponents_CardHeader_CardHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -899,7 +904,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 17,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -907,7 +912,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 13
     }
   }, __jsx(_MainCanvas__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -917,7 +922,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -925,7 +930,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 13
     }
   }, __jsx(_Preview_components_Drawer_Drawer__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -934,7 +939,7 @@ const Card = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 17
     }
   })));
@@ -5313,6 +5318,383 @@ const TextHeader = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TextHeader);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/Picker.tsx":
+/*!****************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/Picker.tsx ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-color */ "react-color");
+/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_color__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\CustomColorPicker\\Picker.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const Picker = ({
+  color,
+  onChange
+}) => {
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, __jsx(react_color__WEBPACK_IMPORTED_MODULE_1__["ChromePicker"], {
+    color: color,
+    onChange: onChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Picker);
+
+/***/ }),
+
+/***/ "./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/index.tsx":
+/*!***************************************************************************************************!*\
+  !*** ./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/index.tsx ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
+/* harmony import */ var _Picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Picker */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/Picker.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\CustomColorPicker\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+const CustomColorPicker = ({
+  closeModal
+}) => {
+  const {
+    0: fillType,
+    1: setfillType
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: gradientType,
+    1: setGradientType
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("linear");
+  const myRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  const {
+    getSelectedElementData,
+    handleFill,
+    handleGradientColor,
+    handleRadialGradientColor
+  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])(); // const [solidColor, setSolidColor] = useState<string>("#171717")
+  // const [currentGradientColors, setCurrentGradientColors] = useImmerState([0, "#171717", 1, "#171717"])
+
+  const {
+    0: gradientColorNumber,
+    1: setGradientColorNumber
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1);
+  const selectedElementData = getSelectedElementData();
+  const linearGradColor1 = !!(selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fillLinearGradientColorStops) ? selectedElementData === null || selectedElementData === void 0 ? void 0 : selectedElementData.fillLinearGradientColorStops[1] : "#171717";
+  const linearGradColor2 = !!(selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fillLinearGradientColorStops) ? selectedElementData === null || selectedElementData === void 0 ? void 0 : selectedElementData.fillLinearGradientColorStops[3] : "#171717";
+  const radialGradColor1 = !!(selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fillRadialGradientColorStops) ? selectedElementData === null || selectedElementData === void 0 ? void 0 : selectedElementData.fillRadialGradientColorStops[1] : "#171717";
+  const radialGradColor2 = !!(selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fillRadialGradientColorStops) ? selectedElementData === null || selectedElementData === void 0 ? void 0 : selectedElementData.fillRadialGradientColorStops[3] : "#171717";
+
+  const handleClickOutside = e => {
+    //   console.log({ LOL: reference.current.contains(e.target), ee: e.target });
+    if (!myRef.current.contains(e.target)) {
+      // setShowModal(false);
+      closeModal();
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  });
+
+  const handleGradientTypeChange = e => {
+    setGradientType(e.target.value);
+  };
+
+  const handleSolidColorChange = color => {
+    handleFill(color.hex);
+  };
+
+  const handleGradientColorChange = color => {
+    if (gradientType === "linear") {
+      const color1 = gradientColorNumber === 1 ? color.hex : linearGradColor1;
+      const color2 = gradientColorNumber === 3 ? color.hex : linearGradColor2;
+      handleGradientColor(color1, color2);
+    }
+
+    if (gradientType === "radial") {
+      const color1 = gradientColorNumber === 1 ? color.hex : radialGradColor1;
+      const color2 = gradientColorNumber === 3 ? color.hex : radialGradColor2;
+      handleRadialGradientColor(color1, color2);
+    }
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    ref: myRef,
+    className: " shadow rounded fixed z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: "relative w-auto max-w-3xl mx-auto",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    className: "relative flex flex-col w-full p-2 bg-white border-0 rounded-lg  border-bordercolor focus:outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71,
+      columnNumber: 21
+    }
+  }, __jsx("label", {
+    className: "mt-4 ml-6 text-base font-medium leading-5 text-left text-black font-inter",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 25
+    }
+  }, "Fill type"), __jsx("div", {
+    className: "flex items-start justify-between p-5 rounded-t border-blueGray-200 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: "flex gap-2 ml-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 29
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 33
+    }
+  }, __jsx("button", {
+    onClick: () => {
+      setfillType("solid");
+    },
+    type: "button",
+    className: " w-14 font-inter h-10 inline-flex items-center px-3 py-1.5 border-2 border-gray300 text-xs font-medium rounded-md shadow-sm   " + (fillType === "solid" ? "bg-SolidColor text-white" : "text-gradientColor bg-jacksonsGray"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 37
+    }
+  }, "Solid")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 33
+    }
+  }, __jsx("button", {
+    onClick: () => setfillType("gradient"),
+    type: "button",
+    className: "w-28 font-inter h-10 inline-flex text-center items-center px-5 py-1.5 border-2 border-gray300 text-xs font-medium  rounded-md shadow-sm " + (fillType === "gradient" ? "bg-SolidColor text-white" : "text-gradientColor bg-jacksonsGray"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 37
+    }
+  }, "Fill gradient")), __jsx("div", {
+    className: "mt-2 ml-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
+      columnNumber: 33
+    }
+  }))), __jsx("div", {
+    className: fillType === "solid" ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 109,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: "w-60",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 29
+    }
+  }, __jsx(_Picker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    color: selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fill ? selectedElementData === null || selectedElementData === void 0 ? void 0 : selectedElementData.fill : "#171717",
+    onChange: handleSolidColorChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 33
+    }
+  }))), __jsx("div", {
+    className: fillType === "gradient" ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: " flex justify-evenly ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 29
+    }
+  }, __jsx("label", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+      columnNumber: 33
+    }
+  }, __jsx("input", {
+    onChange: handleGradientTypeChange,
+    checked: gradientType === "linear",
+    value: "linear",
+    id: "linear",
+    name: "linear",
+    type: "radio",
+    className: "w-4 h-4 mt-1 mb-1 mr-3 text-indigo600 border-gray300 focus:ring-indigo500",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+      columnNumber: 40
+    }
+  }), "Linear"), __jsx("label", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132,
+      columnNumber: 33
+    }
+  }, __jsx("input", {
+    onChange: handleGradientTypeChange,
+    checked: gradientType === "radial",
+    value: "radial",
+    id: "radial",
+    name: "radial",
+    type: "radio",
+    className: "w-4 h-4 mt-1 mb-1 mr-3 text-left text-indigo600 border-gray300 focus:ring-indigo500",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132,
+      columnNumber: 40
+    }
+  }), "Radial")), __jsx("div", {
+    className: "w-60",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 145,
+      columnNumber: 29
+    }
+  }, __jsx(_Picker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    color: !!(selectedElementData !== null && selectedElementData !== void 0 && selectedElementData.fillLinearGradientColorStops) ? selectedElementData.fillLinearGradientColorStops[gradientColorNumber] : "#171717",
+    onChange: handleGradientColorChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 146,
+      columnNumber: 33
+    }
+  }))), __jsx("div", {
+    className: "flex justify-between mt-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: fillType === "gradient" ? "flex gap-2" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 157,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    className: "h-10 w-10 rounded-md border " + (gradientColorNumber === 1 ? "border-gray94" : "border-bluish"),
+    style: {
+      backgroundColor: linearGradColor1
+    },
+    onClick: () => setGradientColorNumber(1),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 158,
+      columnNumber: 33
+    }
+  }), __jsx("button", {
+    className: "h-10 w-10 rounded-md border " + (gradientColorNumber === 3 ? "border-gray94" : "border-bluish"),
+    style: {
+      backgroundColor: linearGradColor2
+    },
+    onClick: () => setGradientColorNumber(3),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 33
+    }
+  })))))), __jsx("div", {
+    className: "fixed inset-0 z-40 bg-transparent opacity-25",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 177,
+      columnNumber: 13
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CustomColorPicker);
 
 /***/ }),
 
@@ -10727,11 +11109,16 @@ const FontStyletool = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
+/* harmony import */ var _CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../CustomColorPicker */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\TextSelector\\components\\FontColortool\\FontColortool.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
 
 
 
@@ -10741,11 +11128,16 @@ const FontStyletool = () => {
   const {
     0: colorQuery,
     1: setColorQuery
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("");
   const {
     0: colorsArray,
     1: setColorsArray
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]);
+  const [documentColors, setDocumentColors] = Object(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__["useImmerState"])([]);
+  const {
+    0: isOpenColorPicker,
+    1: setIsOpenColorPicker
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
 
   const handleColorQueryChange = e => {
     setColorQuery(e.target.value);
@@ -10754,9 +11146,11 @@ const FontStyletool = () => {
   const {
     handleFill,
     getDocumentColors
-  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  const documentColors = getDocumentColors();
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+  } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    setDocumentColors(getDocumentColors());
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
     if (!colorQuery) return;
     const fetchURl = colorQuery.charAt(0) !== "#" ? `https://api.color.pizza/v1/names/?name=${colorQuery}&goodnamesonly=true` : `https://api.color.pizza/v1/?values=${colorQuery.substring(1)}&goodnamesonly=true`;
     fetch(fetchURl).then(response => response.json()).then(data => {
@@ -10765,12 +11159,21 @@ const FontStyletool = () => {
       setColorsArray(newColors);
     }).catch(error => console.log("No colors found!"));
   }, [colorQuery]);
+
+  const openColorPicker = () => {
+    setIsOpenColorPicker(true);
+  };
+
+  const closeColorPicker = () => {
+    setIsOpenColorPicker(false);
+  };
+
   return __jsx("div", {
     className: "h-full flex flex-col w-full px-6 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 51,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -10778,7 +11181,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 53,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -10786,14 +11189,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 55,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 56,
       columnNumber: 21
     }
   }, __jsx("span", {
@@ -10801,7 +11204,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 57,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -10813,7 +11216,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 58,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -10824,7 +11227,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 59,
       columnNumber: 33
     }
   })))), __jsx("input", {
@@ -10835,7 +11238,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 64,
       columnNumber: 21
     }
   }))), __jsx("div", {
@@ -10843,7 +11246,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 69,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10851,7 +11254,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 70,
       columnNumber: 17
     }
   }, "Search results"), __jsx("div", {
@@ -10859,7 +11262,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 71,
       columnNumber: 17
     }
   }, colorsArray.map(item => __jsx("button", {
@@ -10871,7 +11274,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 73,
       columnNumber: 25
     }
   })))), __jsx("div", {
@@ -10879,7 +11282,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 77,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10887,7 +11290,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 78,
       columnNumber: 17
     }
   }, "Document Colors"), __jsx("div", {
@@ -10895,50 +11298,67 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 79,
       columnNumber: 17
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 80,
       columnNumber: 21
     }
   }, __jsx("img", {
+    onClick: openColorPicker,
     src: image,
     className: "w-10 h-10",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 81,
       columnNumber: 25
     }
   })), documentColors.map(item => __jsx("button", {
     style: {
       backgroundColor: item
     },
-    className: "h-10 w-10 rounded-md",
+    className: "h-10 w-10 rounded-md border border-black",
     onClick: () => handleFill(item),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 84,
       columnNumber: 25
     }
-  })))), __jsx("div", {
+  }))), __jsx("div", {
+    className: isOpenColorPicker ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 17
+    }
+  }, __jsx(_CustomColorPicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    closeModal: closeColorPicker,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 21
+    }
+  }))), __jsx("div", {
     className: "border-b-2 border-bordercolor mt-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 94,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 95,
       columnNumber: 13
     }
   }, __jsx("button", {
@@ -10946,7 +11366,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 96,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -10954,7 +11374,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 96,
       columnNumber: 62
     }
   }, "+"), "Add your brand colors in Brand Kit")), __jsx("div", {
@@ -10962,14 +11382,14 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 99,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 100,
       columnNumber: 13
     }
   }, __jsx("h1", {
@@ -10977,7 +11397,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 101,
       columnNumber: 17
     }
   }, "Default Colors"), __jsx("div", {
@@ -10985,7 +11405,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 102,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -10993,7 +11413,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 103,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -11002,7 +11422,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 105,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11011,7 +11431,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 106,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11020,7 +11440,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 107,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11029,7 +11449,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 108,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11038,7 +11458,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 109,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11047,7 +11467,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 110,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -11055,7 +11475,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 112,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -11064,7 +11484,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 114,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11073,7 +11493,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 115,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11082,7 +11502,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 116,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11091,7 +11511,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 117,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11100,7 +11520,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 118,
       columnNumber: 25
     }
   }), __jsx("button", {
@@ -11109,7 +11529,7 @@ const FontStyletool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 119,
       columnNumber: 25
     }
   })))));
