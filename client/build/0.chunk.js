@@ -1026,19 +1026,13 @@ const MainStage = ({
     const horizontal = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height]; // we snap over edges and center of each object on the canvas
 
     $stage.current.find(".object").forEach(guideItem => {
-      var _$tr$current, _$tr$current$nodes;
-
       if (guideItem === skipShape) {
         return;
-      }
+      } // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === guideItem.attrs.id)
+      // if (isWrapped) return
+      // console.log({ skipShape, guideItem, isWrapped })
 
-      const isWrapped = (_$tr$current = $tr.current) === null || _$tr$current === void 0 ? void 0 : (_$tr$current$nodes = _$tr$current.nodes()) === null || _$tr$current$nodes === void 0 ? void 0 : _$tr$current$nodes.some(node => node.attrs.id === guideItem.attrs.id);
-      if (isWrapped) return;
-      console.log({
-        skipShape,
-        guideItem,
-        isWrapped
-      });
+
       const box = guideItem.getClientRect(); // we can snap to all edges of shapes
 
       vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
@@ -1170,8 +1164,6 @@ const MainStage = ({
 
 
   const _onDragMove = e => {
-    var _$tr$current2, _$tr$current2$nodes;
-
     const linesArray = $layer.current.find(".guid-line");
 
     if (!!linesArray.length) {
@@ -1180,15 +1172,15 @@ const MainStage = ({
 
     const lineGuideStops = getLineGuideStops(e.target); // Need to snap transformer not shape
 
-    const itemBounds = getObjectSnappingEdges($tr.current);
+    const itemBounds = getObjectSnappingEdges(e.target);
     const guides = getGuides(lineGuideStops, itemBounds);
 
     if (!guides.length) {
       return;
-    }
+    } // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === e.target.attrs.id)
+    // if (isWrapped) return
 
-    const isWrapped = (_$tr$current2 = $tr.current) === null || _$tr$current2 === void 0 ? void 0 : (_$tr$current2$nodes = _$tr$current2.nodes()) === null || _$tr$current2$nodes === void 0 ? void 0 : _$tr$current2$nodes.some(node => node.attrs.id === e.target.attrs.id);
-    if (isWrapped) return;
+
     drawGuides(guides);
     guides.forEach(lg => {
       switch (lg.snap) {

@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "1ed8d112eb60311cc5c7";
+=======
+/******/ 	var hotCurrentHash = "d8d40356a099afa497e6";
+>>>>>>> stygianlgdonic/snappingTransformer
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
