@@ -16,6 +16,15 @@ const CardElementsFunctions = () => {
 
     const [file, selectFile] = useFileUpload()
 
+    const getSelectedElementData = () => {
+        if (selectedId) {
+            const selectedShape = cardData.elements.find(item => item.id === selectedId)
+            return selectedShape
+        } else {
+            return null
+        }
+
+    }
 
     const handleAddNewRect = (rectData: any) => {
         setCardData((prev) => {
@@ -380,6 +389,7 @@ const CardElementsFunctions = () => {
 
 
     return {
+        getSelectedElementData,
         handleAddNewRect,
         handleAddNewCircle,
         handleAddNewTrianlge,
