@@ -1,4 +1,4 @@
-import React, { createContext, useState, useReducer } from 'react'
+import React, { createContext, useState, useReducer, useRef } from 'react'
 
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../../utils/defaults';
@@ -27,6 +27,10 @@ export const DesignToolContext = createContext(null)
 
 export const DesignToolProvider = ({ children }) => {
 
+    const $stage = useRef(null)
+    const $layer = useRef(null)
+    const $tr = useRef(null)
+
     const [designToolnavigator, setDesignToolnavigator] = useState('element')
     const [dashboardnavigator, setDashboardnavigator] = useState('home')
     const [sidebarnavigator, setSidebarnavigator] = useState('')
@@ -38,6 +42,7 @@ export const DesignToolProvider = ({ children }) => {
     return (
         <DesignToolContext.Provider
             value={{
+                $stage, $layer, $tr,
                 designToolnavigator, setDesignToolnavigator,
                 sidebarnavigator, setSidebarnavigator,
                 dashboardnavigator, setDashboardnavigator,

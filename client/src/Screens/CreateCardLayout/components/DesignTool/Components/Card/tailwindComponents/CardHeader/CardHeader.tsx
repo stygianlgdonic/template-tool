@@ -4,12 +4,9 @@ import TextHeader from "./components/TextHeader/TextHeader";
 import { DesignToolContext } from "../../../../../../../../contexts/DesignTool/DesignToolContext";
 import CardElementsFunctions from "../../../../../../../../Hooks/CardElementsFunctions";
 
-interface Props {
-    $tr: any
-}
-
-const CardHeader: React.FC<Props> = ({ $tr }): JSX.Element => {
+const CardHeader: React.FC = (): JSX.Element => {
     const {
+        $tr,
         designToolState
     } = useContext(DesignToolContext)
     const { handleDeleteSelectedItem } = CardElementsFunctions()

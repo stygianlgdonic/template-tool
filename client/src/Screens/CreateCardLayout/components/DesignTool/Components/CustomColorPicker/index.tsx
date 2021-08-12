@@ -1,20 +1,17 @@
-import { useImmerState } from "@shrugsy/use-immer-state";
 import React, { useEffect, useRef, useState } from "react";
 import CardElementsFunctions from "../../../../../../Hooks/CardElementsFunctions";
 import Picker from "./Picker";
 
-interface Prop {
+interface Props {
     closeModal: () => void
 }
-const CustomColorPicker: React.FC<Prop> = ({
-    closeModal
+const CustomColorPicker: React.FC<Props> = ({
+    closeModal,
 }): JSX.Element => {
     const [fillType, setfillType] = useState<"" | "solid" | "gradient">("");
     const [gradientType, setGradientType] = useState<"linear" | "radial">("linear")
     const myRef = useRef(null);
     const { getSelectedElementData, handleFill, handleGradientColor, handleRadialGradientColor } = CardElementsFunctions()
-    // const [solidColor, setSolidColor] = useState<string>("#171717")
-    // const [currentGradientColors, setCurrentGradientColors] = useImmerState([0, "#171717", 1, "#171717"])
     const [gradientColorNumber, setGradientColorNumber] = useState<1 | 3>(1)
 
     const selectedElementData = getSelectedElementData()
@@ -142,11 +139,20 @@ const CustomColorPicker: React.FC<Prop> = ({
                                 </label>
 
                             </div>
-                            <div className="w-60">
+                            <div className={gradientType === "linear" ? "w-60" : "hidden"}>
                                 <Picker
                                     color={
                                         !!selectedElementData?.fillLinearGradientColorStops ?
                                             selectedElementData.fillLinearGradientColorStops[gradientColorNumber] :
+                                            "#171717"}
+                                    onChange={handleGradientColorChange}
+                                />
+                            </div>
+                            <div className={gradientType === "radial" ? "w-60" : "hidden"}>
+                                <Picker
+                                    color={
+                                        !!selectedElementData?.fillRadialGradientColorStops ?
+                                            selectedElementData.fillRadialGradientColorStops[gradientColorNumber] :
                                             "#171717"}
                                     onChange={handleGradientColorChange}
                                 />
@@ -159,14 +165,14 @@ const CustomColorPicker: React.FC<Prop> = ({
                                     className={"h-10 w-10 rounded-md border " + (
                                         gradientColorNumber === 1 ? "border-gray94" : "border-bluish"
                                     )}
-                                    style={{ backgroundColor: linearGradColor1 }}
+                                    style={{ backgroundColor: gradientType === "linear" ? linearGradColor1 : radialGradColor1 }}
                                     onClick={() => setGradientColorNumber(1)}
                                 />
                                 <button
                                     className={"h-10 w-10 rounded-md border " + (
                                         gradientColorNumber === 3 ? "border-gray94" : "border-bluish"
                                     )}
-                                    style={{ backgroundColor: linearGradColor2 }}
+                                    style={{ backgroundColor: gradientType === "radial" ? radialGradColor2 : linearGradColor2 }}
                                     onClick={() => setGradientColorNumber(3)}
                                 />
                             </div>

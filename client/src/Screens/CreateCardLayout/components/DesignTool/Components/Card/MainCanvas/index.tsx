@@ -5,13 +5,7 @@ import { DesignToolContext } from '../../../../../../../contexts/DesignTool/Desi
 import CardHeaderActions from '../../../../../../../contexts/DesignTool/CardHeaderActions';
 import CardElementsFunctions from '../../../../../../../Hooks/CardElementsFunctions';
 
-interface Props {
-    $stage: any
-    $layer: any
-    $tr: any
-}
-
-const DesignTool: React.FC<Props> = ({ $stage, $layer, $tr }) => {
+const DesignTool: React.FC = () => {
 
     const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
     const { handleDeleteSelectedItem } = CardElementsFunctions()
@@ -61,9 +55,6 @@ const DesignTool: React.FC<Props> = ({ $stage, $layer, $tr }) => {
         <div className="min-w-max  flex justify-center flex-col h-full">
             <div className="flex justify-center mt-5 h-full">
                 <MainStage
-                    $stage={$stage}
-                    $layer={$layer}
-                    $tr={$tr}
                     cardData={cardData}
                     setCardData={setCardData}
                     selectedId={selectedId}

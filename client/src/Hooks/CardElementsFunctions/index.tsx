@@ -1,12 +1,13 @@
 import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 import { defaultImage, defaultSvg, fontSizeArray, hex_regex, stageDimensions } from "../../utils/defaults";
 import CardHeaderActions from "../../contexts/DesignTool/CardHeaderActions";
 
 const CardElementsFunctions = () => {
     const {
+        $tr,
         designToolnavigator, setDesignToolnavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
@@ -324,14 +325,19 @@ const CardElementsFunctions = () => {
                     y: stageDimensions.height
                 }
             } else {
+
+                const stage = $tr?.current?.getStage();
+                const selectedNode = stage?.findOne("#" + selectedId);
+                const clientRect = selectedNode?.getClientRect()
+
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
                 selectedShape.patternImageUrl = undefined
                 selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
                 selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
                 selectedShape.fillLinearGradientEndPoint = {
-                    x: selectedShape.width,
-                    y: selectedShape.height
+                    x: clientRect.width,
+                    y: clientRect.height
                 }
             }
         })
@@ -351,15 +357,19 @@ const CardElementsFunctions = () => {
                 prev.elements[0].fillRadialGradientEndRadius = 360
                 prev.elements[0].fillRadialGradientColorStops = [0, color1, 1, color2]
             } else {
+                const stage = $tr?.current?.getStage();
+                const selectedNode = stage?.findOne("#" + selectedId);
+                const clientRect = selectedNode?.getClientRect()
+
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
                 selectedShape.fillLinearGradientColorStops = undefined
                 selectedShape.fillLinearGradientStartPoint = undefined
                 selectedShape.fillLinearGradientEndPoint = undefined
                 selectedShape.patternImageUrl = undefined
-                selectedShape.fillRadialGradientStartPoint = { x: selectedShape.width / 2, y: selectedShape.height / 2 }
+                selectedShape.fillRadialGradientStartPoint = { x: clientRect.width / 2, y: clientRect.height / 2 }
                 selectedShape.fillRadialGradientStartRadius = 0
-                selectedShape.fillRadialGradientEndPoint = { x: selectedShape.width / 2, y: selectedShape.height / 2 }
+                selectedShape.fillRadialGradientEndPoint = { x: clientRect.width / 2, y: clientRect.height / 2 }
                 selectedShape.fillRadialGradientEndRadius = 360
                 selectedShape.fillRadialGradientColorStops = [0, color1, 1, color2]
             }

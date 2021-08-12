@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Stage, Layer, Rect } from 'react-konva';
 import Rectangle from "../Rectangle"
 import UCircle from "../UCircle"
@@ -10,19 +10,18 @@ import TransformerComponent from "../UTransformer"
 import { stageDimensions } from '../../../../../../../../utils/defaults';
 import UImage from '../UImage';
 import CardHeaderActions from '../../../../../../../../contexts/DesignTool/CardHeaderActions';
+import { DesignToolContext } from '../../../../../../../../contexts/DesignTool/DesignToolContext';
 
 declare const window: any
 
 const MainStage = ({
-    $stage,
-    $layer,
-    $tr,
     cardData,
     setCardData,
     selectedId,
     setSelectedId,
 }) => {
 
+    const { $tr, $layer, $stage } = useContext(DesignToolContext)
     const { emptyCardHeader } = CardHeaderActions()
 
     // snapping distance

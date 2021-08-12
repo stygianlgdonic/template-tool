@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 import CustomColorPicker from '../../../../../CustomColorPicker';
 const image = require('./../../../../../../../../../../assets/images/custom.png');
+
 const FontStyletool: React.FC = (): JSX.Element => {
 
     const [colorQuery, setColorQuery] = useState<string>("")
@@ -81,7 +82,7 @@ const FontStyletool: React.FC = (): JSX.Element => {
                         <img onClick={openColorPicker} src={image} className="w-10 h-10" />
                     </button>
                     {documentColors.map(item =>
-                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md border border-black" onClick={() => handleFill(item)}></button>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md border border-gray-500" onClick={() => handleFill(item)}></button>
                     )}
 
                 </div>
