@@ -3,6 +3,7 @@ import WebFont from "webfontloader";
 import MainStage from './MainStage';
 import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
 import CardHeaderActions from '../../../../../../../contexts/DesignTool/CardHeaderActions';
+import CardElementsFunctions from '../../../../../../../Hooks/CardElementsFunctions';
 
 interface Props {
     $stage: any
@@ -13,6 +14,7 @@ interface Props {
 const DesignTool: React.FC<Props> = ({ $stage, $layer, $tr }) => {
 
     const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
+    const { handleDeleteSelectedItem } = CardElementsFunctions()
 
     const {
         selectedId, setSelectedId,
@@ -37,6 +39,7 @@ const DesignTool: React.FC<Props> = ({ $stage, $layer, $tr }) => {
         if (e.key === "Escape") {
             setSelectedId(null)
             emptyCardHeader()
+            // handleDeleteSelectedItem()
         }
     }
 

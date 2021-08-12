@@ -44,7 +44,7 @@ const RightSidebar: React.FC = () => {
         <div className=" overflow-y-hidden  ">
 
             <div className={dashboardnavigator === "home" ? " h-screen flex items-center justify-center   " : "hidden"}>
-                <div className="flex flex-col items-center  h-screen justify-center  ">
+                <div className="flex flex-col items-center  h-screen justify-center px-6 ">
 
                     <CreateEmail bio1={email_title_1} bio2={email_text_1} bio3={email_button_text_1} bio4={ORIGINAL_SVG_mailicon} />
                     <CreateEmail bio1={email_title_2} bio2={email_text_2} bio3={email_button_text_2} bio4={ORIGINAL_SVG_imageicon} />

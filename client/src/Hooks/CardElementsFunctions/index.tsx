@@ -2,7 +2,7 @@ import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
 import { useContext } from 'react';
 import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
-import { defaultImage, defaultSvg, fontSizeArray, stageDimensions } from "../../utils/defaults";
+import { defaultImage, defaultSvg, fontSizeArray, hex_regex, stageDimensions } from "../../utils/defaults";
 import CardHeaderActions from "../../contexts/DesignTool/CardHeaderActions";
 
 const CardElementsFunctions = () => {
@@ -16,6 +16,21 @@ const CardElementsFunctions = () => {
 
     const [file, selectFile] = useFileUpload()
 
+    const getDocumentColors = () => {
+        const stringifyData = JSON.stringify(cardData)
+        const docColors = new Set(stringifyData.match(hex_regex))
+        return [...docColors]
+    }
+
+    const getSelectedElementData = () => {
+        if (selectedId) {
+            const selectedShape = cardData.elements.find(item => item.id === selectedId)
+            return selectedShape
+        } else {
+            return null
+        }
+
+    }
 
     const handleAddNewRect = (rectData: any) => {
         setCardData((prev) => {
@@ -380,6 +395,8 @@ const CardElementsFunctions = () => {
 
 
     return {
+        getDocumentColors,
+        getSelectedElementData,
         handleAddNewRect,
         handleAddNewCircle,
         handleAddNewTrianlge,

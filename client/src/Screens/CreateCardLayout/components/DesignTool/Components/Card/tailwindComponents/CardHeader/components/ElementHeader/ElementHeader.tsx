@@ -11,22 +11,22 @@ interface Props {
 
 const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
     // const [openstyle, setOpenstyle] = React.useState(false);
-    // const [open, setOpen] = React.useState(false);
     const [openstyle, setOpenstyle] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const [openDropDown, setopenDropDown] = useState(false);
     const [values, setValues] = React.useState<any>([100])
     // !!state?false:true;
     const [showeModal, seteShowModal] = React.useState(false);
-    const { handleBorderWidthChange, handleStrokeColor, handleTextOpacity } = CardElementsFunctions()
+    const { handleBorderWidthChange, handleStrokeColor, handleTextOpacity, getSelectedElementData } = CardElementsFunctions()
     // !!state?false:true;
 
     const { selectShapeColorSubNav } = SubNavbarActions()
+    const selectedelement = getSelectedElementData()
 
     return (
         <div className="flex  justify-between " style={{ width: '110.5vh', }}>
             <div className="flex pl-12">
-                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={selectShapeColorSubNav}></button>
+                <button className="w-10 h-10 rounded-md hover:ring-2 ring-indigo600" style={{ backgroundColor: selectedelement?.fill }} onClick={selectShapeColorSubNav}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"
@@ -113,8 +113,8 @@ const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
             <div className="flex flex-row  items-center  justify-between mt-1" >
 
                 <div className=" relative">
-                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md focus:ring-indigo600 ring-2 " onClick={() => { seteShowModal(true); setopenDropDown(false) }}>
-                        <img src={image} />
+                    <button className={showeModal ? "ml-6  hover:bg-lightindigo h-10 w-10 px-1 rounded-md border-2 border-indigo600 " : "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md  "} onClick={() => { seteShowModal(true); setopenDropDown(false) }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd"><path d="M3 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z"></path><path d="M11 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".45"></path><path d="M19 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".15"></path><path d="M7 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".7"></path><path d="M15 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".3"></path></g></svg>
                     </button>
                     <div className=" absolute">
                         {showeModal ? (
@@ -144,7 +144,7 @@ const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                                                     renderTrack={({ props, children }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-4/6 h-3 pr-2 my-4 bg-gray-200 rounded-md"
+                                                            className="w-full h-3 pr-2 my-4 bg-gray-200 rounded-md"
                                                         >
                                                             {children}
                                                         </div>
@@ -180,6 +180,8 @@ const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                         <svg width="20" height="23" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.1875 4.56858L12.4828 12.9017C12.4221 13.6199 11.7145 14.1764 10.8619 14.1764H4.13807C3.28553 14.1764 2.57794 13.6199 2.5172 12.9017L1.8125 4.56858M5.875 7.31368V11.4313M9.125 7.31368V11.4313M9.9375 4.56858V2.50976C9.9375 2.13074 9.57373 1.82349 9.125 1.82349H5.875C5.42627 1.82349 5.0625 2.13074 5.0625 2.50976V4.56858M1 4.56858H14" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
+
+
                     </button>
 
                 </div>
