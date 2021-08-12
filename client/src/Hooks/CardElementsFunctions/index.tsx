@@ -1,12 +1,13 @@
 import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 import { defaultImage, defaultSvg, fontSizeArray, hex_regex, stageDimensions } from "../../utils/defaults";
 import CardHeaderActions from "../../contexts/DesignTool/CardHeaderActions";
 
 const CardElementsFunctions = () => {
     const {
+        $tr,
         designToolnavigator, setDesignToolnavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
@@ -316,23 +317,28 @@ const CardElementsFunctions = () => {
         setCardData(prev => {
             if (!!backgroundID) {
                 prev.elements[0].fill = ""
+                prev.elements[0].patternImageUrl = undefined
                 prev.elements[0].fillLinearGradientColorStops = [0, color1, 1, color2]
                 prev.elements[0].fillLinearGradientStartPoint = { x: 0, y: 0 }
                 prev.elements[0].fillLinearGradientEndPoint = {
                     x: stageDimensions.width,
                     y: stageDimensions.height
                 }
-                prev.elements[0].patternImageUrl = undefined
             } else {
+
+                const stage = $tr?.current?.getStage();
+                const selectedNode = stage?.findOne("#" + selectedId);
+                const clientRect = selectedNode?.getClientRect()
+
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
+                selectedShape.patternImageUrl = undefined
                 selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
                 selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
                 selectedShape.fillLinearGradientEndPoint = {
-                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
+                    x: clientRect.width,
+                    y: clientRect.height
                 }
-                selectedShape.patternImageUrl = undefined
             }
         })
     }
@@ -347,19 +353,25 @@ const CardElementsFunctions = () => {
                 prev.elements[0].patternImageUrl = undefined
                 prev.elements[0].fillRadialGradientStartPoint = { x: stageDimensions.width / 2, y: stageDimensions.height / 2 }
                 prev.elements[0].fillRadialGradientStartRadius = 0
-                prev.elements[0].fillRadialGradientEndPoint = { x: 0, y: 0 }
-                prev.elements[0].fillRadialGradientEndRadius = 750
+                prev.elements[0].fillRadialGradientEndPoint = { x: stageDimensions.width / 2, y: stageDimensions.height / 2 }
+                prev.elements[0].fillRadialGradientEndRadius = 360
                 prev.elements[0].fillRadialGradientColorStops = [0, color1, 1, color2]
             } else {
+                const stage = $tr?.current?.getStage();
+                const selectedNode = stage?.findOne("#" + selectedId);
+                const clientRect = selectedNode?.getClientRect()
+
                 const selectedShape = prev.elements.find(item => item.id === selectedId)
                 selectedShape.fill = ""
-                selectedShape.fillLinearGradientColorStops = [0, color1, 1, color2]
-                selectedShape.fillLinearGradientStartPoint = { x: 0, y: 0 }
-                selectedShape.fillLinearGradientEndPoint = {
-                    x: selectedId === "shapes_background" ? stageDimensions.width : 100,
-                    y: selectedId === "shapes_background" ? stageDimensions.height : 100
-                }
+                selectedShape.fillLinearGradientColorStops = undefined
+                selectedShape.fillLinearGradientStartPoint = undefined
+                selectedShape.fillLinearGradientEndPoint = undefined
                 selectedShape.patternImageUrl = undefined
+                selectedShape.fillRadialGradientStartPoint = { x: clientRect.width / 2, y: clientRect.height / 2 }
+                selectedShape.fillRadialGradientStartRadius = 0
+                selectedShape.fillRadialGradientEndPoint = { x: clientRect.width / 2, y: clientRect.height / 2 }
+                selectedShape.fillRadialGradientEndRadius = 360
+                selectedShape.fillRadialGradientColorStops = [0, color1, 1, color2]
             }
         })
     }

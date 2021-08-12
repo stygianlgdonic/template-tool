@@ -1,18 +1,24 @@
+import { useImmerState } from '@shrugsy/use-immer-state';
 import React, { useEffect, useState } from 'react';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
+import CustomColorPicker from '../../../../../CustomColorPicker';
 const image = require('./../../../../../../../../../../assets/images/custom.png');
+
 const FontStyletool: React.FC = (): JSX.Element => {
 
     const [colorQuery, setColorQuery] = useState<string>("")
     const [colorsArray, setColorsArray] = useState([])
-
+    const [documentColors, setDocumentColors] = useImmerState([])
+    const [isOpenColorPicker, setIsOpenColorPicker] = useState(false)
 
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
     }
     const { handleFill, getDocumentColors } = CardElementsFunctions()
 
-    const documentColors = getDocumentColors()
+    useEffect(() => {
+        setDocumentColors(getDocumentColors())
+    }, [])
 
     useEffect(() => {
 
@@ -32,6 +38,14 @@ const FontStyletool: React.FC = (): JSX.Element => {
                 setColorsArray(newColors)
             }).catch(error => console.log("No colors found!"))
     }, [colorQuery])
+
+    const openColorPicker = () => {
+        setIsOpenColorPicker(true)
+    }
+
+    const closeColorPicker = () => {
+        setIsOpenColorPicker(false)
+    }
 
     return (
 
@@ -58,7 +72,6 @@ const FontStyletool: React.FC = (): JSX.Element => {
                 <div className=" mt-4 flex flex-row items-center gap-3">
                     {colorsArray.map(item =>
                         <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
-
                     )}
                 </div>
             </div>
@@ -66,12 +79,17 @@ const FontStyletool: React.FC = (): JSX.Element => {
                 <h1 className="text-md text-gray40 mt-4" >Document Colors</h1>
                 <div className=" mt-4 flex flex-row items-center justify-between">
                     <button>
-                        <img src={image} className="w-10 h-10" />
+                        <img onClick={openColorPicker} src={image} className="w-10 h-10" />
                     </button>
                     {documentColors.map(item =>
-                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md" onClick={() => handleFill(item)}></button>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md border border-gray-500" onClick={() => handleFill(item)}></button>
                     )}
 
+                </div>
+                <div className={isOpenColorPicker ? "" : "hidden"}>
+                    <CustomColorPicker
+                        closeModal={closeColorPicker}
+                    />
                 </div>
             </div>
             <div className="border-b-2 border-bordercolor mt-6" ></div>
