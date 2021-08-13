@@ -1,11 +1,8 @@
-// res.cookie("newToken","tokenABC")
 // npm packages
 // const dotenv = require("dotenv");
 const express = require("express");
 Promise = require("bluebird"); // eslint-disable-line
-const cookieParser = require("cookie-parser");
-const csurf = require("csurf");
-const csrfProtection = csurf({ cookie: { httpOnly: true } });
+
 const passport = require("passport");
 
 // app imports
@@ -28,6 +25,7 @@ const {
   globalErrorHandler,
   fourOhFourHandler,
   fourOhFiveHandler,
+  CustomErrorHandler,
 } = errorHandler;
 
 // database
@@ -37,7 +35,7 @@ connectToDatabase();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ type: "*/*" }));
 app.use(bodyParserHandler); // error handling specific to body parser only
-app.use(cookieParser()); // Cookie parser to read and set cookies
+// app.use(cookieParser()); // Cookie parser to read and set cookies
 // response headers setup; CORS
 const cors = require("cors");
 app.use(cors());
@@ -71,28 +69,9 @@ app.use(
   secureRouter
 );
 
-app.get("/logout", (req, res) => {
-  res.clearCookie("cookieToken");
-  res.redirect("/");
-});
-
-app.get("/newroute", mustBeLoggedIn, (req, res) => {
-  res.send("Route only accessible if cookie set");
-});
-
-// Our token checker middleware
-function mustBeLoggedIn(req, res, next) {
-  jwt.verify(req.cookies.cookieToken, jwtsecret, function (err, decoded) {
-    if (err) {
-      res.redirect("/");
-    } else {
-      next();
-    }
-  });
-}
-
 app.use("/", userRouter);
 
+app.use(CustomErrorHandler);
 // catch-all for 404 "Not Found" errors
 app.get("*", fourOhFourHandler);
 // catch-all for 405 "Method Not Allowed" errors

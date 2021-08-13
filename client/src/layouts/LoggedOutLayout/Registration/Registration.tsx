@@ -1,10 +1,14 @@
 import e from "express";
 import React, { useState } from "react";
 import { userAuthenticationService } from "../../../services/auth_service";
+import swal from 'sweetalert'
+import { useNavigate } from "react-router-dom";
+
 export default function Example() {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [userObj, setuserObj] = useState({ email: "", password: "" })
+  const navigate = useNavigate()
 
   const onhandleChange = (value, label) => {
     setuserObj({ ...userObj, [label]: value })
@@ -15,11 +19,21 @@ export default function Example() {
     console.log(userObj)
     if (!!userObj.email && !!userObj.password) {
       const res = await userAuthenticationService.loginUser(userObj.email, userObj.password)
+
       console.log(res)
-      alert(res.token)
+      if (!res.error) {
+        swal("Success", "You have logged in Successfully").then
+          (() =>
+            navigate("/")
+          )
+
+      }
+      else {
+        swal("Error", res.error.message)
+      }
     }
     else {
-      alert("Please provide complete details")
+      swal("error", "Please provide complete details")
     }
   }
 

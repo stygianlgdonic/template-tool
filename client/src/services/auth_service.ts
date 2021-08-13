@@ -8,7 +8,8 @@ export const userAuthenticationService =
 async function signupUser(email: string, password: string) {
     // new Promise(async (resolve, reject) => {
     try {
-        const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
+        // const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
+        const res = await fetch("http://localhost:5000/signup",
             {
                 // credentials: "same-origin",
                 // mode: 'cors'
@@ -35,7 +36,8 @@ async function signupUser(email: string, password: string) {
 
 async function loginUser(email: string, password: string) {
     try {
-        const res = await fetch("https://hyper-engage-staging.herokuapp.com/login",
+
+        const res = await fetch("http://localhost:5000/login",
             {
 
                 credentials: "same-origin",
@@ -50,13 +52,21 @@ async function loginUser(email: string, password: string) {
                 method: "POST",
                 body: JSON.stringify({ email: email, password: password })
             })
+        const result = await res.json()
 
-        // console.log("--->", res.json())
+        if (result.status === 200) {
+            window.localStorage.setItem("Token", result.data.token)
+            return result
+        }
+        else {
 
-        return res.json()
+            return result
+        }
+
+
     }
     catch (err) {
-        console.log("Error Occured", err)
+        console.log("Error Occured -------------", err)
         return (err)
     }
 

@@ -14,6 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/auth_service */ "./src/services/auth_service.ts");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "react-router");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Registration.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -22,6 +26,8 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -41,6 +47,7 @@ function Example() {
     email: "",
     password: ""
   });
+  const navigate = Object(react_router__WEBPACK_IMPORTED_MODULE_3__["useNavigate"])();
 
   const onhandleChange = (value, label) => {
     setuserObj(_objectSpread(_objectSpread({}, userObj), {}, {
@@ -55,9 +62,11 @@ function Example() {
     if (!!userObj.email && !!userObj.password) {
       const res = await _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["userAuthenticationService"].loginUser(userObj.email, userObj.password);
       console.log(res);
-      alert(res.token);
+      window.localStorage.setItem("Token", res.token);
+      console.log(window.localStorage.getItem("Token"));
+      sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("Success", "You have logged in Successfully").then(() => navigate("/"));
     } else {
-      alert("Please provide complete details");
+      sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("error", "Please provide complete details");
     }
   };
 
@@ -66,7 +75,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 35,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -74,7 +83,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 36,
       columnNumber: 7
     }
   }, __jsx("img", {
@@ -84,7 +93,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 37,
       columnNumber: 9
     }
   }), __jsx("h2", {
@@ -92,7 +101,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 42,
       columnNumber: 9
     }
   }, "Sign in to your account"), __jsx("p", {
@@ -100,7 +109,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 45,
       columnNumber: 9
     }
   }, "Or", " ", __jsx("a", {
@@ -109,7 +118,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 47,
       columnNumber: 11
     }
   }, "start your 14-day free trial"))), __jsx("div", {
@@ -117,7 +126,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 56,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -125,7 +134,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 57,
       columnNumber: 9
     }
   }, __jsx("form", {
@@ -136,14 +145,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 58,
       columnNumber: 11
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 59,
       columnNumber: 13
     }
   }, __jsx("label", {
@@ -152,7 +161,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 60,
       columnNumber: 15
     }
   }, "Email address"), __jsx("div", {
@@ -160,7 +169,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 66,
       columnNumber: 15
     }
   }, __jsx("input", {
@@ -175,14 +184,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 67,
       columnNumber: 17
     }
   }))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 80,
       columnNumber: 13
     }
   }, __jsx("label", {
@@ -191,7 +200,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 81,
       columnNumber: 15
     }
   }, "Password"), __jsx("div", {
@@ -199,7 +208,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 87,
       columnNumber: 15
     }
   }, __jsx("input", {
@@ -214,7 +223,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 88,
       columnNumber: 17
     }
   }))), __jsx("div", {
@@ -222,7 +231,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 101,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -230,7 +239,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 102,
       columnNumber: 15
     }
   }, __jsx("input", {
@@ -241,7 +250,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 103,
       columnNumber: 17
     }
   }), __jsx("label", {
@@ -250,7 +259,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 109,
       columnNumber: 17
     }
   }, "Remember me")), __jsx("div", {
@@ -258,7 +267,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 117,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -267,14 +276,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 118,
       columnNumber: 17
     }
   }, "Forgot your password?"))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
+      lineNumber: 127,
       columnNumber: 13
     }
   }, __jsx("button", {
@@ -283,7 +292,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 128,
       columnNumber: 15
     }
   }, "Sign in"))), __jsx("div", {
@@ -291,7 +300,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 137,
       columnNumber: 11
     }
   }, __jsx("div", {
@@ -299,7 +308,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 138,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -307,7 +316,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 139,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -315,7 +324,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 140,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -323,7 +332,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 142,
       columnNumber: 15
     }
   }, __jsx("span", {
@@ -331,7 +340,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 143,
       columnNumber: 17
     }
   }, "Or continue with"))), __jsx("div", {
@@ -339,14 +348,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 149,
       columnNumber: 13
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 150,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -355,7 +364,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143,
+      lineNumber: 151,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -363,7 +372,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 155,
       columnNumber: 19
     }
   }, "Sign in with Facebook"), __jsx("svg", {
@@ -374,7 +383,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 156,
       columnNumber: 19
     }
   }, __jsx("path", {
@@ -384,14 +393,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 162,
       columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 171,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -400,7 +409,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 164,
+      lineNumber: 172,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -408,7 +417,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168,
+      lineNumber: 176,
       columnNumber: 19
     }
   }, "Sign in with Twitter"), __jsx("svg", {
@@ -419,7 +428,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169,
+      lineNumber: 177,
       columnNumber: 19
     }
   }, __jsx("path", {
@@ -427,14 +436,14 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 183,
       columnNumber: 21
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 180,
+      lineNumber: 188,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -443,7 +452,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 189,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -451,7 +460,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
+      lineNumber: 193,
       columnNumber: 19
     }
   }, "Sign in with GitHub"), __jsx("svg", {
@@ -462,7 +471,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 194,
       columnNumber: 19
     }
   }, __jsx("path", {
@@ -472,7 +481,7 @@ function Example() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 192,
+      lineNumber: 200,
       columnNumber: 21
     }
   })))))))));
@@ -525,7 +534,7 @@ async function signupUser(email, password) {
 
 async function loginUser(email, password) {
   try {
-    const res = await fetch("https://hyper-engage-staging.herokuapp.com/login", {
+    const res = await fetch("http://localhost:5000/login", {
       credentials: "same-origin",
       // withCredentials: "true",
       // credentials: 'include',

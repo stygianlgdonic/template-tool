@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { userAuthenticationService } from '../../../../services/auth_service'
+import swal from 'sweetalert'
+import { useNavigate } from 'react-router'
 
 
 export default function Example() {
   const [userObj, setuserObj] = useState({ email: "", password: "", againPassword: "" })
+  const navigate = useNavigate()
 
   const onhandlechange = (value, name) => {
 
@@ -15,14 +18,24 @@ export default function Example() {
     e.preventDefault()
 
     if (userObj.password !== userObj.againPassword) {
-      alert("Passwords dont match, Try again!")
+      swal("Error", "Passwords dont match, Try again!")
 
     }
     else if (!!userObj.email && !!userObj.password && !!userObj.againPassword && userObj.password === userObj.againPassword) {
       console.log({ userObj })
       const res = await userAuthenticationService.signupUser(userObj.email, userObj.password)
       console.log({ res })
-      alert(res.message)
+      if (!!res.error) {
+        swal("Error", res.error.message)
+
+      } else {
+
+        swal(res.title, res.message).then(
+          () =>
+            navigate("/signin")
+        )
+      }
+
 
     }
 

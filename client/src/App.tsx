@@ -9,41 +9,44 @@ import LeftSidebar from './components/LeftSideBar/LeftSidebar';
 import { DesignToolProvider } from './contexts/DesignToolContext';
 import { TemplateProvider } from './contexts/TemplateContext';
 import { HeaderProvider } from './contexts/HeaderContext';
+import PrivateRoute from './routes/Private';
+import PublicRoute from './routes/Public';
 
-const Registration = React.lazy(() => import('./layouts/LoggedOutLayout/Registration/Registration'))
+import SignUp from './layouts/LoggedOutLayout/Registration/Signup/Signup'
+import Registration from './layouts/LoggedOutLayout/Registration/Registration'
 const Dashboard = React.lazy(() => import('./layouts/LoggedInLayout/Dashboard/Dashboard'))
 const CreateCardLayout = React.lazy(() => import('./layouts/LoggedInLayout/CreateCardLayout/CreateCardLayout'));
-const SignUp = React.lazy(() => import('./layouts/LoggedOutLayout/Registration/Signup/Signup'))
 
 const App = () => {
 
 
     return (
+        <>
 
-        <NoSSR >
-            <Suspense fallback={<p>Loading ...</p>}>
-                <DesignToolProvider>
-                    <TemplateProvider>
-                        <Routes>
+            <NoSSR >
+                <Suspense fallback={<p>Loading ...</p>}>
+                    <DesignToolProvider>
+                        <TemplateProvider>
+                            <Routes>
+                                <PublicRoute path="/signin" element={Registration}>
+                                </PublicRoute>
+                                <PublicRoute path="/signup" element={SignUp}>
+                                </PublicRoute>
+                                <PrivateRoute path="/" element={Dashboard}>
+                                </PrivateRoute>
 
-                            <Route path="/" element={<Dashboard />}>
-                            </Route>
+                                <HeaderProvider>
 
-                            <HeaderProvider>
+                                    <PrivateRoute path="/createcard" element={CreateCardLayout}>
+                                    </PrivateRoute>
+                                </HeaderProvider>
 
-                                <Route path="createcard" element={<CreateCardLayout />}>
-                                </Route>
-                            </HeaderProvider>
-                            <Route path="/signin" element={<Registration />}>
-                            </Route>
-                            <Route path="/signup" element={<SignUp />}>
-                            </Route>
-
-                        </Routes>
-                    </TemplateProvider>
-                </DesignToolProvider>
-            </Suspense >
-        </NoSSR>
+                            </Routes>
+                        </TemplateProvider>
+                    </DesignToolProvider>
+                </Suspense >
+            </NoSSR>
+        </>
     );
 }
 

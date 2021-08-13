@@ -14,13 +14,23 @@ passport.use(
     async (email, password, done) => {
       try {
         const isUSer = await UserModel.findOne({ email });
+        console.log({ isUSer });
         if (!isUSer) {
           const user = await UserModel.create({ email, password });
-          return done(null, user);
+          return done(null, user, {
+            status: 200,
+            message: "Your account has been created",
+            title: "Signup Success",
+          });
         } else {
-          return done(null, false, { message: "User aleady exists" });
+          return done(null, false, {
+            status: 409,
+            message: "A user with this email already exists.",
+            title: "User exists!",
+          });
         }
       } catch (error) {
+        console.log("Error");
         done(error);
       }
     }
@@ -39,16 +49,28 @@ passport.use(
         const user = await UserModel.findOne({ email });
 
         if (!user) {
-          return done(null, false, { message: "User not found" });
+          return done(null, false, {
+            status: 404,
+            message: "User with this email does not exist.",
+            title: "No User",
+          });
         }
 
         const validate = await user.isValidPassword(password);
 
         if (!validate) {
-          return done(null, false, { message: "Wrong Password" });
+          return done(null, false, {
+            status: 403,
+            message: "You have entered incorrect Password",
+            title: "Wrong password",
+          });
         }
 
-        return done(null, user, { message: "Logged in Successfully" });
+        return done(null, user, {
+          status: 200,
+          message: "Logged in Successfully",
+          title: "Signup Ok",
+        });
       } catch (error) {
         return done(error);
       }
