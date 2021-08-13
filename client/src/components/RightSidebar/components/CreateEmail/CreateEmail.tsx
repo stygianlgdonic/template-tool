@@ -64,20 +64,20 @@ const CreateEmail: React.FC<BioProps> = ({
     return (
         <div>
             <div className="flex flex-col justify-center w-full mx-auto mt-4 ">
-                <div className="flex flex-col px-2 py-4 mb-6 border-2 border-opacity-25 border-dashed rounded-lg border-gray95">
-                    <div className="flex flex-row justify-center">
+                <div style={{ width: "319px", height: "190px" }} className="flex flex-col px-2 py-4 mb-6 border-2 border-opacity-25 border-dashed rounded-lg border-gray95 ">
+                    <div className="flex flex-row justify-center mt-3  ">
                         <img src={svg} className="mr-2" />
 
                         <h1 className="text-base text-indigo">{bio1}</h1>
                     </div>
-                    <div className="flex justify-center mt-2">
+                    <div className="flex justify-center mt-2 ">
                         <p className="flex justify-center leading-4 text-center text-gray95">
                             {bio2}
                         </p>
                     </div>
                     <NavLink to="/createcard"></NavLink>
-                    <button onClick={() => HandleChangeDisplayModal("PersonalizedImage")}>
-                        <div className="flex flex-row justify-center p-2 mt-4 border-0 rounded-lg bg-indigo">
+                    <button onClick={() => HandleChangeDisplayModal("PersonalizedImage")} className="flex justify-center">
+                        <div style={{ width: "277px", height: "38px", }} className="flex  justify-center p-2 mt-4 border-0 rounded-lg bg-indigo ">
                             <svg
                                 className="mt-1 mr-4"
                                 width="14"
@@ -95,7 +95,7 @@ const CreateEmail: React.FC<BioProps> = ({
                                 />
                             </svg>
 
-                            <p className="text-white">{bio3}</p>
+                            <p className="text-white font-inter text-sm leading-5 font-medium not-italic ">{bio3}</p>
                         </div>
                     </button>
 
@@ -337,7 +337,7 @@ const CreateEmail: React.FC<BioProps> = ({
 
             <div style={{ display: DisplayModals === "CardSize" ? "" : "none", }}>
                 <PersonalizedCardSizeModal
-                    //    displayModalChange={HandleChangeDisplayModal}
+                    displayModalChange={HandleChangeDisplayModal}
                     closeModal={handleclosemodal}
                 />
             </div>

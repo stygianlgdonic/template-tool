@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useQuery } from "react-query";
 // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
 import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
-// const svg1 = require("./../../../../../../../../../../assets/images/svg.png");
-// const image2 = require("./../../../../../../../../../../assets/images/image1.png");
-// const image3 = require("./../../../../../../../../../../assets/images/image3.png");
-// const image4 = require("./../../../../../../../../../../assets/images/image4.png");
-// const image5 = require("./../../../../../../../../../../assets/images/image5.png");
-// const plusimage = require("../../../../../../../../../../assets/images/plus.png");
+const image1 = require("./../../../../assets/images/01.png");
+const image2 = require("../../../../assets/images/02.png");
+const image3 = require("../../../../assets/images/03.png");
+const image4 = require("../../../../assets/images/image3.png");
+const image5 = require("../../../../assets/images/image4.png");
+const plusimage = require(".././../../../assets/images/plus.png");
+import { template_service } from "../../../../services/templateService";
+import TemplatePreview from "../CreateEmail/TemplatePreview";
 import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
 interface Prop {
     closeModal: () => void
@@ -16,6 +19,32 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
     const [showModal, setShowModal] = React.useState(false);
     const [ShowToolTip, setShowToolTip] = React.useState(false);
     const myRef = useRef(null);
+    const { data, error, isLoading } = useQuery<any, Error>(
+        "templates",
+        template_service.getAllTemplates
+    );
+    console.log({ data });
+    console.log({ error });
+
+    if (isLoading) {
+        return (
+            <>
+                <p>Getting all templates ...</p>
+            </>
+        );
+    }
+
+    if (!!error) {
+        return (
+            <>
+                <p>{error.message}</p>
+            </>
+        );
+    }
+
+
+
+
 
     const handleClickOutside = (e) => {
         if (!myRef.current.contains(e.target)) {
@@ -41,16 +70,34 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                     {" "}
                     <div className="relative flex flex-col w-full h-full border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                         <div className="">
-                            <div className="top-0 ">
+                            <div className="flex items-start justify-between p-5 ">
                                 <button
-                                    className="flex items-center ml-auto mr-2 text-sm font-semibold leading-none text-black rounded-full outline-none opacity-30 focus:outline-none"
-                                    // onClick={() => setShowModal(false)}
-                                    onClick={closeModal}
+                                    onClick={() => displayModalChange("PersonalizedImage")}
                                 >
-                                    <span className="top-0 text-2xl outline-none focus:outline-none">
-                                        ×
-                                    </span>
+                                    <svg
+                                        width="28"
+                                        height="16"
+                                        viewBox="0 0 28 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M7.33333 13.5L2 8M2 8L7.33333 2.5M2 8L26 8"
+                                            stroke="#4B5563"
+                                            stroke-width="4"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
                                 </button>
+                                {/* <button
+                                    className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
+                                    // onClick={closeModal}
+                                >
+                                    {/* <span className="block w-6 h-6 text-2xl text-black bg-transparent outline-none opacity-5 focus:outline-none">
+                                        ×
+                                    </span> 
+                                </button> */}
                             </div>
                             <div className="flex items-start justify-between w-full px-5 pb-5 border-b border-solid rounded-t border-bordercolor">
                                 <div>
@@ -64,7 +111,6 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                             <option selected >Social media</option>
                                             <option>Email</option>
                                         </select>
-                                        {/* <img className="w-2 " src={svg1} /> */}
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +152,7 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         onClick={() => displayModalChange("CardSize")}
                                         className="flex flex-col items-center justify-center py-3 border-2 border-dashed rounded-md w-52 border-bordercolor"
                                     >
-                                        {/* <img className="w-8 h-8" src={plus} alt="" /> */}
+                                        <img className="w-8 h-8" src={plusimage} alt="" />
                                         <p className="mt-0 text-sm text-lightGray ">
                                             Create New Personalized Template
                                         </p>
@@ -156,49 +202,17 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
 
                                     </button>
                                 </div>
+
                                 <div>
-                                    <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image5}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
-                                        <p className="mt-2 text-sm not-italic font-semibold text-lightGray">
-                                            Welcome card for employee
-                                        </p>
-                                        <div>
-                                            <p className="text-sm not-italic font-normal leading-5 font-inter text-createcolor">Creators:</p>
-                                        </div>
-                                    </button>
-                                </div>
-                                <div>
-                                    <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image2}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
-                                        <p className="mt-2 text-sm not-italic font-semibold text-lightGray">
-                                            Warm welcome to employees
-                                        </p>
-                                        <p className="text-sm not-italic font-normal leading-5 font-inter text-createcolor">Creators:</p>
-                                    </button>
-                                </div>
-                                <div>
-                                    <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image2}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
-                                        <p className="mt-2 text-sm not-italic font-semibold text-lightGray">
-                                            Warm welcome to employees
-                                        </p>
-                                        <p className="text-sm not-italic font-normal leading-5 font-inter text-createcolor">Creators:</p>
-                                    </button>
+                                    <div className="flex flex-row flex-wrap gap-4 pl-2">
+                                        {data.map((item, index) => {
+                                            return (
+                                                <div key={index}>
+                                                    <TemplatePreview templateObj={item} />
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -225,12 +239,12 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                             <div className="flex flex-row gap-4 ">
                                 <div>
                                     <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image4}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
+                                        <img
+                                            src={image4}
+                                            className="rounded-md"
+                                            width="200"
+                                            height="110"
+                                        />
                                         <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
                                             Warm welcome to employees
                                         </p>
@@ -238,12 +252,12 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                 </div>
                                 <div>
                                     <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image3}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
+                                        <img
+                                            src={image3}
+                                            className="rounded-md"
+                                            width="200"
+                                            height="110"
+                                        />
                                         <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
                                             Card design
                                         </p>
@@ -251,24 +265,24 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                 </div>
                                 <div>
                                     <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image1}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
+                                        <img
+                                            src={image1}
+                                            className="rounded-md"
+                                            width="200"
+                                            height="110"
+                                        />
                                         <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
                                             Warm welcome to employees                                                            </p>
                                     </button>
                                 </div>
                                 <div>
                                     <button className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                        {/* <img
-                                                                src={image3}
-                                                                className="rounded-md"
-                                                                width="200"
-                                                                height="110"
-                                                            /> */}
+                                        <img
+                                            src={image3}
+                                            className="rounded-md"
+                                            width="200"
+                                            height="110"
+                                        />
                                         <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
                                             Warm welcome to employees
                                         </p>

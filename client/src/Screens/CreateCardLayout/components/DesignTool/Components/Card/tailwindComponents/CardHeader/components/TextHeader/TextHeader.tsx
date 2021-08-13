@@ -46,7 +46,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className="z-50 flex items-center">
+            <div className="z-10 flex items-center">
                 <div
                     className="relative mt-1"
                     onClick={() => setopenDropDown(!!openDropDown ? false : true)}
@@ -61,7 +61,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                         {!!selectedText ? fontSizeArray.find(item => item.size === selectedText.fontSize)?.name : "Heading"}
                     </button>
                     <ul
-                        className="absolute z-10 py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                        className="absolute  py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                         role="listbox"
                         aria-labelledby="listbox-label"
                         aria-activedescendant="listbox-option-3"
@@ -73,7 +73,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                             role="option"
                         >
                             {fontSizeArray.map((item, index) => (
-                                <div key={index} className="flex mb-2">
+                                <div key={index} className="flex mb-2 ">
                                     <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize(item.name as textFontSizeType)}>
                                         {item.name}
                                     </button>

@@ -33,7 +33,7 @@ const TransformModal: React.FC<Prop> = ({ closeImageModal, handleOpenUploadImage
     return (
         <>
             {" "}
-            <div className="absolute z-50 flex items-center justify-center w-screen h-screen overflow-x-auto overflow-y-auto outline-none inherit focus:outline-none">
+            <div className="absolute top-16 z-50 flex items-center justify-center w-screen h-screen overflow-x-auto overflow-y-auto outline-none inherit focus:outline-none">
                 <div
                     ref={myRef}
                     className="absolute z-50 mx-auto my-6 bg-white rounded-md"

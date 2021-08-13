@@ -35,7 +35,7 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
 
             <div className=" flex justify-center items-center  w-full mt-6 px-6">
 
-                <div className="flex h-14 rounded-md border-bordercolor border justify-center items-center w-full z-50">
+                <div className="flex h-14 rounded-md border-bordercolor border justify-center items-center w-full z-10">
                     <button>
                         <span className="w-auto flex justify-end items-center text-grey text-sm p-3">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
                     </button>
                     <input
                         onChange={handleColorQueryChange}
-                        className="w-full rounded text-sm text-gray95 outline-none h-10 z-0 " type="text" placeholder="Try “blue” or “#43345”" />
+                        className="w-full rounded text-sm text-gray95 outline-none h-10" type="text" placeholder="Try “blue” or “#43345”" />
                 </div>
             </div>
             <div className={!!colorsArray.length ? "px-6" : "hidden"} >

@@ -32,7 +32,7 @@ const SelectFromGallleryModal: React.FC<Prop> = React.forwardRef(
 
     return (
       <>
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+        <div className="fixed z-50 top-14 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
           <div ref={myRef} className="relative w-auto max-w-3xl mx-auto my-6">
             {/*content*/}
             <div className="relative flex flex-col w-full pt-2 pb-2 pl-2 pr-2 bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
@@ -139,7 +139,7 @@ const SelectFromGallleryModal: React.FC<Prop> = React.forwardRef(
             </div>
           </div>
         </div>
-        <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+        <div className="fixed  inset-0 z-40 bg-black opacity-25"></div>
       </>
     );
   }

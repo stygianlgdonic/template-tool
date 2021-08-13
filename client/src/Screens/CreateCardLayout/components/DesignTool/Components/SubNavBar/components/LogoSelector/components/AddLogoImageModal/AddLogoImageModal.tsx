@@ -27,11 +27,12 @@ const AddLogoImageModal: React.FC<Prop> = React.forwardRef(
       <>
         <div className="fixed inset-0 z-50 flex items-center justify-center m-auto overflow-x-hidden overflow-y-hidden outline-none focus:outline-none">
           <div
-            ref={myRef}
             className="relative items-center flex-1 max-w-sm mx-auto h-96"
           >
             {/*content*/}
-            <div className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg border-bordercolor focus:outline-none">
+            <div
+              ref={myRef}
+              className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg border-bordercolor focus:outline-none">
               {/*header*/}
               <div className="flex items-start justify-between p-4 rounded-t border-gray300">
                 <div className="flex gap-4">
