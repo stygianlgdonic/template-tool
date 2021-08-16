@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "1": {
     "css": [
       "/static/css/1.1d91d9be.chunk.css"
@@ -80,6 +81,9 @@
 =======
   "noentry": {
 >>>>>>> jawad/13august
+=======
+  "noentry": {
+>>>>>>> stygianlgdonic/frames
     "png": [
       "http://localhost:3001/static/media/01.2e91d53b.png",
       "http://localhost:3001/static/media/02.adc8b2dd.png",

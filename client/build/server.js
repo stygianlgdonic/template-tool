@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "4bf075db6336ab2d0f79";
+=======
+/******/ 	var hotCurrentHash = "e17896808777aaad1dbc";
+>>>>>>> stygianlgdonic/frames
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;

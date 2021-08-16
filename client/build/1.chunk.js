@@ -12,7 +12,11 @@ exports.modules = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -154,7 +158,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Centerboard_Centerboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/Centerboard/Centerboard */ "./src/components/Centerboard/Centerboard.tsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\Screens\\Dashboard\\Dashboard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\Dashboard\\Dashboard.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -391,6 +399,31 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./src/assets/images/image3.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/image3.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/image3.6df75f11.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/image4.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/image4.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/image4.9cb172b4.png";
+
+/***/ }),
+
+>>>>>>> stygianlgdonic/frames
 /***/ "./src/assets/images/insta.png":
 /*!*************************************!*\
   !*** ./src/assets/images/insta.png ***!
@@ -443,7 +476,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Centerboard/components/StatsCardinfo/StatCardinfo */ "./src/components/Centerboard/components/StatsCardinfo/StatCardinfo.tsx");
 /* harmony import */ var _Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Centerboard/components/ImagesInfo/ImagesInfo */ "./src/components/Centerboard/components/ImagesInfo/ImagesInfo.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -624,7 +661,11 @@ const Centerboard = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -729,7 +770,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -921,7 +966,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageStat/ImageStat */ "./src/components/Centerboard/components/ImagesInfo/ImageStat/ImageStat.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1050,7 +1099,11 @@ const ImagesInfo = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1825,7 +1878,11 @@ const RecentActivity = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2006,7 +2063,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/react/outline */ "@heroicons/react/outline");
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -2212,7 +2273,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2636,7 +2701,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/StatGraph/StatGraph */ "./src/components/RightSidebar/components/StatGraph/StatGraph.tsx");
 /* harmony import */ var _components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SocialStats/SocialStats */ "./src/components/RightSidebar/components/SocialStats/SocialStats.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2816,7 +2885,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
 /* harmony import */ var _SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal */ "./src/components/RightSidebar/components/SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal.tsx");
 /* harmony import */ var _PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../PersonalizedCardSizeModal/PersonalizedCardSizeModal */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/PersonalizedCardSizeModal.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2905,7 +2978,15 @@ const CreateEmail = ({
       columnNumber: 13
     }
   }, __jsx("div", {
+<<<<<<< HEAD
     className: "flex flex-col px-2 py-4 mb-6 border-2 border-opacity-25 border-dashed rounded-lg border-gray95",
+=======
+    style: {
+      width: "319px",
+      height: "190px"
+    },
+    className: "flex flex-col px-2 py-4 mb-6 border-2 border-opacity-25 border-dashed rounded-lg border-gray95 ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2913,7 +2994,11 @@ const CreateEmail = ({
       columnNumber: 17
     }
   }, __jsx("div", {
+<<<<<<< HEAD
     className: "flex flex-row justify-center",
+=======
+    className: "flex flex-row justify-center mt-3  ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2938,7 +3023,11 @@ const CreateEmail = ({
       columnNumber: 25
     }
   }, bio1)), __jsx("div", {
+<<<<<<< HEAD
     className: "flex justify-center mt-2",
+=======
+    className: "flex justify-center mt-2 ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2963,6 +3052,10 @@ const CreateEmail = ({
     }
   }), __jsx("button", {
     onClick: () => HandleChangeDisplayModal("PersonalizedImage"),
+<<<<<<< HEAD
+=======
+    className: "flex justify-center",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2970,7 +3063,15 @@ const CreateEmail = ({
       columnNumber: 21
     }
   }, __jsx("div", {
+<<<<<<< HEAD
     className: "flex flex-row justify-center p-2 mt-4 border-0 rounded-lg bg-indigo",
+=======
+    style: {
+      width: "277px",
+      height: "38px"
+    },
+    className: "flex  justify-center p-2 mt-4 border-0 rounded-lg bg-indigo ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3003,7 +3104,11 @@ const CreateEmail = ({
       columnNumber: 33
     }
   })), __jsx("p", {
+<<<<<<< HEAD
     className: "text-white",
+=======
+    className: "text-white font-inter text-sm leading-5 font-medium not-italic ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3058,8 +3163,13 @@ const CreateEmail = ({
       lineNumber: 338,
       columnNumber: 13
     }
+<<<<<<< HEAD
   }, __jsx(_PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__["default"] //    displayModalChange={HandleChangeDisplayModal}
   , {
+=======
+  }, __jsx(_PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    displayModalChange: HandleChangeDisplayModal,
+>>>>>>> stygianlgdonic/frames
     closeModal: handleclosemodal,
     __self: undefined,
     __source: {
@@ -3074,6 +3184,194 @@ const CreateEmail = ({
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+const Elements = ({
+  konvaItem,
+  index
+}) => {
+  if (!konvaItem) return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "rectangle" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "circle" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Circle"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "line" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Line"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "polygon" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["RegularPolygon"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "svg" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Image"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "image" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Image"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+    }
+  })), (konvaItem === null || konvaItem === void 0 ? void 0 : konvaItem.type) === "text" && __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Text"], _extends({
+    key: index
+  }, konvaItem, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 17
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Elements);
+
+/***/ }),
+
+/***/ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
+/* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
+/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../utils/defaults */ "./src/utils/defaults.ts");
+/* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+const TemplatePreview = ({
+  templateObj
+}) => {
+  var _templateObj$variatio, _templateObj$variatio2;
+
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
+  const {
+    0: templateData,
+    1: setTemplateData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__["TemplateContext"]);
+  console.log(templateObj);
+
+  const handleEditTemplate = () => {
+    setTemplateData(templateObj, false);
+    navigate(`/createcard`);
+  };
+
+  return __jsx("button", {
+    // onClick={handleEditTemplate}
+    className: "border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], {
+    width: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width * 0.2,
+    height: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height * 0.2,
+    scaleX: 0.2,
+    scaleY: 0.2,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 13
+    }
+  }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
+    listening: false,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  }, templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$variatio = templateObj.variations[0]) === null || _templateObj$variatio === void 0 ? void 0 : (_templateObj$variatio2 = _templateObj$variatio.elements) === null || _templateObj$variatio2 === void 0 ? void 0 : _templateObj$variatio2.map((item, index) => __jsx(_Elements__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    key: index,
+    konvaItem: item,
+    index: index,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 25
+    }
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TemplatePreview);
+
+/***/ }),
+
+>>>>>>> stygianlgdonic/frames
 /***/ "./src/components/RightSidebar/components/ImagePreview/ImagePreview.tsx":
 /*!******************************************************************************!*\
   !*** ./src/components/RightSidebar/components/ImagePreview/ImagePreview.tsx ***!
@@ -3087,7 +3385,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3355,19 +3657,31 @@ const ImagePreview = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardType", function() { return CardType; });
 const CardType = [{
+<<<<<<< HEAD
   name: "Header",
+=======
+  name: "HEADER",
+>>>>>>> stygianlgdonic/frames
   dimension: {
     width: 1920,
     height: 240
   }
 }, {
+<<<<<<< HEAD
   name: "Body",
+=======
+  name: "BODY",
+>>>>>>> stygianlgdonic/frames
   dimension: {
     width: 1080,
     height: 1080
   }
 }, {
+<<<<<<< HEAD
   name: "Footer",
+=======
+  name: "FEATURE IMAGE",
+>>>>>>> stygianlgdonic/frames
   dimension: {
     width: 1080,
     height: 1080
@@ -3388,6 +3702,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MockData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MockData */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/MockData.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
@@ -3399,6 +3714,23 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const SelectSocialMediaTemplateModal = ({
   closeModal
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+ // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
+
+const header = __webpack_require__(/*! ../../../../assets/images/header.png */ "./src/assets/images/header.png");
+
+const body = __webpack_require__(/*! ../../../../assets/images/body.png */ "./src/assets/images/body.png");
+
+const featureimage = __webpack_require__(/*! ../../../../assets/images/featureimage.png */ "./src/assets/images/featureimage.png");
+
+
+
+const SelectSocialMediaTemplateModal = ({
+  closeModal,
+  displayModalChange
+>>>>>>> stygianlgdonic/frames
 }) => {
   const myRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
 
@@ -3417,11 +3749,18 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 29,
       columnNumber: 13
     }
   }, __jsx("div", {
     // ref={myRef}
+=======
+      lineNumber: 30,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "relative max-w-3xl mx-auto my-6",
     style: {
       width: "765px"
@@ -3429,7 +3768,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 30,
+=======
+      lineNumber: 31,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3441,21 +3784,31 @@ const SelectSocialMediaTemplateModal = ({
       columnNumber: 21
     }
   }, __jsx("div", {
+<<<<<<< HEAD
     className: "flex items-start justify-between p-5 rounded-t border-blueGray-200",
+=======
+    className: " flex justify-between mt-2 ml-2  ",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
       columnNumber: 25
     }
+<<<<<<< HEAD
   }, __jsx("h3", {
     className: "text-3xl font-bold leading-9 font-inter text-gray900",
+=======
+  }, __jsx("div", {
+    className: "mt-2",
+>>>>>>> stygianlgdonic/frames
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
       columnNumber: 29
     }
+<<<<<<< HEAD
   }, "Create New Personalized Email"), __jsx("button", {
     className: "float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-20 focus:outline-none",
     onClick: closeModal,
@@ -3474,10 +3827,78 @@ const SelectSocialMediaTemplateModal = ({
       columnNumber: 33
     }
   }, "\xD7"))), __jsx("div", {
+=======
+  }, __jsx("button", {
+    onClick: () => displayModalChange("SocialMedia"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 33
+    }
+  }, __jsx("svg", {
+    width: "28",
+    height: "16",
+    viewBox: "0 0 28 16",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 37
+    }
+  }, __jsx("path", {
+    d: "M7.33333 13.5L2 8M2 8L7.33333 2.5M2 8L26 8",
+    stroke: "#4B5563",
+    "stroke-width": "4",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 41
+    }
+  })))), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    className: " text-base font-medium float-right mr-3  ml-auto  leading-none text-black border-0 outline-none  focus:outline-none",
+    onClick: closeModal,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 33
+    }
+  }, "x"))), __jsx("div", {
+    className: "flex items-start justify-between p-5 rounded-t ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 25
+    }
+  }, __jsx("h3", {
+    className: "text-3xl font-bold leading-9 font-inter text-gray900",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65,
+      columnNumber: 29
+    }
+  }, "Create New Personalized Email")), __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "relative flex-auto p-6 mb-6 text-lg font-bold text-createEmail font-inter ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 47,
       columnNumber: 25
     }
@@ -3489,16 +3910,45 @@ const SelectSocialMediaTemplateModal = ({
       columnNumber: 29
     }
   }, " Create For Email"), __jsx("div", {
+=======
+      lineNumber: 77,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: "mb-4 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 29
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 33
+    }
+  }, " Create For Email")), __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "grid grid-cols-2 gap-x-12 gap-y-6  pl-2  ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 49,
+=======
+      lineNumber: 81,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, _MockData__WEBPACK_IMPORTED_MODULE_1__["CardType"].map((item, index) => __jsx("div", {
     key: item.name,
     style: {
+<<<<<<< HEAD
+=======
+      display: item.name === "Header" ? "" : "",
+>>>>>>> stygianlgdonic/frames
       backgroundColor: index === 0 ? "white" : "white",
       height: index === 0 ? "160px" : "160px",
       width: index === 1 ? "300px" : "auto"
@@ -3507,27 +3957,43 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 50,
+=======
+      lineNumber: 82,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 65
     }
   }, __jsx("div", {
     style: {
       display: index === 2 ? "" : "none",
       marginTop: index === 2 ? "20px" : "20px",
+<<<<<<< HEAD
       top: -50
+=======
+      top: -55
+>>>>>>> stygianlgdonic/frames
     },
     className: "absolute  mt-6 mb-6 text-lg font-bold text-createEmail font-inter",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 51,
+=======
+      lineNumber: 83,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, "Create For Social Media"), __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 55,
+=======
+      lineNumber: 87,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -3535,15 +4001,35 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 56,
       columnNumber: 41
     }
   }, __jsx("div", {
+=======
+      lineNumber: 88,
+      columnNumber: 41
+    }
+  }, __jsx("img", {
+    src: featureimage,
+    alt: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 45
+    }
+  }), __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-2 pl-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 58,
+=======
+      lineNumber: 90,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -3551,14 +4037,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 59,
+=======
+      lineNumber: 91,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 49
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 60,
+=======
+      lineNumber: 92,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 53
     }
   }, item.name)), __jsx("div", {
@@ -3566,14 +4060,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 62,
+=======
+      lineNumber: 94,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 49
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 63,
+=======
+      lineNumber: 95,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 53
     }
   }, "Dimensions:", item.dimension.width, "  ", item.dimension.height)))))))))))), __jsx("div", {
@@ -3581,7 +4083,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 109,
+=======
+      lineNumber: 106,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 13
     }
   }));
@@ -3602,7 +4108,11 @@ const SelectSocialMediaTemplateModal = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 
@@ -3898,6 +4408,7 @@ const PersonalizedImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___d
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 /* harmony import */ var _Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -3920,6 +4431,78 @@ const SelectSocialMediaTemplateModal = ({
 
   const handleClickOutside = e => {
     if (!myRef.current.contains(e.target)) {
+=======
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar */ "./src/Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
+/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var _CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CreateEmail/TemplatePreview */ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
+
+
+
+const image1 = __webpack_require__(/*! ./../../../../assets/images/01.png */ "./src/assets/images/01.png");
+
+const image2 = __webpack_require__(/*! ../../../../assets/images/02.png */ "./src/assets/images/02.png");
+
+const image3 = __webpack_require__(/*! ../../../../assets/images/03.png */ "./src/assets/images/03.png");
+
+const image4 = __webpack_require__(/*! ../../../../assets/images/image3.png */ "./src/assets/images/image3.png");
+
+const image5 = __webpack_require__(/*! ../../../../assets/images/image4.png */ "./src/assets/images/image4.png");
+
+const plusimage = __webpack_require__(/*! .././../../../assets/images/plus.png */ "./src/assets/images/plus.png");
+
+
+
+
+const SelectSocialMediaTemplateModal = ({
+  closeModal,
+  displayModalChange
+}) => {
+  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  const [ShowToolTip, setShowToolTip] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
+  const myRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  const {
+    data,
+    error,
+    isLoading
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_1__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_3__["template_service"].getAllTemplates);
+  console.log({
+    data
+  });
+  console.log({
+    error
+  });
+
+  if (isLoading) {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 17
+      }
+    }, "Getting all templates ..."));
+  }
+
+  if (!!error) {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40,
+        columnNumber: 17
+      }
+    }, error.message));
+  }
+
+  const handleClickOutside = e => {
+    if (!myRef.current.contains(e.target)) {
+>>>>>>> stygianlgdonic/frames
       closeModal();
     }
   };
@@ -3934,7 +4517,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 34,
+=======
+      lineNumber: 63,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -3946,7 +4533,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 37,
+=======
+      lineNumber: 66,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 17
     }
   }, " ", __jsx("div", {
@@ -3954,7 +4545,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 42,
+=======
+      lineNumber: 71,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3962,6 +4557,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 43,
       columnNumber: 25
     }
@@ -3992,18 +4588,72 @@ const SelectSocialMediaTemplateModal = ({
       columnNumber: 37
     }
   }, "\xD7"))), __jsx("div", {
+=======
+      lineNumber: 72,
+      columnNumber: 25
+    }
+  }, __jsx("div", {
+    className: "flex items-start justify-between p-5 ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 29
+    }
+  }, __jsx("button", {
+    onClick: () => displayModalChange("PersonalizedImage"),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74,
+      columnNumber: 33
+    }
+  }, __jsx("svg", {
+    width: "28",
+    height: "16",
+    viewBox: "0 0 28 16",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 37
+    }
+  }, __jsx("path", {
+    d: "M7.33333 13.5L2 8M2 8L7.33333 2.5M2 8L26 8",
+    stroke: "#4B5563",
+    "stroke-width": "4",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 41
+    }
+  })))), __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "flex items-start justify-between w-full px-5 pb-5 border-b border-solid rounded-t border-bordercolor",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 55,
+=======
+      lineNumber: 102,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 56,
+=======
+      lineNumber: 103,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("h3", {
@@ -4011,7 +4661,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 57,
+=======
+      lineNumber: 104,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, "Select Template")), __jsx("div", {
@@ -4019,7 +4673,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 61,
+=======
+      lineNumber: 108,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -4027,7 +4685,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 62,
+=======
+      lineNumber: 109,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, __jsx("select", {
@@ -4035,7 +4697,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 63,
+=======
+      lineNumber: 110,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, __jsx("option", {
@@ -4043,14 +4709,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 64,
+=======
+      lineNumber: 111,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 45
     }
   }, "Social media"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 65,
+=======
+      lineNumber: 112,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 45
     }
   }, "Email")))))), __jsx("div", {
@@ -4058,7 +4732,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 72,
+=======
+      lineNumber: 118,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4066,6 +4744,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 73,
       columnNumber: 29
     }
@@ -4074,6 +4753,16 @@ const SelectSocialMediaTemplateModal = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 74,
+=======
+      lineNumber: 119,
+      columnNumber: 29
+    }
+  }, __jsx(_Screens_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -4081,7 +4770,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 77,
+=======
+      lineNumber: 123,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -4089,7 +4782,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 78,
+=======
+      lineNumber: 124,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, "Employee"), __jsx("button", {
@@ -4097,7 +4794,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 81,
+=======
+      lineNumber: 127,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, "Events"), __jsx("button", {
@@ -4105,7 +4806,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 84,
+=======
+      lineNumber: 130,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, "Promotion"), __jsx("button", {
@@ -4113,7 +4818,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 87,
+=======
+      lineNumber: 133,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, "Property")), __jsx("div", {
@@ -4121,14 +4830,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 91,
+=======
+      lineNumber: 137,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 92,
+=======
+      lineNumber: 138,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4136,7 +4853,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 93,
+=======
+      lineNumber: 139,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, "Your Designs")), __jsx("div", {
@@ -4144,7 +4865,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 97,
+=======
+      lineNumber: 143,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -4152,7 +4877,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 98,
+=======
+      lineNumber: 144,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, "See all"))), __jsx("div", {
@@ -4160,7 +4889,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 102,
+=======
+      lineNumber: 148,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4168,7 +4901,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 103,
+=======
+      lineNumber: 149,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4176,7 +4913,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 104,
+=======
+      lineNumber: 150,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4185,15 +4926,36 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 105,
       columnNumber: 37
     }
   }, __jsx("p", {
+=======
+      lineNumber: 151,
+      columnNumber: 37
+    }
+  }, __jsx("img", {
+    className: "w-8 h-8",
+    src: plusimage,
+    alt: "",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 155,
+      columnNumber: 41
+    }
+  }), __jsx("p", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-0 text-sm text-lightGray ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 110,
+=======
+      lineNumber: 156,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Create New Personalized Template"), __jsx("div", {
@@ -4202,7 +4964,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 114,
+=======
+      lineNumber: 160,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, __jsx("button", {
@@ -4210,7 +4976,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 118,
+=======
+      lineNumber: 164,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4223,7 +4993,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 121,
+=======
+      lineNumber: 167,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 49
     }
   }, __jsx("path", {
@@ -4234,7 +5008,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 129,
+=======
+      lineNumber: 175,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 53
     }
   }))), ShowToolTip ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -4242,7 +5020,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 139,
+=======
+      lineNumber: 185,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 53
     }
   }, __jsx("span", {
@@ -4250,7 +5032,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 140,
+=======
+      lineNumber: 186,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 57
     }
   }, "You can create a template from scratch by adding images and elements from our vast library. Once you create a tamplate you can reuse it again for multiple campaigns", __jsx("div", {
@@ -4258,14 +5044,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 142,
+=======
+      lineNumber: 188,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 61
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 143,
+=======
+      lineNumber: 189,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 65
     }
   }, "Got it"))), __jsx("div", {
@@ -4276,13 +5070,18 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 146,
+=======
+      lineNumber: 192,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 57
     }
   }))) : null))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 159,
       columnNumber: 33
     }
@@ -4380,18 +5179,58 @@ const SelectSocialMediaTemplateModal = ({
       columnNumber: 41
     }
   }, "Creators:"))))), __jsx("div", {
+=======
+      lineNumber: 206,
+      columnNumber: 33
+    }
+  }, __jsx("div", {
+    className: "flex flex-row flex-wrap gap-4 pl-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 37
+    }
+  }, data.map((item, index) => {
+    return __jsx("div", {
+      key: index,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 210,
+        columnNumber: 49
+      }
+    }, __jsx(_CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      templateObj: item,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 211,
+        columnNumber: 53
+      }
+    }));
+  }))))), __jsx("div", {
+>>>>>>> stygianlgdonic/frames
     className: "flex justify-between w-full px-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 205,
+=======
+      lineNumber: 219,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 206,
+=======
+      lineNumber: 220,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4399,7 +5238,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 207,
+=======
+      lineNumber: 221,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, "For you")), __jsx("div", {
@@ -4407,7 +5250,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 211,
+=======
+      lineNumber: 225,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4415,7 +5262,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 212,
+=======
+      lineNumber: 226,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("select", {
@@ -4423,7 +5274,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 213,
+=======
+      lineNumber: 227,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, __jsx("option", {
@@ -4431,14 +5286,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 214,
+=======
+      lineNumber: 228,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Most popular"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 215,
+=======
+      lineNumber: 229,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Great Option"))), __jsx("div", {
@@ -4446,7 +5309,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 218,
+=======
+      lineNumber: 232,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4454,7 +5321,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 219,
+=======
+      lineNumber: 233,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 37
     }
   }, "See all")))), __jsx("div", {
@@ -4462,7 +5333,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 224,
+=======
+      lineNumber: 238,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4470,14 +5345,22 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 225,
+=======
+      lineNumber: 239,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 226,
+=======
+      lineNumber: 240,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4485,22 +5368,48 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 227,
       columnNumber: 37
     }
   }, __jsx("p", {
+=======
+      lineNumber: 241,
+      columnNumber: 37
+    }
+  }, __jsx("img", {
+    src: image4,
+    className: "rounded-md",
+    width: "200",
+    height: "110",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 242,
+      columnNumber: 41
+    }
+  }), __jsx("p", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 234,
+=======
+      lineNumber: 248,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Warm welcome to employees"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 239,
+=======
+      lineNumber: 253,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4508,22 +5417,48 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 240,
       columnNumber: 37
     }
   }, __jsx("p", {
+=======
+      lineNumber: 254,
+      columnNumber: 37
+    }
+  }, __jsx("img", {
+    src: image3,
+    className: "rounded-md",
+    width: "200",
+    height: "110",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 41
+    }
+  }), __jsx("p", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 247,
+=======
+      lineNumber: 261,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Card design"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 252,
+=======
+      lineNumber: 266,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4531,22 +5466,48 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 253,
       columnNumber: 37
     }
   }, __jsx("p", {
+=======
+      lineNumber: 267,
+      columnNumber: 37
+    }
+  }, __jsx("img", {
+    src: image1,
+    className: "rounded-md",
+    width: "200",
+    height: "110",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 268,
+      columnNumber: 41
+    }
+  }), __jsx("p", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 260,
+=======
+      lineNumber: 274,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Warm welcome to employees                                                            "))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 264,
+=======
+      lineNumber: 278,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4554,15 +5515,37 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 265,
       columnNumber: 37
     }
   }, __jsx("p", {
+=======
+      lineNumber: 279,
+      columnNumber: 37
+    }
+  }, __jsx("img", {
+    src: image3,
+    className: "rounded-md",
+    width: "200",
+    height: "110",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 280,
+      columnNumber: 41
+    }
+  }), __jsx("p", {
+>>>>>>> stygianlgdonic/frames
     className: "mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 272,
+=======
+      lineNumber: 286,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 41
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -4570,7 +5553,11 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 282,
+=======
+      lineNumber: 296,
+>>>>>>> stygianlgdonic/frames
       columnNumber: 13
     }
   }));
@@ -4593,7 +5580,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -4802,7 +5793,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
+>>>>>>> stygianlgdonic/frames
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 

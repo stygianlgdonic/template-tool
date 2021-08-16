@@ -14,6 +14,12 @@ const UPolygon: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
 
     const { patternImageUrl, ...restProps } = shapeProps
     const [image] = useImage(patternImageUrl || null)
+    const imageWidth = image ? image.width : 10;
+    const imageHeight = image ? image.height : 10;
+
+    const Xpoint = (imageWidth / 2)
+    const Ypoint = (imageHeight / 2)
+
 
     return (
         <React.Fragment>
@@ -30,19 +36,11 @@ const UPolygon: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
                         y: e.target.y(),
                     });
                 }}
-                onTransformEnd={(e) => {
-                    onChange({
-                        ...shapeProps,
-                        scaleX: e.target.attrs.scaleX,
-                        scaleY: e.target.attrs.scaleY,
-                    });
-                }}
                 {...restProps}
                 fillPatternImage={image}
-                fillPatternOffsetX={0}
-                fillPatternOffsetY={0}
-                fillPatternScaleX={0.1}
-                fillPatternScaleY={0.1}
+                fillPatternOffset={{ x: Xpoint, y: Ypoint }}
+                fillPatternScaleX={2.0}
+                fillPatternScaleY={2.0}
                 fillPatternRepeat="no-repeat"
             />
         </React.Fragment>
