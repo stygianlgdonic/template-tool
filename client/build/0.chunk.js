@@ -4692,7 +4692,7 @@ const TextHeader = ({
   };
 
   const handleChangeFontStyle = () => {
-    const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.bold ? "bold" : ""} ${fontStyle.italic ? "italic" : ""}`}`;
+    const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.italic ? "italic" : ""} ${fontStyle.bold ? "bold" : ""}`}`;
     handleFontStyle(result);
   };
 

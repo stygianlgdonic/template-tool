@@ -41,7 +41,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
 
     const handleChangeFontStyle = () => {
 
-        const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.bold ? "bold" : ""} ${fontStyle.italic ? "italic" : ""}`}`
+        const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.italic ? "italic" : ""} ${fontStyle.bold ? "bold" : ""}`}`
 
         handleFontStyle(result as T_FontStype)
     }
