@@ -8,7 +8,7 @@ import CardElementsFunctions from '../../../../../../../Hooks/CardElementsFuncti
 const DesignTool: React.FC = () => {
 
     const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
-    const { handleDeleteSelectedItem } = CardElementsFunctions()
+    const { handleTextEdit } = CardElementsFunctions()
 
     const {
         selectedId, setSelectedId,
@@ -59,6 +59,7 @@ const DesignTool: React.FC = () => {
                     setCardData={setCardData}
                     selectedId={selectedId}
                     setSelectedId={setSelectedId}
+                    handleTextEdit={handleTextEdit}
                 />
             </div>
         </div>

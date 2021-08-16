@@ -1,29 +1,48 @@
 {
-  "1": {
-    "css": [
-      "/static/css/1.1d91d9be.chunk.css"
-    ],
+  "0": {
     "js": [
+<<<<<<< HEAD
       "/static/js/1.b90781d3.chunk.js"
     ],
     "map": [
       "/static/css/1.1d91d9be.chunk.css.map",
       "/static/js/1.b90781d3.chunk.js.map"
+=======
+      "http://localhost:3001/static/js/0.chunk.js"
+    ],
+    "map": [
+      "http://localhost:3001/static/js/0.chunk.js.map"
+>>>>>>> stygianlgdonic/editText
+    ],
+    "chunks": [
+      0
+    ]
+  },
+  "1": {
+    "js": [
+<<<<<<< HEAD
+      "/static/js/2.bf5365d3.chunk.js"
+    ],
+    "map": [
+      "/static/css/2.777112b7.chunk.css.map",
+      "/static/js/2.bf5365d3.chunk.js.map"
+=======
+      "http://localhost:3001/static/js/1.chunk.js"
+    ],
+    "map": [
+      "http://localhost:3001/static/js/1.chunk.js.map"
+>>>>>>> stygianlgdonic/editText
     ],
     "chunks": [
       1
     ]
   },
   "2": {
-    "css": [
-      "/static/css/2.777112b7.chunk.css"
-    ],
     "js": [
-      "/static/js/2.bf5365d3.chunk.js"
+      "http://localhost:3001/static/js/2.chunk.js"
     ],
     "map": [
-      "/static/css/2.777112b7.chunk.css.map",
-      "/static/js/2.bf5365d3.chunk.js.map"
+      "http://localhost:3001/static/js/2.chunk.js.map"
     ],
     "chunks": [
       2
@@ -31,27 +50,17 @@
   },
   "3": {
     "js": [
-      "/static/js/3.535d9125.chunk.js"
+      "http://localhost:3001/static/js/3.chunk.js"
     ],
     "map": [
-      "/static/js/3.535d9125.chunk.js.map"
+      "http://localhost:3001/static/js/3.chunk.js.map"
     ],
     "chunks": [
       3
     ]
   },
-  "4": {
-    "js": [
-      "/static/js/4.0e98891c.chunk.js"
-    ],
-    "map": [
-      "/static/js/4.0e98891c.chunk.js.map"
-    ],
-    "chunks": [
-      4
-    ]
-  },
   "client": {
+<<<<<<< HEAD
     "css": [
       "/static/css/client.fba05ac9.css"
     ],
@@ -61,12 +70,20 @@
     "map": [
       "/static/css/client.fba05ac9.css.map",
       "/static/js/client.1c2c9cef.js.map"
+=======
+    "js": [
+      "http://localhost:3001/static/js/client.js"
+    ],
+    "map": [
+      "http://localhost:3001/static/js/client.js.map"
+>>>>>>> stygianlgdonic/editText
     ],
     "chunks": [
-      0
+      "client"
     ]
   },
   "noentry": {
+<<<<<<< HEAD
     "ico": [
       "/favicon.ico"
     ],
@@ -76,30 +93,32 @@
       "/static/js/2.bf5365d3.chunk.js.LICENSE.txt",
       "/static/js/client.1c2c9cef.js.LICENSE.txt"
     ],
+=======
+>>>>>>> stygianlgdonic/editText
     "png": [
-      "/static/media/01.2e91d53b.png",
-      "/static/media/02.adc8b2dd.png",
-      "/static/media/03.6bbdf893.png",
-      "/static/media/04.50f8bcb9.png",
-      "/static/media/ALP-Summer.63b90db3.png",
-      "/static/media/card1.9acd410d.png",
-      "/static/media/card2.a3e6d397.png",
-      "/static/media/card5.8baed643.png",
-      "/static/media/glitch.c3fda1d1.png",
-      "/static/media/image.f528bd77.png",
-      "/static/media/image1.3ff551f0.png",
-      "/static/media/image3.6df75f11.png",
-      "/static/media/image4.9cb172b4.png",
-      "/static/media/image5.f1b1f809.png",
-      "/static/media/insta.638d5ee2.png",
-      "/static/media/lift.b13cf734.png",
-      "/static/media/neon.7fca1e10.png",
-      "/static/media/preview.06b7f3b0.png",
-      "/static/media/shadow.161b9d54.png",
-      "/static/media/splice.6bc44619.png"
+      "http://localhost:3001/static/media/01.2e91d53b.png",
+      "http://localhost:3001/static/media/02.adc8b2dd.png",
+      "http://localhost:3001/static/media/03.6bbdf893.png",
+      "http://localhost:3001/static/media/04.50f8bcb9.png",
+      "http://localhost:3001/static/media/ALP-Summer.63b90db3.png",
+      "http://localhost:3001/static/media/card1.9acd410d.png",
+      "http://localhost:3001/static/media/card2.a3e6d397.png",
+      "http://localhost:3001/static/media/card5.8baed643.png",
+      "http://localhost:3001/static/media/glitch.c3fda1d1.png",
+      "http://localhost:3001/static/media/image.f528bd77.png",
+      "http://localhost:3001/static/media/image1.3ff551f0.png",
+      "http://localhost:3001/static/media/image3.6df75f11.png",
+      "http://localhost:3001/static/media/image4.9cb172b4.png",
+      "http://localhost:3001/static/media/image5.f1b1f809.png",
+      "http://localhost:3001/static/media/insta.638d5ee2.png",
+      "http://localhost:3001/static/media/lift.b13cf734.png",
+      "http://localhost:3001/static/media/neon.7fca1e10.png",
+      "http://localhost:3001/static/media/preview.06b7f3b0.png",
+      "http://localhost:3001/static/media/shadow.161b9d54.png",
+      "http://localhost:3001/static/media/splice.6bc44619.png"
     ],
     "jpg": [
-      "/static/media/1.f5f798cc.jpg"
+      "http://localhost:3001/static/media/1.f5f798cc.jpg"
     ]
   }
 }

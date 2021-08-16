@@ -1,6 +1,6 @@
 import * as svg from "../../utils/svg"
 import { useFileUpload } from 'use-file-upload'
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 import { defaultImage, defaultSvg, fontSizeArray, hex_regex, stageDimensions } from "../../utils/defaults";
 import CardHeaderActions from "../../contexts/DesignTool/CardHeaderActions";
@@ -404,7 +404,12 @@ const CardElementsFunctions = () => {
         })
     }
 
-
+    const handleTextEdit = (text: string) => {
+        setCardData(prev => {
+            const selectedText = prev.elements.find(item => item.id === selectedId)
+            selectedText.text = text
+        })
+    }
 
     return {
         getDocumentColors,
@@ -441,7 +446,8 @@ const CardElementsFunctions = () => {
         handleFillPatternScaleX,
         handleFillPatternScaleY,
         handleFillPatternOffsetX,
-        handleFillPatternOffsetY
+        handleFillPatternOffsetY,
+        handleTextEdit
     }
 }
 

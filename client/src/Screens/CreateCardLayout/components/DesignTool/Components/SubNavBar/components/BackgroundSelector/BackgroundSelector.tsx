@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import CardElementsFunctions from '../../../../../../../../Hooks/CardElementsFunctions';
+import CustomColorPicker from '../../../CustomColorPicker';
 import AddBackgroundImage from './components/AddBackgroundImage/AddBackgroundImage';
 import BackgroundColor from './components/BackgroundColor/BackgroundColor';
 import BackgroundColorModal from './components/BackgroundColorModal/BackgroundColorModal';
@@ -6,8 +8,7 @@ import "./style.css"
 const BackgroundSelector: React.FC = (): JSX.Element => {
     const [colorQuery, setColorQuery] = useState<string>("")
     const [colorsArray, setColorsArray] = useState([])
-    const [showColorModal, setShowColorModal] = useState(false)
-    const [currentColor, setCurrentColor] = useState("#171717")
+    const { handleFill } = CardElementsFunctions()
 
     const handleColorQueryChange = (e) => {
         setColorQuery(e.target.value)
@@ -30,6 +31,7 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
                 setColorsArray(newColors)
             }).catch(error => console.log("No colors found!"))
     }, [colorQuery])
+
     return (
         <div className=" flex   flex-col justify-center w-full ">
 
@@ -54,20 +56,10 @@ const BackgroundSelector: React.FC = (): JSX.Element => {
                 <div className=" mt-4 flex flex-row items-center justify-between">
                     {colorsArray.map(item =>
                         <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md"
-                            onClick={() => {
-                                setShowColorModal(true)
-                                setCurrentColor(item)
-                            }}
+                            onClick={() => handleFill(item, "shapes_background")}
                         ></button>
                     )}
                 </div>
-                <div className={showColorModal ? "" : "hidden"}>
-                    <BackgroundColorModal
-                        closeModal={() => setShowColorModal(false)}
-                        currentColor={currentColor}
-                    />
-                </div>
-
             </div>
             <div className="flex flex-col p-6">
 

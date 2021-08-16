@@ -19,6 +19,7 @@ const MainStage = ({
     setCardData,
     selectedId,
     setSelectedId,
+    handleTextEdit,
 }) => {
 
     const { $tr, $layer, $stage } = useContext(DesignToolContext)
@@ -551,6 +552,9 @@ const MainStage = ({
                                 const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
                                 prev.elements[txtIndex] = { ...event.target.attrs }
                             })}
+                            handleTextEdit={handleTextEdit}
+                            isSelected={!!selectedId}
+                            $tr={$tr}
                         />
                     )
 
