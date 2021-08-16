@@ -6,13 +6,16 @@ const { templateHandler, templatesHandler } = require("../handlers");
 
 // globals
 const router = new express.Router();
-const { createTemplate, readTemplate, updateTemplate, deleteTemplate, readTemplates } = templateHandler;
+const {
+  createTemplate,
+  readTemplate,
+  updateTemplate,
+  deleteTemplate,
+  readTemplates,
+} = templateHandler;
 
 /* All the Templates Route */
-router
-  .route("")
-  .get(readTemplates)
-  .post(createTemplate);
+router.route("").get(readTemplates).post(createTemplate);
 
 /* Single Template by Name Route */
 router

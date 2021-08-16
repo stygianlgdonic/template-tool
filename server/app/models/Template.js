@@ -14,7 +14,7 @@ const templateSchema = new Schema({
   palette: [Object],
   tags: [String],
   dateCreated: String,
-  usageCount: Number
+  usageCount: Number,
 });
 
 templateSchema.statics = {
@@ -36,8 +36,8 @@ templateSchema.statics = {
       const template = await newTemplate.save();
       return template._id;
     } catch (error) {
-      console.log(error)
-      return error
+      console.log(error);
+      return error;
     }
   },
   /**
@@ -48,7 +48,11 @@ templateSchema.statics = {
   async deleteTemplate(id) {
     const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
-      throw new APIError(404, "Template Not Found", `No template '${id}' found.`);
+      throw new APIError(
+        404,
+        "Template Not Found",
+        `No template '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -58,9 +62,13 @@ templateSchema.statics = {
    * @returns {Promise<Template, APIError>}
    */
   async readTemplate(id) {
-    const template = await this.findOne({ _id : id });
+    const template = await this.findOne({ _id: id });
     if (!template) {
-      throw new APIError(404, "Template Not Found", `No template '${id}' found.`);
+      throw new APIError(
+        404,
+        "Template Not Found",
+        `No template '${id}' found.`
+      );
     }
     return template.toObject();
   },
@@ -82,12 +90,13 @@ templateSchema.statics = {
       return [];
     }
     //Since Documents donot contain Doc ID by Default, Adding it manually
-    const templatesWithId = templates.map((item)=>{
-      const convertedToObject = item.toObject()
-      return {...convertedToObject, id: item._id}
-    })
+    const templatesWithId = templates.map((item) => {
+      const convertedToObject = item.toObject();
+      return { ...convertedToObject, id: item._id };
+    });
     return templatesWithId;
   },
+
   /**
    * Patch/Update a single Template
    * @param {String} id - the Template's id
@@ -96,13 +105,17 @@ templateSchema.statics = {
    */
   async updateTemplate(id, templateUpdate) {
     const template = await this.findOneAndUpdate({ _id: id }, templateUpdate, {
-      new: true
+      new: true,
     });
     if (!template) {
-      throw new APIError(404, "Template Not Found", `No template '${id}' found.`);
+      throw new APIError(
+        404,
+        "Template Not Found",
+        `No template '${id}' found.`
+      );
     }
     return template.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

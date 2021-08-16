@@ -12,32 +12,26 @@
           "type": "string"
         }
       },
-      "images": {
-        "type": "array",
-        "items": {
-          "type": "object"
-        }
-      },
-      "textBoxes": {
-        "type": "array",
-        "items": {
-          "type": "object"
-        }
-      },
-      "shapes": {
-        "type": "array",
-        "items": {
-          "type": "object"
-        }
-      },
       "dimensions": {
         "type": "object"
       },
       "templateId": {
-        "type": "string"
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "workspaceId": {
-        "type": "string"
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },      
+      "labels": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       }      
     }
   }

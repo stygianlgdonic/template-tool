@@ -70,6 +70,10 @@ app.use(
 );
 
 app.use("/", userRouter);
+// app.get("/", (req, res) => {
+//   console.log(req.query["this"].split(","));
+//   res.send("Hello-world");
+// });
 
 app.use(CustomErrorHandler);
 // catch-all for 404 "Not Found" errors

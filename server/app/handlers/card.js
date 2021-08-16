@@ -126,7 +126,20 @@ async function readCards(request, response, next) {
   }
 
   try {
-    const cards = await Card.readCards({}, {}, skip, limit);
+    let cards;
+
+    if (!!request.query["labels"]) {
+      labels = request.query["labels"].split(",");
+      cards = await Card.readCards(
+        { labels: { $all: labels } },
+        {},
+        skip,
+        limit
+      );
+    } else {
+      cards = await Card.readCards({}, {}, skip, limit);
+    }
+
     const result = new dataSetter(
       cards,
       "Successfully read cards",
