@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
 import CustomColorPicker from '../../../../../CustomColorPicker';
 const image = require('./../../../../../../../../../../assets/images/custom.png');
-
+import "./../../../ElementSelector/components/Stickers/styles.css";
 const FontStyletool: React.FC = (): JSX.Element => {
 
     const [colorQuery, setColorQuery] = useState<string>("")
@@ -77,12 +77,12 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div>
             <div className="" >
                 <h1 className="text-md text-gray40 mt-4" >Document Colors</h1>
-                <div className=" mt-4 flex flex-row items-center justify-between">
+                <div className=" mt-4 grid grid-cols-8 items-center flex-shrink-0 overflow-x-auto no-scrollbar mb-2 gap-2 justify-between">
                     <button>
-                        <img onClick={openColorPicker} src={image} className="w-10 h-10" />
+                        <img onClick={openColorPicker} src={image} className="w-10 h-10 mb-4 flex-shrink-0" />
                     </button>
                     {documentColors.map(item =>
-                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md border border-gray-500" onClick={() => handleFill(item)}></button>
+                        <button style={{ backgroundColor: item }} className="h-10 w-10 rounded-md border mb-4 border-gray-500" onClick={() => handleFill(item)}></button>
                     )}
 
                 </div>
