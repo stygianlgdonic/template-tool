@@ -92,7 +92,7 @@ module.exports = {
             fontWeight: ['hover', 'focus'],
             backgroundColor: ['active'],
             display: ['group-hover'],
-            ringWidth: ['hover', 'active'],
+            ringWidth: ['hover', 'active', 'focus'],
         },
 
     },

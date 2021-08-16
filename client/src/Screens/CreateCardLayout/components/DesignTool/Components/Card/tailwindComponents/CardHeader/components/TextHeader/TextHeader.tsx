@@ -15,7 +15,7 @@ interface Props {
 const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
-    const [values, setValues] = React.useState([0.01])
+    const [values, setValues] = React.useState<any>([100])
     const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
     const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
     const [openDropDown, setopenDropDown] = useState(false);
@@ -79,40 +79,12 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                                     </button>
                                 </div>
                             ))}
-                            {/* <div className="flex mb-2  w-full">
-                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('Sub header')} >
-                                    Sub Header
-                                </button>
-                            </div>
-                            <div className="flex ">
-                                <button className="flex w-full mx-1 px-4 py-1 rounded-md hover:bg-lightindigo" onClick={() => handleChangeFontSize('body text')}>
-                                    Body Text
-                                </button>
-                            </div>
-                            <div className=""></div> */}
+
 
                         </li>
                     </ul>
                 </div>
-                {/* <div className="relative inline-block text-left ">
-                    <div
-                        role="menu"
-                        aria-orientation="vertical"
-                        aria-labelledby="menu-button"
-                        onClick={() => setOpen(!open)}
-                    >
-                        <button
-                            onClick={() => setOpen(true)}
-                            type="button"
-                            className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium bg-white border rounded-md shadow-sm border-bordercolor text-gray900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                            id="menu-button"
-                            aria-expanded="true"
-                            aria-haspopup="true"
-                        >
-                            Heading 1
-                        </button>
-                    </div>
-                </div> */}
+
 
                 <div>
                     <div>
@@ -156,7 +128,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                 <div className="relative">
 
 
-                    <button className="ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2 " onClick={() => setShowModal(true)}>
+                    <button className="ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2  active:border-2 border-indigo600" onClick={() => setShowModal(true)}>
                         <svg
                             width="23"
                             height="18"
@@ -183,7 +155,7 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
 
                                         <div onClick={() => setShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
 
-                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
+
 
 
                                         <div className=" border-2 border-bordercolor inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 mt-2 self-end right-0 ">
@@ -191,16 +163,16 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                                             <div className="w-full flex gap-4 justify-center ">
 
 
-                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("left")}><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex  items-center justify-center" onClick={() => handleTextAlign("left")}><svg className=" " width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                                 </button>
-                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
 
                                                 </button>
-                                                <button className="hover:bg-lightindigo h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
+                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
                                                     <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
@@ -217,37 +189,15 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                     </div>
                 </div>
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
-                <div className="ml-6 text-lg italic font-bold text-black ">
+                <div className="ml-6 text-lg italic font-bold text-black hover:bg-lightindigo px-3 py-1 rounded hover:ring-2 ring-indigo600 ">
                     <button onClick={selectEffectToolSubNav} >Effects</button>
-                    {/* <Range
-                        step={1}
-                        min={0}
-                        max={75}
-                        values={values}
-                        onChange={(values) => {
-                            setValues(values)
-                        }}
-                        renderTrack={({ props, children }) => (
-                            <div
-                                {...props}
-                                className="w-full h-3 pr-2 my-4 bg-gray-200 rounded-md"
-                            >
-                                {children}
-                            </div>
-                        )}
-                        renderThumb={({ props }) => (
-                            <div
-                                {...props}
-                                className="w-5 h-5 transform translate-x-10 bg-indigo-500 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            />
-                        )}
-                    /> */}
+
                 </div>
 
                 <div className="py-4 ml-6 border-r-2 border-bordercolor"></div>
                 <div className=" relative">
-                    <button className="ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md" onClick={() => seteShowModal(true)}>
-                        <img src={image} />
+                    <button className={showeModal ? "ml-6  hover:bg-lightindigo h-10 w-10 px-1 rounded-md border-2 border-indigo600 " : "ml-6  hover:bg-lightindigo h-10 w-10 pl-2 rounded-md  "} onClick={() => { seteShowModal(true); setopenDropDown(false) }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd"><path d="M3 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z"></path><path d="M11 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".45"></path><path d="M19 2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".15"></path><path d="M7 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".7"></path><path d="M15 6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 8h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" opacity=".3"></path></g></svg>
                     </button>
                     <div className=" absolute">
                         {showeModal ? (
@@ -258,26 +208,26 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
 
                                         <div onClick={() => seteShowModal(false)} className="fixed inset-0  transition-opacity" aria-hidden="true"></div>
 
-                                        {/* <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span> */}
 
 
-                                        <div className="  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-xl transform transition-all top-0 right-0 mt-2 " >
+                                        <div className="border border-bordercolor  inline-block align-bottom w-40  items-center bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 right-0 mt-2 " >
 
                                             <div className="w-full flex gap-4 justify-center ">
 
+
                                                 <Range
-                                                    step={0.01}
-                                                    min={0.01}
-                                                    max={1}
+                                                    step={1}
+                                                    min={1}
+                                                    max={100}
                                                     values={values}
                                                     onChange={(values) => {
                                                         setValues(values);
-                                                        handleTextOpacity(values)
+                                                        handleTextOpacity(values as any / 100)
                                                     }}
                                                     renderTrack={({ props, children }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-full h-3 pr-2 my-4 bg-gray-400 rounded-md"
+                                                            className="w-full h-3 pr-2 my-4 bg-gray-200 rounded-md"
                                                         >
                                                             {children}
                                                         </div>
@@ -285,10 +235,18 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                                                     renderThumb={({ props }) => (
                                                         <div
                                                             {...props}
-                                                            className="w-5 h-5 transform translate-x-10 bg-indigo600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                            className="w-4 h-4 transform translate-x-10 bg-indigo600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                         />
+
                                                     )}
                                                 />
+                                                <input className="ml-3 w-9 focus:outline-none" min="0" max="100" value={values} onChange={(e) => {
+                                                    if (!(parseFloat(e.target.value) > 100)) {
+                                                        setValues([e.target.value]);
+                                                        handleTextOpacity(parseFloat(e.target.value) / 100)
+                                                    }
+
+                                                }}></input>
                                             </div>
                                         </div>
                                     </div>
