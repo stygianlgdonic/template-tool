@@ -1,4 +1,5 @@
 import React from "react";
+import CustomColorPicker from "../../../../../CustomColorPicker";
 import BackgroundColorModal from "../BackgroundColorModal/BackgroundColorModal";
 const BackgroundColor: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
@@ -11,7 +12,9 @@ const BackgroundColor: React.FC = (): JSX.Element => {
                 </h1>
             </div>
             <div className="flex flex-row items-center gap-4 mt-4 ">
-                <button>
+                <button
+                    onClick={() => setShowModal(true)}
+                >
                     <svg
                         width="28"
                         height="28"
@@ -29,21 +32,18 @@ const BackgroundColor: React.FC = (): JSX.Element => {
                     </svg>
                 </button>
 
-                <button
-                    className="w-10 h-10 rounded-md bg-indigo600"
-                    onClick={() => setShowModal(true)}
-                ></button>
+                <button className="w-10 h-10 rounded-md bg-indigo600"></button>
                 <button className="w-10 h-10 rounded-md bg-fuschia"></button>
                 <button className="w-10 h-10 rounded-md bg-greenish"></button>
                 <button className="w-10 h-10 rounded-md bg-yellowish"></button>
                 <button className="w-10 h-10 rounded-md bg-redish"></button>
             </div>
             <div style={{ display: showModal ? "" : "none" }}>
-                <BackgroundColorModal
+                <CustomColorPicker
                     closeModal={() => {
                         setShowModal(false);
                     }}
-                    currentColor={"#60affa"}
+                    isBackground={true}
                 />
             </div>
         </div>

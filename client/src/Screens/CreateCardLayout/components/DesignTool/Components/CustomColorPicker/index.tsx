@@ -1,20 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { DesignToolContext } from "../../../../../../contexts/DesignTool/DesignToolContext";
 import CardElementsFunctions from "../../../../../../Hooks/CardElementsFunctions";
 import Picker from "./Picker";
 
 interface Props {
     closeModal: () => void
+    isBackground?: boolean
 }
 const CustomColorPicker: React.FC<Props> = ({
     closeModal,
+    isBackground
 }): JSX.Element => {
     const [fillType, setfillType] = useState<"" | "solid" | "gradient">("");
     const [gradientType, setGradientType] = useState<"linear" | "radial">("linear")
     const myRef = useRef(null);
+    const { cardData } = useContext(DesignToolContext)
     const { getSelectedElementData, handleFill, handleGradientColor, handleRadialGradientColor } = CardElementsFunctions()
     const [gradientColorNumber, setGradientColorNumber] = useState<1 | 3>(1)
 
-    const selectedElementData = getSelectedElementData()
+    const selectedElementData = isBackground ? cardData.elements[0] : getSelectedElementData()
 
     const linearGradColor1 = !!selectedElementData?.fillLinearGradientColorStops ?
         selectedElementData?.fillLinearGradientColorStops[1] : "#171717"
@@ -43,18 +47,18 @@ const CustomColorPicker: React.FC<Props> = ({
     }
 
     const handleSolidColorChange = (color) => {
-        handleFill(color.hex)
+        handleFill(color.hex, isBackground ? "shapes_background" : null)
     }
     const handleGradientColorChange = (color) => {
         if (gradientType === "linear") {
             const color1 = gradientColorNumber === 1 ? color.hex : linearGradColor1
             const color2 = gradientColorNumber === 3 ? color.hex : linearGradColor2
-            handleGradientColor(color1, color2)
+            handleGradientColor(color1, color2, isBackground ? "shapes_background" : null)
         }
         if (gradientType === "radial") {
             const color1 = gradientColorNumber === 1 ? color.hex : radialGradColor1
             const color2 = gradientColorNumber === 3 ? color.hex : radialGradColor2
-            handleRadialGradientColor(color1, color2)
+            handleRadialGradientColor(color1, color2, isBackground ? "shapes_background" : null)
         }
     }
 
