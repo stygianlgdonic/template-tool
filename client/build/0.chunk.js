@@ -4141,7 +4141,7 @@ const TransformModal = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", __jsx("div", {
-    className: "absolute z-50 flex items-center justify-center w-screen h-screen overflow-x-auto overflow-y-auto outline-none inherit focus:outline-none",
+    className: "absolute top-16 z-50 flex items-center justify-center w-screen h-screen overflow-x-auto overflow-y-auto outline-none inherit focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4620,16 +4620,17 @@ const TransformModal = ({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-range */ "react-range");
-/* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
+/* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-range */ "react-range");
+/* harmony import */ var react_range__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_range__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _contexts_DesignTool_SubnavbarActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../../../contexts/DesignTool/SubnavbarActions */ "./src/contexts/DesignTool/SubnavbarActions.ts");
 /* harmony import */ var _Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../../../Hooks/CardElementsFunctions */ "./src/Hooks/CardElementsFunctions/index.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../../../../../../utils/defaults */ "./src/utils/defaults.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\Screens\\CreateCardLayout\\components\\DesignTool\\Components\\Card\\tailwindComponents\\CardHeader\\components\\TextHeader\\TextHeader.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -4645,12 +4646,13 @@ const image = __webpack_require__(/*! ./../../../../../../../../../../assets/ima
 const TextHeader = ({
   handleDeleteClick
 }) => {
-  var _fontSizeArray$find;
+  var _fontSizeArray$find, _selectedText$fontSty, _selectedText$fontSty2;
 
-  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  const [showeModal, seteShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  const [values, setValues] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState([0.01]);
+  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false);
+  const [showeModal, seteShowModal] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false);
+  const [values, setValues] = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState([0.01]);
   const {
+    getSelectedElementData,
     handleFontStyle,
     handleTextAlign,
     handleTextOpacity,
@@ -4665,19 +4667,41 @@ const TextHeader = ({
   const {
     0: openDropDown,
     1: setopenDropDown
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const {
-    cardData,
-    selectedId,
-    setSelectedId
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__["DesignToolContext"]);
-  const selectedText = cardData.elements.find(item => item.id === selectedId);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
+  const [fontStyle, setFontStyle] = Object(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_0__["useImmerState"])({
+    bold: false,
+    italic: false
+  });
+  const selectedText = getSelectedElementData();
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
+    if (!!selectedText) {
+      handleChangeFontStyle();
+    }
+  }, [fontStyle, selectedText]);
+
+  const handleSetBold = () => {
+    setFontStyle(prev => {
+      prev.bold = !prev.bold;
+    });
+  };
+
+  const hanldeSetItalic = () => {
+    setFontStyle(prev => {
+      prev.italic = !prev.italic;
+    });
+  };
+
+  const handleChangeFontStyle = () => {
+    const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.bold ? "bold" : ""} ${fontStyle.italic ? "italic" : ""}`}`;
+    handleFontStyle(result);
+  };
+
   return __jsx("div", {
     className: "flex flex-row items-center justify-center gap-4 px-6 h-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 50,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -4685,7 +4709,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -4693,7 +4717,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -4703,7 +4727,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -4719,15 +4743,15 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 58,
       columnNumber: 25
     }
   }, selectedText === null || selectedText === void 0 ? void 0 : selectedText.fontFamily)))), __jsx("div", {
-    className: "z-50 flex items-center",
+    className: "z-10 flex items-center",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 72,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -4736,7 +4760,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 73,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -4748,11 +4772,11 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 77,
       columnNumber: 21
     }
   }, !!selectedText ? (_fontSizeArray$find = _utils_defaults__WEBPACK_IMPORTED_MODULE_5__["fontSizeArray"].find(item => item.size === selectedText.fontSize)) === null || _fontSizeArray$find === void 0 ? void 0 : _fontSizeArray$find.name : "Heading"), __jsx("ul", {
-    className: "absolute z-10 py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm",
+    className: "absolute  py-1 mt-1 overflow-auto w-32 text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm",
     role: "listbox",
     "aria-labelledby": "listbox-label",
     "aria-activedescendant": "listbox-option-3",
@@ -4762,7 +4786,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 86,
       columnNumber: 21
     }
   }, __jsx("li", {
@@ -4772,16 +4796,16 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 93,
       columnNumber: 25
     }
   }, _utils_defaults__WEBPACK_IMPORTED_MODULE_5__["fontSizeArray"].map((item, index) => __jsx("div", {
     key: index,
-    className: "flex mb-2",
+    className: "flex mb-2 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 99,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4790,21 +4814,21 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 100,
       columnNumber: 37
     }
   }, item.name)))))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 140,
       columnNumber: 17
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 141,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -4813,7 +4837,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
+      lineNumber: 142,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -4826,7 +4850,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 144,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -4835,7 +4859,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 145,
       columnNumber: 33
     }
   }), __jsx("g", {
@@ -4843,7 +4867,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 146,
       columnNumber: 33
     }
   }, __jsx("rect", {
@@ -4856,7 +4880,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 147,
       columnNumber: 37
     }
   })), __jsx("rect", {
@@ -4869,14 +4893,14 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 149,
       columnNumber: 33
     }
   }), __jsx("defs", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 150,
       columnNumber: 33
     }
   }, __jsx("filter", {
@@ -4890,7 +4914,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 151,
       columnNumber: 37
     }
   }, __jsx("feFlood", {
@@ -4899,7 +4923,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 152,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4910,7 +4934,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 153,
       columnNumber: 41
     }
   }), __jsx("feOffset", {
@@ -4918,7 +4942,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 154,
       columnNumber: 41
     }
   }), __jsx("feGaussianBlur", {
@@ -4926,7 +4950,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 155,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4935,7 +4959,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 156,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -4945,7 +4969,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 157,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4956,7 +4980,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 158,
       columnNumber: 41
     }
   }), __jsx("feOffset", {
@@ -4964,7 +4988,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 159,
       columnNumber: 41
     }
   }), __jsx("feGaussianBlur", {
@@ -4972,7 +4996,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 160,
       columnNumber: 41
     }
   }), __jsx("feColorMatrix", {
@@ -4981,7 +5005,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 161,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -4991,7 +5015,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
+      lineNumber: 162,
       columnNumber: 41
     }
   }), __jsx("feBlend", {
@@ -5002,7 +5026,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 163,
       columnNumber: 41
     }
   }))))))), __jsx("div", {
@@ -5010,32 +5034,32 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 170,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "ml-4 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
-    onClick: () => handleFontStyle("bold"),
+    className: "ml-4 text-lg font-bold text-black w-10 h-10 rounded-md" + (selectedText !== null && selectedText !== void 0 && (_selectedText$fontSty = selectedText.fontStyle) !== null && _selectedText$fontSty !== void 0 && _selectedText$fontSty.includes("bold") ? " bg-lightindigo" : ""),
+    onClick: handleSetBold,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 171,
       columnNumber: 21
     }
   }, "B")), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 176,
       columnNumber: 17
     }
   }, __jsx("button", {
-    className: "ml-4 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md",
-    onClick: () => handleFontStyle("italic"),
+    className: "ml-4 text-lg italic font-bold text-black w-10 h-10 rounded-md" + (selectedText !== null && selectedText !== void 0 && (_selectedText$fontSty2 = selectedText.fontStyle) !== null && _selectedText$fontSty2 !== void 0 && _selectedText$fontSty2.includes("italic") ? " bg-lightindigo" : ""),
+    onClick: hanldeSetItalic,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 177,
       columnNumber: 21
     }
   }, "I")), __jsx("div", {
@@ -5043,7 +5067,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 184,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -5051,7 +5075,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156,
+      lineNumber: 185,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -5060,7 +5084,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 188,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -5072,7 +5096,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 189,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -5084,7 +5108,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
+      lineNumber: 196,
       columnNumber: 29
     }
   }))), __jsx("div", {
@@ -5092,10 +5116,10 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177,
+      lineNumber: 206,
       columnNumber: 21
     }
-  }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+  }, showModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
     className: "z-10 inset-0 overflow-y-auto",
     "aria-labelledby": "modal-title",
     role: "dialog",
@@ -5103,7 +5127,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 210,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -5111,7 +5135,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182,
+      lineNumber: 211,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -5121,7 +5145,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 213,
       columnNumber: 41
     }
   }), __jsx("div", {
@@ -5129,7 +5153,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 218,
       columnNumber: 41
     }
   }, __jsx("div", {
@@ -5137,7 +5161,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 191,
+      lineNumber: 220,
       columnNumber: 45
     }
   }, __jsx("button", {
@@ -5146,7 +5170,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 223,
       columnNumber: 49
     }
   }, __jsx("svg", {
@@ -5158,7 +5182,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 223,
       columnNumber: 184
     }
   }, __jsx("path", {
@@ -5170,7 +5194,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195,
+      lineNumber: 224,
       columnNumber: 53
     }
   }))), __jsx("button", {
@@ -5179,7 +5203,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198,
+      lineNumber: 227,
       columnNumber: 49
     }
   }, __jsx("svg", {
@@ -5191,7 +5215,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198,
+      lineNumber: 227,
       columnNumber: 186
     }
   }, __jsx("path", {
@@ -5203,7 +5227,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 199,
+      lineNumber: 228,
       columnNumber: 53
     }
   }))), __jsx("button", {
@@ -5212,7 +5236,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 203,
+      lineNumber: 232,
       columnNumber: 49
     }
   }, __jsx("svg", {
@@ -5224,7 +5248,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 204,
+      lineNumber: 233,
       columnNumber: 53
     }
   }, __jsx("path", {
@@ -5236,7 +5260,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 234,
       columnNumber: 57
     }
   })))))))) : null)), __jsx("div", {
@@ -5244,7 +5268,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 219,
+      lineNumber: 248,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -5252,7 +5276,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 220,
+      lineNumber: 249,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -5260,7 +5284,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 221,
+      lineNumber: 250,
       columnNumber: 21
     }
   }, "Effects")), __jsx("div", {
@@ -5268,7 +5292,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 247,
+      lineNumber: 276,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -5276,7 +5300,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 248,
+      lineNumber: 277,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -5285,7 +5309,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249,
+      lineNumber: 278,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -5293,7 +5317,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 250,
+      lineNumber: 279,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -5301,10 +5325,10 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 252,
+      lineNumber: 281,
       columnNumber: 21
     }
-  }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+  }, showeModal ? __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
     className: " z-10 inset-0 overflow-y-auto",
     "aria-labelledby": "modal-title",
     role: "dialog",
@@ -5312,7 +5336,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 256,
+      lineNumber: 285,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -5320,7 +5344,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257,
+      lineNumber: 286,
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -5330,7 +5354,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 259,
+      lineNumber: 288,
       columnNumber: 41
     }
   }), __jsx("div", {
@@ -5338,7 +5362,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 264,
+      lineNumber: 293,
       columnNumber: 41
     }
   }, __jsx("div", {
@@ -5346,10 +5370,10 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266,
+      lineNumber: 295,
       columnNumber: 45
     }
-  }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_1__["Range"], {
+  }, __jsx(react_range__WEBPACK_IMPORTED_MODULE_2__["Range"], {
     step: 0.01,
     min: 0.01,
     max: 1,
@@ -5366,7 +5390,7 @@ const TextHeader = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 278,
+        lineNumber: 307,
         columnNumber: 57
       }
     }), children),
@@ -5377,14 +5401,14 @@ const TextHeader = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 286,
+        lineNumber: 315,
         columnNumber: 57
       }
     })),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 268,
+      lineNumber: 297,
       columnNumber: 49
     }
   })))))) : null)), __jsx("div", {
@@ -5392,14 +5416,14 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 302,
+      lineNumber: 331,
       columnNumber: 17
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 303,
+      lineNumber: 332,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -5408,7 +5432,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 304,
+      lineNumber: 333,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -5420,7 +5444,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 305,
+      lineNumber: 334,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -5432,7 +5456,7 @@ const TextHeader = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 306,
+      lineNumber: 335,
       columnNumber: 29
     }
   }))))));
@@ -6858,7 +6882,7 @@ const BackgroundSelector = () => {
       columnNumber: 13
     }
   }, __jsx("div", {
-    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-full z-50",
+    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-full z-10",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -6905,7 +6929,7 @@ const BackgroundSelector = () => {
     }
   })))), __jsx("input", {
     onChange: handleColorQueryChange,
-    className: "w-full rounded text-sm text-gray95 outline-none h-10 z-0 ",
+    className: "w-full rounded text-sm text-gray95 outline-none h-10",
     type: "text",
     placeholder: "Try \u201Cblue\u201D or \u201C#43345\u201D",
     __self: undefined,
@@ -7388,7 +7412,7 @@ const SelectFromGallleryModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none",
+    className: "fixed z-50 top-14 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -7749,7 +7773,7 @@ const SelectFromGallleryModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___
       columnNumber: 27
     }
   })))))))))), __jsx("div", {
-    className: "fixed inset-0 z-40 bg-black opacity-25",
+    className: "fixed  inset-0 z-40 bg-black opacity-25",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -9465,7 +9489,6 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
       columnNumber: 9
     }
   }, __jsx("div", {
-    ref: myRef,
     className: "relative items-center flex-1 max-w-sm mx-auto h-96",
     __self: undefined,
     __source: {
@@ -9474,11 +9497,12 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
       columnNumber: 11
     }
   }, __jsx("div", {
+    ref: myRef,
     className: "relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg border-bordercolor focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -9486,7 +9510,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 37,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -9494,7 +9518,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -9503,7 +9527,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 19
     }
   }, __jsx("label", {
@@ -9512,7 +9536,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 46,
       columnNumber: 21
     }
   }, "Fallback"), __jsx("div", {
@@ -9520,7 +9544,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -9532,7 +9556,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 23
     }
   }, __jsx("span", {
@@ -9540,7 +9564,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 60,
       columnNumber: 25
     }
   }, "Image.png"), __jsx("span", {
@@ -9548,7 +9572,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 63,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -9560,7 +9584,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 64,
       columnNumber: 27
     }
   }, __jsx("path", {
@@ -9570,7 +9594,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 71,
       columnNumber: 29
     }
   })))), __jsx("ul", {
@@ -9584,7 +9608,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 79,
       columnNumber: 23
     }
   }, __jsx("li", {
@@ -9594,7 +9618,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 86,
       columnNumber: 25
     }
   }, __jsx("span", {
@@ -9602,7 +9626,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 91,
       columnNumber: 27
     }
   }, "image.png"))))), __jsx("div", {
@@ -9610,7 +9634,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 100,
       columnNumber: 19
     }
   }, __jsx("label", {
@@ -9619,7 +9643,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 105,
       columnNumber: 21
     }
   }, "Merge Tag"), __jsx("div", {
@@ -9627,7 +9651,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 111,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -9639,7 +9663,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 112,
       columnNumber: 23
     }
   }, __jsx("span", {
@@ -9647,7 +9671,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 119,
       columnNumber: 25
     }
   }, "Logo_Recp"), __jsx("span", {
@@ -9655,7 +9679,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 122,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -9667,7 +9691,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 123,
       columnNumber: 27
     }
   }, __jsx("path", {
@@ -9677,7 +9701,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 130,
       columnNumber: 29
     }
   })))), __jsx("ul", {
@@ -9691,7 +9715,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 138,
       columnNumber: 23
     }
   }, __jsx("li", {
@@ -9701,7 +9725,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
+      lineNumber: 145,
       columnNumber: 25
     }
   }, __jsx("span", {
@@ -9709,7 +9733,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149,
+      lineNumber: 150,
       columnNumber: 27
     }
   }, "Logo.png"))))), __jsx("div", {
@@ -9717,7 +9741,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157,
+      lineNumber: 158,
       columnNumber: 19
     }
   }, __jsx("div", {
@@ -9726,7 +9750,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 160,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -9735,7 +9759,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 164,
       columnNumber: 23
     }
   }, __jsx("svg", {
@@ -9748,7 +9772,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167,
+      lineNumber: 168,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -9759,7 +9783,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175,
+      lineNumber: 176,
       columnNumber: 27
     }
   }))), ShowToolTip ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -9767,7 +9791,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 185,
+      lineNumber: 186,
       columnNumber: 27
     }
   }, __jsx("span", {
@@ -9775,14 +9799,14 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 187,
       columnNumber: 29
     }
   }, "Cardclan will fetch logo of your receipent from his ", __jsx("b", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188,
+      lineNumber: 189,
       columnNumber: 35
     }
   }, "website URL"), __jsx("div", {
@@ -9790,14 +9814,14 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 190,
       columnNumber: 31
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 190,
+      lineNumber: 191,
       columnNumber: 33
     }
   }, "Got it"))), __jsx("div", {
@@ -9808,7 +9832,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193,
+      lineNumber: 194,
       columnNumber: 29
     }
   }))) : null))))))), __jsx("div", {
@@ -9816,7 +9840,7 @@ const AddLogoImageModal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defaul
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 210,
       columnNumber: 9
     }
   }));

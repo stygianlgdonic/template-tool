@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import { useImmerState } from "@shrugsy/use-immer-state";
+import React, { useContext, useEffect, useState } from "react";
 import { Range } from "react-range";
 import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
 import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
@@ -12,16 +13,38 @@ interface Props {
     handleDeleteClick: any
 }
 
+type T_FontStype = "normal" | "italic" | "bold" | "italic bold"
+
 const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
     const [showeModal, seteShowModal] = React.useState(false);
     const [values, setValues] = React.useState([0.01])
-    const { handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
+    const { getSelectedElementData, handleFontStyle, handleTextAlign, handleTextOpacity, handleDeleteSelectedItem, handleChangeFontSize } = CardElementsFunctions()
     const { selectTextToolSubNav, selectEffectToolSubNav, selectFontColorToolSubNav } = SubNavbarActions()
     const [openDropDown, setopenDropDown] = useState(false);
-    const { cardData, selectedId, setSelectedId } = useContext(DesignToolContext)
+    const [fontStyle, setFontStyle] = useImmerState({ bold: false, italic: false })
 
-    const selectedText = cardData.elements.find(item => item.id === selectedId)
+    const selectedText = getSelectedElementData()
+
+    useEffect(() => {
+        if (!!selectedText) {
+            handleChangeFontStyle()
+        }
+    }, [fontStyle, selectedText])
+
+    const handleSetBold = () => {
+        setFontStyle(prev => { prev.bold = !prev.bold })
+    }
+    const hanldeSetItalic = () => {
+        setFontStyle(prev => { prev.italic = !prev.italic })
+    }
+
+    const handleChangeFontStyle = () => {
+
+        const result = `${!fontStyle.bold && !fontStyle.italic ? "normal" : `${fontStyle.bold ? "bold" : ""} ${fontStyle.italic ? "italic" : ""}`}`
+
+        handleFontStyle(result as T_FontStype)
+    }
 
     return (
         <div className="flex flex-row items-center justify-center gap-4 px-6 h-full ">
@@ -145,10 +168,16 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                     </div>
                 </div>
                 <div className="">
-                    <button className="ml-4 text-lg font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("bold")}>B</button>
+                    <button className={"ml-4 text-lg font-bold text-black w-10 h-10 rounded-md" + (
+                        selectedText?.fontStyle?.includes("bold") ? " bg-lightindigo" : ""
+                    )}
+                        onClick={handleSetBold}>B</button>
                 </div>
                 <div>
-                    <button className="ml-4 text-lg italic font-bold text-black w-10 h-10 hover:bg-lightindigo rounded-md" onClick={() => handleFontStyle("italic")}>
+                    <button className={"ml-4 text-lg italic font-bold text-black w-10 h-10 rounded-md" + (
+                        selectedText?.fontStyle?.includes("italic") ? " bg-lightindigo" : ""
+                    )}
+                        onClick={hanldeSetItalic}>
                         I
                     </button>
                 </div>

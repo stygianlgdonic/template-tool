@@ -191,7 +191,8 @@ const CardElementsFunctions = () => {
         })
     }
 
-    const handleFontStyle = (type: "normal" | "bold" | "italic") => {
+    const handleFontStyle = (type: "normal" | "italic" | "bold" | "italic bold") => {
+
         setCardData(prev => {
             const shapeIndex = prev.elements.findIndex(
                 (item) => item.id === selectedId
