@@ -1670,16 +1670,11 @@ const Rectangle = ({
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
   const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
-  const rectWidth = restProps.width;
-  const rectHeight = restProps.height;
-  const imageWidth = image ? image.width : 10;
-  const imageHeight = image ? image.height : 10;
-  const patternScale = restProps.patternScale || Math.max(rectWidth / imageWidth, rectHeight / imageHeight);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 19,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], _extends({
@@ -1688,24 +1683,6 @@ const Rectangle = ({
     onTap: onSelect,
     draggable: true,
     strokeScaleEnabled: false,
-    onTransformEnd: e => {
-      // transformer is changing scale of the node
-      // and NOT its width or height
-      // but in the store we have only width and height
-      // to match the data better we will reset scale on transform end
-      const node = shapeRef.current;
-      const scaleX = node.scaleX();
-      const scaleY = node.scaleY(); // we will reset it back
-
-      node.scaleX(1);
-      node.scaleY(1);
-      onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
-        x: node.x(),
-        y: node.y(),
-        width: Math.max(node.width() * scaleX),
-        height: Math.max(node.height() * scaleY)
-      }));
-    },
     onDragEnd: e => {
       onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
         x: e.target.x(),
@@ -1718,13 +1695,13 @@ const Rectangle = ({
       x: 0,
       y: 0
     },
-    fillPatternScaleX: patternScale,
-    fillPatternScaleY: patternScale,
+    fillPatternScaleX: 1.4,
+    fillPatternScaleY: 1.4,
     fillPatternRepeat: "no-repeat",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 20,
       columnNumber: 13
     }
   })));
@@ -1782,11 +1759,15 @@ const UCircle = ({
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
   const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const imageWidth = image ? image.width : 10;
+  const imageHeight = image ? image.height : 10;
+  const Xpoint = imageWidth / 2;
+  const Ypoint = imageHeight / 2;
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 22,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Circle"], _extends({
@@ -1795,12 +1776,6 @@ const UCircle = ({
     onTap: onSelect,
     draggable: true,
     strokeScaleEnabled: false,
-    onTransformEnd: e => {
-      onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
-        scaleX: e.target.attrs.scaleX,
-        scaleY: e.target.attrs.scaleY
-      }));
-    },
     onDragEnd: e => {
       onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
         x: e.target.x(),
@@ -1809,15 +1784,17 @@ const UCircle = ({
     }
   }, restProps, {
     fillPatternImage: image,
-    fillPatternOffsetX: 0,
-    fillPatternOffsetY: 0,
-    fillPatternScaleX: 0.1,
-    fillPatternScaleY: 0.1,
+    fillPatternOffset: {
+      x: Xpoint,
+      y: Ypoint
+    },
+    fillPatternScaleX: 1.4,
+    fillPatternScaleY: 1.4,
     fillPatternRepeat: "no-repeat",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 23,
       columnNumber: 13
     }
   })));
@@ -1935,11 +1912,13 @@ const ULine = ({
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
   const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const Xpoint = 0;
+  const Ypoint = 0;
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Line"], _extends({
@@ -1948,12 +1927,6 @@ const ULine = ({
     onTap: onSelect,
     draggable: true,
     strokeScaleEnabled: false,
-    onTransformEnd: e => {
-      onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
-        scaleX: e.target.attrs.scaleX,
-        scaleY: e.target.attrs.scaleY
-      }));
-    },
     onDragEnd: e => {
       onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
         x: e.target.x(),
@@ -1962,15 +1935,17 @@ const ULine = ({
     }
   }, restProps, {
     fillPatternImage: image,
-    fillPatternOffsetX: 0,
-    fillPatternOffsetY: 0,
-    fillPatternScaleX: 0.1,
-    fillPatternScaleY: 0.1,
+    fillPatternOffset: {
+      x: Xpoint,
+      y: Ypoint
+    },
+    fillPatternScaleX: 1.4,
+    fillPatternScaleY: 1.4,
     fillPatternRepeat: "no-repeat",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 22,
       columnNumber: 13
     }
   })));
@@ -2028,11 +2003,15 @@ const UPolygon = ({
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
   const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const imageWidth = image ? image.width : 10;
+  const imageHeight = image ? image.height : 10;
+  const Xpoint = imageWidth / 2;
+  const Ypoint = imageHeight / 2;
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["RegularPolygon"], _extends({
@@ -2046,24 +2025,20 @@ const UPolygon = ({
         x: e.target.x(),
         y: e.target.y()
       }));
-    },
-    onTransformEnd: e => {
-      onChange(_objectSpread(_objectSpread({}, shapeProps), {}, {
-        scaleX: e.target.attrs.scaleX,
-        scaleY: e.target.attrs.scaleY
-      }));
     }
   }, restProps, {
     fillPatternImage: image,
-    fillPatternOffsetX: 0,
-    fillPatternOffsetY: 0,
-    fillPatternScaleX: 0.1,
-    fillPatternScaleY: 0.1,
+    fillPatternOffset: {
+      x: Xpoint,
+      y: Ypoint
+    },
+    fillPatternScaleX: 2.0,
+    fillPatternScaleY: 2.0,
     fillPatternRepeat: "no-repeat",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 26,
       columnNumber: 13
     }
   })));

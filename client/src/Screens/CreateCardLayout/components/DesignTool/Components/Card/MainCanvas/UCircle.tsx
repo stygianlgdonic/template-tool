@@ -12,6 +12,11 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
 
     const { patternImageUrl, ...restProps } = shapeProps
     const [image] = useImage(patternImageUrl || null)
+    const imageWidth = image ? image.width : 10;
+    const imageHeight = image ? image.height : 10;
+
+    const Xpoint = (imageWidth / 2)
+    const Ypoint = (imageHeight / 2)
 
     return (
         <React.Fragment>
@@ -21,13 +26,6 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
                 onTap={onSelect}
                 draggable
                 strokeScaleEnabled={false}
-                onTransformEnd={(e) => {
-                    onChange({
-                        ...shapeProps,
-                        scaleX: e.target.attrs.scaleX,
-                        scaleY: e.target.attrs.scaleY,
-                    });
-                }}
                 onDragEnd={(e) => {
                     onChange({
                         ...shapeProps,
@@ -37,10 +35,9 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
                 }}
                 {...restProps}
                 fillPatternImage={image}
-                fillPatternOffsetX={0}
-                fillPatternOffsetY={0}
-                fillPatternScaleX={0.1}
-                fillPatternScaleY={0.1}
+                fillPatternOffset={{ x: Xpoint, y: Ypoint }}
+                fillPatternScaleX={1.4}
+                fillPatternScaleY={1.4}
                 fillPatternRepeat="no-repeat"
             />
         </React.Fragment>
