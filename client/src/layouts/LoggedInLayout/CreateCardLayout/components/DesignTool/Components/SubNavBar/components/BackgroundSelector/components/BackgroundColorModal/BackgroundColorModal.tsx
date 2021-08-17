@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { SketchPicker } from "react-color"
-import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
-import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
+import { DesignToolContext } from "../../../../../../../../../../../contexts/DesignTool/DesignToolContext";
+import CardElementsFunctions from "../../../../../../../../../../../Hooks/CardElementsFunctions";
 interface Prop {
     closeModal: () => void
     currentColor: string

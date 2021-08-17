@@ -1,8 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-// import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
-import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
-const header = require("../../../../assets/images/header.png")
-const body = require("../../../../assets/images/body.png")
 const featureimage = require("../../../../assets/images/featureimage.png")
 import { CardType } from "./MockData"
 interface Prop {

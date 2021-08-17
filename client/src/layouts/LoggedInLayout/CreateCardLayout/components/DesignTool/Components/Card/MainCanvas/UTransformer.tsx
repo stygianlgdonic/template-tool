@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Transformer } from 'react-konva'
-import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
 import ImageFallbackModal from '../tailwindComponents/CardHeader/components/ImageFallbackModal/ImageFallbackModal';
 import { Html } from "react-konva-utils"
 export const MIN_WIDTH = 50
