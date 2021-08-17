@@ -7,14 +7,17 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const variationSchema = new Schema({
-  name: String,
-  shapes: Object,
-  images: Object,
-  svgs: Object,
-  texts: Object,
-  face: String
-});
+const variationSchema = new Schema(
+  {
+    name: String,
+    shapes: Object,
+    images: Object,
+    svgs: Object,
+    texts: Object,
+    face: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 variationSchema.statics = {
   /**
@@ -42,7 +45,11 @@ variationSchema.statics = {
   async deleteVariation(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "Variation Not Found", `No variation '${id}' found.`);
+      throw new APIError(
+        404,
+        "Variation Not Found",
+        `No variation '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -55,7 +62,11 @@ variationSchema.statics = {
     const variation = await this.findOne({ id });
 
     if (!variation) {
-      throw new APIError(404, "Variation Not Found", `No variation '${id}' found.`);
+      throw new APIError(
+        404,
+        "Variation Not Found",
+        `No variation '${id}' found.`
+      );
     }
     return variation.toObject();
   },
@@ -76,7 +87,7 @@ variationSchema.statics = {
     if (!variations.length) {
       return [];
     }
-    return variations.map(variation => variation.toObject());
+    return variations.map((variation) => variation.toObject());
   },
   /**
    * Patch/Update a single Variation
@@ -86,13 +97,17 @@ variationSchema.statics = {
    */
   async updateVariation(id, variationUpdate) {
     const variation = await this.findOneAndUpdate({ id }, variationUpdate, {
-      new: true
+      new: true,
     });
     if (!variation) {
-      throw new APIError(404, "Variation Not Found", `No variation '${id}' found.`);
+      throw new APIError(
+        404,
+        "Variation Not Found",
+        `No variation '${id}' found.`
+      );
     }
     return variation.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

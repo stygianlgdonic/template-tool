@@ -7,15 +7,19 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const cardSchema = new Schema({
-  id: String,
-  ownerId: [String],
-  elements: [Object],
-  dimensions: Object,
-  templateId: String,
-  workspaceId: String,
-  labels: [String],
-});
+const cardSchema = new Schema(
+  {
+    id: String,
+    ownerId: [String],
+    images: [Object],
+    textBoxes: [Object],
+    shapes: [Object],
+    dimensions: Object,
+    templateId: String,
+    workspaceId: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 cardSchema.statics = {
   /**
@@ -36,8 +40,8 @@ cardSchema.statics = {
       const card = await newCard.save();
       return card.toObject();
     } catch (error) {
-      console.log(error)
-      return error
+      console.log(error);
+      return error;
     }
   },
   /**
@@ -84,9 +88,9 @@ cardSchema.statics = {
     }
     //Since Documents donot contain Doc ID by Default, Adding it manually
     const cardsWithId = cards.map((item) => {
-      const convertedToObject = item.toObject()
-      return { ...convertedToObject, id: item._id }
-    })
+      const convertedToObject = item.toObject();
+      return { ...convertedToObject, id: item._id };
+    });
     return cardsWithId;
   },
   /**
@@ -97,13 +101,13 @@ cardSchema.statics = {
    */
   async updateCard(id, cardUpdate) {
     const card = await this.findOneAndUpdate({ _id: id }, cardUpdate, {
-      new: true
+      new: true,
     });
     if (!card) {
       throw new APIError(404, "Card Not Found", `No card '${id}' found.`);
     }
     return card.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

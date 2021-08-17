@@ -5,6 +5,8 @@ const { validate } = require("jsonschema");
 const { Thing } = require("../models");
 const { APIError } = require("../helpers");
 const { thingNewSchema, thingUpdateSchema } = require("../schemas");
+const { dataSetter } = require("./dataSetter");
+const { ErrorHandler } = require("../helpers/error");
 
 /**
  * Validate the POST request body and create a new Thing
@@ -12,18 +14,23 @@ const { thingNewSchema, thingUpdateSchema } = require("../schemas");
 async function createThing(request, response, next) {
   const validation = validate(request.body, thingNewSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
     const newThing = await Thing.createThing(new Thing(request.body));
-    return response.status(201).json(newThing);
+    const result = new dataSetter(
+      newThing,
+      "Successfully created new thing",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -37,7 +44,13 @@ async function readThing(request, response, next) {
   const { name } = request.params;
   try {
     const thing = await Thing.readThing(name);
-    return response.json(thing);
+    const result = new dataSetter(
+      thing,
+      "Successfully read new thing",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -52,18 +65,23 @@ async function updateThing(request, response, next) {
 
   const validation = validate(request.body, thingUpdateSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
     const thing = await Thing.updateThing(name, request.body);
-    return response.json(thing);
+    const result = new dataSetter(
+      thing,
+      "Successfully updated thing",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -77,7 +95,13 @@ async function deleteThing(request, response, next) {
   const { name } = request.params;
   try {
     const deleteMsg = await Thing.deleteThing(name);
-    return response.json(deleteMsg);
+    const result = new dataSetter(
+      deleteMsg,
+      "Successfully deleted thing",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -87,5 +111,5 @@ module.exports = {
   createThing,
   readThing,
   updateThing,
-  deleteThing
+  deleteThing,
 };

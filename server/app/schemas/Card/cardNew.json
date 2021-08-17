@@ -25,10 +25,13 @@
         "type": "string"
       },
       "workspaceId": {
-        "type": "string"
-      },
-      "labels":{
-        "type":"array",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },      
+      "labels": {
+        "type": "array",
         "items": {
           "type": "string"
         }

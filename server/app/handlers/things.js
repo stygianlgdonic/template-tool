@@ -17,13 +17,19 @@ async function readThings(request, response, next) {
 
   try {
     const things = await Thing.readThings({}, {}, skip, limit);
-    console.log({things})
-    return response.json(things);
+    const result = new dataSetter(
+      things,
+      "Successfully read things",
+      201,
+      "Success"
+    );
+    console.log({ things });
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
 }
 
 module.exports = {
-  readThings
+  readThings,
 };

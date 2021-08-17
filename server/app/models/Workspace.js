@@ -7,13 +7,16 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const workSpaceSchema = new Schema({
-  id: String,
-  brandKit: Object,
-  name: String,
-  owner: String,
-  usersList: [String],
-});
+const workSpaceSchema = new Schema(
+  {
+    id: String,
+    brandKit: Object,
+    name: String,
+    owner: String,
+    usersList: [String],
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 workSpaceSchema.statics = {
   /**
@@ -41,7 +44,11 @@ workSpaceSchema.statics = {
   async deleteWorkSpace(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "WorkSpace Not Found", `No workSpace '${id}' found.`);
+      throw new APIError(
+        404,
+        "WorkSpace Not Found",
+        `No workSpace '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -54,7 +61,11 @@ workSpaceSchema.statics = {
     const workSpace = await this.findOne({ id });
 
     if (!workSpace) {
-      throw new APIError(404, "WorkSpace Not Found", `No workSpace '${id}' found.`);
+      throw new APIError(
+        404,
+        "WorkSpace Not Found",
+        `No workSpace '${id}' found.`
+      );
     }
     return workSpace.toObject();
   },
@@ -75,7 +86,7 @@ workSpaceSchema.statics = {
     if (!workSpaces.length) {
       return [];
     }
-    return workSpaces.map(workSpace => workSpace.toObject());
+    return workSpaces.map((workSpace) => workSpace.toObject());
   },
   /**
    * Patch/Update a single WorkSpace
@@ -85,13 +96,17 @@ workSpaceSchema.statics = {
    */
   async updateWorkSpace(id, workSpaceUpdate) {
     const workSpace = await this.findOneAndUpdate({ id }, workSpaceUpdate, {
-      new: true
+      new: true,
     });
     if (!workSpace) {
-      throw new APIError(404, "WorkSpace Not Found", `No workSpace '${id}' found.`);
+      throw new APIError(
+        404,
+        "WorkSpace Not Found",
+        `No workSpace '${id}' found.`
+      );
     }
     return workSpace.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

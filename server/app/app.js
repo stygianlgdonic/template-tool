@@ -2,13 +2,20 @@
 // const dotenv = require("dotenv");
 const express = require("express");
 Promise = require("bluebird"); // eslint-disable-line
-const passport = require('passport');
 
+const passport = require("passport");
 
 // app imports
 const { connectToDatabase, globalResponseHeaders } = require("./config");
 const { errorHandler } = require("./handlers");
-const { thingsRouter, templateRouter, cardRouter, templateCategoryRouter, secureRouter, userRouter } = require("./routers");
+const {
+  thingsRouter,
+  templateRouter,
+  cardRouter,
+  templateCategoryRouter,
+  secureRouter,
+  userRouter,
+} = require("./routers");
 
 // global constants
 // dotenv.config();
@@ -17,7 +24,8 @@ const {
   bodyParserHandler,
   globalErrorHandler,
   fourOhFourHandler,
-  fourOhFiveHandler
+  fourOhFiveHandler,
+  CustomErrorHandler,
 } = errorHandler;
 
 // database
@@ -27,23 +35,47 @@ connectToDatabase();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ type: "*/*" }));
 app.use(bodyParserHandler); // error handling specific to body parser only
-
+// app.use(cookieParser()); // Cookie parser to read and set cookies
 // response headers setup; CORS
+const cors = require("cors");
+app.use(cors());
+
 app.use(globalResponseHeaders);
 
-app.use("/things", thingsRouter);
+app.use(cors({ origin: true, credentials: true }));
+app.use(
+  "/things",
+  passport.authenticate("jwt", { session: false }),
+  thingsRouter
+);
 
-app.use("/template", templateRouter)
+app.use(
+  "/template",
+  passport.authenticate("jwt", { session: false }),
+  templateRouter
+);
 
-app.use("/card", cardRouter)
+app.use("/card", passport.authenticate("jwt", { session: false }), cardRouter);
 
-app.use("/templatecategory", templateCategoryRouter)
+app.use(
+  "/templatecategory",
+  passport.authenticate("jwt", { session: false }),
+  templateCategoryRouter
+);
 
-app.use("/user", passport.authenticate('jwt', { session: false }),secureRouter)
+app.use(
+  "/user",
+  passport.authenticate("jwt", { session: false }),
+  secureRouter
+);
 
-app.use('/', userRouter);
+app.use("/", userRouter);
+// app.get("/", (req, res) => {
+//   console.log(req.query["this"].split(","));
+//   res.send("Hello-world");
+// });
 
-
+app.use(CustomErrorHandler);
 // catch-all for 404 "Not Found" errors
 app.get("*", fourOhFourHandler);
 // catch-all for 405 "Method Not Allowed" errors

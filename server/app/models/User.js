@@ -1,54 +1,53 @@
 // npm packages
 const mongoose = require("mongoose");
 
-
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 // app imports
 const { APIError } = require("../helpers");
 
 // globals
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  email:{
-    type: String,
-    required: true,
-    unique: true
+const userSchema = new Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    firstName: String,
+    lastName: String,
+    emailAccounts: [String],
+    status: String,
+    emailVerified: Boolean,
+    jobRole: String,
+    purposeOfUse: String,
+    companyName: String,
+    companyLogo: String,
+    scheduleList: [String],
+    workspaceList: [String],
   },
-  password: {
-    type: String,
-    required: true
-  },
-  firstName: String,
-  lastName: String,
-  emailAccounts: [String],
-  status: String,
-  emailVerified: Boolean,
-  jobRole: String,
-  purposeOfUse: String,
-  companyName: String,
-  companyLogo: String,
-  scheduleList: [String],
-  workspaceList: [String]
-});
-
-userSchema.pre(
-  'save',
-  async function(next) {
-    const user = this;
-    const hash = await bcrypt.hash(this.password, 10);
-
-    this.password = hash;
-    next();
-  }
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
 
-userSchema.methods.isValidPassword = async function(password) {
+userSchema.pre("save", async function (next) {
+  const user = this;
+  const hash = await bcrypt.hash(this.password, 10);
+
+  this.password = hash;
+  next();
+});
+
+userSchema.methods.isValidPassword = async function (password) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);
 
   return compare;
-}
+};
 
 userSchema.statics = {
   /**
@@ -65,12 +64,12 @@ userSchema.statics = {
     //     `There is already a User with name '${newUser.id}'.`
     //   );
     // }
-    try {      
+    try {
       const user = await newUser.save();
       return user.toObject();
     } catch (error) {
-      console.log(error)
-      return error
+      console.log(error);
+      return error;
     }
   },
   /**
@@ -91,7 +90,7 @@ userSchema.statics = {
    * @returns {Promise<User, APIError>}
    */
   async readUser(id) {
-    const user = await this.findOne({ _id : id });
+    const user = await this.findOne({ _id: id });
 
     if (!user) {
       throw new APIError(404, "User Not Found", `No User '${id}' found.`);
@@ -116,10 +115,10 @@ userSchema.statics = {
       return [];
     }
     //Since Documents donot contain Doc ID by Default, Adding it manually
-    const usersWithId = users.map((user)=>{
-      const convertedToObject = user.toObject()
-      return {...convertedToObject, id: user._id}
-    })
+    const usersWithId = users.map((user) => {
+      const convertedToObject = user.toObject();
+      return { ...convertedToObject, id: user._id };
+    });
     return usersWithId;
   },
   /**
@@ -130,13 +129,13 @@ userSchema.statics = {
    */
   async updateUser(id, userUpdate) {
     const user = await this.findOneAndUpdate({ _id: id }, userUpdate, {
-      new: true
+      new: true,
     });
     if (!user) {
       throw new APIError(404, "user Not Found", `No user '${id}' found.`);
     }
     return user.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

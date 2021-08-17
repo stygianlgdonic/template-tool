@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 import { ORIGINAL_SVG_updownicon } from "../../../../utils/defaults";
 import { useQuery } from "react-query";
 import PersonalizedImageModal from "../PersonalizedImageModal/PersonalizedImageModal"
 import generatesvgUrl from "../../../../utils/generatesvgUrl";
 import { template_service } from "../../../../services/templateService";
 import TemplatePreview from "./TemplatePreview";
-import SelectSocialMediaTemplateModal from "../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal"
+import SearchBar from "../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
+import SelectSocialMediaTemplateModal from "../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal";
 import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
-// const image1 = require("./../../../../assets/images/01.png");
-// const image2 = require("./../../../../assets/images/02.png");
-// const image3 = require("./../../../../assets/images/03.png");
-// const image4 = require("./../../../../assets/images/04.png");
-// const image5 = require("../../../../assets/images/card5.png")
-// const socialmedia = require("../../../../assets/images/socialmedia.png")
-// const email = require("../../../../assets/images/email.png")
-// const plus = require("../../../../assets/images/plus.png")
+const image1 = require("./../../../../assets/images/01.png");
+const image2 = require("./../../../../assets/images/02.png");
+const image3 = require("./../../../../assets/images/03.png");
+const image4 = require("./../../../../assets/images/04.png");
 interface BioProps {
     bio1: string;
     bio2: string;

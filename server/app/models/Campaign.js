@@ -7,19 +7,22 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const campaignSchema = new Schema({
-  id: String,
-  name: String,
-  error: Object,
-  schedule: Object,
-  masterSubject: String,
-  masterBody: String,
-  sender: String,
-  variables: [String],
-  cardList: [String],
-  userId: String,
-  workspace: String,
-});
+const campaignSchema = new Schema(
+  {
+    id: String,
+    name: String,
+    error: Object,
+    schedule: Object,
+    masterSubject: String,
+    masterBody: String,
+    sender: String,
+    variables: [String],
+    cardList: [String],
+    userId: String,
+    workspace: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 campaignSchema.statics = {
   /**
@@ -47,7 +50,11 @@ campaignSchema.statics = {
   async deleteCampaign(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "Campaign Not Found", `No campaign '${id}' found.`);
+      throw new APIError(
+        404,
+        "Campaign Not Found",
+        `No campaign '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -60,7 +67,11 @@ campaignSchema.statics = {
     const campaign = await this.findOne({ id });
 
     if (!campaign) {
-      throw new APIError(404, "Campaign Not Found", `No campaign '${id}' found.`);
+      throw new APIError(
+        404,
+        "Campaign Not Found",
+        `No campaign '${id}' found.`
+      );
     }
     return campaign.toObject();
   },
@@ -81,7 +92,7 @@ campaignSchema.statics = {
     if (!campaigns.length) {
       return [];
     }
-    return campaigns.map(campaign => campaign.toObject());
+    return campaigns.map((campaign) => campaign.toObject());
   },
   /**
    * Patch/Update a single Campaign
@@ -91,13 +102,17 @@ campaignSchema.statics = {
    */
   async updateCampaign(id, campaignUpdate) {
     const campaign = await this.findOneAndUpdate({ id }, campaignUpdate, {
-      new: true
+      new: true,
     });
     if (!campaign) {
-      throw new APIError(404, "Campaign Not Found", `No campaign '${id}' found.`);
+      throw new APIError(
+        404,
+        "Campaign Not Found",
+        `No campaign '${id}' found.`
+      );
     }
     return campaign.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

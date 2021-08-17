@@ -4,7 +4,12 @@ const { validate } = require("jsonschema");
 // app imports
 const { TemplateCategory } = require("../models");
 const { APIError, parseSkipLimit } = require("../helpers");
-const { templateCategoryNewSchema, templateCategoryUpdateSchema } = require("../schemas");
+const {
+  templateCategoryNewSchema,
+  templateCategoryUpdateSchema,
+} = require("../schemas");
+const { dataSetter } = require("./dataSetter");
+const { ErrorHandler } = require("../helpers/error");
 
 /**
  * Validate the POST request body and create a new TemplateCategory
@@ -12,18 +17,25 @@ const { templateCategoryNewSchema, templateCategoryUpdateSchema } = require("../
 async function createTemplateCategory(request, response, next) {
   const validation = validate(request.body, templateCategoryNewSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
-    const newTemplateCategory = await TemplateCategory.createTemplateCategory(new TemplateCategory(request.body));
-    return response.status(201).json(newTemplateCategory);
+    const newTemplateCategory = await TemplateCategory.createTemplateCategory(
+      new TemplateCategory(request.body)
+    );
+    const result = new dataSetter(
+      newTemplateCategory,
+      "Successfully created new template",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -37,7 +49,13 @@ async function readTemplateCategory(request, response, next) {
   const { name } = request.params;
   try {
     const templateCategory = await TemplateCategory.readTemplateCategory(name);
-    return response.json(templateCategory);
+    const result = new dataSetter(
+      templateCategory,
+      "Successfully read template category",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -52,18 +70,26 @@ async function updateTemplateCategory(request, response, next) {
 
   const validation = validate(request.body, templateCategoryUpdateSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
-    const templateCategory = await TemplateCategory.updateTemplateCategory(name, request.body);
-    return response.json(templateCategory);
+    const templateCategory = await TemplateCategory.updateTemplateCategory(
+      name,
+      request.body
+    );
+    const result = new dataSetter(
+      templateCategory,
+      "Successfully updated template category",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -77,7 +103,13 @@ async function deleteTemplateCategory(request, response, next) {
   const { name } = request.params;
   try {
     const deleteMsg = await TemplateCategory.deleteTemplateCategory(name);
-    return response.json(deleteMsg);
+    const result = new dataSetter(
+      deleteMsg,
+      "Successfully deleted template category",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -86,7 +118,7 @@ async function deleteTemplateCategory(request, response, next) {
 /**
  * List all the templateCategorys. Query params ?skip=0&limit=1000 by default
  */
- async function readTemplateCategorys(request, response, next) {
+async function readTemplateCategorys(request, response, next) {
   /* pagination validation */
   let skip = parseSkipLimit(request.query.skip) || 0;
   let limit = parseSkipLimit(request.query.limit, 1000) || 1000;
@@ -97,8 +129,19 @@ async function deleteTemplateCategory(request, response, next) {
   }
 
   try {
-    const templateCategorys = await TemplateCategory.readTemplateCategorys({}, {}, skip, limit);
-    return response.json(templateCategorys);
+    const templateCategorys = await TemplateCategory.readTemplateCategorys(
+      {},
+      {},
+      skip,
+      limit
+    );
+    const result = new dataSetter(
+      templateCategorys,
+      "Successfully read template categories",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -109,5 +152,5 @@ module.exports = {
   readTemplateCategory,
   updateTemplateCategory,
   deleteTemplateCategory,
-  readTemplateCategorys
+  readTemplateCategorys,
 };

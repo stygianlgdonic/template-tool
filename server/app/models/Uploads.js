@@ -7,12 +7,15 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const uploadsSchema = new Schema({
-  id: String,
-  name: String,
-  storageURL: String,
-  userId: String
-});
+const uploadsSchema = new Schema(
+  {
+    id: String,
+    name: String,
+    storageURL: String,
+    userId: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 uploadsSchema.statics = {
   /**
@@ -74,7 +77,7 @@ uploadsSchema.statics = {
     if (!uploadss.length) {
       return [];
     }
-    return uploadss.map(uploads => uploads.toObject());
+    return uploadss.map((uploads) => uploads.toObject());
   },
   /**
    * Patch/Update a single Uploads
@@ -84,13 +87,13 @@ uploadsSchema.statics = {
    */
   async updateUploads(id, uploadsUpdate) {
     const uploads = await this.findOneAndUpdate({ id }, uploadsUpdate, {
-      new: true
+      new: true,
     });
     if (!uploads) {
       throw new APIError(404, "Uploads Not Found", `No uploads '${id}' found.`);
     }
     return uploads.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

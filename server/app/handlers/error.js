@@ -29,6 +29,7 @@ function fourOhFiveHandler(request, response, next) {
 }
 
 function globalErrorHandler(error, request, response, next) {
+  console.log("****");
   let err = error;
   if (!(error instanceof APIError)) {
     err = new APIError(500, error.type, error.message);
@@ -37,9 +38,23 @@ function globalErrorHandler(error, request, response, next) {
   return response.status(err.status).json(err);
 }
 
+function CustomErrorHandler(error, request, response, next) {
+  // let err = error;
+  // if (!(error instanceof APIError)) {
+  //   err = new APIError(500, error.type, error.message);
+  // }
+  let err = new APIError(error.status, error.title, error.message);
+  console.log("<---->");
+  console.log(error.message);
+
+  // return response.status(err.status).json(err);
+  return response.json(err);
+}
+
 module.exports = {
+  CustomErrorHandler,
   bodyParserHandler,
   fourOhFourHandler,
   fourOhFiveHandler,
-  globalErrorHandler
+  globalErrorHandler,
 };

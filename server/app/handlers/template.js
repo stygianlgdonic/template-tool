@@ -5,6 +5,8 @@ const { validate } = require("jsonschema");
 const { Template, TemplateCategory } = require("../models");
 const { APIError, parseSkipLimit } = require("../helpers");
 const { templateNewSchema, templateUpdateSchema } = require("../schemas");
+const { dataSetter } = require("./dataSetter");
+const { ErrorHandler } = require("../helpers/error");
 
 /**
  * Validate the POST request body and create a new Template
@@ -12,30 +14,42 @@ const { templateNewSchema, templateUpdateSchema } = require("../schemas");
 async function createTemplate(request, response, next) {
   const validation = validate(request.body, templateNewSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
-    const templateId = await Template.createTemplate(new Template(request.body));
-    const {categoryId} = new Template(request.body)
+    const templateId = await Template.createTemplate(
+      new Template(request.body)
+    );
+    const { categoryId } = new Template(request.body);
     if (templateId && categoryId) {
-      const templateCategoryData = await TemplateCategory.readTemplateCategory(categoryId)
-      if (templateCategoryData) {        
-        const { templateList } = templateCategoryData
+      const templateCategoryData = await TemplateCategory.readTemplateCategory(
+        categoryId
+      );
+      if (templateCategoryData) {
+        const { templateList } = templateCategoryData;
         if (templateList) {
-          templateList.push(templateId)
-          await TemplateCategory.updateTemplateCategory(categoryId,templateCategoryData)
+          templateList.push(templateId);
+          await TemplateCategory.updateTemplateCategory(
+            categoryId,
+            templateCategoryData
+          );
         }
       }
     }
-    console.log(categoryId)
-    return response.status(201).json({status: 'Success', message:'Successfully added Template'});
+    console.log(categoryId);
+    const result = new dataSetter(
+      templateList,
+      "Successfully added Template",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -49,7 +63,8 @@ async function readTemplate(request, response, next) {
   const { name } = request.params;
   try {
     const template = await Template.readTemplate(name);
-    return response.json(template);
+    const result = new dataSetter(template, "readTemplate", 201, "Success");
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -64,18 +79,23 @@ async function updateTemplate(request, response, next) {
 
   const validation = validate(request.body, templateUpdateSchema);
   if (!validation.valid) {
-    return next(
-      new APIError(
-        400,
-        "Bad Request",
-        validation.errors.map(e => e.stack).join(". ")
-      )
+    const error = new ErrorHandler(
+      400,
+      validation.errors.map((e) => e.stack).join(". "),
+      "Bad Request"
     );
+    return next(error);
   }
 
   try {
     const template = await Template.updateTemplate(name, request.body);
-    return response.json(template);
+    const result = new dataSetter(
+      template,
+      "Successfully updated Template",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -89,7 +109,13 @@ async function deleteTemplate(request, response, next) {
   const { name } = request.params;
   try {
     const deleteMsg = await Template.deleteTemplate(name);
-    return response.json(deleteMsg);
+    const result = new dataSetter(
+      deleteMsg,
+      "Successfully deleted Template",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
@@ -98,10 +124,11 @@ async function deleteTemplate(request, response, next) {
 /**
  * List all the templates. Query params ?skip=0&limit=1000 by default
  */
- async function readTemplates(request, response, next) {
+async function readTemplates(request, response, next) {
   /* pagination validation */
   let skip = parseSkipLimit(request.query.skip) || 0;
   let limit = parseSkipLimit(request.query.limit, 1000) || 1000;
+
   if (skip instanceof APIError) {
     return next(skip);
   } else if (limit instanceof APIError) {
@@ -109,17 +136,69 @@ async function deleteTemplate(request, response, next) {
   }
 
   try {
-    const templates = await Template.readTemplates({}, {}, skip, limit);
-    return response.json(templates);
+    let templates = [];
+    if (!!request.query["tags"]) {
+      let tags = request.query["tags"].split(",");
+      templates = await Template.readTemplates(
+        { tags: { $all: tags } },
+        {},
+        skip,
+        limit
+      );
+    } else if (!!request.query["name"]) {
+      let name = request.query["name"];
+      templates = await Template.readTemplates({ name: name }, {}, skip, limit);
+    } else {
+      templates = await Template.readTemplates({}, {}, skip, limit);
+    }
+    const result = new dataSetter(
+      templates,
+      "Successfully read Templates",
+      201,
+      "Success"
+    );
+    return response.json(result);
   } catch (err) {
     return next(err);
   }
 }
+// /**
+//  * List all the templates by Tags. Query params ?tags=''&skip=0&limit=1000 by default
+//  */
+// async function readTemplatesByTags(request, response, next) {
+//   /* pagination validation */
+//   let skip = parseSkipLimit(request.query.skip) || 0;
+//   let limit = parseSkipLimit(request.query.limit, 1000) || 1000;
+//   let tags = request.query["tags"].split(",");
+//   if (skip instanceof APIError) {
+//     return next(skip);
+//   } else if (limit instanceof APIError) {
+//     return next(limit);
+//   }
+
+//   try {
+//     const templates = await Template.readTemplatesByTags(
+//       { tags: { $all: tags } },
+//       {},
+//       skip,
+//       limit
+//     );
+//     const result = new dataSetter(
+//       templates,
+//       "Successfully read Templates",
+//       201,
+//       "Success"
+//     );
+//     return response.json(result);
+//   } catch (err) {
+//     return next(err);
+//   }
+// }
 
 module.exports = {
   createTemplate,
   readTemplate,
   updateTemplate,
   deleteTemplate,
-  readTemplates
+  readTemplates,
 };

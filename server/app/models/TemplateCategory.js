@@ -7,10 +7,13 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const templateCategorySchema = new Schema({
-  name: String,
-  templateList: [String],
-});
+const templateCategorySchema = new Schema(
+  {
+    name: String,
+    templateList: [String],
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 templateCategorySchema.statics = {
   /**
@@ -28,11 +31,11 @@ templateCategorySchema.statics = {
     //   );
     // }
     try {
-      console.log(newTemplateCategory)
+      console.log(newTemplateCategory);
       const templateCategory = await newTemplateCategory.save();
-      return templateCategory.toObject();      
+      return templateCategory.toObject();
     } catch (error) {
-      return error
+      return error;
     }
   },
   /**
@@ -43,7 +46,11 @@ templateCategorySchema.statics = {
   async deleteTemplateCategory(id) {
     const deleted = await this.findOneAndRemove({ _id: id });
     if (!deleted) {
-      throw new APIError(404, "TemplateCategory Not Found", `No templateCategory '${id}' found.`);
+      throw new APIError(
+        404,
+        "TemplateCategory Not Found",
+        `No templateCategory '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -53,10 +60,14 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async readTemplateCategory(id) {
-    const templateCategory = await this.findOne({ _id : id });
+    const templateCategory = await this.findOne({ _id: id });
 
     if (!templateCategory) {
-      throw new APIError(404, "TemplateCategory Not Found", `No templateCategory '${id}' found.`);
+      throw new APIError(
+        404,
+        "TemplateCategory Not Found",
+        `No templateCategory '${id}' found.`
+      );
     }
     return templateCategory.toObject();
   },
@@ -78,10 +89,10 @@ templateCategorySchema.statics = {
       return [];
     }
     //Since Documents donot contain Doc ID by Default, Adding it manually
-    const templatesWithId = templateCategorys.map((item)=>{
-      const convertedToObject = item.toObject()
-      return {...convertedToObject, id: item._id}
-    })
+    const templatesWithId = templateCategorys.map((item) => {
+      const convertedToObject = item.toObject();
+      return { ...convertedToObject, id: item._id };
+    });
     return templatesWithId;
   },
   /**
@@ -91,18 +102,27 @@ templateCategorySchema.statics = {
    * @returns {Promise<TemplateCategory, APIError>}
    */
   async updateTemplateCategory(id, templateCategoryUpdate) {
-    const templateCategory = await this.findOneAndUpdate({ _id: id }, templateCategoryUpdate, {
-      new: true
-    });
+    const templateCategory = await this.findOneAndUpdate(
+      { _id: id },
+      templateCategoryUpdate,
+      {
+        new: true,
+      }
+    );
     if (!templateCategory) {
-      throw new APIError(404, "TemplateCategory Not Found", `No templateCategory '${id}' found.`);
+      throw new APIError(
+        404,
+        "TemplateCategory Not Found",
+        `No templateCategory '${id}' found.`
+      );
     }
     return templateCategory.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */
-if (!templateCategorySchema.options.toObject) templateCategorySchema.options.toObject = {};
+if (!templateCategorySchema.options.toObject)
+  templateCategorySchema.options.toObject = {};
 templateCategorySchema.options.toObject.transform = (doc, ret) => {
   const transformed = ret;
   delete transformed._id;

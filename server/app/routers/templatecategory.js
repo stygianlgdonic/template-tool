@@ -2,17 +2,23 @@
 const express = require("express");
 
 // app imports
-const { templateCategoryHandler, templateCategorysHandler } = require("../handlers");
+const {
+  templateCategoryHandler,
+  templateCategorysHandler,
+} = require("../handlers");
 
 // globals
 const router = new express.Router();
-const { createTemplateCategory, readTemplateCategory, updateTemplateCategory, deleteTemplateCategory, readTemplateCategorys } = templateCategoryHandler;
+const {
+  createTemplateCategory,
+  readTemplateCategory,
+  updateTemplateCategory,
+  deleteTemplateCategory,
+  readTemplateCategorys,
+} = templateCategoryHandler;
 
 /* All the TemplateCategorys Route */
-router
-  .route("")
-  .get(readTemplateCategorys)
-  .post(createTemplateCategory);
+router.route("").get(readTemplateCategorys).post(createTemplateCategory);
 
 /* Single TemplateCategory by Name Route */
 router

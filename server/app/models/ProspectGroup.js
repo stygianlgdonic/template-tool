@@ -7,12 +7,15 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const prospectGroupSchema = new Schema({
-  id: String,
-  fileName: String,
-  ownerId: String,
-  workspaceId: String
-});
+const prospectGroupSchema = new Schema(
+  {
+    id: String,
+    fileName: String,
+    ownerId: String,
+    workspaceId: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 prospectGroupSchema.statics = {
   /**
@@ -40,7 +43,11 @@ prospectGroupSchema.statics = {
   async deleteProspectGroup(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "ProspectGroup Not Found", `No prospectGroup '${id}' found.`);
+      throw new APIError(
+        404,
+        "ProspectGroup Not Found",
+        `No prospectGroup '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -53,7 +60,11 @@ prospectGroupSchema.statics = {
     const prospectGroup = await this.findOne({ id });
 
     if (!prospectGroup) {
-      throw new APIError(404, "ProspectGroup Not Found", `No prospectGroup '${id}' found.`);
+      throw new APIError(
+        404,
+        "ProspectGroup Not Found",
+        `No prospectGroup '${id}' found.`
+      );
     }
     return prospectGroup.toObject();
   },
@@ -74,7 +85,7 @@ prospectGroupSchema.statics = {
     if (!prospectGroups.length) {
       return [];
     }
-    return prospectGroups.map(prospectGroup => prospectGroup.toObject());
+    return prospectGroups.map((prospectGroup) => prospectGroup.toObject());
   },
   /**
    * Patch/Update a single ProspectGroup
@@ -83,18 +94,27 @@ prospectGroupSchema.statics = {
    * @returns {Promise<ProspectGroup, APIError>}
    */
   async updateProspectGroup(id, prospectGroupUpdate) {
-    const prospectGroup = await this.findOneAndUpdate({ id }, prospectGroupUpdate, {
-      new: true
-    });
+    const prospectGroup = await this.findOneAndUpdate(
+      { id },
+      prospectGroupUpdate,
+      {
+        new: true,
+      }
+    );
     if (!prospectGroup) {
-      throw new APIError(404, "ProspectGroup Not Found", `No prospectGroup '${id}' found.`);
+      throw new APIError(
+        404,
+        "ProspectGroup Not Found",
+        `No prospectGroup '${id}' found.`
+      );
     }
     return prospectGroup.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */
-if (!prospectGroupSchema.options.toObject) prospectGroupSchema.options.toObject = {};
+if (!prospectGroupSchema.options.toObject)
+  prospectGroupSchema.options.toObject = {};
 prospectGroupSchema.options.toObject.transform = (doc, ret) => {
   const transformed = ret;
   delete transformed._id;

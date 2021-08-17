@@ -7,14 +7,17 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const emailAccountSchema = new Schema({
-  id: String,
-  email: String,
-  smtp: Object,
-  imap: Object,
-  credentials: Object,
-  type: Object
-});
+const emailAccountSchema = new Schema(
+  {
+    id: String,
+    email: String,
+    smtp: Object,
+    imap: Object,
+    credentials: Object,
+    type: Object,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 emailAccountSchema.statics = {
   /**
@@ -42,7 +45,11 @@ emailAccountSchema.statics = {
   async deleteEmailAccount(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "EmailAccount Not Found", `No emailAccount '${id}' found.`);
+      throw new APIError(
+        404,
+        "EmailAccount Not Found",
+        `No emailAccount '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -55,7 +62,11 @@ emailAccountSchema.statics = {
     const emailAccount = await this.findOne({ id });
 
     if (!emailAccount) {
-      throw new APIError(404, "EmailAccount Not Found", `No emailAccount '${id}' found.`);
+      throw new APIError(
+        404,
+        "EmailAccount Not Found",
+        `No emailAccount '${id}' found.`
+      );
     }
     return emailAccount.toObject();
   },
@@ -76,7 +87,7 @@ emailAccountSchema.statics = {
     if (!emailAccounts.length) {
       return [];
     }
-    return emailAccounts.map(emailAccount => emailAccount.toObject());
+    return emailAccounts.map((emailAccount) => emailAccount.toObject());
   },
   /**
    * Patch/Update a single EmailAccount
@@ -85,18 +96,27 @@ emailAccountSchema.statics = {
    * @returns {Promise<EmailAccount, APIError>}
    */
   async updateEmailAccount(id, emailAccountUpdate) {
-    const emailAccount = await this.findOneAndUpdate({ id }, emailAccountUpdate, {
-      new: true
-    });
+    const emailAccount = await this.findOneAndUpdate(
+      { id },
+      emailAccountUpdate,
+      {
+        new: true,
+      }
+    );
     if (!emailAccount) {
-      throw new APIError(404, "EmailAccount Not Found", `No emailAccount '${id}' found.`);
+      throw new APIError(
+        404,
+        "EmailAccount Not Found",
+        `No emailAccount '${id}' found.`
+      );
     }
     return emailAccount.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */
-if (!emailAccountSchema.options.toObject) emailAccountSchema.options.toObject = {};
+if (!emailAccountSchema.options.toObject)
+  emailAccountSchema.options.toObject = {};
 emailAccountSchema.options.toObject.transform = (doc, ret) => {
   const transformed = ret;
   delete transformed._id;
