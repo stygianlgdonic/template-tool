@@ -10,9 +10,8 @@ const LeftSidebar: React.FC = () => {
     } = useContext(DesignToolContext)
 
     return (
-        <div className="h-full  flex flex-col  w-full ">
-            <div className="fixed ">
-
+        <div className="h-full  flex flex-col w-full ">
+            <div>
                 <div className="flex justify-start ml-6 items-start mx-auto mt-6 align-middle mb-8 w-full ">
 
                     <div className="flex justify-items-center items-center">
@@ -98,6 +97,25 @@ const LeftSidebar: React.FC = () => {
 
                 </div>
             </div>
+
+            <div>
+                <div className="fixed bottom-0 text-left items-start px-2 leading-10 text-lightGray mx-1" style={{ width: '33.5vh' }}>
+
+                    <NavLink className="w-full  h-10" to="/signin">
+                        <button className="w-full">
+
+                            <div className="flex hover:bg-lightindigo hover:rounded-md border-0  w-full rounded-md pl-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                                <button className="text-lightGray font-medium">Logout</button>
+                            </div>
+                        </button>
+                    </NavLink>
+
+                </div>
+            </div>
+
         </div>
 
     )
