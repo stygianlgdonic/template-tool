@@ -4,6 +4,8 @@ const { validate } = require("jsonschema");
 // app imports
 const { Card } = require("../models");
 const { APIError, parseSkipLimit } = require("../helpers");
+const Template = require("../models/Template");
+
 const { cardNewSchema, cardUpdateSchema } = require("../schemas");
 const { dataSetter } = require("./dataSetter");
 const { ErrorHandler } = require("../helpers/error");
@@ -29,6 +31,15 @@ async function createCard(request, response, next) {
 
   try {
     const newCard = await Card.createCard(new Card(request.body));
+    console.log(newCard);
+    if (!!newCard.templateId) {
+      const updatedUsaegeCount = await Template.findOneAndUpdate(
+        { _id: newCard.templateId },
+        { $inc: { usageCount: 1 } },
+        { upsert: true, multi: true }
+      );
+      console.log(updatedUsaegeCount);
+    }
     const result = new dataSetter(
       newCard,
       "Successfully created new card",
@@ -82,7 +93,7 @@ async function updateCard(request, response, next) {
     const card = await Card.updateCard(name, request.body);
     const result = new dataSetter(
       card,
-      "Successfully updates card",
+      "Successfully updated card",
       201,
       "Success"
     );

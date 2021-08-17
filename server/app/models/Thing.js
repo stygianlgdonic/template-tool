@@ -7,12 +7,15 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const thingSchema = new Schema({
-  name: String,
-  number: Number,
-  stuff: [String],
-  url: String
-});
+const thingSchema = new Schema(
+  {
+    name: String,
+    number: Number,
+    stuff: [String],
+    url: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 thingSchema.statics = {
   /**
@@ -74,7 +77,7 @@ thingSchema.statics = {
     if (!things.length) {
       return [];
     }
-    return things.map(thing => thing.toObject());
+    return things.map((thing) => thing.toObject());
   },
   /**
    * Patch/Update a single Thing
@@ -84,13 +87,13 @@ thingSchema.statics = {
    */
   async updateThing(name, thingUpdate) {
     const thing = await this.findOneAndUpdate({ name }, thingUpdate, {
-      new: true
+      new: true,
     });
     if (!thing) {
       throw new APIError(404, "Thing Not Found", `No thing '${name}' found.`);
     }
     return thing.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

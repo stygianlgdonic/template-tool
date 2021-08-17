@@ -16,10 +16,7 @@
       "type": "object"
     },
     "templateId": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "type": "string"
     },
     "workspaceId": {
       "type": "array",

@@ -7,13 +7,16 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const scheduleSchema = new Schema({
-  id: String,
-  days: [String],
-  startTime: String,
-  endTime: String,
-  timeZone: String
-});
+const scheduleSchema = new Schema(
+  {
+    id: String,
+    days: [String],
+    startTime: String,
+    endTime: String,
+    timeZone: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 scheduleSchema.statics = {
   /**
@@ -41,7 +44,11 @@ scheduleSchema.statics = {
   async deleteSchedule(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "Schedule Not Found", `No schedule '${id}' found.`);
+      throw new APIError(
+        404,
+        "Schedule Not Found",
+        `No schedule '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -54,7 +61,11 @@ scheduleSchema.statics = {
     const schedule = await this.findOne({ id });
 
     if (!schedule) {
-      throw new APIError(404, "Schedule Not Found", `No schedule '${id}' found.`);
+      throw new APIError(
+        404,
+        "Schedule Not Found",
+        `No schedule '${id}' found.`
+      );
     }
     return schedule.toObject();
   },
@@ -75,7 +86,7 @@ scheduleSchema.statics = {
     if (!schedules.length) {
       return [];
     }
-    return schedules.map(schedule => schedule.toObject());
+    return schedules.map((schedule) => schedule.toObject());
   },
   /**
    * Patch/Update a single Schedule
@@ -85,13 +96,17 @@ scheduleSchema.statics = {
    */
   async updateSchedule(id, scheduleUpdate) {
     const schedule = await this.findOneAndUpdate({ id }, scheduleUpdate, {
-      new: true
+      new: true,
     });
     if (!schedule) {
-      throw new APIError(404, "Schedule Not Found", `No schedule '${id}' found.`);
+      throw new APIError(
+        404,
+        "Schedule Not Found",
+        `No schedule '${id}' found.`
+      );
     }
     return schedule.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */

@@ -7,15 +7,18 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const templateSchema = new Schema({
-  categoryId: String,
-  dimensions: Object,
-  variations: [Object],
-  palette: [Object],
-  tags: [String],
-  dateCreated: String,
-  usageCount: Number,
-});
+const templateSchema = new Schema(
+  {
+    categoryId: String,
+    dimensions: Object,
+    variations: [Object],
+    palette: [Object],
+    tags: [String],
+    dateCreated: String,
+    usageCount: Number,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 templateSchema.statics = {
   /**

@@ -7,13 +7,16 @@ const { APIError } = require("../helpers");
 // globals
 const Schema = mongoose.Schema;
 
-const prospectSchema = new Schema({
-  id: String,
-  prospectGroup: Object,
-  firstName: String,
-  lastName: String,
-  emailAddress: String,
-});
+const prospectSchema = new Schema(
+  {
+    id: String,
+    prospectGroup: Object,
+    firstName: String,
+    lastName: String,
+    emailAddress: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
 prospectSchema.statics = {
   /**
@@ -41,7 +44,11 @@ prospectSchema.statics = {
   async deleteProspect(id) {
     const deleted = await this.findOneAndRemove({ id });
     if (!deleted) {
-      throw new APIError(404, "Prospect Not Found", `No prospect '${id}' found.`);
+      throw new APIError(
+        404,
+        "Prospect Not Found",
+        `No prospect '${id}' found.`
+      );
     }
     return deleted.toObject();
   },
@@ -54,7 +61,11 @@ prospectSchema.statics = {
     const prospect = await this.findOne({ id });
 
     if (!prospect) {
-      throw new APIError(404, "Prospect Not Found", `No prospect '${id}' found.`);
+      throw new APIError(
+        404,
+        "Prospect Not Found",
+        `No prospect '${id}' found.`
+      );
     }
     return prospect.toObject();
   },
@@ -75,7 +86,7 @@ prospectSchema.statics = {
     if (!prospects.length) {
       return [];
     }
-    return prospects.map(prospect => prospect.toObject());
+    return prospects.map((prospect) => prospect.toObject());
   },
   /**
    * Patch/Update a single Prospect
@@ -85,13 +96,17 @@ prospectSchema.statics = {
    */
   async updateProspect(id, prospectUpdate) {
     const prospect = await this.findOneAndUpdate({ id }, prospectUpdate, {
-      new: true
+      new: true,
     });
     if (!prospect) {
-      throw new APIError(404, "Prospect Not Found", `No prospect '${id}' found.`);
+      throw new APIError(
+        404,
+        "Prospect Not Found",
+        `No prospect '${id}' found.`
+      );
     }
     return prospect.toObject();
-  }
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */
