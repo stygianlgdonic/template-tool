@@ -4,7 +4,7 @@ const { validate } = require("jsonschema");
 // app imports
 const { Card } = require("../models");
 const { APIError, parseSkipLimit } = require("../helpers");
-const Template = require("../models/Template");
+const { Template } = require("../models");
 
 const { cardNewSchema, cardUpdateSchema } = require("../schemas");
 const { dataSetter } = require("./dataSetter");
@@ -33,10 +33,9 @@ async function createCard(request, response, next) {
     const newCard = await Card.createCard(new Card(request.body));
     console.log(newCard);
     if (!!newCard.templateId) {
-      const updatedUsaegeCount = await Template.findOneAndUpdate(
-        { _id: newCard.templateId },
-        { $inc: { usageCount: 1 } },
-        { upsert: true, multi: true }
+      const updatedUsaegeCount = await Template.updateTemplateCount(
+        newCard.templateId,
+        { $inc: { usageCount: 1 } }
       );
       console.log(updatedUsaegeCount);
     }

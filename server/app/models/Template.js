@@ -119,6 +119,26 @@ templateSchema.statics = {
     }
     return template.toObject();
   },
+  /**
+   * Patch/Update a single Template count for search purposes
+   * @param {String} id - the Template's id
+   * @param {Object} templateUpdate - the json containing the Template attributes
+   * @returns {Promise<Template, APIError>}
+   */
+  async updateTemplateCount(id, templateUpdate) {
+    const template = await this.findOneAndUpdate({ _id: id }, templateUpdate, {
+      upsert: true,
+      multi: true,
+    });
+    if (!template) {
+      throw new APIError(
+        404,
+        "Template Not Found",
+        `No template '${id}' found.`
+      );
+    }
+    return template.toObject();
+  },
 };
 
 /* Transform with .toObject to remove __v and _id from response */
