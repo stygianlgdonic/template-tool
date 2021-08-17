@@ -148,6 +148,22 @@ async function readTemplates(request, response, next) {
     } else if (!!request.query["name"]) {
       let name = request.query["name"];
       templates = await Template.readTemplates({ name: name }, {}, skip, limit);
+    } else if (!!request.query["category"]) {
+      let category = request.query["category"];
+      templates = await Template.readTemplates(
+        { category: category },
+        {},
+        skip,
+        limit
+      );
+    } else if (!!request.query["random"] && request.query["random"] == "true") {
+      // let name = request.query["category"];
+      templates = await Template.readTemplatesRandomly(
+        [{ $sample: { size: 20 } }],
+        {},
+        skip,
+        limit
+      );
     } else {
       templates = await Template.readTemplates({}, {}, skip, limit);
     }

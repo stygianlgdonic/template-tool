@@ -99,6 +99,30 @@ templateSchema.statics = {
     });
     return templatesWithId;
   },
+  /**
+   * Get a list of Templates
+   * @param {Object} query - pre-formatted query to retrieve templates.
+   * @param {Object} fields - a list of fields to select or not in object form
+   * @param {String} skip - number of docs to skip (for pagination)
+   * @param {String} limit - number of docs to limit by (for pagination)
+   * @returns {Promise<Templates, APIError>}
+   */
+  async readTemplatesRandomly(query, fields, skip, limit) {
+    const templates = await this.aggregate(query)
+      .skip(skip)
+      .limit(limit)
+      .sort({ id: 1 })
+      .exec();
+    if (!templates.length) {
+      return [];
+    }
+    //Since Documents donot contain Doc ID by Default, Adding it manually
+    // const templatesWithId = templates.map((item) => {
+    //   const convertedToObject = item.toObject();
+    //   return { ...convertedToObject, id: item._id };
+    // });
+    return templates;
+  },
 
   /**
    * Patch/Update a single Template

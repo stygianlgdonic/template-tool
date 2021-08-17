@@ -30,7 +30,9 @@ export default function Example() {
 
       } else {
 
-        swal(res.title, res.message).then(
+        swal(res.title, res.message, {
+          closeOnClickOutside: false,
+        }).then(
           () =>
             navigate("/signin")
         )

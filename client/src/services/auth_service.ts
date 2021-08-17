@@ -2,6 +2,7 @@ export const userAuthenticationService =
 {
     signupUser,
     loginUser,
+    logoutUser,
 
 }
 
@@ -72,4 +73,8 @@ async function loginUser(email: string, password: string) {
     }
 
 
+}
+
+async function logoutUser() {
+    window.localStorage.removeItem("Token")
 }

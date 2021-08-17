@@ -4,11 +4,11 @@
       "/static/css/1.ce4a93e9.chunk.css"
     ],
     "js": [
-      "/static/js/1.0ea7ba77.chunk.js"
+      "/static/js/1.b97a8796.chunk.js"
     ],
     "map": [
       "/static/css/1.ce4a93e9.chunk.css.map",
-      "/static/js/1.0ea7ba77.chunk.js.map"
+      "/static/js/1.b97a8796.chunk.js.map"
     ],
     "chunks": [
       1
@@ -19,11 +19,11 @@
       "/static/css/2.6a115e7a.chunk.css"
     ],
     "js": [
-      "/static/js/2.af79a064.chunk.js"
+      "/static/js/2.303d1bda.chunk.js"
     ],
     "map": [
       "/static/css/2.6a115e7a.chunk.css.map",
-      "/static/js/2.af79a064.chunk.js.map"
+      "/static/js/2.303d1bda.chunk.js.map"
     ],
     "chunks": [
       2
@@ -34,11 +34,11 @@
       "/static/css/client.ab98db55.css"
     ],
     "js": [
-      "/static/js/client.01ca139a.js"
+      "/static/js/client.54a4bb33.js"
     ],
     "map": [
       "/static/css/client.ab98db55.css.map",
-      "/static/js/client.01ca139a.js.map"
+      "/static/js/client.54a4bb33.js.map"
     ],
     "chunks": [
       0
@@ -50,9 +50,9 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/1.0ea7ba77.chunk.js.LICENSE.txt",
-      "/static/js/2.af79a064.chunk.js.LICENSE.txt",
-      "/static/js/client.01ca139a.js.LICENSE.txt"
+      "/static/js/1.b97a8796.chunk.js.LICENSE.txt",
+      "/static/js/2.303d1bda.chunk.js.LICENSE.txt",
+      "/static/js/client.54a4bb33.js.LICENSE.txt"
     ],
     "png": [
       "/static/media/01.2e91d53b.png",

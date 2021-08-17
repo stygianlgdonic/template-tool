@@ -22,7 +22,9 @@ export default function Example() {
 
       console.log(res)
       if (!res.error) {
-        swal("Success", "You have logged in Successfully").then
+        swal("Success", "You have logged in Successfully", {
+          closeOnClickOutside: false,
+        }).then
           (() =>
             navigate("/")
           )
