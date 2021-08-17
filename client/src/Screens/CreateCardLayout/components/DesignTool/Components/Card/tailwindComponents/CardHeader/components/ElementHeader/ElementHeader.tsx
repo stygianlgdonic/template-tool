@@ -23,10 +23,12 @@ const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
     const { selectShapeColorSubNav } = SubNavbarActions()
     const selectedelement = getSelectedElementData()
 
+
+
     return (
         <div className="flex  justify-between " style={{ width: '110.5vh', }}>
             <div className="flex pl-12">
-                <button className="w-10 h-10 rounded-md hover:ring-2 ring-indigo600 border border-gray-500" style={{ backgroundColor: selectedelement?.fill }} onClick={selectShapeColorSubNav}></button>
+                <button className={selectedelement?.patternImageUrl ? "hidden" : "w-10 h-10 rounded-md hover:ring-2 ring-indigo600 border border-gray-500"} style={{ backgroundColor: selectedelement?.fill }} onClick={selectShapeColorSubNav}></button>
                 <div className="ml-10 ">
                     <div
                         className="relative mt-1"
