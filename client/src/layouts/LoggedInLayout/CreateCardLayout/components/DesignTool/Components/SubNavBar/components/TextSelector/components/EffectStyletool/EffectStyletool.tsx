@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { DesignToolContext } from '../../../../../../../../../../../contexts/DesignTool/DesignToolContext';
 import CardElementsFunctions from '../../../../../../../../../../../Hooks/CardElementsFunctions';
 import { defaultTextGlitch, defaultTextHollow, defaultTextLift, defaultTextNeon, defaultTextNoEffect, defaultTextShadow, defaultTextSplice } from '../../../../../../../../../../../utils/defaults';
-const image1 = require('./../../../../../../../../../../assets/images/hollow.png');
-const image2 = require('./../../../../../../../../../../assets/images/splice.png');
-const image4 = require('./../../../../../../../../../../assets/images/neon.png');
-const image5 = require('./../../../../../../../../../../assets/images/glitch.png');
-const image6 = require('./../../../../../../../../../../assets/images/lift.png');
-const image7 = require('./../../../../../../../../../../assets/images/shadow.png');
+const image1 = require('./../../../../../../../../../../../assets/images/hollow.png');
+const image2 = require('./../../../../../../../../../../../assets/images/splice.png');
+const image4 = require('./../../../../../../../../../../../assets/images/neon.png');
+const image5 = require('./../../../../../../../../../../../assets/images/glitch.png');
+const image6 = require('./../../../../../../../../../../../assets/images/lift.png');
+const image7 = require('./../../../../../../../../../../../assets/images/shadow.png');
 const FontStyletool: React.FC = (): JSX.Element => {
     const {
         selectedId, cardData,

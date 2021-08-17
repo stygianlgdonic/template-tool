@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Range } from "react-range";
-import { DesignToolContext } from "../../../../../../../../../../contexts/DesignTool/DesignToolContext";
-import SubNavbarActions from "../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
-import CardElementsFunctions from "../../../../../../../../../../Hooks/CardElementsFunctions";
-const image = require("./../../../../../../../../../../assets/images/opacity.png");
+import SubNavbarActions from "../../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
+import CardElementsFunctions from "../../../../../../../../../../../Hooks/CardElementsFunctions";
+const image = require("./../../../../../../../../../../../assets/images/opacity.png");
 
 interface Props {
     handleDeleteClick: any

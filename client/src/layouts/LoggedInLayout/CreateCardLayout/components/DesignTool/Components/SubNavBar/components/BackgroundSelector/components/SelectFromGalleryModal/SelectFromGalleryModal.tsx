@@ -1,11 +1,11 @@
 import { PlusCircleIcon } from "@heroicons/react/solid";
 import React, { useEffect, useRef, useState } from "react";
-const image1 = require("./../../../../../../../../../../assets/images/image.png");
-const image2 = require("./../../../../../../../../../../assets/images/image1.png");
-const image3 = require("./../../../../../../../../../../assets/images/image3.png");
-const image4 = require("./../../../../../../../../../../assets/images/image4.png");
-const image5 = require("./../../../../../../../../../../assets/images/image5.png");
-const plusimage = require("../../../../../../../../../../assets/images/plus.png");
+const image1 = require("./../../../../../../../../../../../assets/images/image.png");
+const image2 = require("./../../../../../../../../../../../assets/images/image1.png");
+const image3 = require("./../../../../../../../../../../../assets/images/image3.png");
+const image4 = require("./../../../../../../../../../../../assets/images/image4.png");
+const image5 = require("./../../../../../../../../../../../assets/images/image5.png");
+const plusimage = require("../../../../../../../../../../../assets/images/plus.png");
 
 interface Prop {
   closeModal: () => void;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
+import SearchBar from "../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
-import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 const image1 = require("./../../../../assets/images/01.png");
 const image2 = require("../../../../assets/images/02.png");
 const image3 = require("../../../../assets/images/03.png");

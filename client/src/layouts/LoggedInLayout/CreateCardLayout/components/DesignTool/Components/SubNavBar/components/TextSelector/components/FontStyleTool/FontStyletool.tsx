@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import WebFont from "webfontloader";
-import CardElementsFunctions from '../../../../../../../../../../Hooks/CardElementsFunctions';
+import CardElementsFunctions from '../../../../../../../../../../../Hooks/CardElementsFunctions';
 const FontStyletool: React.FC = (): JSX.Element => {
     useEffect(() => {
         WebFont.load({

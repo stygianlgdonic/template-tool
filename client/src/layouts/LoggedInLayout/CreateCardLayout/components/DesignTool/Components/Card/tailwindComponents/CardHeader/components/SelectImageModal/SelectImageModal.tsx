@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
 import SearchBar from "../../../../../SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
-const svg1 = require("./../../../../../../../../../../assets/images/svg.png");
-const image2 = require("./../../../../../../../../../../assets/images/image1.png");
-const image3 = require("./../../../../../../../../../../assets/images/image3.png");
-const image4 = require("./../../../../../../../../../../assets/images/image4.png");
-const image5 = require("./../../../../../../../../../../assets/images/image5.png");
-const plusimage = require("../../../../../../../../../../assets/images/plus.png");
+const svg1 = require("./../../../../../../../../../../../assets/images/svg.png");
+const image2 = require("./../../../../../../../../../../../assets/images/image1.png");
+const image3 = require("./../../../../../../../../../../../assets/images/image3.png");
+const image4 = require("./../../../../../../../../../../../assets/images/image4.png");
+const image5 = require("./../../../../../../../../../../../assets/images/image5.png");
+const plusimage = require("./../../../../../../../../../../../assets/images/plus.png");
 // import NewImageModal from "../NewImageModal/NewImageModal";
 interface Prop {
     closeImageModal: () => void

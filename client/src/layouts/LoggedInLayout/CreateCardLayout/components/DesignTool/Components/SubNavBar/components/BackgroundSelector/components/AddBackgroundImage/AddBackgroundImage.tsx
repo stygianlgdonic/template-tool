@@ -1,4 +1,5 @@
 import React from "react";
+import SelectFromGallleryModal from "../SelectFromGalleryModal/SelectFromGalleryModal";
 // const image1 = require("./../../../../../../../../../../../assets/images/image.png");
 // const image2 = require("./../../../../../../../../../../../assets/images/image1.png");
 // const image3 = require("./../../../../../../../../../../../assets/images/image3.png");
@@ -58,7 +59,7 @@ const AddBackgroundImage: React.FC = (): JSX.Element => {
       </button>
 
       <div style={{ display: showModal ? "" : "none" }}>
-        <SelectFromGalleryModal
+        <SelectFromGallleryModal
           closeModal={() => {
             setShowModal(false);
           }}

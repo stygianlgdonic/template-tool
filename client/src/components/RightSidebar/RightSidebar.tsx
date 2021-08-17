@@ -6,7 +6,7 @@ import { ORIGINAL_SVG_mailicon } from './../../utils/defaults'
 import { ORIGINAL_SVG_imageicon } from './../../utils/defaults'
 import ImagePreview from './components/ImagePreview/ImagePreview';
 const image1 = require('./../../assets/images/ALP-Summer.png');
-import './../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css'
+import './../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css'
 import StatGraph from './components/StatGraph/StatGraph';
 import SocialStats from './components/SocialStats/SocialStats';
 import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';

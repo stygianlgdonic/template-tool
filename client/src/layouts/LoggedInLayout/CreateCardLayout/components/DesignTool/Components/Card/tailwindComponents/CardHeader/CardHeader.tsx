@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import ElementHeader from "./components/ElementHeader/ElementHeader";
 import TextHeader from "./components/TextHeader/TextHeader";
-import Imageheader from "./components/ImageHeader/imageheader";
-import { TemplateContext } from "../../../../../../../../../contexts/TemplateContext";
 import { DesignToolContext } from "../../../../../../../../../contexts/DesignTool/DesignToolContext";
 import CardElementsFunctions from "../../../../../../../../../Hooks/CardElementsFunctions";
 

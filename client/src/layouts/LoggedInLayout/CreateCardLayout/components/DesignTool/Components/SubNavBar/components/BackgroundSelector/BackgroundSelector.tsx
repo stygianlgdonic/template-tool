@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardElementsFunctions from '../../../../../../../../Hooks/CardElementsFunctions';
+import CardElementsFunctions from '../../../../../../../../../Hooks/CardElementsFunctions';
 import CustomColorPicker from '../../../CustomColorPicker';
 import AddBackgroundImage from './components/AddBackgroundImage/AddBackgroundImage';
 import BackgroundColor from './components/BackgroundColor/BackgroundColor';

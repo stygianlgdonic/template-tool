@@ -2,7 +2,7 @@ import { useImmerState } from '@shrugsy/use-immer-state';
 import React, { useEffect, useState } from 'react';
 import CardElementsFunctions from '../../../../../../../../../../../Hooks/CardElementsFunctions';
 import CustomColorPicker from '../../../../../CustomColorPicker';
-const image = require('./../../../../../../../../../../assets/images/custom.png');
+const image = require('./../../../../../../../../../../../assets/images/custom.png');
 import "./../../../ElementSelector/components/Stickers/styles.css";
 const FontStyletool: React.FC = (): JSX.Element => {
 

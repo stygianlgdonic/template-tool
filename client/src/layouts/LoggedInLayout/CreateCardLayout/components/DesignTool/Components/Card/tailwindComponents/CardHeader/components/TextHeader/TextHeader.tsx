@@ -4,7 +4,6 @@ import { Range } from "react-range";
 import SubNavbarActions from "../../../../../../../../../../../contexts/DesignTool/SubnavbarActions";
 import CardElementsFunctions from "../../../../../../../../../../../Hooks/CardElementsFunctions";
 import { fontSizeArray } from "../../../../../../../../../../../utils/defaults";
-const image = require("./../../../../../../../../../../assets/images/opacity.png");
 
 type textFontSizeType = "Header" | "Sub header" | "body text"
 
