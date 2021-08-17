@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
+import { DesignToolContext } from '../../../../../../../contexts/DesignTool/DesignToolContext';
 import { HeaderContext } from '../../../../../../../contexts/HeaderContext';
 import Drawer from '../Preview/components/Drawer/Drawer';
-import Preview from '../Preview/Preview';
 import MainCanvas from "./MainCanvas"
 import CardHeader from './tailwindComponents/CardHeader/CardHeader';
 
 const Card: React.FC = (): JSX.Element => {
     const [open, setOpen] = useContext(HeaderContext)
-
 
     return (
         <div className="h-full  bg-canvasbgcolor  ">

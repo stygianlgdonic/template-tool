@@ -5,7 +5,8 @@ const TopToolBar = ({
     onRedo,
     setTemplateData,
     variationIndex,
-    selectedId
+    selectedId,
+    setSelectedId
 }) => {
 
     const onBringtoFront = () => {
@@ -48,6 +49,12 @@ const TopToolBar = ({
 
     return (
         <div className="flex justify-center">
+            <div className="flex justify-center">
+                <button
+                    onClick={() => setSelectedId("shapes_background")}
+                    className="inline-flex items-center h-8 px-4 m-2 text-sm text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                >Edit Background</button>
+            </div>
             <div className="flex justify-center">
                 <button
                     onClick={onBringtoFront}

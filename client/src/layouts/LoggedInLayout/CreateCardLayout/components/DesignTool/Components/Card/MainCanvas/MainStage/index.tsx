@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Stage, Layer, Rect } from 'react-konva';
 import Rectangle from "../Rectangle"
 import UCircle from "../UCircle"
@@ -9,6 +9,8 @@ import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import UImage from '../UImage';
 import { stageDimensions } from '../../../../../../../../../utils/defaults';
+import CardHeaderActions from '../../../../../../../../../contexts/DesignTool/CardHeaderActions';
+import { DesignToolContext } from '../../../../../../../../../contexts/DesignTool/DesignToolContext';
 
 declare const window: any
 
@@ -17,13 +19,14 @@ const MainStage = ({
     setCardData,
     selectedId,
     setSelectedId,
-    unSelectAll,
+    handleTextEdit,
 }) => {
 
-    const GUIDELINE_OFFSET = 5
-    const $stage = useRef(null)
-    const $layer = useRef(null)
-    const $tr = useRef(null)
+    const { $tr, $layer, $stage } = useContext(DesignToolContext)
+    const { emptyCardHeader } = CardHeaderActions()
+
+    // snapping distance
+    const GUIDELINE_OFFSET = 10
     const selectionRectRef = useRef(null);
     const selection = useRef({
         visible: false,
@@ -36,17 +39,30 @@ const MainStage = ({
     const [nodesArray, setNodes] = useState([]);
     const Konva = window.Konva;
 
+    useEffect(() => {
+        // if no elements are selected, empty card header 
+        if (!nodesArray.length) {
+            emptyCardHeader()
+        }
+    }, [nodesArray.length])
+
     const getLineGuideStops = skipShape => {
+        // guidelines for stage center and edges
         const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
         const horizontal: any = [0, stageDimensions.height / 2, stageDimensions.height];
 
-        // and we snap over edges and center of each object on the canvas
+        // we snap over edges and center of each object on the canvas
         $stage.current.find(".object").forEach(guideItem => {
             if (guideItem === skipShape) {
                 return;
             }
+
+            // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === guideItem.attrs.id)
+            // if (isWrapped) return
+            // console.log({ skipShape, guideItem, isWrapped })
+
             const box = guideItem.getClientRect();
-            // and we can snap to all edges of shapes
+            // we can snap to all edges of shapes
             vertical.push([box.x, box.x + box.width, box.x + box.width / 2]);
             horizontal.push([box.y, box.y + box.height, box.y + box.height / 2]);
         });
@@ -56,6 +72,7 @@ const MainStage = ({
         };
     };
 
+    // getting snapping edges for elements on the Stage
     const getObjectSnappingEdges = node => {
         const box = node.getClientRect();
 
@@ -97,6 +114,7 @@ const MainStage = ({
         };
     };
 
+    // getting all guidelines for snapping by calculating if the item bounds are close to the guidlinestop
     const getGuides = (lineGuideStops, itemBounds) => {
         const resultV = [];
         const resultH = [];
@@ -119,6 +137,7 @@ const MainStage = ({
         lineGuideStops.horizontal.forEach(lineGuide => {
             itemBounds.horizontal.forEach(itemBound => {
                 const diff = Math.abs(lineGuide - itemBound.guide);
+                // if the distance between guild line and object snap point is close we can consider this for snapping
                 if (diff < GUIDELINE_OFFSET) {
                     resultH.push({
                         lineGuide: lineGuide,
@@ -154,6 +173,7 @@ const MainStage = ({
         return guides;
     };
 
+    // drawing guidelines on stage
     const drawGuides = guides => {
         guides.forEach(lg => {
             if (lg.orientation === "H") {
@@ -180,17 +200,24 @@ const MainStage = ({
         });
     };
 
+    // when dragging any element snap element if its close to snap guideline
     const _onDragMove = e => {
         const linesArray = $layer.current.find(".guid-line")
         if (!!linesArray.length) {
             linesArray.forEach(item => item.destroy())
         }
         const lineGuideStops = getLineGuideStops(e.target);
+
+        // Need to snap transformer not shape
         const itemBounds = getObjectSnappingEdges(e.target);
         const guides = getGuides(lineGuideStops, itemBounds);
         if (!guides.length) {
             return;
         }
+
+        // const isWrapped = $tr.current?.nodes()?.some(node => node.attrs.id === e.target.attrs.id)
+        // if (isWrapped) return
+
         drawGuides(guides);
         guides.forEach(lg => {
             switch (lg.snap) {
@@ -245,6 +272,7 @@ const MainStage = ({
         });
     };
 
+    // on drag end remove all guidelines from the stage
     const _onDragEnd = e => {
         const linesArray = $layer.current.find(".guid-line")
         if (!!linesArray.length) {
@@ -253,19 +281,20 @@ const MainStage = ({
         $layer.current.batchDraw();
     };
 
-    const checkDeselect = (e) => {
-        // deselect when clicked on empty area
-        const clickedOnEmpty = e.target === e.target.getStage();
-        if (clickedOnEmpty) {
-            unSelectAll();
-            $tr.current.nodes([]);
-            setNodes([]);
-            // layerRef.current.remove(selectionRectangle);
-        }
-    };
+    // const checkDeselect = (e) => {
+    //     // deselect when clicked on empty area
+    //     const clickedOnEmpty = e.target === e.target.getStage();
+    //     if (clickedOnEmpty) {
+    //         setSelectedId(null);
+    //         $tr.current.nodes([]);
+    //         setNodes([]);
+    //         // layerRef.current.remove(selectionRectangle);
+    //     }
+    // };
 
     const updateSelectionRect = () => {
         const node = selectionRectRef.current;
+        // while mouseDrag update the selection rect accordingly 
         node.setAttrs({
             visible: selection.current.visible,
             x: Math.min(selection.current.x1, selection.current.x2),
@@ -279,12 +308,15 @@ const MainStage = ({
 
     const oldPos = React.useRef(null);
     const onMouseDown = (e) => {
-        const isElement = e.target.findAncestor(".elements-container");
+        const isElement = e.target.attrs.id !== "shapes_background";
         const isTransformer = e.target.findAncestor("Transformer");
+
+        // If clicked thing is Element or Transformer then don't detach the transformer from the element(s)
         if (isElement || isTransformer) {
             return;
         }
 
+        // Draw selection box
         const pos = e.target.getStage().getPointerPosition();
         selection.current.visible = true;
         selection.current.x1 = pos.x;
@@ -311,6 +343,7 @@ const MainStage = ({
         }
         const selBox = selectionRectRef.current.getClientRect();
 
+        // selecting all elements which have intersection with the selection box
         const elements = [];
         $layer.current.find(".object").forEach((elementNode) => {
             const elBox = elementNode.getClientRect();
@@ -318,57 +351,70 @@ const MainStage = ({
                 elements.push(elementNode);
             }
         });
+        // passing all selected elements to transformer
         $tr.current.nodes(elements);
+        setNodes(elements)
+
+        // NOTE - if only one node is within group setSelectedId for that element
+        if (elements?.length === 1) {
+            setSelectedId(elements[0].attrs.id)
+        } else {
+            setSelectedId(null)
+            emptyCardHeader()
+        }
+
         selection.current.visible = false;
         // disable click event
         Konva.listenClickTap = false;
         updateSelectionRect();
     };
 
-    const onClickTap = (e) => {
-        // if we are selecting with rect, do nothing
-        if (selectionRectRef.current.visible()) {
-            return;
-        }
-        let stage = e.target.getStage();
-        let layer = $layer.current;
-        let tr = $tr.current;
-        // if click on empty area - remove all selections
-        if (e.target === stage) {
-            unSelectAll();
-            setNodes([]);
-            tr.nodes([]);
-            layer.draw();
-            return;
-        }
+    // 
+    // const onClickTap = (e) => {
+    //     // if we are selecting with rect, do nothing
+    //     if (selectionRectRef.current.visible()) {
+    //         return;
+    //     }
+    //     let stage = e.target.getStage();
+    //     let layer = $layer.current;
+    //     let tr = $tr.current;
+    //     // if click on empty area - remove all selections
+    //     if (e.target.attrs.id === stage) {
+    //         setSelectedId(null);
+    //         setNodes([]);
+    //         tr.nodes([]);
+    //         layer.draw();
+    //         return;
+    //     }
 
-        // do nothing if clicked NOT on our rectangles
-        if (!e.target.hasName(".object")) {
-            return;
-        }
+    //     // do nothing if clicked NOT on our rectangles
+    //     if (!e.target.hasName(".object")) {
+    //         return;
+    //     }
 
-        // do we pressed shift or ctrl?
-        const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-        const isSelected = tr.nodes().indexOf(e.target) >= 0;
+    //     // do we pressed shift or ctrl?
+    //     const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+    //     const isSelected = tr.nodes().indexOf(e.target) >= 0;
 
-        if (!metaPressed && !isSelected) {
-            // if no key pressed and the node is not selected
-            // select just one
-            tr.nodes([e.target]);
-        } else if (metaPressed && isSelected) {
-            // if we pressed keys and node was selected
-            // we need to remove it from selection:
-            const nodes = tr.nodes().slice(); // use slice to have new copy of array
-            // remove node from array
-            nodes.splice(nodes.indexOf(e.target), 1);
-            tr.nodes(nodes);
-        } else if (metaPressed && !isSelected) {
-            // add the node into selection
-            const nodes = tr.nodes().concat([e.target]);
-            tr.nodes(nodes);
-        }
-        layer.draw();
-    };
+    //     if (!metaPressed && !isSelected) {
+    //         // if no key pressed and the node is not selected
+    //         // select just one
+    //         tr.nodes([e.target]);
+    //     } else if (metaPressed && isSelected) {
+    //         // if we pressed keys and node was selected
+    //         // we need to remove it from selection:
+    //         const nodes = tr.nodes().slice(); // use slice to have new copy of array
+    //         // remove node from array
+    //         nodes.splice(nodes.indexOf(e.target), 1);
+    //         tr.nodes(nodes);
+    //     } else if (metaPressed && !isSelected) {
+    //         // add the node into selection
+    //         const nodes = tr.nodes().concat([e.target]);
+    //         tr.nodes(nodes);
+    //     }
+    //     layer.draw();
+    // };
+
 
     return (
         <Stage
@@ -376,8 +422,7 @@ const MainStage = ({
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
-            onTouchStart={checkDeselect}
-            onClick={onClickTap}
+            // onTouchStart={checkDeselect}
             {...stageDimensions}
         >
             <Layer
@@ -388,7 +433,7 @@ const MainStage = ({
                 {cardData.elements?.map((elem, i) => {
                     if (elem.type === "rectangle") return (
                         <Rectangle
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={(e) => {
                                 if (e.current !== undefined) {
@@ -396,11 +441,11 @@ const MainStage = ({
                                     if (!nodesArray.includes(e.current)) temp.push(e.current);
                                     setNodes(temp);
                                     $tr.current.nodes(nodesArray);
-                                    $tr.current.nodes(nodesArray);
                                     $tr.current.getLayer().batchDraw();
                                 }
-                                if (elem.id !== "shapes_background")
+                                if (elem.id !== "shapes_background") {
                                     setSelectedId(elem.id);
+                                }
                             }}
                             // onSelect={() => {
                             //     setSelectedId(rect.id)
@@ -416,7 +461,7 @@ const MainStage = ({
 
                     if (elem.type === "circle") return (
                         <UCircle
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -432,7 +477,7 @@ const MainStage = ({
 
                     if (elem.type === "line") return (
                         <ULine
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -448,7 +493,7 @@ const MainStage = ({
 
                     if (elem.type === "polygon") return (
                         <UPolygon
-                            key={i}
+                            key={elem.id}
                             shapeProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -464,7 +509,7 @@ const MainStage = ({
 
                     if (elem.type === "svg") return (
                         <USvg
-                            key={i}
+                            key={elem.id}
                             svgProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -481,7 +526,7 @@ const MainStage = ({
 
                     if (elem.type === "image") return (
                         <UImage
-                            key={i}
+                            key={elem.id}
                             imageProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -498,7 +543,7 @@ const MainStage = ({
 
                     if (elem.type === "text") return (
                         <UText
-                            key={i}
+                            key={elem.id}
                             textProps={elem}
                             onSelect={() => {
                                 setSelectedId(elem.id)
@@ -507,6 +552,9 @@ const MainStage = ({
                                 const txtIndex = prev.elements.findIndex(txt => txt.id === elem.id)
                                 prev.elements[txtIndex] = { ...event.target.attrs }
                             })}
+                            handleTextEdit={handleTextEdit}
+                            isSelected={!!selectedId}
+                            $tr={$tr}
                         />
                     )
 
@@ -516,6 +564,8 @@ const MainStage = ({
                     id={`tr${selectedId}`}
                     $tr={$tr}
                     selectedShapeName={selectedId}
+                    setSelectedId={setSelectedId}
+                    cardData={cardData}
                 />
                 <Rect fill="rgba(0,0,255,0.5)" ref={selectionRectRef} />
             </Layer>

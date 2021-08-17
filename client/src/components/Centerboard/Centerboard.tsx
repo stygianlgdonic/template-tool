@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import HomeCard from './components/HomeCard/HomeCard'
 import StatCard from './components/StatCard/StatCard';
 import RecentActivity from './components/RecentActivity/RecentActivity'
@@ -11,7 +11,13 @@ const cardimage2 = require('./../../assets/images/card2.png');
 import { ORIGINAL_SVG_mailicon } from './../../utils/defaults'
 import StatCardinfo from './../Centerboard/components/StatsCardinfo/StatCardinfo'
 import Imageinfo from './../Centerboard/components/ImagesInfo/ImagesInfo'
+import { DesignToolContext } from '../../contexts/DesignTool/DesignToolContext';
 const Centerboard: React.FC = () => {
+
+    const {
+        dashboardnavigator, setDashboardnavigator
+
+    } = useContext(DesignToolContext)
     let Card_1_title = "Personlized Images"
     let Card_1_impressions = 7540
     let Card_1_clicks = 122
@@ -36,28 +42,26 @@ const Centerboard: React.FC = () => {
     return (
         <div className="overflow-y-auto flex-grow px-10">
             <div className="mt-10">
-
-                <HomeCard />
+                {dashboardnavigator === "home" && <HomeCard />}
             </div>
             <div className="mt-6 flex flex-row  justify-between mb-10 gap-2">
-                <StatCard bio={Card_1_title} bio1={Card_1_impressions} bio2={Card_1_clicks} bio3={Card_1_tag} bio4={title1} image={cardimage1} bio5={Card_1_time} />
-                <StatCard bio={Card_2_title} bio1={Card_2_impressions} bio2={Card_2_clicks} bio3={Card_2_tag} bio4={title2} image={cardimage2} bio5={Card_2_time} />
+                {dashboardnavigator === "home" && <StatCard bio={Card_1_title} bio1={Card_1_impressions} bio2={Card_1_clicks} bio3={Card_1_tag} bio4={title1} image={cardimage1} bio5={Card_1_time} />}
+                {dashboardnavigator === "home" && <StatCard bio={Card_2_title} bio1={Card_2_impressions} bio2={Card_2_clicks} bio3={Card_2_tag} bio4={title2} image={cardimage2} bio5={Card_2_time} />}
 
             </div>
             <div className="">
-                <RecentActivity />
+                {dashboardnavigator === "home" && <RecentActivity />}
             </div>
             <div className="">
-
-                <CreateEmail bio1={email_title_1} bio2={email_text_1} bio3={email_button_text_1} bio4={ORIGINAL_SVG_mailicon} />
+                {dashboardnavigator === "images" && <CreateEmail bio1={email_title_1} bio2={email_text_1} bio3={email_button_text_1} bio4={ORIGINAL_SVG_mailicon} />}
 
             </div>
             <div className="">
-
-                <StatCardinfo />
+                {dashboardnavigator === "images" && <StatCardinfo />}
             </div>
             <div className="">
-                <Imageinfo />
+                {dashboardnavigator === "images" && <Imageinfo />}
+
             </div>
 
         </div>

@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SearchBar from './SearchBar'
-import { useQuery } from 'react-query'
-import { template_service } from '../../../../services/templateService'
 import TemplatePreview from './TemplatePreview'
 import { ErrorBoundary } from 'react-error-boundary'
 import SearchBarFallback from '../../../../ErrorFallacks/SearchBarFallback'
 import TemplatePreviewFallback from '../../../../ErrorFallacks/TemplatePreviewFallback'
+import useTemplateList from '../../../../hooks/useTemplateList'
+import useCategoryList from '../../../../hooks/useCategoryList'
+import { titleCase } from '../../../../utils/titleCase'
 
 const TemplateList = () => {
 
-    const { data, error, isLoading } = useQuery<any, Error>("templates", template_service.getAllTemplates)
-    console.log({ data })
+    const { templateList, error: templateError, isLoading: templateLoading } = useTemplateList()
+    const { categoriesList, error: categoryError, isLoading: categoryLoading } = useCategoryList()
+    const [categoryFilter, setCategoryFilter] = useState<any>(null)
 
-    if (isLoading) {
+    if (templateLoading) {
         return (
             <>
                 <p>Getting all templates ...</p>
@@ -20,10 +22,10 @@ const TemplateList = () => {
         )
     }
 
-    if (!!error) {
+    if (!!templateError) {
         return (
             <>
-                <p>{error.message}</p>
+                <p>{templateError.message}</p>
             </>
         )
     }
@@ -67,27 +69,46 @@ const TemplateList = () => {
                         </div>
                     </div>
                     <div className=" flex gap-4 mt-3 px-6">
-                        <button className="bg-lightindigo text-indigo700 rounded-md px-4 py-1 h-10">Employes</button>
-                        <button className="bg-lightindigo text-indigo700 rounded-md px-3 py-1 h-10">Events</button>
-                        <button className="bg-lightindigo text-indigo700 rounded-md px-4 py-1 h-10">Promotion</button>
-                        <button className="bg-lightindigo text-indigo700 rounded-md px-3 py-1 h-10">Property</button>
+                        {categoriesList?.map((cat, index) =>
+                            <button
+                                key={index}
+                                onClick={() => setCategoryFilter(!!categoryFilter ? null : cat)}
+                                className={"rounded-md px-4 py-1 h-10 " + (categoryFilter?.id === cat.id ? "text-white bg-indigo700" : "bg-lightindigo text-indigo700 ")}>
+                                {titleCase(cat.name)}
+                            </button>
+                        )}
 
                     </div>
                     <div>
                         <h1 className="text-xl font-bold mt-6 px-6 text-gray94">Your Templates</h1>
                     </div>
                     <div className="pl-6 mt-4 flex flex-row flex-wrap gap-4">
-                        {data.map((item, index) => {
-                            return (
-                                <div key={index} >
-                                    <ErrorBoundary
-                                        FallbackComponent={TemplatePreviewFallback}
-                                        onReset={() => { }}
-                                    >
-                                        <TemplatePreview templateObj={item} />
-                                    </ErrorBoundary>
-                                </div>
-                            )
+                        {templateList?.map((item, index) => {
+                            if (!!categoryFilter) {
+                                if (item.categoryId === categoryFilter.id) {
+                                    return (
+                                        <div key={index} >
+                                            <ErrorBoundary
+                                                FallbackComponent={TemplatePreviewFallback}
+                                                onReset={() => { }}
+                                            >
+                                                <TemplatePreview templateObj={item} />
+                                            </ErrorBoundary>
+                                        </div>
+                                    )
+                                }
+                            } else {
+                                return (
+                                    <div key={index} >
+                                        <ErrorBoundary
+                                            FallbackComponent={TemplatePreviewFallback}
+                                            onReset={() => { }}
+                                        >
+                                            <TemplatePreview templateObj={item} />
+                                        </ErrorBoundary>
+                                    </div>
+                                )
+                            }
                         })}
 
 

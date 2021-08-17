@@ -3,13 +3,31 @@ import ElementHeader from "./components/ElementHeader/ElementHeader";
 import TextHeader from "./components/TextHeader/TextHeader";
 import Imageheader from "./components/ImageHeader/imageheader";
 import { TemplateContext } from "../../../../../../../../../contexts/TemplateContext";
+import { DesignToolContext } from "../../../../../../../../../contexts/DesignTool/DesignToolContext";
+import CardElementsFunctions from "../../../../../../../../../Hooks/CardElementsFunctions";
 
 const CardHeader: React.FC = (): JSX.Element => {
-    const [templateData, setTemplateData, { goForward, goBack, stepNum }] =
-        useContext(TemplateContext);
+    const {
+        $tr,
+        designToolState
+    } = useContext(DesignToolContext)
+    const { handleDeleteSelectedItem } = CardElementsFunctions()
+
+    const handleDeleteClick = () => {
+        $tr?.current?.detach()
+        handleDeleteSelectedItem()
+    }
+
     return (
-        <div className="z-50 flex-col py-2 h-18">
-            <TextHeader />
+
+        <div style={{ height: "61px" }} className="z-50 flex-col py-2  
+        ">
+            <div className={designToolState.card_header_state === "text" ? "" : "hidden"}>
+                <TextHeader handleDeleteClick={handleDeleteClick} />
+            </div>
+            <div className={designToolState.card_header_state === "shape" ? "" : "hidden"}>
+                <ElementHeader handleDeleteClick={handleDeleteClick} />
+            </div>
         </div>
     );
 };

@@ -5,8 +5,13 @@ module.exports = {
         extend: {
             screens: {
                 // '3xl': '1650px',
-                '3xl': { 'max': '1635px' },
+                '3xl': { 'min': '1635px' },
             },
+        },
+        extend: {
+            inset: {
+                '600': '30.6rem',
+            }
         },
         extend: {
             margin: {
@@ -61,10 +66,11 @@ module.exports = {
 
                 bordercolor: '#D1D5DB',
                 rightbackgroundcolor: '#F3F4F6',
+                lightrightbackgroundcolor: '#f5f8ff',
                 svgcolor: '#C4C4C4',
                 fuschia: "#EF5DA8",
                 bluish: "#818CF8",
-                canvasbgcolor: "#F9FAFB",
+                canvasbgcolor: "#F2F2F2",
                 deletebutton: "#FEE2E2",
                 deletebuttontext: "#B91C1C",
                 createEmail: "#4B5563",
@@ -72,9 +78,11 @@ module.exports = {
                 SolidColor: "#6366F1",
                 gradientColor: "#374151",
                 elementColor: "#4B5563",
+                deletecolor: "#FEE2E2",
+                createcolor: "#9E9E9E",
 
-            },
-        },
+            }
+        }
 
 
     },
@@ -84,6 +92,7 @@ module.exports = {
             fontWeight: ['hover', 'focus'],
             backgroundColor: ['active'],
             display: ['group-hover'],
+            ringWidth: ['hover', 'active', 'focus'],
         },
 
     },

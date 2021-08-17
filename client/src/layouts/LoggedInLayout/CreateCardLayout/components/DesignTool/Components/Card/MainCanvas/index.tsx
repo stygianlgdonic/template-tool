@@ -1,24 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import WebFont from "webfontloader";
-import { DesignToolContext } from '../../../../../../../../contexts/DesignToolContext';
+import { DesignToolContext } from '../../../../../../../../contexts/DesignTool/DesignToolContext';
 import MainStage from './MainStage';
+import CardHeaderActions from '../../../../../../../../contexts/DesignTool/CardHeaderActions';
+import CardElementsFunctions from '../../../../../../../../Hooks/CardElementsFunctions';
 
 const DesignTool: React.FC = () => {
 
+    const { selectShapeCardHeader, selectTextCardHeader, emptyCardHeader } = CardHeaderActions()
+    const { handleTextEdit } = CardElementsFunctions()
+
     const {
-        designToolnavigator, setDesignToolnavigator,
         selectedId, setSelectedId,
         cardData, setCardData,
-        cardHistory: { goForward, goBack, stepNum, history }
     } = useContext(DesignToolContext)
+
+    useEffect(() => {
+        if (!!selectedId) {
+            const shape = cardData.elements.find((item, index) => selectedId === item.id)
+            if (shape?.type === 'text') {
+                selectTextCardHeader()
+            }
+            if (shape?.type === 'rectangle' || shape?.type === 'svg' || shape?.type === 'circle' || shape?.type === 'polygon' || shape?.type === 'line') {
+                selectShapeCardHeader()
+            }
+        }
+
+
+    }, [selectedId])
 
     const handleEscape = (e) => {
         if (e.key === "Escape") {
-            setSelectedId()
+            setSelectedId(null)
+            emptyCardHeader()
+            // handleDeleteSelectedItem()
         }
     }
 
     useEffect(() => {
+
         document.addEventListener("keydown", handleEscape, false);
         WebFont.load({
             google: {
@@ -39,7 +59,7 @@ const DesignTool: React.FC = () => {
                     setCardData={setCardData}
                     selectedId={selectedId}
                     setSelectedId={setSelectedId}
-                    unSelectAll={() => setSelectedId(null)}
+                    handleTextEdit={handleTextEdit}
                 />
             </div>
         </div>

@@ -11,12 +11,12 @@ const Dashboard: React.FC = () => {
         <div>
 
 
-            <div className="w-full mx-auto grid grid-cols-12 font-inter ">
-                <div className="col-span-2  w-full">
+            <div className="w-full  grid grid-cols-12 font-inter ">
+                <div className="col-span-2 ">
 
                     <LeftSidebar />
                 </div>
-                <div className="col-span-7 bg-jacksonsGray overflow-y-auto">
+                <div className="col-span-7 bg-jacksonsGray overflow-y-auto h-sccreen">
 
                     <Centerboard />
                 </div>

@@ -12,6 +12,12 @@
         "type": "string"
       }
     },
+    "elements":{
+      "type":"array",
+      "items": {
+        "type": "object"
+      }
+    },
     "dimensions": {
       "type": "object"
     },
