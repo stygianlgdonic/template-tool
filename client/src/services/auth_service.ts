@@ -29,6 +29,7 @@ async function signupUser(email: string, password: string) {
     }
     catch (err) {
         console.log("Sign Up error =>", err)
+        return ({ error: { message: "Something Went wrong", title: err.message } })
 
 
     }
@@ -67,7 +68,7 @@ async function loginUser(email: string, password: string) {
     }
     catch (err) {
         console.log("Error Occured -------------", err)
-        return (err)
+        return ({ error: { message: "Something Went wrong", title: err.message } })
     }
 
 
