@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { DesignToolContext, INITIAL_STATE } from "../../../../contexts/DesignTool/DesignToolContext";
 const featureimage = require("../../../../assets/images/featureimage.png")
 import { CardType } from "./MockData"
 interface Prop {
@@ -20,6 +22,24 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
     });
+    const navigate = useNavigate()
+    const { cardData, setCardData } = useContext(DesignToolContext)
+
+    // TODO - use this method for creating new card with selected dimensions
+    const createNewCard = (cardDimensions: { width: number, height: number }) => {
+        setCardData(prev => {
+            prev.dimensions = { ...cardDimensions }
+            prev.labels = []
+            prev.elements = [{
+                ...INITIAL_STATE.elements[0],
+                width: cardDimensions.width,
+                height: cardDimensions.height
+            }]
+        }, false)
+
+        navigate("/createcard")
+
+    }
 
     return (
         <>
@@ -80,7 +100,7 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         Create For Social Media
                                     </div>
 
-                                    <button>
+                                    <button onClick={() => createNewCard({ width: item.dimension.width, height: item.dimension.height })}>
                                         <div className="flex ">
                                             <img src={featureimage} alt="" />
                                             <div className="mt-2 pl-4">
