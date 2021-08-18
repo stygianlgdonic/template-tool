@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import SelectImageModal from "../SelectImageModal/SelectImageModal";
 
 interface Prop {
     closeModal: () => void;
     //   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const NewImageModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
+    const [OpenImageModal, setOpenImageModal] = useState(false);
 
+    const [isOpenNewImageModal, setisOpenNewImageModal] = useState(false);
     const myRef = useRef(null);
 
     const handleClickOutside = (e) => {
@@ -32,8 +35,8 @@ const NewImageModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
                     {/*content*/}
                     <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
                         {/*header*/}
-                        <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
-                            <button>
+                        <div className="flex items-start justify-between p-5 border-b  border-solid rounded-t border-blueGray-200">
+                            <button onClick={() => setOpenImageModal(true)}>
                                 <svg
                                     width="28"
                                     height="16"
@@ -129,6 +132,24 @@ const NewImageModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
                 </div>
             </div>
             <div className="fixed inset-0 z-40 bg-transparent opacity-25"></div>
+            <div
+                className="w-screen h-screen"
+                style={{
+                    zIndex: 999999,
+                    display: OpenImageModal ? "" : "none",
+                    position: "absolute",
+                    top: -300,
+                    right: -100,
+                }}
+            >
+                <SelectImageModal
+                    closeImageModal={() => setOpenImageModal(false)}
+                    handleOpenUploadImageModal={() => {
+                        setisOpenNewImageModal(true)
+                        setOpenImageModal(false)
+                    }}
+                />
+            </div>
         </>
     );
 }
