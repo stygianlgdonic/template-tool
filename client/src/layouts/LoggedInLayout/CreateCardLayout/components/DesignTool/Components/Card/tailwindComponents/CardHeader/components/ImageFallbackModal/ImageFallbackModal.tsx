@@ -30,9 +30,9 @@ const ImageFallbackModal: React.FC<Prop> = ({ closeModal }): JSX.Element => {
                 // ref={myRef}
                 className="inset-0 z-10 flex items-center justify-center overflow-x-hidden outline-none focus:outline-none"
             >
-                <div ref={myRef} className="relative w-auto max-w-3xl h-96">
+                <div className="relative w-auto max-w-3xl h-96">
                     {/*content*/}
-                    <div className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg outline-none border-gray300 focus:outline-none ">
+                    <div ref={myRef} className="relative flex flex-col w-full bg-white border-2 rounded-lg shadow-lg outline-none border-gray300 focus:outline-none ">
                         {/*header*/}
                         <div className="flex items-start justify-between p-5 rounded-t border-blueGray-200">
                             <div
