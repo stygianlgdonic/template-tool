@@ -1815,6 +1815,7 @@ const MainStage = ({
   // };
 
 
+  const shapeOpacity = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(1);
   return __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], _extends({
     ref: $stage,
     onMouseDown: onMouseDown,
@@ -1832,6 +1833,23 @@ const MainStage = ({
     ref: $layer,
     onDragMove: _onDragMove,
     onDragEnd: _onDragEnd,
+    onMouseOver: e => {
+      let shape = e.target;
+
+      if (!(shape.id() === 'shapes_background')) {
+        shapeOpacity.current = shape.opacity();
+        shape.opacity(shapeOpacity.current / 2);
+        document.body.style.cursor = 'pointer';
+      }
+    },
+    onMouseOut: e => {
+      let shape = e.target;
+
+      if (!(shape.id() === 'shapes_background')) {
+        shape.opacity(shapeOpacity.current);
+        document.body.style.cursor = 'default';
+      }
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1867,7 +1885,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 435,
+        lineNumber: 450,
         columnNumber: 25
       }
     });
@@ -1886,7 +1904,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 463,
+        lineNumber: 478,
         columnNumber: 25
       }
     });
@@ -1905,7 +1923,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 479,
+        lineNumber: 494,
         columnNumber: 25
       }
     });
@@ -1924,7 +1942,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 495,
+        lineNumber: 510,
         columnNumber: 25
       }
     });
@@ -1941,7 +1959,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 511,
+        lineNumber: 526,
         columnNumber: 25
       }
     });
@@ -1958,7 +1976,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 528,
+        lineNumber: 543,
         columnNumber: 25
       }
     });
@@ -1978,7 +1996,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 545,
+        lineNumber: 560,
         columnNumber: 25
       }
     });
@@ -1991,7 +2009,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 563,
+      lineNumber: 578,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -2000,7 +2018,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 570,
+      lineNumber: 585,
       columnNumber: 17
     }
   })));
