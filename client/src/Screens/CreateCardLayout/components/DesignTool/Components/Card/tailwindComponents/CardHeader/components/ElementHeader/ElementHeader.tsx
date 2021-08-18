@@ -41,7 +41,7 @@ const ElementHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                             aria-expanded="true"
                             aria-labelledby="listbox-label"
                         >
-                            <p className="mr-3 text-elementColor"> Select Stroke</p>
+                            <p className={selectedelement?.strokeWidth ? "mr-3 text-elementColor hidden" : "hidden"}> Sle</p>
                             <svg className="" width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.234315 0.834352C0.546734 0.521932 1.05327 0.521932 1.36569 0.834352L4 3.46867L6.63431 0.834352C6.94673 0.521932 7.45327 0.521932 7.76568 0.834352C8.0781 1.14677 8.0781 1.6533 7.76568 1.96572L4.56569 5.16573C4.25327 5.47815 3.74673 5.47815 3.43431 5.16573L0.234315 1.96572C-0.0781049 1.6533 -0.0781049 1.14677 0.234315 0.834352Z" fill="#9CA3AF" />
                             </svg>
