@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "5a5c59ed6d339a9cdfe2";
+=======
+/******/ 	var hotCurrentHash = "aeeba01ff9f76119d167";
+>>>>>>> stygianlgdonic/elementHoverEffect
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1366,7 +1370,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes_Public__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routes/Public */ "./src/routes/Public/index.tsx");
 /* harmony import */ var _layouts_LoggedOutLayout_Registration_Signup_Signup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./layouts/LoggedOutLayout/Registration/Signup/Signup */ "./src/layouts/LoggedOutLayout/Registration/Signup/Signup.tsx");
 /* harmony import */ var _layouts_LoggedOutLayout_Registration_Registration__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./layouts/LoggedOutLayout/Registration/Registration */ "./src/layouts/LoggedOutLayout/Registration/Registration.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\App.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\App.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1525,7 +1533,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _DesingToolReducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DesingToolReducers */ "./src/contexts/DesignTool/DesingToolReducers.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\DesignTool\\DesignToolContext.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1764,7 +1776,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderProvider", function() { return HeaderProvider; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\HeaderContext.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const INITIAL_STATE = {};
@@ -1806,7 +1822,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shrugsy/use-immer-state */ "@shrugsy/use-immer-state");
 /* harmony import */ var _shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/defaults */ "./src/utils/defaults.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\contexts\\TemplateContext.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1973,7 +1993,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_3__);
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Registration.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Registration.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -2464,9 +2488,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/auth_service */ "./src/services/auth_service.ts");
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "sweetalert");
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Signup\\Signup.tsx";
+=======
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "react-router");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedOutLayout\\Registration\\Signup\\Signup.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -2488,7 +2518,11 @@ function Example() {
     password: "",
     againPassword: ""
   });
+<<<<<<< HEAD
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useNavigate"])();
+=======
+  const navigate = Object(react_router__WEBPACK_IMPORTED_MODULE_3__["useNavigate"])();
+>>>>>>> stygianlgdonic/elementHoverEffect
 
   const onhandlechange = (value, name) => {
     setuserObj(_objectSpread(_objectSpread({}, userObj), {}, {
@@ -2526,7 +2560,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48,
+<<<<<<< HEAD
       columnNumber: 9
+=======
+      columnNumber: 5
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "sm:mx-auto sm:w-full sm:max-w-md",
@@ -2534,7 +2572,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49,
+<<<<<<< HEAD
       columnNumber: 13
+=======
+      columnNumber: 7
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("img", {
     className: "w-auto h-12 mx-auto",
@@ -2544,7 +2586,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 50,
+<<<<<<< HEAD
       columnNumber: 17
+=======
+      columnNumber: 9
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }), __jsx("h2", {
     className: "mt-6 text-3xl font-extrabold text-center text-gray-900",
@@ -2552,7 +2598,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 55,
+<<<<<<< HEAD
       columnNumber: 17
+=======
+      columnNumber: 9
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Sign up to get the full experience")), __jsx("div", {
     className: "mt-8 sm:mx-auto sm:w-full sm:max-w-md",
@@ -2560,7 +2610,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 64,
+<<<<<<< HEAD
       columnNumber: 13
+=======
+      columnNumber: 7
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10",
@@ -2568,7 +2622,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 65,
+<<<<<<< HEAD
       columnNumber: 17
+=======
+      columnNumber: 9
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("form", {
     className: "space-y-6",
@@ -2579,14 +2637,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 66,
+<<<<<<< HEAD
       columnNumber: 21
+=======
+      columnNumber: 11
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 67,
+<<<<<<< HEAD
       columnNumber: 25
+=======
+      columnNumber: 13
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("label", {
     htmlFor: "email",
@@ -2595,7 +2661,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 68,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Email address"), __jsx("div", {
     className: "mt-1",
@@ -2603,7 +2673,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 71,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("input", {
     onChange: e => onhandlechange(e.target.value, e.target.name),
@@ -2618,14 +2692,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 72,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 85,
+<<<<<<< HEAD
       columnNumber: 25
+=======
+      columnNumber: 13
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("label", {
     htmlFor: "password",
@@ -2634,7 +2716,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 86,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Password"), __jsx("div", {
     className: "mt-1",
@@ -2642,7 +2728,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 89,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("input", {
     onChange: e => onhandlechange(e.target.value, e.target.name),
@@ -2657,14 +2747,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 90,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   })), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 101,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("label", {
     htmlFor: "password",
@@ -2673,7 +2771,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 102,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Confirm Password"), __jsx("div", {
     className: "mt-1",
@@ -2681,7 +2783,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 105,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("input", {
     onChange: e => onhandlechange(e.target.value, e.target.name),
@@ -2696,7 +2802,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 106,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }))), __jsx("div", {
     className: "flex items-center justify-between mt-6",
@@ -2704,7 +2814,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 119,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "flex items-center",
@@ -2712,7 +2826,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 120,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("input", {
     id: "remember-me",
@@ -2723,7 +2841,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 121,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }), __jsx("label", {
     htmlFor: "remember-me",
@@ -2732,14 +2854,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 127,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Remember me"))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 139,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("button", {
     type: "submit",
@@ -2748,7 +2878,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 140,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Sign Up")))), __jsx("div", {
     className: "mt-6",
@@ -2756,7 +2890,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 150,
+<<<<<<< HEAD
       columnNumber: 21
+=======
+      columnNumber: 11
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "relative",
@@ -2764,7 +2902,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 151,
+<<<<<<< HEAD
       columnNumber: 25
+=======
+      columnNumber: 13
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "absolute inset-0 flex items-center",
@@ -2772,7 +2914,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 152,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     className: "w-full border-t border-gray-300",
@@ -2780,7 +2926,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 153,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   })), __jsx("div", {
     className: "relative flex justify-center text-sm",
@@ -2788,7 +2938,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 155,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("span", {
     className: "px-2 text-gray-500 bg-white",
@@ -2796,7 +2950,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 156,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Or continue with"))), __jsx("div", {
     className: "grid grid-cols-3 gap-3 mt-6",
@@ -2804,14 +2962,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 160,
+<<<<<<< HEAD
       columnNumber: 25
+=======
+      columnNumber: 13
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 161,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("a", {
     href: "#",
@@ -2820,7 +2986,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 162,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("span", {
     className: "sr-only",
@@ -2828,7 +2998,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 166,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Sign in with Facebook"), __jsx("svg", {
     className: "w-5 h-5",
@@ -2839,7 +3013,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 167,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -2849,14 +3027,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 168,
+<<<<<<< HEAD
       columnNumber: 41
+=======
+      columnNumber: 21
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 177,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("a", {
     href: "#",
@@ -2865,7 +3051,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 178,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("span", {
     className: "sr-only",
@@ -2873,7 +3063,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 182,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Sign in with Twitter"), __jsx("svg", {
     className: "w-5 h-5",
@@ -2884,7 +3078,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 183,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("path", {
     d: "M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84",
@@ -2892,14 +3090,22 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 184,
+<<<<<<< HEAD
       columnNumber: 41
+=======
+      columnNumber: 21
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   })))), __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 189,
+<<<<<<< HEAD
       columnNumber: 29
+=======
+      columnNumber: 15
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("a", {
     href: "#",
@@ -2908,7 +3114,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 190,
+<<<<<<< HEAD
       columnNumber: 33
+=======
+      columnNumber: 17
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("span", {
     className: "sr-only",
@@ -2916,7 +3126,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 194,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, "Sign in with GitHub"), __jsx("svg", {
     className: "w-5 h-5",
@@ -2927,7 +3141,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 195,
+<<<<<<< HEAD
       columnNumber: 37
+=======
+      columnNumber: 19
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   }, __jsx("path", {
     fillRule: "evenodd",
@@ -2937,7 +3155,11 @@ function Example() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 196,
+<<<<<<< HEAD
       columnNumber: 41
+=======
+      columnNumber: 21
+>>>>>>> stygianlgdonic/elementHoverEffect
     }
   })))))))));
 }
@@ -2958,7 +3180,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../validation */ "./src/routes/validation.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\routes\\Private\\index.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\routes\\Private\\index.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3006,7 +3232,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../validation */ "./src/routes/validation.ts");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\routes\\Public\\index.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\routes\\Public\\index.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3076,7 +3306,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.tsx");
+<<<<<<< HEAD
 var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\server.tsx";
+=======
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\server.tsx";
+>>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -3135,7 +3369,11 @@ const renderApp = (req, res) => {
     };
   }
 };
+<<<<<<< HEAD
 const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("C:\\Users\\HP\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+=======
+const server = express__WEBPACK_IMPORTED_MODULE_0___default()().disable('x-powered-by').use(express__WEBPACK_IMPORTED_MODULE_0___default.a.static("D:\\dev\\cardclan-backend\\client\\public")).get('/*', (req, res) => {
+>>>>>>> stygianlgdonic/elementHoverEffect
   const {
     html = '',
     redirect = false
@@ -3515,10 +3753,17 @@ const ORIGINAL_SVG_greendoticon = `<svg width="11" height="11" viewBox="0 0 11 1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
 __webpack_require__(/*! C:\Users\HP\cardclan-backend\client\src */"./src/index.ts");
 module.exports = __webpack_require__(/*! !!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!C:\Users\HP\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+=======
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\razzle-dev-utils\prettyNodeErrors.js */"./node_modules/razzle-dev-utils/prettyNodeErrors.js");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\node_modules\webpack\hot\poll.js?300 */"./node_modules/webpack/hot/poll.js?300");
+__webpack_require__(/*! D:\dev\cardclan-backend\client\src */"./src/index.ts");
+module.exports = __webpack_require__(/*! !!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js!D:\dev\cardclan-backend\client\node_modules\razzle-start-server-webpack-plugin\dist\monitor-loader.js */"./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js!./node_modules/razzle-start-server-webpack-plugin/dist/monitor-loader.js");
+>>>>>>> stygianlgdonic/elementHoverEffect
 
 
 /***/ }),
@@ -3677,6 +3922,20 @@ module.exports = require("react-range");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "react-router":
+/*!*******************************!*\
+  !*** external "react-router" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router");
+
+/***/ }),
+
+>>>>>>> stygianlgdonic/elementHoverEffect
 /***/ "react-router-dom":
 /*!***********************************!*\
   !*** external "react-router-dom" ***!

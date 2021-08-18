@@ -415,7 +415,7 @@ const MainStage = ({
     //     layer.draw();
     // };
 
-
+    const shapeOpacity = useRef(1)
     return (
         <Stage
             ref={$stage}
@@ -429,6 +429,21 @@ const MainStage = ({
                 ref={$layer}
                 onDragMove={_onDragMove}
                 onDragEnd={_onDragEnd}
+                onMouseOver={e => {
+                    let shape = e.target
+                    if (!(shape.id() === 'shapes_background')) {
+                        shapeOpacity.current = shape.opacity()
+                        shape.opacity(shapeOpacity.current / 2)
+                        document.body.style.cursor = 'pointer'
+                    }
+                }}
+                onMouseOut={e => {
+                    let shape = e.target
+                    if (!(shape.id() === 'shapes_background')) {
+                        shape.opacity(shapeOpacity.current)
+                        document.body.style.cursor = 'default'
+                    }
+                }}
             >
                 {cardData.elements?.map((elem, i) => {
                     if (elem.type === "rectangle") return (
