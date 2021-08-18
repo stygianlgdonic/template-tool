@@ -8,7 +8,9 @@ const image4 = require('./../../../../../../../../../../../assets/images/neon.pn
 const image5 = require('./../../../../../../../../../../../assets/images/glitch.png');
 const image6 = require('./../../../../../../../../../../../assets/images/lift.png');
 const image7 = require('./../../../../../../../../../../../assets/images/shadow.png');
+import "./style.css"
 const FontStyletool: React.FC = (): JSX.Element => {
+
     const {
         selectedId, cardData,
     } = useContext(DesignToolContext)
@@ -71,11 +73,13 @@ const FontStyletool: React.FC = (): JSX.Element => {
             </div >
             <div className="w-full gap-4  flex-wrap flex flex-row mt-4">
                 <button onClick={() => handleTextHollow("none")} ><img src={image6} className="w-24" /> <p className="text-gray94 mt-1">None</p></button>
-                <button onClick={() => handleTextHollow("hollow")} ><img src={image1} className="w-24" /> <p className="text-gray94 mt-1">Hollow</p></button>
+                <button onClick={() => handleTextHollow("hollow")} ><p id="example4" className="w-24 border-2 border-bordercolor flex items-center h-24 rounded-md justify-center">Ag</p><p className="text-gray94 mt-1">Hollow</p></button>
                 <button onClick={() => handleTextHollow("lift")} ><img src={image6} className="w-24" /> <p className="text-gray94 mt-1">Lift</p></button>
                 <button onClick={() => handleTextHollow("shadow")} ><img src={image7} className="w-24" /> <p className="text-gray94 mt-1">Shadow</p></button>
-                <button onClick={() => handleTextHollow("neon")} ><img src={image4} className="w-24" /> <p className="text-gray94 mt-1">Neon</p></button>
-                <button onClick={() => handleTextHollow("glitch")} ><img src={image5} className="w-24" /> <p className="text-gray94 mt-1">glitch</p></button>
+                <button onClick={() => handleTextHollow("neon")} ><p className="glow w-24 border-2 border-bordercolor flex items-center h-24 rounded-md justify-center">Ag</p><p className="text-gray94 mt-1">Neon</p></button>
+                <button onClick={() => handleTextHollow("glitch")} ><p className="glitch-text w-24 border-2 border-bordercolor flex items-center h-24 rounded-md justify-center ">Ag</p><p className="text-gray94 mt-1">Glitch</p></button>
+                {/* <button onClick={() => handleTextHollow("neon")} ><img src={image4} className="w-24" /> <p className="text-gray94 mt-1">Neon</p></button> */}
+                {/* <button onClick={() => handleTextHollow("glitch")} ><img src={image5} className="w-24" /> <p className="text-gray94 mt-1">glitch</p></button> */}
                 <button onClick={() => handleTextHollow("splice")} ><img src={image2} className="w-24" /> <p className="text-gray94 mt-1">splice</p></button>
 
 
