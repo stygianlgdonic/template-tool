@@ -229,11 +229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Centerboard/components/StatsCardinfo/StatCardinfo */ "./src/components/Centerboard/components/StatsCardinfo/StatCardinfo.tsx");
 /* harmony import */ var _Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Centerboard/components/ImagesInfo/ImagesInfo */ "./src/components/Centerboard/components/ImagesInfo/ImagesInfo.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -414,11 +410,7 @@ const Centerboard = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -523,11 +515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../../utils/defaults */ "./src/utils/defaults.ts");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -719,11 +707,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageStat/ImageStat */ "./src/components/Centerboard/components/ImagesInfo/ImageStat/ImageStat.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -852,11 +836,7 @@ const ImagesInfo = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1631,11 +1611,7 @@ const RecentActivity = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1816,11 +1792,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/react/outline */ "@heroicons/react/outline");
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -2027,11 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth_service */ "./src/services/auth_service.ts");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2530,11 +2498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/StatGraph/StatGraph */ "./src/components/RightSidebar/components/StatGraph/StatGraph.tsx");
 /* harmony import */ var _components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SocialStats/SocialStats */ "./src/components/RightSidebar/components/SocialStats/SocialStats.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2714,11 +2678,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
 /* harmony import */ var _SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal */ "./src/components/RightSidebar/components/SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal.tsx");
 /* harmony import */ var _PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../PersonalizedCardSizeModal/PersonalizedCardSizeModal */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/PersonalizedCardSizeModal.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2999,11 +2959,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -3104,11 +3060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3192,11 +3144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3496,12 +3444,11 @@ const CardType = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _MockData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MockData */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/MockData.ts");
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
+var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -3513,12 +3460,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-=======
-/* harmony import */ var _MockData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MockData */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/MockData.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
->>>>>>> stygianlgdonic/elementHoverEffect
 
 const featureimage = __webpack_require__(/*! ../../../../assets/images/featureimage.png */ "./src/assets/images/featureimage.png");
 
@@ -3540,7 +3481,6 @@ const SelectSocialMediaTemplateModal = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
-<<<<<<< HEAD
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useNavigate"])();
   const {
     cardData,
@@ -3559,18 +3499,12 @@ const SelectSocialMediaTemplateModal = ({
     navigate("/createcard");
   };
 
-=======
->>>>>>> stygianlgdonic/elementHoverEffect
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     className: "fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 46,
-=======
-      lineNumber: 26,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -3581,11 +3515,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 47,
-=======
-      lineNumber: 27,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3593,11 +3523,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 49,
-=======
-      lineNumber: 29,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3605,11 +3531,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 50,
-=======
-      lineNumber: 30,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -3617,11 +3539,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 51,
-=======
-      lineNumber: 31,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -3629,11 +3547,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 52,
-=======
-      lineNumber: 32,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 33
     }
   }, __jsx("svg", {
@@ -3645,11 +3559,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 55,
-=======
-      lineNumber: 35,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 37
     }
   }, __jsx("path", {
@@ -3661,22 +3571,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 62,
-=======
-      lineNumber: 42,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 41
     }
   })))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 72,
-=======
-      lineNumber: 52,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -3685,11 +3587,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 73,
-=======
-      lineNumber: 53,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 33
     }
   }, "x"))), __jsx("div", {
@@ -3697,11 +3595,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 80,
-=======
-      lineNumber: 60,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 25
     }
   }, __jsx("h3", {
@@ -3709,11 +3603,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 81,
-=======
-      lineNumber: 61,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 29
     }
   }, "Create New Personalized Email")), __jsx("div", {
@@ -3721,11 +3611,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 93,
-=======
-      lineNumber: 73,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -3733,22 +3619,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 94,
-=======
-      lineNumber: 74,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 29
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 95,
-=======
-      lineNumber: 75,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 33
     }
   }, " Create For Email")), __jsx("div", {
@@ -3756,17 +3634,10 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 97,
       columnNumber: 29
     }
   }, _MockData__WEBPACK_IMPORTED_MODULE_3__["CardType"].map((item, index) => __jsx("div", {
-=======
-      lineNumber: 77,
-      columnNumber: 29
-    }
-  }, _MockData__WEBPACK_IMPORTED_MODULE_1__["CardType"].map((item, index) => __jsx("div", {
->>>>>>> stygianlgdonic/elementHoverEffect
     key: item.name,
     style: {
       display: item.name === "Header" ? "" : "",
@@ -3778,11 +3649,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 98,
-=======
-      lineNumber: 78,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 65
     }
   }, __jsx("div", {
@@ -3795,7 +3662,6 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 99,
       columnNumber: 37
     }
@@ -3808,16 +3674,6 @@ const SelectSocialMediaTemplateModal = ({
     __source: {
       fileName: _jsxFileName,
       lineNumber: 103,
-=======
-      lineNumber: 79,
-      columnNumber: 37
-    }
-  }, "Create For Social Media"), __jsx("button", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 83,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 37
     }
   }, __jsx("div", {
@@ -3825,11 +3681,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 104,
-=======
-      lineNumber: 84,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 41
     }
   }, __jsx("img", {
@@ -3838,11 +3690,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 105,
-=======
-      lineNumber: 85,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 45
     }
   }), __jsx("div", {
@@ -3850,11 +3698,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 106,
-=======
-      lineNumber: 86,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 45
     }
   }, __jsx("div", {
@@ -3862,22 +3706,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 107,
-=======
-      lineNumber: 87,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 49
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 108,
-=======
-      lineNumber: 88,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 53
     }
   }, item.name)), __jsx("div", {
@@ -3885,22 +3721,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 110,
-=======
-      lineNumber: 90,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 49
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 111,
-=======
-      lineNumber: 91,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 53
     }
   }, "Dimensions:", item.dimension.width, "  ", item.dimension.height)))))))))))), __jsx("div", {
@@ -3908,11 +3736,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-<<<<<<< HEAD
       lineNumber: 122,
-=======
-      lineNumber: 102,
->>>>>>> stygianlgdonic/elementHoverEffect
       columnNumber: 13
     }
   }));
@@ -3933,11 +3757,7 @@ const SelectSocialMediaTemplateModal = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 
@@ -4238,11 +4058,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_LoggedInLayout_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar */ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
 /* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
 /* harmony import */ var _CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CreateEmail/TemplatePreview */ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -4980,11 +4796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5193,11 +5005,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5482,11 +5290,7 @@ const StatGraph = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5628,11 +5432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Centerboard_Centerboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Centerboard/Centerboard */ "./src/components/Centerboard/Centerboard.tsx");
-<<<<<<< HEAD
-var _jsxFileName = "C:\\Users\\HP\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\Dashboard\\Dashboard.tsx";
-=======
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\Dashboard\\Dashboard.tsx";
->>>>>>> stygianlgdonic/elementHoverEffect
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
