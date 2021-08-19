@@ -1,9 +1,10 @@
 import React from "react";
+import CardElementsFunctions from "../../../../../../../../../../../Hooks/CardElementsFunctions";
 import CustomColorPicker from "../../../../../CustomColorPicker";
 import BackgroundColorModal from "../BackgroundColorModal/BackgroundColorModal";
 const BackgroundColor: React.FC = (): JSX.Element => {
     const [showModal, setShowModal] = React.useState(false);
-
+    const { handleFill } = CardElementsFunctions()
     return (
         <div className="flex flex-col justify-center w-full ">
             <div className="mt-4 ">
@@ -32,11 +33,11 @@ const BackgroundColor: React.FC = (): JSX.Element => {
                     </svg>
                 </button>
 
-                <button className="w-10 h-10 rounded-md bg-indigo600"></button>
-                <button className="w-10 h-10 rounded-md bg-fuschia"></button>
-                <button className="w-10 h-10 rounded-md bg-greenish"></button>
-                <button className="w-10 h-10 rounded-md bg-yellowish"></button>
-                <button className="w-10 h-10 rounded-md bg-redish"></button>
+                <button className="w-10 h-10 rounded-md bg-indigo600" onClick={() => handleFill("#4F46E5", "shapes_background")}></button>
+                <button className="w-10 h-10 rounded-md bg-fuschia" onClick={() => handleFill("#EF5DA8", "shapes_background")}></button>
+                <button className="w-10 h-10 rounded-md bg-greenish" onClick={() => handleFill("#5DEFC3", "shapes_background")}></button>
+                <button className="w-10 h-10 rounded-md bg-yellowish" onClick={() => handleFill("#EEA146", "shapes_background")}></button>
+                <button className="w-10 h-10 rounded-md bg-redish" onClick={() => handleFill("#EE4646", "shapes_background")}></button>
             </div>
             <div style={{ display: showModal ? "" : "none" }}>
                 <CustomColorPicker

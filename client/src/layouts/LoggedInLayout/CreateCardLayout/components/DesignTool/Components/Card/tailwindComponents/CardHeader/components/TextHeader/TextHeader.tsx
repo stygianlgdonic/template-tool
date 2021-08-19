@@ -155,7 +155,13 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
                 <div className="relative">
 
 
-                    <button className="ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2  active:border-2 border-indigo600" onClick={() => setShowModal(true)}>
+                    <button className={"ml-6  rounded-md hover:bg-lightindigo h-10 w-10 pl-2  " + (showModal ? "ring-2 ring-indigo600" : "") + (
+                        selectedText?.align?.includes("left") ? " ring-2 ring-indigo600" : ""
+                    ) + (
+                            selectedText?.align?.includes("right") ? " ring-2 ring-indigo600" : ""
+                        ) + (
+                            selectedText?.align?.includes("center") ? " ring-2 ring-indigo600" : ""
+                        )} onClick={() => setShowModal(true)}>
                         <svg
                             width="23"
                             height="18"
@@ -185,21 +191,28 @@ const TextHeader: React.FC<Props> = ({ handleDeleteClick }): JSX.Element => {
 
 
 
-                                        <div className=" border-2 border-bordercolor inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 mt-2 self-end right-0 ">
+                                        <div className=" border-2 border-bordercolor inline-block align-bottom w-40 bg-white rounded-lg px-4 justify-center overflow-hidden shadow-md transform transition-all top-0 mt-2 self-end right-0 "
+                                        >
 
                                             <div className="w-full flex gap-4 justify-center ">
 
 
-                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex  items-center justify-center" onClick={() => handleTextAlign("left")}><svg className=" " width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                                <button className={"hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex  items-center justify-center" + (
+                                                    selectedText?.align?.includes("left") ? " bg-lightindigo" : ""
+                                                )} onClick={() => handleTextAlign("left")}><svg className=" " width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 1H17M1 7H17M1 13H8" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
                                                 </button>
-                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                                <button className={"hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" + (
+                                                    selectedText?.align?.includes("center") ? " bg-lightindigo" : ""
+                                                )} onClick={() => handleTextAlign("center")}><svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 1H17M1 9H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
 
                                                 </button>
-                                                <button className="hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" onClick={() => handleTextAlign("right")}>
+                                                <button className={"hover:bg-lightindigo px-2 my-2 h-10 rounded-md w-10 flex items-center justify-center" + (
+                                                    selectedText?.align?.includes("right") ? " bg-lightindigo" : ""
+                                                )} onClick={() => handleTextAlign("right")}>
                                                     <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1 1H17M1 7H17M10 13H17" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
