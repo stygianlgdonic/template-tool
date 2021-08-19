@@ -143,6 +143,7 @@ export default function Example() {
                 >
                   Sign Up
                 </button>
+                <div className="fleex align-center"><p >Already have an account?</p> <button>Sign in</button></div>
               </div>
             </div>
           </form>
