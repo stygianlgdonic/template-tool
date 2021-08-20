@@ -165,10 +165,11 @@ const DesignTool: React.FC = () => {
     }
 
     const handleSaveTemplate = async (tags: string[], categoryId: string) => {
+        console.log({ tags, categoryId })
         if (!!templateID) {
             await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
         } else {
-            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
+            const res = await template_service.addNewTemplate({ ...templateData, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)
@@ -194,7 +195,7 @@ const DesignTool: React.FC = () => {
     }
 
     return (
-        <div className="min-w-max bg-gray300 h-screen">
+        <div className="min-w-max bg-gray300 ">
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
                 <div className="flex gap-2">
                     <NavLink

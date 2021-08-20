@@ -5,6 +5,7 @@ import CategoryListFallback from '../../ErrorFallacks/CategoryListFallback'
 import TemplateListFallback from '../../ErrorFallacks/TemplateListFallback'
 import { ROUTE_NAMES } from '../../routes/route_names'
 import CategoryList from './components/CategoryList'
+import SelectTemplateDimensions from './components/SelectTemplateDimensions'
 import TemplateList from './components/TemplateList'
 
 const navLinksList = ["categories", "templates"]
@@ -12,6 +13,7 @@ const navLinksList = ["categories", "templates"]
 const Home = () => {
 
     const [selectedNavLink, setSelectedNavLink] = useState<string>(navLinksList[0])
+    const [openTempalteDimsModal, setOpenTempalteDimsModal] = useState(false)
 
     return (
         <div className="min-w-max">
@@ -19,13 +21,21 @@ const Home = () => {
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
                 <div></div>
                 <p className="text-xl text-white">Home</p>
-                <NavLink
-                    to={ROUTE_NAMES.select_palette}
+                <button
+                    // to={ROUTE_NAMES.select_palette}
+                    onClick={() => setOpenTempalteDimsModal(true)}
                     className="text-white font-semibold py-2 px-4 border border-white-500 rounded" >
                     Create New Template
-                </NavLink>
+                </button>
             </div>
             {/* HEADER END */}
+            {/* SelectTemplateDimensions Modal */}
+            <div className={!!openTempalteDimsModal ? "" : "hidden"} >
+                <SelectTemplateDimensions
+                    closeModal={() => setOpenTempalteDimsModal(false)}
+                />
+            </div>
+            {/* SelectTemplateDimensions Modal End*/}
 
             <div>
 

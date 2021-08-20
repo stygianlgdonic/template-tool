@@ -73,10 +73,12 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
     };
 
     const onCategoryChange = (val) => {
+        console.log({ val })
         setSelectedCategory(val)
     }
 
     const onSubmit = () => {
+        console.log("saving")
         handleSaveTemplate(tagsList, selectedCategory?.id)
     }
 
