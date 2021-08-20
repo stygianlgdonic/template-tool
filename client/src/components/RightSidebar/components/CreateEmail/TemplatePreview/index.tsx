@@ -12,14 +12,14 @@ interface Props {
 const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
     const navigate = useNavigate()
     const [templateData, setTemplateData] = useContext(TemplateContext)
-    console.log(templateObj)
-    const handleEditTemplate = () => {
-        setTemplateData(templateObj, false)
-        navigate(`/createcard`)
+    const handleSelectTemplate = () => {
+        console.log({ templateObj })
+        // setTemplateData(templateObj, false)
+        // navigate(`/createcard`)
     }
     return (
         <button
-            // onClick={handleEditTemplate}
+            onClick={handleSelectTemplate}
             className="border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ">
             <Stage
                 width={stageDimensions.width * 0.2}

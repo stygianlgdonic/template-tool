@@ -100,7 +100,7 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         Create For Social Media
                                     </div>
 
-                                    <button onClick={() => createNewCard({ width: item.dimension.width, height: item.dimension.height })}>
+                                    <button onClick={() => createNewCard({ width: (item.dimension.width * item.scaleFactor), height: (item.dimension.height * item.scaleFactor) })}>
                                         <div className="flex ">
                                             <img src={featureimage} alt="" />
                                             <div className="mt-2 pl-4">

@@ -23,8 +23,6 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
         "templates",
         template_service.getAllTemplates
     );
-    console.log({ data });
-    console.log({ error });
 
     if (isLoading) {
         return (
