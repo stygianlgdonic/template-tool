@@ -9,6 +9,9 @@
       "dimensions": {
         "type": "object"
       },
+      "name": {
+        "type": "string"
+      },
       "variations": {
         "type": "array",
         "items": {
