@@ -1,5 +1,6 @@
 import React from 'react'
-import { ChromePicker } from 'react-color'
+import CustomReactColor from './CustomReactColor'
+// import { ChromePicker } from 'react-color'
 
 interface Props {
     color: string
@@ -9,9 +10,12 @@ interface Props {
 const Picker: React.FC<Props> = ({ color, onChange }) => {
     return (
         <div>
-            <ChromePicker
+            <CustomReactColor
                 color={color}
                 onChange={onChange}
+                hex={null}
+                hsl={null}
+                hsv={null}
             />
 
         </div>
