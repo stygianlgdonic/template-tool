@@ -2419,8 +2419,10 @@ const DesignTool = () => {
 
   const handleSaveTemplate = async (tags, categoryId) => {
     console.log({
-      tags,
-      categoryId
+      LOL: JSON.stringify(_objectSpread(_objectSpread({}, templateData), {}, {
+        tags,
+        categoryId
+      }))
     });
 
     if (!!templateID) {
@@ -2429,7 +2431,7 @@ const DesignTool = () => {
         categoryId
       }));
     } else {
-      const res = await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].addNewTemplate(_objectSpread(_objectSpread({}, templateData), {}, {
+      await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].addNewTemplate(_objectSpread(_objectSpread({}, templateData), {}, {
         tags,
         categoryId
       }));
@@ -2565,6 +2567,7 @@ const DesignTool = () => {
   }, __jsx(_tailwindComponents_SaveTemplate__WEBPACK_IMPORTED_MODULE_4__["default"], {
     templateData: templateData,
     handleSaveTemplate: handleSaveTemplate,
+    closeModal: () => setIsOpenSaveTemplateModal(false),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -2576,7 +2579,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 247,
+      lineNumber: 248,
       columnNumber: 13
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2585,7 +2588,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 250,
+      lineNumber: 251,
       columnNumber: 17
     }
   }, __jsx(_SideBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2594,14 +2597,14 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 254,
+      lineNumber: 255,
       columnNumber: 21
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258,
+      lineNumber: 259,
       columnNumber: 17
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2610,7 +2613,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 259,
+      lineNumber: 260,
       columnNumber: 21
     }
   }, __jsx(_TopToolBar__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -2623,7 +2626,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 263,
+      lineNumber: 264,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -2631,7 +2634,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 272,
+      lineNumber: 273,
       columnNumber: 21
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2640,7 +2643,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 273,
+      lineNumber: 274,
       columnNumber: 25
     }
   }, __jsx(_MainStage__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2654,7 +2657,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 277,
+      lineNumber: 278,
       columnNumber: 29
     }
   }))), __jsx("div", {
@@ -2662,7 +2665,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289,
+      lineNumber: 290,
       columnNumber: 21
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2671,7 +2674,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 290,
+      lineNumber: 291,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_SelectVariation__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2681,7 +2684,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 294,
+      lineNumber: 295,
       columnNumber: 29
     }
   }))), __jsx("div", {
@@ -2689,7 +2692,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 302,
+      lineNumber: 303,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2698,7 +2701,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 303,
+      lineNumber: 304,
       columnNumber: 25
     }
   }, "Save Variation"), __jsx("button", {
@@ -2707,7 +2710,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 307,
+      lineNumber: 308,
       columnNumber: 25
     }
   }, "Add New Variation"), __jsx("button", {
@@ -2716,7 +2719,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 311,
+      lineNumber: 312,
       columnNumber: 25
     }
   }, "Delete variation"))), __jsx("div", {
@@ -2724,7 +2727,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 319,
+      lineNumber: 320,
       columnNumber: 17
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2733,7 +2736,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 320,
+      lineNumber: 321,
       columnNumber: 21
     }
   }, __jsx(_EditingTools__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -2750,7 +2753,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 324,
+      lineNumber: 325,
       columnNumber: 25
     }
   })))));
@@ -3459,7 +3462,8 @@ const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-w
 
 const SaveTemplate = ({
   templateData,
-  handleSaveTemplate
+  handleSaveTemplate,
+  closeModal
 }) => {
   const {
     0: tagsList,
@@ -3551,7 +3555,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 87,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -3559,7 +3563,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 88,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -3568,7 +3572,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 89,
       columnNumber: 17
     }
   }), __jsx("span", {
@@ -3577,7 +3581,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 91,
       columnNumber: 17
     }
   }, "\u200B"), __jsx("div", {
@@ -3585,7 +3589,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 93,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3593,7 +3597,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 94,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3601,14 +3605,14 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 95,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 96,
       columnNumber: 29
     }
   }, __jsx(_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -3625,7 +3629,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 97,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -3633,7 +3637,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 109,
       columnNumber: 33
     }
   }, tagsList.map((item, index) => __jsx("div", {
@@ -3642,14 +3646,14 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 111,
       columnNumber: 41
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 112,
       columnNumber: 45
     }
   }, item), __jsx("img", {
@@ -3660,7 +3664,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 113,
       columnNumber: 45
     }
   })))), __jsx("div", {
@@ -3668,7 +3672,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 123,
       columnNumber: 33
     }
   }, __jsx(_CustomSelect__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -3679,7 +3683,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 124,
       columnNumber: 37
     }
   }))))), __jsx("div", {
@@ -3687,7 +3691,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 136,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3695,7 +3699,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 137,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3706,7 +3710,7 @@ const SaveTemplate = ({
       }
     },
     disableElevation: true,
-    onClick: onSubmit,
+    onClick: closeModal,
     type: "submit",
     fullWidth: true,
     variant: "contained",
@@ -3715,7 +3719,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 138,
       columnNumber: 29
     }
   }, "Close")), __jsx("div", {
@@ -3723,7 +3727,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153,
+      lineNumber: 154,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3743,7 +3747,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 155,
       columnNumber: 29
     }
   }, "Save Template"))))));
@@ -4892,10 +4896,11 @@ async function deleteCategoryByID(categoryID) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "template_service", function() { return template_service; });
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
 const URL_ENDPOINTS = {
   getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
   getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
+  createTemplateURL: `https://polar-tor-04971.herokuapp.com/template?secret_token=${secret_token}`,
   updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
   deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 };
@@ -4924,6 +4929,9 @@ async function addNewTemplate(templateData) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(templateData)
+  });
+  console.log({
+    response
   });
 
   if (!response.ok) {

@@ -455,7 +455,7 @@ const SelectTemplateDimensions = ({
   const createNewTemplate = templateDimensions => {
     setTemplateData(prev => {
       prev.dimensions = _objectSpread({}, templateDimensions);
-      prev.labels = [];
+      prev.tags = [];
       prev.variations[0].elements = [_objectSpread(_objectSpread({}, _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_1__["INITIAL_STATE"].variations[0].elements[0]), {}, {
         width: templateDimensions.width,
         height: templateDimensions.height
@@ -1656,10 +1656,11 @@ async function deleteCategoryByID(categoryID) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "template_service", function() { return template_service; });
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
 const URL_ENDPOINTS = {
   getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
   getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
+  createTemplateURL: `https://polar-tor-04971.herokuapp.com/template?secret_token=${secret_token}`,
   updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
   deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 };
@@ -1688,6 +1689,9 @@ async function addNewTemplate(templateData) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(templateData)
+  });
+  console.log({
+    response
   });
 
   if (!response.ok) {

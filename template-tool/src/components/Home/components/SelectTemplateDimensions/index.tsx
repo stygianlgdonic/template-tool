@@ -28,7 +28,7 @@ const SelectTemplateDimensions: React.FC<Prop> = ({ closeModal }): JSX.Element =
     const createNewTemplate = (templateDimensions: { width: number, height: number }) => {
         setTemplateData(prev => {
             prev.dimensions = { ...templateDimensions }
-            prev.labels = []
+            prev.tags = []
             prev.variations[0].elements = [{
                 ...INITIAL_STATE.variations[0].elements[0],
                 width: templateDimensions.width,

@@ -165,11 +165,11 @@ const DesignTool: React.FC = () => {
     }
 
     const handleSaveTemplate = async (tags: string[], categoryId: string) => {
-        console.log({ tags, categoryId })
+        console.log({ LOL: JSON.stringify({ ...templateData, tags, categoryId }) })
         if (!!templateID) {
             await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
         } else {
-            const res = await template_service.addNewTemplate({ ...templateData, tags, categoryId })
+            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)
@@ -240,6 +240,7 @@ const DesignTool: React.FC = () => {
                     <SaveTemplate
                         templateData={templateData}
                         handleSaveTemplate={handleSaveTemplate}
+                        closeModal={() => setIsOpenSaveTemplateModal(false)}
                     />
                 </ErrorBoundary>
             )}
