@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "d88bcd553ca13dbdc4e9";
+/******/ 	var hotCurrentHash = "fe50988aa3eec1037942";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -3619,6 +3619,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-color");
+
+/***/ }),
+
+/***/ "react-color/lib/components/common":
+/*!****************************************************!*\
+  !*** external "react-color/lib/components/common" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-color/lib/components/common");
 
 /***/ }),
 

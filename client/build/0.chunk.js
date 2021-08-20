@@ -2544,11 +2544,27 @@ const UText = ({
   isSelected,
   $tr
 }) => {
-  var _textNode$current, _textNode$current$get, _textNode$current2, _textNode$current2$ge;
+  var _textNode$current, _textNode$current$get, _textNode$current2, _textNode$current2$ge, _textNode$current3, _textNode$current3$at;
 
   const textNode = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const [newTextObj, setNewTextObj] = Object(_shrugsy_use_immer_state__WEBPACK_IMPORTED_MODULE_3__["useImmerState"])(initial_textArea);
   const textAreaRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+
+  const handleClickOutside = e => {
+    if (!textAreaRef.current.contains(e.target)) {
+      setNewTextObj(prev => {
+        prev.textEditVisible = false;
+      }); // $tr.current.visible(true)
+      // console.log("$tr.current.visible()", $tr.current.visible())
+
+      textNode.current.visible(true);
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  });
 
   const handleSelectText = () => {
     setNewTextObj(initial_textArea);
@@ -2557,7 +2573,10 @@ const UText = ({
 
   const handleTextDblClick = e => {
     // textNode.current.hide()
-    // $tr.current.hide()
+    textNode.current.visible(false); // $tr.current.detach()
+    // $tr.current.visible(false)
+    // console.log("$tr.current.visible()", $tr.current.visible())
+
     const absPos = e.target.getAbsolutePosition();
     setNewTextObj(prev => {
       prev.textEditVisible = true;
@@ -2570,16 +2589,6 @@ const UText = ({
     handleTextEdit(e.target.value);
   };
 
-  const handleTextareaKeyDown = e => {
-    if (e.keyCode === "Escape") {
-      setNewTextObj(prev => {
-        prev.textEditVisible = false;
-      }); // textNode.current.show()
-      // $tr.current.show()
-      // $tr.current.forceUpdate()
-    }
-  };
-
   const {
     fill: color,
     fontFamily,
@@ -2587,18 +2596,15 @@ const UText = ({
   } = textProps;
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Text"], _extends({
     ref: textNode,
-    draggable: true,
     onClick: handleSelectText,
     onTap: handleSelectText,
     onDblClick: e => handleTextDblClick(e),
     onDblTap: e => handleTextDblClick(e),
     onTransform: e => {
-      var _e$target$attrs;
-
       let SX = textNode.current.scaleX();
-      let W = textNode.current.width();
-      textAreaRef.current.style.transform = `rotateZ(${(_e$target$attrs = e.target.attrs) === null || _e$target$attrs === void 0 ? void 0 : _e$target$attrs.rotation}deg)`;
-      textAreaRef.current.style.transformOrigin = "50% 50%";
+      let W = textNode.current.width(); // textAreaRef.current.style.transform = `rotateZ(${e.target.attrs?.rotation}deg)`
+      // textAreaRef.current.style.transformOrigin = "50% 50%"
+
       textNode.current.setAttrs({
         // ...textNode.current.getAttrs(),
         // fontSize: isWordWrapping ? textNode.current.fontSize() : textNode.current.fontSize() * textNode.current.scaleX(),
@@ -2606,8 +2612,8 @@ const UText = ({
         scaleX: 1,
         scaleY: 1
       });
-    },
-    opacity: !(isSelected && newTextObj.textEditVisible) ? textProps === null || textProps === void 0 ? void 0 : textProps.opacity : 0 // style={{
+    } // opacity={!(isSelected && newTextObj.textEditVisible) ? textProps?.opacity : 0}
+    // style={{
     //     display:  ? "none" : "block",
     // }}
     // onTransformEnd={onChange}
@@ -2617,14 +2623,14 @@ const UText = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 64,
       columnNumber: 13
     }
   })), __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_2__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 91,
       columnNumber: 13
     }
   }, __jsx("textarea", {
@@ -2651,16 +2657,15 @@ const UText = ({
       width: (_textNode$current = textNode.current) === null || _textNode$current === void 0 ? void 0 : (_textNode$current$get = _textNode$current.getClientRect()) === null || _textNode$current$get === void 0 ? void 0 : _textNode$current$get.width,
       height: (_textNode$current2 = textNode.current) === null || _textNode$current2 === void 0 ? void 0 : (_textNode$current2$ge = _textNode$current2.getClientRect()) === null || _textNode$current2$ge === void 0 ? void 0 : _textNode$current2$ge.height,
       lineHeight: 1,
-      background: 'transparent' // transform: `rotateZ(${textNode.current?.attrs?.rotation}deg)`,
-      // transformOrigin: 'top left'
-
+      background: 'transparent',
+      transform: `rotateZ(${(_textNode$current3 = textNode.current) === null || _textNode$current3 === void 0 ? void 0 : (_textNode$current3$at = _textNode$current3.attrs) === null || _textNode$current3$at === void 0 ? void 0 : _textNode$current3$at.rotation}deg)`,
+      transformOrigin: 'top left'
     },
     onChange: handleTextChange,
-    onKeyDown: handleTextareaKeyDown,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 92,
       columnNumber: 17
     }
   })));
@@ -2710,7 +2715,7 @@ const TransformerComponent = ({
   setSelectedId,
   cardData
 }) => {
-  var _$tr$current, _$tr$current$findOne, _editIconRef$current, _editIconRef$current$, _$tr$current2, _$tr$current2$findOne, _editIconRef$current2, _editIconRef$current3;
+  var _$tr$current, _$tr$current$findOne, _editIconRef$current, _editIconRef$current$, _$tr$current2, _$tr$current2$findOne, _editIconRef$current2, _editIconRef$current3, _$tr$current3, _$tr$current3$findOne, _editIconRef$current4, _editIconRef$current5;
 
   const {
     0: isOpenFallbackModal,
@@ -2790,10 +2795,10 @@ const TransformerComponent = ({
     ref: editIconRef,
     style: {
       position: "absolute",
-      left: ((_$tr$current = $tr.current) === null || _$tr$current === void 0 ? void 0 : (_$tr$current$findOne = _$tr$current.findOne('.top-right')) === null || _$tr$current$findOne === void 0 ? void 0 : _$tr$current$findOne.position().x) - ((_editIconRef$current = editIconRef.current) === null || _editIconRef$current === void 0 ? void 0 : (_editIconRef$current$ = _editIconRef$current.getBoundingClientRect()) === null || _editIconRef$current$ === void 0 ? void 0 : _editIconRef$current$.width),
-      bottom: 5
+      left: (((_$tr$current = $tr.current) === null || _$tr$current === void 0 ? void 0 : (_$tr$current$findOne = _$tr$current.findOne('.top-right')) === null || _$tr$current$findOne === void 0 ? void 0 : _$tr$current$findOne.position().x) - ((_editIconRef$current = editIconRef.current) === null || _editIconRef$current === void 0 ? void 0 : (_editIconRef$current$ = _editIconRef$current.getBoundingClientRect()) === null || _editIconRef$current$ === void 0 ? void 0 : _editIconRef$current$.width)) / 2,
+      top: ((_$tr$current2 = $tr.current) === null || _$tr$current2 === void 0 ? void 0 : (_$tr$current2$findOne = _$tr$current2.findOne('.middle-left')) === null || _$tr$current2$findOne === void 0 ? void 0 : _$tr$current2$findOne.position().y) - ((_editIconRef$current2 = editIconRef.current) === null || _editIconRef$current2 === void 0 ? void 0 : (_editIconRef$current3 = _editIconRef$current2.getBoundingClientRect()) === null || _editIconRef$current3 === void 0 ? void 0 : _editIconRef$current3.width) / 2
     },
-    className: "rounded-full bg-white p-1",
+    className: "rounded-full bg-white p-1 border border-gray-400 ",
     onClick: handleOpenFallbackModal,
     __self: undefined,
     __source: {
@@ -2828,7 +2833,7 @@ const TransformerComponent = ({
     className: !!isOpenFallbackModal ? "" : "hidden",
     style: {
       position: "absolute",
-      left: ((_$tr$current2 = $tr.current) === null || _$tr$current2 === void 0 ? void 0 : (_$tr$current2$findOne = _$tr$current2.findOne('.top-right')) === null || _$tr$current2$findOne === void 0 ? void 0 : _$tr$current2$findOne.position().x) - ((_editIconRef$current2 = editIconRef.current) === null || _editIconRef$current2 === void 0 ? void 0 : (_editIconRef$current3 = _editIconRef$current2.getBoundingClientRect()) === null || _editIconRef$current3 === void 0 ? void 0 : _editIconRef$current3.width)
+      left: ((_$tr$current3 = $tr.current) === null || _$tr$current3 === void 0 ? void 0 : (_$tr$current3$findOne = _$tr$current3.findOne('.top-right')) === null || _$tr$current3$findOne === void 0 ? void 0 : _$tr$current3$findOne.position().x) - ((_editIconRef$current4 = editIconRef.current) === null || _editIconRef$current4 === void 0 ? void 0 : (_editIconRef$current5 = _editIconRef$current4.getBoundingClientRect()) === null || _editIconRef$current5 === void 0 ? void 0 : _editIconRef$current5.width)
     },
     __self: undefined,
     __source: {
@@ -5961,6 +5966,168 @@ const TextHeader = ({
 
 /***/ }),
 
+/***/ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/CustomReactColor.js":
+/*!****************************************************************************************************************************!*\
+  !*** ./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/CustomReactColor.js ***!
+  \****************************************************************************************************************************/
+/*! exports provided: MyPicker, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyPicker", function() { return MyPicker; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-color */ "react-color");
+/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_color__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-color/lib/components/common */ "react-color/lib/components/common");
+/* harmony import */ var react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\CustomColorPicker\\CustomReactColor.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const MyPicker = ({
+  hex,
+  hsl,
+  hsv,
+  onChange
+}) => {
+  const styles = {
+    pickerContainer: {
+      width: "100%"
+    },
+    hue: {
+      width: "100%",
+      height: 12,
+      margin: "10px 0px",
+      position: "relative"
+    },
+    saturation: {
+      width: "100%",
+      height: 150,
+      margin: "10px 0px",
+      position: "relative"
+    },
+    input: {
+      width: "100px",
+      height: 40,
+      borderRadius: 5,
+      outline: "none",
+      margin: "10px 0px",
+      border: `1px solid ${hex}`,
+      paddingLeft: 10
+    },
+    confirm: {
+      width: "100px",
+      height: 40,
+      borderRadius: 5,
+      outline: "none",
+      margin: "10px 0px"
+    }
+  };
+  return __jsx("div", {
+    style: styles.pickerContainer,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    style: styles.saturation,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 13
+    }
+  }, __jsx(react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2__["Saturation"], {
+    hsl: hsl,
+    hsv: hsv,
+    onChange: onChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 17
+    }
+  })), __jsx("div", {
+    style: styles.hue,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 13
+    }
+  }, __jsx(react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2__["Hue"], {
+    pointer: Pointer,
+    hsl: hsl,
+    onChange: onChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 17
+    }
+  })), __jsx("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 13
+    }
+  }, __jsx(react_color_lib_components_common__WEBPACK_IMPORTED_MODULE_2__["EditableInput"], {
+    style: {
+      input: styles.input
+    },
+    value: hex,
+    onChange: onChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 17
+    }
+  }), __jsx("button", {
+    style: styles.confirm,
+    className: "bg-bluish text-white",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 17
+    }
+  }, "Confirm")));
+};
+
+const Pointer = () => {
+  return __jsx("div", {
+    style: {
+      backgroundColor: "transparent",
+      border: "2px solid white",
+      boxShadow: "0px 0px 2px 1px rgba(0,0,0,0.75)",
+      borderRadius: "50%",
+      width: "12px",
+      height: "12px"
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 9
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_color__WEBPACK_IMPORTED_MODULE_1__["CustomPicker"])(MyPicker));
+
+/***/ }),
+
 /***/ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/Picker.tsx":
 /*!*******************************************************************************************************************!*\
   !*** ./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/Picker.tsx ***!
@@ -5972,12 +6139,11 @@ const TextHeader = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-color */ "react-color");
-/* harmony import */ var react_color__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_color__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _CustomReactColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CustomReactColor */ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/CustomColorPicker/CustomReactColor.js");
 var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\CustomColorPicker\\Picker.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-
+ // import { ChromePicker } from 'react-color'
 
 const Picker = ({
   color,
@@ -5987,16 +6153,19 @@ const Picker = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 12,
       columnNumber: 9
     }
-  }, __jsx(react_color__WEBPACK_IMPORTED_MODULE_1__["ChromePicker"], {
+  }, __jsx(_CustomReactColor__WEBPACK_IMPORTED_MODULE_1__["default"], {
     color: color,
     onChange: onChange,
+    hex: null,
+    hsl: null,
+    hsv: null,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 13
     }
   }));
