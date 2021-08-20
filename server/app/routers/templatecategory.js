@@ -2,10 +2,7 @@
 const express = require("express");
 
 // app imports
-const {
-  templateCategoryHandler,
-  templateCategorysHandler,
-} = require("../handlers");
+const { templateCategoryHandler } = require("../handlers");
 
 // globals
 const router = new express.Router();

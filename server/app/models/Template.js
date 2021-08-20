@@ -116,12 +116,16 @@ templateSchema.statics = {
     if (!templates.length) {
       return [];
     }
-    //Since Documents donot contain Doc ID by Default, Adding it manually
-    // const templatesWithId = templates.map((item) => {
-    //   const convertedToObject = item.toObject();
-    //   return { ...convertedToObject, id: item._id };
-    // });
-    return templates;
+
+    // Since Documents donot contain Doc ID by Default, Adding it manually
+
+    const templatesWithId = templates.map((item) => {
+      console.log({ item });
+      // Since aggregate query doesn't relate to schema, so we have to build the object to return manually
+      const { _id, __v, ...convertedToObject } = item;
+      return { ...convertedToObject, id: item._id };
+    });
+    return templatesWithId;
   },
 
   /**

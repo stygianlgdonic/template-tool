@@ -6,5 +6,5 @@ exports.templateCategoryHandler = require("./templatecategory");
 exports.cardHandler = require("./card");
 exports.signupHandler = require("./signup");
 exports.loginHandler = require("./login");
-exports.errorSetterHandler = require("./errorSetter");
 exports.dataSetterHandler = require("./dataSetter");
+exports.scheduleHandler = require("./schedule");

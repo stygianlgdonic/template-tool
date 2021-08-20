@@ -25,14 +25,15 @@ scheduleSchema.statics = {
    * @returns {Promise<Schedule, APIError>}
    */
   async createSchedule(newSchedule) {
-    const duplicate = await this.findOne({ id: newSchedule.id });
-    if (duplicate) {
-      throw new APIError(
-        409,
-        "Schedule Already Exists",
-        `There is already a schedule with id '${newSchedule.id}'.`
-      );
-    }
+    // const duplicate = await this.findOne({ id: newSchedule.id });
+    // if (duplicate) {
+    //   throw new APIError(
+    //     409,
+    //     "Schedule Already Exists",
+    //     `There is already a schedule with id '${newSchedule.id}'.`
+    //   );
+    // }
+    console.log({ newSchedule });
     const schedule = await newSchedule.save();
     return schedule.toObject();
   },
