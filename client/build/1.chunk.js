@@ -2671,17 +2671,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-query */ "react-query");
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _PersonalizedImageModal_PersonalizedImageModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../PersonalizedImageModal/PersonalizedImageModal */ "./src/components/RightSidebar/components/PersonalizedImageModal/PersonalizedImageModal.tsx");
-/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
-/* harmony import */ var _SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal */ "./src/components/RightSidebar/components/SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal.tsx");
-/* harmony import */ var _PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../PersonalizedCardSizeModal/PersonalizedCardSizeModal */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/PersonalizedCardSizeModal.tsx");
+/* harmony import */ var _PersonalizedImageModal_PersonalizedImageModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../PersonalizedImageModal/PersonalizedImageModal */ "./src/components/RightSidebar/components/PersonalizedImageModal/PersonalizedImageModal.tsx");
+/* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
+/* harmony import */ var _SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal */ "./src/components/RightSidebar/components/SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal.tsx");
+/* harmony import */ var _PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../PersonalizedCardSizeModal/PersonalizedCardSizeModal */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/PersonalizedCardSizeModal.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
 
 
 
@@ -2704,39 +2699,12 @@ const CreateEmail = ({
   bio3,
   bio4
 }) => {
-  const svg1 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["ORIGINAL_SVG_updownicon"]);
+  const svg1 = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_4__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["ORIGINAL_SVG_updownicon"]);
   const {
     0: DisplayModals,
     1: setDisplayModals
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
-  const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_5__["default"])(bio4);
-  const {
-    data,
-    error,
-    isLoading
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_3__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_6__["template_service"].getAllTemplates);
-
-  if (isLoading) {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39,
-        columnNumber: 17
-      }
-    }, "Getting all templates ..."));
-  }
-
-  if (!!error) {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 47,
-        columnNumber: 17
-      }
-    }, error.message));
-  }
+  const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_4__["default"])(bio4);
 
   const handleclosemodal = () => {
     setDisplayModals("");
@@ -2750,7 +2718,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 39,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2758,7 +2726,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 40,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2770,7 +2738,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 41,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2778,7 +2746,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 42,
       columnNumber: 21
     }
   }, __jsx("img", {
@@ -2787,7 +2755,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 43,
       columnNumber: 25
     }
   }), __jsx("h1", {
@@ -2795,7 +2763,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 45,
       columnNumber: 25
     }
   }, bio1)), __jsx("div", {
@@ -2803,7 +2771,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 47,
       columnNumber: 21
     }
   }, __jsx("p", {
@@ -2811,7 +2779,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 48,
       columnNumber: 25
     }
   }, bio2)), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -2819,7 +2787,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 52,
       columnNumber: 21
     }
   }), __jsx("button", {
@@ -2828,7 +2796,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -2840,7 +2808,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2853,7 +2821,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 55,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2865,7 +2833,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 63,
       columnNumber: 33
     }
   })), __jsx("p", {
@@ -2873,7 +2841,7 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 72,
       columnNumber: 29
     }
   }, bio3))))), __jsx("div", {
@@ -2883,16 +2851,16 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 314,
+      lineNumber: 294,
       columnNumber: 13
     }
-  }, __jsx(_PersonalizedImageModal_PersonalizedImageModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_PersonalizedImageModal_PersonalizedImageModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
     displayModalChange: HandleChangeDisplayModal,
     closeModal: handleclosemodal,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 315,
+      lineNumber: 295,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -2902,16 +2870,16 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 321,
+      lineNumber: 301,
       columnNumber: 13
     }
-  }, __jsx(_SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, __jsx(_SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
     closeModal: handleclosemodal,
     displayModalChange: HandleChangeDisplayModal,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 324,
+      lineNumber: 304,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -2921,16 +2889,16 @@ const CreateEmail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 332,
+      lineNumber: 312,
       columnNumber: 13
     }
-  }, __jsx(_PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, __jsx(_PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
     displayModalChange: HandleChangeDisplayModal,
     closeModal: handleclosemodal,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 333,
+      lineNumber: 313,
       columnNumber: 17
     }
   })));
@@ -3051,9 +3019,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../contexts/TemplateContext */ "./src/contexts/TemplateContext.tsx");
-/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../utils/defaults */ "./src/utils/defaults.ts");
-/* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
+/* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -3061,18 +3027,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
-
 const TemplatePreview = ({
-  templateObj
+  templateObj,
+  width,
+  height
 }) => {
-  var _templateObj$variatio, _templateObj$variatio2;
+  var _templateObj$dimensio, _templateObj$dimensio2, _templateObj$dimensio3, _templateObj$dimensio4, _templateObj$variatio, _templateObj$variatio2;
 
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
-  const {
-    0: templateData,
-    1: setTemplateData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_3__["TemplateContext"]);
 
   const handleSelectTemplate = () => {
     console.log({
@@ -3081,24 +3043,30 @@ const TemplatePreview = ({
     // navigate(`/createcard`)
   };
 
+  const ScaleX = templateObj !== null && templateObj !== void 0 && (_templateObj$dimensio = templateObj.dimensions) !== null && _templateObj$dimensio !== void 0 && _templateObj$dimensio.width ? width / (templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$dimensio2 = templateObj.dimensions) === null || _templateObj$dimensio2 === void 0 ? void 0 : _templateObj$dimensio2.width) : 0.2;
+  const ScaleY = templateObj !== null && templateObj !== void 0 && (_templateObj$dimensio3 = templateObj.dimensions) !== null && _templateObj$dimensio3 !== void 0 && _templateObj$dimensio3.height ? height / (templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$dimensio4 = templateObj.dimensions) === null || _templateObj$dimensio4 === void 0 ? void 0 : _templateObj$dimensio4.height) : 0.2;
   return __jsx("button", {
     onClick: handleSelectTemplate,
-    className: "border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ",
+    className: "border-2 rounded-md justify-center items-center flex flex-col ",
+    style: {
+      width,
+      height
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 26,
       columnNumber: 9
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], {
-    width: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].width * 0.2,
-    height: _utils_defaults__WEBPACK_IMPORTED_MODULE_4__["stageDimensions"].height * 0.2,
-    scaleX: 0.2,
-    scaleY: 0.2,
+    width: width,
+    height: height,
+    scaleX: Math.max(ScaleX, ScaleY),
+    scaleY: Math.max(ScaleX, ScaleY),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 31,
       columnNumber: 13
     }
   }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
@@ -3106,17 +3074,17 @@ const TemplatePreview = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 37,
       columnNumber: 17
     }
-  }, templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$variatio = templateObj.variations[0]) === null || _templateObj$variatio === void 0 ? void 0 : (_templateObj$variatio2 = _templateObj$variatio.elements) === null || _templateObj$variatio2 === void 0 ? void 0 : _templateObj$variatio2.map((item, index) => __jsx(_Elements__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, templateObj === null || templateObj === void 0 ? void 0 : (_templateObj$variatio = templateObj.variations[0]) === null || _templateObj$variatio === void 0 ? void 0 : (_templateObj$variatio2 = _templateObj$variatio.elements) === null || _templateObj$variatio2 === void 0 ? void 0 : _templateObj$variatio2.map((item, index) => __jsx(_Elements__WEBPACK_IMPORTED_MODULE_3__["default"], {
     key: index,
     konvaItem: item,
     index: index,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 41,
       columnNumber: 25
     }
   })))));
@@ -4075,18 +4043,15 @@ const image5 = __webpack_require__(/*! ../../../../assets/images/image4.png */ "
 const plusimage = __webpack_require__(/*! .././../../../assets/images/plus.png */ "./src/assets/images/plus.png");
 
 
-
+ // import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
 
 const SelectSocialMediaTemplateModal = ({
   closeModal,
   displayModalChange
 }) => {
-  const [showModal, setShowModal] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
   const [ShowToolTip, setShowToolTip] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false);
-  const myRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const {
-    data,
-    error,
+    data: response,
     isLoading
   } = Object(react_query__WEBPACK_IMPORTED_MODULE_1__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_3__["template_service"].getAllTemplates);
 
@@ -4095,40 +4060,30 @@ const SelectSocialMediaTemplateModal = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 28,
         columnNumber: 17
       }
     }, "Getting all templates ..."));
   }
 
-  if (!!error) {
+  if (!!response.error) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 36,
         columnNumber: 17
       }
-    }, error.message));
+    }, response.error.message));
   }
 
-  const handleClickOutside = e => {
-    if (!myRef.current.contains(e.target)) {
-      closeModal();
-    }
-  };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  });
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     // ref={myRef}
     className: "fixed z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none inset-1 focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 43,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -4140,7 +4095,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 46,
       columnNumber: 17
     }
   }, " ", __jsx("div", {
@@ -4148,7 +4103,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 51,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -4156,7 +4111,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 52,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4164,7 +4119,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 53,
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -4172,7 +4127,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 54,
       columnNumber: 33
     }
   }, __jsx("svg", {
@@ -4184,7 +4139,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 57,
       columnNumber: 37
     }
   }, __jsx("path", {
@@ -4196,7 +4151,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 64,
       columnNumber: 41
     }
   })))), __jsx("div", {
@@ -4204,14 +4159,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 82,
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 83,
       columnNumber: 33
     }
   }, __jsx("h3", {
@@ -4219,7 +4174,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 84,
       columnNumber: 37
     }
   }, "Select Template")), __jsx("div", {
@@ -4227,7 +4182,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 88,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -4235,7 +4190,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 89,
       columnNumber: 37
     }
   }, __jsx("select", {
@@ -4243,7 +4198,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 90,
       columnNumber: 41
     }
   }, __jsx("option", {
@@ -4251,14 +4206,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 91,
       columnNumber: 45
     }
   }, "Social media"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 92,
       columnNumber: 45
     }
   }, "Email")))))), __jsx("div", {
@@ -4266,7 +4221,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
+      lineNumber: 98,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4274,14 +4229,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 99,
       columnNumber: 29
     }
   }, __jsx(_layouts_LoggedInLayout_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 100,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -4289,7 +4244,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 103,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -4297,7 +4252,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 104,
       columnNumber: 29
     }
   }, "Employee"), __jsx("button", {
@@ -4305,7 +4260,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125,
+      lineNumber: 107,
       columnNumber: 29
     }
   }, "Events"), __jsx("button", {
@@ -4313,7 +4268,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 110,
       columnNumber: 29
     }
   }, "Promotion"), __jsx("button", {
@@ -4321,7 +4276,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 113,
       columnNumber: 29
     }
   }, "Property")), __jsx("div", {
@@ -4329,14 +4284,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 117,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 118,
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4344,7 +4299,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 119,
       columnNumber: 33
     }
   }, "Your Designs")), __jsx("div", {
@@ -4352,7 +4307,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 123,
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -4360,7 +4315,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 124,
       columnNumber: 33
     }
   }, "See all"))), __jsx("div", {
@@ -4368,7 +4323,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
+      lineNumber: 128,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4376,15 +4331,15 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 129,
       columnNumber: 29
     }
   }, __jsx("div", {
-    className: "h-28",
+    className: "flex flex-row flex-wrap gap-4 pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 130,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4393,7 +4348,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149,
+      lineNumber: 131,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4403,7 +4358,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153,
+      lineNumber: 135,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4411,7 +4366,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 136,
       columnNumber: 41
     }
   }, "Create New Personalized Template"), __jsx("div", {
@@ -4420,7 +4375,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 140,
       columnNumber: 41
     }
   }, __jsx("button", {
@@ -4428,7 +4383,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162,
+      lineNumber: 144,
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4441,7 +4396,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 165,
+      lineNumber: 147,
       columnNumber: 49
     }
   }, __jsx("path", {
@@ -4452,7 +4407,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173,
+      lineNumber: 155,
       columnNumber: 53
     }
   }))), ShowToolTip ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -4460,7 +4415,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 183,
+      lineNumber: 165,
       columnNumber: 53
     }
   }, __jsx("span", {
@@ -4468,7 +4423,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 184,
+      lineNumber: 166,
       columnNumber: 57
     }
   }, "You can create a template from scratch by adding images and elements from our vast library. Once you create a tamplate you can reuse it again for multiple campaigns", __jsx("div", {
@@ -4476,14 +4431,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 168,
       columnNumber: 61
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 187,
+      lineNumber: 169,
       columnNumber: 65
     }
   }, "Got it"))), __jsx("div", {
@@ -4494,55 +4449,59 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 190,
+      lineNumber: 172,
       columnNumber: 57
     }
-  }))) : null))), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 204,
-      columnNumber: 33
-    }
-  }, __jsx("div", {
-    className: "flex flex-row flex-wrap gap-4 pl-2",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 205,
-      columnNumber: 37
-    }
-  }, data.map((item, index) => {
-    return __jsx("div", {
+  }))) : null)), response.data.map((item, index) => {
+    return __jsx("button", {
       key: index,
+      className: "flex flex-col items-center justify-center rounded-md border-bordercolor",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 208,
+        lineNumber: 186,
+        columnNumber: 45
+      }
+    }, __jsx("div", {
+      className: "rounded-md bg-yellow",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 187,
         columnNumber: 49
       }
     }, __jsx(_CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
       templateObj: item,
+      width: 200,
+      height: 110,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 209,
+        lineNumber: 188,
         columnNumber: 53
       }
-    }));
-  }))))), __jsx("div", {
+    })), __jsx("p", {
+      className: "mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 194,
+        columnNumber: 49
+      }
+    }, item.name || "untitled"));
+  })))), __jsx("div", {
     className: "flex justify-between w-full px-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 217,
+      lineNumber: 203,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 218,
+      lineNumber: 204,
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4550,7 +4509,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 219,
+      lineNumber: 205,
       columnNumber: 33
     }
   }, "For you")), __jsx("div", {
@@ -4558,7 +4517,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 223,
+      lineNumber: 209,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4566,7 +4525,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 224,
+      lineNumber: 210,
       columnNumber: 33
     }
   }, __jsx("select", {
@@ -4574,7 +4533,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 225,
+      lineNumber: 211,
       columnNumber: 37
     }
   }, __jsx("option", {
@@ -4582,14 +4541,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 226,
+      lineNumber: 212,
       columnNumber: 41
     }
   }, "Most popular"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227,
+      lineNumber: 213,
       columnNumber: 41
     }
   }, "Great Option"))), __jsx("div", {
@@ -4597,7 +4556,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 216,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4605,7 +4564,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 231,
+      lineNumber: 217,
       columnNumber: 37
     }
   }, "See all")))), __jsx("div", {
@@ -4613,7 +4572,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 236,
+      lineNumber: 222,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4621,14 +4580,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237,
+      lineNumber: 223,
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 238,
+      lineNumber: 224,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4636,7 +4595,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 225,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4647,7 +4606,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 240,
+      lineNumber: 226,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4655,14 +4614,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 246,
+      lineNumber: 232,
       columnNumber: 41
     }
   }, "Warm welcome to employees"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 251,
+      lineNumber: 237,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4670,7 +4629,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 252,
+      lineNumber: 238,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4681,7 +4640,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 239,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4689,14 +4648,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 259,
+      lineNumber: 245,
       columnNumber: 41
     }
   }, "Card design"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 264,
+      lineNumber: 250,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4704,7 +4663,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 265,
+      lineNumber: 251,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4715,7 +4674,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266,
+      lineNumber: 252,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4723,14 +4682,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 272,
+      lineNumber: 258,
       columnNumber: 41
     }
   }, "Warm welcome to employees                                                            "))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 276,
+      lineNumber: 262,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4738,7 +4697,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 277,
+      lineNumber: 263,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4749,7 +4708,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 278,
+      lineNumber: 264,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4757,7 +4716,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 284,
+      lineNumber: 270,
       columnNumber: 41
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -4765,7 +4724,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 294,
+      lineNumber: 280,
       columnNumber: 13
     }
   }));
@@ -5517,12 +5476,13 @@ const Dashboard = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "template_service", function() { return template_service; });
+const secret_token = window.localStorage.getItem("Token");
 const URL_ENDPOINTS = {
-  getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
-  getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
-  updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
+  getAllTemplatesURL: "https://hyper-engage-staging.herokuapp.com/template",
+  getTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+  createTemplateURL: "https://hyper-engage-staging.herokuapp.com/template",
+  updateTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+  deleteTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template"
 };
 const template_service = {
   getAllTemplates,
@@ -5533,7 +5493,7 @@ const template_service = {
 };
 
 async function getAllTemplates() {
-  const response = await fetch(URL_ENDPOINTS.getAllTemplatesURL);
+  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Templates");
@@ -5543,7 +5503,7 @@ async function getAllTemplates() {
 }
 
 async function addNewTemplate(templateData) {
-  const response = await fetch(URL_ENDPOINTS.createTemplateURL, {
+  const response = await fetch(`${URL_ENDPOINTS.createTemplateURL}?secret_token=${secret_token}`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -5559,7 +5519,7 @@ async function addNewTemplate(templateData) {
 }
 
 async function getTemplateByID(templateID) {
-  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`);
+  const response = await fetch(`${URL_ENDPOINTS.getTemplateByIdURL}/${templateID}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Templates");
@@ -5573,7 +5533,7 @@ async function updateTemplateByID(templateID, templateData) {
     JSON: JSON.stringify(templateData),
     templateData
   });
-  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json'
@@ -5592,7 +5552,7 @@ async function updateTemplateByID(templateID, templateData) {
 }
 
 async function deleteTemplateByID(templateID) {
-  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "DELETE"
   });
   console.log({

@@ -7,25 +7,32 @@ import Elements from '../Elements'
 
 interface Props {
     templateObj: any
+    width: number
+    height: number
 }
 
-const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
+const TemplatePreview: React.FC<Props> = ({ templateObj, width, height }) => {
     const navigate = useNavigate()
-    const [templateData, setTemplateData] = useContext(TemplateContext)
     const handleSelectTemplate = () => {
         console.log({ templateObj })
         // setTemplateData(templateObj, false)
         // navigate(`/createcard`)
     }
+
+    const ScaleX = templateObj?.dimensions?.width ? (width / templateObj?.dimensions?.width) : 0.2
+    const ScaleY = templateObj?.dimensions?.height ? (height / templateObj?.dimensions?.height) : 0.2
+
     return (
         <button
             onClick={handleSelectTemplate}
-            className="border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ">
+            className="border-2 rounded-md justify-center items-center flex flex-col "
+            style={{ width, height }}
+        >
             <Stage
-                width={stageDimensions.width * 0.2}
-                height={stageDimensions.height * 0.2}
-                scaleX={0.2}
-                scaleY={0.2}
+                width={width}
+                height={height}
+                scaleX={Math.max(ScaleX, ScaleY)}
+                scaleY={Math.max(ScaleX, ScaleY)}
             >
                 <Layer
                     listening={false}

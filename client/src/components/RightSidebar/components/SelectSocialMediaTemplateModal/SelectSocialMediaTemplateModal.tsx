@@ -10,16 +10,14 @@ const image5 = require("../../../../assets/images/image4.png");
 const plusimage = require(".././../../../assets/images/plus.png");
 import { template_service } from "../../../../services/templateService";
 import TemplatePreview from "../CreateEmail/TemplatePreview";
-import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
+// import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
 interface Prop {
     closeModal: () => void
     displayModalChange: any
 }
 const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayModalChange }): JSX.Element => {
-    const [showModal, setShowModal] = React.useState(false);
     const [ShowToolTip, setShowToolTip] = React.useState(false);
-    const myRef = useRef(null);
-    const { data, error, isLoading } = useQuery<any, Error>(
+    const { data: response, isLoading } = useQuery<any, Error>(
         "templates",
         template_service.getAllTemplates
     );
@@ -32,29 +30,13 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
         );
     }
 
-    if (!!error) {
+    if (!!response.error) {
         return (
             <>
-                <p>{error.message}</p>
+                <p>{response.error.message}</p>
             </>
         );
     }
-
-
-
-
-
-    const handleClickOutside = (e) => {
-        if (!myRef.current.contains(e.target)) {
-            closeModal();
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-        return () =>
-            document.removeEventListener("mousedown", handleClickOutside);
-    });
 
     return (
         <>
@@ -145,7 +127,7 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                         </div>
                         <div className="relative flex-auto p-6">
                             <div className="flex flex-row gap-4 ">
-                                <div className="h-28">
+                                <div className="flex flex-row flex-wrap gap-4 pl-2">
                                     <button
                                         onClick={() => displayModalChange("CardSize")}
                                         className="flex flex-col items-center justify-center py-3 border-2 border-dashed rounded-md w-52 border-bordercolor"
@@ -199,18 +181,22 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         {/* tool tip end */}
 
                                     </button>
-                                </div>
-
-                                <div>
-                                    <div className="flex flex-row flex-wrap gap-4 pl-2">
-                                        {data.map((item, index) => {
-                                            return (
-                                                <div key={index}>
-                                                    <TemplatePreview templateObj={item} />
+                                    {response.data.map((item, index) => {
+                                        return (
+                                            <button key={index} className="flex flex-col items-center justify-center rounded-md border-bordercolor">
+                                                <div className="rounded-md bg-yellow">
+                                                    <TemplatePreview
+                                                        templateObj={item}
+                                                        width={200}
+                                                        height={110}
+                                                    />
                                                 </div>
-                                            );
-                                        })}
-                                    </div>
+                                                <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
+                                                    {item.name || "untitled"}
+                                                </p>
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>
