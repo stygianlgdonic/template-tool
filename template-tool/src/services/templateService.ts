@@ -2,7 +2,7 @@ const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6I
 const URL_ENDPOINTS = {
     getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
     getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-    createTemplateURL: `https://polar-tor-04971.herokuapp.com/template?secret_token=${secret_token}`,
+    createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
     updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
     deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 }
@@ -16,7 +16,7 @@ export const template_service = {
 }
 
 async function getAllTemplates() {
-    const response = await fetch(URL_ENDPOINTS.getAllTemplatesURL)
+    const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Templates")
     }
@@ -24,7 +24,7 @@ async function getAllTemplates() {
 }
 
 async function addNewTemplate(templateData: any) {
-    const response = await fetch(URL_ENDPOINTS.createTemplateURL, {
+    const response = await fetch(`${URL_ENDPOINTS.createTemplateURL}?secret_token=${secret_token}`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ async function addNewTemplate(templateData: any) {
 async function getTemplateByID(templateID: string | undefined) {
     if (!templateID) return
 
-    const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`)
+    const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Template")
     }
@@ -52,7 +52,7 @@ async function updateTemplateByID(templateID: string, templateData: any) {
 
     console.log({ JSON: JSON.stringify(templateData), templateData })
 
-    const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ async function updateTemplateByID(templateID: string, templateData: any) {
 }
 
 async function deleteTemplateByID(templateID: string) {
-    const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
         method: "DELETE",
     })
     console.log({ response })

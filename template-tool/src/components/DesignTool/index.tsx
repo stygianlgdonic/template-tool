@@ -164,12 +164,12 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = async (tags: string[], categoryId: string) => {
-        console.log({ LOL: JSON.stringify({ ...templateData, tags, categoryId }) })
+    const handleSaveTemplate = async (name: string, tags: string[], categoryId: string) => {
+        console.log({ LOL: JSON.stringify({ ...templateData, name, tags, categoryId }) })
         if (!!templateID) {
-            await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
+            await template_service.updateTemplateByID(templateID, { ...templateData, name, tags, categoryId })
         } else {
-            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
+            await template_service.addNewTemplate({ ...templateData, name, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)

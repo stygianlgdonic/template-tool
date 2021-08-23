@@ -2417,9 +2417,10 @@ const DesignTool = () => {
     setIsOpenSaveTemplateModal(true);
   };
 
-  const handleSaveTemplate = async (tags, categoryId) => {
+  const handleSaveTemplate = async (name, tags, categoryId) => {
     console.log({
       LOL: JSON.stringify(_objectSpread(_objectSpread({}, templateData), {}, {
+        name,
         tags,
         categoryId
       }))
@@ -2427,11 +2428,13 @@ const DesignTool = () => {
 
     if (!!templateID) {
       await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].updateTemplateByID(templateID, _objectSpread(_objectSpread({}, templateData), {}, {
+        name,
         tags,
         categoryId
       }));
     } else {
       await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].addNewTemplate(_objectSpread(_objectSpread({}, templateData), {}, {
+        name,
         tags,
         categoryId
       }));
@@ -3466,6 +3469,10 @@ const SaveTemplate = ({
   closeModal
 }) => {
   const {
+    0: name,
+    1: setName
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
     0: tagsList,
     1: setTagsList
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
@@ -3543,8 +3550,7 @@ const SaveTemplate = ({
   };
 
   const onSubmit = () => {
-    console.log("saving");
-    handleSaveTemplate(tagsList, selectedCategory === null || selectedCategory === void 0 ? void 0 : selectedCategory.id);
+    handleSaveTemplate(name, tagsList, selectedCategory === null || selectedCategory === void 0 ? void 0 : selectedCategory.id);
   };
 
   return __jsx("div", {
@@ -3615,7 +3621,17 @@ const SaveTemplate = ({
       lineNumber: 96,
       columnNumber: 29
     }
-  }, __jsx(_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx("input", {
+    value: name,
+    onChange: e => setName(e.target.value),
+    className: "relative  border border-grey appearance-none rounded w-full p-2 mt-0 focus:outline-none cursor-text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 33
+    }
+  }), __jsx(_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "Enter Tag",
     id: "tagName",
     name: "tagName",
@@ -3629,7 +3645,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 102,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -3637,7 +3653,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 114,
       columnNumber: 33
     }
   }, tagsList.map((item, index) => __jsx("div", {
@@ -3646,14 +3662,14 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 116,
       columnNumber: 41
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 117,
       columnNumber: 45
     }
   }, item), __jsx("img", {
@@ -3664,7 +3680,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 118,
       columnNumber: 45
     }
   })))), __jsx("div", {
@@ -3672,7 +3688,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 128,
       columnNumber: 33
     }
   }, __jsx(_CustomSelect__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -3683,7 +3699,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 129,
       columnNumber: 37
     }
   }))))), __jsx("div", {
@@ -3691,7 +3707,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 141,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3699,7 +3715,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 142,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3719,7 +3735,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 143,
       columnNumber: 29
     }
   }, "Close")), __jsx("div", {
@@ -3727,7 +3743,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 159,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3747,7 +3763,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155,
+      lineNumber: 160,
       columnNumber: 29
     }
   }, "Save Template"))))));
@@ -4900,7 +4916,7 @@ const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6I
 const URL_ENDPOINTS = {
   getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
   getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: `https://polar-tor-04971.herokuapp.com/template?secret_token=${secret_token}`,
+  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
   updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
   deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 };
@@ -4913,7 +4929,7 @@ const template_service = {
 };
 
 async function getAllTemplates() {
-  const response = await fetch(URL_ENDPOINTS.getAllTemplatesURL);
+  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Templates");
@@ -4923,7 +4939,7 @@ async function getAllTemplates() {
 }
 
 async function addNewTemplate(templateData) {
-  const response = await fetch(URL_ENDPOINTS.createTemplateURL, {
+  const response = await fetch(`${URL_ENDPOINTS.createTemplateURL}?secret_token=${secret_token}`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -4943,7 +4959,7 @@ async function addNewTemplate(templateData) {
 
 async function getTemplateByID(templateID) {
   if (!templateID) return;
-  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`);
+  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Template");
@@ -4957,7 +4973,7 @@ async function updateTemplateByID(templateID, templateData) {
     JSON: JSON.stringify(templateData),
     templateData
   });
-  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json'
@@ -4976,7 +4992,7 @@ async function updateTemplateByID(templateID, templateData) {
 }
 
 async function deleteTemplateByID(templateID) {
-  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "DELETE"
   });
   console.log({

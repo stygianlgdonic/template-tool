@@ -976,6 +976,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const TemplateList = () => {
+  var _templateList$data;
+
   const {
     templateList,
     error: templateError,
@@ -1002,7 +1004,7 @@ const TemplateList = () => {
     }, "Getting all templates ..."));
   }
 
-  if (!!templateError) {
+  if (!!templateList.error) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
@@ -1010,7 +1012,7 @@ const TemplateList = () => {
         lineNumber: 28,
         columnNumber: 17
       }
-    }, templateError.message));
+    }, templateList.error.message));
   }
 
   return __jsx("div", {
@@ -1157,7 +1159,7 @@ const TemplateList = () => {
       lineNumber: 85,
       columnNumber: 21
     }
-  }, templateList === null || templateList === void 0 ? void 0 : templateList.map((item, index) => {
+  }, (_templateList$data = templateList.data) === null || _templateList$data === void 0 ? void 0 : _templateList$data.map((item, index) => {
     if (!!categoryFilter) {
       if (item.categoryId === categoryFilter.id) {
         return __jsx("div", {
@@ -1660,7 +1662,7 @@ const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6I
 const URL_ENDPOINTS = {
   getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
   getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: `https://polar-tor-04971.herokuapp.com/template?secret_token=${secret_token}`,
+  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
   updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
   deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
 };
@@ -1673,7 +1675,7 @@ const template_service = {
 };
 
 async function getAllTemplates() {
-  const response = await fetch(URL_ENDPOINTS.getAllTemplatesURL);
+  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Templates");
@@ -1683,7 +1685,7 @@ async function getAllTemplates() {
 }
 
 async function addNewTemplate(templateData) {
-  const response = await fetch(URL_ENDPOINTS.createTemplateURL, {
+  const response = await fetch(`${URL_ENDPOINTS.createTemplateURL}?secret_token=${secret_token}`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -1703,7 +1705,7 @@ async function addNewTemplate(templateData) {
 
 async function getTemplateByID(templateID) {
   if (!templateID) return;
-  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}`);
+  const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}/${templateID}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Template");
@@ -1717,7 +1719,7 @@ async function updateTemplateByID(templateID, templateData) {
     JSON: JSON.stringify(templateData),
     templateData
   });
-  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.updateTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json'
@@ -1736,7 +1738,7 @@ async function updateTemplateByID(templateID, templateData) {
 }
 
 async function deleteTemplateByID(templateID) {
-  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.deleteTemplateByIdURL}/${templateID}?secret_token=${secret_token}`, {
     method: "DELETE"
   });
   console.log({
