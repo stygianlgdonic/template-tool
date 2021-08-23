@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import useCategoryList from "../../../../Hooks/useCategoryList";
 import useTemplateList from "../../../../Hooks/useTemplateList";
 import SearchBar from "../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
+import { template_service } from "../../../../services/templateService";
 // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
 const image1 = require("./../../../../assets/images/01.png");
 const image2 = require("../../../../assets/images/02.png");
@@ -20,6 +21,11 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
     const [ShowToolTip, setShowToolTip] = React.useState(false);
     const { templateList, templateListLoading } = useTemplateList()
     const { categoryList, categoryListLoading } = useCategoryList()
+    console.log(template_service.getAllTemplatesByTags(["red", "black"]).then(
+        (res) => {
+            console.log(res)
+        }
+    ))
 
     return (
         <>

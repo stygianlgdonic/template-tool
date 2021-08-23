@@ -293,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Centerboard_components_StatsCardinfo_StatCardinfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../Centerboard/components/StatsCardinfo/StatCardinfo */ "./src/components/Centerboard/components/StatsCardinfo/StatCardinfo.tsx");
 /* harmony import */ var _Centerboard_components_ImagesInfo_ImagesInfo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../Centerboard/components/ImagesInfo/ImagesInfo */ "./src/components/Centerboard/components/ImagesInfo/ImagesInfo.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\Centerboard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -474,7 +474,7 @@ const Centerboard = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\HomeCard\\HomeCard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -579,7 +579,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../../utils/defaults */ "./src/utils/defaults.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImageStat\\ImageStat.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -771,7 +771,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ImageStat_ImageStat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageStat/ImageStat */ "./src/components/Centerboard/components/ImagesInfo/ImageStat/ImageStat.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\ImagesInfo\\ImagesInfo.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -900,7 +900,7 @@ const ImagesInfo = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\RecentActivity\\RecentActivity.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1675,7 +1675,7 @@ const RecentActivity = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatCard\\StatCard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1856,7 +1856,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_solid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/react/outline */ "@heroicons/react/outline");
 /* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_heroicons_react_outline__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\Centerboard\\components\\StatsCardinfo\\StatCardinfo.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -2063,7 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/auth_service */ "./src/services/auth_service.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\LeftSideBar\\LeftSidebar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2562,7 +2562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_StatGraph_StatGraph__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/StatGraph/StatGraph */ "./src/components/RightSidebar/components/StatGraph/StatGraph.tsx");
 /* harmony import */ var _components_SocialStats_SocialStats__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SocialStats/SocialStats */ "./src/components/RightSidebar/components/SocialStats/SocialStats.tsx");
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\RightSidebar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2739,7 +2739,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
 /* harmony import */ var _SelectSocialMediaTemplateModal_SelectSocialMediaTemplateModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal */ "./src/components/RightSidebar/components/SelectSocialMediaTemplateModal/SelectSocialMediaTemplateModal.tsx");
 /* harmony import */ var _PersonalizedCardSizeModal_PersonalizedCardSizeModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../PersonalizedCardSizeModal/PersonalizedCardSizeModal */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/PersonalizedCardSizeModal.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\CreateEmail.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2985,7 +2985,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-konva */ "react-konva");
 /* harmony import */ var react_konva__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_konva__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\Elements\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -3085,7 +3085,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Elements */ "./src/components/RightSidebar/components/CreateEmail/Elements/index.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\CreateEmail\\TemplatePreview\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3178,7 +3178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\ImagePreview\\ImagePreview.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3485,7 +3485,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
 /* harmony import */ var _MockData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MockData */ "./src/components/RightSidebar/components/PersonalizedCardSizeModal/MockData.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedCardSizeModal\\PersonalizedCardSizeModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -3794,7 +3794,7 @@ const SelectSocialMediaTemplateModal = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\PersonalizedImageModal\\PersonalizedImageModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // import SearchBar from "../../../../Screens/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 
@@ -4093,9 +4093,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Hooks/useCategoryList */ "./src/Hooks/useCategoryList.ts");
 /* harmony import */ var _Hooks_useTemplateList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../Hooks/useTemplateList */ "./src/Hooks/useTemplateList.ts");
 /* harmony import */ var _layouts_LoggedInLayout_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar */ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar.tsx");
-/* harmony import */ var _CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CreateEmail/TemplatePreview */ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
+/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var _CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../CreateEmail/TemplatePreview */ "./src/components/RightSidebar/components/CreateEmail/TemplatePreview/index.tsx");
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SelectSocialMediaTemplateModal\\SelectSocialMediaTemplateModal.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -4130,13 +4132,16 @@ const SelectSocialMediaTemplateModal = ({
     categoryList,
     categoryListLoading
   } = Object(_Hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  console.log(_services_templateService__WEBPACK_IMPORTED_MODULE_4__["template_service"].getAllTemplatesByTags(["red", "black"]).then(res => {
+    console.log(res);
+  }));
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
     // ref={myRef}
     className: "fixed z-50 flex items-center justify-center h-full overflow-x-hidden overflow-y-scroll outline-none inset-1 focus:outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -4148,7 +4153,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 35,
       columnNumber: 17
     }
   }, " ", __jsx("div", {
@@ -4156,7 +4161,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 40,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -4164,7 +4169,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 41,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4172,7 +4177,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 42,
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -4180,7 +4185,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 43,
       columnNumber: 33
     }
   }, __jsx("svg", {
@@ -4192,7 +4197,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 46,
       columnNumber: 37
     }
   }, __jsx("path", {
@@ -4204,7 +4209,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 53,
       columnNumber: 41
     }
   })))), __jsx("div", {
@@ -4212,14 +4217,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 63,
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 64,
       columnNumber: 33
     }
   }, __jsx("h3", {
@@ -4227,7 +4232,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 65,
       columnNumber: 37
     }
   }, "Select Template")), __jsx("div", {
@@ -4235,7 +4240,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 69,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -4243,7 +4248,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 70,
       columnNumber: 37
     }
   }, __jsx("select", {
@@ -4251,7 +4256,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 71,
       columnNumber: 41
     }
   }, __jsx("option", {
@@ -4259,14 +4264,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 72,
       columnNumber: 45
     }
   }, "Social media"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 73,
       columnNumber: 45
     }
   }, "Email")))))), __jsx("div", {
@@ -4274,7 +4279,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 79,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4282,14 +4287,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 80,
       columnNumber: 29
     }
   }, __jsx(_layouts_LoggedInLayout_CreateCardLayout_components_DesignTool_Components_SubNavBar_components_ElementSelector_components_SearchBar_SearchBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 81,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -4297,7 +4302,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 84,
       columnNumber: 25
     }
   }, __jsx("p", {
@@ -4305,7 +4310,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 86,
       columnNumber: 29
     }
   }, "Loading categories ..."), __jsx("p", {
@@ -4313,7 +4318,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 87,
       columnNumber: 29
     }
   }, categoryList === null || categoryList === void 0 ? void 0 : (_categoryList$error = categoryList.error) === null || _categoryList$error === void 0 ? void 0 : _categoryList$error.message), categoryList === null || categoryList === void 0 ? void 0 : (_categoryList$data = categoryList.data) === null || _categoryList$data === void 0 ? void 0 : _categoryList$data.map(item => __jsx("button", {
@@ -4322,7 +4327,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 89,
       columnNumber: 33
     }
   }, item.name))), __jsx("div", {
@@ -4330,14 +4335,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 95,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 96,
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4345,7 +4350,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 97,
       columnNumber: 33
     }
   }, "Your Designs")), __jsx("div", {
@@ -4353,7 +4358,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 101,
       columnNumber: 29
     }
   }, __jsx("button", {
@@ -4361,7 +4366,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 102,
       columnNumber: 33
     }
   }, "See all"))), __jsx("div", {
@@ -4369,7 +4374,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 106,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4377,7 +4382,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 107,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4385,7 +4390,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 108,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4394,7 +4399,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 109,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4404,7 +4409,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 113,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4412,7 +4417,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 114,
       columnNumber: 41
     }
   }, "Create New Personalized Template"), __jsx("div", {
@@ -4421,7 +4426,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 118,
       columnNumber: 41
     }
   }, __jsx("button", {
@@ -4429,7 +4434,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
+      lineNumber: 122,
       columnNumber: 45
     }
   }, __jsx("svg", {
@@ -4442,7 +4447,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
+      lineNumber: 125,
       columnNumber: 49
     }
   }, __jsx("path", {
@@ -4453,7 +4458,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 133,
       columnNumber: 53
     }
   }))), ShowToolTip ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -4461,7 +4466,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 143,
       columnNumber: 53
     }
   }, __jsx("span", {
@@ -4469,7 +4474,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 144,
       columnNumber: 57
     }
   }, "You can create a template from scratch by adding images and elements from our vast library. Once you create a tamplate you can reuse it again for multiple campaigns", __jsx("div", {
@@ -4477,14 +4482,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 146,
       columnNumber: 61
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 147,
       columnNumber: 65
     }
   }, "Got it"))), __jsx("div", {
@@ -4495,7 +4500,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
+      lineNumber: 150,
       columnNumber: 57
     }
   }))) : null)), __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
@@ -4503,7 +4508,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 164,
       columnNumber: 41
     }
   }, "Loading templates ... "), __jsx("p", {
@@ -4511,7 +4516,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 165,
       columnNumber: 41
     }
   }, templateList === null || templateList === void 0 ? void 0 : (_templateList$error = templateList.error) === null || _templateList$error === void 0 ? void 0 : _templateList$error.message), templateList === null || templateList === void 0 ? void 0 : (_templateList$data = templateList.data) === null || _templateList$data === void 0 ? void 0 : _templateList$data.map((item, index) => {
@@ -4521,7 +4526,7 @@ const SelectSocialMediaTemplateModal = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162,
+        lineNumber: 168,
         columnNumber: 49
       }
     }, __jsx("div", {
@@ -4529,17 +4534,17 @@ const SelectSocialMediaTemplateModal = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 163,
+        lineNumber: 169,
         columnNumber: 53
       }
-    }, __jsx(_CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, __jsx(_CreateEmail_TemplatePreview__WEBPACK_IMPORTED_MODULE_5__["default"], {
       templateObj: item,
       width: 200,
       height: 110,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 164,
+        lineNumber: 170,
         columnNumber: 57
       }
     })), __jsx("p", {
@@ -4547,7 +4552,7 @@ const SelectSocialMediaTemplateModal = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 170,
+        lineNumber: 176,
         columnNumber: 53
       }
     }, item.name || "untitled"));
@@ -4556,14 +4561,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 180,
+      lineNumber: 186,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181,
+      lineNumber: 187,
       columnNumber: 29
     }
   }, __jsx("h1", {
@@ -4571,7 +4576,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 182,
+      lineNumber: 188,
       columnNumber: 33
     }
   }, "For you")), __jsx("div", {
@@ -4579,7 +4584,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186,
+      lineNumber: 192,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -4587,7 +4592,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 187,
+      lineNumber: 193,
       columnNumber: 33
     }
   }, __jsx("select", {
@@ -4595,7 +4600,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 188,
+      lineNumber: 194,
       columnNumber: 37
     }
   }, __jsx("option", {
@@ -4603,14 +4608,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 189,
+      lineNumber: 195,
       columnNumber: 41
     }
   }, "Most popular"), __jsx("option", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 190,
+      lineNumber: 196,
       columnNumber: 41
     }
   }, "Great Option"))), __jsx("div", {
@@ -4618,7 +4623,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193,
+      lineNumber: 199,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4626,7 +4631,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 200,
       columnNumber: 37
     }
   }, "See all")))), __jsx("div", {
@@ -4634,7 +4639,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 199,
+      lineNumber: 205,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -4642,14 +4647,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 200,
+      lineNumber: 206,
       columnNumber: 29
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 201,
+      lineNumber: 207,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4657,7 +4662,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202,
+      lineNumber: 208,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4668,7 +4673,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 203,
+      lineNumber: 209,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4676,14 +4681,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209,
+      lineNumber: 215,
       columnNumber: 41
     }
   }, "Warm welcome to employees"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 220,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4691,7 +4696,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215,
+      lineNumber: 221,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4702,7 +4707,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 222,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4710,14 +4715,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 222,
+      lineNumber: 228,
       columnNumber: 41
     }
   }, "Card design"))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227,
+      lineNumber: 233,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4725,7 +4730,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 228,
+      lineNumber: 234,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4736,7 +4741,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 229,
+      lineNumber: 235,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4744,14 +4749,14 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235,
+      lineNumber: 241,
       columnNumber: 41
     }
   }, "Warm welcome to employees                                                            "))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 245,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -4759,7 +4764,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 240,
+      lineNumber: 246,
       columnNumber: 37
     }
   }, __jsx("img", {
@@ -4770,7 +4775,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 241,
+      lineNumber: 247,
       columnNumber: 41
     }
   }), __jsx("p", {
@@ -4778,7 +4783,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 247,
+      lineNumber: 253,
       columnNumber: 41
     }
   }, "Warm welcome to employees")))))))), __jsx("div", {
@@ -4786,7 +4791,7 @@ const SelectSocialMediaTemplateModal = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257,
+      lineNumber: 263,
       columnNumber: 13
     }
   }));
@@ -4809,7 +4814,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\SocialStats\\SocialStats.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5018,7 +5023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../utils/defaults */ "./src/utils/defaults.ts");
 /* harmony import */ var _utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../utils/generatesvgUrl */ "./src/utils/generatesvgUrl.ts");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\components\\RightSidebar\\components\\StatGraph\\StatGraph.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5303,7 +5308,7 @@ const StatGraph = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\SubNavBar\\components\\ElementSelector\\components\\SearchBar\\SearchBar.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5445,7 +5450,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Centerboard_Centerboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Centerboard/Centerboard */ "./src/components/Centerboard/Centerboard.tsx");
-var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\Dashboard\\Dashboard.tsx";
+var _jsxFileName = "D:\\Hyper Engage Backend\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\Dashboard\\Dashboard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -5643,6 +5648,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "template_service", function() { return template_service; });
 const secret_token = window.localStorage.getItem("Token");
 const URL_ENDPOINTS = {
+  tempurl: "http://localhost:5000/template",
   getAllTemplatesURL: "https://hyper-engage-staging.herokuapp.com/template",
   getTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
   createTemplateURL: "https://hyper-engage-staging.herokuapp.com/template",
@@ -5651,6 +5657,7 @@ const URL_ENDPOINTS = {
 };
 const template_service = {
   getAllTemplates,
+  getAllTemplatesByTags,
   addNewTemplate,
   getTemplateByID,
   updateTemplateByID,
@@ -5659,6 +5666,30 @@ const template_service = {
 
 async function getAllTemplates() {
   const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while fetching Templates");
+  }
+
+  return response.json();
+}
+
+async function getAllTemplatesByTags(tags) {
+  let tagsString = "";
+
+  if (!!tags.length) {
+    tags.map((item, i) => {
+      if (!(i === tags.length - 1)) {
+        tagsString = tagsString + item + ",";
+      } else {
+        tagsString = tagsString + item;
+      }
+    });
+    console.log(tagsString);
+  }
+
+  console.log(`${URL_ENDPOINTS.tempurl}?secret_token=${secret_token}&tags=${tagsString}`);
+  const response = await fetch(`${URL_ENDPOINTS.tempurl}?secret_token=${secret_token}&tags=${tagsString}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Templates");
