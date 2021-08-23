@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
+import useCategoryList from "../../../../Hooks/useCategoryList";
+import useTemplateList from "../../../../Hooks/useTemplateList";
 import SearchBar from "../../../../layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/SearchBar/SearchBar";
 // import "../../../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css";
 const image1 = require("./../../../../assets/images/01.png");
@@ -8,7 +10,6 @@ const image3 = require("../../../../assets/images/03.png");
 const image4 = require("../../../../assets/images/image3.png");
 const image5 = require("../../../../assets/images/image4.png");
 const plusimage = require(".././../../../assets/images/plus.png");
-import { template_service } from "../../../../services/templateService";
 import TemplatePreview from "../CreateEmail/TemplatePreview";
 // import PersonalizedCardSizeModal from "../PersonalizedCardSizeModal/PersonalizedCardSizeModal"
 interface Prop {
@@ -17,26 +18,8 @@ interface Prop {
 }
 const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayModalChange }): JSX.Element => {
     const [ShowToolTip, setShowToolTip] = React.useState(false);
-    const { data: response, isLoading } = useQuery<any, Error>(
-        "templates",
-        template_service.getAllTemplates
-    );
-
-    if (isLoading) {
-        return (
-            <>
-                <p>Getting all templates ...</p>
-            </>
-        );
-    }
-
-    if (!!response.error) {
-        return (
-            <>
-                <p>{response.error.message}</p>
-            </>
-        );
-    }
+    const { templateList, templateListLoading } = useTemplateList()
+    const { categoryList, categoryListLoading } = useCategoryList()
 
     return (
         <>
@@ -70,14 +53,6 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         />
                                     </svg>
                                 </button>
-                                {/* <button
-                                    className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black bg-transparent border-0 outline-none opacity-5 focus:outline-none"
-                                    // onClick={closeModal}
-                                >
-                                    {/* <span className="block w-6 h-6 text-2xl text-black bg-transparent outline-none opacity-5 focus:outline-none">
-                                        ×
-                                    </span> 
-                                </button> */}
                             </div>
                             <div className="flex items-start justify-between w-full px-5 pb-5 border-b border-solid rounded-t border-bordercolor">
                                 <div>
@@ -101,18 +76,15 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                             </div>
                         </div>
                         <div className="flex gap-4 px-6 mt-3 ">
-                            <button className="h-10 px-4 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter ">
-                                Employee
-                            </button>
-                            <button className="h-10 px-3 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter ">
-                                Events
-                            </button>
-                            <button className="h-10 px-4 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter">
-                                Promotion
-                            </button>
-                            <button className="h-10 px-3 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter">
-                                Property
-                            </button>
+                            {/* ANCHOR - category list */}
+                            <p className={categoryListLoading ? "" : "hidden"}>Loading categories ...</p>
+                            <p className={!!categoryList?.error ? "" : "hidden"}>{categoryList?.error?.message}</p>
+                            {categoryList?.data?.map(item => (
+                                <button key={item.id} className="h-10 px-4 py-1 text-sm not-italic font-medium leading-5 rounded-md bg-lightindigo text-indigo700 font-inter ">
+                                    {item.name}
+                                </button>
+                            ))}
+
                         </div>
                         <div className="flex justify-between w-full px-6">
                             <div>
@@ -181,22 +153,27 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
                                         {/* tool tip end */}
 
                                     </button>
-                                    {response.data.map((item, index) => {
-                                        return (
-                                            <button key={index} className="flex flex-col items-center justify-center rounded-md border-bordercolor">
-                                                <div className="rounded-md bg-yellow">
-                                                    <TemplatePreview
-                                                        templateObj={item}
-                                                        width={200}
-                                                        height={110}
-                                                    />
-                                                </div>
-                                                <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
-                                                    {item.name || "untitled"}
-                                                </p>
-                                            </button>
-                                        );
-                                    })}
+                                    {/* ANCHOR - Template list */}
+                                    <>
+                                        <p className={templateListLoading ? "" : "hidden"} >Loading templates ... </p>
+                                        <p className={!!templateList?.error ? "" : "hidden"}>{templateList?.error?.message}</p>
+                                        {templateList?.data?.map((item, index) => {
+                                            return (
+                                                <button key={index} className="flex flex-col items-center justify-center rounded-md border-bordercolor">
+                                                    <div className="rounded-md bg-yellow">
+                                                        <TemplatePreview
+                                                            templateObj={item}
+                                                            width={200}
+                                                            height={110}
+                                                        />
+                                                    </div>
+                                                    <p className="mt-1 text-sm not-italic font-semibold leading-5 font-inter text-lightGray">
+                                                        {item.name || "untitled"}
+                                                    </p>
+                                                </button>
+                                            );
+                                        })}
+                                    </>
                                 </div>
                             </div>
                         </div>
