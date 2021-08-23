@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { Layer, Stage } from 'react-konva'
 import { useNavigate } from 'react-router-dom'
-import { TemplateContext } from '../../../../../contexts/TemplateContext'
-import { stageDimensions } from '../../../../../utils/defaults'
+import { DesignToolContext } from '../../../../../contexts/DesignTool/DesignToolContext'
 import Elements from '../Elements'
 
 interface Props {
@@ -12,11 +11,16 @@ interface Props {
 }
 
 const TemplatePreview: React.FC<Props> = ({ templateObj, width, height }) => {
+    const { setCardData } = useContext(DesignToolContext)
+
     const navigate = useNavigate()
     const handleSelectTemplate = () => {
-        console.log({ templateObj })
-        // setTemplateData(templateObj, false)
-        // navigate(`/createcard`)
+        setCardData(prev => {
+            prev.templateId = templateObj.id
+            prev.dimensions = templateObj.dimensions
+            prev.elements = [...templateObj.variations[0].elements]
+        }, false)
+        navigate(`/createcard`)
     }
 
     const ScaleX = templateObj?.dimensions?.width ? (width / templateObj?.dimensions?.width) : 0.2

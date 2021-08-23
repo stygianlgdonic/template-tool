@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "f8c63122d4a5e251486d";
+/******/ 	var hotCurrentHash = "56296a77532007834612";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1532,6 +1532,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const INITIAL_STATE = {
+  templateId: null,
   dimensions: {
     width: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].width,
     height: _utils_defaults__WEBPACK_IMPORTED_MODULE_2__["stageDimensions"].height

@@ -2073,7 +2073,7 @@ const Rectangle = ({
   } = shapeProps,
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
-  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null, 'anonymous');
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __self: undefined,
     __source: {
@@ -2162,7 +2162,7 @@ const UCircle = ({
   } = shapeProps,
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
-  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null, 'anonymous');
   const imageWidth = image ? image.width : 10;
   const imageHeight = image ? image.height : 10;
   const Xpoint = imageWidth / 2;
@@ -2242,7 +2242,7 @@ const UImage = ({
   onChange,
   onSelect
 }) => {
-  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(imageProps.src);
+  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(imageProps.src, 'anonymous');
 
   const {
     src
@@ -2315,7 +2315,7 @@ const ULine = ({
   } = shapeProps,
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
-  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null, 'anonymous');
   const Xpoint = 0;
   const Ypoint = 0;
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
@@ -2406,7 +2406,7 @@ const UPolygon = ({
   } = shapeProps,
         restProps = _objectWithoutProperties(shapeProps, _excluded);
 
-  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null);
+  const [image] = use_image__WEBPACK_IMPORTED_MODULE_2___default()(patternImageUrl || null, 'anonymous');
   const imageWidth = image ? image.width : 10;
   const imageHeight = image ? image.height : 10;
   const Xpoint = imageWidth / 2;
@@ -2750,11 +2750,13 @@ const TransformerComponent = ({
     }
   };
 
+  const anchors = (selectedShapeName === null || selectedShapeName === void 0 ? void 0 : selectedShapeName.split("_")[0]) === "textBoxes" ? ['middle-left', 'middle-right'] : ['top-left', 'top-center', 'top-right', 'middle-right', 'middle-left', 'bottom-left', 'bottom-center', 'bottom-right'];
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Transformer"] // shouldOverdrawWholeArea
   , {
     id: id,
     ref: $tr,
     padding: 5,
+    enabledAnchors: [...anchors],
     rotationSnaps: [0, 90, 180, 270],
     ignoreStroke: true,
     boundBoxFunc: (oldBox, newBox) => {
@@ -2771,14 +2773,14 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 58,
       columnNumber: 13
     }
   }, __jsx(react_konva_utils__WEBPACK_IMPORTED_MODULE_3__["Html"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 74,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2786,7 +2788,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 75,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2801,7 +2803,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 76,
       columnNumber: 25
     }
   }, __jsx("svg", {
@@ -2813,7 +2815,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 85,
       columnNumber: 29
     }
   }, __jsx("path", {
@@ -2824,7 +2826,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 86,
       columnNumber: 33
     }
   }))), __jsx("div", {
@@ -2836,7 +2838,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 89,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_CardHeader_components_ImageFallbackModal_ImageFallbackModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2846,7 +2848,7 @@ const TransformerComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 96,
       columnNumber: 29
     }
   }))))));
@@ -7077,9 +7079,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Drawer; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SubNavBar_components_ElementSelector_components_Stickers_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css */ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css");
+/* harmony import */ var _contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../../../contexts/DesignTool/DesignToolContext */ "./src/contexts/DesignTool/DesignToolContext.tsx");
+/* harmony import */ var _SubNavBar_components_ElementSelector_components_Stickers_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css */ "./src/layouts/LoggedInLayout/CreateCardLayout/components/DesignTool/Components/SubNavBar/components/ElementSelector/components/Stickers/styles.css");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\client\\src\\layouts\\LoggedInLayout\\CreateCardLayout\\components\\DesignTool\\Components\\Preview\\components\\Drawer\\Drawer.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 const image = __webpack_require__(/*! ./../../../../../../../../../assets/images/preview.png */ "./src/assets/images/preview.png");
@@ -7089,6 +7093,12 @@ function Drawer({
   isOpen,
   setIsOpen
 }) {
+  var _$stage$current;
+
+  const {
+    $stage
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_DesignTool_DesignToolContext__WEBPACK_IMPORTED_MODULE_1__["DesignToolContext"]); // console.log({ preview })
+
   return __jsx("main", {
     style: {
       height: "91vh"
@@ -7097,7 +7107,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 11,
       columnNumber: 9
     }
   }, __jsx("section", {
@@ -7105,7 +7115,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 21,
       columnNumber: 13
     }
   }, __jsx("article", {
@@ -7113,7 +7123,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 27,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -7121,7 +7131,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 28,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -7132,7 +7142,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 29,
       columnNumber: 25
     }
   }, __jsx("button", {
@@ -7143,7 +7153,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 33,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -7151,7 +7161,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 39,
       columnNumber: 33
     }
   }, __jsx("svg", {
@@ -7164,7 +7174,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 40,
       columnNumber: 37
     }
   }, __jsx("path", {
@@ -7176,7 +7186,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 48,
       columnNumber: 41
     }
   }))))), __jsx("div", {
@@ -7187,7 +7197,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 59,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -7195,16 +7205,18 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 60,
       columnNumber: 29
     }
   }, __jsx("img", {
-    src: image,
+    src: (_$stage$current = $stage.current) === null || _$stage$current === void 0 ? void 0 : _$stage$current.toDataURL({
+      pixelRatio: 1 / 1.5
+    }),
     className: "border-2 shadow-lg border-bordercolor ",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 62,
       columnNumber: 33
     }
   })), __jsx("div", {
@@ -7212,7 +7224,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 67,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -7220,7 +7232,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 68,
       columnNumber: 33
     }
   }, __jsx("p", {
@@ -7228,7 +7240,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 69,
       columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
@@ -7238,7 +7250,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 70,
       columnNumber: 37
     }
   })), __jsx("div", {
@@ -7246,7 +7258,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 76,
       columnNumber: 33
     }
   }, __jsx("p", {
@@ -7254,7 +7266,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 77,
       columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
@@ -7264,7 +7276,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 78,
       columnNumber: 37
     }
   })), __jsx("div", {
@@ -7272,7 +7284,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 84,
       columnNumber: 33
     }
   }, __jsx("p", {
@@ -7280,7 +7292,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 85,
       columnNumber: 37
     }
   }, "First_name"), __jsx("input", {
@@ -7290,7 +7302,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 86,
       columnNumber: 37
     }
   })), __jsx("button", {
@@ -7298,7 +7310,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 92,
       columnNumber: 33
     }
   }, __jsx("div", {
@@ -7306,7 +7318,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 93,
       columnNumber: 37
     }
   }, __jsx("svg", {
@@ -7318,7 +7330,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 94,
       columnNumber: 41
     }
   }, __jsx("path", {
@@ -7327,7 +7339,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 101,
       columnNumber: 45
     }
   }), __jsx("path", {
@@ -7336,7 +7348,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 105,
       columnNumber: 45
     }
   })), __jsx("p", {
@@ -7344,7 +7356,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 111,
       columnNumber: 41
     }
   }, "Get sharable code")))))))), __jsx("section", {
@@ -7355,7 +7367,7 @@ function Drawer({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 119,
       columnNumber: 13
     }
   }));
@@ -9253,53 +9265,56 @@ const Stickers = () => {
     handleAddSvg
   } = Object(_Hooks_CardElementsFunctions__WEBPACK_IMPORTED_MODULE_1__["default"])();
   const svg = Object(_utils_generatesvgUrl__WEBPACK_IMPORTED_MODULE_3__["default"])(_utils_defaults__WEBPACK_IMPORTED_MODULE_2__["ORIGINAL_SVG_mailicon"]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    fetch('https://reserve.freesvg.org/api/v1/svgs').then(res => res.body).then(res => console.log(res)).catch(err => console.log(err));
+  }, []);
   const contentWrapper = react__WEBPACK_IMPORTED_MODULE_0___default.a.useRef(null);
   return __jsx("div", {
     className: "flex flex-col h-full ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 5
+      lineNumber: 35,
+      columnNumber: 9
     }
   }, __jsx("div", {
     className: "flex flex-row items-center justify-between w-full px-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 7
+      lineNumber: 36,
+      columnNumber: 13
     }
   }, __jsx("h1", {
     className: "text-lg font-bold text-gray94",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 9
+      lineNumber: 37,
+      columnNumber: 17
     }
   }, "Stickers"), __jsx("button", {
     className: "font-medium text-md text-gray95",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 9
+      lineNumber: 39,
+      columnNumber: 17
     }
   }, "See all")), __jsx("div", {
     className: "z-0 flex flex-row items-center mt-4 overflow-hidden overflow-x-scroll  no-scrollbar",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 7
+      lineNumber: 42,
+      columnNumber: 13
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 9
+      lineNumber: 43,
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "pl-2 mt-3 ",
@@ -9309,8 +9324,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 11
+      lineNumber: 44,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "26",
@@ -9321,8 +9336,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
-      columnNumber: 13
+      lineNumber: 50,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M9 13L6 10M6 10L9 7M6 10L14 10M1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10Z",
@@ -9333,16 +9348,16 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 15
+      lineNumber: 57,
+      columnNumber: 29
     }
   })))), __jsx("div", {
     className: "z-20 w-8 -mr-8 h-28 bg-gradient-to-r from-white bg-opacity-80 to-transparent",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
-      columnNumber: 9
+      lineNumber: 67,
+      columnNumber: 17
     }
   }), __jsx("div", {
     className: "relative z-10 flex flex-row flex-grow flex-shrink-0 w-56 gap-4 overflow-x-scroll h-28 no-scrollbar",
@@ -9350,8 +9365,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
-      columnNumber: 9
+      lineNumber: 68,
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "flex-shrink-0",
@@ -9359,8 +9374,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
-      columnNumber: 11
+      lineNumber: 72,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9368,8 +9383,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
-      columnNumber: 13
+      lineNumber: 77,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9377,8 +9392,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
-      columnNumber: 11
+      lineNumber: 79,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9386,8 +9401,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 13
+      lineNumber: 84,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9395,8 +9410,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
-      columnNumber: 11
+      lineNumber: 86,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9404,8 +9419,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
-      columnNumber: 13
+      lineNumber: 91,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9413,8 +9428,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
-      columnNumber: 11
+      lineNumber: 93,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9422,8 +9437,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
-      columnNumber: 13
+      lineNumber: 98,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9431,8 +9446,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
-      columnNumber: 11
+      lineNumber: 100,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9440,8 +9455,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
-      columnNumber: 13
+      lineNumber: 105,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9449,8 +9464,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
-      columnNumber: 11
+      lineNumber: 107,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9458,8 +9473,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
-      columnNumber: 13
+      lineNumber: 112,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9467,8 +9482,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
-      columnNumber: 11
+      lineNumber: 114,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9476,8 +9491,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
-      columnNumber: 13
+      lineNumber: 119,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9485,8 +9500,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
-      columnNumber: 11
+      lineNumber: 121,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9494,8 +9509,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
-      columnNumber: 13
+      lineNumber: 126,
+      columnNumber: 25
     }
   })), __jsx("button", {
     className: "flex-shrink-0",
@@ -9503,8 +9518,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
-      columnNumber: 11
+      lineNumber: 128,
+      columnNumber: 21
     }
   }, " ", __jsx("img", {
     src: svg,
@@ -9512,24 +9527,24 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
-      columnNumber: 13
+      lineNumber: 133,
+      columnNumber: 25
     }
   }))), __jsx("div", {
     className: "z-20 w-8 -ml-8 bg-opacity-50 h-28 bg-gradient-to-l from-white to-transparent",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 9
+      lineNumber: 136,
+      columnNumber: 17
     }
   }), __jsx("div", {
     className: "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 9
+      lineNumber: 137,
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "pr-2 mt-3",
@@ -9539,8 +9554,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 11
+      lineNumber: 138,
+      columnNumber: 21
     }
   }, __jsx("svg", {
     width: "26",
@@ -9551,8 +9566,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
-      columnNumber: 13
+      lineNumber: 144,
+      columnNumber: 25
     }
   }, __jsx("path", {
     d: "M11 7L14 10M14 10L11 13M14 10L6 10M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z",
@@ -9563,8 +9578,8 @@ const Stickers = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
-      columnNumber: 15
+      lineNumber: 151,
+      columnNumber: 29
     }
   }))))));
 };

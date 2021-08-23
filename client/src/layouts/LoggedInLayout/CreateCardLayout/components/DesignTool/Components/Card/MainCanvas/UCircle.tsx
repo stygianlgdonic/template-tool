@@ -11,7 +11,7 @@ const UCircle: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
     const shapeRef = useRef(null)
 
     const { patternImageUrl, ...restProps } = shapeProps
-    const [image] = useImage(patternImageUrl || null)
+    const [image] = useImage(patternImageUrl || null, 'anonymous')
     const imageWidth = image ? image.width : 10;
     const imageHeight = image ? image.height : 10;
 
