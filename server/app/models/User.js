@@ -127,12 +127,12 @@ userSchema.statics = {
    * @param {Object} userUpdate - the json containing the user attributes
    * @returns {Promise<User, APIError>}
    */
-  async updateUser(id, userUpdate) {
-    const user = await this.findOneAndUpdate({ _id: id }, userUpdate, {
+  async updateUser(email, userUpdate) {
+    const user = await this.findOneAndUpdate({ email: email }, userUpdate, {
       new: true,
     });
     if (!user) {
-      throw new APIError(404, "user Not Found", `No user '${id}' found.`);
+      throw new APIError(404, "user Not Found", `No user '${email}' found.`);
     }
     return user.toObject();
   },
