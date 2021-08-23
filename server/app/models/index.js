@@ -11,3 +11,4 @@ exports.Uploads = require("./Uploads");
 exports.User = require("./User");
 exports.Variation = require("./Variation");
 exports.Workspace = require("./Workspace");
+exports.Svg = require("./Svg");

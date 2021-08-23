@@ -8,3 +8,4 @@ exports.signupHandler = require("./signup");
 exports.loginHandler = require("./login");
 exports.dataSetterHandler = require("./dataSetter");
 exports.scheduleHandler = require("./schedule");
+exports.svgHandler = require("./svg");

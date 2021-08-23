@@ -16,6 +16,7 @@ const {
   secureRouter,
   userRouter,
   scheduleRouter,
+  svgRouter,
 } = require("./routers");
 
 // global constants
@@ -69,6 +70,8 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   templateCategoryRouter
 );
+
+app.use("/svg", passport.authenticate("jwt", { session: false }), svgRouter);
 
 app.use(
   "/user",
