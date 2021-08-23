@@ -1,31 +1,42 @@
 import React, { useContext } from 'react'
 import { Layer, Stage } from 'react-konva'
 import { useNavigate } from 'react-router-dom'
-import { TemplateContext } from '../../../../../contexts/TemplateContext'
-import { stageDimensions } from '../../../../../utils/defaults'
+import { DesignToolContext } from '../../../../../contexts/DesignTool/DesignToolContext'
 import Elements from '../Elements'
 
 interface Props {
     templateObj: any
+    width: number
+    height: number
 }
 
-const TemplatePreview: React.FC<Props> = ({ templateObj }) => {
+const TemplatePreview: React.FC<Props> = ({ templateObj, width, height }) => {
+    const { setCardData } = useContext(DesignToolContext)
+
     const navigate = useNavigate()
-    const [templateData, setTemplateData] = useContext(TemplateContext)
-    console.log(templateObj)
-    const handleEditTemplate = () => {
-        setTemplateData(templateObj, false)
+    const handleSelectTemplate = () => {
+        setCardData(prev => {
+            prev.templateId = templateObj.id
+            prev.dimensions = templateObj.dimensions
+            prev.elements = [...templateObj.variations[0].elements]
+        }, false)
         navigate(`/createcard`)
     }
+
+    const ScaleX = templateObj?.dimensions?.width ? (width / templateObj?.dimensions?.width) : 0.2
+    const ScaleY = templateObj?.dimensions?.height ? (height / templateObj?.dimensions?.height) : 0.2
+
     return (
         <button
-            // onClick={handleEditTemplate}
-            className="border-2   border-dashed rounded-md border-bordercolor justify-center items-center flex flex-col ">
+            onClick={handleSelectTemplate}
+            className="border-2 rounded-md justify-center items-center flex flex-col "
+            style={{ width, height }}
+        >
             <Stage
-                width={stageDimensions.width * 0.2}
-                height={stageDimensions.height * 0.2}
-                scaleX={0.2}
-                scaleY={0.2}
+                width={width}
+                height={height}
+                scaleX={Math.max(ScaleX, ScaleY)}
+                scaleY={Math.max(ScaleX, ScaleY)}
             >
                 <Layer
                     listening={false}

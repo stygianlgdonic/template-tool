@@ -1,10 +1,11 @@
-import React, { createContext, useState, useReducer, useRef } from 'react'
+import React, { createContext, useState, useReducer, useRef, useEffect } from 'react'
 
 import { useImmerState } from '@shrugsy/use-immer-state';
 import { stageDimensions } from '../../utils/defaults';
 import { designToolReducer, designToolInit } from './DesingToolReducers';
 
 export const INITIAL_STATE = {
+    templateId: null,
     dimensions: { width: stageDimensions.width, height: stageDimensions.height },
     labels: [],
     elements: [{
@@ -38,7 +39,6 @@ export const DesignToolProvider = ({ children }) => {
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
     const [designToolState, designToolDispatch] = useReducer(designToolReducer, designToolInit)
-
     return (
         <DesignToolContext.Provider
             value={{

@@ -8,7 +8,6 @@ import USvg from "../USvg"
 import UText from "../UText"
 import TransformerComponent from "../UTransformer"
 import UImage from '../UImage';
-import { stageDimensions } from '../../../../../../../../../utils/defaults';
 import CardHeaderActions from '../../../../../../../../../contexts/DesignTool/CardHeaderActions';
 import { DesignToolContext } from '../../../../../../../../../contexts/DesignTool/DesignToolContext';
 
@@ -48,8 +47,8 @@ const MainStage = ({
 
     const getLineGuideStops = skipShape => {
         // guidelines for stage center and edges
-        const vertical: any = [0, stageDimensions.width / 2, stageDimensions.width];
-        const horizontal: any = [0, stageDimensions.height / 2, stageDimensions.height];
+        const vertical: any = [0, cardData.dimensions.width / 2, cardData.dimensions.width];
+        const horizontal: any = [0, cardData.dimensions.height / 2, cardData.dimensions.height];
 
         // we snap over edges and center of each object on the canvas
         $stage.current.find(".object").forEach(guideItem => {
@@ -423,7 +422,7 @@ const MainStage = ({
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
             // onTouchStart={checkDeselect}
-            {...stageDimensions}
+            {...cardData.dimensions}
         >
             <Layer
                 ref={$layer}
