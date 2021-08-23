@@ -15,6 +15,7 @@ const {
   templateCategoryRouter,
   secureRouter,
   userRouter,
+  scheduleRouter,
 } = require("./routers");
 
 // global constants
@@ -53,6 +54,12 @@ app.use(
   "/template",
   passport.authenticate("jwt", { session: false }),
   templateRouter
+);
+
+app.use(
+  "/schedule",
+  passport.authenticate("jwt", { session: false }),
+  scheduleRouter
 );
 
 app.use("/card", passport.authenticate("jwt", { session: false }), cardRouter);

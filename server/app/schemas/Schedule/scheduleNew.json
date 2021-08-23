@@ -21,7 +21,6 @@
       "timeZone": {
         "type": "string"
       }      
-    },
-    "required": ["id"]
+    }
   }
   
