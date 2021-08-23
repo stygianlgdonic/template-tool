@@ -1,9 +1,10 @@
+const secret_token = window.localStorage.getItem("Token")
 const URL_ENDPOINTS = {
-    getAllCardsURL: "https://polar-tor-04971.herokuapp.com/card",
-    getCardByIdURL: "https://polar-tor-04971.herokuapp.com/card",
-    createCardURL: "https://polar-tor-04971.herokuapp.com/card",
-    updateCardByIdURL: "https://polar-tor-04971.herokuapp.com/card",
-    deleteCardByIdURL: "https://polar-tor-04971.herokuapp.com/card"
+    getAllCardsURL: "https://hyper-engage-staging.herokuapp.com/card",
+    getCardByIdURL: "https://hyper-engage-staging.herokuapp.com/card",
+    createCardURL: "https://hyper-engage-staging.herokuapp.com/card",
+    updateCardByIdURL: "https://hyper-engage-staging.herokuapp.com/card",
+    deleteCardByIdURL: "https://hyper-engage-staging.herokuapp.com/card"
 }
 
 export const card_service = {
@@ -15,7 +16,7 @@ export const card_service = {
 }
 
 async function getAllCards() {
-    const response = await fetch(URL_ENDPOINTS.getAllCardsURL)
+    const response = await fetch(`${URL_ENDPOINTS.getAllCardsURL}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Cards")
     }
@@ -23,7 +24,7 @@ async function getAllCards() {
 }
 
 async function addNewCard(cardData: any) {
-    const response = await fetch(URL_ENDPOINTS.createCardURL, {
+    const response = await fetch(`${URL_ENDPOINTS.createCardURL}?secret_token=${secret_token}`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +38,7 @@ async function addNewCard(cardData: any) {
 }
 
 async function getCardByID(cardID: string) {
-    const response = await fetch(`${URL_ENDPOINTS.getAllCardsURL}/${cardID}`)
+    const response = await fetch(`${URL_ENDPOINTS.getAllCardsURL}/${cardID}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Cards")
     }
@@ -48,7 +49,7 @@ async function updateCardByID(cardID: string, cardData: any) {
 
     console.log({ JSON: JSON.stringify(cardData), cardData })
 
-    const response = await fetch(`${URL_ENDPOINTS.updateCardByIdURL}/${cardID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.updateCardByIdURL}/${cardID}?secret_token=${secret_token}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json'
@@ -63,7 +64,7 @@ async function updateCardByID(cardID: string, cardData: any) {
 }
 
 async function deleteCardByID(cardID: string) {
-    const response = await fetch(`${URL_ENDPOINTS.deleteCardByIdURL}/${cardID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.deleteCardByIdURL}/${cardID}?secret_token=${secret_token}`, {
         method: "DELETE",
     })
     console.log({ response })

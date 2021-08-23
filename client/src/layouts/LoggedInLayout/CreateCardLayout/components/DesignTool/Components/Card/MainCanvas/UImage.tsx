@@ -10,7 +10,7 @@ interface Props {
 
 const UImage: React.FC<Props> = ({ imageProps, onChange, onSelect }) => {
 
-    const [image] = useImage(imageProps.src)
+    const [image] = useImage(imageProps.src, 'anonymous')
 
     const { src, ...rest } = imageProps
     return (

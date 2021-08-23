@@ -22,10 +22,10 @@ const TemplateList = () => {
         )
     }
 
-    if (!!templateError) {
+    if (!!templateList.error) {
         return (
             <>
-                <p>{templateError.message}</p>
+                <p>{templateList.error.message}</p>
             </>
         )
     }
@@ -83,7 +83,7 @@ const TemplateList = () => {
                         <h1 className="text-xl font-bold mt-6 px-6 text-gray94">Your Templates</h1>
                     </div>
                     <div className="pl-6 mt-4 flex flex-row flex-wrap gap-4">
-                        {templateList?.map((item, index) => {
+                        {templateList.data?.map((item, index) => {
                             if (!!categoryFilter) {
                                 if (item.categoryId === categoryFilter.id) {
                                     return (

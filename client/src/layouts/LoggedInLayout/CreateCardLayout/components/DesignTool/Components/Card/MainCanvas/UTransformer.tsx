@@ -49,6 +49,10 @@ const TransformerComponent: React.FC<Props> = ({
         }
     }
 
+    const anchors = selectedShapeName?.split("_")[0] === "textBoxes" ?
+        ['middle-left', 'middle-right'] :
+        ['top-left', 'top-center', 'top-right', 'middle-right', 'middle-left', 'bottom-left', 'bottom-center', 'bottom-right']
+
     return (
         <>
             <Transformer
@@ -56,6 +60,7 @@ const TransformerComponent: React.FC<Props> = ({
                 id={id}
                 ref={$tr}
                 padding={5}
+                enabledAnchors={[...anchors]}
                 rotationSnaps={[0, 90, 180, 270]}
                 ignoreStroke={true}
                 boundBoxFunc={(oldBox, newBox) => {

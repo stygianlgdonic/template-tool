@@ -11,10 +11,12 @@ const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-w
 
 interface Props {
     templateData: any
-    handleSaveTemplate: (tags: string[], selectedCategory: string) => void
+    handleSaveTemplate: (name: string, tags: string[], selectedCategory: string) => void
+    closeModal: any
 }
 
-const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => {
+const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate, closeModal }) => {
+    const [name, setName] = useState("")
     const [tagsList, setTagsList] = useState([]);
     const [isFirstTag, setIsFirstTag] = useState(true);
     const [tag, setTag] = useState("");
@@ -73,11 +75,12 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
     };
 
     const onCategoryChange = (val) => {
+        console.log({ val })
         setSelectedCategory(val)
     }
 
     const onSubmit = () => {
-        handleSaveTemplate(tagsList, selectedCategory?.id)
+        handleSaveTemplate(name, tagsList, selectedCategory?.id)
     }
 
     return (
@@ -91,6 +94,11 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div className="h-96">
                             <div>
+                                <input
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="relative  border border-grey appearance-none rounded w-full p-2 mt-0 focus:outline-none cursor-text"
+                                />
                                 <CustomTextField
                                     label="Enter Tag"
                                     id="tagName"
@@ -138,7 +146,7 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate }) => 
                                     style: { color: "white" },
                                 }}
                                 disableElevation
-                                onClick={onSubmit}
+                                onClick={closeModal}
                                 type="submit"
                                 fullWidth
                                 variant="contained"

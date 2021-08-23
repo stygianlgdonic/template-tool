@@ -4,7 +4,7 @@ const SearchBar: React.FC = (): JSX.Element => {
     return (
         <div className=" flex justify-center items-center  w-full">
 
-            <div className="flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12 z-50">
+            <div className="flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12">
                 <button>
                     <span className="w-auto flex justify-end items-center text-grey text-sm p-3">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@ const SearchBar: React.FC = (): JSX.Element => {
 
                     </span>
                 </button>
-                <input className="w-full rounded text-sm text-gray95 outline-none h-12 z-0 " type="text" placeholder="Search anything from elements" />
+                <input className="w-full rounded text-sm text-gray95 outline-none h-12 " type="text" placeholder="Search anything from elements" />
             </div>
         </div>
     )

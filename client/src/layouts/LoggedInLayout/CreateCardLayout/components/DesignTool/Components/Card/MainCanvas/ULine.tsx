@@ -13,7 +13,7 @@ const ULine: React.FC<Props> = ({ shapeProps, onSelect, onChange }) => {
     const shapeRef = useRef(null)
 
     const { patternImageUrl, ...restProps } = shapeProps
-    const [image] = useImage(patternImageUrl || null)
+    const [image] = useImage(patternImageUrl || null, 'anonymous')
     const Xpoint = 0
     const Ypoint = 0
 

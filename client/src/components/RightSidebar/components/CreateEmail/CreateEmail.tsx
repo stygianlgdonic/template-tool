@@ -28,28 +28,6 @@ const CreateEmail: React.FC<BioProps> = ({
     const svg1 = generatesvgUrl(ORIGINAL_SVG_updownicon);
     const [DisplayModals, setDisplayModals] = useState<"" | "PersonalizedImage" | "SocialMedia" | "CardSize">("")
     const svg = generatesvgUrl(bio4);
-    const { data, error, isLoading } = useQuery<any, Error>(
-        "templates",
-        template_service.getAllTemplates
-    );
-    console.log({ data });
-    console.log({ error });
-
-    if (isLoading) {
-        return (
-            <>
-                <p>Getting all templates ...</p>
-            </>
-        );
-    }
-
-    if (!!error) {
-        return (
-            <>
-                <p>{error.message}</p>
-            </>
-        );
-    }
 
     const handleclosemodal = () => {
         setDisplayModals("")

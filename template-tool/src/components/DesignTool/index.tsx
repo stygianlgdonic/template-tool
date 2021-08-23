@@ -164,11 +164,12 @@ const DesignTool: React.FC = () => {
         setIsOpenSaveTemplateModal(true)
     }
 
-    const handleSaveTemplate = async (tags: string[], categoryId: string) => {
+    const handleSaveTemplate = async (name: string, tags: string[], categoryId: string) => {
+        console.log({ LOL: JSON.stringify({ ...templateData, name, tags, categoryId }) })
         if (!!templateID) {
-            await template_service.updateTemplateByID(templateID, { ...templateData, tags, categoryId })
+            await template_service.updateTemplateByID(templateID, { ...templateData, name, tags, categoryId })
         } else {
-            await template_service.addNewTemplate({ ...templateData, tags, categoryId })
+            await template_service.addNewTemplate({ ...templateData, name, tags, categoryId })
             browserHistory.push(ROUTE_NAMES.home)
         }
         setIsOpenSaveTemplateModal(false)
@@ -194,7 +195,7 @@ const DesignTool: React.FC = () => {
     }
 
     return (
-        <div className="min-w-max bg-gray300 h-screen">
+        <div className="min-w-max bg-gray300 ">
             <div className="h-20 mb-5 flex flex-wrap justify-evenly content-center bg-gray900">
                 <div className="flex gap-2">
                     <NavLink
@@ -239,6 +240,7 @@ const DesignTool: React.FC = () => {
                     <SaveTemplate
                         templateData={templateData}
                         handleSaveTemplate={handleSaveTemplate}
+                        closeModal={() => setIsOpenSaveTemplateModal(false)}
                     />
                 </ErrorBoundary>
             )}

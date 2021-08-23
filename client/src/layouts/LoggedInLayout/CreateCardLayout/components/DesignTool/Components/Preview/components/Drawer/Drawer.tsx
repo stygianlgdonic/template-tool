@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DesignToolContext } from "../../../../../../../../../contexts/DesignTool/DesignToolContext";
 const image = require('./../../../../../../../../../assets/images/preview.png');
 import "../../../SubNavBar/components/ElementSelector/components/Stickers/styles.css"
 
 export default function Drawer({ isOpen, setIsOpen }) {
+
+    const { $stage } = useContext(DesignToolContext)
+    // console.log({ preview })
     return (
         <main
             style={{ height: "91vh" }}
@@ -54,8 +58,9 @@ export default function Drawer({ isOpen, setIsOpen }) {
                         </div>
                         <div className="flex flex-col justify-start w-full  pt-3  ml-6 bg-white mt-3  overflow-hidden" style={{ height: '92vh' }}>
                             <div className="flex justify-center ">
+                                {/* ANCHOR - 1 */}
                                 <img
-                                    src={image}
+                                    src={$stage.current?.toDataURL({ pixelRatio: 1 / 1.5 })}
                                     className="border-2 shadow-lg border-bordercolor "
                                 />
                             </div>
