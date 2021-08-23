@@ -27,6 +27,10 @@ const SelectSocialMediaTemplateModal: React.FC<Prop> = ({ closeModal, displayMod
         }
     ))
 
+    console.log("-->", process.env.RAZZLE_APP__HELLO)
+    console.log("-->", process.env.RAZZLE_APP__REST_URI)
+    console.log("-->", process.env.RAZZLE_APP__WOW)
+
     return (
         <>
             <div
