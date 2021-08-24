@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
+import { useQuery } from 'react-query'
 import swal from 'sweetalert'
-import useCategoryList from '../../../../hooks/useCategoryList'
 import { category_service } from '../../../../services/categoryService'
 
 const CategoryList = () => {
     const [newCategoryName, setNewCategoryName] = useState<string>("")
-    const { categoriesList, error, isLoading } = useCategoryList()
+    const { data: categoriesList, error: categoryError, isLoading: categoryLoading } = useQuery<any, Error>("categories", category_service.getAllCategories)
 
-    if (isLoading) {
+    if (categoryLoading) {
         return (
             <>
                 <p>Getting all categories ...</p>
@@ -15,10 +15,10 @@ const CategoryList = () => {
         )
     }
 
-    if (!!error) {
+    if (!!categoryError) {
         return (
             <>
-                <p>{error.message}</p>
+                <p>{categoryError.message}</p>
             </>
         )
     }
@@ -47,10 +47,10 @@ const CategoryList = () => {
     return (
         <div className="space-y-4 p-5">
             <div>
-                {categoriesList?.map((cat, index) =>
-                    <div className="flex justify-between">
-                        <span key={index} className="block">{cat.name}</span>
-                        <button onClick={() => handleDeleteCategory(cat)} className="bg-red text-white rounded p-2 mt-2 mb-2">Delete</button>
+                {categoriesList?.data?.map((cat) =>
+                    <div key={cat.id} className="flex justify-between mt-1 mb-1">
+                        <span className="block">{cat.name}</span>
+                        <button onClick={() => handleDeleteCategory(cat)} className="bg-redish hover:bg-red600 text-white font-bold py-2 px-4 rounded">Delete</button>
                     </div>
                 )}
             </div>

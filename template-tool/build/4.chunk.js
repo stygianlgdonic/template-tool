@@ -79,6 +79,45 @@ const SearchBarFallback = ({
 
 /***/ }),
 
+/***/ "./src/ErrorFallacks/SvgUploadFallback.tsx":
+/*!*************************************************!*\
+  !*** ./src/ErrorFallacks/SvgUploadFallback.tsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\ErrorFallacks\\SvgUploadFallback.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SvgUploadFallback = ({
+  error,
+  resetErrorBoundary
+}) => {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops!", "Encountered an error while rendering this component. Try reloading page.", "error").then(resetErrorBoundary);
+  }, []);
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, error.message);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgUploadFallback);
+
+/***/ }),
+
 /***/ "./src/ErrorFallacks/TemplateListFallback.tsx":
 /*!****************************************************!*\
   !*** ./src/ErrorFallacks/TemplateListFallback.tsx ***!
@@ -179,9 +218,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../hooks/useCategoryList */ "./src/hooks/useCategoryList.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/categoryService */ "./src/services/categoryService.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\CategoryList\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -191,17 +231,19 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const CategoryList = () => {
+  var _categoriesList$data;
+
   const {
     0: newCategoryName,
     1: setNewCategoryName
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
   const {
-    categoriesList,
-    error,
-    isLoading
-  } = Object(_hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    data: categoriesList,
+    error: categoryError,
+    isLoading: categoryLoading
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_1__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_3__["category_service"].getAllCategories);
 
-  if (isLoading) {
+  if (categoryLoading) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
@@ -212,7 +254,7 @@ const CategoryList = () => {
     }, "Getting all categories ..."));
   }
 
-  if (!!error) {
+  if (!!categoryError) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
@@ -220,7 +262,7 @@ const CategoryList = () => {
         lineNumber: 21,
         columnNumber: 17
       }
-    }, error.message));
+    }, categoryError.message));
   }
 
   const handleAddCategory = async e => {
@@ -235,7 +277,7 @@ const CategoryList = () => {
   };
 
   const handleDeleteCategory = async cat => {
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
       title: "Are you sure?",
       text: `Do you want to delete ${cat.name}?`,
       icon: "warning",
@@ -266,8 +308,9 @@ const CategoryList = () => {
       lineNumber: 49,
       columnNumber: 13
     }
-  }, categoriesList === null || categoriesList === void 0 ? void 0 : categoriesList.map((cat, index) => __jsx("div", {
-    className: "flex justify-between",
+  }, categoriesList === null || categoriesList === void 0 ? void 0 : (_categoriesList$data = categoriesList.data) === null || _categoriesList$data === void 0 ? void 0 : _categoriesList$data.map(cat => __jsx("div", {
+    key: cat.id,
+    className: "flex justify-between mt-1 mb-1",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -275,7 +318,6 @@ const CategoryList = () => {
       columnNumber: 21
     }
   }, __jsx("span", {
-    key: index,
     className: "block",
     __self: undefined,
     __source: {
@@ -285,7 +327,7 @@ const CategoryList = () => {
     }
   }, cat.name), __jsx("button", {
     onClick: () => handleDeleteCategory(cat),
-    className: "bg-red text-white rounded p-2 mt-2 mb-2",
+    className: "bg-redish hover:bg-red600 text-white font-bold py-2 px-4 rounded",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -375,21 +417,24 @@ __webpack_require__.r(__webpack_exports__);
 const templateDimensions = [{
   name: "HEADER",
   dimension: {
-    width: 1920,
-    height: 240
-  }
+    width: 600,
+    height: 200
+  },
+  scaleFactor: 1
 }, {
   name: "BODY",
   dimension: {
     width: 1080,
     height: 1080
-  }
+  },
+  scaleFactor: 0.5
 }, {
   name: "FEATURE IMAGE",
   dimension: {
-    width: 1080,
-    height: 1080
-  }
+    width: 1200,
+    height: 630
+  },
+  scaleFactor: 0.5
 }];
 
 /***/ }),
@@ -433,7 +478,7 @@ const SelectTemplateDimensions = ({
   const routerHistory = Object(react_router__WEBPACK_IMPORTED_MODULE_3__["useHistory"])();
   const myRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
   const {
-    setTemplateData
+    1: setTemplateData
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_1__["TemplateContext"]);
 
   const handleClickOutside = e => {
@@ -452,7 +497,7 @@ const SelectTemplateDimensions = ({
   const createNewTemplate = templateDimensions => {
     setTemplateData(prev => {
       prev.dimensions = _objectSpread({}, templateDimensions);
-      prev.labels = [];
+      prev.tags = [];
       prev.variations[0].elements = [_objectSpread(_objectSpread({}, _contexts_TemplateContext__WEBPACK_IMPORTED_MODULE_1__["INITIAL_STATE"].variations[0].elements[0]), {}, {
         width: templateDimensions.width,
         height: templateDimensions.height
@@ -590,8 +635,8 @@ const SelectTemplateDimensions = ({
     }
   }, "Create For Social Media"), __jsx("button", {
     onClick: () => createNewTemplate({
-      width: item.dimension.width,
-      height: item.dimension.height
+      width: item.dimension.width * item.scaleFactor,
+      height: item.dimension.height * item.scaleFactor
     }),
     __self: undefined,
     __source: {
@@ -666,6 +711,550 @@ const SelectTemplateDimensions = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectTemplateDimensions);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../utils/svg */ "./src/utils/svg.ts");
+/* harmony import */ var _tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../tailwindComponents/ButtonLoader */ "./src/components/tailwindComponents/ButtonLoader.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\RenderSvg.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+const RenderSvg = ({
+  svgData,
+  deleteSvg,
+  deleteSvgLoading
+}) => {
+  const svgUrl = _utils_svg__WEBPACK_IMPORTED_MODULE_2__["svgToURL"](svgData.svgString);
+
+  const handleDeleteSvg = () => {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Are you sure?", "You want to delete this svg", "warning").then(willDelete => {
+      if (!!willDelete) {
+        deleteSvg(svgData._id);
+      }
+    });
+  };
+
+  return __jsx("div", {
+    className: "flex justify-between pr-2 pl-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 13
+    }
+  }, __jsx("button", {
+    className: "outline-none",
+    style: {
+      width: 100,
+      height: 100
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 17
+    }
+  }, __jsx("img", {
+    className: "border border-gray95",
+    alt: "svg",
+    src: svgUrl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 21
+    }
+  }))), __jsx("div", {
+    className: "flex flex-col justify-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 13
+    }
+  }, __jsx("button", {
+    onClick: handleDeleteSvg,
+    className: "bg-redish hover:bg-red600 text-white font-bold py-2 px-4 rounded w-20",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 17
+    }
+  }, !!deleteSvgLoading ? __jsx(_tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 43
+    }
+  }) : __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 62
+    }
+  }, "Delete"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RenderSvg);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx":
+/*!******************************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _RenderSvg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RenderSvg */ "./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SvgListContainer = ({
+  svgList,
+  svgListLoading,
+  svgListError,
+  deleteSvg,
+  deleteSvgLoading
+}) => {
+  var _svgList$error, _svgList$data, _svgList$data2;
+
+  const {
+    0: searchTags,
+    1: setSearchTags
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: searchTerm,
+    1: setSearchTerm
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""); // const { data: searchedSvgs, error: searchedSvgsError, isLoading: searchedSvgsLoading } = useQuery<any, Error>(
+  //     "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
+  // )
+
+  return __jsx("div", {
+    className: "w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 17
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 21
+    }
+  }, __jsx("p", {
+    className: "text-2xl mb-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 25
+    }
+  }, "Svgs")), __jsx("div", {
+    className: " h-96 overflow-auto",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 21
+    }
+  }, __jsx("p", {
+    className: !!svgListLoading ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 25
+    }
+  }, "Loading svgs ..."), __jsx("p", {
+    className: !!svgListError ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 25
+    }
+  }, svgListError), __jsx("p", {
+    className: !!(svgList !== null && svgList !== void 0 && svgList.error) ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 25
+    }
+  }, svgList === null || svgList === void 0 ? void 0 : (_svgList$error = svgList.error) === null || _svgList$error === void 0 ? void 0 : _svgList$error.message), __jsx("p", {
+    className: !(svgList !== null && svgList !== void 0 && (_svgList$data = svgList.data) !== null && _svgList$data !== void 0 && _svgList$data.length) ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 25
+    }
+  }, "No svgs to load, add new from below."), svgList === null || svgList === void 0 ? void 0 : (_svgList$data2 = svgList.data) === null || _svgList$data2 === void 0 ? void 0 : _svgList$data2.map(item => __jsx("div", {
+    key: item._id,
+    className: "mb-2",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 29
+    }
+  }, __jsx(_RenderSvg__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    svgData: item,
+    deleteSvg: deleteSvg,
+    deleteSvgLoading: deleteSvgLoading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 33
+    }
+  })))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgListContainer);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/index.tsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/index.tsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/svg */ "./src/utils/svg.ts");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "react-hook-form");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_hook_form__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _tailwindComponents_CustomTextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../tailwindComponents/CustomTextField */ "./src/components/tailwindComponents/CustomTextField.tsx");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_useSvg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/useSvg */ "./src/utils/useSvg.tsx");
+/* harmony import */ var _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/svgs/plus.svg */ "./src/assets/svgs/plus.svg");
+/* harmony import */ var _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _services_svgService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../services/svgService */ "./src/services/svgService.ts");
+/* harmony import */ var _SvgListContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SvgListContainer */ "./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+
+
+
+
+
+
+const SvgLibrary = () => {
+  const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
+  const closeIcon = Object(_utils_useSvg__WEBPACK_IMPORTED_MODULE_5__["default"])("http://www.w3.org/2000/svg", "0 0 24 24", "white", "#FF3C69", svgPath);
+  const {
+    register,
+    handleSubmit
+  } = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useForm"])();
+  const {
+    0: tag,
+    1: setTag
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: tagsList,
+    1: setTagsList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isFirstTag,
+    1: setIsFirstTag
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const {
+    data: svgList,
+    error: svgListError,
+    isLoading: svgListLoading,
+    refetch: refetchSvgList
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svg", _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].getAllSvgs);
+  const {
+    mutate: mutateNewSvg,
+    isLoading: addingNewSvg,
+    error: errorAddingSvg
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useMutation"])(SVG_STRING => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].addNewSvg({
+    svgURL: "",
+    svgString: SVG_STRING,
+    tags: tagsList
+  }), {
+    onSuccess: (data, variables, context) => {
+      refetchSvgList();
+    }
+  });
+  const {
+    mutate: deleteSvg,
+    isLoading: deleteSvgLoading,
+    error: errorDeleteSvg
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useMutation"])(SVG_ID => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].deleteSvgByID(SVG_ID), {
+    onSuccess: (data, variables, context) => {
+      refetchSvgList();
+    }
+  });
+
+  const pushTagToTagsList = tagName => {
+    if (!tagName) {
+      return;
+    }
+
+    let checkExisting = tagsList.filter(currentTag => currentTag == tagName);
+
+    if (checkExisting.length && !isFirstTag) {
+      sweetalert__WEBPACK_IMPORTED_MODULE_4___default()({
+        title: "Tag already added",
+        icon: "error"
+      });
+    } else {
+      setTagsList([...tagsList, tagName]);
+      setIsFirstTag(false);
+    }
+  };
+
+  const removeFromTagsList = index => {
+    let newTagsList = [...tagsList];
+    newTagsList.splice(index, 1);
+    setTagsList(newTagsList);
+  };
+
+  const handleChangeTag = e => {
+    setTag(e.target.value);
+  };
+
+  const handlePushTag = () => {
+    pushTagToTagsList(tag);
+    setTag("");
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      pushTagToTagsList(tag);
+      setTag("");
+    }
+  };
+
+  const onSubmit = data => {
+    if (!(tagsList !== null && tagsList !== void 0 && tagsList.length)) {
+      sweetalert__WEBPACK_IMPORTED_MODULE_4___default()({
+        title: "please enter appsumo code",
+        text: `Hit '+' icon or press enter after typing your code`,
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!!(data !== null && data !== void 0 && data.svgupload)) {
+      const inputFiles = data === null || data === void 0 ? void 0 : data.svgupload;
+      _utils_svg__WEBPACK_IMPORTED_MODULE_1__["getSvgStringFromUpload"](inputFiles).then(SVG_STRING => {
+        mutateNewSvg(SVG_STRING); // TODO - upload this svg to amazon s3 then get url and pass that to svgURL
+        // svg_service.addNewSvg({
+        //     svgURL: "",
+        //     svgString: SVG_STRING,
+        //     tags: tagsList
+        // }).then(res => {
+        //     console.log({ res })
+        // })
+      });
+    }
+  };
+
+  return __jsx("div", {
+    className: "p-5",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 9
+    }
+  }, __jsx(_SvgListContainer__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    svgList: svgList,
+    svgListError: svgListError,
+    svgListLoading: svgListLoading,
+    deleteSvg: deleteSvg,
+    deleteSvgLoading: deleteSvgLoading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 13
+    }
+  }), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 123,
+      columnNumber: 17
+    }
+  }, __jsx("p", {
+    className: "text-2xl",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124,
+      columnNumber: 21
+    }
+  }, "Upload new Svg")), __jsx("div", {
+    className: "flex justify-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126,
+      columnNumber: 17
+    }
+  }, __jsx("form", {
+    onSubmit: handleSubmit(onSubmit),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127,
+      columnNumber: 21
+    }
+  }, __jsx(_tailwindComponents_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "Enter Tag",
+    id: "tagName",
+    name: "tagName",
+    value: tag,
+    onChange: handleChangeTag,
+    placeholder: "Type and hit Enter/Return key",
+    onKeyDown: handleKeyDown,
+    onClick: handlePushTag,
+    endIcon: _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6___default.a,
+    className: "relative  border border-grey appearance-none rounded w-full p-2 mt-0 focus:outline-none cursor-text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128,
+      columnNumber: 25
+    }
+  }), __jsx("div", {
+    className: "flex flex-grow flex-wrap flex-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140,
+      columnNumber: 25
+    }
+  }, tagsList.map((item, index) => __jsx("div", {
+    key: item,
+    className: "flex justify-between rounded-3xl px-5 py-1 border-radicalRed border-2 mt-1 text-radicalRed ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 142,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 143,
+      columnNumber: 37
+    }
+  }, item), __jsx("img", {
+    onClick: () => removeFromTagsList(index),
+    src: closeIcon,
+    alt: "error",
+    className: "w-4  cursor-pointer ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144,
+      columnNumber: 37
+    }
+  })))), __jsx("input", _extends({}, register('svgupload'), {
+    className: "mt-3 mb-3",
+    name: "svgupload",
+    type: "file",
+    accept: ".svg" // onChange={handleSvgUpload}
+    ,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 153,
+      columnNumber: 25
+    }
+  })), __jsx("button", {
+    className: "bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 rounded",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 161,
+      columnNumber: 25
+    }
+  }, "Submit")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgLibrary);
 
 /***/ }),
 
@@ -790,7 +1379,7 @@ const SearchBar = () => {
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12 z-50",
+    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -836,7 +1425,7 @@ const SearchBar = () => {
       columnNumber: 29
     }
   })))), __jsx("input", {
-    className: "w-full rounded text-sm text-gray95 outline-none h-12 z-0 ",
+    className: "w-full rounded text-sm text-gray95 outline-none h-12 ",
     type: "text",
     placeholder: "Search anything from elements",
     __self: undefined,
@@ -957,9 +1546,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ErrorFallacks_SearchBarFallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../ErrorFallacks/SearchBarFallback */ "./src/ErrorFallacks/SearchBarFallback.tsx");
 /* harmony import */ var _ErrorFallacks_TemplatePreviewFallback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../ErrorFallacks/TemplatePreviewFallback */ "./src/ErrorFallacks/TemplatePreviewFallback.tsx");
-/* harmony import */ var _hooks_useTemplateList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../hooks/useTemplateList */ "./src/hooks/useTemplateList.ts");
-/* harmony import */ var _hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../hooks/useCategoryList */ "./src/hooks/useCategoryList.ts");
-/* harmony import */ var _utils_titleCase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../utils/titleCase */ "./src/utils/titleCase.ts");
+/* harmony import */ var _utils_titleCase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../utils/titleCase */ "./src/utils/titleCase.ts");
+/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../services/categoryService */ "./src/services/categoryService.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\TemplateList\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -972,17 +1563,20 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const TemplateList = () => {
+  var _categoriesList$data, _templateList$data;
+
   const {
-    templateList,
+    data: templateList,
     error: templateError,
     isLoading: templateLoading
-  } = Object(_hooks_useTemplateList__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_8__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_7__["template_service"].getAllTemplates);
   const {
-    categoriesList,
+    data: categoriesList,
     error: categoryError,
     isLoading: categoryLoading
-  } = Object(_hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_8__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_9__["category_service"].getAllCategories);
   const {
     0: categoryFilter,
     1: setCategoryFilter
@@ -993,21 +1587,21 @@ const TemplateList = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 22,
         columnNumber: 17
       }
     }, "Getting all templates ..."));
   }
 
-  if (!!templateError) {
+  if (!!templateList.error) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 30,
         columnNumber: 17
       }
-    }, templateError.message));
+    }, templateList.error.message));
   }
 
   return __jsx("div", {
@@ -1015,7 +1609,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 36,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -1023,7 +1617,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 39,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -1031,7 +1625,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 41,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1039,14 +1633,14 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 42,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 43,
       columnNumber: 29
     }
   }, __jsx("h3", {
@@ -1054,7 +1648,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 45,
       columnNumber: 33
     }
   }, "Select Template")), __jsx("div", {
@@ -1062,7 +1656,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 49,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -1070,7 +1664,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 51,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -1078,7 +1672,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 52,
       columnNumber: 37
     }
   }, "Most Popular "))))), __jsx("div", {
@@ -1086,7 +1680,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 61,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1094,7 +1688,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 63,
       columnNumber: 25
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1103,14 +1697,14 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 64,
       columnNumber: 29
     }
   }, __jsx(_SearchBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 68,
       columnNumber: 33
     }
   })))), __jsx("div", {
@@ -1118,24 +1712,24 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 73,
       columnNumber: 21
     }
-  }, categoriesList === null || categoriesList === void 0 ? void 0 : categoriesList.map((cat, index) => __jsx("button", {
+  }, categoriesList === null || categoriesList === void 0 ? void 0 : (_categoriesList$data = categoriesList.data) === null || _categoriesList$data === void 0 ? void 0 : _categoriesList$data.map((cat, index) => __jsx("button", {
     key: index,
     onClick: () => setCategoryFilter(!!categoryFilter ? null : cat),
     className: "rounded-md px-4 py-1 h-10 " + ((categoryFilter === null || categoryFilter === void 0 ? void 0 : categoryFilter.id) === cat.id ? "text-white bg-indigo700" : "bg-lightindigo text-indigo700 "),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 75,
       columnNumber: 29
     }
-  }, Object(_utils_titleCase__WEBPACK_IMPORTED_MODULE_8__["titleCase"])(cat.name)))), __jsx("div", {
+  }, Object(_utils_titleCase__WEBPACK_IMPORTED_MODULE_6__["titleCase"])(cat.name)))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 84,
       columnNumber: 21
     }
   }, __jsx("h1", {
@@ -1143,7 +1737,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 85,
       columnNumber: 25
     }
   }, "Your Templates")), __jsx("div", {
@@ -1151,10 +1745,10 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 87,
       columnNumber: 21
     }
-  }, templateList === null || templateList === void 0 ? void 0 : templateList.map((item, index) => {
+  }, (_templateList$data = templateList.data) === null || _templateList$data === void 0 ? void 0 : _templateList$data.map((item, index) => {
     if (!!categoryFilter) {
       if (item.categoryId === categoryFilter.id) {
         return __jsx("div", {
@@ -1162,7 +1756,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
+            lineNumber: 92,
             columnNumber: 41
           }
         }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1171,7 +1765,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91,
+            lineNumber: 93,
             columnNumber: 45
           }
         }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1179,7 +1773,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 97,
             columnNumber: 49
           }
         })));
@@ -1190,7 +1784,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102,
+          lineNumber: 104,
           columnNumber: 37
         }
       }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1199,7 +1793,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103,
+          lineNumber: 105,
           columnNumber: 41
         }
       }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1207,7 +1801,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107,
+          lineNumber: 109,
           columnNumber: 45
         }
       })));
@@ -1233,10 +1827,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-error-boundary */ "react-error-boundary");
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ErrorFallacks_CategoryListFallback__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ErrorFallacks/CategoryListFallback */ "./src/ErrorFallacks/CategoryListFallback.tsx");
-/* harmony import */ var _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ErrorFallacks/TemplateListFallback */ "./src/ErrorFallacks/TemplateListFallback.tsx");
-/* harmony import */ var _components_CategoryList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CategoryList */ "./src/components/Home/components/CategoryList/index.tsx");
-/* harmony import */ var _components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/SelectTemplateDimensions */ "./src/components/Home/components/SelectTemplateDimensions/index.tsx");
-/* harmony import */ var _components_TemplateList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/TemplateList */ "./src/components/Home/components/TemplateList/index.tsx");
+/* harmony import */ var _ErrorFallacks_SvgUploadFallback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ErrorFallacks/SvgUploadFallback */ "./src/ErrorFallacks/SvgUploadFallback.tsx");
+/* harmony import */ var _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../ErrorFallacks/TemplateListFallback */ "./src/ErrorFallacks/TemplateListFallback.tsx");
+/* harmony import */ var _components_CategoryList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/CategoryList */ "./src/components/Home/components/CategoryList/index.tsx");
+/* harmony import */ var _components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SelectTemplateDimensions */ "./src/components/Home/components/SelectTemplateDimensions/index.tsx");
+/* harmony import */ var _components_SvgLibrary__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/SvgLibrary */ "./src/components/Home/components/SvgLibrary/index.tsx");
+/* harmony import */ var _components_TemplateList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/TemplateList */ "./src/components/Home/components/TemplateList/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1246,7 +1842,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const navLinksList = ["categories", "templates"];
+
+
+const navLinksList = ["categories", "templates", "svg library"];
 
 const Home = () => {
   const {
@@ -1306,7 +1904,7 @@ const Home = () => {
       lineNumber: 33,
       columnNumber: 13
     }
-  }, __jsx(_components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __jsx(_components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_6__["default"], {
     closeModal: () => setOpenTempalteDimsModal(false),
     __self: undefined,
     __source: {
@@ -1406,12 +2004,37 @@ const Home = () => {
       lineNumber: 66,
       columnNumber: 41
     }
-  }, "Templates")))))), __jsx("div", {
+  }, "Templates"))), __jsx("li", {
+    onClick: () => setSelectedNavLink(navLinksList[2]),
+    className: "flex w-full bg-gray300 justify-between text-gray900 hover:text-gray-900 cursor-pointer items-center mb-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 33
+    }
+  }, __jsx("div", {
+    className: "flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm h-10",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 37
+    }
+  }, __jsx("p", {
+    className: "text-gray900 font-medium pl-3",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 41
+    }
+  }, "Svg library")))))), __jsx("div", {
     className: "container mx-auto py-10 md:w-4/5 w-11/12 px-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 82,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1419,7 +2042,7 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 84,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -1427,7 +2050,7 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 85,
       columnNumber: 29
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
@@ -1436,14 +2059,14 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 86,
       columnNumber: 33
     }
-  }, __jsx(_components_CategoryList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_components_CategoryList__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 90,
       columnNumber: 37
     }
   }))), __jsx("div", {
@@ -1451,23 +2074,47 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 93,
       columnNumber: 29
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
-    FallbackComponent: _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_3__["default"],
+    FallbackComponent: _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_4__["default"],
     onReset: () => {},
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 94,
       columnNumber: 33
     }
-  }, __jsx(_components_TemplateList__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, __jsx(_components_TemplateList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 98,
+      columnNumber: 37
+    }
+  }))), __jsx("div", {
+    className: selectedNavLink === navLinksList[2] ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 29
+    }
+  }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
+    FallbackComponent: _ErrorFallacks_SvgUploadFallback__WEBPACK_IMPORTED_MODULE_3__["default"],
+    onReset: () => {},
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 33
+    }
+  }, __jsx(_components_SvgLibrary__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
       columnNumber: 37
     }
   }))))))));
@@ -1477,35 +2124,124 @@ const Home = () => {
 
 /***/ }),
 
-/***/ "./src/hooks/useTemplateList.ts":
-/*!**************************************!*\
-  !*** ./src/hooks/useTemplateList.ts ***!
-  \**************************************/
+/***/ "./src/components/tailwindComponents/ButtonLoader.tsx":
+/*!************************************************************!*\
+  !*** ./src/components/tailwindComponents/ButtonLoader.tsx ***!
+  \************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-query */ "react-query");
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\tailwindComponents\\ButtonLoader.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-
-const useTemplateList = () => {
-  const {
-    data: templateList,
-    error,
-    isLoading
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_0__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_1__["template_service"].getAllTemplates);
-  return {
-    templateList,
-    error,
-    isLoading
-  };
+const ButtonLoader = () => {
+  return __jsx("div", {
+    className: " flex justify-center items-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-purple-500",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 13
+    }
+  }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (useTemplateList);
+/* harmony default export */ __webpack_exports__["default"] = (ButtonLoader);
+
+/***/ }),
+
+/***/ "./src/services/svgService.ts":
+/*!************************************!*\
+  !*** ./src/services/svgService.ts ***!
+  \************************************/
+/*! exports provided: svg_service */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "svg_service", function() { return svg_service; });
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
+const URL_ENDPOINTS = {
+  svgURL: "https://hyper-engage-staging.herokuapp.com/svg"
+};
+const svg_service = {
+  getAllSvgs,
+  getSvgByID,
+  deleteSvgByID,
+  searchSvgsByTags,
+  addNewSvg
+};
+
+async function getAllSvgs() {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function searchSvgsByTags(tagsArray) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${tagsArray}&secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function getSvgByID(svgID) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}/${svgID}?secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function deleteSvgByID(svgID) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}/${svgID}?secret_token=${secret_token}`, {
+    method: "DELETE"
+  });
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function addNewSvg(svgData) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?secret_token=${secret_token}`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(svgData)
+  });
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
 
 /***/ })
 

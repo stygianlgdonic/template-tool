@@ -4,14 +4,16 @@ import TemplatePreview from './TemplatePreview'
 import { ErrorBoundary } from 'react-error-boundary'
 import SearchBarFallback from '../../../../ErrorFallacks/SearchBarFallback'
 import TemplatePreviewFallback from '../../../../ErrorFallacks/TemplatePreviewFallback'
-import useTemplateList from '../../../../hooks/useTemplateList'
-import useCategoryList from '../../../../hooks/useCategoryList'
 import { titleCase } from '../../../../utils/titleCase'
+import { template_service } from '../../../../services/templateService'
+import { useQuery } from 'react-query'
+import { category_service } from '../../../../services/categoryService'
 
 const TemplateList = () => {
 
-    const { templateList, error: templateError, isLoading: templateLoading } = useTemplateList()
-    const { categoriesList, error: categoryError, isLoading: categoryLoading } = useCategoryList()
+    const { data: templateList, error: templateError, isLoading: templateLoading } = useQuery<any, Error>("templates", template_service.getAllTemplates)
+    const { data: categoriesList, error: categoryError, isLoading: categoryLoading } = useQuery<any, Error>("categories", category_service.getAllCategories)
+
     const [categoryFilter, setCategoryFilter] = useState<any>(null)
 
     if (templateLoading) {
@@ -69,7 +71,7 @@ const TemplateList = () => {
                         </div>
                     </div>
                     <div className=" flex gap-4 mt-3 px-6">
-                        {categoriesList?.map((cat, index) =>
+                        {categoriesList?.data?.map((cat, index) =>
                             <button
                                 key={index}
                                 onClick={() => setCategoryFilter(!!categoryFilter ? null : cat)}

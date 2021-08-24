@@ -291,17 +291,6 @@ module.exports = __webpack_require__.p + "static/media/chevron-down.c16040f3.svg
 
 /***/ }),
 
-/***/ "./src/assets/svgs/plus.svg":
-/*!**********************************!*\
-  !*** ./src/assets/svgs/plus.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/media/plus.cc6d96c4.svg";
-
-/***/ }),
-
 /***/ "./src/components/DesignTool/EditingTools/index.tsx":
 /*!**********************************************************!*\
   !*** ./src/components/DesignTool/EditingTools/index.tsx ***!
@@ -456,19 +445,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _USvg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../USvg */ "./src/components/DesignTool/USvg.tsx");
 /* harmony import */ var _UText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../UText */ "./src/components/DesignTool/UText.tsx");
 /* harmony import */ var _UTransformer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../UTransformer */ "./src/components/DesignTool/UTransformer.tsx");
-/* harmony import */ var _utils_defaults__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../utils/defaults */ "./src/utils/defaults.ts");
-/* harmony import */ var _UImage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../UImage */ "./src/components/DesignTool/UImage.tsx");
+/* harmony import */ var _UImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../UImage */ "./src/components/DesignTool/UImage.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\DesignTool\\MainStage\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -513,8 +498,8 @@ const MainStage = ({
 
   const getLineGuideStops = skipShape => {
     // guidelines for stage center and edges
-    const vertical = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].width];
-    const horizontal = [0, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height / 2, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"].height]; // we snap over edges and center of each object on the canvas
+    const vertical = [0, templateData.dimensions.width / 2, templateData.dimensions.width];
+    const horizontal = [0, templateData.dimensions.height / 2, templateData.dimensions.height]; // we snap over edges and center of each object on the canvas
 
     $stage.current.find(".object").forEach(guideItem => {
       if (guideItem === skipShape) {
@@ -888,28 +873,29 @@ const MainStage = ({
   // };
 
 
-  return __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], _extends({
+  return __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Stage"], {
     ref: $stage,
     onMouseDown: onMouseDown,
     onMouseUp: onMouseUp,
     onMouseMove: onMouseMove // onTouchStart={checkDeselect}
     // onClick={onClickTap}
-
-  }, _utils_defaults__WEBPACK_IMPORTED_MODULE_9__["stageDimensions"], {
+    ,
+    width: templateData.dimensions.width,
+    height: templateData.dimensions.height,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 412,
+      lineNumber: 410,
       columnNumber: 9
     }
-  }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
+  }, __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Layer"], {
     ref: $layer,
     onDragMove: _onDragMove,
     onDragEnd: _onDragEnd,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 421,
+      lineNumber: 420,
       columnNumber: 13
     }
   }, (_templateData$variati = templateData.variations[variationIndex].elements) === null || _templateData$variati === void 0 ? void 0 : _templateData$variati.map((elem, i) => {
@@ -941,7 +927,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 428,
+        lineNumber: 427,
         columnNumber: 25
       }
     });
@@ -961,7 +947,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 457,
+        lineNumber: 456,
         columnNumber: 25
       }
     });
@@ -981,7 +967,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 474,
+        lineNumber: 473,
         columnNumber: 25
       }
     });
@@ -1001,7 +987,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 491,
+        lineNumber: 490,
         columnNumber: 25
       }
     });
@@ -1019,11 +1005,11 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 508,
+        lineNumber: 507,
         columnNumber: 25
       }
     });
-    if (elem.type === "image") return __jsx(_UImage__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    if (elem.type === "image") return __jsx(_UImage__WEBPACK_IMPORTED_MODULE_9__["default"], {
       key: i,
       imageProps: elem,
       onSelect: () => {
@@ -1036,7 +1022,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 526,
+        lineNumber: 525,
         columnNumber: 25
       }
     });
@@ -1054,7 +1040,7 @@ const MainStage = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 543,
+        lineNumber: 542,
         columnNumber: 25
       }
     });
@@ -1066,7 +1052,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 560,
+      lineNumber: 559,
       columnNumber: 17
     }
   }), __jsx(react_konva__WEBPACK_IMPORTED_MODULE_1__["Rect"], {
@@ -1075,7 +1061,7 @@ const MainStage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 566,
+      lineNumber: 565,
       columnNumber: 17
     }
   })));
@@ -2150,6 +2136,7 @@ const TransformerComponent = ({
     id: id,
     ref: $tr,
     ignoreStroke: true,
+    rotationSnaps: [0, 90, 180, 270],
     boundBoxFunc: (oldBox, newBox) => {
       if (selectedShapeName === "shapes_background") return oldBox;
 
@@ -2419,14 +2406,24 @@ const DesignTool = () => {
     setIsOpenSaveTemplateModal(true);
   };
 
-  const handleSaveTemplate = async (tags, categoryId) => {
+  const handleSaveTemplate = async (name, tags, categoryId) => {
+    console.log({
+      LOL: JSON.stringify(_objectSpread(_objectSpread({}, templateData), {}, {
+        name,
+        tags,
+        categoryId
+      }))
+    });
+
     if (!!templateID) {
       await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].updateTemplateByID(templateID, _objectSpread(_objectSpread({}, templateData), {}, {
+        name,
         tags,
         categoryId
       }));
     } else {
       await _services_templateService__WEBPACK_IMPORTED_MODULE_14__["template_service"].addNewTemplate(_objectSpread(_objectSpread({}, templateData), {}, {
+        name,
         tags,
         categoryId
       }));
@@ -2457,11 +2454,11 @@ const DesignTool = () => {
   };
 
   return __jsx("div", {
-    className: "min-w-max bg-gray300 h-screen",
+    className: "min-w-max bg-gray300 ",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 197,
+      lineNumber: 198,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2469,7 +2466,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198,
+      lineNumber: 199,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2477,7 +2474,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 199,
+      lineNumber: 200,
       columnNumber: 17
     }
   }, __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["NavLink"], {
@@ -2486,7 +2483,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 200,
+      lineNumber: 201,
       columnNumber: 21
     }
   }, "Back to Home"), __jsx(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["NavLink"], {
@@ -2495,7 +2492,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 206,
       columnNumber: 21
     }
   }, "Select Palette")), __jsx("p", {
@@ -2503,7 +2500,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 211,
+      lineNumber: 212,
       columnNumber: 17
     }
   }, "Tempalte Design"), __jsx("div", {
@@ -2511,7 +2508,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 212,
+      lineNumber: 213,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -2520,7 +2517,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 214,
       columnNumber: 21
     }
   }, "Save Template"), __jsx("button", {
@@ -2529,7 +2526,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 217,
       columnNumber: 21
     }
   }, "Delete Template"))), showSaveVariationModal && __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2538,7 +2535,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 223,
+      lineNumber: 224,
       columnNumber: 17
     }
   }, __jsx(_tailwindComponents_SaveVariation__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -2547,7 +2544,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 227,
+      lineNumber: 228,
       columnNumber: 21
     }
   })), isOpenSaveTemplateModal && __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2556,16 +2553,17 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 235,
+      lineNumber: 236,
       columnNumber: 17
     }
   }, __jsx(_tailwindComponents_SaveTemplate__WEBPACK_IMPORTED_MODULE_4__["default"], {
     templateData: templateData,
     handleSaveTemplate: handleSaveTemplate,
+    closeModal: () => setIsOpenSaveTemplateModal(false),
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 240,
       columnNumber: 21
     }
   })), __jsx("div", {
@@ -2573,7 +2571,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 246,
+      lineNumber: 248,
       columnNumber: 13
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2582,7 +2580,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249,
+      lineNumber: 251,
       columnNumber: 17
     }
   }, __jsx(_SideBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2591,14 +2589,14 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 255,
       columnNumber: 21
     }
   })), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257,
+      lineNumber: 259,
       columnNumber: 17
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2607,7 +2605,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258,
+      lineNumber: 260,
       columnNumber: 21
     }
   }, __jsx(_TopToolBar__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -2620,7 +2618,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 262,
+      lineNumber: 264,
       columnNumber: 25
     }
   })), __jsx("div", {
@@ -2628,7 +2626,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 271,
+      lineNumber: 273,
       columnNumber: 21
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2637,7 +2635,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 272,
+      lineNumber: 274,
       columnNumber: 25
     }
   }, __jsx(_MainStage__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -2651,7 +2649,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 276,
+      lineNumber: 278,
       columnNumber: 29
     }
   }))), __jsx("div", {
@@ -2659,7 +2657,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 288,
+      lineNumber: 290,
       columnNumber: 21
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2668,7 +2666,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289,
+      lineNumber: 291,
       columnNumber: 25
     }
   }, __jsx(_tailwindComponents_SelectVariation__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2678,7 +2676,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 293,
+      lineNumber: 295,
       columnNumber: 29
     }
   }))), __jsx("div", {
@@ -2686,7 +2684,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 301,
+      lineNumber: 303,
       columnNumber: 21
     }
   }, __jsx("button", {
@@ -2695,7 +2693,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 302,
+      lineNumber: 304,
       columnNumber: 25
     }
   }, "Save Variation"), __jsx("button", {
@@ -2704,7 +2702,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 306,
+      lineNumber: 308,
       columnNumber: 25
     }
   }, "Add New Variation"), __jsx("button", {
@@ -2713,7 +2711,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 310,
+      lineNumber: 312,
       columnNumber: 25
     }
   }, "Delete variation"))), __jsx("div", {
@@ -2721,7 +2719,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 318,
+      lineNumber: 320,
       columnNumber: 17
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_15__["ErrorBoundary"], {
@@ -2730,7 +2728,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 319,
+      lineNumber: 321,
       columnNumber: 21
     }
   }, __jsx(_EditingTools__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -2747,7 +2745,7 @@ const DesignTool = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 323,
+      lineNumber: 325,
       columnNumber: 25
     }
   })))));
@@ -2901,113 +2899,6 @@ const CustomSelect = _ref => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(CustomSelect));
-
-/***/ }),
-
-/***/ "./src/components/tailwindComponents/CustomTextField.tsx":
-/*!***************************************************************!*\
-  !*** ./src/components/tailwindComponents/CustomTextField.tsx ***!
-  \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-const _excluded = ["onClick", "startIcon", "endIcon", "error", "helperText", "className", "label"];
-var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\tailwindComponents\\CustomTextField.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
-const CustomTextField = _ref => {
-  let {
-    onClick,
-    startIcon,
-    endIcon,
-    error,
-    helperText,
-    className,
-    label
-  } = _ref,
-      rest = _objectWithoutProperties(_ref, _excluded);
-
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
-    className: "mb-4 relative  ",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 13
-    }
-  }, __jsx("label", {
-    className: "text-jacksonsPurple",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 17
-    }
-  }, label), __jsx("br", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 17
-    }
-  }), __jsx("input", _extends({}, rest, {
-    className: className,
-    style: {
-      textIndent: startIcon ? '15px' : ''
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 17
-    }
-  })), __jsx("img", {
-    src: startIcon,
-    alt: "error",
-    width: "18",
-    className: startIcon ? ' absolute left-0 top-0 mt-9 ml-2' : "hidden",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 17
-    }
-  }), __jsx("img", {
-    onClick: onClick,
-    src: endIcon,
-    alt: "error",
-    width: "18",
-    className: endIcon ? 'absolute right-0 top-0 mt-9 mr-4  cursor-pointer ' : "hidden",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 17
-    }
-  }), __jsx("p", {
-    className: helperText ? 'text-red text-sm pl-2 transition duration-500' : 'hidden',
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 17
-    }
-  }, helperText)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(CustomTextField));
 
 /***/ }),
 
@@ -3441,9 +3332,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoadingButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LoadingButton */ "./src/components/tailwindComponents/LoadingButton.tsx");
 /* harmony import */ var _utils_useSvg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/useSvg */ "./src/utils/useSvg.tsx");
 /* harmony import */ var _CustomSelect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CustomSelect */ "./src/components/tailwindComponents/CustomSelect.tsx");
-/* harmony import */ var _hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useCategoryList */ "./src/hooks/useCategoryList.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/categoryService */ "./src/services/categoryService.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\tailwindComponents\\SaveTemplate.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -3456,8 +3350,13 @@ const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-w
 
 const SaveTemplate = ({
   templateData,
-  handleSaveTemplate
+  handleSaveTemplate,
+  closeModal
 }) => {
+  const {
+    0: name,
+    1: setName
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
   const {
     0: tagsList,
     1: setTagsList
@@ -3471,10 +3370,10 @@ const SaveTemplate = ({
     1: setTag
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
   const {
-    categoriesList,
-    error,
-    isLoading
-  } = Object(_hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    data: categoriesList,
+    error: categoryError,
+    isLoading: categoryLoading
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_7__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_8__["category_service"].getAllCategories);
   const {
     0: selectedCategory,
     1: setSelectedCategory
@@ -3529,11 +3428,14 @@ const SaveTemplate = ({
   };
 
   const onCategoryChange = val => {
+    console.log({
+      val
+    });
     setSelectedCategory(val);
   };
 
   const onSubmit = () => {
-    handleSaveTemplate(tagsList, selectedCategory === null || selectedCategory === void 0 ? void 0 : selectedCategory.id);
+    handleSaveTemplate(name, tagsList, selectedCategory === null || selectedCategory === void 0 ? void 0 : selectedCategory.id);
   };
 
   return __jsx("div", {
@@ -3544,7 +3446,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 88,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -3552,7 +3454,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 89,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -3561,7 +3463,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 90,
       columnNumber: 17
     }
   }), __jsx("span", {
@@ -3570,7 +3472,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 92,
       columnNumber: 17
     }
   }, "\u200B"), __jsx("div", {
@@ -3578,7 +3480,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 94,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -3586,7 +3488,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 95,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3594,17 +3496,27 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 96,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 97,
       columnNumber: 29
     }
-  }, __jsx(_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx("input", {
+    value: name,
+    onChange: e => setName(e.target.value),
+    className: "relative  border border-grey appearance-none rounded w-full p-2 mt-0 focus:outline-none cursor-text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 98,
+      columnNumber: 33
+    }
+  }), __jsx(_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "Enter Tag",
     id: "tagName",
     name: "tagName",
@@ -3618,7 +3530,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 103,
       columnNumber: 33
     }
   }), __jsx("div", {
@@ -3626,7 +3538,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 115,
       columnNumber: 33
     }
   }, tagsList.map((item, index) => __jsx("div", {
@@ -3635,14 +3547,14 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 117,
       columnNumber: 41
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 118,
       columnNumber: 45
     }
   }, item), __jsx("img", {
@@ -3653,7 +3565,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 119,
       columnNumber: 45
     }
   })))), __jsx("div", {
@@ -3661,7 +3573,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 129,
       columnNumber: 33
     }
   }, __jsx(_CustomSelect__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -3672,7 +3584,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 130,
       columnNumber: 37
     }
   }))))), __jsx("div", {
@@ -3680,7 +3592,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 142,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -3688,7 +3600,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 143,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3699,7 +3611,7 @@ const SaveTemplate = ({
       }
     },
     disableElevation: true,
-    onClick: onSubmit,
+    onClick: closeModal,
     type: "submit",
     fullWidth: true,
     variant: "contained",
@@ -3708,7 +3620,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 144,
       columnNumber: 29
     }
   }, "Close")), __jsx("div", {
@@ -3716,7 +3628,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 160,
       columnNumber: 25
     }
   }, __jsx(_LoadingButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -3736,7 +3648,7 @@ const SaveTemplate = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 161,
       columnNumber: 29
     }
   }, "Save Template"))))));
@@ -4124,7 +4036,6 @@ const ShapeColorSelector = ({
       columnNumber: 13
     }
   }, __jsx("div", {
-    className: selectedId !== "shapes_background" ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -4739,115 +4650,6 @@ function useComponentVisible(initialIsVisible) {
     setIsComponentVisible
   };
 }
-
-/***/ }),
-
-/***/ "./src/utils/svg.ts":
-/*!**************************!*\
-  !*** ./src/utils/svg.ts ***!
-  \**************************/
-/*! exports provided: parseSVG, getElementColor, getColors, svgToURL, replaceColors, getSvgStringFromUpload */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseSVG", function() { return parseSVG; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElementColor", function() { return getElementColor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getColors", function() { return getColors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "svgToURL", function() { return svgToURL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "replaceColors", function() { return replaceColors; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSvgStringFromUpload", function() { return getSvgStringFromUpload; });
-// parse svg string into DOM
-function parseSVG(svgString) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(svgString, "image/svg+xml");
-  return doc;
-} // get color of element
-// we can also check styles of element and other properties like "stroke"
-
-function getElementColor(el) {
-  return el.getAttribute("fill");
-} // find all colors used in svg
-
-function getColors(svgString) {
-  const doc = parseSVG(svgString);
-  var elements = doc.getElementsByTagName("*");
-  const usedColors = [];
-
-  for (const element of elements) {
-    const color = getElementColor(element); // if color is defined and uniq we will add it
-
-    if (color && usedColors.indexOf(color) === -1) {
-      usedColors.push(color);
-    }
-  }
-
-  return usedColors;
-} // convert svg string into base64 data URL
-
-function svgToURL(s) {
-  const uri = window.btoa(unescape(encodeURIComponent(s)));
-  return "data:image/svg+xml;base64," + uri;
-} // replace colors in svg string
-
-function replaceColors(svgString, map) {
-  // we can do some RegExp magic here
-  // but I will just manually check every element
-  const doc = parseSVG(svgString);
-  var elements = doc.getElementsByTagName("*");
-
-  for (const element of elements) {
-    const color = getElementColor(element);
-
-    if (map[color]) {
-      element.setAttribute("fill", map[color]);
-    }
-  }
-
-  var xmlSerializer = new XMLSerializer();
-  const str = xmlSerializer.serializeToString(doc);
-  return str;
-}
-function getSvgStringFromUpload(files) {
-  return new Promise((resolve, reject) => {
-    try {
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        var svgData = e.target.result;
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(svgData, "image/svg+xml");
-        resolve(doc.documentElement.outerHTML);
-      };
-
-      reader.readAsText(files[0]);
-    } catch (error) {
-      reject(error);
-    }
-  });
-}
-
-/***/ }),
-
-/***/ "./src/utils/useSvg.tsx":
-/*!******************************!*\
-  !*** ./src/utils/useSvg.tsx ***!
-  \******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const useSvg = (xmlns, viewBox, fill, stroke, path) => {
-  let svg = `<svg xmlns="${xmlns}" fill="${fill}" viewBox="${viewBox}" stroke="${stroke}">${path}</svg>`;
-  let blob = new Blob([svg], {
-    type: 'image/svg+xml'
-  });
-  let url = URL.createObjectURL(blob);
-  return url;
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (useSvg);
 
 /***/ })
 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { NavLink } from 'react-router-dom'
 import CategoryListFallback from '../../ErrorFallacks/CategoryListFallback'
+import SvgUploadFallback from '../../ErrorFallacks/SvgUploadFallback'
 import TemplateListFallback from '../../ErrorFallacks/TemplateListFallback'
-import { ROUTE_NAMES } from '../../routes/route_names'
 import CategoryList from './components/CategoryList'
 import SelectTemplateDimensions from './components/SelectTemplateDimensions'
+import SvgLibrary from './components/SvgLibrary'
 import TemplateList from './components/TemplateList'
 
-const navLinksList = ["categories", "templates"]
+const navLinksList = ["categories", "templates", "svg library"]
 
 const Home = () => {
 
@@ -66,6 +66,13 @@ const Home = () => {
                                         <p className="text-gray900 font-medium pl-3">Templates</p>
                                     </div>
                                 </li>
+                                <li
+                                    onClick={() => setSelectedNavLink(navLinksList[2])}
+                                    className="flex w-full bg-gray300 justify-between text-gray900 hover:text-gray-900 cursor-pointer items-center mb-6">
+                                    <div className="flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm h-10">
+                                        <p className="text-gray900 font-medium pl-3">Svg library</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -89,6 +96,14 @@ const Home = () => {
                                     onReset={() => { }}
                                 >
                                     <TemplateList />
+                                </ErrorBoundary>
+                            </div>
+                            <div className={selectedNavLink === navLinksList[2] ? "" : "hidden"}>
+                                <ErrorBoundary
+                                    FallbackComponent={SvgUploadFallback}
+                                    onReset={() => { }}
+                                >
+                                    <SvgLibrary />
                                 </ErrorBoundary>
                             </div>
                         </div>

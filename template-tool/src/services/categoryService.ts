@@ -1,9 +1,10 @@
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4"
 const URL_ENDPOINTS = {
-    getAllCategoriesURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-    getCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-    createCategoryURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-    updateCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-    deleteCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory"
+    getAllCategoriesURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+    getCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+    createCategoryURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+    updateCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+    deleteCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory"
 }
 
 export const category_service = {
@@ -15,7 +16,7 @@ export const category_service = {
 }
 
 async function getAllCategories() {
-    const response = await fetch(URL_ENDPOINTS.getAllCategoriesURL)
+    const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Categories")
     }
@@ -23,7 +24,7 @@ async function getAllCategories() {
 }
 
 async function addNewCategory(categoryData: any) {
-    const response = await fetch(URL_ENDPOINTS.createCategoryURL, {
+    const response = await fetch(`${URL_ENDPOINTS.createCategoryURL}?secret_token=${secret_token}`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +40,7 @@ async function addNewCategory(categoryData: any) {
 async function getCategoryByID(categoryID: string | undefined) {
     if (!categoryID) return
 
-    const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}/${categoryID}`)
+    const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}/${categoryID}?secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while fetching Category")
     }
@@ -50,7 +51,7 @@ async function updateCategoryByID(categoryID: string, categoryData: any) {
 
     console.log({ JSON: JSON.stringify(categoryData), categoryData })
 
-    const response = await fetch(`${URL_ENDPOINTS.updateCategoryByIdURL}/${categoryID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.updateCategoryByIdURL}/${categoryID}?secret_token=${secret_token}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json'
@@ -65,7 +66,7 @@ async function updateCategoryByID(categoryID: string, categoryData: any) {
 }
 
 async function deleteCategoryByID(categoryID: string) {
-    const response = await fetch(`${URL_ENDPOINTS.deleteCategoryByIdURL}/${categoryID}`, {
+    const response = await fetch(`${URL_ENDPOINTS.deleteCategoryByIdURL}/${categoryID}?secret_token=${secret_token}`, {
         method: "DELETE",
     })
     console.log({ response })

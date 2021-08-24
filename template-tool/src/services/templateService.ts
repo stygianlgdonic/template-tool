@@ -1,10 +1,10 @@
 const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4"
 const URL_ENDPOINTS = {
-    getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
-    getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-    createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
-    updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-    deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
+    getAllTemplatesURL: "https://hyper-engage-staging.herokuapp.com/template",
+    getTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+    createTemplateURL: "https://hyper-engage-staging.herokuapp.com/template",
+    updateTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+    deleteTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template"
 }
 
 export const template_service = {

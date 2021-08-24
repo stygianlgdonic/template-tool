@@ -5,7 +5,8 @@ import CustomTextField from "./CustomTextField";
 import LoadingButton from "./LoadingButton";
 import useSvg from "../../utils/useSvg";
 import CustomSelect from "./CustomSelect";
-import useCategoryList from "../../hooks/useCategoryList";
+import { useQuery } from "react-query";
+import { category_service } from "../../services/categoryService";
 
 const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
 
@@ -20,7 +21,7 @@ const SaveTemplate: React.FC<Props> = ({ templateData, handleSaveTemplate, close
     const [tagsList, setTagsList] = useState([]);
     const [isFirstTag, setIsFirstTag] = useState(true);
     const [tag, setTag] = useState("");
-    const { categoriesList, error, isLoading } = useCategoryList()
+    const { data: categoriesList, error: categoryError, isLoading: categoryLoading } = useQuery<any, Error>("categories", category_service.getAllCategories)
     const [selectedCategory, setSelectedCategory] = useState(!!categoriesList ? categoriesList[0] : null)
 
     useEffect(() => {

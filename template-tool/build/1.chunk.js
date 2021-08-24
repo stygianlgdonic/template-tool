@@ -79,6 +79,45 @@ const SearchBarFallback = ({
 
 /***/ }),
 
+/***/ "./src/ErrorFallacks/SvgUploadFallback.tsx":
+/*!*************************************************!*\
+  !*** ./src/ErrorFallacks/SvgUploadFallback.tsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\ErrorFallacks\\SvgUploadFallback.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SvgUploadFallback = ({
+  error,
+  resetErrorBoundary
+}) => {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops!", "Encountered an error while rendering this component. Try reloading page.", "error").then(resetErrorBoundary);
+  }, []);
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, error.message);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgUploadFallback);
+
+/***/ }),
+
 /***/ "./src/ErrorFallacks/TemplateListFallback.tsx":
 /*!****************************************************!*\
   !*** ./src/ErrorFallacks/TemplateListFallback.tsx ***!
@@ -168,6 +207,17 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 
 /***/ }),
 
+/***/ "./src/assets/svgs/plus.svg":
+/*!**********************************!*\
+  !*** ./src/assets/svgs/plus.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/plus.cc6d96c4.svg";
+
+/***/ }),
+
 /***/ "./src/components/Home/components/CategoryList/index.tsx":
 /*!***************************************************************!*\
   !*** ./src/components/Home/components/CategoryList/index.tsx ***!
@@ -179,9 +229,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABICAYAAACq
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../hooks/useCategoryList */ "./src/hooks/useCategoryList.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/categoryService */ "./src/services/categoryService.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\CategoryList\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -196,12 +247,12 @@ const CategoryList = () => {
     1: setNewCategoryName
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
   const {
-    categoriesList,
-    error,
-    isLoading
-  } = Object(_hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    data: categoriesList,
+    error: categoryError,
+    isLoading: categoryLoading
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_1__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_3__["category_service"].getAllCategories);
 
-  if (isLoading) {
+  if (categoryLoading) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
@@ -212,7 +263,7 @@ const CategoryList = () => {
     }, "Getting all categories ..."));
   }
 
-  if (!!error) {
+  if (!!categoryError) {
     return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
       __self: undefined,
       __source: {
@@ -220,7 +271,7 @@ const CategoryList = () => {
         lineNumber: 21,
         columnNumber: 17
       }
-    }, error.message));
+    }, categoryError.message));
   }
 
   const handleAddCategory = async e => {
@@ -235,7 +286,7 @@ const CategoryList = () => {
   };
 
   const handleDeleteCategory = async cat => {
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()({
       title: "Are you sure?",
       text: `Do you want to delete ${cat.name}?`,
       icon: "warning",
@@ -266,7 +317,8 @@ const CategoryList = () => {
       lineNumber: 49,
       columnNumber: 13
     }
-  }, categoriesList === null || categoriesList === void 0 ? void 0 : categoriesList.map((cat, index) => __jsx("div", {
+  }, categoriesList === null || categoriesList === void 0 ? void 0 : categoriesList.map(cat => __jsx("div", {
+    key: cat.id,
     className: "flex justify-between",
     __self: undefined,
     __source: {
@@ -275,7 +327,6 @@ const CategoryList = () => {
       columnNumber: 21
     }
   }, __jsx("span", {
-    key: index,
     className: "block",
     __self: undefined,
     __source: {
@@ -672,6 +723,444 @@ const SelectTemplateDimensions = ({
 
 /***/ }),
 
+/***/ "./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../utils/svg */ "./src/utils/svg.ts");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\RenderSvg.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const RenderSvg = ({
+  svgData
+}) => {
+  const svgUrl = _utils_svg__WEBPACK_IMPORTED_MODULE_1__["svgToURL"](svgData.svgString);
+  return __jsx("button", {
+    style: {
+      width: 100,
+      height: 100
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, __jsx("img", {
+    alt: "svg",
+    src: svgUrl,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 13
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RenderSvg);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx":
+/*!******************************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _RenderSvg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RenderSvg */ "./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx");
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SvgListContainer = ({
+  svgList,
+  svgListLoading,
+  svgListError
+}) => {
+  var _svgList$error, _svgList$data;
+
+  const {
+    0: searchTags,
+    1: setSearchTags
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: searchTerm,
+    1: setSearchTerm
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""); // const { data: searchedSvgs, error: searchedSvgsError, isLoading: searchedSvgsLoading } = useQuery<any, Error>(
+  //     "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
+  // )
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 17
+    }
+  }, __jsx("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 21
+    }
+  }, "All svgs")), __jsx("div", {
+    className: "flex justify-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 17
+    }
+  }, __jsx("p", {
+    className: !!svgListLoading ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 21
+    }
+  }, "Loading svgs ..."), __jsx("p", {
+    className: !!svgListError ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 21
+    }
+  }, svgListError), __jsx("p", {
+    className: !!(svgList !== null && svgList !== void 0 && svgList.error) ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 21
+    }
+  }, svgList === null || svgList === void 0 ? void 0 : (_svgList$error = svgList.error) === null || _svgList$error === void 0 ? void 0 : _svgList$error.message), svgList === null || svgList === void 0 ? void 0 : (_svgList$data = svgList.data) === null || _svgList$data === void 0 ? void 0 : _svgList$data.map(item => __jsx(_RenderSvg__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    key: item._id,
+    svgData: item,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 25
+    }
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgListContainer);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/index.tsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/index.tsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utils/svg */ "./src/utils/svg.ts");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "react-hook-form");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_hook_form__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _tailwindComponents_CustomTextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../tailwindComponents/CustomTextField */ "./src/components/tailwindComponents/CustomTextField.tsx");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_useSvg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/useSvg */ "./src/utils/useSvg.tsx");
+/* harmony import */ var _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/svgs/plus.svg */ "./src/assets/svgs/plus.svg");
+/* harmony import */ var _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _services_svgService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../services/svgService */ "./src/services/svgService.ts");
+/* harmony import */ var _SvgListContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SvgListContainer */ "./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\index.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+
+
+
+
+
+
+const SvgLibrary = () => {
+  const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
+  const closeIcon = Object(_utils_useSvg__WEBPACK_IMPORTED_MODULE_5__["default"])("http://www.w3.org/2000/svg", "0 0 24 24", "white", "#FF3C69", svgPath);
+  const {
+    register,
+    handleSubmit
+  } = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useForm"])();
+  const {
+    0: tag,
+    1: setTag
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
+  const {
+    0: tagsList,
+    1: setTagsList
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: isFirstTag,
+    1: setIsFirstTag
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const {
+    data: svgList,
+    error: svgListError,
+    isLoading: svgListLoading,
+    refetch: refetchSvgList
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svg", _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].getAllSvgs);
+  const {
+    mutate: mutateNewSvg,
+    isLoading: addingNewSvg,
+    error: errorAddingSvg
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useMutation"])(SVG_STRING => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].addNewSvg({
+    svgURL: "",
+    svgString: SVG_STRING,
+    tags: tagsList
+  }), {
+    onSuccess: (data, variables, context) => {
+      console.log({
+        data
+      });
+    }
+  });
+
+  const pushTagToTagsList = tagName => {
+    if (!tagName) {
+      return;
+    }
+
+    let checkExisting = tagsList.filter(currentTag => currentTag == tagName);
+
+    if (checkExisting.length && !isFirstTag) {
+      sweetalert__WEBPACK_IMPORTED_MODULE_4___default()({
+        title: "Tag already added",
+        icon: "error"
+      });
+    } else {
+      setTagsList([...tagsList, tagName]);
+      setIsFirstTag(false);
+    }
+  };
+
+  const removeFromTagsList = index => {
+    let newTagsList = [...tagsList];
+    newTagsList.splice(index, 1);
+    setTagsList(newTagsList);
+  };
+
+  const handleChangeTag = e => {
+    setTag(e.target.value);
+  };
+
+  const handlePushTag = () => {
+    pushTagToTagsList(tag);
+    setTag("");
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      pushTagToTagsList(tag);
+      setTag("");
+    }
+  };
+
+  const onSubmit = data => {
+    if (!(tagsList !== null && tagsList !== void 0 && tagsList.length)) {
+      sweetalert__WEBPACK_IMPORTED_MODULE_4___default()({
+        title: "please enter appsumo code",
+        text: `Hit '+' icon or press enter after typing your code`,
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!!(data !== null && data !== void 0 && data.svgupload)) {
+      const inputFiles = data === null || data === void 0 ? void 0 : data.svgupload;
+      _utils_svg__WEBPACK_IMPORTED_MODULE_1__["getSvgStringFromUpload"](inputFiles).then(SVG_STRING => {
+        mutateNewSvg(SVG_STRING); // TODO - upload this svg to amazon s3 then get url and pass that to svgURL
+        // svg_service.addNewSvg({
+        //     svgURL: "",
+        //     svgString: SVG_STRING,
+        //     tags: tagsList
+        // }).then(res => {
+        //     console.log({ res })
+        // })
+      });
+    }
+  };
+
+  return __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 107,
+      columnNumber: 9
+    }
+  }, __jsx(_SvgListContainer__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    svgList: svgList,
+    svgListError: svgListError,
+    svgListLoading: svgListLoading,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 13
+    }
+  }), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 17
+    }
+  }, __jsx("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 21
+    }
+  }, "Upload new Svg")), __jsx("div", {
+    className: "flex justify-center",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 17
+    }
+  }, __jsx("form", {
+    onSubmit: handleSubmit(onSubmit),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 21
+    }
+  }, __jsx(_tailwindComponents_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    label: "Enter Tag",
+    id: "tagName",
+    name: "tagName",
+    value: tag,
+    onChange: handleChangeTag,
+    placeholder: "Type and hit Enter/Return key",
+    onKeyDown: handleKeyDown,
+    onClick: handlePushTag,
+    endIcon: _assets_svgs_plus_svg__WEBPACK_IMPORTED_MODULE_6___default.a,
+    className: "relative  border border-grey appearance-none rounded w-full p-2 mt-0 focus:outline-none cursor-text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119,
+      columnNumber: 25
+    }
+  }), __jsx("div", {
+    className: "flex flex-grow flex-wrap flex-col",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131,
+      columnNumber: 25
+    }
+  }, tagsList.map((item, index) => __jsx("div", {
+    key: item,
+    className: "flex justify-between rounded-3xl px-5 py-1 border-radicalRed border-2 mt-1 text-radicalRed ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133,
+      columnNumber: 33
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134,
+      columnNumber: 37
+    }
+  }, item), __jsx("img", {
+    onClick: () => removeFromTagsList(index),
+    src: closeIcon,
+    alt: "error",
+    className: "w-4  cursor-pointer ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 135,
+      columnNumber: 37
+    }
+  })))), __jsx("input", _extends({}, register('svgupload'), {
+    className: "mt-3 mb-3",
+    name: "svgupload",
+    type: "file",
+    accept: ".svg" // onChange={handleSvgUpload}
+    ,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 144,
+      columnNumber: 25
+    }
+  })), __jsx("button", {
+    className: "bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 rounded",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+      columnNumber: 25
+    }
+  }, "Submit")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgLibrary);
+
+/***/ }),
+
 /***/ "./src/components/Home/components/TemplateList/Elements/index.tsx":
 /*!************************************************************************!*\
   !*** ./src/components/Home/components/TemplateList/Elements/index.tsx ***!
@@ -960,11 +1449,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ErrorFallacks_SearchBarFallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../ErrorFallacks/SearchBarFallback */ "./src/ErrorFallacks/SearchBarFallback.tsx");
 /* harmony import */ var _ErrorFallacks_TemplatePreviewFallback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../ErrorFallacks/TemplatePreviewFallback */ "./src/ErrorFallacks/TemplatePreviewFallback.tsx");
-/* harmony import */ var _hooks_useTemplateList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../hooks/useTemplateList */ "./src/hooks/useTemplateList.ts");
-/* harmony import */ var _hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../hooks/useCategoryList */ "./src/hooks/useCategoryList.ts");
-/* harmony import */ var _utils_titleCase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../utils/titleCase */ "./src/utils/titleCase.ts");
+/* harmony import */ var _utils_titleCase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../utils/titleCase */ "./src/utils/titleCase.ts");
+/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../services/templateService */ "./src/services/templateService.ts");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../services/categoryService */ "./src/services/categoryService.ts");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\TemplateList\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -979,15 +1471,15 @@ const TemplateList = () => {
   var _templateList$data;
 
   const {
-    templateList,
+    data: templateList,
     error: templateError,
     isLoading: templateLoading
-  } = Object(_hooks_useTemplateList__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_8__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_7__["template_service"].getAllTemplates);
   const {
-    categoriesList,
+    data: categoriesList,
     error: categoryError,
     isLoading: categoryLoading
-  } = Object(_hooks_useCategoryList__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_8__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_9__["category_service"].getAllCategories);
   const {
     0: categoryFilter,
     1: setCategoryFilter
@@ -998,7 +1490,7 @@ const TemplateList = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 22,
         columnNumber: 17
       }
     }, "Getting all templates ..."));
@@ -1009,7 +1501,7 @@ const TemplateList = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28,
+        lineNumber: 30,
         columnNumber: 17
       }
     }, templateList.error.message));
@@ -1020,7 +1512,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 36,
       columnNumber: 9
     }
   }, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
@@ -1028,7 +1520,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 39,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -1036,7 +1528,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 41,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1044,14 +1536,14 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 42,
       columnNumber: 25
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 43,
       columnNumber: 29
     }
   }, __jsx("h3", {
@@ -1059,7 +1551,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 45,
       columnNumber: 33
     }
   }, "Select Template")), __jsx("div", {
@@ -1067,7 +1559,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 49,
       columnNumber: 29
     }
   }, __jsx("div", {
@@ -1075,7 +1567,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 51,
       columnNumber: 33
     }
   }, __jsx("button", {
@@ -1083,7 +1575,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 52,
       columnNumber: 37
     }
   }, "Most Popular "))))), __jsx("div", {
@@ -1091,7 +1583,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 61,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1099,7 +1591,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 63,
       columnNumber: 25
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1108,14 +1600,14 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 64,
       columnNumber: 29
     }
   }, __jsx(_SearchBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 68,
       columnNumber: 33
     }
   })))), __jsx("div", {
@@ -1123,7 +1615,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 73,
       columnNumber: 21
     }
   }, categoriesList === null || categoriesList === void 0 ? void 0 : categoriesList.map((cat, index) => __jsx("button", {
@@ -1133,14 +1625,14 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 75,
       columnNumber: 29
     }
-  }, Object(_utils_titleCase__WEBPACK_IMPORTED_MODULE_8__["titleCase"])(cat.name)))), __jsx("div", {
+  }, Object(_utils_titleCase__WEBPACK_IMPORTED_MODULE_6__["titleCase"])(cat.name)))), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 84,
       columnNumber: 21
     }
   }, __jsx("h1", {
@@ -1148,7 +1640,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 85,
       columnNumber: 25
     }
   }, "Your Templates")), __jsx("div", {
@@ -1156,7 +1648,7 @@ const TemplateList = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 87,
       columnNumber: 21
     }
   }, (_templateList$data = templateList.data) === null || _templateList$data === void 0 ? void 0 : _templateList$data.map((item, index) => {
@@ -1167,7 +1659,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90,
+            lineNumber: 92,
             columnNumber: 41
           }
         }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1176,7 +1668,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91,
+            lineNumber: 93,
             columnNumber: 45
           }
         }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1184,7 +1676,7 @@ const TemplateList = () => {
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95,
+            lineNumber: 97,
             columnNumber: 49
           }
         })));
@@ -1195,7 +1687,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102,
+          lineNumber: 104,
           columnNumber: 37
         }
       }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_3__["ErrorBoundary"], {
@@ -1204,7 +1696,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103,
+          lineNumber: 105,
           columnNumber: 41
         }
       }, __jsx(_TemplatePreview__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1212,7 +1704,7 @@ const TemplateList = () => {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107,
+          lineNumber: 109,
           columnNumber: 45
         }
       })));
@@ -1238,10 +1730,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-error-boundary */ "react-error-boundary");
 /* harmony import */ var react_error_boundary__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ErrorFallacks_CategoryListFallback__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ErrorFallacks/CategoryListFallback */ "./src/ErrorFallacks/CategoryListFallback.tsx");
-/* harmony import */ var _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ErrorFallacks/TemplateListFallback */ "./src/ErrorFallacks/TemplateListFallback.tsx");
-/* harmony import */ var _components_CategoryList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CategoryList */ "./src/components/Home/components/CategoryList/index.tsx");
-/* harmony import */ var _components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/SelectTemplateDimensions */ "./src/components/Home/components/SelectTemplateDimensions/index.tsx");
-/* harmony import */ var _components_TemplateList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/TemplateList */ "./src/components/Home/components/TemplateList/index.tsx");
+/* harmony import */ var _ErrorFallacks_SvgUploadFallback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ErrorFallacks/SvgUploadFallback */ "./src/ErrorFallacks/SvgUploadFallback.tsx");
+/* harmony import */ var _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../ErrorFallacks/TemplateListFallback */ "./src/ErrorFallacks/TemplateListFallback.tsx");
+/* harmony import */ var _components_CategoryList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/CategoryList */ "./src/components/Home/components/CategoryList/index.tsx");
+/* harmony import */ var _components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SelectTemplateDimensions */ "./src/components/Home/components/SelectTemplateDimensions/index.tsx");
+/* harmony import */ var _components_SvgLibrary__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/SvgLibrary */ "./src/components/Home/components/SvgLibrary/index.tsx");
+/* harmony import */ var _components_TemplateList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/TemplateList */ "./src/components/Home/components/TemplateList/index.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1251,7 +1745,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const navLinksList = ["categories", "templates"];
+
+
+const navLinksList = ["categories", "templates", "svg library"];
 
 const Home = () => {
   const {
@@ -1311,7 +1807,7 @@ const Home = () => {
       lineNumber: 33,
       columnNumber: 13
     }
-  }, __jsx(_components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __jsx(_components_SelectTemplateDimensions__WEBPACK_IMPORTED_MODULE_6__["default"], {
     closeModal: () => setOpenTempalteDimsModal(false),
     __self: undefined,
     __source: {
@@ -1411,12 +1907,37 @@ const Home = () => {
       lineNumber: 66,
       columnNumber: 41
     }
-  }, "Templates")))))), __jsx("div", {
+  }, "Templates"))), __jsx("li", {
+    onClick: () => setSelectedNavLink(navLinksList[2]),
+    className: "flex w-full bg-gray300 justify-between text-gray900 hover:text-gray-900 cursor-pointer items-center mb-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69,
+      columnNumber: 33
+    }
+  }, __jsx("div", {
+    className: "flex items-center  hover:bg-rightbackgroundcolor  w-full hover:rounded-lg border-0 rounded-sm h-10",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
+      columnNumber: 37
+    }
+  }, __jsx("p", {
+    className: "text-gray900 font-medium pl-3",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 41
+    }
+  }, "Svg library")))))), __jsx("div", {
     className: "container mx-auto py-10 md:w-4/5 w-11/12 px-6",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 82,
       columnNumber: 21
     }
   }, __jsx("div", {
@@ -1424,7 +1945,7 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 84,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -1432,7 +1953,7 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 85,
       columnNumber: 29
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
@@ -1441,14 +1962,14 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 86,
       columnNumber: 33
     }
-  }, __jsx(_components_CategoryList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, __jsx(_components_CategoryList__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 90,
       columnNumber: 37
     }
   }))), __jsx("div", {
@@ -1456,23 +1977,47 @@ const Home = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 93,
       columnNumber: 29
     }
   }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
-    FallbackComponent: _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_3__["default"],
+    FallbackComponent: _ErrorFallacks_TemplateListFallback__WEBPACK_IMPORTED_MODULE_4__["default"],
     onReset: () => {},
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 94,
       columnNumber: 33
     }
-  }, __jsx(_components_TemplateList__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, __jsx(_components_TemplateList__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 98,
+      columnNumber: 37
+    }
+  }))), __jsx("div", {
+    className: selectedNavLink === navLinksList[2] ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 29
+    }
+  }, __jsx(react_error_boundary__WEBPACK_IMPORTED_MODULE_1__["ErrorBoundary"], {
+    FallbackComponent: _ErrorFallacks_SvgUploadFallback__WEBPACK_IMPORTED_MODULE_3__["default"],
+    onReset: () => {},
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 33
+    }
+  }, __jsx(_components_SvgLibrary__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106,
       columnNumber: 37
     }
   }))))))));
@@ -1482,67 +2027,110 @@ const Home = () => {
 
 /***/ }),
 
-/***/ "./src/hooks/useCategoryList.ts":
-/*!**************************************!*\
-  !*** ./src/hooks/useCategoryList.ts ***!
-  \**************************************/
+/***/ "./src/components/tailwindComponents/CustomTextField.tsx":
+/*!***************************************************************!*\
+  !*** ./src/components/tailwindComponents/CustomTextField.tsx ***!
+  \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-query */ "react-query");
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_categoryService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/categoryService */ "./src/services/categoryService.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+const _excluded = ["onClick", "startIcon", "endIcon", "error", "helperText", "className", "label"];
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\tailwindComponents\\CustomTextField.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 
 
-const useCategoryList = () => {
-  const {
-    data: categoriesList,
+const CustomTextField = _ref => {
+  let {
+    onClick,
+    startIcon,
+    endIcon,
     error,
-    isLoading
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_0__["useQuery"])("categories", _services_categoryService__WEBPACK_IMPORTED_MODULE_1__["category_service"].getAllCategories);
-  return {
-    categoriesList,
-    error,
-    isLoading
-  };
+    helperText,
+    className,
+    label
+  } = _ref,
+      rest = _objectWithoutProperties(_ref, _excluded);
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    className: "mb-4 relative  ",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 13
+    }
+  }, __jsx("label", {
+    className: "text-jacksonsPurple",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 17
+    }
+  }, label), __jsx("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 17
+    }
+  }), __jsx("input", _extends({}, rest, {
+    className: className,
+    style: {
+      textIndent: startIcon ? '15px' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  })), __jsx("img", {
+    src: startIcon,
+    alt: "error",
+    width: "18",
+    className: startIcon ? ' absolute left-0 top-0 mt-9 ml-2' : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 17
+    }
+  }), __jsx("img", {
+    onClick: onClick,
+    src: endIcon,
+    alt: "error",
+    width: "18",
+    className: endIcon ? 'absolute right-0 top-0 mt-9 mr-4  cursor-pointer ' : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 17
+    }
+  }), __jsx("p", {
+    className: helperText ? 'text-red text-sm pl-2 transition duration-500' : 'hidden',
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 17
+    }
+  }, helperText)));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (useCategoryList);
-
-/***/ }),
-
-/***/ "./src/hooks/useTemplateList.ts":
-/*!**************************************!*\
-  !*** ./src/hooks/useTemplateList.ts ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-query */ "react-query");
-/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_templateService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/templateService */ "./src/services/templateService.ts");
-
-
-
-const useTemplateList = () => {
-  const {
-    data: templateList,
-    error,
-    isLoading
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_0__["useQuery"])("templates", _services_templateService__WEBPACK_IMPORTED_MODULE_1__["template_service"].getAllTemplates);
-  return {
-    templateList,
-    error,
-    isLoading
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (useTemplateList);
+/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["memo"])(CustomTextField));
 
 /***/ }),
 
@@ -1556,12 +2144,13 @@ const useTemplateList = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "category_service", function() { return category_service; });
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
 const URL_ENDPOINTS = {
-  getAllCategoriesURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-  getCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-  createCategoryURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-  updateCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory",
-  deleteCategoryByIdURL: "https://polar-tor-04971.herokuapp.com/templatecategory"
+  getAllCategoriesURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+  getCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+  createCategoryURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+  updateCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
+  deleteCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory"
 };
 const category_service = {
   getAllCategories,
@@ -1572,7 +2161,7 @@ const category_service = {
 };
 
 async function getAllCategories() {
-  const response = await fetch(URL_ENDPOINTS.getAllCategoriesURL);
+  const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Categories");
@@ -1582,7 +2171,7 @@ async function getAllCategories() {
 }
 
 async function addNewCategory(categoryData) {
-  const response = await fetch(URL_ENDPOINTS.createCategoryURL, {
+  const response = await fetch(`${URL_ENDPOINTS.createCategoryURL}?secret_token=${secret_token}`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -1599,7 +2188,7 @@ async function addNewCategory(categoryData) {
 
 async function getCategoryByID(categoryID) {
   if (!categoryID) return;
-  const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}/${categoryID}`);
+  const response = await fetch(`${URL_ENDPOINTS.getAllCategoriesURL}/${categoryID}?secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while fetching Category");
@@ -1613,7 +2202,7 @@ async function updateCategoryByID(categoryID, categoryData) {
     JSON: JSON.stringify(categoryData),
     categoryData
   });
-  const response = await fetch(`${URL_ENDPOINTS.updateCategoryByIdURL}/${categoryID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.updateCategoryByIdURL}/${categoryID}?secret_token=${secret_token}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json'
@@ -1632,7 +2221,7 @@ async function updateCategoryByID(categoryID, categoryData) {
 }
 
 async function deleteCategoryByID(categoryID) {
-  const response = await fetch(`${URL_ENDPOINTS.deleteCategoryByIdURL}/${categoryID}`, {
+  const response = await fetch(`${URL_ENDPOINTS.deleteCategoryByIdURL}/${categoryID}?secret_token=${secret_token}`, {
     method: "DELETE"
   });
   console.log({
@@ -1641,6 +2230,75 @@ async function deleteCategoryByID(categoryID) {
 
   if (!response.ok) {
     throw new Error("Error while delete category");
+  }
+
+  return response.json();
+}
+
+/***/ }),
+
+/***/ "./src/services/svgService.ts":
+/*!************************************!*\
+  !*** ./src/services/svgService.ts ***!
+  \************************************/
+/*! exports provided: svg_service */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "svg_service", function() { return svg_service; });
+const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
+const URL_ENDPOINTS = {
+  svgURL: "https://hyper-engage-staging.herokuapp.com/svg"
+};
+const svg_service = {
+  getAllSvgs,
+  getSvgByID,
+  searchSvgsByTags,
+  addNewSvg
+};
+
+async function getAllSvgs() {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function searchSvgsByTags(tagsArray) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${tagsArray}&secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function getSvgByID(svgID) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}/${svgID}?secret_token=${secret_token}`);
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
+  }
+
+  return response.json();
+}
+
+async function addNewSvg(svgData) {
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?secret_token=${secret_token}`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(svgData)
+  });
+
+  if (!response.ok) {
+    throw new Error("Error while adding new svg");
   }
 
   return response.json();
@@ -1660,11 +2318,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "template_service", function() { return template_service; });
 const secret_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxMWI5Y2MwZjEwNTJjMzU2YzM1Njk2ZiIsImVtYWlsIjoic3R5Z2lhbmxnZG9uaWNAZ21haWwuY29tIn0sImlhdCI6MTYyOTI4MjA5Nn0.PYOgPEwiLIyHI_22bjWEaPrykb-RzXKup9MRFzKZt_4";
 const URL_ENDPOINTS = {
-  getAllTemplatesURL: "https://polar-tor-04971.herokuapp.com/template",
-  getTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  createTemplateURL: "https://polar-tor-04971.herokuapp.com/template",
-  updateTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template",
-  deleteTemplateByIdURL: "https://polar-tor-04971.herokuapp.com/template"
+  getAllTemplatesURL: "https://hyper-engage-staging.herokuapp.com/template",
+  getTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+  createTemplateURL: "https://hyper-engage-staging.herokuapp.com/template",
+  updateTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
+  deleteTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template"
 };
 const template_service = {
   getAllTemplates,
@@ -1754,6 +2412,93 @@ async function deleteTemplateByID(templateID) {
 
 /***/ }),
 
+/***/ "./src/utils/svg.ts":
+/*!**************************!*\
+  !*** ./src/utils/svg.ts ***!
+  \**************************/
+/*! exports provided: parseSVG, getElementColor, getColors, svgToURL, replaceColors, getSvgStringFromUpload */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseSVG", function() { return parseSVG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElementColor", function() { return getElementColor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getColors", function() { return getColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "svgToURL", function() { return svgToURL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "replaceColors", function() { return replaceColors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSvgStringFromUpload", function() { return getSvgStringFromUpload; });
+// parse svg string into DOM
+function parseSVG(svgString) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(svgString, "image/svg+xml");
+  return doc;
+} // get color of element
+// we can also check styles of element and other properties like "stroke"
+
+function getElementColor(el) {
+  return el.getAttribute("fill");
+} // find all colors used in svg
+
+function getColors(svgString) {
+  const doc = parseSVG(svgString);
+  var elements = doc.getElementsByTagName("*");
+  const usedColors = [];
+
+  for (const element of elements) {
+    const color = getElementColor(element); // if color is defined and uniq we will add it
+
+    if (color && usedColors.indexOf(color) === -1) {
+      usedColors.push(color);
+    }
+  }
+
+  return usedColors;
+} // convert svg string into base64 data URL
+
+function svgToURL(s) {
+  const uri = window.btoa(unescape(encodeURIComponent(s)));
+  return "data:image/svg+xml;base64," + uri;
+} // replace colors in svg string
+
+function replaceColors(svgString, map) {
+  // we can do some RegExp magic here
+  // but I will just manually check every element
+  const doc = parseSVG(svgString);
+  var elements = doc.getElementsByTagName("*");
+
+  for (const element of elements) {
+    const color = getElementColor(element);
+
+    if (map[color]) {
+      element.setAttribute("fill", map[color]);
+    }
+  }
+
+  var xmlSerializer = new XMLSerializer();
+  const str = xmlSerializer.serializeToString(doc);
+  return str;
+}
+function getSvgStringFromUpload(files) {
+  return new Promise((resolve, reject) => {
+    try {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var svgData = e.target.result;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(svgData, "image/svg+xml");
+        resolve(doc.documentElement.outerHTML);
+      };
+
+      reader.readAsText(files[0]);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./src/utils/titleCase.ts":
 /*!********************************!*\
   !*** ./src/utils/titleCase.ts ***!
@@ -1778,6 +2523,28 @@ const titleCase = uservalue => {
   console.log("no value to convert to titleCase");
   return uservalue || "";
 };
+
+/***/ }),
+
+/***/ "./src/utils/useSvg.tsx":
+/*!******************************!*\
+  !*** ./src/utils/useSvg.tsx ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const useSvg = (xmlns, viewBox, fill, stroke, path) => {
+  let svg = `<svg xmlns="${xmlns}" fill="${fill}" viewBox="${viewBox}" stroke="${stroke}">${path}</svg>`;
+  let blob = new Blob([svg], {
+    type: 'image/svg+xml'
+  });
+  let url = URL.createObjectURL(blob);
+  return url;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (useSvg);
 
 /***/ })
 
