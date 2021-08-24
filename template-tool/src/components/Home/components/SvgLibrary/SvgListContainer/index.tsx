@@ -7,16 +7,19 @@ interface Props {
     svgListLoading: any
     svgListError: any
     refetchSvgList: any
+    setSearchTags: any
 }
 
-const SvgListContainer: React.FC<Props> = ({ svgList, svgListLoading, svgListError, refetchSvgList }) => {
+const SvgListContainer: React.FC<Props> = ({ svgList, svgListLoading, svgListError, refetchSvgList, setSearchTags }) => {
 
-    // const [searchTags, setSearchTags] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
-    // const { data: searchedSvgs, error: searchedSvgsError, isLoading: searchedSvgsLoading } = useQuery<any, Error>(
-    //     "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
-    // )
+    const handleSearchChange = (e) => {
+        const text = e.target.value
+        setSearchTerm(text)
+        const tagsArray = text.match(/([a-zA-Z])\w+/g) || []
+        setSearchTags([...tagsArray])
+    }
 
     return (
 
@@ -26,7 +29,7 @@ const SvgListContainer: React.FC<Props> = ({ svgList, svgListLoading, svgListErr
                     <p className="text-2xl mb-2">Svgs</p>
                 </div>
                 <div>
-                    <SearchBar />
+                    <SearchBar value={searchTerm} onChange={handleSearchChange} />
                 </div>
                 <div className=" h-96 overflow-auto">
                     <p className={!!svgListLoading ? "" : "hidden"} >Loading svgs ...</p>

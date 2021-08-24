@@ -1,8 +1,13 @@
 import React from 'react';
 
-const SearchBar: React.FC = () => {
+interface Props {
+    value: string
+    onChange: any
+}
+
+const SearchBar: React.FC<Props> = ({ value, onChange }) => {
     return (
-        <div className=" flex justify-center items-center  w-full">
+        <div className=" flex justify-center items-center  w-full mb-2 mt-2">
 
             <div className="flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12">
                 <button>
@@ -17,6 +22,8 @@ const SearchBar: React.FC = () => {
                     className="w-full rounded text-sm text-gray95 outline-none h-12 "
                     type="text"
                     placeholder="Search by tags. For Example: helloworld,custom,apple"
+                    value={value}
+                    onChange={onChange}
                 />
             </div>
         </div>

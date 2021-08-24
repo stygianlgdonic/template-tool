@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as svg from "../../../../utils/svg"
 import { useForm } from 'react-hook-form'
 import CustomTextField from '../../../tailwindComponents/CustomTextField'
@@ -29,6 +29,10 @@ const SvgLibrary = () => {
     const { data: svgList, error: svgListError, isLoading: svgListLoading, refetch: refetchSvgList } = useQuery<any, Error>(
         "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
     )
+
+    useEffect(() => {
+        refetchSvgList()
+    }, [searchTags])
 
     const { mutate: mutateNewSvg, isLoading: addingNewSvg, error: errorAddingSvg } = useMutation(
         (SVG_STRING: string) => svg_service.addNewSvg({
@@ -115,6 +119,7 @@ const SvgLibrary = () => {
                 svgListError={svgListError}
                 svgListLoading={svgListLoading}
                 refetchSvgList={refetchSvgList}
+                setSearchTags={setSearchTags}
             />
             <div>
                 <div>
