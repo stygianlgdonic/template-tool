@@ -30,9 +30,9 @@ const SvgLibrary = () => {
         "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
     )
 
-    useEffect(() => {
-        refetchSvgList()
-    }, [searchTags])
+    // useEffect(() => {
+    //     refetchSvgList()
+    // }, [searchTags])
 
     const { mutate: mutateNewSvg, isLoading: addingNewSvg, error: errorAddingSvg } = useMutation(
         (SVG_STRING: string) => svg_service.addNewSvg({

@@ -26,7 +26,9 @@ async function getAllSvgs() {
 }
 
 async function searchSvgsByTags(tagsArray: string[]) {
-    const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${tagsArray}&secret_token=${secret_token}`)
+    const commaSeparatedValues = tagsArray.join(",")
+    console.log({ endpoint: `${URL_ENDPOINTS.svgURL}?tags=${commaSeparatedValues}&secret_token=${secret_token}` })
+    const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${commaSeparatedValues}&secret_token=${secret_token}`)
     if (!response.ok) {
         throw new Error("Error while adding new svg")
     }

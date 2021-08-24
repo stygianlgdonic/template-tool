@@ -865,29 +865,30 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const SearchBar = ({
   value,
-  onChange
+  onChange,
+  onKeyDown
 }) => {
   return __jsx("div", {
     className: " flex justify-center items-center  w-full mb-2 mt-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 11,
       columnNumber: 9
     }
   }, __jsx("div", {
-    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12",
+    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-full",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 13
     }
   }, __jsx("button", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 17
     }
   }, __jsx("span", {
@@ -895,7 +896,7 @@ const SearchBar = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 21
     }
   }, __jsx("svg", {
@@ -907,7 +908,7 @@ const SearchBar = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 16,
       columnNumber: 25
     }
   }, __jsx("path", {
@@ -918,15 +919,16 @@ const SearchBar = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 29
     }
   })))), __jsx("input", {
     className: "w-full rounded text-sm text-gray95 outline-none h-12 ",
     type: "text",
-    placeholder: "Search by tags. For Example: helloworld,custom,apple",
+    placeholder: "For Example: helloworld, custom, apple",
     value: value,
     onChange: onChange,
+    onKeyDown: onKeyDown,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -980,53 +982,27 @@ const SvgListContainer = ({
     setSearchTags([...tagsArray]);
   };
 
+  const handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      refetchSvgList();
+    }
+  };
+
   return __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 32,
       columnNumber: 9
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 33,
       columnNumber: 13
     }
   }, __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 17
-    }
-  }, __jsx("p", {
-    className: "text-2xl mb-2",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 21
-    }
-  }, "Svgs")), __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 31,
-      columnNumber: 17
-    }
-  }, __jsx(_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    value: searchTerm,
-    onChange: handleSearchChange,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 21
-    }
-  })), __jsx("div", {
-    className: " h-96 overflow-auto",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1034,11 +1010,59 @@ const SvgListContainer = ({
       columnNumber: 17
     }
   }, __jsx("p", {
-    className: !!svgListLoading ? "" : "hidden",
+    className: "text-2xl mb-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
+      columnNumber: 21
+    }
+  }, "Svgs")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 17
+    }
+  }, __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 21
+    }
+  }, "Search by tags"), __jsx(_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: searchTerm,
+    onChange: handleSearchChange,
+    onKeyDown: handleKeyDown,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 21
+    }
+  }), __jsx("p", {
+    className: "text-sm ml-2 text-gray94",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 21
+    }
+  }, "Hit enter to search")), __jsx("div", {
+    className: " h-96 overflow-auto",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 17
+    }
+  }, __jsx("p", {
+    className: !!svgListLoading ? "" : "hidden",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
       columnNumber: 21
     }
   }, "Loading svgs ..."), __jsx("p", {
@@ -1046,7 +1070,7 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 48,
       columnNumber: 21
     }
   }, svgListError), __jsx("p", {
@@ -1054,7 +1078,7 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 49,
       columnNumber: 21
     }
   }, svgList === null || svgList === void 0 ? void 0 : (_svgList$error = svgList.error) === null || _svgList$error === void 0 ? void 0 : _svgList$error.message), __jsx("p", {
@@ -1062,7 +1086,7 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 50,
       columnNumber: 21
     }
   }, "No svgs to load, add new from below."), svgList === null || svgList === void 0 ? void 0 : (_svgList$data2 = svgList.data) === null || _svgList$data2 === void 0 ? void 0 : _svgList$data2.map(item => __jsx("div", {
@@ -1071,7 +1095,7 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 52,
       columnNumber: 25
     }
   }, __jsx(_RenderSvg__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -1080,7 +1104,7 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 53,
       columnNumber: 29
     }
   }))))));
@@ -1160,10 +1184,10 @@ const SvgLibrary = () => {
     error: svgListError,
     isLoading: svgListLoading,
     refetch: refetchSvgList
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svgSearch", () => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].searchSvgsByTags([...searchTags]));
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    refetchSvgList();
-  }, [searchTags]);
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svgSearch", () => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].searchSvgsByTags([...searchTags])); // useEffect(() => {
+  //     refetchSvgList()
+  // }, [searchTags])
+
   const {
     mutate: mutateNewSvg,
     isLoading: addingNewSvg,
@@ -2334,7 +2358,11 @@ async function getAllSvgs() {
 }
 
 async function searchSvgsByTags(tagsArray) {
-  const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${tagsArray}&secret_token=${secret_token}`);
+  const commaSeparatedValues = tagsArray.join(",");
+  console.log({
+    endpoint: `${URL_ENDPOINTS.svgURL}?tags=${commaSeparatedValues}&secret_token=${secret_token}`
+  });
+  const response = await fetch(`${URL_ENDPOINTS.svgURL}?tags=${commaSeparatedValues}&secret_token=${secret_token}`);
 
   if (!response.ok) {
     throw new Error("Error while adding new svg");

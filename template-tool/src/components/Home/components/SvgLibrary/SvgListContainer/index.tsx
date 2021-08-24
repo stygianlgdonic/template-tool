@@ -21,6 +21,12 @@ const SvgListContainer: React.FC<Props> = ({ svgList, svgListLoading, svgListErr
         setSearchTags([...tagsArray])
     }
 
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            refetchSvgList()
+        }
+    }
+
     return (
 
         <div>
@@ -29,7 +35,13 @@ const SvgListContainer: React.FC<Props> = ({ svgList, svgListLoading, svgListErr
                     <p className="text-2xl mb-2">Svgs</p>
                 </div>
                 <div>
-                    <SearchBar value={searchTerm} onChange={handleSearchChange} />
+                    <p>Search by tags</p>
+                    <SearchBar
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        onKeyDown={handleKeyDown}
+                    />
+                    <p className="text-sm ml-2 text-gray94" >Hit enter to search</p>
                 </div>
                 <div className=" h-96 overflow-auto">
                     <p className={!!svgListLoading ? "" : "hidden"} >Loading svgs ...</p>
