@@ -4,8 +4,8 @@ const { scheduleHandler } = require("../handlers");
 
 const router = new express.Router();
 
-const { createSchedule } = scheduleHandler;
+const { createSchedule, readSchedule } = scheduleHandler;
 
-router.route("").post(createSchedule);
+router.route("").get(readSchedule).post(createSchedule);
 
 module.exports = router;

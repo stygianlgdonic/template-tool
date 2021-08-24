@@ -10,7 +10,7 @@ async function signupUser(email: string, password: string) {
     // new Promise(async (resolve, reject) => {
     try {
         // const res = await fetch("https://hyper-engage-staging.herokuapp.com/signup",
-        const res = await fetch("http://localhost:5000/signup",
+        const res = await fetch(process.env.RAZZLE_APP__REST_URI + "/signup",
             {
                 // credentials: "same-origin",
                 // mode: 'cors'
@@ -39,13 +39,20 @@ async function signupUser(email: string, password: string) {
 async function loginUser(email: string, password: string) {
     try {
 
-        const res = await fetch("http://localhost:5000/login",
+        let myHeaders = new Headers({
+            "Authorization": "Basic YW5kcmVhczpzZWxlbndhbGw="
+        });
+
+        const res = await fetch(process.env.RAZZLE_APP__REST_URI + "/login",
+            // const res = await fetch("https://hyper-engage-staging.herokuapp.com/login",
             {
 
                 credentials: "same-origin",
                 // withCredentials: "true",
                 // credentials: 'include',
-                headers: {
+                headers:
+                {
+                    // myHeaders,
                     'Access-Control-Allow-Origin': '*',
                     "Access-Control-Allow-Credentials": "true",
                     'Accept': 'application/json',

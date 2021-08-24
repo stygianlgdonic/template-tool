@@ -1,5 +1,6 @@
 const secret_token = window.localStorage.getItem("Token")
 const URL_ENDPOINTS = {
+    tempurl: "http://localhost:5000/template",
     getAllTemplatesURL: "https://hyper-engage-staging.herokuapp.com/template",
     getTemplateByIdURL: "https://hyper-engage-staging.herokuapp.com/template",
     createTemplateURL: "https://hyper-engage-staging.herokuapp.com/template",
@@ -9,6 +10,7 @@ const URL_ENDPOINTS = {
 
 export const template_service = {
     getAllTemplates,
+    getAllTemplatesByTags,
     addNewTemplate,
     getTemplateByID,
     updateTemplateByID,
@@ -17,6 +19,28 @@ export const template_service = {
 
 async function getAllTemplates() {
     const response = await fetch(`${URL_ENDPOINTS.getAllTemplatesURL}?secret_token=${secret_token}`)
+    if (!response.ok) {
+        throw new Error("Error while fetching Templates")
+    }
+    return response.json()
+}
+
+async function getAllTemplatesByTags(tags: string[]) {
+    let tagsString: string = ""
+    if (!!tags.length) {
+        tags.map((item, i) => {
+            if (!(i === tags.length - 1)) {
+
+                tagsString = tagsString + item + ","
+            }
+            else {
+                tagsString = tagsString + item
+            }
+        })
+        console.log(tagsString)
+    }
+    console.log(`${URL_ENDPOINTS.tempurl}?secret_token=${secret_token}&tags=${tagsString}`)
+    const response = await fetch(`${URL_ENDPOINTS.tempurl}?secret_token=${secret_token}&tags=${tagsString}`)
     if (!response.ok) {
         throw new Error("Error while fetching Templates")
     }

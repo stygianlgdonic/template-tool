@@ -1,10 +1,10 @@
 const secret_token = window.localStorage.getItem("Token")
 const URL_ENDPOINTS = {
-    getAllCategoriesURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
-    getCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
-    createCategoryURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
-    updateCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory",
-    deleteCategoryByIdURL: "https://hyper-engage-staging.herokuapp.com/templatecategory"
+    getAllCategoriesURL: process.env.RAZZLE_APP__REST_URI + "/templatecategory",
+    getCategoryByIdURL: process.env.RAZZLE_APP__REST_URI + "/templatecategory",
+    createCategoryURL: process.env.RAZZLE_APP__REST_URI + "/templatecategory",
+    updateCategoryByIdURL: process.env.RAZZLE_APP__REST_URI + "/templatecategory",
+    deleteCategoryByIdURL: process.env.RAZZLE_APP__REST_URI + "/templatecategory"
 }
 
 export const category_service = {

@@ -23,7 +23,11 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
+<<<<<<< HEAD
 /******/ 	var hotCurrentHash = "4edef47d4d7df43e1a2d";
+=======
+/******/ 	var hotCurrentHash = "c814e01bd22c86f9aa59";
+>>>>>>> staging
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
