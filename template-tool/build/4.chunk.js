@@ -725,10 +725,13 @@ const SelectTemplateDimensions = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "sweetalert");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../utils/svg */ "./src/utils/svg.ts");
-/* harmony import */ var _tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../tailwindComponents/ButtonLoader */ "./src/components/tailwindComponents/ButtonLoader.tsx");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-query */ "react-query");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "sweetalert");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _services_svgService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../services/svgService */ "./src/services/svgService.ts");
+/* harmony import */ var _utils_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../utils/svg */ "./src/utils/svg.ts");
+/* harmony import */ var _tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../tailwindComponents/ButtonLoader */ "./src/components/tailwindComponents/ButtonLoader.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\RenderSvg.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -736,15 +739,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
 const RenderSvg = ({
   svgData,
-  deleteSvg,
-  deleteSvgLoading
+  refetchSvgList
 }) => {
-  const svgUrl = _utils_svg__WEBPACK_IMPORTED_MODULE_2__["svgToURL"](svgData.svgString);
+  const svgUrl = _utils_svg__WEBPACK_IMPORTED_MODULE_4__["svgToURL"](svgData.svgString);
+  const {
+    mutate: deleteSvg,
+    isLoading: deleteSvgLoading,
+    error: errorDeleteSvg
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SVG_ID => _services_svgService__WEBPACK_IMPORTED_MODULE_3__["svg_service"].deleteSvgByID(SVG_ID), {
+    onSuccess: (data, variables, context) => {
+      refetchSvgList();
+    }
+  });
 
   const handleDeleteSvg = () => {
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Are you sure?", "You want to delete this svg", "warning").then(willDelete => {
+    sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("Are you sure?", "You want to delete this svg", "warning").then(willDelete => {
       if (!!willDelete) {
         deleteSvg(svgData._id);
       }
@@ -752,77 +765,173 @@ const RenderSvg = ({
   };
 
   return __jsx("div", {
+    className: "bg-white shadow-md rounded px-6 py-6",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
     className: "flex justify-between pr-2 pl-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 9
+      lineNumber: 40,
+      columnNumber: 13
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 13
+      lineNumber: 41,
+      columnNumber: 17
     }
   }, __jsx("button", {
     className: "outline-none",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 21
+    }
+  }, __jsx("img", {
+    alt: "svg",
+    src: svgUrl,
+    height: 100,
     style: {
-      width: 100,
-      height: 100
+      height: 100,
+      objectFit: "contain"
     },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 17
-    }
-  }, __jsx("img", {
-    className: "border border-gray95",
-    alt: "svg",
-    src: svgUrl,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35,
-      columnNumber: 21
+      lineNumber: 43,
+      columnNumber: 25
     }
   }))), __jsx("div", {
     className: "flex flex-col justify-center",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 13
+      lineNumber: 46,
+      columnNumber: 17
     }
   }, __jsx("button", {
     onClick: handleDeleteSvg,
+    disabled: !!deleteSvgLoading,
     className: "bg-redish hover:bg-red600 text-white font-bold py-2 px-4 rounded w-20",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 17
+      lineNumber: 47,
+      columnNumber: 21
     }
-  }, !!deleteSvgLoading ? __jsx(_tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, !!deleteSvgLoading ? __jsx(_tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 43
+      lineNumber: 52,
+      columnNumber: 47
     }
   }) : __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 62
+      lineNumber: 52,
+      columnNumber: 66
     }
-  }, "Delete"))));
+  }, "Delete")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RenderSvg);
+
+/***/ }),
+
+/***/ "./src/components/Home/components/SvgLibrary/SvgListContainer/SearchBar.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/components/Home/components/SvgLibrary/SvgListContainer/SearchBar.tsx ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\SearchBar.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const SearchBar = () => {
+  return __jsx("div", {
+    className: " flex justify-center items-center  w-full",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "flex h-14 rounded-md border-bordercolor border justify-center items-center w-11/12",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 13
+    }
+  }, __jsx("button", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 17
+    }
+  }, __jsx("span", {
+    className: "w-auto flex justify-end items-center text-grey text-sm p-3",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 21
+    }
+  }, __jsx("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 16 16",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 25
+    }
+  }, __jsx("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M6 2C3.79086 2 2 3.79086 2 6C2 8.20914 3.79086 10 6 10C8.20914 10 10 8.20914 10 6C10 3.79086 8.20914 2 6 2ZM0 6C0 2.68629 2.68629 0 6 0C9.31371 0 12 2.68629 12 6C12 7.29583 11.5892 8.49572 10.8907 9.47653L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L9.47653 10.8907C8.49572 11.5892 7.29583 12 6 12C2.68629 12 0 9.31371 0 6Z",
+    fill: "#9CA3AF",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 29
+    }
+  })))), __jsx("input", {
+    className: "w-full rounded text-sm text-gray95 outline-none h-12 ",
+    type: "text",
+    placeholder: "Search by tags. For Example: helloworld,custom,apple",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 17
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SearchBar);
 
 /***/ }),
 
@@ -838,8 +947,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _RenderSvg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RenderSvg */ "./src/components/Home/components/SvgLibrary/SvgListContainer/RenderSvg.tsx");
+/* harmony import */ var _SearchBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchBar */ "./src/components/Home/components/SvgLibrary/SvgListContainer/SearchBar.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\SvgListContainer\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -847,15 +958,11 @@ const SvgListContainer = ({
   svgList,
   svgListLoading,
   svgListError,
-  deleteSvg,
-  deleteSvgLoading
+  refetchSvgList
 }) => {
   var _svgList$error, _svgList$data, _svgList$data2;
 
-  const {
-    0: searchTags,
-    1: setSearchTags
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  // const [searchTags, setSearchTags] = useState([])
   const {
     0: searchTerm,
     1: setSearchTerm
@@ -864,82 +971,87 @@ const SvgListContainer = ({
   // )
 
   return __jsx("div", {
-    className: "w-full",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 22,
-      columnNumber: 9
-    }
-  }, __jsx("div", {
-    className: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 25,
       columnNumber: 17
-    }
-  }, __jsx("div", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 21
     }
   }, __jsx("p", {
     className: "text-2xl mb-2",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 25
+      lineNumber: 26,
+      columnNumber: 21
     }
   }, "Svgs")), __jsx("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 17
+    }
+  }, __jsx(_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 21
+    }
+  })), __jsx("div", {
     className: " h-96 overflow-auto",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 21
+      lineNumber: 31,
+      columnNumber: 17
     }
   }, __jsx("p", {
     className: !!svgListLoading ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 25
+      lineNumber: 32,
+      columnNumber: 21
     }
   }, "Loading svgs ..."), __jsx("p", {
     className: !!svgListError ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 25
+      lineNumber: 33,
+      columnNumber: 21
     }
   }, svgListError), __jsx("p", {
     className: !!(svgList !== null && svgList !== void 0 && svgList.error) ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 25
+      lineNumber: 34,
+      columnNumber: 21
     }
   }, svgList === null || svgList === void 0 ? void 0 : (_svgList$error = svgList.error) === null || _svgList$error === void 0 ? void 0 : _svgList$error.message), __jsx("p", {
     className: !(svgList !== null && svgList !== void 0 && (_svgList$data = svgList.data) !== null && _svgList$data !== void 0 && _svgList$data.length) ? "" : "hidden",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 25
+      lineNumber: 35,
+      columnNumber: 21
     }
   }, "No svgs to load, add new from below."), svgList === null || svgList === void 0 ? void 0 : (_svgList$data2 = svgList.data) === null || _svgList$data2 === void 0 ? void 0 : _svgList$data2.map(item => __jsx("div", {
     key: item._id,
@@ -947,20 +1059,19 @@ const SvgListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
-      columnNumber: 29
+      lineNumber: 37,
+      columnNumber: 25
     }
   }, __jsx(_RenderSvg__WEBPACK_IMPORTED_MODULE_1__["default"], {
     svgData: item,
-    deleteSvg: deleteSvg,
-    deleteSvgLoading: deleteSvgLoading,
+    refetchSvgList: refetchSvgList,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
-      columnNumber: 33
+      lineNumber: 38,
+      columnNumber: 29
     }
-  })))))));
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SvgListContainer);
@@ -991,10 +1102,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SvgListContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SvgListContainer */ "./src/components/Home/components/SvgLibrary/SvgListContainer/index.tsx");
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-query */ "react-query");
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../tailwindComponents/ButtonLoader */ "./src/components/tailwindComponents/ButtonLoader.tsx");
 var _jsxFileName = "D:\\dev\\cardclan-backend\\template-tool\\src\\components\\Home\\components\\SvgLibrary\\index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -1027,11 +1140,15 @@ const SvgLibrary = () => {
     1: setIsFirstTag
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
   const {
+    0: searchTags,
+    1: setSearchTags
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
     data: svgList,
     error: svgListError,
     isLoading: svgListLoading,
     refetch: refetchSvgList
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svg", _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].getAllSvgs);
+  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useQuery"])("svgSearch", () => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].searchSvgsByTags([...searchTags]));
   const {
     mutate: mutateNewSvg,
     isLoading: addingNewSvg,
@@ -1041,15 +1158,6 @@ const SvgLibrary = () => {
     svgString: SVG_STRING,
     tags: tagsList
   }), {
-    onSuccess: (data, variables, context) => {
-      refetchSvgList();
-    }
-  });
-  const {
-    mutate: deleteSvg,
-    isLoading: deleteSvgLoading,
-    error: errorDeleteSvg
-  } = Object(react_query__WEBPACK_IMPORTED_MODULE_9__["useMutation"])(SVG_ID => _services_svgService__WEBPACK_IMPORTED_MODULE_7__["svg_service"].deleteSvgByID(SVG_ID), {
     onSuccess: (data, variables, context) => {
       refetchSvgList();
     }
@@ -1126,33 +1234,32 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 112,
       columnNumber: 9
     }
   }, __jsx(_SvgListContainer__WEBPACK_IMPORTED_MODULE_8__["default"], {
     svgList: svgList,
     svgListError: svgListError,
     svgListLoading: svgListLoading,
-    deleteSvg: deleteSvg,
-    deleteSvgLoading: deleteSvgLoading,
+    refetchSvgList: refetchSvgList,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 113,
       columnNumber: 13
     }
   }), __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 119,
       columnNumber: 13
     }
   }, __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 120,
       columnNumber: 17
     }
   }, __jsx("p", {
@@ -1160,7 +1267,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 121,
       columnNumber: 21
     }
   }, "Upload new Svg")), __jsx("div", {
@@ -1168,7 +1275,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 123,
       columnNumber: 17
     }
   }, __jsx("form", {
@@ -1176,7 +1283,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 124,
       columnNumber: 21
     }
   }, __jsx(_tailwindComponents_CustomTextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1193,7 +1300,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 125,
       columnNumber: 25
     }
   }), __jsx("div", {
@@ -1201,7 +1308,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 137,
       columnNumber: 25
     }
   }, tagsList.map((item, index) => __jsx("div", {
@@ -1210,14 +1317,14 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 139,
       columnNumber: 33
     }
   }, __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143,
+      lineNumber: 140,
       columnNumber: 37
     }
   }, item), __jsx("img", {
@@ -1228,7 +1335,7 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
+      lineNumber: 141,
       columnNumber: 37
     }
   })))), __jsx("input", _extends({}, register('svgupload'), {
@@ -1240,18 +1347,33 @@ const SvgLibrary = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 153,
+      lineNumber: 150,
       columnNumber: 25
     }
   })), __jsx("button", {
-    className: "bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 rounded",
+    disabled: !!addingNewSvg,
+    className: "bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 w-24 rounded outline-none",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161,
+      lineNumber: 158,
       columnNumber: 25
     }
-  }, "Submit")))));
+  }, !!addingNewSvg ? __jsx(_tailwindComponents_ButtonLoader__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 47
+    }
+  }) : __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 66
+    }
+  }, "Submit"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SvgLibrary);

@@ -8,6 +8,7 @@ import plus from "../../../../assets/svgs/plus.svg"
 import { svg_service } from '../../../../services/svgService'
 import SvgListContainer from './SvgListContainer'
 import { useMutation, useQuery } from 'react-query'
+import ButtonLoader from '../../../tailwindComponents/ButtonLoader'
 
 const SvgLibrary = () => {
     const svgPath = `  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
@@ -23,8 +24,11 @@ const SvgLibrary = () => {
     const [tag, setTag] = useState("")
     const [tagsList, setTagsList] = useState([]);
     const [isFirstTag, setIsFirstTag] = useState(true);
+    const [searchTags, setSearchTags] = useState([])
 
-    const { data: svgList, error: svgListError, isLoading: svgListLoading, refetch: refetchSvgList } = useQuery<any, Error>("svg", svg_service.getAllSvgs)
+    const { data: svgList, error: svgListError, isLoading: svgListLoading, refetch: refetchSvgList } = useQuery<any, Error>(
+        "svgSearch", () => svg_service.searchSvgsByTags([...searchTags])
+    )
 
     const { mutate: mutateNewSvg, isLoading: addingNewSvg, error: errorAddingSvg } = useMutation(
         (SVG_STRING: string) => svg_service.addNewSvg({
@@ -32,12 +36,6 @@ const SvgLibrary = () => {
             svgString: SVG_STRING,
             tags: tagsList
         }), {
-        onSuccess: (data, variables, context) => {
-            refetchSvgList()
-        }
-    })
-    const { mutate: deleteSvg, isLoading: deleteSvgLoading, error: errorDeleteSvg } = useMutation(
-        (SVG_ID: string) => svg_service.deleteSvgByID(SVG_ID), {
         onSuccess: (data, variables, context) => {
             refetchSvgList()
         }
@@ -116,8 +114,7 @@ const SvgLibrary = () => {
                 svgList={svgList}
                 svgListError={svgListError}
                 svgListLoading={svgListLoading}
-                deleteSvg={deleteSvg}
-                deleteSvgLoading={deleteSvgLoading}
+                refetchSvgList={refetchSvgList}
             />
             <div>
                 <div>
@@ -158,7 +155,12 @@ const SvgLibrary = () => {
                             accept=".svg"
                         // onChange={handleSvgUpload}
                         />
-                        <button className="bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 rounded" >Submit</button>
+                        <button
+                            disabled={!!addingNewSvg}
+                            className="bg-indigo500 hover:bg-indigo700 text-white font-bold py-2 px-4 w-24 rounded outline-none"
+                        >
+                            {!!addingNewSvg ? <ButtonLoader /> : <p>Submit</p>}
+                        </button>
                     </form>
                 </div>
             </div>

@@ -13,7 +13,11 @@ const SearchBar: React.FC = () => {
 
                     </span>
                 </button>
-                <input className="w-full rounded text-sm text-gray95 outline-none h-12 " type="text" placeholder="Search anything from elements" />
+                <input
+                    className="w-full rounded text-sm text-gray95 outline-none h-12 "
+                    type="text"
+                    placeholder="Search by tags. For Example: helloworld,custom,apple"
+                />
             </div>
         </div>
     )
